@@ -1,0 +1,33 @@
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.navLinks {
+    display: flex;
+    align-items: center;
+    font-size: var(--bit-p-xs, 14px);
+}
+.link {
+    margin-right: 40px;
+    font-size: inherit;
+}
+.placeholder {
+    display: flex;
+    align-items: center;
+    font-size: inherit;
+    .arrow {
+        padding-left: 8px;
+    }
+}
+.navRight {
+    display: flex;
+    align-items: center;
+    font-size: var(--bit-p-xs, 14px);
+    > * {
+        font-size: inherit;
+        margin-right: 8px;
+    }
+}
