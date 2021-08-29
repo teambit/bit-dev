@@ -57,11 +57,5 @@
         "mainFile": "index.ts",
         "rootDir": "advocacy/ui/pages/homepage"
     },
-    "ui/sticky-header": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "design/ui/sticky-header"
-    },
     "$schema-version": "14.9.0"
 }
