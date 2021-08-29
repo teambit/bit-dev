@@ -39,6 +39,12 @@
         "mainFile": "index.ts",
         "rootDir": "advocacy/ui/header/nav"
     },
+    "ui/header/top-bar": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "advocacy/ui/header/top-bar"
+    },
     "ui/logo": {
         "scope": "",
         "version": "",

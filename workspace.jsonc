@@ -29,6 +29,9 @@
      **/
     "defaultScope": "teambit.advocacy"
   },
+
+  "teambit.advocacy/apps/bit-dev": {},
+  
   /**
    * main configuration for component dependency resolution.
    **/

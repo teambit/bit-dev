@@ -9,7 +9,7 @@ export class BitDevMain {
   static async provider([react]: [ReactMain]) {
     react.registerReactApp({
       name: 'bit-dev',
-      entry: ['dist/bit-dev.app-root']
+      entry: [require.resolve('./bit-dev.app-root')]
     });
     return new BitDevMain();
   }

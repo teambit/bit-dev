@@ -6,7 +6,7 @@ export function Header() {
   return (
     <header className={styles.header}>
       <Logo />
-      me
+      
     </header>
   );
 }
