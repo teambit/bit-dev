@@ -29,9 +29,7 @@
      **/
     "defaultScope": "teambit.advocacy"
   },
-
   "teambit.advocacy/apps/bit-dev": {},
-  
   /**
    * main configuration for component dependency resolution.
    **/
@@ -52,6 +50,7 @@
         "@teambit/documenter.ui.copy-box": "4.1.1",
         "@teambit/harmony": "0.2.11",
         "@teambit/react.templates.themes.theme": "0.0.3",
+        "@testing-library/react-hooks": "7.0.1",
         "classnames": "2.3.1",
         "react-router-dom": "5.2.0"
       },

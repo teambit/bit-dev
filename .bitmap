@@ -15,6 +15,12 @@
         "mainFile": "index.ts",
         "rootDir": "advocacy/apps/bit-dev"
     },
+    "layout/page-frame": {
+        "scope": "teambit.base-ui",
+        "version": "1.0.0",
+        "mainFile": "index.ts",
+        "rootDir": "base-ui/layout/page-frame"
+    },
     "ui/content-nav": {
         "scope": "",
         "version": "",
@@ -44,6 +50,12 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "advocacy/ui/header/top-bar"
+    },
+    "ui/hooks/use-stars": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "advocacy/ui/hooks/use-stars"
     },
     "ui/logo": {
         "scope": "",
