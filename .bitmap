@@ -15,11 +15,23 @@
         "mainFile": "index.ts",
         "rootDir": "advocacy/apps/bit-dev"
     },
+    "envs/bitdev-react": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "advocacy/envs/bitdev-react"
+    },
     "layout/page-frame": {
         "scope": "teambit.base-ui",
         "version": "1.0.0",
         "mainFile": "index.ts",
         "rootDir": "base-ui/layout/page-frame"
+    },
+    "ui/badges/github": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "advocacy/ui/badges/github"
     },
     "ui/content-nav": {
         "scope": "",
@@ -57,11 +69,29 @@
         "mainFile": "index.ts",
         "rootDir": "advocacy/ui/header/top-bar"
     },
+    "ui/heading": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "advocacy/ui/heading"
+    },
+    "ui/hero": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "advocacy/ui/hero"
+    },
     "ui/hooks/use-stars": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "advocacy/ui/hooks/use-stars"
+    },
+    "ui/image-strip": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "advocacy/ui/image-strip"
     },
     "ui/logo": {
         "scope": "",

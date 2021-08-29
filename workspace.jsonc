@@ -49,9 +49,12 @@
         "@teambit/design.theme.theme-context": "1.0.1",
         "@teambit/design.ui.dropdown": "1.0.8",
         "@teambit/design.ui.external-link": "0.0.344",
+        "@teambit/design.ui.heading": "1.0.5",
         "@teambit/documenter.theme.theme-compositions": "4.1.1",
+        "@teambit/documenter.theme.theme-context": "4.0.3",
         "@teambit/documenter.ui.copy-box": "4.1.1",
         "@teambit/evangelist.surfaces.tooltip": "1.0.1",
+        "@teambit/documenter.ui.sub-title": "4.1.1",
         "@teambit/harmony": "0.2.11",
         "@teambit/react.templates.themes.theme": "0.0.3",
         "@testing-library/react-hooks": "7.0.1",
@@ -81,7 +84,7 @@
    **/
   "teambit.workspace/variants": {
     "{ui/**}": {
-      "teambit.react/react": {}
+      "teambit.advocacy/envs/bitdev-react": {}
     },
     "{envs/**}, {extensions/*}, {apps/*}": {
       "teambit.harmony/aspect": {}

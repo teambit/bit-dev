@@ -1,16 +1,13 @@
 import React from 'react';
+import { Hero } from '@teambit/advocacy.ui.hero';
 
 export type HomepageProps = {
-  /**
-   * a text to be rendered in the component.
-   */
-  text: string
-};
+} & React.HTMLAttributes<HTMLDivElement>;
 
-export function Homepage({ text }: HomepageProps) {
+export function Homepage({ ...rest }: HomepageProps) {
   return (
-    <div>
-      {text}
+    <div {...rest}>
+      <Hero />
     </div>
   );
 }
