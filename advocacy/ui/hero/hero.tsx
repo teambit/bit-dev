@@ -1,5 +1,5 @@
 import React from 'react';
-import { H1 } from '@teambit/design.ui.heading';
+import { Heading } from '@teambit/advocacy.ui.heading';
 // TODO: move to be in `design` owned by @amir.
 import { Subtitle } from '@teambit/documenter.ui.sub-title';
 import styles from './hero.module.scss';
@@ -19,9 +19,9 @@ export type HeroProps = {
 export function Hero({ title, teaser }: HeroProps) {
   return (
     <div className={styles.hero}>
-      <H1>
+      <Heading>
         {title}
-      </H1>
+      </Heading>
       <Subtitle>{teaser}</Subtitle>
     </div>
   );

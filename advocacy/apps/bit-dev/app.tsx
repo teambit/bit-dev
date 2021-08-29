@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Header } from '@teambit/advocacy.ui.header';
+import { Homepage } from '@teambit/advocacy.ui.pages.homepage';
 
 export function BitDevApp() {
   return (
@@ -11,7 +12,7 @@ export function BitDevApp() {
 
         <Switch>
           <Route path="/">
-             {/* home page component */}
+             <Homepage />
           </Route>
 
           <Route path="/about">
