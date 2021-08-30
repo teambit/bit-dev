@@ -82,7 +82,7 @@
     "{ui/**}": {
       "teambit.advocacy/envs/bitdev-react": {}
     },
-    "{envs/**}, {extensions/*}, {apps/*}": {
+    "{envs/**}, {extensions/*}, {apps/*}, {aspects/*}": {
       "teambit.harmony/aspect": {}
     },
     "base-ui": {
