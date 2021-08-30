@@ -51,6 +51,12 @@
         "mainFile": "index.ts",
         "rootDir": "advocacy/ui/footer"
     },
+    "ui/github-stars": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "advocacy/ui/github-stars"
+    },
     "ui/header": {
         "scope": "",
         "version": "",

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BaseImage } from '@teambit/base-ui.elements.image';
+import { BaseImage, BaseImageProps } from '@teambit/base-ui.elements.image';
 import logo from './logo.svg';
 import { RecommendedSizes } from './recommended-sizes';
 
@@ -18,19 +18,19 @@ export type LogoProps = {
   /**
    * alt text for the logo.
    */
-  alt?: string,
+  alt: string,
 
   /**
    * classes injected to component.
    */
   className?: string
-};
+} & BaseImageProps;
 
-export function Logo({ size, customSize, alt }: LogoProps) {
+export function Logo({ size, customSize, alt, ...rest }: LogoProps) {
   const chosenSize = customSize || size;
 
   return (
-    <BaseImage src={logo} alt={alt} height={chosenSize} width={chosenSize} />
+    <BaseImage {...rest} src={logo} alt={alt} height={chosenSize} width={chosenSize} />
   );
 }
 

@@ -1,6 +1,9 @@
 import React from 'react';
+import {ThemeContext} from '@teambit/design.theme.theme-context';
 import { Header } from './header';
 
 export const BasicHeader = () => (
-  <Header text="hello from Header" />
+  <ThemeContext>
+    <Header  />
+  </ThemeContext>
 );

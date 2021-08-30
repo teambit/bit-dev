@@ -8,8 +8,8 @@ import styles from './header.module.scss';
 export function Header() {
   return (
     <header className={classNames(styles.header)}>
-      <WideColumn>
-        <Logo />
+      <WideColumn className={styles.headerContent}>
+        <Logo className={styles.logo} alt="bit-logo" />
         <Nav />
       </WideColumn>
     </header>
