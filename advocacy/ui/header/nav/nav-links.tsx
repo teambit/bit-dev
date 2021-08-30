@@ -1,21 +1,36 @@
 import React, {ReactNode} from 'react';
-import {TooltipDrawer} from '@teambit/evangelist.surfaces.tooltip'
+import {TooltipDrawer} from '@teambit/evangelist.surfaces.tooltip';
 import classNames from 'classnames';
-import {ExternalLink} from "@teambit/design.ui.external-link"
+import {ExternalLink} from "@teambit/design.ui.external-link";
 import {Icon} from "@teambit/design.elements.icon";
 import styles from './nav.module.scss';
 
 export type NavLinkType = {
-  title: ReactNode;
-  links: LinkType[];
+    /**
+     * title of category
+     */
+    title: ReactNode;
+    /**
+     * list of links
+     */
+    links: LinkType[];
 }
 
 export type LinkType = {
-  text: ReactNode;
-  href: string;
+    /**
+     * link display text
+     */
+    text: ReactNode;
+    /**
+     * link href
+     */
+    href: string;
 }
 
 export type NavLinksProps = {
+    /**
+     * list of links to display in the navbar
+     */
   links: NavLinkType[];
 } & React.HTMLAttributes<HTMLDivElement>;
 
