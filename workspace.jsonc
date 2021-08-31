@@ -29,7 +29,7 @@
      **/
     "defaultScope": "teambit.advocacy"
   },
-  "teambit.advocacy/apps/bit-dev": {},
+  // "teambit.advocacy/apps/bit-dev": {},
   /**
    * main configuration for component dependency resolution.
    **/
@@ -46,6 +46,7 @@
         "@teambit/base-ui.layout.grid-component": "1.0.1",
         "@teambit/base-ui.layout.page-frame": "1.0.0",
         "@teambit/design.elements.icon": "1.0.4",
+        "@teambit/design.embeds.figma": "0.0.2",
         "@teambit/design.theme.theme-context": "1.0.1",
         "@teambit/design.ui.dropdown": "1.0.8",
         "@teambit/design.ui.external-link": "0.0.344",
