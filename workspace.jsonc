@@ -42,7 +42,9 @@
       "dependencies": {
         "@babel/runtime": "7.15.3",
         "@learn-bit-react/base-ui.figma.figma-embed": "0.0.3",
+        "@teambit/base-ui.constants.storage": "1.0.0",
         "@teambit/base-ui.elements.image": "1.0.0",
+        "@teambit/base-ui.layout.breakpoints": "1.0.0",
         "@teambit/base-ui.layout.grid-component": "1.0.1",
         "@teambit/base-ui.layout.page-frame": "1.0.0",
         "@teambit/design.elements.icon": "1.0.4",

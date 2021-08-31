@@ -1,0 +1,24 @@
+---
+description: 'An Image component'
+labels: ['image']
+---
+
+import { Image } from './image';
+
+## Concrete image, using the Static Storage CDN
+
+Treats src as a relative path on top of the image storage url, and supports all other properties of the html `<img>` tag.
+
+### Component usage
+
+```js
+<Image src="homepage-bit/map.png" alt="map" fullWidth />
+```
+
+### Live Playground
+
+Modify the props to see it change live
+
+```js live
+<Image src="homepage-bit/map.png" alt="map" fullWidth />
+```

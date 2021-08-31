@@ -87,6 +87,12 @@
         "mainFile": "index.ts",
         "rootDir": "advocacy/ui/hooks/use-stars"
     },
+    "ui/image": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "advocacy/ui/image"
+    },
     "ui/image-strip": {
         "scope": "",
         "version": "",

@@ -1,0 +1,48 @@
+@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
+
+$shadow-y: 26px;
+$shadowSpread: 74px;
+
+.integrationBadges {
+  overflow-x: hidden;
+  padding-top: $shadow-y + $shadowSpread;
+  padding-bottom: $shadow-y + $shadowSpread;
+}
+
+.logos {
+  animation: conveyerBelt 156s linear infinite forwards; //aka 2.6minutes
+  display: flex;
+  width: fit-content;
+  white-space: nowrap;
+
+  > * {
+    width: 115px;
+    height: 115px;
+
+    border-radius: 100%; //prevent 'square' shadow
+    box-shadow: 0 $shadow-y $shadowSpread 0 rgba(0, 0, 0, 0.1);
+
+    image-rendering: optimizeSpeed;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+
+    margin-left: 40px;
+    margin-right: 40px;
+    @media screen and (min-width: $br-lg) {
+      width: 130px;
+      height: 130px;
+
+      margin-left: 80px;
+      margin-right: 80px;
+    }
+  }
+}
+
+@keyframes conveyerBelt {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
