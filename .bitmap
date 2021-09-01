@@ -15,6 +15,12 @@
         "mainFile": "index.ts",
         "rootDir": "advocacy/apps/bit-dev"
     },
+    "entity/images": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "advocacy/entity/images"
+    },
     "envs/bitdev-react": {
         "scope": "",
         "version": "",
@@ -87,17 +93,17 @@
         "mainFile": "index.ts",
         "rootDir": "advocacy/ui/hooks/use-stars"
     },
-    "ui/image": {
+    "ui/images/image": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "advocacy/ui/image"
+        "rootDir": "advocacy/ui/images/image"
     },
-    "ui/image-strip": {
+    "ui/images/image-strip": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "advocacy/ui/image-strip"
+        "rootDir": "advocacy/ui/images/image-strip"
     },
     "ui/logo": {
         "scope": "",

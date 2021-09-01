@@ -6,13 +6,17 @@ it('should render', () => {
   const { getByTestId } = render(<BasicImage />);
   const rendered = getByTestId('test-img');
   expect(rendered.tagName).toEqual('IMG');
-  expect(rendered.getAttribute('alt')).toEqual('alt world');
 });
 
 it('should pass classname', () => {
   const { getByTestId } = render(<BasicImage className="testclass" />);
   const rendered = getByTestId('test-img');
   expect(rendered.className).toContain('testclass');
+});
+
+it('should contain an alt tag', () => {
+  const { getByAltText } = render(<BasicImage />);
+  const rendered = getByAltText('world');
 });
 
 it('should prefix src with storageUrl', () => {

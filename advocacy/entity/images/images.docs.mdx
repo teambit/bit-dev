@@ -1,0 +1,33 @@
+---
+description: 'Image Types'
+labels: ['mocks', 'types']
+---
+
+import { Images } from './images';
+
+## Entity Component for images
+
+Array of types for an image
+
+```js
+alt: string;
+src: string;
+loading?: 'lazy' | 'eager';
+```
+
+## Mock Json
+
+Mock data for images.
+
+```json
+export const clientLogos = [
+  {
+    src: 'homepage-enterprise-logos/Dell.svg',
+    alt: 'Dell'
+  },
+  {
+    src: 'homepage-enterprise-logos/ebay.svg',
+    alt: 'ebay'
+  },
+];
+```
