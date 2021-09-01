@@ -30,7 +30,7 @@ importers:
       '@teambit/design.embeds.figma': registry.npmjs.org/@teambit/design.embeds.figma/0.0.2_react-dom@16.13.1+react@16.13.1
       '@teambit/design.theme.theme-context': 1.0.1_react-dom@16.13.1+react@16.13.1
       '@testing-library/react-hooks': registry.npmjs.org/@testing-library/react-hooks/7.0.1_react-dom@16.13.1+react@16.13.1
-      '@types/jest': registry.npmjs.org/@types/jest/26.0.24
+      '@types/jest': registry.npmjs.org/@types/jest/26.0.20
       '@types/node': registry.npmjs.org/@types/node/12.20.4
       '@types/react': registry.npmjs.org/@types/react/17.0.19
       '@types/react-dom': registry.npmjs.org/@types/react-dom/17.0.9
@@ -42,7 +42,7 @@ importers:
       '@teambit/base-ui.elements.image': 1.0.0
       '@teambit/base-ui.layout.breakpoints': 1.0.0
       '@teambit/base-ui.layout.grid-component': 1.0.1
-      '@teambit/base-ui.layout.page-frame': workspace:1.0.0
+      '@teambit/base-ui.layout.page-frame': workspace:1.0.1
       '@teambit/design.elements.icon': 1.0.4
       '@teambit/design.embeds.figma': 0.0.2
       '@teambit/design.theme.theme-context': 1.0.1
@@ -58,7 +58,7 @@ importers:
       '@teambit/react.templates.themes.theme': 0.0.3
       '@testing-library/react': 12.0.0
       '@testing-library/react-hooks': 7.0.1
-      '@types/jest': ^26.0.24
+      '@types/jest': 26.0.20
       '@types/node': 12.20.4
       '@types/react': ^17.0.19
       '@types/react-dom': ^17.0.9
@@ -70,6 +70,8 @@ importers:
       react-dom: 16.13.1
       react-router-dom: 5.2.0
   advocacy/apps/bit-dev:
+    specifiers: {}
+  advocacy/entity/images:
     specifiers: {}
   advocacy/envs/bitdev-react:
     specifiers: {}
@@ -96,6 +98,10 @@ importers:
   advocacy/ui/image:
     specifiers: {}
   advocacy/ui/image-strip:
+    specifiers: {}
+  advocacy/ui/images/image:
+    specifiers: {}
+  advocacy/ui/images/image-strip:
     specifiers: {}
   advocacy/ui/pages/homepage:
     specifiers: {}

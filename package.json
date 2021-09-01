@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@teambit/base-ui.layout.page-frame": "1.0.1"
+  }
+}
