@@ -18,13 +18,13 @@ export type LogoProps = {
   /**
    * alt text for the logo.
    */
-  alt: string,
+  alt?: string,
 
   /**
    * classes injected to component.
    */
   className?: string
-} & BaseImageProps;
+};
 
 export function Logo({ size, customSize, alt, ...rest }: LogoProps) {
   const chosenSize = customSize || size;

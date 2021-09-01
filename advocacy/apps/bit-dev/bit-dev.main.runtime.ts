@@ -14,4 +14,5 @@ export class BitDevMain {
     return new BitDevMain();
   }
 }
+
 BitDevAspect.addRuntime(BitDevMain);

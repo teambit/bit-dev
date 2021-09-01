@@ -15,12 +15,6 @@
         "mainFile": "index.ts",
         "rootDir": "advocacy/apps/bit-dev"
     },
-    "aspects/docusaurus": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "application/aspects/docusaurus"
-    },
     "envs/bitdev-react": {
         "scope": "",
         "version": "",
