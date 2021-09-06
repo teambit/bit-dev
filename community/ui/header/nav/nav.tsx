@@ -1,14 +1,14 @@
 import React from 'react';
 import classNames from 'classnames';
-import {Icon} from "@teambit/design.elements.icon";
-import {GithubStars} from '@teambit/advocacy.ui.github-stars';
-import {ExternalLink} from "@teambit/design.ui.external-link"
-import {NavLinks} from './nav-links';
+import { Icon } from '@teambit/design.elements.icon';
+import { GithubStars } from '@teambit/community.ui.github-stars';
+import { ExternalLink } from '@teambit/design.ui.external-link';
+import { NavLinks } from './nav-links';
 import styles from './nav.module.scss';
 
 export type NavProps = {} & React.HTMLAttributes<HTMLDivElement>;
 
-export function Nav({className, ...rest}: NavProps) {
+export function Nav({ className, ...rest }: NavProps) {
   return (
     <div {...rest} className={classNames(styles.nav, className)}>
       <NavLinks links={headerContent} />
@@ -60,4 +60,4 @@ const headerContent = [
       }
     ]
   }
-]
+];

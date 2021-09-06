@@ -7,7 +7,7 @@ importers:
       '@teambit/base-ui.elements.image': registry.npmjs.org/@teambit/base-ui.elements.image/1.0.0_react-dom@16.13.1+react@16.13.1
       '@teambit/base-ui.layout.breakpoints': registry.npmjs.org/@teambit/base-ui.layout.breakpoints/1.0.0_react-dom@16.13.1+react@16.13.1
       '@teambit/base-ui.layout.grid-component': registry.npmjs.org/@teambit/base-ui.layout.grid-component/1.0.1_react-dom@16.13.1+react@16.13.1
-      '@teambit/base-ui.layout.page-frame': link:base-ui/layout/page-frame
+      '@teambit/base-ui.layout.page-frame': registry.npmjs.org/@teambit/base-ui.layout.page-frame/1.0.1_react-dom@16.13.1+react@16.13.1
       '@teambit/design.elements.icon': registry.npmjs.org/@teambit/design.elements.icon/1.0.4_react-dom@16.13.1+react@16.13.1
       '@teambit/design.ui.dropdown': registry.npmjs.org/@teambit/design.ui.dropdown/1.0.8_react-dom@16.13.1+react@16.13.1
       '@teambit/design.ui.external-link': registry.npmjs.org/@teambit/design.ui.external-link/0.0.344_react-dom@16.13.1+react@16.13.1
@@ -21,7 +21,7 @@ importers:
       '@teambit/react.templates.themes.theme': 0.0.3_8bea2159e6cd5f1e2e43db9fc3829767
       '@testing-library/react': registry.npmjs.org/@testing-library/react/12.0.0_react-dom@16.13.1+react@16.13.1
       classnames: registry.npmjs.org/classnames/2.3.1
-      core-js: registry.npmjs.org/core-js/3.16.4
+      core-js: registry.npmjs.org/core-js/3.17.2
       millify: registry.npmjs.org/millify/4.0.0
       react: registry.npmjs.org/react/16.13.1
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
@@ -32,7 +32,7 @@ importers:
       '@testing-library/react-hooks': registry.npmjs.org/@testing-library/react-hooks/7.0.1_react-dom@16.13.1+react@16.13.1
       '@types/jest': registry.npmjs.org/@types/jest/26.0.20
       '@types/node': registry.npmjs.org/@types/node/12.20.4
-      '@types/react': registry.npmjs.org/@types/react/17.0.19
+      '@types/react': registry.npmjs.org/@types/react/17.0.20
       '@types/react-dom': registry.npmjs.org/@types/react-dom/17.0.9
       '@types/testing-library__jest-dom': registry.npmjs.org/@types/testing-library__jest-dom/5.9.5
     specifiers:
@@ -42,7 +42,7 @@ importers:
       '@teambit/base-ui.elements.image': 1.0.0
       '@teambit/base-ui.layout.breakpoints': 1.0.0
       '@teambit/base-ui.layout.grid-component': 1.0.1
-      '@teambit/base-ui.layout.page-frame': workspace:1.0.1
+      '@teambit/base-ui.layout.page-frame': 1.0.1
       '@teambit/design.elements.icon': 1.0.4
       '@teambit/design.embeds.figma': 0.0.2
       '@teambit/design.theme.theme-context': 1.0.1
@@ -60,52 +60,52 @@ importers:
       '@testing-library/react-hooks': 7.0.1
       '@types/jest': 26.0.20
       '@types/node': 12.20.4
-      '@types/react': ^17.0.19
+      '@types/react': ^17.0.20
       '@types/react-dom': ^17.0.9
       '@types/testing-library__jest-dom': 5.9.5
       classnames: 2.3.1
-      core-js: ^3.16.4
+      core-js: ^3.17.2
       millify: 4.0.0
       react: 16.13.1
       react-dom: 16.13.1
       react-router-dom: 5.2.0
-  advocacy/apps/bit-dev:
-    specifiers: {}
-  advocacy/entity/images:
-    specifiers: {}
-  advocacy/envs/bitdev-react:
-    specifiers: {}
-  advocacy/ui/badges/github:
-    specifiers: {}
-  advocacy/ui/content-nav:
-    specifiers: {}
-  advocacy/ui/footer:
-    specifiers: {}
-  advocacy/ui/github-stars:
-    specifiers: {}
-  advocacy/ui/header/header:
-    specifiers: {}
-  advocacy/ui/header/nav:
-    specifiers: {}
-  advocacy/ui/header/top-bar:
-    specifiers: {}
-  advocacy/ui/heading:
-    specifiers: {}
-  advocacy/ui/hero:
-    specifiers: {}
-  advocacy/ui/hooks/use-stars:
-    specifiers: {}
-  advocacy/ui/image:
-    specifiers: {}
-  advocacy/ui/image-strip:
-    specifiers: {}
-  advocacy/ui/images/image:
-    specifiers: {}
-  advocacy/ui/images/image-strip:
-    specifiers: {}
-  advocacy/ui/pages/homepage:
-    specifiers: {}
   base-ui/layout/page-frame:
+    specifiers: {}
+  community/apps/bit-dev:
+    specifiers: {}
+  community/entity/images:
+    specifiers: {}
+  community/envs/bitdev-react:
+    specifiers: {}
+  community/ui/badges/github:
+    specifiers: {}
+  community/ui/content-nav:
+    specifiers: {}
+  community/ui/footer:
+    specifiers: {}
+  community/ui/github-stars:
+    specifiers: {}
+  community/ui/header/header:
+    specifiers: {}
+  community/ui/header/nav:
+    specifiers: {}
+  community/ui/header/top-bar:
+    specifiers: {}
+  community/ui/heading:
+    specifiers: {}
+  community/ui/hero:
+    specifiers: {}
+  community/ui/hooks/use-stars:
+    specifiers: {}
+  community/ui/image:
+    specifiers: {}
+  community/ui/image-strip:
+    specifiers: {}
+  community/ui/images/image:
+    specifiers: {}
+  community/ui/images/image-strip:
+    specifiers: {}
+  community/ui/pages/homepage:
     specifiers: {}
   design/ui/logo:
     specifiers: {}
@@ -493,6 +493,23 @@ packages:
       integrity: sha512-nHdJiPOQ5Ghqs5/na8yMxMjZuARUe7vNY6e1CJeM9tD1Wyn6rQbLLGey0SQ1O++iPw+JZ6lclyTJAUTczbnAWg==
       registry: https://node.bit.dev/
       tarball: https://registry.npmjs.org/@teambit/base-ui.layout.grid-component/-/base-ui.layout.grid-component-1.0.1.tgz
+    version: 1.0.1
+  registry.npmjs.org/@teambit/base-ui.layout.page-frame/1.0.1_react-dom@16.13.1+react@16.13.1:
+    dependencies:
+      classnames: registry.npmjs.org/classnames/2.3.1
+      core-js: registry.npmjs.org/core-js/3.17.2
+      react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    dev: false
+    id: registry.npmjs.org/@teambit/base-ui.layout.page-frame/1.0.1
+    name: '@teambit/base-ui.layout.page-frame'
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    resolution:
+      integrity: sha512-qzQWyCfyf3GZfe5Pr2wNCV2LjjE8Z20EP95xHK64KpB4wPyMyJK8ZxKA+i7SFxv17RDvBWv7xpxIiZUlbbGiIg==
+      registry: https://node.bit.dev/
+      tarball: https://registry.npmjs.org/@teambit/base-ui.layout.page-frame/-/base-ui.layout.page-frame-1.0.1.tgz
     version: 1.0.1
   registry.npmjs.org/@teambit/base-ui.surfaces.abs-container/1.0.0_react-dom@16.13.1+react@16.13.1:
     dependencies:
@@ -1360,7 +1377,7 @@ packages:
     version: 15.7.4
   registry.npmjs.org/@types/react-dom/17.0.9:
     dependencies:
-      '@types/react': registry.npmjs.org/@types/react/17.0.19
+      '@types/react': registry.npmjs.org/@types/react/17.0.20
     dev: true
     name: '@types/react-dom'
     resolution:
@@ -1390,6 +1407,18 @@ packages:
       registry: https://node.bit.dev/
       tarball: https://registry.npmjs.org/@types/react/-/react-17.0.19.tgz
     version: 17.0.19
+  registry.npmjs.org/@types/react/17.0.20:
+    dependencies:
+      '@types/prop-types': registry.npmjs.org/@types/prop-types/15.7.4
+      '@types/scheduler': registry.npmjs.org/@types/scheduler/0.16.2
+      csstype: registry.npmjs.org/csstype/3.0.8
+    dev: true
+    name: '@types/react'
+    resolution:
+      integrity: sha512-wWZrPlihslrPpcKyCSlmIlruakxr57/buQN1RjlIeaaTWDLtJkTtRW429MoQJergvVKc4IWBpRhWw7YNh/7GVA==
+      registry: https://node.bit.dev/
+      tarball: https://registry.npmjs.org/@types/react/-/react-17.0.20.tgz
+    version: 17.0.20
   registry.npmjs.org/@types/scheduler/0.16.2:
     dev: true
     name: '@types/scheduler'
@@ -1651,6 +1680,15 @@ packages:
       registry: https://node.bit.dev/
       tarball: https://registry.npmjs.org/core-js/-/core-js-3.16.4.tgz
     version: 3.16.4
+  registry.npmjs.org/core-js/3.17.2:
+    dev: false
+    name: core-js
+    requiresBuild: true
+    resolution:
+      integrity: sha512-XkbXqhcXeMHPRk2ItS+zQYliAMilea2euoMsnpRRdDad6b2VY6CQQcwz1K8AnWesfw4p165RzY0bTnr3UrbYiA==
+      registry: https://node.bit.dev/
+      tarball: https://registry.npmjs.org/core-js/-/core-js-3.17.2.tgz
+    version: 3.17.2
   registry.npmjs.org/core-util-is/1.0.2:
     dev: false
     name: core-util-is

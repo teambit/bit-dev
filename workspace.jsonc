@@ -1,7 +1,7 @@
 /**
  * this is the main configuration file of your bit workspace.
  * for full documentation, please see: https://harmony-docs.bit.dev/workspace/configurations
- **/{
+ **/ {
   "$schema": "https://static.bit.dev/teambit/schemas/schema.json",
   /**
    * main configuration of the Bit workspace.
@@ -27,9 +27,9 @@
     /**
      * default scope for all components in workspace.
      **/
-    "defaultScope": "teambit.advocacy"
+    "defaultScope": "teambit.community"
   },
-  "teambit.advocacy/apps/bit-dev": {},
+  // "teambit.community/apps/bit-dev": {},
   /**
    * main configuration for component dependency resolution.
    **/
@@ -72,9 +72,7 @@
       }
     },
     "packageManagerArgs": [],
-    "devFilePatterns": [
-      "**/*.spec.ts"
-    ],
+    "devFilePatterns": ["**/*.spec.ts"],
     "strictPeerDependencies": true,
     "installFromBitDevRegistry": true,
     "savePrefix": ""
@@ -88,7 +86,7 @@
    **/
   "teambit.workspace/variants": {
     "{ui/**}": {
-      "teambit.advocacy/envs/bitdev-react": {}
+      "teambit.community/envs/bitdev-react": {}
     },
     "{envs/**}, {extensions/*}, {apps/*}": {
       "teambit.harmony/aspect": {}
@@ -100,8 +98,8 @@
     "design": {
       "defaultScope": "teambit.design"
     },
-    "advocacy": {
-      "defaultScope": "teambit.advocacy"
+    "community": {
+      "defaultScope": "teambit.community"
     }
   }
 }

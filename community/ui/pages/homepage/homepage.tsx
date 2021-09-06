@@ -1,7 +1,7 @@
 import React from 'react';
-import { Hero } from '@teambit/advocacy.ui.hero';
-import { ImageStrip } from '@teambit/advocacy.ui.images.image-strip';
-import { clientLogos } from '@teambit/advocacy.entity.images';
+import { Hero } from '@teambit/community.ui.hero';
+import { ImageStrip } from '@teambit/community.ui.images.image-strip';
+import { clientLogos } from '@teambit/community.entity.images';
 
 export type HomepageProps = {} & React.HTMLAttributes<HTMLDivElement>;
 

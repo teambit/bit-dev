@@ -1,6 +1,6 @@
 import React from 'react';
-import { Images } from '@teambit/advocacy.entity.images';
-import { Image } from '@teambit/advocacy.ui.images.image';
+import { Images } from '@teambit/community.entity.images';
+import { Image } from '@teambit/community.ui.images.image';
 import styles from './image-strip.module.scss';
 
 export type ImageStripProps = {

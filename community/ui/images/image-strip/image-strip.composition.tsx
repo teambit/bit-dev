@@ -1,6 +1,6 @@
 import React from 'react';
 import { ImageStrip } from './image-strip';
-import { clientLogos } from '@teambit/advocacy.entity.images';
+import { clientLogos } from '@teambit/community.entity.images';
 
 export const BasicImageStrip = () => (
   <ImageStrip
