@@ -26,38 +26,18 @@ export function Nav({ className, ...rest }: NavProps) {
 const headerContent = [
   {
     title: 'Docs',
-    links: [
-      {
-        text: 'Docs',
-        href: 'bla'
-      }
-    ]
+    href: '/docs'
   },
   {
-    title: 'Aspects',
-    links: [
-      {
-        text: 'Aspects',
-        href: 'bla'
-      }
-    ]
+    title: 'Plugins',
+    href: '/plugins'
   },
   {
-    title: 'Resources',
-    links: [
-      {
-        text: 'Resources',
-        href: 'bla'
-      }
-    ]
+    title: 'Learn',
+    href: '/learn'
   },
   {
-    title: 'Tutorials',
-    links: [
-      {
-        text: 'Tutorials',
-        href: 'bla'
-      }
-    ]
+    title: 'bit.cloud',
+    href: 'https://bit.cloud'
   }
 ];

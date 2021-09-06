@@ -111,5 +111,17 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/pages/homepage"
     },
+    "ui/pages/plugins": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/pages/plugins"
+    },
+    "ui/plugins/plugin-group": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/plugins/plugin-group"
+    },
     "$schema-version": "14.9.0"
 }
