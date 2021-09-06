@@ -1,0 +1,48 @@
+---
+description: 'A UseCaseCardGrid component.'
+labels: ['label1', 'label2', 'label3']
+---
+
+import { UseCaseCardGrid } from './use-case-card-grid';
+import { FigmaEmbed } from '@teambit/design.embeds.figma';
+
+## Grid of Cards
+
+A grid of cards showing the use cases.
+
+### Component usage
+
+### Array of use cases
+
+Add an array of use cases to the `useCases` prop.
+
+```js
+<ImageStrip
+  useCases={[
+    {
+      title: 'Component Library',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis semper, quam sed.',
+      icon: 'Ripple-pending'
+    },
+    {
+      title: 'Component Library',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis semper, quam sed.',
+      icon: 'Ripple-pending'
+    }
+  ]}
+/>
+```
+
+### Import Mock Data
+
+Import some mock data from an external source and pass it to the `useCases` prop.
+
+```js
+import { useCases } from '@teambit/community.entity.use-cases';
+
+<ImageStrip useCases={useCases} />;
+```
+
+## Design
+
+<FigmaEmbed src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FctC1w9YhJvqaO1EZ08gLOV%2FCommunity%3Fnode-id%3D5%253A162" />
