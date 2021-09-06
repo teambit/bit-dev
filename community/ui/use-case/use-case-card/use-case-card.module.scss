@@ -1,0 +1,18 @@
+.useCaseCard {
+  border: 1px solid var(--bit-border-color-lightest, #ededed);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  max-width: 342px;
+}
+.iconClass {
+  font-size: 40px;
+}
+.title {
+  margin: 10px 0;
+  color: var(--bit-text-color-heavy, #2b2b2b);
+}
+.text {
+  margin: 0;
+  color: var(--bit-text-color-light, #565656);
+}

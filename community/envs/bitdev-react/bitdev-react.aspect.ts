@@ -8,8 +8,8 @@ export type BitDevReactConfig = {
 };
 
 export const BitDevReactAspect = Aspect.create({
-  id: 'teambit.community/envs.bitdev-react',
-  defaultConfig: {
-    baseUrl: 'https://symphony.bit.dev/graphql'
-  }
+  id: 'teambit.community/envs.bitdev-react'
+  // defaultConfig: {
+  //   baseUrl: 'https://symphony.bit.dev/graphql'
+  // }
 });

@@ -21,6 +21,12 @@
         "mainFile": "index.ts",
         "rootDir": "community/entity/images"
     },
+    "entity/use-cases": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/entity/use-cases"
+    },
     "envs/bitdev-react": {
         "scope": "",
         "version": "",
@@ -110,6 +116,18 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "community/ui/pages/homepage"
+    },
+    "ui/use-case/use-case-card": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/use-case/use-case-card"
+    },
+    "ui/use-case/use-case-card-grid": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/use-case/use-case-card-grid"
     },
     "$schema-version": "14.9.0"
 }
