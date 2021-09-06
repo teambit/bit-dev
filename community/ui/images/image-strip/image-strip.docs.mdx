@@ -1,0 +1,47 @@
+---
+description: 'Strip of Images with animation'
+labels: ['image', 'strip']
+---
+
+import { ImageStrip } from './image-strip';
+import { FigmaEmbed } from '@teambit/design.embeds.figma';
+import { clientLogos } from '@teambit/community.entity.images';
+
+## Strip of Images
+
+A strip of images with gentle animation. Lazy loading is added by default for all images but can be overridden with the `loading` prop.
+
+## Component usage
+
+### Array of images
+
+Add an array of images to the `images` prop.
+
+```js
+<ImageStrip
+  images={[
+    {
+      src: 'homepage-enterprise-logos/Dell.svg',
+      alt: 'dell'
+    },
+    {
+      src: 'homepage-enterprise-logos/Carlsberg-1.svg',
+      alt: 'Carlsberg'
+    }
+  ]}
+/>
+```
+
+### Import Mock Data
+
+Import some mock data from an external source and pass it to the `images` prop.
+
+```js
+import { clientLogos } from '@teambit/community.entity.images';
+
+<ImageStrip data-testid="test-image-strip" logos={clientLogos} />;
+```
+
+## Design
+
+<FigmaEmbed src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FhMvSkyTqPMvSbrmqBbs6nZ%2Fhomepage%3Fnode-id%3D1026%253A66358" />

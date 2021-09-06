@@ -13,85 +13,91 @@
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "advocacy/apps/bit-dev"
+        "rootDir": "community/apps/bit-dev"
+    },
+    "entity/images": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/entity/images"
     },
     "envs/bitdev-react": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "advocacy/envs/bitdev-react"
-    },
-    "layout/page-frame": {
-        "scope": "teambit.base-ui",
-        "version": "1.0.0",
-        "mainFile": "index.ts",
-        "rootDir": "base-ui/layout/page-frame"
+        "rootDir": "community/envs/bitdev-react"
     },
     "ui/badges/github": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "advocacy/ui/badges/github"
+        "rootDir": "community/ui/badges/github"
     },
     "ui/content-nav": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "advocacy/ui/content-nav"
+        "rootDir": "community/ui/content-nav"
     },
     "ui/footer": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "advocacy/ui/footer"
+        "rootDir": "community/ui/footer"
     },
     "ui/github-stars": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "advocacy/ui/github-stars"
+        "rootDir": "community/ui/github-stars"
     },
     "ui/header": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "advocacy/ui/header/header"
+        "rootDir": "community/ui/header/header"
     },
     "ui/header/nav": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "advocacy/ui/header/nav"
+        "rootDir": "community/ui/header/nav"
     },
     "ui/header/top-bar": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "advocacy/ui/header/top-bar"
+        "rootDir": "community/ui/header/top-bar"
     },
     "ui/heading": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "advocacy/ui/heading"
+        "rootDir": "community/ui/heading"
     },
     "ui/hero": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "advocacy/ui/hero"
+        "rootDir": "community/ui/hero"
     },
     "ui/hooks/use-stars": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "advocacy/ui/hooks/use-stars"
+        "rootDir": "community/ui/hooks/use-stars"
     },
-    "ui/image-strip": {
+    "ui/images/image": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "advocacy/ui/image-strip"
+        "rootDir": "community/ui/images/image"
+    },
+    "ui/images/image-strip": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/images/image-strip"
     },
     "ui/logo": {
         "scope": "",
@@ -103,7 +109,7 @@
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "advocacy/ui/pages/homepage"
+        "rootDir": "community/ui/pages/homepage"
     },
     "$schema-version": "14.9.0"
 }

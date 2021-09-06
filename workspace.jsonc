@@ -1,7 +1,7 @@
 /**
  * this is the main configuration file of your bit workspace.
  * for full documentation, please see: https://harmony-docs.bit.dev/workspace/configurations
- **/{
+ **/ {
   "$schema": "https://static.bit.dev/teambit/schemas/schema.json",
   /**
    * main configuration of the Bit workspace.
@@ -27,10 +27,9 @@
     /**
      * default scope for all components in workspace.
      **/
-    "defaultScope": "teambit.advocacy"
+    "defaultScope": "teambit.community"
   },
-  "teambit.advocacy/apps/bit-dev": {},
-  // "teambit.advocacy/apps/website": {},
+  // "teambit.community/apps/bit-dev": {},
   /**
    * main configuration for component dependency resolution.
    **/
@@ -44,10 +43,13 @@
         "@babel/runtime": "7.15.3",
         "@docusaurus/core": "2.0.0-beta.5",
         "@learn-bit-react/base-ui.figma.figma-embed": "0.0.3",
+        "@teambit/base-ui.constants.storage": "1.0.0",
         "@teambit/base-ui.elements.image": "1.0.0",
+        "@teambit/base-ui.layout.breakpoints": "1.0.0",
         "@teambit/base-ui.layout.grid-component": "1.0.1",
         "@teambit/base-ui.layout.page-frame": "1.0.0",
         "@teambit/design.elements.icon": "1.0.4",
+        "@teambit/design.embeds.figma": "0.0.2",
         "@teambit/design.theme.theme-context": "1.0.1",
         "@teambit/design.ui.dropdown": "1.0.8",
         "@teambit/design.ui.external-link": "0.0.344",
@@ -71,9 +73,7 @@
       }
     },
     "packageManagerArgs": [],
-    "devFilePatterns": [
-      "**/*.spec.ts"
-    ],
+    "devFilePatterns": ["**/*.spec.ts"],
     "strictPeerDependencies": true,
     "installFromBitDevRegistry": true,
     "savePrefix": ""
@@ -87,7 +87,7 @@
    **/
   "teambit.workspace/variants": {
     "{ui/**}": {
-      "teambit.advocacy/envs/bitdev-react": {}
+      "teambit.community/envs/bitdev-react": {}
     },
     "{envs/**}, {extensions/*}, {apps/*}, {aspects/*}": {
       "teambit.harmony/aspect": {}
@@ -99,11 +99,8 @@
     "design": {
       "defaultScope": "teambit.design"
     },
-    "advocacy": {
-      "defaultScope": "teambit.advocacy"
-    },
-    "application": {
-      "defaultScope": "teambit.application"
+    "community": {
+      "defaultScope": "teambit.community"
     }
   }
 }
