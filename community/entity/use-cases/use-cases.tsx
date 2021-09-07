@@ -6,6 +6,7 @@ export type UseCasesFromApi = {
   title?: string;
   text?: string;
   image?: string;
+  alt?: string;
   href?: string;
 };
 
@@ -15,6 +16,10 @@ export class UseCases {
      * an image to be rendered in the card.
      */
     public image?: string,
+    /**
+     * alt tag for the image
+     */
+    public alt?: string,
     /**
      * a title for the card
      */
@@ -30,6 +35,12 @@ export class UseCases {
   ) {}
 
   static fromApiObject(object: UseCasesFromApi) {
-    return new UseCases(object.image, object.title, object.text, object.href);
+    return new UseCases(
+      object.image,
+      object.alt,
+      object.title,
+      object.text,
+      object.href
+    );
   }
 }

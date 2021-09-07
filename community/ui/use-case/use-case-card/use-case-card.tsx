@@ -16,6 +16,10 @@ export type UseCaseCardProps = {
    */
   image?: string;
   /**
+   * an alt tag for the image
+   */
+  alt?: string;
+  /**
    * a title for the card
    */
   title?: string;
@@ -31,6 +35,7 @@ export type UseCaseCardProps = {
 
 export function UseCaseCard({
   image,
+  alt,
   elevation = 'none',
   title,
   text,
@@ -49,7 +54,7 @@ export function UseCaseCard({
         {image && (
           <Image
             src={image}
-            alt="world"
+            alt={alt}
             className={classNames(styles.image, className)}
           />
         )}

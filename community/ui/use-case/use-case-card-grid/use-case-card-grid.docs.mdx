@@ -12,29 +12,6 @@ A grid of cards showing the use cases.
 
 ### Component usage
 
-### Array of use cases
-
-Add an array of use cases to the `useCases` prop.
-
-```js
-<ImageStrip
-  useCases={[
-    {
-      title: 'Component Library',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis semper, quam sed.',
-      image:"brands/logo-react.svg",
-      href="/"
-    },
-    {
-      title: 'Component Library',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis semper, quam sed.',
-      image:"brands/logo-react.svg",
-      href="/"
-    }
-  ]}
-/>
-```
-
 ### Import Mock Data
 
 Import some mock data from an external source and pass it to the `useCases` prop.
@@ -42,7 +19,32 @@ Import some mock data from an external source and pass it to the `useCases` prop
 ```js
 import { useCases } from '@teambit/community.entity.use-cases';
 
-<ImageStrip useCases={useCases} />;
+<UseCaseCardGrid useCases={useCases} />;
+```
+
+### Array of use cases
+
+Add an array of use cases to the `useCases` prop.
+
+```js live
+<UseCaseCardGrid
+  useCases={[
+    {
+      title: 'Component Library',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis semper, quam sed.',
+      image: 'brands/logo-react.svg',
+      alt: 'React logo',
+      href: '/react'
+    },
+    {
+      title: 'Component Library',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis semper, quam sed.',
+      image: 'brands/logo-react.svg',
+      alt: 'React logo',
+      href: '/react'
+    }
+  ]}
+/>
 ```
 
 ## Design

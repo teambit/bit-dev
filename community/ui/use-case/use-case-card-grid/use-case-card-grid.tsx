@@ -22,6 +22,7 @@ export function UseCaseCardGrid({ useCases, ...rest }: UseCaseCardGridProps) {
           title={useCase.title}
           text={useCase.text}
           image={useCase.image}
+          alt={useCase.alt}
           href={useCase.href}
         />
       ))}

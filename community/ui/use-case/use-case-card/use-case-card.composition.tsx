@@ -6,6 +6,7 @@ export const BasicUseCaseCard = () => (
     title="Component Library"
     text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis semper, quam sed."
     image="brands/logo-react.svg"
-    href="/"
+    alt="React logo"
+    href="/react"
   ></UseCaseCard>
 );
