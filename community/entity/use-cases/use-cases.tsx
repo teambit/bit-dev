@@ -5,15 +5,16 @@ export enum ProductType {
 export type UseCasesFromApi = {
   title?: string;
   text?: string;
-  icon?: string;
+  image?: string;
+  href?: string;
 };
 
 export class UseCases {
   constructor(
     /**
-     * an icon to be rendered in the card.
+     * an image to be rendered in the card.
      */
-    public icon?: string,
+    public image?: string,
     /**
      * a title for the card
      */
@@ -21,10 +22,14 @@ export class UseCases {
     /**
      * a text for the card
      */
-    public text?: string
+    public text?: string,
+    /**
+     * a href for internal link for the card
+     */
+    public href?: string
   ) {}
 
   static fromApiObject(object: UseCasesFromApi) {
-    return new UseCases(object.icon, object.title, object.text);
+    return new UseCases(object.image, object.title, object.text, object.href);
   }
 }

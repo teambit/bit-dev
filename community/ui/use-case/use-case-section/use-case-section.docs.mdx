@@ -1,0 +1,42 @@
+---
+description: 'A UseCaseSection component.'
+labels: ['label1', 'label2', 'label3']
+---
+
+import { UseCaseSection } from './use-case-section';
+import { FigmaEmbed } from '@teambit/design.embeds.figma';
+import { useCases } from '@teambit/community.entity.use-cases';
+
+## React Component for rendering text
+
+A basic div that renders some text
+
+### Component usage
+
+```js
+import { useCases } from '@teambit/community.entity.use-cases';
+
+<UseCaseSection
+  useCases={useCases}
+  title="These are no longer a challenge"
+  href="/"
+  linkText="See more use cases"
+/>;
+```
+
+### Using props to customize the text
+
+Modify the text to see it change live:
+
+```js live
+<UseCaseSection
+  useCases={useCases}
+  title="These are no longer a challenge"
+  href="/"
+  linkText="See more use cases"
+/>
+```
+
+## Design
+
+<FigmaEmbed src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FctC1w9YhJvqaO1EZ08gLOV%2FCommunity%3Fnode-id%3D5%253A129" />

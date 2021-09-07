@@ -5,6 +5,7 @@ export const BasicUseCaseCard = () => (
   <UseCaseCard
     title="Component Library"
     text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis semper, quam sed."
-    icon="Ripple-pending"
+    image="brands/logo-react.svg"
+    href="/"
   ></UseCaseCard>
 );

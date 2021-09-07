@@ -129,5 +129,11 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/use-case/use-case-card-grid"
     },
+    "ui/use-case/use-case-section": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/use-case/use-case-section"
+    },
     "$schema-version": "14.9.0"
 }
