@@ -1,34 +1,32 @@
 ---
-description: 'Entity component for Use Cases'
+description: 'Entity component for Benefits'
 labels: ['mock', 'data', 'entity', 'types']
 ---
 
-import { UseCases } from './use-cases';
+import { Benefits } from './benefits';
 
-## Entity Component for Use Cases
+## Overview
 
-Array of types for a use case.
+Array of types for the benefits.
 
 ```js
 title?: string;
 text?: string;
 image?: string;
 alt?: string;
-href?: string;
 ```
 
 ## Mock Json
 
-Mock data for use Cases.
+Mock data for Benefits
 
 ```json
-export const useCases = [
+export const Benefits = [
   {
     title: 'Component Library',
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis semper, quam sed.',
     image: 'brands/logo-react.svg',
     alt: 'react logo',
-    href: "/"
   }
 ];
 ```

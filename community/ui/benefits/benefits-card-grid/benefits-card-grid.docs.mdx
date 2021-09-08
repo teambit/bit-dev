@@ -1,0 +1,48 @@
+---
+description: 'A BenefitsCardGrid component.'
+labels: ['benefits', 'grid']
+---
+
+import { BenefitsCardGrid } from './benefits-card-grid';
+import { FigmaEmbed } from '@teambit/design.embeds.figma';
+
+## Overview
+
+A grid of cards showing the benefits.
+
+### Component usage
+
+Import some mock data from an external source and pass it to the `benefits` prop.
+
+```js
+import { benefits } from '@teambit/community.entity.benefits';
+
+<BenefitsCardGrid benefits={benefits} />;
+```
+
+### Live Playgournd
+
+Add an array of use cases to the `benefits` prop.
+
+```js live
+<BenefitsCardGrid
+  benefits={[
+    {
+      title: 'Distributed',
+      text: 'Component ownership is distributed across developer teams',
+      image: 'brands/logo-react.svg',
+      alt: 'react logo'
+    },
+    {
+      title: 'Maintainable',
+      text: 'Components are easy to replace and refactor over time.',
+      image: 'brands/logo-angular.svg',
+      alt: 'angular logo'
+    }
+  ]}
+/>
+```
+
+## Design
+
+<FigmaEmbed src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FctC1w9YhJvqaO1EZ08gLOV%2FCommunity%3Fnode-id%3D5%253A162" />

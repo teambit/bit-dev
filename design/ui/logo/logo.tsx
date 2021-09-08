@@ -7,33 +7,40 @@ export type LogoProps = {
   /**
    * recommended sizes could be either 'small' (16), 'medium' (24), 'large' (32) and 'xl' (40).
    */
-  size?: RecommendedSizes,
+  size?: RecommendedSizes;
 
   /**
    * size of the logo. size would be applied on both height and width.
    * currently there is no option to change the height or width specifically
    */
-   customSize?: number,
+  customSize?: number;
 
   /**
    * alt text for the logo.
    */
-  alt: string,
+  alt: string;
 
   /**
    * classes injected to component.
    */
-  className?: string
+  className?: string;
 } & BaseImageProps;
 
 export function Logo({ size, customSize, alt, ...rest }: LogoProps) {
   const chosenSize = customSize || size;
 
   return (
-    <BaseImage {...rest} src={logo} alt={alt} height={chosenSize} width={chosenSize} />
+    <BaseImage
+      {...rest}
+      src={logo}
+      alt={alt}
+      height={chosenSize}
+      width={chosenSize}
+    />
   );
 }
 
 Logo.defaultProps = {
-  size: RecommendedSizes.medium
+  size: RecommendedSizes.medium,
+  alt: 'Bit'
 };

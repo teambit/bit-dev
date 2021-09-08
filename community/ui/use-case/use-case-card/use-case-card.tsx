@@ -6,27 +6,26 @@ import { H4 } from '@teambit/design.ui.heading';
 import { Paragraph } from '@teambit/base-ui.text.paragraph';
 import { NativeNavLink } from '@teambit/base-ui.routing.native-nav-link';
 import { Image } from '@teambit/community.ui.images.image';
-const staticPrefix = 'brands';
 
 import styles from './use-case-card.module.scss';
 
 export type UseCaseCardProps = {
   /**
-   * an image to be rendered in the card.
+   * an image to be rendered in the card
    */
-  image?: string;
+  image: string;
   /**
    * an alt tag for the image
    */
-  alt?: string;
+  alt: string;
   /**
    * a title for the card
    */
-  title?: string;
+  title: string;
   /**
    * a text for the card
    */
-  text?: string;
+  text: string;
   /**
    * internal link to more each use cases
    */
@@ -51,13 +50,11 @@ export function UseCaseCard({
         elevation={elevation}
         className={classNames(styles.useCaseCard, className)}
       >
-        {image && (
-          <Image
-            src={image}
-            alt={alt}
-            className={classNames(styles.image, className)}
-          />
-        )}
+        <Image
+          src={image}
+          alt={alt}
+          className={classNames(styles.image, className)}
+        />
         <div className={styles.textBox}>
           <H4 size="sm" className={classNames(styles.title, className)}>
             {title} <Icon of="arrow_right" className={styles.arrowIcon} />

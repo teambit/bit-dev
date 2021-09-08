@@ -15,6 +15,12 @@
         "mainFile": "index.ts",
         "rootDir": "community/apps/bit-dev"
     },
+    "entity/benefits": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/entity/benefits"
+    },
     "entity/images": {
         "scope": "",
         "version": "",
@@ -33,23 +39,23 @@
         "mainFile": "index.ts",
         "rootDir": "community/envs/bitdev-react"
     },
-    "ui/badges/github": {
+    "ui/benefits/benefits-card": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "community/ui/badges/github"
+        "rootDir": "community/ui/benefits/benefits-card"
     },
-    "ui/content-nav": {
+    "ui/benefits/benefits-card-grid": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "community/ui/content-nav"
+        "rootDir": "community/ui/benefits/benefits-card-grid"
     },
-    "ui/footer": {
+    "ui/benefits/benefits-section": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "community/ui/footer"
+        "rootDir": "community/ui/benefits/benefits-section"
     },
     "ui/github-stars": {
         "scope": "",
@@ -57,7 +63,7 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/github-stars"
     },
-    "ui/header": {
+    "ui/header/header": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
@@ -68,12 +74,6 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "community/ui/header/nav"
-    },
-    "ui/header/top-bar": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "community/ui/header/top-bar"
     },
     "ui/heading": {
         "scope": "",

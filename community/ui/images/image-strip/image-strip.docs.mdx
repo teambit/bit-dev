@@ -7,17 +7,25 @@ import { ImageStrip } from './image-strip';
 import { FigmaEmbed } from '@teambit/design.embeds.figma';
 import { clientLogos } from '@teambit/community.entity.images';
 
-## Strip of Images
+## Overview
 
 A strip of images with gentle animation. Lazy loading is added by default for all images but can be overridden with the `loading` prop.
 
-## Component usage
+### Component usage
 
-### Array of images
+Import some mock data from an external source and pass it to the `images` prop.
+
+```js
+import { clientLogos } from '@teambit/community.entity.images';
+
+<ImageStrip data-testid="test-image-strip" logos={clientLogos} />;
+```
+
+### Live Playgournd
 
 Add an array of images to the `images` prop.
 
-```js
+```js live
 <ImageStrip
   images={[
     {
@@ -32,16 +40,6 @@ Add an array of images to the `images` prop.
 />
 ```
 
-### Import Mock Data
-
-Import some mock data from an external source and pass it to the `images` prop.
-
-```js
-import { clientLogos } from '@teambit/community.entity.images';
-
-<ImageStrip data-testid="test-image-strip" logos={clientLogos} />;
-```
-
-## Design
+### Design
 
 <FigmaEmbed src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FctC1w9YhJvqaO1EZ08gLOV%2FCommunity%3Fnode-id%3D5%253A488" />
