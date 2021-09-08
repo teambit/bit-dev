@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import { PreviewRuntime } from '@teambit/preview';
 import { ReactAspect, ReactPreview } from '@teambit/react';
 // import { GqlServerProvider } from '@teambit/base-ui.hooks.use-graphql-light';
+import { MemoryRouter } from 'react-router';
 import { ThemeContext } from '@teambit/documenter.theme.theme-context';
 import { BitDevReactConfig, BitDevReactAspect } from './bitdev-react.aspect';
 
@@ -32,6 +33,7 @@ export class BitDevReactPreview {
       //   );
       // },
       ThemeContext,
+      MemoryRouter
     ]);
 
     return bitdevReactEnv;

@@ -33,6 +33,12 @@
         "mainFile": "index.ts",
         "rootDir": "community/envs/bitdev-react"
     },
+    "layout/grid": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "base-ui/layout/grid"
+    },
     "ui/badges/github": {
         "scope": "",
         "version": "",
@@ -128,6 +134,7 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "community/ui/plugins/plugin-group"
+    },
     "ui/use-case/use-case-card": {
         "scope": "",
         "version": "",

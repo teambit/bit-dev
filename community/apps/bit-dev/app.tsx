@@ -12,19 +12,17 @@ export function BitDevApp() {
       <BrowserRouter>
         {/* header component */}
         <Header />
-
         <Switch>
           <WideColumn>
             <Route exact path="/">
               <Homepage />
             </Route>
-            <Route path="/plugins">
+            <Route exact path="/plugins">
               <Plugins />
             </Route>
             <Route path="/about">{/* about page component */}</Route>
           </WideColumn>
         </Switch>
-
         {/* footer component */}
       </BrowserRouter>
     </ThemeContext>

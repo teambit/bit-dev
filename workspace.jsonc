@@ -64,9 +64,11 @@
         "@teambit/harmony": "0.2.11",
         "@teambit/react.templates.themes.theme": "0.0.3",
         "@testing-library/react-hooks": "7.0.1",
+        "@types/react-router": "5.1.16",
         "@types/react-router-dom": "5.1.8",
         "classnames": "2.3.1",
         "millify": "4.0.0",
+        "react-router": "5.2.1",
         "react-router-dom": "5.2.0"
       },
       "peerDependencies": {
@@ -97,7 +99,7 @@
     "{envs/**}, {extensions/*}, {apps/*}, {aspects/*}": {
       "teambit.harmony/aspect": {}
     },
-    "base-ui": {
+    "react-base": {
       "defaultScope": "teambit.base-ui",
       "teambit.react/react": {}
     },

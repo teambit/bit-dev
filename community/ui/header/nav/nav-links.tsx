@@ -38,7 +38,7 @@ export type NavLinksProps = {
      * list of links to display in the navbar
      */
   links: NavLinkType[];
-} & React.HTMLAttributes<HTMLDivElement>;
+};
 
 export function NavLinks({links}: NavLinksProps) {
   return (
