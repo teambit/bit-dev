@@ -1,14 +1,14 @@
 ---
-description: 'A UseCaseCard component.'
-labels: ['label1', 'label2', 'label3']
+description: 'A Use Case Card component'
+labels: ['card', 'use case']
 ---
 
 import { UseCaseCard } from './use-case-card';
 import { FigmaEmbed } from '@teambit/design.embeds.figma';
 
-## React Component for rendering text
+## Overview
 
-A basic div that renders some text
+A card compoenent for a use case.
 
 ### Component usage
 
@@ -16,11 +16,13 @@ A basic div that renders some text
 <UseCaseCard
   title="Component Library"
   text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis semper, quam sed."
-  icon="Ripple-pending"
+  image="bit-logo.svg"
+  alt="bit logo"
+  href="/"
 ></UseCaseCard>
 ```
 
-### Using props to customize the text
+### Live Playgournd
 
 Modify the text to see it change live:
 
@@ -28,10 +30,12 @@ Modify the text to see it change live:
 <UseCaseCard
   title="Component Library"
   text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis semper, quam sed."
-  icon="Ripple-pending"
+  image="bit-logo.svg"
+  alt="bit logo"
+  href="/"
 ></UseCaseCard>
 ```
 
-## Design
+### Design
 
 <FigmaEmbed src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FctC1w9YhJvqaO1EZ08gLOV%2FCommunity%3Fnode-id%3D5%253A152" />

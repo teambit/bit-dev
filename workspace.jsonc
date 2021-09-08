@@ -46,6 +46,7 @@
         "@teambit/base-ui.layout.breakpoints": "1.0.0",
         "@teambit/base-ui.layout.grid-component": "1.0.1",
         "@teambit/base-ui.layout.page-frame": "1.0.0",
+        "@teambit/base-ui.routing.native-nav-link": "1.0.0",
         "@teambit/base-ui.surfaces.card": "1.0.1",
         "@teambit/base-ui.text.paragraph": "1.0.3",
         "@teambit/design.elements.icon": "1.0.4",

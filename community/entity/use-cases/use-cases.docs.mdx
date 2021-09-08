@@ -1,6 +1,6 @@
 ---
-description: 'A UseCases component.'
-labels: ['label1', 'label2', 'label3']
+description: 'Entity component for Use Cases'
+labels: ['mock', 'data', 'entity', 'types']
 ---
 
 import { UseCases } from './use-cases';
@@ -12,7 +12,9 @@ Array of types for a use case.
 ```js
 title?: string;
 text?: string;
-icon?: string;
+image?: string;
+alt?: string;
+href?: string;
 ```
 
 ## Mock Json
@@ -24,7 +26,9 @@ export const useCases = [
   {
     title: 'Component Library',
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis semper, quam sed.',
-    icon: 'Ripple-pending'
+    image: 'brands/logo-react.svg',
+    alt: 'react logo',
+    href: "/"
   }
 ];
 ```

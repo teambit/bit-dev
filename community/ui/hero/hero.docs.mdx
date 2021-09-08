@@ -1,22 +1,30 @@
 ---
-description: 'A Hero component.'
-labels: ['label1', 'label2', 'label3']
+description: 'A Hero component'
+labels: ['hero']
 ---
 
 import { Hero } from './hero';
 
-## React Component for rendering text
+## Overview
 
-A basic div that renders some text
+Main hero for the home page
 
 ### Component usage
+
 ```js
-<Hero text="hello from Hero" />
+<Hero
+  title="Build anything in components"
+  teaser="Forget about monolithic apps, start building component-driven software. Bit helps developers build better software with independent components and compose them into infinite features and apps."
+/>
 ```
 
-### Using props to customize the text
+### Live Playground
 
-Modify the text to see it change live:
+Modify the props to see it change live:
+
 ```js live
-<Hero text="hello from Hero" />
+<Hero
+  title="Build anything in components"
+  teaser="Forget about monolithic apps, start building component-driven software. Bit helps developers build better software with independent components and compose them into infinite features and apps."
+/>
 ```

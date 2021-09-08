@@ -15,13 +15,15 @@ export type UseCaseCardGridProps = {
  */
 export function UseCaseCardGrid({ useCases, ...rest }: UseCaseCardGridProps) {
   return (
-    <div className={styles.useCasesCardGrid} {...rest}>
+    <div className={styles.useCaseCardGrid} {...rest}>
       {useCases.map((useCase) => (
         <UseCaseCard
           key={useCase.title}
           title={useCase.title}
           text={useCase.text}
-          icon={useCase.icon}
+          image={useCase.image}
+          alt={useCase.alt}
+          href={useCase.href}
         />
       ))}
     </div>

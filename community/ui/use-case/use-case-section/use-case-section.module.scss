@@ -1,0 +1,34 @@
+.useCaseSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  margin: 0 40px 10px 0;
+}
+
+.link,
+.icon {
+  color: var(--bit-accent-light, #897dec);
+}
+
+@media screen and (max-width: 1024px) {
+  .useCaseSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .link {
+    margin-bottom: 20px;
+  }
+  .heading {
+    margin-bottom: 40px;
+    text-align: center;
+  }
+}
+
+.icon {
+  font-size: 14px;
+  padding-left: 5px;
+}
