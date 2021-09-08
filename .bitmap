@@ -15,6 +15,12 @@
         "mainFile": "index.ts",
         "rootDir": "community/apps/bit-dev"
     },
+    "buttons/button": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "base-react/buttons/button"
+    },
     "entity/benefits": {
         "scope": "",
         "version": "",
@@ -43,7 +49,7 @@
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "base-ui/layout/grid"
+        "rootDir": "base-react/layout/grid"
     },
     "ui/benefits/benefits-card": {
         "scope": "",
@@ -62,6 +68,12 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "community/ui/benefits/benefits-section"
+    },
+    "ui/buttons/button": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "design/ui/buttons/button"
     },
     "ui/github-stars": {
         "scope": "",
@@ -111,11 +123,11 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/images/image-strip"
     },
-    "ui/logo": {
+    "ui/brand/logo": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "design/ui/logo"
+        "rootDir": "design/ui/brand/logo"
     },
     "ui/pages/homepage": {
         "scope": "",

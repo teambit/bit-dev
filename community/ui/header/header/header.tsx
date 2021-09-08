@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Logo } from '@teambit/design.ui.logo';
+import { Logo } from '@teambit/design.ui.brand.logo';
 import { Nav } from '@teambit/community.ui.header.nav';
 import { Link } from 'react-router-dom';
 import { WideColumn } from '@teambit/base-ui.layout.page-frame';

@@ -2,6 +2,7 @@ import React from 'react';
 import { Heading } from '@teambit/community.ui.heading';
 // TODO: move to be in `design` owned by @amir.
 import { Subtitle } from '@teambit/documenter.ui.sub-title';
+import { Button } from '@teambit/design.ui.buttons.button';
 import styles from './hero.module.scss';
 
 export type HeroProps = {
@@ -21,6 +22,7 @@ export function Hero({ title, teaser }: HeroProps) {
     <div className={styles.hero}>
       <Heading>{title}</Heading>
       <Subtitle>{teaser}</Subtitle>
+      <Button>Getting Started</Button>
     </div>
   );
 }
