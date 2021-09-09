@@ -7,6 +7,12 @@ export type ImageProps = {
    * if true, returns a div with the image as a background image.
    */
   isBackground?: boolean;
+
+  /**
+   * alternative text for the image.
+   */
+  alt?: string,
+
   /**
    * children for when using as a background image.
    */
@@ -18,6 +24,7 @@ export function Image({
   src,
   className,
   children,
+  alt,
   style,
   ...rest
 }: ImageProps) {
@@ -26,5 +33,5 @@ export function Image({
       {children}
     </div>;
   }
-  return <img src={src} style={style} className={className} {...rest} />;
+  return <img src={src} alt={alt} style={style} className={className} {...rest} />;
 }

@@ -5,7 +5,7 @@ import { Icon } from '@teambit/design.elements.icon';
 import { H4 } from '@teambit/design.ui.heading';
 import { Paragraph } from '@teambit/base-ui.text.paragraph';
 import { NativeNavLink } from '@teambit/base-ui.routing.native-nav-link';
-import { Image } from '@teambit/community.ui.images.image';
+import { Image } from '@teambit/base-react.content.image';
 
 import styles from './use-case-card.module.scss';
 
@@ -50,7 +50,7 @@ export function UseCaseCard({
         elevation={elevation}
         className={classNames(styles.useCaseCard, className)}
       >
-        <img
+        <Image
           src={image}
           alt={alt}
           className={classNames(styles.image, className)}

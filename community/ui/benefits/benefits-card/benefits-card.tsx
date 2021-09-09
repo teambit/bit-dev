@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { H3 } from '@teambit/design.ui.heading';
-import { Image } from '@teambit/community.ui.images.image';
+import { Image } from '@teambit/base-react.content.image';
 import { Paragraph } from '@teambit/base-ui.text.paragraph';
 import styles from './benefits-card.module.scss';
 
@@ -34,7 +34,7 @@ export function BenefitsCard({
 }: BenefitsCardProps) {
   return (
     <div className={classNames(styles.benefitsCard, className)}>
-      <img
+      <Image
         src={image}
         alt={alt}
         className={classNames(styles.image, className)}
