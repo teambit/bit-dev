@@ -21,6 +21,12 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/buttons/button"
     },
+    "content/image": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "base-react/content/image"
+    },
     "entity/benefits": {
         "scope": "",
         "version": "",
@@ -51,6 +57,12 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/layout/grid"
     },
+    "navigation/link": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "base-react/navigation/link"
+    },
     "ui/benefits/benefits-card": {
         "scope": "",
         "version": "",
@@ -68,6 +80,12 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "community/ui/benefits/benefits-section"
+    },
+    "ui/brand/logo": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "design/ui/brand/logo"
     },
     "ui/buttons/button": {
         "scope": "",
@@ -122,12 +140,6 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "community/ui/images/image-strip"
-    },
-    "ui/brand/logo": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "design/ui/brand/logo"
     },
     "ui/pages/homepage": {
         "scope": "",
