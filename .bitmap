@@ -27,6 +27,12 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/content/image"
     },
+    "content/video": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "base-react/content/video"
+    },
     "entity/benefits": {
         "scope": "",
         "version": "",

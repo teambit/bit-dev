@@ -18,11 +18,11 @@ export function Homepage({ ...rest }: HomepageProps) {
           <Hero />
           <BenefitsSection
             benefits={benefits}
-            title="These are no longer a challenge"
+            title="Build Better. Build Scalable."
           />
           <UseCaseSection
             useCases={useCases}
-            title="These are no longer a challenge"
+            title="Make hard things simple."
             href="/"
             linkText="See more use cases"
           />

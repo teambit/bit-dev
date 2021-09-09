@@ -50,7 +50,7 @@ export function UseCaseCard({
         elevation={elevation}
         className={classNames(styles.useCaseCard, className)}
       >
-        <Image
+        <img
           src={image}
           alt={alt}
           className={classNames(styles.image, className)}

@@ -2,6 +2,7 @@ import React from 'react';
 import { Heading } from '@teambit/community.ui.heading';
 // TODO: move to be in `design` owned by @amir.
 import { Grid } from '@teambit/base-react.layout.grid';
+import { Video } from '@teambit/base-react.content.video';
 import { Subtitle } from '@teambit/documenter.ui.sub-title';
 import { Button } from '@teambit/design.ui.buttons.button';
 import graphImg from './graph.png';
@@ -28,7 +29,7 @@ export function Hero({ title, teaser }: HeroProps) {
         <Button>Getting Started</Button>
       </div>  
       <div>
-        <img src={graphImg} />
+        <Video autoPlay loop src="https://static.bit.dev/Community/hero/hero-video-1.mp4" />
       </div>
     </Grid>
   );

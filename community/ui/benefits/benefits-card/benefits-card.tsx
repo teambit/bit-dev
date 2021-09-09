@@ -34,7 +34,7 @@ export function BenefitsCard({
 }: BenefitsCardProps) {
   return (
     <div className={classNames(styles.benefitsCard, className)}>
-      <Image
+      <img
         src={image}
         alt={alt}
         className={classNames(styles.image, className)}
