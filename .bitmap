@@ -93,6 +93,12 @@
         "mainFile": "index.ts",
         "rootDir": "design/ui/buttons/button"
     },
+    "ui/content/subtitle": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "design/ui/content/subtitle"
+    },
     "ui/github-stars": {
         "scope": "",
         "version": "",

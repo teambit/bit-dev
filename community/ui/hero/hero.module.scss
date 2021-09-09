@@ -1,4 +1,7 @@
 
 .hero {
   width: 100%;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  grid-gap: 24px;
 }

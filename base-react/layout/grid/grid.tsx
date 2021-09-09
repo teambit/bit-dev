@@ -1,16 +1,23 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
+import classNames from 'classnames';
+import styles from './grid.module.scss';
 
 export type GridProps = {
   /**
    * a text to be rendered in the component.
    */
-  text: string
-};
+  children: ReactNode,
 
-export function Grid({ text }: GridProps) {
+  /**
+   * class name to inject.
+   */
+  className: string
+} & React.HTMLAttributes<HTMLDivElement>;
+
+export function Grid({ children, className, ...rest }: GridProps) {
   return (
-    <div>
-      {text}
+    <div className={classNames(styles.grid, className)} {...rest}>
+      {children}
     </div>
   );
 }

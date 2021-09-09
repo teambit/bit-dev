@@ -1,8 +1,10 @@
 import React from 'react';
 import { Heading } from '@teambit/community.ui.heading';
 // TODO: move to be in `design` owned by @amir.
+import { Grid } from '@teambit/base-react.layout.grid';
 import { Subtitle } from '@teambit/documenter.ui.sub-title';
 import { Button } from '@teambit/design.ui.buttons.button';
+import graphImg from './graph.png';
 import styles from './hero.module.scss';
 
 export type HeroProps = {
@@ -19,11 +21,16 @@ export type HeroProps = {
 
 export function Hero({ title, teaser }: HeroProps) {
   return (
-    <div className={styles.hero}>
-      <Heading>{title}</Heading>
-      <Subtitle>{teaser}</Subtitle>
-      <Button>Getting Started</Button>
-    </div>
+    <Grid className={styles.hero}>
+      <div>
+        <Heading>{title}</Heading>
+        <Subtitle>{teaser}</Subtitle>
+        <Button>Getting Started</Button>
+      </div>  
+      <div>
+        <img src={graphImg} />
+      </div>
+    </Grid>
   );
 }
 
