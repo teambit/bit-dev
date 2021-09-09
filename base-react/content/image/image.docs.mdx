@@ -1,11 +1,34 @@
 ---
 description: A standard and accessible Image component
-labels: ['label1', 'label2', 'label3']
+labels: ['image', 'background image', 'react', 'ui']
 ---
 
 import { Image } from './image';
 
+This component can be used to render an image or a backgound image using the `isBackground` prop. 
+
 ### Component usage
-```js
-<Image text="hello from Image" />
+
+A simple image.
+
+```js live
+<Image src="https://static.bit.dev/bit-logo.svg" alt="bit logo" />
+```
+
+When using as a backgound image, `height` should be supplied via css or inline styles in order to display. `background-size` should also be supplied in order for background to render correctly
+```js live
+<Image isBackground
+    src="https://static.bit.dev/homepage-bit/backgrounds/01-purple-gradient.svg"
+    style={{
+      width: 600,
+      backgroundSize: "contain",
+      height: 500,
+      color: "white",
+      display: "flex",
+      alignItems: "center",
+      flexDirection: "column",
+      justifyContent: "flex-start",
+    }}>
+    content over the background image
+    </Image>
 ```
