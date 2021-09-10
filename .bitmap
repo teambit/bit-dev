@@ -57,6 +57,12 @@
         "mainFile": "index.ts",
         "rootDir": "community/envs/bitdev-react"
     },
+    "generator/component-templates": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "base-react/generator/component-templates"
+    },
     "layout/grid": {
         "scope": "",
         "version": "",

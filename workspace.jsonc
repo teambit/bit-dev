@@ -1,7 +1,7 @@
 /**
  * this is the main configuration file of your bit workspace.
  * for full documentation, please see: https://harmony-docs.bit.dev/workspace/configurations
- **/{
+ **/ {
   "$schema": "https://static.bit.dev/teambit/schemas/schema.json",
   /**
    * main configuration of the Bit workspace.
@@ -27,9 +27,13 @@
     /**
      * default scope for all components in workspace.
      **/
-    "defaultScope": "teambit.community"
+    "defaultScope": "teambit.base-react"
   },
-  "teambit.community/apps/bit-dev": {},
+  // "teambit.community/apps/bit-dev": {},
+  "teambit.generator/generator": {
+    "aspects": ["teambit.base-react/generator/component-templates"]
+  },
+  "teambit.base-react/generator/component-templates": {},
   /**
    * main configuration for component dependency resolution.
    **/
@@ -81,9 +85,7 @@
       }
     },
     "packageManagerArgs": [],
-    "devFilePatterns": [
-      "**/*.spec.ts"
-    ],
+    "devFilePatterns": ["**/*.spec.ts"],
     "strictPeerDependencies": true,
     "installFromBitDevRegistry": true,
     "savePrefix": ""
@@ -99,7 +101,7 @@
     "{ui/**}": {
       "teambit.community/envs/bitdev-react": {}
     },
-    "{envs/**}, {extensions/*}, {apps/*}, {aspects/*}": {
+    "{envs/**}, {extensions/*}, {apps/*}, {aspects/*}, {generator/*}": {
       "teambit.harmony/aspect": {}
     },
     "base-react": {
