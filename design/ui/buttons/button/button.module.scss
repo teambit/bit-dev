@@ -5,10 +5,17 @@
   border: none;
   height: 48px;
   width: 168px;
+  text-align: center;
   font-size: 16px;
   color: #FFF;
   cursor: pointer;
   font-family: 'CircularPro';
+  text-decoration: none;
+
+  a {
+    position: relative;
+    top: 25%;  
+  }
 }
 
 .secondary {

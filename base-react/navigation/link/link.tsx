@@ -1,18 +1,15 @@
 import React from 'react';
+import { useRouter, LinkProps } from '@teambit/base-react.navigation.router-context';
 
-export type LinkProps = {
-  /**
-   * a text to be rendered in the component.
-   */
-  text: string,
+export type { LinkProps };
+
+export function Link(props: LinkProps) {
+  const { Link } = useRouter();
+  if (Link && !props.native) {
+    return <Link {...props} />;
+  }
 
   
-};
 
-export function Link({ text }: LinkProps) {
-  return (
-    <div>
-      {text}
-    </div>
-  );
+  return <a {...props} />;
 }

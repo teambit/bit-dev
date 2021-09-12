@@ -8,3 +8,7 @@ export const BasicButton = () => (
 export const SecondaryButton = () => {
   return <Button secondary>Watch video</Button>;
 };
+
+export const LinkButton = () => {
+  return <Button href="http://twitter.com">Getting Started</Button>;
+};

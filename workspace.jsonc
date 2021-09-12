@@ -29,10 +29,10 @@
      **/
     "defaultScope": "teambit.base-react"
   },
-  // "teambit.community/apps/bit-dev": {},
-  "teambit.generator/generator": {
-    "aspects": ["teambit.base-react/generator/component-templates"]
-  },
+  "teambit.community/apps/bit-dev": {},
+  // "teambit.generator/generator": {
+  //   "aspects": ["teambit.base-react/generator/component-templates"]
+  // },
   "teambit.base-react/generator/component-templates": {},
   /**
    * main configuration for component dependency resolution.
@@ -102,6 +102,7 @@
       "teambit.community/envs/bitdev-react": {}
     },
     "{envs/**}, {extensions/*}, {apps/*}, {aspects/*}, {generator/*}": {
+      "teambit.react/react": "-",
       "teambit.harmony/aspect": {}
     },
     "base-react": {

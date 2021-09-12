@@ -2,41 +2,43 @@ import React, { ReactNode, useRef } from 'react';
 import { useButton } from '@react-aria/button';
 import type { AriaButtonProps } from '@react-types/button';
 
-export type ButtonElementType = 'div' | 'a' | 'button' | 'span';
+export type ButtonElementType = 'a' | 'button';
 
-export type ButtonProps = {
+export type ButtonProps = AriaButtonProps & {
   /**
    * children of the Button.
    */
   children: ReactNode,
 
   /**
-   * element type to use. could be either 'div' | 'a' | 'span' | 'button'
+   * link to target page. once href is used, Button is considered an A tag.
    */
-  elementType?: ButtonElementType,
+  href?: string,
 
   /**
    * class names to inject.
    */
   className?: string
-} & React.ButtonHTMLAttributes<HTMLButtonElement> & AriaButtonProps;
+} & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export function Button(props: ButtonProps) {
   const ref = useRef();
-  const elementType = props.elementType || 'button';
-  const Element = elementType;
 
   const { buttonProps } = useButton({
     ...props,
-    elementType: props.elementType
+    elementType: props.href ? 'a' : undefined
   }, ref);
 
   const allProps = {
-    ...props,
-    ...buttonProps
-  }
+    ...buttonProps,
+    ...props
+  };
   
   return (
-    <Element ref={ref} {...allProps}>{props.children}</Element>
+    <div>
+      {!props.href 
+        ? <button ref={ref} {...allProps}>{props.children}</button> 
+        : <div className={props.className}><a ref={ref} className="" {...allProps}>{props.children}</a></div>}
+    </div>
   );
 }

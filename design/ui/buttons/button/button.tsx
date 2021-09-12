@@ -10,7 +10,7 @@ export type ButtonProps = {
   children?: ReactNode,
 
   /**
-   * use  secondary style
+   * use secondary style.
    */
   secondary?: boolean,
 

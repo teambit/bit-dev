@@ -5,7 +5,6 @@ import { Grid } from '@teambit/base-react.layout.grid';
 import { Video } from '@teambit/base-react.content.video';
 import { Subtitle } from '@teambit/documenter.ui.sub-title';
 import { Button } from '@teambit/design.ui.buttons.button';
-import graphImg from './graph.png';
 import styles from './hero.module.scss';
 
 export type HeroProps = {
@@ -26,7 +25,7 @@ export function Hero({ title, teaser }: HeroProps) {
       <div>
         <Heading>{title}</Heading>
         <Subtitle>{teaser}</Subtitle>
-        <Button>Getting Started</Button>
+        <Button href="http://bit.dev">Getting Started</Button>
       </div>  
       <div>
         <Video autoPlay loop src="https://static.bit.dev/Community/hero/hero-video-1.mp4" />

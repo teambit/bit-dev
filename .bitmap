@@ -75,6 +75,18 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/navigation/link"
     },
+    "navigation/router-context": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "base-react/navigation/router-context"
+    },
+    "navigation/use-location": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "base-react/navigation/use-location"
+    },
     "ui/benefits/benefits-card": {
         "scope": "",
         "version": "",

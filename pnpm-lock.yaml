@@ -27,7 +27,6 @@ importers:
       '@teambit/harmony': registry.npmjs.org/@teambit/harmony/0.2.11
       '@teambit/react.templates.themes.theme': 0.0.3_8bea2159e6cd5f1e2e43db9fc3829767
       '@testing-library/react': registry.npmjs.org/@testing-library/react/12.0.0_react-dom@16.13.1+react@16.13.1
-      '@types/react-router': registry.npmjs.org/@types/react-router/5.1.16
       classnames: registry.npmjs.org/classnames/2.3.1
       core-js: registry.npmjs.org/core-js/3.17.3
       millify: registry.npmjs.org/millify/4.0.0
@@ -42,6 +41,7 @@ importers:
       '@types/node': registry.npmjs.org/@types/node/12.20.4
       '@types/react': registry.npmjs.org/@types/react/17.0.20
       '@types/react-dom': registry.npmjs.org/@types/react-dom/17.0.9
+      '@types/react-router': registry.npmjs.org/@types/react-router/5.1.16
       '@types/react-router-dom': registry.npmjs.org/@types/react-router-dom/5.1.8
       '@types/testing-library__jest-dom': registry.npmjs.org/@types/testing-library__jest-dom/5.9.5
     specifiers:
@@ -92,6 +92,8 @@ importers:
   base-react/content/image:
     specifiers: {}
   base-react/content/video:
+    specifiers: {}
+  base-react/generator/component-templates:
     specifiers: {}
   base-react/layout/grid:
     specifiers: {}
@@ -1674,6 +1676,7 @@ packages:
       tarball: https://registry.npmjs.org/@types/aria-query/-/aria-query-4.2.2.tgz
     version: 4.2.2
   registry.npmjs.org/@types/history/4.7.9:
+    dev: true
     name: '@types/history'
     resolution:
       integrity: sha512-MUc6zSmU3tEVnkQ78q0peeEjKWPUADMlC/t++2bI8WnAG2tvYRPIgHG8lWkXwqc8MsUF6Z2MOf+Mh5sazOmhiQ==
@@ -1724,6 +1727,7 @@ packages:
       tarball: https://registry.npmjs.org/@types/node/-/node-12.20.4.tgz
     version: 12.20.4
   registry.npmjs.org/@types/prop-types/15.7.4:
+    dev: true
     name: '@types/prop-types'
     resolution:
       integrity: sha512-rZ5drC/jWjrArrS8BR6SIr4cWpW09RNTYt9AMZo3Jwwif+iacXAqgVjm0B0Bv/S1jhDXKHqRVNCbACkJ89RAnQ==
@@ -1756,6 +1760,7 @@ packages:
     dependencies:
       '@types/history': registry.npmjs.org/@types/history/4.7.9
       '@types/react': registry.npmjs.org/@types/react/17.0.20
+    dev: true
     name: '@types/react-router'
     resolution:
       integrity: sha512-8d7nR/fNSqlTFGHti0R3F9WwIertOaaA1UEB8/jr5l5mDMOs4CidEgvvYMw4ivqrBK+vtVLxyTj2P+Pr/dtgzg==
@@ -1777,6 +1782,7 @@ packages:
       '@types/prop-types': registry.npmjs.org/@types/prop-types/15.7.4
       '@types/scheduler': registry.npmjs.org/@types/scheduler/0.16.2
       csstype: registry.npmjs.org/csstype/3.0.8
+    dev: true
     name: '@types/react'
     resolution:
       integrity: sha512-wWZrPlihslrPpcKyCSlmIlruakxr57/buQN1RjlIeaaTWDLtJkTtRW429MoQJergvVKc4IWBpRhWw7YNh/7GVA==
@@ -1784,6 +1790,7 @@ packages:
       tarball: https://registry.npmjs.org/@types/react/-/react-17.0.20.tgz
     version: 17.0.20
   registry.npmjs.org/@types/scheduler/0.16.2:
+    dev: true
     name: '@types/scheduler'
     resolution:
       integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==
@@ -2062,6 +2069,7 @@ packages:
       tarball: https://registry.npmjs.org/core-util-is/-/core-util-is-1.0.3.tgz
     version: 1.0.3
   registry.npmjs.org/csstype/3.0.8:
+    dev: true
     name: csstype
     resolution:
       integrity: sha512-jXKhWqXPmlUeoQnF/EhTtTl4C9SnrxSH/jZUih3jmO6lBKr99rP3/+FmrMj4EFpOXzMtXHAZkd3x0E6h6Fgflw==
