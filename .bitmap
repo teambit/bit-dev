@@ -165,17 +165,11 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/hooks/use-stars"
     },
-    "ui/images/image": {
+    "ui/logo-showcase": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "community/ui/images/image"
-    },
-    "ui/images/image-strip": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "community/ui/images/image-strip"
+        "rootDir": "community/ui/logo-showcase"
     },
     "ui/navigation/link": {
         "scope": "",

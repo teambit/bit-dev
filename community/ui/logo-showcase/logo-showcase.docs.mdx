@@ -1,9 +1,9 @@
 ---
-description: 'Strip of Images with animation'
-labels: ['image', 'strip']
+description: 'Collection of Logos with animation'
+labels: ['logos', 'showcase']
 ---
 
-import { ImageStrip } from './image-strip';
+import { LogoShowcase } from './logo-showcase';
 import { FigmaEmbed } from '@teambit/design.embeds.figma';
 import { clientLogos } from '@teambit/community.entity.images';
 
@@ -18,7 +18,7 @@ Import some mock data from an external source and pass it to the `images` prop.
 ```js
 import { clientLogos } from '@teambit/community.entity.images';
 
-<ImageStrip data-testid="test-image-strip" logos={clientLogos} />;
+<LogoShowcase data-testid="test-logo-showcase" logos={clientLogos} />;
 ```
 
 ### Live Playgournd
@@ -26,14 +26,14 @@ import { clientLogos } from '@teambit/community.entity.images';
 Add an array of images to the `images` prop.
 
 ```js live
-<ImageStrip
+<LogoShowcase
   images={[
     {
-      src: 'homepage-enterprise-logos/Dell.svg',
+      src: 'https://static.bit.dev/homepage-enterprise-logos/Dell.svg',
       alt: 'dell'
     },
     {
-      src: 'homepage-enterprise-logos/Carlsberg-1.svg',
+      src: 'https://static.bit.dev/homepage-enterprise-logos/Carlsberg-1.svg',
       alt: 'Carlsberg'
     }
   ]}

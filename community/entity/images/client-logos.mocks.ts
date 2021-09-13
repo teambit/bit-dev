@@ -1,22 +1,22 @@
 export const clientLogos = [
   {
-    src: 'homepage-enterprise-logos/Dell.svg',
+    src: 'https://static.bit.dev/homepage-enterprise-logos/Dell.svg',
     alt: 'Dell'
   },
   {
-    src: 'homepage-enterprise-logos/ebay.svg',
+    src: 'https://static.bit.dev/homepage-enterprise-logos/ebay.svg',
     alt: 'ebay'
   },
   {
-    src: 'homepage-enterprise-logos/Tesla.svg',
+    src: 'https://static.bit.dev/homepage-enterprise-logos/Tesla.svg',
     alt: 'Tesla'
   },
   {
-    src: 'homepage-enterprise-logos/at&t.svg',
+    src: 'https://static.bit.dev/homepage-enterprise-logos/at&t.svg',
     alt: 'AT&T'
   },
   {
-    src: 'homepage-enterprise-logos/Moodys.svg',
+    src: 'https://static.bit.dev/homepage-enterprise-logos/Moodys.svg',
     alt: 'Moodys'
   },
   {
@@ -24,11 +24,11 @@ export const clientLogos = [
     alt: 'Carlsberg'
   },
   {
-    src: 'homepage-enterprise-logos/Autodesk.svg',
+    src: 'https://static.bit.dev/homepage-enterprise-logos/Autodesk.svg',
     alt: 'Autodesk'
   },
   {
-    src: 'homepage-enterprise-logos/HOOPP.svg',
+    src: 'https://static.bit.dev/homepage-enterprise-logos/HOOPP.svg',
     alt: 'HOOPP'
   }
 ];
