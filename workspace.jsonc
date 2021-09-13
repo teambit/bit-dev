@@ -27,9 +27,9 @@
     /**
      * default scope for all components in workspace.
      **/
-    "defaultScope": "teambit.base-react"
+    "defaultScope": "teambit.community"
   },
-  "teambit.community/apps/bit-dev": {},
+  // "teambit.community/apps/bit-dev": {},
   // "teambit.generator/generator": {
   //   "aspects": ["teambit.base-react/generator/component-templates"]
   // },

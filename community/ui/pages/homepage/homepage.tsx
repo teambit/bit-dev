@@ -5,8 +5,8 @@ import { UseCasesSection } from '@teambit/community.ui.use-cases.use-cases-secti
 import { FeaturesSection } from '@teambit/community.ui.features.features-section';
 import { useCases } from '@teambit/community.entity.use-cases';
 import { features } from '@teambit/community.entity.features';
-import styles from './homepage.module.scss';
 import { LogoShowcase } from '@teambit/community.ui.logo-showcase';
+import styles from './homepage.module.scss';
 
 export type HomepageProps = {} & React.HTMLAttributes<HTMLDivElement>;
 
