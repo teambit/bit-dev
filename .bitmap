@@ -45,6 +45,12 @@
         "mainFile": "index.ts",
         "rootDir": "community/entity/images"
     },
+    "entity/links": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/entity/links"
+    },
     "entity/use-cases": {
         "scope": "",
         "version": "",
@@ -194,6 +200,12 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "community/ui/plugins/plugin-group"
+    },
+    "ui/sticky-menu": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/sticky-menu"
     },
     "ui/theme/base-theme": {
         "scope": "",

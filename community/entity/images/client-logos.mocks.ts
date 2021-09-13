@@ -20,7 +20,7 @@ export const clientLogos = [
     alt: 'Moodys'
   },
   {
-    src: 'homepage-enterprise-logos/Carlsberg-1.svg',
+    src: 'https://static.bit.dev/homepage-enterprise-logos/Carlsberg-1.svg',
     alt: 'Carlsberg'
   },
   {

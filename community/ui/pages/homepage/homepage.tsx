@@ -6,6 +6,7 @@ import { FeaturesSection } from '@teambit/community.ui.features.features-section
 import { useCases } from '@teambit/community.entity.use-cases';
 import { features } from '@teambit/community.entity.features';
 import { LogoShowcase } from '@teambit/community.ui.logo-showcase';
+import { StickyMenu } from '@teambit/community.ui.sticky-menu';
 import styles from './homepage.module.scss';
 
 export type HomepageProps = {} & React.HTMLAttributes<HTMLDivElement>;
@@ -31,6 +32,30 @@ export function Homepage({ ...rest }: HomepageProps) {
           <LogoShowcase images={clientLogos} />
         </div>
       </section>
+      <StickyMenu
+        links={[
+          {
+            href: '#compose',
+            text: 'Compose'
+          },
+          {
+            href: '#collaborate',
+            text: 'Collaborate'
+          },
+          {
+            href: '#release',
+            text: 'Release'
+          },
+          {
+            href: '#Standardize',
+            text: 'Standardize'
+          },
+          {
+            href: '#extend',
+            text: 'Extend'
+          }
+        ]}
+      />
     </div>
   );
 }
