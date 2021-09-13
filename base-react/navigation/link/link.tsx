@@ -1,5 +1,9 @@
-import React from 'react';
-import { useRouter, LinkProps } from '@teambit/base-react.navigation.router-context';
+import React from "react";
+import {
+  useRouter,
+  LinkProps,
+} from "@teambit/base-react.navigation.router-context";
+import { NativeLink } from "./native-link";
 
 export type { LinkProps };
 
@@ -9,7 +13,5 @@ export function Link(props: LinkProps) {
     return <Link {...props} />;
   }
 
-  
-
-  return <a {...props} />;
+  return <NativeLink {...props} />;
 }
