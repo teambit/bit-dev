@@ -87,6 +87,12 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/navigation/use-location"
     },
+    "theme/create-theme": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "base-react/theme/create-theme"
+    },
     "ui/benefits/benefits-card": {
         "scope": "",
         "version": "",
@@ -171,6 +177,12 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/images/image-strip"
     },
+    "ui/navigation/link": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "design/ui/navigation/link"
+    },
     "ui/pages/homepage": {
         "scope": "",
         "version": "",
@@ -188,6 +200,18 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "community/ui/plugins/plugin-group"
+    },
+    "ui/theme/base-theme": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "design/ui/theme/base-theme"
+    },
+    "ui/themes/light-theme": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "design/ui/themes/light-theme"
     },
     "ui/use-case/use-case-card": {
         "scope": "",
