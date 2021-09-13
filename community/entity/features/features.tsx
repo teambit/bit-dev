@@ -1,15 +1,15 @@
 export enum ProductType {
-  product = 'benefits'
+  product = 'features'
 }
 
-export type BenefitsFromApi = {
+export type FeaturesFromApi = {
   title?: string;
   text?: string;
   image?: string;
   alt?: string;
 };
 
-export class Benefits {
+export class Features {
   constructor(
     /**
      * an image to be rendered in the card.
@@ -27,12 +27,12 @@ export class Benefits {
      * a text for the card
      */
     public text?: string
-    /**
-     * a href for internal link for the card
-     */
-  ) {}
+  ) /**
+   * a href for internal link for the card
+   */
+  {}
 
-  static fromApiObject(object: BenefitsFromApi) {
-    return new Benefits(object.image, object.alt, object.title, object.text);
+  static fromApiObject(object: FeaturesFromApi) {
+    return new Features(object.image, object.alt, object.title, object.text);
   }
 }

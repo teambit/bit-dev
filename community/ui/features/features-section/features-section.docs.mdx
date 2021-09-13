@@ -1,0 +1,62 @@
+---
+description: 'Section for the features'
+labels: ['section', 'features']
+---
+
+import { FeaturesSection } from './features-section';
+import { FigmaEmbed } from '@teambit/design.embeds.figma';
+import { features } from '@teambit/community.entity.features';
+
+## Overview
+
+Shows the features section.
+
+### Component usage
+
+Import the mock data from the entity component and pass it to the features prop to show the list of features.
+
+```js
+import { features } from '@teambit/community.entity.features';
+
+<FeaturesSection features={features} title="Build better. Build scalable. " />;
+```
+
+### Live Playgournd
+
+Modify the props to see it change live:
+
+```js live
+<FeaturesSection
+  features={[
+    {
+      title: 'Distributed',
+      text: 'Component ownership is distributed across developer teams',
+      image: 'https://static.bit.dev/Community/features/distributed.svg',
+      alt: 'distributed'
+    },
+    {
+      title: 'Maintainable',
+      text: 'Components are easy to replace and refactor over time.',
+      image: 'https://static.bit.dev/Community/features/maintainable.svg',
+      alt: 'maintainable'
+    },
+    {
+      title: 'Visible',
+      text: 'Every component is developed in isolation and is its own package.',
+      image: 'https://static.bit.dev/Community/features/visibile.svg',
+      alt: 'visible'
+    },
+    {
+      title: 'Reusable',
+      text: 'Every component is a reusable API which can be used to collaborate with anyone.',
+      image: 'https://static.bit.dev/Community/features/reusable.svg',
+      alt: 'reusable'
+    }
+  ]}
+  title="Build better. Build scalable. "
+/>
+```
+
+## Design
+
+<FigmaEmbed src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FctC1w9YhJvqaO1EZ08gLOV%2FCommunity%3Fnode-id%3D12%253A1316" />

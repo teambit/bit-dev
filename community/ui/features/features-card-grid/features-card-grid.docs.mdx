@@ -1,0 +1,60 @@
+---
+description: 'grid showing features'
+labels: ['features', 'grid']
+---
+
+import { FeaturesCardGrid } from './features-card-grid';
+import { FigmaEmbed } from '@teambit/design.embeds.figma';
+
+## Overview
+
+A grid of cards showing the features.
+
+### Component usage
+
+Import some mock data from an external source and pass it to the `features` prop.
+
+```js
+import { features } from '@teambit/community.entity.features';
+
+<FeaturesCardGrid features={features} />;
+```
+
+### Live Playgournd
+
+Add an array of use cases to the `features` prop.
+
+```js live
+<FeaturesCardGrid
+  features={[
+    {
+      title: 'Distributed',
+      text: 'Component ownership is distributed across developer teams',
+      image: 'https://static.bit.dev/Community/features/distributed.svg',
+      alt: 'distributed'
+    },
+    {
+      title: 'Maintainable',
+      text: 'Components are easy to replace and refactor over time.',
+      image: 'https://static.bit.dev/Community/features/maintainable.svg',
+      alt: 'maintainable'
+    },
+    {
+      title: 'Visible',
+      text: 'Every component is developed in isolation and is its own package.',
+      image: 'https://static.bit.dev/Community/features/visibile.svg',
+      alt: 'visible'
+    },
+    {
+      title: 'Reusable',
+      text: 'Every component is a reusable API which can be used to collaborate with anyone.',
+      image: 'https://static.bit.dev/Community/features/reusable.svg',
+      alt: 'reusable'
+    }
+  ]}
+/>
+```
+
+## Design
+
+<FigmaEmbed src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FctC1w9YhJvqaO1EZ08gLOV%2FCommunity%3Fnode-id%3D232%253A2640" />

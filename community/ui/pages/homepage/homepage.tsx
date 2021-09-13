@@ -3,9 +3,9 @@ import { Hero } from '@teambit/community.ui.hero';
 import { ImageStrip } from '@teambit/community.ui.images.image-strip';
 import { clientLogos } from '@teambit/community.entity.images';
 import { UseCaseSection } from '@teambit/community.ui.use-case.use-case-section';
-import { BenefitsSection } from '@teambit/community.ui.benefits.benefits-section';
+import { FeaturesSection } from '@teambit/community.ui.features.features-section';
 import { useCases } from '@teambit/community.entity.use-cases';
-import { benefits } from '@teambit/community.entity.benefits';
+import { features } from '@teambit/community.entity.features';
 import styles from './homepage.module.scss';
 
 export type HomepageProps = {} & React.HTMLAttributes<HTMLDivElement>;
@@ -16,8 +16,8 @@ export function Homepage({ ...rest }: HomepageProps) {
       <section>
         <div className={styles.grid}>
           <Hero />
-          <BenefitsSection
-            benefits={benefits}
+          <FeaturesSection
+            features={features}
             title="Build Better. Build Scalable."
           />
           <UseCaseSection
