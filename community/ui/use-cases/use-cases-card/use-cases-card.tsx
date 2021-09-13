@@ -7,9 +7,9 @@ import { Paragraph } from '@teambit/base-ui.text.paragraph';
 import { NativeNavLink } from '@teambit/base-ui.routing.native-nav-link';
 import { Image } from '@teambit/base-react.content.image';
 
-import styles from './use-case-card.module.scss';
+import styles from './use-cases-card.module.scss';
 
-export type UseCaseCardProps = {
+export type UseCasesCardProps = {
   /**
    * an image to be rendered in the card
    */
@@ -32,7 +32,7 @@ export type UseCaseCardProps = {
   href: string;
 } & CardProps;
 
-export function UseCaseCard({
+export function UseCasesCard({
   image,
   alt,
   elevation = 'none',
@@ -42,19 +42,22 @@ export function UseCaseCard({
   className,
   href,
   ...rest
-}: UseCaseCardProps) {
+}: UseCasesCardProps) {
   return (
     <NativeNavLink href={href} className={classNames(styles.link, className)}>
       <Card
         {...rest}
         elevation={elevation}
-        className={classNames(styles.useCaseCard, className)}
+        className={classNames(styles.useCasesCard, className)}
       >
-        <Image
-          src={image}
-          alt={alt}
-          className={classNames(styles.image, className)}
-        />
+        <div className={styles.images}>
+          <Image
+            src={image}
+            alt={alt}
+            className={classNames(styles.image, className)}
+          />
+        </div>
+
         <div className={styles.textBox}>
           <H4 size="sm" className={classNames(styles.title, className)}>
             {title} <Icon of="arrow_right" className={styles.arrowIcon} />

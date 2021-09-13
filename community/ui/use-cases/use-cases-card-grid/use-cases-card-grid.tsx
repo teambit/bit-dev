@@ -1,9 +1,9 @@
 import React from 'react';
-import { UseCaseCard } from '@teambit/community.ui.use-case.use-case-card';
+import { UseCasesCard } from '@teambit/community.ui.use-cases.use-cases-card';
 import { UseCases } from '@teambit/community.entity.use-cases';
-import styles from './use-case-card-grid.module.scss';
+import styles from './use-cases-card-grid.module.scss';
 
-export type UseCaseCardGridProps = {
+export type UseCasesCardGridProps = {
   /**
    * An object of use cases with title and text and icon props
    */
@@ -13,11 +13,11 @@ export type UseCaseCardGridProps = {
 /**
  * A section showing all the available use cases<br/>
  */
-export function UseCaseCardGrid({ useCases, ...rest }: UseCaseCardGridProps) {
+export function UseCasesCardGrid({ useCases, ...rest }: UseCasesCardGridProps) {
   return (
-    <div className={styles.useCaseCardGrid} {...rest}>
+    <div className={styles.UseCasesCardGrid} {...rest}>
       {useCases.map((useCase) => (
-        <UseCaseCard
+        <UseCasesCard
           key={useCase.title}
           title={useCase.title}
           text={useCase.text}

@@ -1,15 +1,15 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { BasicUseCaseCard } from './use-case-card.composition';
+import { BasicuseCasesCard } from './use-cases-card.composition';
 
 it('should render with a title', () => {
-  const { getByText } = render(<BasicUseCaseCard />);
+  const { getByText } = render(<BasicuseCasesCard />);
   const rendered = getByText('Component Library');
   expect(rendered).toBeTruthy();
 });
 
 it('should render with a text', () => {
-  const { getByText } = render(<BasicUseCaseCard />);
+  const { getByText } = render(<BasicuseCasesCard />);
   const rendered = getByText(
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis semper, quam sed.'
   );
@@ -17,19 +17,19 @@ it('should render with a text', () => {
 });
 
 it('should contain an image', () => {
-  render(<BasicUseCaseCard />);
+  render(<BasicuseCasesCard />);
   const displayedImage = document.querySelector('img') as HTMLImageElement;
   expect(displayedImage.src).toContain('logo-react');
 });
 
 it('image should contain an alt tag', () => {
-  const { getByAltText } = render(<BasicUseCaseCard />);
+  const { getByAltText } = render(<BasicuseCasesCard />);
   const rendered = getByAltText('React logo');
   expect(rendered).toBeTruthy();
 });
 
 it('image should contain a link', () => {
-  const { getByAltText } = render(<BasicUseCaseCard />);
+  const { getByAltText } = render(<BasicuseCasesCard />);
   const displayedImage = document.querySelector('a') as HTMLAnchorElement;
   expect(displayedImage.href).toContain('/react');
 });

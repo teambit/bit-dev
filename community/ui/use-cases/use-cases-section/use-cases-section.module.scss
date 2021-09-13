@@ -1,4 +1,4 @@
-.useCaseSection {
+.UseCasesSection {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,7 +14,7 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .useCaseSection {
+  .UseCasesSection {
     display: flex;
     flex-direction: column;
     justify-content: center;

@@ -207,23 +207,23 @@
         "mainFile": "index.ts",
         "rootDir": "design/ui/themes/light-theme"
     },
-    "ui/use-case/use-case-card": {
+    "ui/use-cases/use-cases-card": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "community/ui/use-case/use-case-card"
+        "rootDir": "community/ui/use-cases/use-cases-card"
     },
-    "ui/use-case/use-case-card-grid": {
+    "ui/use-cases/use-cases-card-grid": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "community/ui/use-case/use-case-card-grid"
+        "rootDir": "community/ui/use-cases/use-cases-card-grid"
     },
-    "ui/use-case/use-case-section": {
+    "ui/use-cases/use-cases-section": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "community/ui/use-case/use-case-section"
+        "rootDir": "community/ui/use-cases/use-cases-section"
     },
     "$schema-version": "14.9.0"
 }

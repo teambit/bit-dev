@@ -1,7 +1,7 @@
 import React from 'react';
 import { Hero } from '@teambit/community.ui.hero';
 import { clientLogos } from '@teambit/community.entity.images';
-import { UseCaseSection } from '@teambit/community.ui.use-case.use-case-section';
+import { UseCasesSection } from '@teambit/community.ui.use-cases.use-cases-section';
 import { FeaturesSection } from '@teambit/community.ui.features.features-section';
 import { useCases } from '@teambit/community.entity.use-cases';
 import { features } from '@teambit/community.entity.features';
@@ -20,7 +20,7 @@ export function Homepage({ ...rest }: HomepageProps) {
             features={features}
             title="Build Better. Build Scalable."
           />
-          <UseCaseSection
+          <UseCasesSection
             useCases={useCases}
             title="Make hard things simple."
             href="/"

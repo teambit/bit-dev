@@ -3,7 +3,7 @@ description: 'Secction for Use Cases'
 labels: ['section', 'use case']
 ---
 
-import { UseCaseSection } from './use-case-section';
+import { UseCasesSection } from './use-cases-section';
 import { FigmaEmbed } from '@teambit/design.embeds.figma';
 import { useCases } from '@teambit/community.entity.use-cases';
 
@@ -14,9 +14,9 @@ Shows the use case section.
 ### Component usage
 
 ```js
-import { useCases } from '@teambit/community.entity.use-cases';
+import { UseCases } from '@teambit/community.entity.use-cases';
 
-<UseCaseSection
+<UseCasesSection
   useCases={useCases}
   title="These are no longer a challenge"
   href="/"
@@ -29,7 +29,7 @@ import { useCases } from '@teambit/community.entity.use-cases';
 Modify the props to see it change live:
 
 ```js live
-<UseCaseSection
+<UseCasesSection
   useCases={useCases}
   title="These are no longer a challenge"
   href="/"

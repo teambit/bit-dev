@@ -1,4 +1,4 @@
-.useCaseCard {
+.useCasesCard {
   border: 1px solid var(--bit-border-color-lightest, #ededed);
   padding: 10px;
   display: flex;
@@ -20,6 +20,9 @@
   font-size: 14px;
   padding-left: 2px;
 }
+.images {
+  text-align: left;
+}
 .image {
-  width: 40px;
+  height: 40px;
 }
