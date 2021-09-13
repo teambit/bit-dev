@@ -99,6 +99,12 @@ importers:
     specifiers: {}
   base-react/navigation/link:
     specifiers: {}
+  base-react/navigation/router-context:
+    specifiers: {}
+  base-react/navigation/use-location:
+    specifiers: {}
+  base-react/theme/create-theme:
+    specifiers: {}
   base-ui/layout/grid:
     specifiers: {}
   community/apps/bit-dev:
@@ -152,6 +158,12 @@ importers:
   design/ui/content/subtitle:
     specifiers: {}
   design/ui/logo:
+    specifiers: {}
+  design/ui/navigation/link:
+    specifiers: {}
+  design/ui/theme/base-theme:
+    specifiers: {}
+  design/ui/themes/light-theme:
     specifiers: {}
 lockfileVersion: 5.2
 packages:

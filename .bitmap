@@ -33,11 +33,11 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/content/video"
     },
-    "entity/benefits": {
+    "entity/features": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "community/entity/benefits"
+        "rootDir": "community/entity/features"
     },
     "entity/images": {
         "scope": "",
@@ -93,24 +93,6 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/theme/create-theme"
     },
-    "ui/benefits/benefits-card": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "community/ui/benefits/benefits-card"
-    },
-    "ui/benefits/benefits-card-grid": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "community/ui/benefits/benefits-card-grid"
-    },
-    "ui/benefits/benefits-section": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "community/ui/benefits/benefits-section"
-    },
     "ui/brand/logo": {
         "scope": "",
         "version": "",
@@ -128,6 +110,24 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "design/ui/content/subtitle"
+    },
+    "ui/features/features-card": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/features/features-card"
+    },
+    "ui/features/features-card-grid": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/features/features-card-grid"
+    },
+    "ui/features/features-section": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/features/features-section"
     },
     "ui/github-stars": {
         "scope": "",

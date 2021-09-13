@@ -1,0 +1,20 @@
+.featuresCard {
+  display: flex;
+  flex-direction: column;
+  max-width: 342px;
+  text-align: center;
+  align-items: center;
+}
+.title {
+  margin: 10px 0;
+  color: var(--bit-text-color-heavy, #2b2b2b);
+}
+.text {
+  margin: 0;
+  color: var(--bit-text-color-light, #565656);
+}
+
+.image {
+  max-width: 310px;
+  height: 194px;
+}
