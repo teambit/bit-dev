@@ -38,7 +38,7 @@ export type { ${context.namePascalCase}Props } from './${context.name}';
               relativePath: `${context.name}.tsx`,
               content: `import React from 'react';
 import classNames from 'classnames';
-import styles from './${context.name}.scss';
+import styles from './${context.name}.module.scss';
 
 
 export type ${context.namePascalCase}Props = {
@@ -65,7 +65,7 @@ description: '${context.namePascalCase}'
 labels: ['label1', 'label2', 'label3']
 ---
 
-import { ${context.namePascalCase} } from './${context.name};
+import { ${context.namePascalCase} } from './${context.name}';
 import { FigmaEmbed } from '@teambit/design.embeds.figma';
 
 ## Overview
