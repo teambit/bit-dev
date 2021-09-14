@@ -1,10 +1,10 @@
-import React from 'react';
-import { UseCaseCardGrid } from '@teambit/community.ui.use-case.use-case-card-grid';
-import { UseCases } from '@teambit/community.entity.use-cases';
-import { H2 } from '@teambit/design.ui.heading';
-import { NativeNavLink } from '@teambit/base-ui.routing.native-nav-link';
-import { Icon } from '@teambit/design.elements.icon';
-import styles from './use-case-section.module.scss';
+import React from "react";
+import { UseCaseCardGrid } from "@teambit/community.ui.use-case.use-case-card-grid";
+import { UseCases } from "@teambit/community.entity.use-cases";
+import { H2 } from "@teambit/design.ui.heading";
+import { Link } from "@teambit/design.ui.navigation.link";
+import { Icon } from "@teambit/design.elements.icon";
+import styles from "./use-case-section.module.scss";
 
 export type UseCaseSectionProps = {
   /**
@@ -29,15 +29,13 @@ export function UseCaseSection({
   useCases,
   title,
   href,
-  linkText
+  linkText,
 }: UseCaseSectionProps) {
   return (
     <div className={styles.useCaseSection}>
       <div className={styles.heading}>
         <H2 className={styles.title}>{title}</H2>
-        <NativeNavLink href={href} className={styles.link}>
-          {linkText}
-        </NativeNavLink>
+        <Link href={href}>{linkText}</Link>
         <Icon of="right-arrow" className={styles.icon} />
       </div>
       <UseCaseCardGrid useCases={useCases} />

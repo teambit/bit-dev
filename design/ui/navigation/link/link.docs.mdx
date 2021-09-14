@@ -1,22 +1,15 @@
 ---
-description: 'A Link component.'
-labels: ['label1', 'label2', 'label3']
+description: 'A designed navigation link.'
+labels: ['react', 'ui', 'link']
 ---
 
 import { Link } from './link';
 
-## React Component for rendering text
 
-A basic div that renders some text
+A designed link to be used all across the app. It is composed over `base-react`'s link and has a fallback native link.
 
 ### Component usage
 ```js
-<Link text="hello from Link" />
+<Link href="https://bit.dev">Go to bit.dev</Link>
 ```
 
-### Using props to customize the text
-
-Modify the text to see it change live:
-```js live
-<Link text="hello from Link" />
-```
