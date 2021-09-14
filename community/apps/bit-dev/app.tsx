@@ -18,13 +18,13 @@ export function BitDevApp() {
         <Header />
         <Switch>
           <WideColumn>
-            <Route exact path="/">
-              <Homepage />
-            </Route>
             <Route exact path="/plugins">
               <Plugins />
             </Route>
             <Route path="/about">{/* about page component */}</Route>
+            <Route path="/">
+              <Homepage />
+            </Route>
           </WideColumn>
         </Switch>
         {/* footer component */}
