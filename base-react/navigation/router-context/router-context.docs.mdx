@@ -1,22 +1,22 @@
 ---
-description: 'A RouterContext component.'
-labels: ['label1', 'label2', 'label3']
+description: "Isomorphic link provder."
+labels: ["react", "routing", "context"]
 ---
 
-import { RouterContext } from './router-context';
+Sets the underlying implementation of links in the project.
 
-## React Component for rendering text
+As simple as:
 
-A basic div that renders some text
+```tsx
+import { link, useLocation } from "react-router-dom";
+import { RoutingProvider } from "./router-context-provider";
 
-### Component usage
-```js
-<RouterContext text="hello from RouterContext" />
-```
+const routingSystem = {
+  Link: ({ to, ...rest }) => <Link {...rest} to={href} />,
+  useLocation: useLocation,
+};
 
-### Using props to customize the text
+// ...
 
-Modify the text to see it change live:
-```js live
-<RouterContext text="hello from RouterContext" />
+return <RoutingProvider value={{ routingSystem }}>{children}</RoutingProvider>;
 ```
