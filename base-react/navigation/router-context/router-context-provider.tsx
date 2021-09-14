@@ -11,11 +11,13 @@ export type RouterContextProviderProps = {
   /**
    * implementation of a useLocation hook. 
    */
-  useLocation?: UseLocation
+  useLocation?: UseLocation,
+
+  children?: React.ReactChild
 };
 
-export function RouterContextProvider(props: RouterContextProviderProps) {
+export function RouterContextProvider({children,  ...rest}: RouterContextProviderProps) {
   return (
-    <RouterContext.Provider value={{ ...props }}></RouterContext.Provider>
+    <RouterContext.Provider value={{ ...rest }}>{children}</RouterContext.Provider>
   );
 }

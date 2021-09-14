@@ -114,6 +114,9 @@
     },
     "community": {
       "defaultScope": "teambit.community"
+    },
+    "ui-foundation": {
+      "defaultScope": "teambit.ui-foundation"
     }
   }
 }
