@@ -115,7 +115,11 @@ importers:
     specifiers: {}
   community/entity/benefits:
     specifiers: {}
+  community/entity/features:
+    specifiers: {}
   community/entity/images:
+    specifiers: {}
+  community/entity/links:
     specifiers: {}
   community/entity/use-cases:
     specifiers: {}
@@ -128,6 +132,12 @@ importers:
   community/ui/benefits/benefits-section:
     specifiers: {}
   community/ui/browser:
+    specifiers: {}
+  community/ui/features/features-card:
+    specifiers: {}
+  community/ui/features/features-card-grid:
+    specifiers: {}
+  community/ui/features/features-section:
     specifiers: {}
   community/ui/github-stars:
     specifiers: {}
@@ -145,11 +155,15 @@ importers:
     specifiers: {}
   community/ui/images/image-strip:
     specifiers: {}
+  community/ui/logo-showcase:
+    specifiers: {}
   community/ui/pages/homepage:
     specifiers: {}
   community/ui/pages/plugins:
     specifiers: {}
   community/ui/plugins/plugin-group:
+    specifiers: {}
+  community/ui/sticky-menu:
     specifiers: {}
   community/ui/terminal:
     specifiers: {}
@@ -158,6 +172,12 @@ importers:
   community/ui/use-case/use-case-card-grid:
     specifiers: {}
   community/ui/use-case/use-case-section:
+    specifiers: {}
+  community/ui/use-cases/use-cases-card:
+    specifiers: {}
+  community/ui/use-cases/use-cases-card-grid:
+    specifiers: {}
+  community/ui/use-cases/use-cases-section:
     specifiers: {}
   design/ui/brand/logo:
     specifiers: {}

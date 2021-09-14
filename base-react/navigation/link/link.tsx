@@ -9,7 +9,5 @@ export function Link(props: LinkProps) {
     return <Link {...props} />;
   }
 
-  
-
   return <a {...props} />;
 }
