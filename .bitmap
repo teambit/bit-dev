@@ -117,6 +117,12 @@
         "mainFile": "index.ts",
         "rootDir": "design/ui/brand/logo"
     },
+    "ui/browser": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/browser"
+    },
     "ui/buttons/button": {
         "scope": "",
         "version": "",
@@ -200,6 +206,12 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "community/ui/plugins/plugin-group"
+    },
+    "ui/terminal": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/terminal"
     },
     "ui/theme/base-theme": {
         "scope": "",

@@ -45,9 +45,9 @@ export function NavLinks({links}: NavLinksProps) {
     <div className={styles.navLinks}>
       {links.map((item, index) => (
         (item.href) ?
-        <Placeholder className={styles.link}>
+        <Placeholder key={index} className={styles.link}>
           {item.href.startsWith('http://') ? 
-          <ExternalLink key={index} href={item.href}>{item.title}</ExternalLink>
+          <ExternalLink href={item.href}>{item.title}</ExternalLink>
           : <Link to={item.href}>{item.title}</Link>
           }
           

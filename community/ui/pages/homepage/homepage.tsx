@@ -18,7 +18,7 @@ export function Homepage({ ...rest }: HomepageProps) {
           <Hero />
           <BenefitsSection
             benefits={benefits}
-            title="Build Better. Build Scalable."
+            title="Better software is built in components"
           />
           <UseCaseSection
             useCases={useCases}
