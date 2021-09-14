@@ -5,10 +5,10 @@ labels: ['image', 'background image', 'react', 'ui']
 
 import { Image } from './image';
 
-A standard React background image component. Promotes alternative text, long description and textual fallbacks for images as 
+A standard React background image component. Promotes alternative text, long description and textual fallbacks for images as
 well as supporting the rendering of the image as a background image.
 
-### Component usage
+### Component Usage
 
 A simple image.
 
@@ -17,19 +17,22 @@ A simple image.
 ```
 
 When using as a backgound image, `height` should be supplied via css or inline styles in order to display. `background-size` should also be supplied in order for background to render correctly
+
 ```js live
-<Image isBackground
-    src="https://static.bit.dev/homepage-bit/backgrounds/01-purple-gradient.svg"
-    style={{
-      width: 600,
-      backgroundSize: "contain",
-      height: 500,
-      color: "white",
-      display: "flex",
-      alignItems: "center",
-      flexDirection: "column",
-      justifyContent: "flex-start",
-    }}>
-    content over the background image
-    </Image>
+<Image
+  isBackground
+  src="https://static.bit.dev/homepage-bit/backgrounds/01-purple-gradient.svg"
+  style={{
+    width: 600,
+    backgroundSize: 'contain',
+    height: 500,
+    color: 'white',
+    display: 'flex',
+    alignItems: 'center',
+    flexDirection: 'column',
+    justifyContent: 'flex-start'
+  }}
+>
+  content over the background image
+</Image>
 ```

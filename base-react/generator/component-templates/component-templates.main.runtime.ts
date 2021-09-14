@@ -68,11 +68,9 @@ labels: ['label1', 'label2', 'label3']
 import { ${context.namePascalCase} } from './${context.name}';
 import { FigmaEmbed } from '@teambit/design.embeds.figma';
 
-## Overview
-
 Detailed description of the component.
 
-### Component usage
+### Component Usage
 
 How to use the component.
 
