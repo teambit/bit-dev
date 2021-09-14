@@ -1,51 +1,31 @@
-### Configuring your Generator
+---
+description: Custom Component Generator
+labels: ['generator', 'templates']
+---
 
-Edit your `workspace.jsonc` file and set this component to use the `teambit.harmony/aspect` env under the variants object.
+Use the generator to generate custom component templates with the `bit create` command. All available components can be seen when running `bit templates`.
 
-```json
-"teambit.workspace/variants": {
-  "{my-components}": {
-    "teambit.harmony/aspect": {}
-  },
-}
-```
+### Configuring the Generator
 
-To check if your component is using the correct env you can run `bit envs` or `bit show my-components`
-
-Edit your `workspace.jsonc` file and add the component id, (scope name / component name) to teambit generator. This should go at root level. The component id can be found in the `aspect.ts` file:
+Add the following to your `workspace.jsonc` file to enable the generator:
 
 ```json
-{
-  "teambit.generator/generator": {
-    "aspects": ["my-scope-name/my-components"]
-  },
+"teambit.generator/generator": {
+  "aspects": ["company.scope/generator/component-templates"]
 }
+"teambit.base-react/generator/component-templates": {}
 ```
 
 This registers the component aspect so that your templates will appear in the CLI when you run `bit templates`.
 
-### Modifying your Generator
+```bash
+bit templates
+```
 
-The `my-components.main.runtime.ts` file contains an array of templates that you can modify and add to to create different templates and numerous files to be generated.
-
-### Using your Generator
+### Using the Generator
 
 Use your generator to create the component files
 
 ```bash
-bit create my-components component1
+bit create my-react ui/button
 ```
-
-### Exporting your Generator
-
-Tag and export your generator component so you can use it in any other workspace. Make sure the scope name is set correctly in the `aspect.ts` file before tagging and exporting. Once you have tagged and exported the component you can add it to the `workspace.jsonc` file in the workspace where you want to use this generator.
-
-```json
-{
-  "teambit.generator/generator": {
-    "aspects": ["my-scope-name/my-components"]
-  },
-}
-```
-
-Run `bit templates` to see your generator and then use it to generate you components.

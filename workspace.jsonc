@@ -1,7 +1,7 @@
 /**
  * this is the main configuration file of your bit workspace.
  * for full documentation, please see: https://harmony-docs.bit.dev/workspace/configurations
- **/ {
+ **/{
   "$schema": "https://static.bit.dev/teambit/schemas/schema.json",
   /**
    * main configuration of the Bit workspace.
@@ -27,7 +27,7 @@
     /**
      * default scope for all components in workspace.
      **/
-    "defaultScope": "teambit.base-react"
+    "defaultScope": "teambit.community"
   },
   "teambit.community/apps/bit-dev": {},
   // "teambit.generator/generator": {
@@ -70,13 +70,15 @@
         "@teambit/explorer.ui.gallery.component-grid": "0.0.435",
         "@teambit/harmony": "0.2.11",
         "@teambit/react.templates.themes.theme": "0.0.3",
+        "@teambit/react.ui.component-highlighter": "0.0.445",
         "@testing-library/react-hooks": "7.0.1",
         "@types/react-router": "5.1.16",
         "@types/react-router-dom": "5.1.8",
         "classnames": "2.3.1",
         "millify": "4.0.0",
         "react-router": "5.2.1",
-        "react-router-dom": "5.2.0"
+        "react-router-dom": "5.2.0",
+        "react-terminal": "1.2.1"
       },
       "peerDependencies": {
         "@testing-library/react": "12.0.0",
@@ -85,7 +87,9 @@
       }
     },
     "packageManagerArgs": [],
-    "devFilePatterns": ["**/*.spec.ts"],
+    "devFilePatterns": [
+      "**/*.spec.ts"
+    ],
     "strictPeerDependencies": true,
     "installFromBitDevRegistry": true,
     "savePrefix": ""

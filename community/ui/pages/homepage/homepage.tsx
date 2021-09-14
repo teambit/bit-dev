@@ -1,11 +1,12 @@
 import React from 'react';
 import { Hero } from '@teambit/community.ui.hero';
-import { ImageStrip } from '@teambit/community.ui.images.image-strip';
 import { clientLogos } from '@teambit/community.entity.images';
-import { UseCaseSection } from '@teambit/community.ui.use-case.use-case-section';
-import { BenefitsSection } from '@teambit/community.ui.benefits.benefits-section';
+import { UseCasesSection } from '@teambit/community.ui.use-cases.use-cases-section';
+import { FeaturesSection } from '@teambit/community.ui.features.features-section';
 import { useCases } from '@teambit/community.entity.use-cases';
-import { benefits } from '@teambit/community.entity.benefits';
+import { features } from '@teambit/community.entity.features';
+import { LogoShowcase } from '@teambit/community.ui.logo-showcase';
+import { StickyMenu } from '@teambit/community.ui.sticky-menu';
 import styles from './homepage.module.scss';
 
 export type HomepageProps = {} & React.HTMLAttributes<HTMLDivElement>;
@@ -16,21 +17,45 @@ export function Homepage({ ...rest }: HomepageProps) {
       <section>
         <div className={styles.grid}>
           <Hero />
-          <BenefitsSection
-            benefits={benefits}
-            title="Build Better. Build Scalable."
+          <FeaturesSection
+            features={features}
+            title="Better software is built in components"
           />
-          <UseCaseSection
+          <UseCasesSection
             useCases={useCases}
-            title="Make hard things simple."
+            title="That makes hard things simple."
             href="/"
             linkText="See more use cases"
           />
         </div>
         <div className={styles.imageStripSection}>
-          <ImageStrip images={clientLogos} />
+          <LogoShowcase images={clientLogos} />
         </div>
       </section>
+      <StickyMenu
+        links={[
+          {
+            href: '#compose',
+            text: 'Compose'
+          },
+          {
+            href: '#collaborate',
+            text: 'Collaborate'
+          },
+          {
+            href: '#release',
+            text: 'Release'
+          },
+          {
+            href: '#Standardize',
+            text: 'Standardize'
+          },
+          {
+            href: '#extend',
+            text: 'Extend'
+          }
+        ]}
+      />
     </div>
   );
 }
