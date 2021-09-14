@@ -1,10 +1,10 @@
 import React from "react";
-import { UseCasesCardGrid } from "@teambit/community.ui.use-case.use-case-card-grid";
+import { UseCasesCardGrid } from "@teambit/community.ui.use-cases.use-cases-card-grid";
 import { UseCases } from "@teambit/community.entity.use-cases";
 import { H2 } from "@teambit/design.ui.heading";
 import { Link } from "@teambit/design.ui.navigation.link";
 import { Icon } from "@teambit/design.elements.icon";
-import styles from "./use-case-section.module.scss";
+import styles from "./use-cases-section.module.scss";
 
 export type UseCasesSectionProps = {
   /**
