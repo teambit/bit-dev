@@ -1,0 +1,65 @@
+---
+description: 'StickyMenu'
+labels: ['label1', 'label2', 'label3']
+---
+
+import { StickyMenu } from './sticky-menu';
+import { FigmaEmbed } from '@teambit/design.embeds.figma';
+
+## Overview
+
+Sticky menu that stays on the screen as you scroll down.
+
+### Component usage
+
+Add an array of links to the `links` prop.
+
+```js
+<StickyMenu
+  links={[
+    {
+      href: '#compose',
+      text: 'Compose'
+    },
+    {
+      href: '#Collaborate',
+      text: 'Collaborate'
+    }
+  ]}
+/>
+```
+
+### Live Playground
+
+Modify the props and see the changes in the live playground.
+
+```js live
+<StickyMenu
+  links={[
+    {
+      href: '#compose',
+      text: 'Compose'
+    },
+    {
+      href: '#collaborate',
+      text: 'Collaborate'
+    },
+    {
+      href: '#release',
+      text: 'Release'
+    },
+    {
+      href: '#Standardize',
+      text: 'Standardize'
+    },
+    {
+      href: '#extend',
+      text: 'Extend'
+    }
+  ]}
+/>
+```
+
+### Design
+
+<FigmaEmbed src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FctC1w9YhJvqaO1EZ08gLOV%2FCommunity%3Fnode-id%3D9%253A1027" />

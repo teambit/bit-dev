@@ -1,0 +1,19 @@
+.stickyMenu {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 12px 8px;
+  padding-bottom: 5px;
+  position: sticky;
+  a {
+    text-decoration: none;
+    margin-right: 20px;
+    color: var(--bit-text-color), #414141;
+  }
+
+  a:active,
+  a:hover {
+    color: var(--bit-accent-heavy), #5d4aec;
+    border-bottom: 1px solid var(--bit-accent-heavy);
+  }
+}

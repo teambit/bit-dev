@@ -33,17 +33,23 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/content/video"
     },
-    "entity/benefits": {
+    "entity/features": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "community/entity/benefits"
+        "rootDir": "community/entity/features"
     },
     "entity/images": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "community/entity/images"
+    },
+    "entity/links": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/entity/links"
     },
     "entity/use-cases": {
         "scope": "",
@@ -93,35 +99,11 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/theme/create-theme"
     },
-    "ui/benefits/benefits-card": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "community/ui/benefits/benefits-card"
-    },
-    "ui/benefits/benefits-card-grid": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "community/ui/benefits/benefits-card-grid"
-    },
-    "ui/benefits/benefits-section": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "community/ui/benefits/benefits-section"
-    },
     "ui/brand/logo": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "design/ui/brand/logo"
-    },
-    "ui/browser": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "community/ui/browser"
     },
     "ui/buttons/button": {
         "scope": "",
@@ -134,6 +116,30 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "design/ui/content/subtitle"
+    },
+    "ui/features/features-card": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/features/features-card"
+    },
+    "ui/browser": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/browser"
+    },
+    "ui/features/features-card-grid": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/features/features-card-grid"
+    },
+    "ui/features/features-section": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/features/features-section"
     },
     "ui/github-stars": {
         "scope": "",
@@ -171,17 +177,11 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/hooks/use-stars"
     },
-    "ui/images/image": {
+    "ui/logo-showcase": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "community/ui/images/image"
-    },
-    "ui/images/image-strip": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "community/ui/images/image-strip"
+        "rootDir": "community/ui/logo-showcase"
     },
     "ui/navigation/link": {
         "scope": "",
@@ -213,6 +213,12 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/terminal"
     },
+    "ui/sticky-menu": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/sticky-menu"
+    },
     "ui/theme/base-theme": {
         "scope": "",
         "version": "",
@@ -225,23 +231,23 @@
         "mainFile": "index.ts",
         "rootDir": "design/ui/themes/light-theme"
     },
-    "ui/use-case/use-case-card": {
+    "ui/use-cases/use-cases-card": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "community/ui/use-case/use-case-card"
+        "rootDir": "community/ui/use-cases/use-cases-card"
     },
-    "ui/use-case/use-case-card-grid": {
+    "ui/use-cases/use-cases-card-grid": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "community/ui/use-case/use-case-card-grid"
+        "rootDir": "community/ui/use-cases/use-cases-card-grid"
     },
-    "ui/use-case/use-case-section": {
+    "ui/use-cases/use-cases-section": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "community/ui/use-case/use-case-section"
+        "rootDir": "community/ui/use-cases/use-cases-section"
     },
     "$schema-version": "14.9.0"
 }
