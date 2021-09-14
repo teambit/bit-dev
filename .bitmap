@@ -81,6 +81,12 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/navigation/link"
     },
+    "navigation/nav-link": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "ui-foundation/navigation/nav-link"
+    },
     "navigation/router-context": {
         "scope": "",
         "version": "",
@@ -105,6 +111,12 @@
         "mainFile": "index.ts",
         "rootDir": "design/ui/brand/logo"
     },
+    "ui/browser": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/browser"
+    },
     "ui/buttons/button": {
         "scope": "",
         "version": "",
@@ -122,12 +134,6 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "community/ui/features/features-card"
-    },
-    "ui/browser": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "community/ui/browser"
     },
     "ui/features/features-card-grid": {
         "scope": "",
@@ -189,6 +195,18 @@
         "mainFile": "index.ts",
         "rootDir": "design/ui/navigation/link"
     },
+    "ui/navigation/nav-link": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "design/ui/navigation/nav-link"
+    },
+    "ui/navigation/react-router/link": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "ui-foundation/ui/navigation/react-router/link"
+    },
     "ui/pages/homepage": {
         "scope": "",
         "version": "",
@@ -207,17 +225,17 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/plugins/plugin-group"
     },
-    "ui/terminal": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "community/ui/terminal"
-    },
     "ui/sticky-menu": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "community/ui/sticky-menu"
+    },
+    "ui/terminal": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/terminal"
     },
     "ui/theme/base-theme": {
         "scope": "",
