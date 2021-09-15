@@ -5,7 +5,7 @@ export const BasicImage = () => (
   <Image
     src="https://static.bit.dev/bit-logo.svg"
     loading="lazy"
-    alt="bit-logo"
+    alt="bit logo"
   />
 );
 export const BackgroundImage = () => (
