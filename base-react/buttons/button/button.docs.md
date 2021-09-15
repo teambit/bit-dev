@@ -11,7 +11,6 @@ On the surface level, building a custom styled Button might seem simple. In real
 
 ### Red button example
 
-
 ```ts live=true
-<Button style={{ 'background': 'red' }}>Click here!</Button>
+<Button style={{ background: 'red' }}>Click here!</Button>
 ```
