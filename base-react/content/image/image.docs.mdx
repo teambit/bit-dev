@@ -13,7 +13,11 @@ well as supporting the rendering of the image as a background image.
 A simple image.
 
 ```js live
-<Image src="https://static.bit.dev/bit-logo.svg" alt="bit logo" />
+<Image
+  src="https://static.bit.dev/bit-logo.svg"
+  alt="bit logo"
+  loading="lazy"
+/>
 ```
 
 When using as a backgound image, `height` should be supplied via css or inline styles in order to display. `background-size` should also be supplied in order for background to render correctly
