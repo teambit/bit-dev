@@ -9,7 +9,7 @@ export type ImageProps = {
   isBackground?: boolean;
 
   /**
-   * alternative text for the image.
+   *  Informative elements should aim for short, descriptive alternate text. Decorative elements can be ignored with an empty alt attribute.
    */
   alt?: string;
 

@@ -5,12 +5,34 @@ labels: ['image', 'background image', 'react', 'ui']
 
 import { Image } from './image';
 
-A standard React background image component. Promotes alternative text, long description and textual fallbacks for images as
-well as supporting the rendering of the image as a background image.
+A standard React background image component. Promotes alternative text, native lazy loading, long description and textual fallbacks for images as well as supporting the rendering of the image as a background image.
 
-### Component Usage
+### An image with alt tag
 
-A simple image.
+Alt text should give the intent, purpose, and meaning of the image. Blind users should get as much information from alt text as a sighted user gets from the image.
+
+Read more about [alt tags](https://web.dev/image-alt/).
+
+```js live
+<Image src="https://static.bit.dev/bit-logo.svg" alt="bit logo" />
+```
+
+### A decorative image with empty alt tag
+
+Decorative images are used for layout or non-informative purposes, and do not appear within a link. They should contain an empty alt attribute.
+
+Read more about [decorative images](https://webaim.org/techniques/alttext/#decorative).
+
+```js live
+<Image src="https://webaim.org/techniques/alttext/media/separator.gif" alt="" />
+```
+
+### A lazy loaded image
+
+- lazy: Defer loading of the resource until it reaches a calculated distance from the viewport.
+- eager: Load the resource immediately, regardless of where it's located on the page.
+
+Read more about [lazy loading](https://web.dev/browser-level-image-lazy-loading/).
 
 ```js live
 <Image
@@ -20,7 +42,11 @@ A simple image.
 />
 ```
 
+### A background image
+
 When using as a backgound image, `height` should be supplied via css or inline styles in order to display. `background-size` should also be supplied in order for background to render correctly
+
+Read more about [background images](https://developer.mozilla.org/en-US/docs/Web/CSS/background-image).
 
 ```js live
 <Image

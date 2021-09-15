@@ -2,7 +2,11 @@ import React from 'react';
 import { Image } from './image';
 
 export const BasicImage = () => (
-  <Image src="https://static.bit.dev/bit-logo.svg" loading="lazy" />
+  <Image
+    src="https://static.bit.dev/bit-logo.svg"
+    loading="lazy"
+    alt="bit-logo"
+  />
 );
 export const BackgroundImage = () => (
   <Image
@@ -19,6 +23,6 @@ export const BackgroundImage = () => (
       justifyContent: 'center'
     }}
   >
-    <>children displayed over the backgound image</>
+    <>children displayed over the background image</>
   </Image>
 );
