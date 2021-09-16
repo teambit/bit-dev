@@ -105,6 +105,30 @@
         "mainFile": "index.ts",
         "rootDir": "design/ui/brand/logo"
     },
+    "ui/browser": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/browser"
+    },
+    "ui/bubble-graph/bubble": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/bubble-graph/bubble"
+    },
+    "ui/bubble-graph/bubble-edge": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/bubble-graph/bubble-edge"
+    },
+    "ui/bubble-graph/bubble-graph": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/bubble-graph/bubble-graph"
+    },
     "ui/buttons/button": {
         "scope": "",
         "version": "",
@@ -122,12 +146,6 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "community/ui/features/features-card"
-    },
-    "ui/browser": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "community/ui/browser"
     },
     "ui/features/features-card-grid": {
         "scope": "",
@@ -207,17 +225,17 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/plugins/plugin-group"
     },
-    "ui/terminal": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "community/ui/terminal"
-    },
     "ui/sticky-menu": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "community/ui/sticky-menu"
+    },
+    "ui/terminal": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/terminal"
     },
     "ui/theme/base-theme": {
         "scope": "",

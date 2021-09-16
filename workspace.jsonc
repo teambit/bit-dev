@@ -78,7 +78,8 @@
         "millify": "4.0.0",
         "react-router": "5.2.1",
         "react-router-dom": "5.2.0",
-        "react-terminal": "1.2.1"
+        "react-terminal": "1.2.1",
+        "react-xarrows": "2.0.2"
       },
       "peerDependencies": {
         "@testing-library/react": "12.0.0",

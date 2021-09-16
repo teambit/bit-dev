@@ -36,6 +36,7 @@ importers:
       react-router: registry.npmjs.org/react-router/5.2.1_react@16.13.1
       react-router-dom: registry.npmjs.org/react-router-dom/5.2.0_react@16.13.1
       react-terminal: registry.npmjs.org/react-terminal/1.2.1_react-dom@16.13.1+react@16.13.1
+      react-xarrows: registry.npmjs.org/react-xarrows/2.0.2_react@16.13.1
     devDependencies:
       '@teambit/design.embeds.figma': registry.npmjs.org/@teambit/design.embeds.figma/0.0.3_react-dom@16.13.1+react@16.13.1
       '@testing-library/react-hooks': registry.npmjs.org/@testing-library/react-hooks/7.0.1_react-dom@16.13.1+react@16.13.1
@@ -91,6 +92,7 @@ importers:
       react-router: 5.2.1
       react-router-dom: 5.2.0
       react-terminal: 1.2.1
+      react-xarrows: 2.0.2
   base-react/buttons/button:
     specifiers: {}
   base-react/content/image:
@@ -2274,7 +2276,6 @@ packages:
       tarball: https://registry.npmjs.org/@types/node/-/node-12.20.4.tgz
     version: 12.20.4
   registry.npmjs.org/@types/prop-types/15.7.4:
-    dev: true
     name: '@types/prop-types'
     resolution:
       integrity: sha512-rZ5drC/jWjrArrS8BR6SIr4cWpW09RNTYt9AMZo3Jwwif+iacXAqgVjm0B0Bv/S1jhDXKHqRVNCbACkJ89RAnQ==
@@ -3512,6 +3513,22 @@ packages:
       registry: https://node.bit.dev/
       tarball: https://registry.npmjs.org/react-tooltip/-/react-tooltip-3.11.6.tgz
     version: 3.11.6
+  registry.npmjs.org/react-xarrows/2.0.2_react@16.13.1:
+    dependencies:
+      '@types/prop-types': registry.npmjs.org/@types/prop-types/15.7.4
+      lodash: registry.npmjs.org/lodash/4.17.21
+      prop-types: registry.npmjs.org/prop-types/15.7.2
+      react: registry.npmjs.org/react/16.13.1
+    dev: false
+    id: registry.npmjs.org/react-xarrows/2.0.2
+    name: react-xarrows
+    peerDependencies:
+      react: '>=16.8.0'
+    resolution:
+      integrity: sha512-tDlAqaxHNmy0vegW/6NdhoWyXJq1LANX/WUAlHyzoHe9BwFVnJPPDghmDjYeVr7XWFmBrVTUrHsrW7GKYI6HtQ==
+      registry: https://node.bit.dev/
+      tarball: https://registry.npmjs.org/react-xarrows/-/react-xarrows-2.0.2.tgz
+    version: 2.0.2
   registry.npmjs.org/react/16.13.1:
     dependencies:
       loose-envify: registry.npmjs.org/loose-envify/1.4.0

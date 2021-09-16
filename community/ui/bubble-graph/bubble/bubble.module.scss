@@ -1,0 +1,15 @@
+
+.bubble {
+  box-sizing: border-box;
+  border: 2px solid #EDEDED;
+  border-radius: 50%;
+  width: 58px;
+  height: 58px;
+  position: relative;
+
+  svg {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+  }
+}
