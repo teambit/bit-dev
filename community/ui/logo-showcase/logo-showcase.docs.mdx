@@ -7,23 +7,19 @@ import { LogoShowcase } from './logo-showcase';
 import { FigmaEmbed } from '@teambit/design.embeds.figma';
 import { clientLogos } from '@teambit/community.entity.images';
 
-## Overview
+A showcase of logos with gentle animation. Lazy loading is added by default for all images but can be overridden with the `loading` prop.
 
-A strip of images with gentle animation. Lazy loading is added by default for all images but can be overridden with the `loading` prop.
+### Client logos from imported Json
 
-### Component usage
-
-Import some mock data from an external source and pass it to the `images` prop.
+Imports mock data in json format from the entity component which contains an array of logos.
 
 ```js
 import { clientLogos } from '@teambit/community.entity.images';
 
-<LogoShowcase data-testid="test-logo-showcase" logos={clientLogos} />;
+<LogoShowcase logos={clientLogos} />;
 ```
 
-### Live Playgournd
-
-Add an array of images to the `images` prop.
+### Showcase of Logos with array of objects
 
 ```js live
 <LogoShowcase

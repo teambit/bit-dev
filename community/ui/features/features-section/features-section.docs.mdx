@@ -7,13 +7,14 @@ import { FeaturesSection } from './features-section';
 import { FigmaEmbed } from '@teambit/design.embeds.figma';
 import { features } from '@teambit/community.entity.features';
 
-## Overview
+Complete section component for the Features to be used in a page component. This component contains:
 
-Shows the features section.
+- the section title
+- a grid of features cards
 
-### Component usage
+### Section showing Features with imported Json
 
-Import the mock data from the entity component and pass it to the features prop to show the list of features.
+Imports mock data in json format from the entity component which contains an array of features.
 
 ```js
 import { features } from '@teambit/community.entity.features';
@@ -21,9 +22,7 @@ import { features } from '@teambit/community.entity.features';
 <FeaturesSection features={features} title="Build better. Build scalable. " />;
 ```
 
-### Live Playgournd
-
-Modify the props to see it change live:
+### Section showing Features with array of objects
 
 ```js live
 <FeaturesSection

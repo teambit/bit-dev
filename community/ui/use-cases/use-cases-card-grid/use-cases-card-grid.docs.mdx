@@ -6,13 +6,11 @@ labels: ['label1', 'label2', 'label3']
 import { UseCasesCardGrid } from './use-cases-card-grid';
 import { FigmaEmbed } from '@teambit/design.embeds.figma';
 
-## Overview
+Grid of Use Cases Cards.
 
-A grid of cards showing the use cases.
+### Grid of Use Cases Cards with imported Json
 
-### Component usage
-
-Import some mock data from an external source and pass it to the `useCasess` prop.
+Imports mock data in json format from the entity component which contains an array of use cases.
 
 ```js
 import { UseCases } from '@teambit/community.entity.use-cases';
@@ -20,9 +18,7 @@ import { UseCases } from '@teambit/community.entity.use-cases';
 <UseCasesCardGrid useCases={useCasess} />;
 ```
 
-### Live Playgournd
-
-Add an array of use cases to the `useCasess` prop.
+### Grid of Use Cases Cards with array of objects
 
 ```js live
 <UseCasesCardGrid

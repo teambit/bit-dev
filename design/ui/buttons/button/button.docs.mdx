@@ -5,18 +5,22 @@ labels: ['button', 'bit']
 
 import { Button } from './button';
 
-### Component usage
+A button component that can be used as a `<button>` or `<a>` element. Includes a prop for secondary button styling.
 
-Add the prop of secondary to get a secondary button. Accepts children so that text, icons etc can be rendered inside.
+### Primary Button
 
-```js
+```js live
 <Button>Get Started</Button>
 ```
 
-### Live Playground
-
-Modify the props to see it change live.
+### Secondary Button
 
 ```js live
 <Button secondary>Watch video</Button>
+```
+
+### Link Button
+
+```js live
+<Button href="http://twitter.com">Getting Started</Button>
 ```

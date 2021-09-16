@@ -1,22 +1,17 @@
 ---
-description: 'A PluginGroup component.'
-labels: ['label1', 'label2', 'label3']
+description: 'Group of Plugins'
+labels: ['plugins']
 ---
 
 import { PluginGroup } from './plugin-group';
+import { ComponentCard } from '@teambit/explorer.ui.gallery.component-card';
 
-## React Component for rendering text
+Group of Plugins with a title. Any components can be rendered inside.
 
-A basic div that renders some text
+### Component Usage
 
-### Component usage
-```js
-<PluginGroup text="hello from PluginGroup" />
-```
-
-### Using props to customize the text
-
-Modify the text to see it change live:
-```js live
-<PluginGroup text="hello from PluginGroup" />
+```ts live
+<PluginGroup title="hello from PluginGroup">
+  <ComponentCard id="teambit.react/react"></ComponentCard>
+</PluginGroup>
 ```
