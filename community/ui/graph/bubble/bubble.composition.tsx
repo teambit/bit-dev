@@ -1,4 +1,5 @@
 import React from 'react';
+import { ComponentID } from '@teambit/component-id';
 import { Bubble } from './bubble';
 
 export const BasicBubble = () => (
@@ -6,7 +7,8 @@ export const BasicBubble = () => (
 );
 
 export const ReactBubble = () => {
-  return <Bubble icon="https://static.bit.dev/brands/logo-react.svg" />
+  const id = ComponentID.fromString('teambit.community/ui/hero@1.0.0');
+  return <Bubble componentId={id} icon="https://static.bit.dev/brands/logo-react.svg" />
 };
 
 export const WithOpacity = () => {
@@ -14,5 +16,6 @@ export const WithOpacity = () => {
 };
 
 export const NodeJS = () => {
-  return <Bubble icon="https://static.bit.dev/brands/logo-nodejs.svg" />;
+  const id = ComponentID.fromString('teambit.community/entities/hero-bubbles@1.0.0');
+  return <Bubble componentId={id} icon="https://static.bit.dev/brands/logo-nodejs.svg" forceActive />;
 }

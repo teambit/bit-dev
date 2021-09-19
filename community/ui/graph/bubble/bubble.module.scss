@@ -12,18 +12,46 @@
     top: 5px;
     left: 5px;
   }
+  
+  .id {
+    display: none;
+  }
 
   &.active, &:hover {
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.12), 0px 2px 6px rgba(0, 0, 0, 0.24);
+    // box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.12), 0px 2px 6px rgba(0, 0, 0, 0.24);
     cursor: pointer;
+    width: 190px;
+    border-radius: 100px;
+    // make sure it animates transitioning out
+    transition: width 0.5s;
+    // change to color pallette
+
+    .id {
+      // make the text appear only after bubble opens up
+      display: block;
+      position: absolute;
+      left: 50px;
+      top: 10px;
+    }
+  }
+
+  &:hover {
+    border-color: #BABEC9;
+    transition: 0.5s;
   }
 }
 
 .icon {
   position: absolute;    
-  left: 29.3%;
+  left: 15px;
   top: 29.3%;
   height: 24px;
   width: 24px;
 }
 
+.versionLabel {
+  position: absolute;
+  bottom: -10px;
+  right: -10px;
+  font-size: 10px;
+}
