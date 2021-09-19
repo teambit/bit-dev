@@ -33,7 +33,12 @@ export function Hero({ title, teaser }: HeroProps) {
         const id = bubble.id.toString();
         const cell = getCell(bubble.row, bubble.col)
         const bubblePosition = bubble.position && positions[bubble.position];
-        return <Bubble key={id} componentId={bubble.id} style={{...cell, ...bubblePosition}} className={styles.fadedBuble} id={id} icon={bubble.icon} />
+        return (
+          <div className={styles.bubbleContainer}>
+            <Bubble key={id} componentId={bubble.id} style={{...cell, ...bubblePosition}} className={styles.bubble} id={id} icon={bubble.icon} />
+          </div>
+        )
+
       })}
         <Heading className={styles.title} id="community-ui-heading" highlight={heroState === HeroState.HEADING_UPDATED}>{title}</Heading>
         <Subtitle className={styles.subTitle} id="community-ui-subtitle">{teaser}</Subtitle>
@@ -42,14 +47,14 @@ export function Hero({ title, teaser }: HeroProps) {
           <CopyBox id="community-ui-copybox" className={styles.copyBox}>npx @teambit/bvm install</CopyBox>
         </div>
       <div className={styles.graphStart}>
-        <Bubble id="community-ui-hero" icon="https://static.bit.dev/brands/logo-react.svg" />
+        <Bubble className={styles.bubble} id="community-ui-hero" icon="https://static.bit.dev/brands/logo-react.svg" />
         <Edge start="community-ui-hero" end="community-ui-heading" />
         <Edge start="community-ui-hero" end="community-ui-subtitle" />
         {/* <Edge start="community-ui-hero" end="community-ui-button" /> */}
         <Edge start="community-ui-hero" end="community-ui-copybox" />
       </div>
-      <div style={{ gridColumnStart: 11, gridRowStart: 4 }}>
-        <Bubble id="community-ui-pages-homepage" icon="https://static.bit.dev/brands/logo-react.svg" />
+      <div style={{ gridColumnStart: 11, gridRowStart: 4 }} className={styles.bubbleContainer}>
+        <Bubble className={styles.bubble} id="community-ui-pages-homepage" icon="https://static.bit.dev/brands/logo-react.svg" />
       </div>
     </div>
   );
