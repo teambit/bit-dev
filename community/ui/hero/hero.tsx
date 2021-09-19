@@ -33,7 +33,7 @@ export function Hero({ title, teaser }: HeroProps) {
         const id = bubble.id.toString();
         const cell = getCell(bubble.row, bubble.col)
         const bubblePosition = bubble.position && positions[bubble.position];
-        return <Bubble key={id} style={{...cell, ...bubblePosition}} className={styles.fadedBuble} id={id} icon={bubble.icon} />
+        return <Bubble key={id} componentId={bubble.id} style={{...cell, ...bubblePosition}} className={styles.fadedBuble} id={id} icon={bubble.icon} />
       })}
         <Heading className={styles.title} id="community-ui-heading" highlight={heroState === HeroState.HEADING_UPDATED}>{title}</Heading>
         <Subtitle className={styles.subTitle} id="community-ui-subtitle">{teaser}</Subtitle>
