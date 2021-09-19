@@ -100,9 +100,9 @@ const positions = {
 
 function getCell(row: number, col: number) {
   return {
-    "gridColumnStart": col,
-    "gridColumnEnd": col,
-    "gridRowStart": row,
-    "gridRowEnd": row,
+    gridColumnStart: col,
+    gridColumnEnd: col,
+    gridRowStart: row,
+    gridRowEnd: row
   }
 }
