@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { BasicBubble } from './bubble.composition';
+import { BasicBubble } from './component-bubble.composition';
 
 it('should render with the correct text', () => {
   const { getByText } = render(<BasicBubble />);

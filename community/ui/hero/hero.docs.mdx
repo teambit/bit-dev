@@ -4,6 +4,7 @@ labels: ['hero']
 ---
 
 import { FigmaEmbed } from '@teambit/design.embeds.figma';
+import { mockHero } from '@teambit/community.entity.hero-graph';
 import { Hero } from './hero';
 
 Hero for the bit.dev website.
@@ -14,6 +15,7 @@ Hero for the bit.dev website.
 <Hero
   title="Build anything in components"
   teaser="Forget about monolithic apps, start building component-driven software. Bit helps developers build better software with independent components and compose them into infinite features and apps."
+  heroGraph={mockHero()}
 />
 ```
 

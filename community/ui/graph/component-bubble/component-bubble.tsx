@@ -5,9 +5,9 @@ import { Label } from '@teambit/documenter.ui.label';
 import { Caption } from '@teambit/design.ui.content.caption';
 import classNames from 'classnames';
 import { getScopeName } from './get-scope-name';
-import styles from './bubble.module.scss';
+import styles from './component-bubble.module.scss';
 
-export type BubbleProps = {
+export type ComponentBubbleProps = {
   /**
    * icon url to display within the bubble.
    */
@@ -44,7 +44,7 @@ export type BubbleProps = {
   color?: string
 } & React.HTMLAttributes<HTMLDivElement>;
 
-export function Bubble({ className, componentId, showOwner = false, icon, forceActive = false, color = '#EDEDED', ...rest }: BubbleProps) {
+export function ComponentBubble({ className, componentId, showOwner = false, icon, forceActive = false, color = '#EDEDED', ...rest }: ComponentBubbleProps) {
   return (
     <div className={classNames(styles.bubble, className, forceActive ? styles.active : '')} {...rest}>
       <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">

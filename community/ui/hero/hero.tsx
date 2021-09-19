@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Heading } from '@teambit/community.ui.heading';
 // TODO: move to be in `design` owned by @amir.
-import { Bubble } from '@teambit/community.ui.graph.bubble';
+import { ComponentBubble } from '@teambit/community.ui.graph.component-bubble';
 import { Edge } from '@teambit/community.ui.graph.edge';
 import { Subtitle } from '@teambit/design.ui.content.subtitle';
 import { Button } from '@teambit/design.ui.buttons.button';
@@ -40,7 +40,7 @@ export function Hero({ title, heroGraph, teaser }: HeroProps) {
         const bubblePosition = bubble.position && positions[bubble.position];
         return (
           <div className={styles.bubbleContainer}>
-            <Bubble key={id} componentId={bubble.id} style={{...cell, ...bubblePosition}} className={styles.bubble} id={id} icon={bubble.icon} />
+            <ComponentBubble key={id} componentId={bubble.id} style={{...cell, ...bubblePosition}} className={styles.bubble} id={id} icon={bubble.icon} />
             {bubble.dependencies.map(dependency => {
               const idStr = getValidId(dependency.toString())
               return <Edge key={idStr} start={id} end={idStr} />
@@ -56,14 +56,14 @@ export function Hero({ title, heroGraph, teaser }: HeroProps) {
           <CopyBox id="community-ui-copybox" className={styles.copyBox}>npx @teambit/bvm install</CopyBox>
         </div>
       <div className={styles.graphStart}>
-        <Bubble className={styles.bubble} componentId={ComponentID.fromString('teambit.community/ui/hero@1.0.1')} id="community-ui-hero" icon="https://static.bit.dev/brands/logo-react.svg" forceActive />
+        <ComponentBubble className={styles.bubble} componentId={ComponentID.fromString('teambit.community/ui/hero@1.0.1')} id="community-ui-hero" icon="https://static.bit.dev/brands/logo-react.svg" forceActive />
         <Edge start="community-ui-hero" end="community-ui-heading" />
         <Edge start="community-ui-hero" end="community-ui-subtitle" />
         {/* <Edge start="community-ui-hero" end="community-ui-button" /> */}
         <Edge start="community-ui-hero" end="community-ui-copybox" />
       </div>
       <div style={{ gridColumnStart: 11, gridRowStart: 4 }}>
-        <Bubble className={styles.bubble} componentId={ComponentID.fromString('teambit.community/ui/pages/homepage@1.0.2')} id="community-ui-pages-homepage" icon="https://static.bit.dev/brands/logo-react.svg" forceActive />
+        <ComponentBubble className={styles.bubble} componentId={ComponentID.fromString('teambit.community/ui/pages/homepage@1.0.2')} id="community-ui-pages-homepage" icon="https://static.bit.dev/brands/logo-react.svg" forceActive />
       </div>
     </div>
   );

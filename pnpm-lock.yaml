@@ -163,6 +163,8 @@ importers:
     specifiers: {}
   community/ui/graph/bubble-graph:
     specifiers: {}
+  community/ui/graph/component-bubble:
+    specifiers: {}
   community/ui/graph/edge:
     specifiers: {}
   community/ui/header/header:
@@ -206,6 +208,10 @@ importers:
   design/ui/brand/logo:
     specifiers: {}
   design/ui/buttons/button:
+    specifiers: {}
+  design/ui/cards/bubble-card:
+    specifiers: {}
+  design/ui/cards/card:
     specifiers: {}
   design/ui/content/caption:
     specifiers: {}

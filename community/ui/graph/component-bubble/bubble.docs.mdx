@@ -1,0 +1,40 @@
+---
+description: A bubble to visually show components on a graph.
+labels: ['component', 'graph', 'bubble', 'bit']
+---
+
+import { ComponentID } from '@teambit/component-id';
+import { ComponentBubble } from './component-bubble';
+
+A bubble for showing Bit component on a visual graph.
+
+### Basic usage
+```js
+<ComponentBubble icon="https://static.bit.dev/brands/logo-react.svg" />
+```
+
+### Using an SVG image as icon
+
+```js live
+<ComponentBubble icon="https://static.bit.dev/brands/logo-react.svg" />
+```
+
+### Using an SVG icon and Component ID
+Component ID can be provided to allow more information upon hover state.
+
+```js live
+() => {
+  const id = ComponentID.fromString('teambit.design/ui/button@1.0.0');
+  return <ComponentBubble componentId={id} icon="https://static.bit.dev/brands/logo-react.svg" />;
+}
+```
+
+### Forcing active state
+
+```js live
+() => {
+  const id = ComponentID.fromString('teambit.design/ui/button@1.0.0');
+  return <ComponentBubble componentId={id} icon="https://static.bit.dev/brands/logo-react.svg" forceActive />;
+}
+```
+

@@ -123,6 +123,12 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/browser"
     },
+    "ui/bubble-highlighter": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/bubble-highlighter"
+    },
     "ui/buttons/button": {
         "scope": "",
         "version": "",
@@ -177,17 +183,17 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/github-stars"
     },
-    "ui/graph/bubble": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "community/ui/graph/bubble"
-    },
     "ui/graph/bubble-graph": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "community/ui/graph/bubble-graph"
+    },
+    "ui/graph/component-bubble": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/graph/component-bubble"
     },
     "ui/graph/edge": {
         "scope": "",
@@ -285,11 +291,11 @@
         "mainFile": "index.ts",
         "rootDir": "design/ui/theme/base-theme"
     },
-    "ui/themes/light-theme": {
+    "ui/theme/light-theme": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "design/ui/themes/light-theme"
+        "rootDir": "design/ui/theme/light-theme"
     },
     "ui/use-cases/use-cases-card": {
         "scope": "",
