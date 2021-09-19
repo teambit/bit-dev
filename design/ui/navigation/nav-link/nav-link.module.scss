@@ -1,0 +1,11 @@
+
+.link {
+  font-family: inherit;
+  text-decoration: none;
+  color: var(--bit-text-color-heavy, #2b2b2b);
+  
+}
+
+.active {
+  color: var(--bit-accent-color, #6C5CE7);
+}

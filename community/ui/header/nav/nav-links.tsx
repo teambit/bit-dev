@@ -1,8 +1,9 @@
 import React, { ReactNode } from 'react';
-import { TooltipDrawer } from '@teambit/evangelist.surfaces.tooltip';
+// import { TooltipDrawer } from '@teambit/evangelist.surfaces.tooltip';
 import classNames from 'classnames';
 import { ExternalLink } from '@teambit/design.ui.external-link';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+import { NavLink } from "@teambit/design.ui.navigation.nav-link";
 import { Icon } from '@teambit/design.elements.icon';
 import styles from './nav.module.scss';
 
@@ -43,7 +44,10 @@ export type NavLinksProps = {
 export function NavLinks({links}: NavLinksProps) {
   return (
     <div className={styles.navLinks}>
-      {links.map((item, index) => (
+      {links.map(link => {
+        const isExternal = link.href.startsWith('http://');
+      return <NavLink key={link.title} external={isExternal} className={styles.link} href={link.href}>{link.title}</NavLink>})}
+      {/* {links.map((item, index) => (
         (item.href) ?
         <Placeholder key={index} className={styles.link}>
           {item.href.startsWith('http://') ? 
@@ -55,7 +59,7 @@ export function NavLinks({links}: NavLinksProps) {
         : <TooltipDrawer key={index} position="bottom" className={styles.link} placeholder={<Placeholder>{item.title}</Placeholder>} hoverToOpen elevation="medium">
           {item.links.map((link, index) => (<ExternalLink key={index} href={link.href}>{link.text}</ExternalLink>))}
         </TooltipDrawer>
-      ))}
+      ))} */}
     </div>
   )
 }
