@@ -30,12 +30,16 @@ export function Hero({ title, teaser }: HeroProps) {
   return (
     <div className={styles.hero}>
       {heroGraph.bubbles.map((bubble) => {
-        const id = bubble.id.toString();
+        const id = getValidId(bubble.id.toString({ignoreVersion: true}))
         const cell = getCell(bubble.row, bubble.col)
         const bubblePosition = bubble.position && positions[bubble.position];
         return (
           <div className={styles.bubbleContainer}>
             <Bubble key={id} componentId={bubble.id} style={{...cell, ...bubblePosition}} className={styles.bubble} id={id} icon={bubble.icon} />
+            {bubble.dependencies.map(dependency => {
+              const idStr = getValidId(dependency.toString())
+              return <Edge key={idStr} start={id} end={idStr} />
+            })}
           </div>
         )
 
@@ -99,8 +103,11 @@ const positions = {
      alignSelf: 'start',
      justifySelf: 'end',
    }
-
 };
+
+function getValidId(id: string) {
+  return id.replace(/[.\/]/g, '-');
+}
 
 function getCell(row: number, col: number) {
   return {
