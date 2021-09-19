@@ -6,11 +6,11 @@ labels: ['features', 'grid']
 import { FeaturesCardGrid } from './features-card-grid';
 import { FigmaEmbed } from '@teambit/design.embeds.figma';
 
-A grid of cards showing the features.
+Grid of Features Cards.
 
-### Component Usage
+### Grid of Features Cards with imported Json
 
-Import some mock data from an external source and pass it to the `features` prop.
+Imports mock data in json format from the entity component which contains an array of features.
 
 ```js
 import { features } from '@teambit/community.entity.features';
@@ -18,9 +18,7 @@ import { features } from '@teambit/community.entity.features';
 <FeaturesCardGrid features={features} />;
 ```
 
-### Live Playgournd
-
-Add an array of use cases to the `features` prop.
+Grid of Features Cards with array of objects
 
 ```js live
 <FeaturesCardGrid

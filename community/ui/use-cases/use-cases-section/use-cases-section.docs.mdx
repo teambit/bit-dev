@@ -7,12 +7,18 @@ import { UseCasesSection } from './use-cases-section';
 import { FigmaEmbed } from '@teambit/design.embeds.figma';
 import { useCases } from '@teambit/community.entity.use-cases';
 
-Shows the use case section.
+Complete section component for the Use Cases to be used in a page component. This component contains:
 
-### Component Usage
+- the section title
+- a link to see more
+- a grid of use case cards
+
+### Section showing Use Cases with imported Json
+
+Imports mock data in json format from the entity component which contains an array of use cases.
 
 ```js
-import { UseCases } from '@teambit/community.entity.use-cases';
+import { useCases } from '@teambit/community.entity.use-cases';
 
 <UseCasesSection
   useCases={useCases}
@@ -22,13 +28,40 @@ import { UseCases } from '@teambit/community.entity.use-cases';
 />;
 ```
 
-### Live Playground
-
-Modify the props to see it change live:
+### Section showing Use Cases with array of objects
 
 ```js live
 <UseCasesSection
-  useCases={useCases}
+  useCases={[
+    {
+      title: 'Component Library',
+      text: 'Successfully share components and get adoption for your design system.',
+      image: 'https://static.bit.dev/Community/use-cases/library.svg',
+      alt: 'UI Component Libraries',
+      href: '/'
+    },
+    {
+      title: 'Micro Frontends',
+      text: 'Distribute front-end dev to decoupled codebases, releases and autonomous teams.',
+      image: 'https://static.bit.dev/Community/use-cases/micro.svg',
+      alt: 'Micro Frontends',
+      href: '/'
+    },
+    {
+      title: 'Monorepo Distribution',
+      text: 'Scale repositories. Stay connected.',
+      image: 'https://static.bit.dev/Community/use-cases/distribution.svg',
+      alt: 'Monorepo distribution',
+      href: '/'
+    },
+    {
+      title: 'Server-Side Components',
+      text: 'Create a repeatable and scalable workflow for composing backend services',
+      image: 'https://static.bit.dev/Community/use-cases/js.svg',
+      alt: 'Server side components',
+      href: '/'
+    }
+  ]}
   title="These are no longer a challenge"
   href="/"
   linkText="See more use cases"
