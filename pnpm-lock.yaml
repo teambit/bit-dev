@@ -12,6 +12,7 @@ importers:
       '@teambit/base-ui.routing.native-nav-link': registry.npmjs.org/@teambit/base-ui.routing.native-nav-link/1.0.0_react-dom@16.13.1+react@16.13.1
       '@teambit/base-ui.surfaces.card': registry.npmjs.org/@teambit/base-ui.surfaces.card/1.0.1_react-dom@16.13.1+react@16.13.1
       '@teambit/base-ui.text.paragraph': registry.npmjs.org/@teambit/base-ui.text.paragraph/1.0.3_react-dom@16.13.1+react@16.13.1
+      '@teambit/component-id': registry.npmjs.org/@teambit/component-id/0.0.369_react-dom@16.13.1+react@16.13.1
       '@teambit/design.elements.icon': registry.npmjs.org/@teambit/design.elements.icon/1.0.4_react-dom@16.13.1+react@16.13.1
       '@teambit/design.ui.dropdown': registry.npmjs.org/@teambit/design.ui.dropdown/1.0.8_react-dom@16.13.1+react@16.13.1
       '@teambit/design.ui.external-link': registry.npmjs.org/@teambit/design.ui.external-link/0.0.344_react-dom@16.13.1+react@16.13.1
@@ -42,7 +43,7 @@ importers:
       '@testing-library/react-hooks': registry.npmjs.org/@testing-library/react-hooks/7.0.1_react-dom@16.13.1+react@16.13.1
       '@types/jest': registry.npmjs.org/@types/jest/26.0.20
       '@types/node': registry.npmjs.org/@types/node/12.20.4
-      '@types/react': registry.npmjs.org/@types/react/17.0.20
+      '@types/react': registry.npmjs.org/@types/react/17.0.21
       '@types/react-dom': registry.npmjs.org/@types/react-dom/17.0.9
       '@types/react-router': registry.npmjs.org/@types/react-router/5.1.16
       '@types/react-router-dom': registry.npmjs.org/@types/react-router-dom/5.1.8
@@ -59,6 +60,7 @@ importers:
       '@teambit/base-ui.routing.native-nav-link': 1.0.0
       '@teambit/base-ui.surfaces.card': 1.0.1
       '@teambit/base-ui.text.paragraph': 1.0.3
+      '@teambit/component-id': 0.0.369
       '@teambit/design.elements.icon': 1.0.4
       '@teambit/design.embeds.figma': 0.0.3
       '@teambit/design.ui.dropdown': 1.0.8
@@ -79,7 +81,7 @@ importers:
       '@testing-library/react-hooks': 7.0.1
       '@types/jest': 26.0.20
       '@types/node': 12.20.4
-      '@types/react': ^17.0.20
+      '@types/react': ^17.0.21
       '@types/react-dom': ^17.0.9
       '@types/react-router': 5.1.16
       '@types/react-router-dom': 5.1.8
@@ -135,6 +137,12 @@ importers:
     specifiers: {}
   community/ui/browser:
     specifiers: {}
+  community/ui/bubble-graph/bubble:
+    specifiers: {}
+  community/ui/bubble-graph/bubble-edge:
+    specifiers: {}
+  community/ui/bubble-graph/bubble-graph:
+    specifiers: {}
   community/ui/features/features-card:
     specifiers: {}
   community/ui/features/features-card-grid:
@@ -142,6 +150,12 @@ importers:
   community/ui/features/features-section:
     specifiers: {}
   community/ui/github-stars:
+    specifiers: {}
+  community/ui/graph/bubble:
+    specifiers: {}
+  community/ui/graph/bubble-graph:
+    specifiers: {}
+  community/ui/graph/edge:
     specifiers: {}
   community/ui/header/header:
     specifiers: {}
@@ -2284,7 +2298,7 @@ packages:
     version: 15.7.4
   registry.npmjs.org/@types/react-dom/17.0.9:
     dependencies:
-      '@types/react': registry.npmjs.org/@types/react/17.0.20
+      '@types/react': registry.npmjs.org/@types/react/17.0.21
     dev: true
     name: '@types/react-dom'
     resolution:
@@ -2337,6 +2351,18 @@ packages:
       registry: https://node.bit.dev/
       tarball: https://registry.npmjs.org/@types/react/-/react-17.0.20.tgz
     version: 17.0.20
+  registry.npmjs.org/@types/react/17.0.21:
+    dependencies:
+      '@types/prop-types': registry.npmjs.org/@types/prop-types/15.7.4
+      '@types/scheduler': registry.npmjs.org/@types/scheduler/0.16.2
+      csstype: registry.npmjs.org/csstype/3.0.9
+    dev: true
+    name: '@types/react'
+    resolution:
+      integrity: sha512-GzzXCpOthOjXvrAUFQwU/svyxu658cwu00Q9ugujS4qc1zXgLFaO0kS2SLOaMWLt2Jik781yuHCWB7UcYdGAeQ==
+      registry: https://node.bit.dev/
+      tarball: https://registry.npmjs.org/@types/react/-/react-17.0.21.tgz
+    version: 17.0.21
   registry.npmjs.org/@types/scheduler/0.16.2:
     dev: true
     name: '@types/scheduler'

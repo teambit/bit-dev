@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { BasicBubbleEdge } from './bubble-edge.composition';
+import { BasicBubbleEdge } from './edge.composition';
 
 it('should render with the correct text', () => {
   const { getByText } = render(<BasicBubbleEdge />);

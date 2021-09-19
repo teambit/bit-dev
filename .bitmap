@@ -111,23 +111,23 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/browser"
     },
-    "ui/bubble-graph/bubble": {
+    "ui/graph/bubble": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "community/ui/bubble-graph/bubble"
+        "rootDir": "community/ui/graph/bubble"
     },
-    "ui/bubble-graph/bubble-edge": {
+    "ui/graph/edge": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "community/ui/bubble-graph/bubble-edge"
+        "rootDir": "community/ui/graph/edge"
     },
-    "ui/bubble-graph/bubble-graph": {
+    "ui/graph/bubble-graph": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "community/ui/bubble-graph/bubble-graph"
+        "rootDir": "community/ui/graph/bubble-graph"
     },
     "ui/buttons/button": {
         "scope": "",
