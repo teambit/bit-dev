@@ -87,6 +87,12 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/navigation/link"
     },
+    "navigation/nav-link": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "base-react/navigation/nav-link"
+    },
     "navigation/router-context": {
         "scope": "",
         "version": "",
@@ -219,6 +225,18 @@
         "mainFile": "index.ts",
         "rootDir": "design/ui/navigation/link"
     },
+    "ui/navigation/nav-link": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "design/ui/navigation/nav-link"
+    },
+    "ui/navigation/react-router/link": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "ui-foundation/ui/navigation/react-router/link"
+    },
     "ui/pages/homepage": {
         "scope": "",
         "version": "",
@@ -278,6 +296,12 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "community/ui/use-cases/use-cases-section"
+    },
+    "urls/compare-url": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "ui-foundation/urls/compare-url"
     },
     "$schema-version": "14.9.0"
 }

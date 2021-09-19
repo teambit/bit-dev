@@ -29,10 +29,9 @@
 }
 
 .getStarted {
-  display: grid;
-  width: 75%;
-  grid-template-columns: repeat(2, 1fr);
-  // align-items: center;
-  grid-gap: 10px;
-  margin: auto;
+  display: flex;
+  justify-content: center;
+  > div:first-child {
+    margin-right: 8px;
+  }
 }
