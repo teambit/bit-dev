@@ -3,7 +3,7 @@ import { Heading } from '@teambit/community.ui.heading';
 // TODO: move to be in `design` owned by @amir.
 import { Bubble } from '@teambit/community.ui.graph.bubble';
 import { Edge } from '@teambit/community.ui.graph.edge';
-import { Subtitle } from '@teambit/documenter.ui.sub-title';
+import { Subtitle } from '@teambit/design.ui.content.subtitle';
 import { Button } from '@teambit/design.ui.buttons.button';
 import { CopyBox } from '@teambit/documenter.ui.copy-box';
 import { mockHero } from '@teambit/community.entity.hero-graph';
@@ -64,7 +64,7 @@ export function Hero({ title, teaser }: HeroProps) {
 Hero.defaultProps = {
   title: 'Build anything in components',
   teaser:
-    'Forget about monolithic apps, start building component-driven software. Bit helps developers build better software with independent components and compose them into infinite features and apps.'
+    'Bit helps build in components and compose them into infinite features and apps. Forget monolithic apps and distribute to component-driven software. '
 };
 
 const positions = {
