@@ -29,10 +29,16 @@ export function Hero({ title, teaser }: HeroProps) {
 
   return (
     <div className={styles.hero}>
+      {heroGraph.bubbles.map((bubble) => {
+        const id = bubble.id.toString();
+        const cell = getCell(bubble.row, bubble.col)
+        const bubblePosition = bubble.position && positions[bubble.position];
+        return <Bubble key={id} style={{...cell, ...bubblePosition}} className={styles.fadedBuble} id={id} icon={bubble.icon} />
+      })}
       <div className={styles.main}>
         <Heading id="community-ui-heading" highlight={heroState === HeroState.HEADING_UPDATED}>{title}</Heading>
         <Subtitle id="community-ui-subtitle">{teaser}</Subtitle>
-        <div className={styles.getStarted}>
+        <div className={styles.getStarted} id="buttons">
           <Button id="community-ui-button" className={styles.getStartedAction} href="http://bit.dev">Getting Started</Button>
           <CopyBox id="community-ui-copybox" className={styles.copyBox}>npx @teambit/bvm install</CopyBox>
         </div>
@@ -56,3 +62,49 @@ Hero.defaultProps = {
   teaser:
     'Forget about monolithic apps, start building component-driven software. Bit helps developers build better software with independent components and compose them into infinite features and apps.'
 };
+
+
+const positions = {
+  'top' : {
+    alignSelf: 'start',
+    justifySelf: 'center',
+  },
+   'top-right' : {
+     alignSelf: 'start',
+     justifySelf: 'end',
+   },
+   'right' : {
+     alignSelf: 'center',
+     justifySelf: 'end',
+   },
+   'bottom-right' : {
+     alignSelf: 'end',
+     justifySelf: 'end',
+   },
+   'bottom' : {
+     alignSelf: 'end',
+     justifySelf: 'center',
+   },
+   'bottom-left' : {
+     alignSelf: 'end',
+     justifySelf: 'end',
+   },
+   'left' : {
+     alignSelf: 'center',
+     justifySelf: 'end',
+   },
+   'top-left' : {
+     alignSelf: 'start',
+     justifySelf: 'end',
+   }
+
+};
+
+function getCell(row: number, col: number) {
+  return {
+    "gridColumnStart": col,
+    "gridColumnEnd": col,
+    "gridRowStart": row,
+    "gridRowEnd": row,
+  }
+}
