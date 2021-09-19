@@ -34,7 +34,12 @@ export function Hero({ title, teaser }: HeroProps) {
         const id = bubble.id.toString();
         const cell = getCell(bubble.row, bubble.col)
         const bubblePosition = bubble.position && positions[bubble.position];
-        return <Bubble key={id} componentId={bubble.id} style={{...cell, ...bubblePosition}} className={styles.fadedBuble} id={id} icon={bubble.icon} />
+        return (
+          <div key={id} className={styles.bubbleContainer}>
+            <Bubble componentId={bubble.id} style={{...cell, ...bubblePosition}} className={styles.bubble} id={id} icon={bubble.icon} />
+          </div>
+        )
+
       })}
         <Heading className={styles.title} id="community-ui-heading" highlight={heroState === HeroState.HEADING_UPDATED}>{title}</Heading>
         <Subtitle className={styles.subTitle} id="community-ui-subtitle">{teaser}</Subtitle>
@@ -43,14 +48,14 @@ export function Hero({ title, teaser }: HeroProps) {
           <CopyBox id="community-ui-copybox" className={styles.copyBox}>npx @teambit/bvm install</CopyBox>
         </div>
       <div className={styles.graphStart}>
-        <Bubble componentId={ComponentID.fromString('teambit.community/ui/hero@1.0.1')} id="community-ui-hero" icon="https://static.bit.dev/brands/logo-react.svg" forceActive />
+        <Bubble className={styles.bubble} componentId={ComponentID.fromString('teambit.community/ui/hero@1.0.1')} id="community-ui-hero" icon="https://static.bit.dev/brands/logo-react.svg" forceActive />
         <Edge start="community-ui-hero" end="community-ui-heading" />
         <Edge start="community-ui-hero" end="community-ui-subtitle" />
         {/* <Edge start="community-ui-hero" end="community-ui-button" /> */}
         <Edge start="community-ui-hero" end="community-ui-copybox" />
       </div>
       <div style={{ gridColumnStart: 11, gridRowStart: 4 }}>
-        <Bubble componentId={ComponentID.fromString('teambit.community/ui/pages/homepage@1.0.2')} id="community-ui-pages-homepage" icon="https://static.bit.dev/brands/logo-react.svg" forceActive />
+        <Bubble className={styles.bubble} componentId={ComponentID.fromString('teambit.community/ui/pages/homepage@1.0.2')} id="community-ui-pages-homepage" icon="https://static.bit.dev/brands/logo-react.svg" forceActive />
       </div>
     </div>
   );

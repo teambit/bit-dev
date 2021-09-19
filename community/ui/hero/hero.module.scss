@@ -10,10 +10,17 @@
   justify-items: center;
 }
 
-.fadedBuble:nth-child(2n)  {
+.bubble {
+  position: absolute;
+  background-color: white;
+  &:hover {
+    z-index: 1;
+  }
+}
+.bubbleContainer:nth-child(2n)  {
   align-self: end;
 }
-.fadedBuble:nth-child(3n)  {
+.bubbleContainer:nth-child(3n)  {
   align-self: start;
 }
 
@@ -48,6 +55,7 @@
 .graphStart {
   grid-column-start: 12;
   grid-row-start: 3;
+  position: relative;
 }
 
 .copyBox {
@@ -58,3 +66,6 @@
   height: 48px;
 }
 
+.bubbleContainer {
+  position: relative;
+}
