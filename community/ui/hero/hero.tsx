@@ -3,10 +3,11 @@ import { Heading } from '@teambit/community.ui.heading';
 // TODO: move to be in `design` owned by @amir.
 import { Bubble } from '@teambit/community.ui.graph.bubble';
 import { Edge } from '@teambit/community.ui.graph.edge';
-import { Subtitle } from '@teambit/documenter.ui.sub-title';
+import { Subtitle } from '@teambit/design.ui.content.subtitle';
 import { Button } from '@teambit/design.ui.buttons.button';
 import { CopyBox } from '@teambit/documenter.ui.copy-box';
 import { mockHero } from '@teambit/community.entity.hero-graph';
+import { ComponentID } from '@teambit/component-id';
 import styles from './hero.module.scss';
 import { useHeroState, HeroState } from './use-hero-state';
 
@@ -51,14 +52,14 @@ export function Hero({ title, teaser }: HeroProps) {
           <CopyBox id="community-ui-copybox" className={styles.copyBox}>npx @teambit/bvm install</CopyBox>
         </div>
       <div className={styles.graphStart}>
-        <Bubble className={styles.bubble} id="community-ui-hero" icon="https://static.bit.dev/brands/logo-react.svg" />
+        <Bubble className={styles.bubble} componentId={ComponentID.fromString('teambit.community/ui/hero@1.0.1')} id="community-ui-hero" icon="https://static.bit.dev/brands/logo-react.svg" forceActive />
         <Edge start="community-ui-hero" end="community-ui-heading" />
         <Edge start="community-ui-hero" end="community-ui-subtitle" />
         {/* <Edge start="community-ui-hero" end="community-ui-button" /> */}
         <Edge start="community-ui-hero" end="community-ui-copybox" />
       </div>
-      <div style={{ gridColumnStart: 11, gridRowStart: 4 }} className={styles.bubbleContainer}>
-        <Bubble className={styles.bubble} id="community-ui-pages-homepage" icon="https://static.bit.dev/brands/logo-react.svg" />
+      <div style={{ gridColumnStart: 11, gridRowStart: 4 }}>
+        <Bubble className={styles.bubble} componentId={ComponentID.fromString('teambit.community/ui/pages/homepage@1.0.2')} id="community-ui-pages-homepage" icon="https://static.bit.dev/brands/logo-react.svg" forceActive />
       </div>
     </div>
   );
@@ -67,7 +68,7 @@ export function Hero({ title, teaser }: HeroProps) {
 Hero.defaultProps = {
   title: 'Build anything in components',
   teaser:
-    'Forget about monolithic apps, start building component-driven software. Bit helps developers build better software with independent components and compose them into infinite features and apps.'
+    'Bit helps build in components and compose them into infinite features and apps. Forget monolithic apps and distribute to component-driven software. '
 };
 
 const positions = {
