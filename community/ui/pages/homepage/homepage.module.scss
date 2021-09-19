@@ -7,5 +7,10 @@
 }
 
 .imageStripSection {
-  margin: 160px 0;
+  margin: 140px 0;
+  overflow: hidden;
+  .imgStrip {
+    padding: 20px 0;
+  }
 }
+
