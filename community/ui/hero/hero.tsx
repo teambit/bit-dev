@@ -61,37 +61,36 @@ Hero.defaultProps = {
     'Forget about monolithic apps, start building component-driven software. Bit helps developers build better software with independent components and compose them into infinite features and apps.'
 };
 
-
 const positions = {
-  'top' : {
+  'top': {
     alignSelf: 'start',
     justifySelf: 'center',
   },
-   'top-right' : {
+   'top-right': {
      alignSelf: 'start',
      justifySelf: 'end',
    },
-   'right' : {
+   'right': {
      alignSelf: 'center',
      justifySelf: 'end',
    },
-   'bottom-right' : {
+   'bottom-right': {
      alignSelf: 'end',
      justifySelf: 'end',
    },
-   'bottom' : {
+   'bottom': {
      alignSelf: 'end',
      justifySelf: 'center',
    },
-   'bottom-left' : {
+   'bottom-left': {
      alignSelf: 'end',
      justifySelf: 'end',
    },
-   'left' : {
+   'left': {
      alignSelf: 'center',
      justifySelf: 'end',
    },
-   'top-left' : {
+   'top-left': {
      alignSelf: 'start',
      justifySelf: 'end',
    }
