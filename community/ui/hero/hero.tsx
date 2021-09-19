@@ -29,14 +29,14 @@ export function Hero({ title, teaser }: HeroProps) {
 
   return (
     <div className={styles.hero}>
-      {/* <div className={styles.main}> */}
+      <div className={styles.main}>
         <Heading id="community-ui-heading" highlight={heroState === HeroState.HEADING_UPDATED}>{title}</Heading>
         <Subtitle id="community-ui-subtitle">{teaser}</Subtitle>
         <div className={styles.getStarted}>
           <Button id="community-ui-button" className={styles.getStartedAction} href="http://bit.dev">Getting Started</Button>
           <CopyBox id="community-ui-copybox" className={styles.copyBox}>npx @teambit/bvm install</CopyBox>
         </div>
-      {/* </div> */}
+      </div>
       <div className={styles.graphStart}>
         <Bubble id="community-ui-hero" icon="https://static.bit.dev/brands/logo-react.svg" />
         <Edge start="community-ui-hero" end="community-ui-heading" />
