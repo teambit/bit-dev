@@ -35,14 +35,12 @@ export function Hero({ title, teaser }: HeroProps) {
         const bubblePosition = bubble.position && positions[bubble.position];
         return <Bubble key={id} style={{...cell, ...bubblePosition}} className={styles.fadedBuble} id={id} icon={bubble.icon} />
       })}
-      <div className={styles.main}>
-        <Heading id="community-ui-heading" highlight={heroState === HeroState.HEADING_UPDATED}>{title}</Heading>
-        <Subtitle id="community-ui-subtitle">{teaser}</Subtitle>
-        <div className={styles.getStarted} id="buttons">
+        <Heading className={styles.title} id="community-ui-heading" highlight={heroState === HeroState.HEADING_UPDATED}>{title}</Heading>
+        <Subtitle className={styles.subTitle} id="community-ui-subtitle">{teaser}</Subtitle>
+        <div className={styles.getStarted}>
           <Button id="community-ui-button" className={styles.getStartedAction} href="http://bit.dev">Getting Started</Button>
           <CopyBox id="community-ui-copybox" className={styles.copyBox}>npx @teambit/bvm install</CopyBox>
         </div>
-      </div>
       <div className={styles.graphStart}>
         <Bubble id="community-ui-hero" icon="https://static.bit.dev/brands/logo-react.svg" />
         <Edge start="community-ui-hero" end="community-ui-heading" />

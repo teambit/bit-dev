@@ -10,21 +10,6 @@
   justify-items: center;
 }
 
-// #community-ui-pages-homepage-1:first-child {
-//   align-items: start;
-// }
-
-// .hero #community-ui-heading {
-//   grid-area: heading;
-// } 
-
-// .hero #community-ui-subtitleheading {
-//   grid-area: subtitle;
-// } 
-// .hero #buttons {
-//   grid-area: buttons;
-// } 
-
 .fadedBuble:nth-child(2n)  {
   align-self: end;
 }
@@ -32,11 +17,32 @@
   align-self: start;
 }
 
-.main {
+.title {
   grid-column-start: 4;
   grid-column-end: 10;
   grid-row-start: 2;
   text-align: center;
+  margin: 0;
+}
+
+.subTitle {
+  grid-column-start: 4;
+  grid-column-end: 10;
+  grid-row-start: 3;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.getStarted {
+  display: flex;
+  justify-content: center;
+  grid-column-start: 4;
+  grid-column-end: 10;
+  grid-row-start: 4;
+  text-align: center;
+  > div:first-child {
+    margin-right: 8px;
+  }
 }
 
 .graphStart {
@@ -52,10 +58,3 @@
   height: 48px;
 }
 
-.getStarted {
-  display: flex;
-  justify-content: center;
-  > div:first-child {
-    margin-right: 8px;
-  }
-}
