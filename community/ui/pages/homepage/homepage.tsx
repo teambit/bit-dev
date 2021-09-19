@@ -33,7 +33,7 @@ export function Homepage({ ...rest }: HomepageProps) {
           />
         </div>
         <div className={styles.imageStripSection}>
-          <LogoShowcase images={logoList} />
+          <LogoShowcase className={styles.imgStrip} images={logoList} />
         </div>
       </section>
       <StickyMenu
