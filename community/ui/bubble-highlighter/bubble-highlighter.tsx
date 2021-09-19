@@ -16,7 +16,9 @@ export type BubbleHighlighterProps = {
 
 export function BubbleHighlighter({ children, componentId, ...rest }: BubbleHighlighterProps) {
   return (
-    <BubbleCard id="" {...rest}>
+    // TODO: refactor id stringify to a valid HTML ID to a component.
+    // make sure to use this here and from Hero.
+    <BubbleCard id={componentId.toString().replace(/[.\/]/g, '-')} {...rest}>
       {children}
     </BubbleCard>
   );
