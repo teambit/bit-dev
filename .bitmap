@@ -153,6 +153,12 @@
         "mainFile": "index.ts",
         "rootDir": "design/ui/content/caption"
     },
+    "ui/content/heading": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "design/ui/content/heading"
+    },
     "ui/content/subtitle": {
         "scope": "",
         "version": "",

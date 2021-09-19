@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { Heading } from '@teambit/community.ui.heading';
+import classNames from 'classnames';
 // TODO: move to be in `design` owned by @amir.
 import { ComponentBubble } from '@teambit/community.ui.graph.component-bubble';
 import { Edge } from '@teambit/community.ui.graph.edge';
 import { Subtitle } from '@teambit/design.ui.content.subtitle';
 import { Button } from '@teambit/design.ui.buttons.button';
 import { CopyBox } from '@teambit/documenter.ui.copy-box';
-import { HeroGraph, mockHero } from '@teambit/community.entity.hero-graph';
+import { HeroGraph } from '@teambit/community.entity.hero-graph';
 import { ComponentID } from '@teambit/component-id';
+import { BubbleHighlighter } from '@teambit/community.ui.bubble-highlighter';
 import styles from './hero.module.scss';
 import { useHeroState, HeroState } from './use-hero-state';
 
@@ -40,20 +42,31 @@ export function Hero({ title, heroGraph, teaser }: HeroProps) {
         const bubblePosition = bubble.position && positions[bubble.position];
         return (
           <div className={styles.bubbleContainer}>
-            <ComponentBubble key={id} componentId={bubble.id} style={{...cell, ...bubblePosition}} className={styles.bubble} id={id} icon={bubble.icon} />
+            <ComponentBubble key={id} componentId={bubble.id} style={{ ...cell, ...bubblePosition }} className={styles.bubble} id={id} icon={bubble.icon} />
             {bubble.dependencies.map(dependency => {
               const idStr = getValidId(dependency.toString())
               return <Edge key={idStr} start={id} end={idStr} />
             })}
           </div>
         )
-
       })}
-        <Heading className={styles.title} id="community-ui-heading" highlight={heroState === HeroState.HEADING_UPDATED}>{title}</Heading>
-        <Subtitle className={styles.subTitle} id="community-ui-subtitle">{teaser}</Subtitle>
+        <div className={styles.title}>
+          <BubbleHighlighter className={classNames(styles.titleHighlighter, styles.largeSvg)} id="community-ui-heading" componentId={ComponentID.fromString('teambit.design/ui/content/heading')}>
+            <Heading className={styles.marginZero} highlight={heroState === HeroState.HEADING_UPDATED}>{title}</Heading>
+          </BubbleHighlighter>
+        </div>
+        <div className={styles.subTitle}>
+          <BubbleHighlighter className={classNames(styles.subtitleHighlighter, styles.largeSvg)} id="community-ui-subtitle" componentId={ComponentID.fromString('teambit.design/ui/content/subtitle')}>
+            <Subtitle className={styles.marginZero} id="community-ui-subtitle">{teaser}</Subtitle>
+          </BubbleHighlighter>
+        </div>
         <div className={styles.getStarted}>
-          <Button id="community-ui-button" className={styles.getStartedAction} href="http://bit.dev">Getting Started</Button>
-          <CopyBox id="community-ui-copybox" className={styles.copyBox}>npx @teambit/bvm install</CopyBox>
+          <BubbleHighlighter componentId={ComponentID.fromString('teambit.design/ui/buttons/button')}>
+            <Button className={styles.getStartedAction} href="http://bit.dev">Getting Started</Button>
+          </BubbleHighlighter>
+          <BubbleHighlighter id="community-ui-copybox" componentId={ComponentID.fromString('teambit.documenter/ui/copy-box')}>
+            <CopyBox className={styles.copyBox}>npx @teambit/bvm install</CopyBox>
+          </BubbleHighlighter>
         </div>
       <div className={styles.graphStart}>
         <ComponentBubble className={styles.bubble} componentId={ComponentID.fromString('teambit.community/ui/hero@1.0.1')} id="community-ui-hero" icon="https://static.bit.dev/brands/logo-react.svg" forceActive />

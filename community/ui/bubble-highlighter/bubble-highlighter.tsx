@@ -16,7 +16,7 @@ export type BubbleHighlighterProps = {
 
 export function BubbleHighlighter({ children, componentId, ...rest }: BubbleHighlighterProps) {
   return (
-    <BubbleCard {...rest}>
+    <BubbleCard id="" {...rest}>
       {children}
     </BubbleCard>
   );
