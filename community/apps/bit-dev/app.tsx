@@ -19,13 +19,15 @@ export function BitDevApp() {
           {/* header component */}
           <Header />
           <WideColumn>
-            <Route exact path="/plugins">
-              <Plugins />
-            </Route>
-            <Route path="/about">{/* about page component */}</Route>
-            <Route path="/">
-              <Homepage />
-            </Route>
+            <Switch>
+              <Route exact path="/plugins">
+                <Plugins />
+              </Route>
+              <Route path="/about">{/* about page component */}</Route>
+              <Route path="/">
+                <Homepage />
+              </Route>
+            </Switch>
           </WideColumn>
           {/* footer component */}
         </BrowserRouter>
