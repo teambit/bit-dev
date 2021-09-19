@@ -129,6 +129,18 @@
         "mainFile": "index.ts",
         "rootDir": "design/ui/buttons/button"
     },
+    "ui/cards/bubble-card": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "design/ui/cards/bubble-card"
+    },
+    "ui/cards/card": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "design/ui/cards/card"
+    },
     "ui/content/caption": {
         "scope": "",
         "version": "",

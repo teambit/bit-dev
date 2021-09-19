@@ -1,0 +1,14 @@
+
+
+.bubbleCard {
+  border: 5px solid #EDEDED;
+  border-radius: 24px;
+  padding: 10px;
+  position: relative;
+
+  svg {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+  }
+}

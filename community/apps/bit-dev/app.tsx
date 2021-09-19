@@ -13,7 +13,7 @@ export function BitDevApp() {
   return (
     <RouterContextProvider Link={Link}>
       <ThemeCompositions>
-        <ComponentHighlighter>
+        {/* <ComponentHighlighter> */}
           <BrowserRouter>
             {/* header component */}
             <Header />
@@ -30,7 +30,7 @@ export function BitDevApp() {
             </WideColumn>
             {/* footer component */}
           </BrowserRouter>
-        </ComponentHighlighter>
+        {/* </ComponentHighlighter> */}
       </ThemeCompositions>
     </RouterContextProvider>
   );
