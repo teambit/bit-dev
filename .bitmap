@@ -39,6 +39,12 @@
         "mainFile": "index.ts",
         "rootDir": "community/entity/features"
     },
+    "entity/hero-graph": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/entity/hero-graph"
+    },
     "entity/images": {
         "scope": "",
         "version": "",
@@ -111,24 +117,6 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/browser"
     },
-    "ui/graph/bubble": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "community/ui/graph/bubble"
-    },
-    "ui/graph/edge": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "community/ui/graph/edge"
-    },
-    "ui/graph/bubble-graph": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "community/ui/graph/bubble-graph"
-    },
     "ui/buttons/button": {
         "scope": "",
         "version": "",
@@ -164,6 +152,24 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "community/ui/github-stars"
+    },
+    "ui/graph/bubble": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/graph/bubble"
+    },
+    "ui/graph/bubble-graph": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/graph/bubble-graph"
+    },
+    "ui/graph/edge": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/graph/edge"
     },
     "ui/header/header": {
         "scope": "",
