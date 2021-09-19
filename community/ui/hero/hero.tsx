@@ -6,7 +6,7 @@ import { Edge } from '@teambit/community.ui.graph.edge';
 import { Subtitle } from '@teambit/design.ui.content.subtitle';
 import { Button } from '@teambit/design.ui.buttons.button';
 import { CopyBox } from '@teambit/documenter.ui.copy-box';
-import { mockHero } from '@teambit/community.entity.hero-graph';
+import { HeroGraph, mockHero } from '@teambit/community.entity.hero-graph';
 import { ComponentID } from '@teambit/component-id';
 import styles from './hero.module.scss';
 import { useHeroState, HeroState } from './use-hero-state';
@@ -21,11 +21,15 @@ export type HeroProps = {
    * teaser.
    */
   teaser: string;
+
+  /**
+   * state for hero background graph.
+   */
+  heroGraph: HeroGraph
 };
 
-export function Hero({ title, teaser }: HeroProps) {
+export function Hero({ title, heroGraph, teaser }: HeroProps) {
   const { heroState, setStateFromTime } = useHeroState();
-  const heroGraph = mockHero();
   const headingClass = heroState === HeroState.HEADING_UPDATED ? styles.highlight : '';
 
   return (

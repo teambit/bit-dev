@@ -5,6 +5,7 @@ import { UseCasesSection } from '@teambit/community.ui.use-cases.use-cases-secti
 import { FeaturesSection } from '@teambit/community.ui.features.features-section';
 import { useCases } from '@teambit/community.entity.use-cases';
 import { features } from '@teambit/community.entity.features';
+import { mockHero } from '@teambit/community.entity.hero-graph';
 import { LogoShowcase } from '@teambit/community.ui.logo-showcase';
 import { StickyMenu } from '@teambit/community.ui.sticky-menu';
 import styles from './homepage.module.scss';
@@ -16,7 +17,7 @@ export function Homepage({ ...rest }: HomepageProps) {
     <div {...rest}>
       <section>
         <div className={styles.grid}>
-          <Hero />
+          <Hero heroGraph={mockHero()} />
           <FeaturesSection
             features={features}
             title="Better software is built in components"
