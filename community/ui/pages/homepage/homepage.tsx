@@ -11,6 +11,9 @@ import styles from './homepage.module.scss';
 
 export type HomepageProps = {} & React.HTMLAttributes<HTMLDivElement>;
 
+// we need more logos to get the effect of an endless animation. duplicated the list for now
+const logoList = [...clientLogos, ...clientLogos];
+
 export function Homepage({ ...rest }: HomepageProps) {
   return (
     <div {...rest}>
@@ -29,7 +32,7 @@ export function Homepage({ ...rest }: HomepageProps) {
           />
         </div>
         <div className={styles.imageStripSection}>
-          <LogoShowcase images={clientLogos} />
+          <LogoShowcase images={logoList} />
         </div>
       </section>
       <StickyMenu

@@ -1,18 +1,18 @@
 @import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
 
 .logoShowcase {
-  animation: conveyerBelt 156s linear infinite forwards; //aka 2.6minutes
+  animation: conveyerBelt 30s linear infinite forwards; //aka 2.6minutes
   display: flex;
   width: fit-content;
   white-space: nowrap;
   > * {
-    width: 70px;
-    height: 70px;
-    padding: 15px;
+    width: 100px;
+    height: 100px;
+    padding: 24px;
     filter: grayscale(1);
 
     border-radius: 100%; //prevent 'square' shadow
-    box-shadow: 0 26px 74px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
 
     image-rendering: optimizeSpeed;
     backface-visibility: hidden;
