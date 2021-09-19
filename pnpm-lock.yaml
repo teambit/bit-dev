@@ -39,6 +39,7 @@ importers:
       react-router-dom: registry.npmjs.org/react-router-dom/5.2.0_react@16.13.1
       react-terminal: registry.npmjs.org/react-terminal/1.2.1_react-dom@16.13.1+react@16.13.1
       react-xarrows: registry.npmjs.org/react-xarrows/2.0.2_react@16.13.1
+      url-parse: registry.npmjs.org/url-parse/1.5.3
     devDependencies:
       '@teambit/design.embeds.figma': registry.npmjs.org/@teambit/design.embeds.figma/0.0.3_react-dom@16.13.1+react@16.13.1
       '@testing-library/react-hooks': registry.npmjs.org/@testing-library/react-hooks/7.0.1_react-dom@16.13.1+react@16.13.1
@@ -97,6 +98,7 @@ importers:
       react-router-dom: 5.2.0
       react-terminal: 1.2.1
       react-xarrows: 2.0.2
+      url-parse: 1.5.3
   base-react/buttons/button:
     specifiers: {}
   base-react/content/image:
@@ -108,6 +110,8 @@ importers:
   base-react/layout/grid:
     specifiers: {}
   base-react/navigation/link:
+    specifiers: {}
+  base-react/navigation/nav-link:
     specifiers: {}
   base-react/navigation/router-context:
     specifiers: {}
@@ -203,15 +207,23 @@ importers:
     specifiers: {}
   design/ui/buttons/button:
     specifiers: {}
+  design/ui/content/caption:
+    specifiers: {}
   design/ui/content/subtitle:
     specifiers: {}
   design/ui/logo:
     specifiers: {}
   design/ui/navigation/link:
     specifiers: {}
+  design/ui/navigation/nav-link:
+    specifiers: {}
   design/ui/theme/base-theme:
     specifiers: {}
   design/ui/themes/light-theme:
+    specifiers: {}
+  ui-foundation/ui/navigation/react-router/link:
+    specifiers: {}
+  ui-foundation/urls/compare-url:
     specifiers: {}
 lockfileVersion: 5.2
 packages:
@@ -3877,6 +3889,17 @@ packages:
       registry: https://node.bit.dev/
       tarball: https://registry.npmjs.org/url-parse/-/url-parse-1.5.1.tgz
     version: 1.5.1
+  registry.npmjs.org/url-parse/1.5.3:
+    dependencies:
+      querystringify: registry.npmjs.org/querystringify/2.2.0
+      requires-port: registry.npmjs.org/requires-port/1.0.0
+    dev: false
+    name: url-parse
+    resolution:
+      integrity: sha512-IIORyIQD9rvj0A4CLWsHkBBJuNqWpFQe224b6j9t/ABmquIS0qDU2pY6kl6AuOrL5OkCXHMCFNe1jBcuAggjvQ==
+      registry: https://node.bit.dev/
+      tarball: https://registry.npmjs.org/url-parse/-/url-parse-1.5.3.tgz
+    version: 1.5.3
   registry.npmjs.org/use-animation-frame/0.1.0_react-dom@16.13.1+react@16.13.1:
     dependencies:
       react: registry.npmjs.org/react/16.13.1

@@ -21,7 +21,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -31,7 +30,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'end',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -41,7 +39,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -51,7 +48,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'end',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -61,7 +57,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -71,7 +66,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'end',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -81,7 +75,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'end',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -91,17 +84,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
-      icon: "https://static.bit.dev/brands/logo-react.svg"
-    },
-    {
-      id: 'teambit.community/ui/hero',
-      dependencies: [
-        'teambit.community/ui/heading',
-        'teambit.community/ui/subtitle',
-        'teambit.design/ui/button'
-      ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -121,7 +103,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -131,7 +112,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -141,7 +121,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -151,7 +130,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -161,7 +139,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -171,7 +148,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -181,7 +157,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -191,7 +166,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -201,7 +175,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -211,7 +184,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -221,7 +193,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -231,7 +202,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -241,7 +211,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -251,7 +220,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -261,7 +229,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -271,7 +238,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -281,7 +247,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -291,7 +256,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -301,7 +265,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -311,7 +274,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -321,7 +283,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -331,7 +292,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -341,7 +301,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -351,7 +310,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -361,7 +319,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -371,7 +328,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -381,7 +337,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -391,7 +346,6 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
     {
@@ -401,7 +355,15 @@ export function mockHero() {
         'teambit.community/ui/subtitle',
         'teambit.design/ui/button'
       ],
-      // position: 'start',
+      icon: "https://static.bit.dev/brands/logo-react.svg"
+    },
+    {
+      id: 'teambit.community/ui/hero',
+      dependencies: [
+        'teambit.community/ui/heading',
+        'teambit.community/ui/subtitle',
+        'teambit.design/ui/button'
+      ],
       icon: "https://static.bit.dev/brands/logo-react.svg"
     },
   ]);  
