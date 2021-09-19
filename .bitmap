@@ -129,6 +129,12 @@
         "mainFile": "index.ts",
         "rootDir": "design/ui/buttons/button"
     },
+    "ui/content/caption": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "design/ui/content/caption"
+    },
     "ui/content/subtitle": {
         "scope": "",
         "version": "",

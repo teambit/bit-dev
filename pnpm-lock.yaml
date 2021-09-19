@@ -21,6 +21,7 @@ importers:
       '@teambit/documenter.theme.theme-compositions': registry.npmjs.org/@teambit/documenter.theme.theme-compositions/4.1.1_react-dom@16.13.1+react@16.13.1
       '@teambit/documenter.theme.theme-context': registry.npmjs.org/@teambit/documenter.theme.theme-context/4.0.3_react-dom@16.13.1+react@16.13.1
       '@teambit/documenter.ui.copy-box': registry.npmjs.org/@teambit/documenter.ui.copy-box/4.1.1_react-dom@16.13.1+react@16.13.1
+      '@teambit/documenter.ui.label': registry.npmjs.org/@teambit/documenter.ui.label/4.0.4_react-dom@16.13.1+react@16.13.1
       '@teambit/documenter.ui.sub-title': registry.npmjs.org/@teambit/documenter.ui.sub-title/4.1.1_react-dom@16.13.1+react@16.13.1
       '@teambit/evangelist.surfaces.tooltip': registry.npmjs.org/@teambit/evangelist.surfaces.tooltip/1.0.1_react-dom@16.13.1+react@16.13.1
       '@teambit/explorer.ui.gallery.component-card': registry.npmjs.org/@teambit/explorer.ui.gallery.component-card/0.0.438_react-dom@16.13.1+react@16.13.1
@@ -70,6 +71,7 @@ importers:
       '@teambit/documenter.theme.theme-compositions': 4.1.1
       '@teambit/documenter.theme.theme-context': 4.0.3
       '@teambit/documenter.ui.copy-box': 4.1.1
+      '@teambit/documenter.ui.label': 4.0.4
       '@teambit/documenter.ui.sub-title': 4.1.1
       '@teambit/evangelist.surfaces.tooltip': 1.0.1
       '@teambit/explorer.ui.gallery.component-card': 0.0.438
@@ -120,6 +122,8 @@ importers:
   community/entity/benefits:
     specifiers: {}
   community/entity/features:
+    specifiers: {}
+  community/entity/hero-graph:
     specifiers: {}
   community/entity/images:
     specifiers: {}
@@ -1826,6 +1830,23 @@ packages:
       registry: https://node.bit.dev/
       tarball: https://registry.npmjs.org/@teambit/documenter.ui.copy-box/-/documenter.ui.copy-box-4.1.1.tgz
     version: 4.1.1
+  registry.npmjs.org/@teambit/documenter.ui.label/4.0.4_react-dom@16.13.1+react@16.13.1:
+    dependencies:
+      classnames: registry.npmjs.org/classnames/2.3.1
+      core-js: registry.npmjs.org/core-js/3.17.3
+      react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    dev: false
+    id: registry.npmjs.org/@teambit/documenter.ui.label/4.0.4
+    name: '@teambit/documenter.ui.label'
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    resolution:
+      integrity: sha512-FPk0HwsLFyR43eE8+6H4QnrvIrerQBxysjmX6ngos/Z6+sFUGEpK0aVRgBzYAWLKy0bAzRBF05sxcPaDjkfcEw==
+      registry: https://node.bit.dev/
+      tarball: https://registry.npmjs.org/@teambit/documenter.ui.label/-/documenter.ui.label-4.0.4.tgz
+    version: 4.0.4
   registry.npmjs.org/@teambit/documenter.ui.paragraph/4.1.1_react-dom@16.13.1+react@16.13.1:
     dependencies:
       '@teambit/base-ui.text.paragraph': registry.npmjs.org/@teambit/base-ui.text.paragraph/1.0.1_react-dom@16.13.1+react@16.13.1
