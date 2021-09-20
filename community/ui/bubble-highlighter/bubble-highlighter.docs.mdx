@@ -4,19 +4,18 @@ labels: ['label1', 'label2', 'label3']
 ---
 
 import { BubbleHighlighter } from './bubble-highlighter';
+import { ComponentID } from '@teambit/component-id';
+import { Button } from '@teambit/design.ui.buttons.button';
 
-## React Component for rendering text
+Bubble highlights any component rendered inside.
 
-A basic div that renders some text
+### Bubble Highlighting a Button component
 
-### Component usage
-```js
-<BubbleHighlighter text="hello from BubbleHighlighter" />
-```
-
-### Using props to customize the text
-
-Modify the text to see it change live:
 ```js live
-<BubbleHighlighter text="hello from BubbleHighlighter" />
+<BubbleHighlighter
+  componentId={ComponentID.fromString('teambit.design/ui/buttons/button')}
+  style={{ width: 170 }}
+>
+  <Button>Getting Started</Button>
+</BubbleHighlighter>
 ```

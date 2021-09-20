@@ -31,7 +31,7 @@ importers:
       '@teambit/react.ui.component-highlighter': registry.npmjs.org/@teambit/react.ui.component-highlighter/0.0.445_react-dom@16.13.1+react@16.13.1
       '@testing-library/react': registry.npmjs.org/@testing-library/react/12.0.0_react-dom@16.13.1+react@16.13.1
       classnames: registry.npmjs.org/classnames/2.3.1
-      core-js: registry.npmjs.org/core-js/3.17.3
+      core-js: registry.npmjs.org/core-js/3.18.0
       millify: registry.npmjs.org/millify/4.0.0
       react: registry.npmjs.org/react/16.13.1
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
@@ -45,7 +45,7 @@ importers:
       '@testing-library/react-hooks': registry.npmjs.org/@testing-library/react-hooks/7.0.1_react-dom@16.13.1+react@16.13.1
       '@types/jest': registry.npmjs.org/@types/jest/26.0.20
       '@types/node': registry.npmjs.org/@types/node/12.20.4
-      '@types/react': registry.npmjs.org/@types/react/17.0.21
+      '@types/react': registry.npmjs.org/@types/react/17.0.22
       '@types/react-dom': registry.npmjs.org/@types/react-dom/17.0.9
       '@types/react-router': registry.npmjs.org/@types/react-router/5.1.16
       '@types/react-router-dom': registry.npmjs.org/@types/react-router-dom/5.1.8
@@ -84,13 +84,13 @@ importers:
       '@testing-library/react-hooks': 7.0.1
       '@types/jest': 26.0.20
       '@types/node': 12.20.4
-      '@types/react': ^17.0.21
+      '@types/react': ^17.0.22
       '@types/react-dom': ^17.0.9
       '@types/react-router': 5.1.16
       '@types/react-router-dom': 5.1.8
       '@types/testing-library__jest-dom': 5.9.5
       classnames: 2.3.1
-      core-js: ^3.17.3
+      core-js: ^3.18.0
       millify: 4.0.0
       react: 16.13.1
       react-dom: 16.13.1
@@ -150,6 +150,8 @@ importers:
   community/ui/bubble-graph/bubble-edge:
     specifiers: {}
   community/ui/bubble-graph/bubble-graph:
+    specifiers: {}
+  community/ui/bubble-highlighter:
     specifiers: {}
   community/ui/features/features-card:
     specifiers: {}
@@ -215,6 +217,8 @@ importers:
     specifiers: {}
   design/ui/content/caption:
     specifiers: {}
+  design/ui/content/heading:
+    specifiers: {}
   design/ui/content/subtitle:
     specifiers: {}
   design/ui/logo:
@@ -224,6 +228,8 @@ importers:
   design/ui/navigation/nav-link:
     specifiers: {}
   design/ui/theme/base-theme:
+    specifiers: {}
+  design/ui/theme/light-theme:
     specifiers: {}
   design/ui/themes/light-theme:
     specifiers: {}
@@ -2337,7 +2343,7 @@ packages:
     version: 15.7.4
   registry.npmjs.org/@types/react-dom/17.0.9:
     dependencies:
-      '@types/react': registry.npmjs.org/@types/react/17.0.21
+      '@types/react': registry.npmjs.org/@types/react/17.0.22
     dev: true
     name: '@types/react-dom'
     resolution:
@@ -2390,7 +2396,7 @@ packages:
       registry: https://node.bit.dev/
       tarball: https://registry.npmjs.org/@types/react/-/react-17.0.20.tgz
     version: 17.0.20
-  registry.npmjs.org/@types/react/17.0.21:
+  registry.npmjs.org/@types/react/17.0.22:
     dependencies:
       '@types/prop-types': registry.npmjs.org/@types/prop-types/15.7.4
       '@types/scheduler': registry.npmjs.org/@types/scheduler/0.16.2
@@ -2398,10 +2404,10 @@ packages:
     dev: true
     name: '@types/react'
     resolution:
-      integrity: sha512-GzzXCpOthOjXvrAUFQwU/svyxu658cwu00Q9ugujS4qc1zXgLFaO0kS2SLOaMWLt2Jik781yuHCWB7UcYdGAeQ==
+      integrity: sha512-kq/BMeaAVLJM6Pynh8C2rnr/drCK+/5ksH0ch9asz+8FW3DscYCIEFtCeYTFeIx/ubvOsMXmRfy7qEJ76gM96A==
       registry: https://node.bit.dev/
-      tarball: https://registry.npmjs.org/@types/react/-/react-17.0.21.tgz
-    version: 17.0.21
+      tarball: https://registry.npmjs.org/@types/react/-/react-17.0.22.tgz
+    version: 17.0.22
   registry.npmjs.org/@types/scheduler/0.16.2:
     dev: true
     name: '@types/scheduler'
@@ -2683,6 +2689,15 @@ packages:
       registry: https://node.bit.dev/
       tarball: https://registry.npmjs.org/core-js/-/core-js-3.17.3.tgz
     version: 3.17.3
+  registry.npmjs.org/core-js/3.18.0:
+    dev: false
+    name: core-js
+    requiresBuild: true
+    resolution:
+      integrity: sha512-WJeQqq6jOYgVgg4NrXKL0KLQhi0CT4ZOCvFL+3CQ5o7I6J8HkT5wd53EadMfqTDp1so/MT1J+w2ujhWcCJtN7w==
+      registry: https://node.bit.dev/
+      tarball: https://registry.npmjs.org/core-js/-/core-js-3.18.0.tgz
+    version: 3.18.0
   registry.npmjs.org/core-util-is/1.0.3:
     dev: false
     name: core-util-is

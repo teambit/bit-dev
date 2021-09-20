@@ -5,22 +5,46 @@ import styles from './bubble-card.module.scss';
 
 export type BubbleCardProps = {
   /**
-   * a text to be rendered in the component.
+   * children
    */
-  children: ReactNode,
+  children: ReactNode;
 
   /**
    * class name to be added to the card.
    */
-  className?: string
+  className?: string;
+  /**
+   * svg corder
+   */
+  CornerSvg?: string;
 } & CardProps;
 
-export function BubbleCard({ children, className, CornerSvg, ...rest }: BubbleCardProps) {
+export function BubbleCard({
+  children,
+  className,
+  CornerSvg,
+  ...rest
+}: BubbleCardProps) {
   return (
     <Card className={classNames(styles.bubbleCard, className)} {...rest}>
-      {CornerSvg ? <CornerSvg /> : <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M13.1937 1.83337C8.09096 4.06476 3.9981 8.17609 1.79077 13.2917" stroke={'#EDEDED'} strokeWidth="2" strokeLinecap="round"/>
-      </svg>}
+      {CornerSvg ? (
+        <CornerSvg />
+      ) : (
+        <svg
+          width="15"
+          height="15"
+          viewBox="0 0 15 15"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M13.1937 1.83337C8.09096 4.06476 3.9981 8.17609 1.79077 13.2917"
+            stroke={'#EDEDED'}
+            strokeWidth="2"
+            strokeLinecap="round"
+          />
+        </svg>
+      )}
       {children}
     </Card>
   );

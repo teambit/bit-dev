@@ -4,6 +4,6 @@ import { BasicCaption } from './caption.composition';
 
 it('should render with the correct text', () => {
   const { getByText } = render(<BasicCaption />);
-  const rendered = getByText('hello from Caption');
+  const rendered = getByText('My Caption');
   expect(rendered).toBeTruthy();
 });

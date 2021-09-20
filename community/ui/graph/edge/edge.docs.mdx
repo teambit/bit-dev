@@ -4,15 +4,16 @@ labels: ['edge', 'graph', 'arrow', 'bit']
 ---
 
 import { Edge } from './edge';
-import { Bubble } from '@teambit/community.ui.graph.bubble';
+import { ComponentBubble } from '@teambit/community.ui.graph.component-bubble';
 
 An edge component for drawing lines between two React elements.
 
 ### Component usage
+
 ```js live=true
 <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-  <Bubble id="a" />
-  <Bubble id="b" />
+  <ComponentBubble id="a" />
+  <ComponentBubble id="b" />
   <Edge start="a" end="b" />
 </div>
 ```
