@@ -1,0 +1,30 @@
+---
+description: 'ComponentCards Entity'
+labels: ['mock', 'data', 'entity', 'types']
+---
+
+import { ComponentCards } from './component-cards';
+
+### Types for the component card
+
+```js
+id: string;
+version: string;
+description: string;
+envIcon: string;
+preview: any;
+```
+
+### Mock Json
+
+```js
+export const componentCards = [
+  {
+    id: 'teambit.community/ui/homepage/hero@1.0.1',
+    version: '2.3.0',
+    description: 'my lovely component',
+    envIcon: 'https://static.bit.dev/brands/logo-react.svg',
+    preview: 'button'
+  }
+];
+```

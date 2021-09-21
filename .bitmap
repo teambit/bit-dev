@@ -33,6 +33,12 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/content/video"
     },
+    "entity/component-cards": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/entity/component-cards"
+    },
     "entity/features": {
         "scope": "",
         "version": "",
@@ -146,6 +152,12 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "design/ui/cards/card"
+    },
+    "ui/component-card-grid": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/component-card-grid"
     },
     "ui/content/caption": {
         "scope": "",

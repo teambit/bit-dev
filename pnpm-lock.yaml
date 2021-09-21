@@ -2,6 +2,12 @@ importers:
   .:
     dependencies:
       '@babel/runtime': registry.npmjs.org/@babel/runtime/7.12.18
+      '@learn-bit-react/ecommerce.entity.product': 1.0.2
+      '@learn-bit-react/ecommerce.ui.header': 1.0.9_react-dom@16.13.1+react@16.13.1
+      '@learn-bit-react/ecommerce.ui.product.price': 1.0.6_react@16.13.1
+      '@learn-bit-react/ecommerce.ui.product.product-card': 1.0.9_react-dom@16.13.1+react@16.13.1
+      '@learn-bit-react/ecommerce.ui.product.product-card-grid': 1.0.9_react-dom@16.13.1+react@16.13.1
+      '@learn-bit-react/ecommerce.ui.store-hero': 0.0.9_react-dom@16.13.1+react@16.13.1
       '@react-aria/button': registry.npmjs.org/@react-aria/button/3.3.3_react@16.13.1
       '@react-types/button': registry.npmjs.org/@react-types/button/3.4.1_react@16.13.1
       '@teambit/base-ui.constants.storage': registry.npmjs.org/@teambit/base-ui.constants.storage/1.0.0_react-dom@16.13.1+react@16.13.1
@@ -52,6 +58,12 @@ importers:
       '@types/testing-library__jest-dom': registry.npmjs.org/@types/testing-library__jest-dom/5.9.5
     specifiers:
       '@babel/runtime': 7.12.18
+      '@learn-bit-react/ecommerce.entity.product': 1.0.2
+      '@learn-bit-react/ecommerce.ui.header': 1.0.9
+      '@learn-bit-react/ecommerce.ui.product.price': 1.0.6
+      '@learn-bit-react/ecommerce.ui.product.product-card': 1.0.9
+      '@learn-bit-react/ecommerce.ui.product.product-card-grid': 1.0.9
+      '@learn-bit-react/ecommerce.ui.store-hero': 0.0.9
       '@react-aria/button': 3.3.3
       '@react-types/button': 3.4.1
       '@teambit/base-ui.constants.storage': 1.0.0
@@ -125,6 +137,8 @@ importers:
     specifiers: {}
   community/entity/benefits:
     specifiers: {}
+  community/entity/component-cards:
+    specifiers: {}
   community/entity/features:
     specifiers: {}
   community/entity/hero-graph:
@@ -152,6 +166,8 @@ importers:
   community/ui/bubble-graph/bubble-graph:
     specifiers: {}
   community/ui/bubble-highlighter:
+    specifiers: {}
+  community/ui/component-card-grid:
     specifiers: {}
   community/ui/features/features-card:
     specifiers: {}
@@ -239,6 +255,234 @@ importers:
     specifiers: {}
 lockfileVersion: 5.2
 packages:
+  /@learn-bit-react/base-ui.styles.button/0.0.5_react-dom@16.13.1+react@16.13.1:
+    dependencies:
+      core-js: registry.npmjs.org/core-js/3.18.0
+      react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    dev: false
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    resolution:
+      integrity: sha1-3FhiPQaYoTxgG0BKiqircSf+s+M=
+      tarball: '@learn-bit-react/base-ui.styles.button/-/@learn-bit-react-base-ui.styles.button-0.0.5.tgz'
+  /@learn-bit-react/base-ui.ui.button/1.0.7_react-dom@16.13.1+react@16.13.1:
+    dependencies:
+      '@learn-bit-react/base-ui.styles.button': 0.0.5_react-dom@16.13.1+react@16.13.1
+      classnames: registry.npmjs.org/classnames/2.3.1
+      core-js: registry.npmjs.org/core-js/3.18.0
+      react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    dev: false
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    resolution:
+      integrity: sha1-bKOTMobiNYVqzqhrnzftSDR28aU=
+      tarball: '@learn-bit-react/base-ui.ui.button/-/@learn-bit-react-base-ui.ui.button-1.0.7.tgz'
+  /@learn-bit-react/base-ui.ui.card/1.0.5_react-dom@16.13.1+react@16.13.1:
+    dependencies:
+      classnames: registry.npmjs.org/classnames/2.3.1
+      core-js: registry.npmjs.org/core-js/3.18.0
+      react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    dev: false
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    resolution:
+      integrity: sha1-esO2FSVtC6T64rJFjsJXLV6JwEQ=
+      tarball: '@learn-bit-react/base-ui.ui.card/-/@learn-bit-react-base-ui.ui.card-1.0.5.tgz'
+  /@learn-bit-react/base-ui.ui.heading/1.0.5_react-dom@16.13.1+react@16.13.1:
+    dependencies:
+      classnames: registry.npmjs.org/classnames/2.3.1
+      core-js: registry.npmjs.org/core-js/3.18.0
+      react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    dev: false
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    resolution:
+      integrity: sha1-pFpZZRekTfvJ5PP8kIF3ZP7dPpE=
+      tarball: '@learn-bit-react/base-ui.ui.heading/-/@learn-bit-react-base-ui.ui.heading-1.0.5.tgz'
+  /@learn-bit-react/base-ui.ui.hero/1.0.5_react-dom@16.13.1+react@16.13.1:
+    dependencies:
+      classnames: registry.npmjs.org/classnames/2.3.1
+      core-js: registry.npmjs.org/core-js/3.18.0
+      react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    dev: false
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    resolution:
+      integrity: sha1-RY8+xRbx+KENd61LAjxFf0nftlI=
+      tarball: '@learn-bit-react/base-ui.ui.hero/-/@learn-bit-react-base-ui.ui.hero-1.0.5.tgz'
+  /@learn-bit-react/base-ui.ui.img/1.0.5_react-dom@16.13.1+react@16.13.1:
+    dependencies:
+      classnames: registry.npmjs.org/classnames/2.3.1
+      core-js: registry.npmjs.org/core-js/3.18.0
+      react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    dev: false
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    resolution:
+      integrity: sha1-CewJC3SjOBB5NgXKU51BbCrmznQ=
+      tarball: '@learn-bit-react/base-ui.ui.img/-/@learn-bit-react-base-ui.ui.img-1.0.5.tgz'
+  /@learn-bit-react/base-ui.ui.link/1.0.8_react-dom@16.13.1+react@16.13.1:
+    dependencies:
+      '@learn-bit-react/base-ui.styles.button': 0.0.5_react-dom@16.13.1+react@16.13.1
+      '@teambit/ui.react-router.link': registry.npmjs.org/@teambit/ui.react-router.link/0.0.368_react-dom@16.13.1+react@16.13.1
+      classnames: registry.npmjs.org/classnames/2.3.1
+      core-js: registry.npmjs.org/core-js/3.18.0
+      react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    dev: false
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    resolution:
+      integrity: sha1-d39X2FE5OB2GSSfw1+qNnigDr7w=
+      tarball: '@learn-bit-react/base-ui.ui.link/-/@learn-bit-react-base-ui.ui.link-1.0.8.tgz'
+  /@learn-bit-react/base-ui.ui.nav/1.0.5_react-dom@16.13.1+react@16.13.1:
+    dependencies:
+      classnames: registry.npmjs.org/classnames/2.3.1
+      core-js: registry.npmjs.org/core-js/3.18.0
+      react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    dev: false
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    resolution:
+      integrity: sha1-2VU0C9abUg0qUN27dmgKqjB7Zps=
+      tarball: '@learn-bit-react/base-ui.ui.nav/-/@learn-bit-react-base-ui.ui.nav-1.0.5.tgz'
+  /@learn-bit-react/base-ui.ui.text/1.0.5_react-dom@16.13.1+react@16.13.1:
+    dependencies:
+      classnames: registry.npmjs.org/classnames/2.3.1
+      core-js: registry.npmjs.org/core-js/3.18.0
+      react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    dev: false
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    resolution:
+      integrity: sha1-dbqk5SUwvtc33/hcc/FsFgzPC1U=
+      tarball: '@learn-bit-react/base-ui.ui.text/-/@learn-bit-react-base-ui.ui.text-1.0.5.tgz'
+  /@learn-bit-react/base-ui.ui.theme-toggler/1.0.7_react-dom@16.13.1+react@16.13.1:
+    dependencies:
+      '@learn-bit-react/base-ui.ui.button': 1.0.7_react-dom@16.13.1+react@16.13.1
+      core-js: registry.npmjs.org/core-js/3.18.0
+      react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    dev: false
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    resolution:
+      integrity: sha1-qtmDuju5kNm2asXEnzq1Lo8ryRA=
+      tarball: '@learn-bit-react/base-ui.ui.theme-toggler/-/@learn-bit-react-base-ui.ui.theme-toggler-1.0.7.tgz'
+  /@learn-bit-react/ecommerce.entity.product/1.0.2:
+    dev: false
+    resolution:
+      integrity: sha1-fNe6kyD2qBItan6mrnJhuTDjzic=
+      tarball: '@learn-bit-react/ecommerce.entity.product/-/@learn-bit-react-ecommerce.entity.product-1.0.2.tgz'
+  /@learn-bit-react/ecommerce.ui.header/1.0.9_react-dom@16.13.1+react@16.13.1:
+    dependencies:
+      '@learn-bit-react/base-ui.ui.img': 1.0.5_react-dom@16.13.1+react@16.13.1
+      '@learn-bit-react/base-ui.ui.link': 1.0.8_react-dom@16.13.1+react@16.13.1
+      '@learn-bit-react/base-ui.ui.nav': 1.0.5_react-dom@16.13.1+react@16.13.1
+      '@learn-bit-react/base-ui.ui.theme-toggler': 1.0.7_react-dom@16.13.1+react@16.13.1
+      '@learn-bit-react/ecommerce.ui.logo-text': 1.0.6_react@16.13.1
+      classnames: registry.npmjs.org/classnames/2.3.1
+      react: registry.npmjs.org/react/16.13.1
+    dev: false
+    peerDependencies:
+      react: 16.13.1
+      react-dom: '*'
+    resolution:
+      integrity: sha1-EPK4coqXOXmf3EJfTJ2SIu4DKlc=
+      tarball: '@learn-bit-react/ecommerce.ui.header/-/@learn-bit-react-ecommerce.ui.header-1.0.9.tgz'
+  /@learn-bit-react/ecommerce.ui.logo-text/1.0.6_react@16.13.1:
+    dependencies:
+      classnames: registry.npmjs.org/classnames/2.3.1
+      react: registry.npmjs.org/react/16.13.1
+    dev: false
+    peerDependencies:
+      react: 16.13.1
+    resolution:
+      integrity: sha1-ShW5yO+rGx6igKFqLoeoLPYIj80=
+      tarball: '@learn-bit-react/ecommerce.ui.logo-text/-/@learn-bit-react-ecommerce.ui.logo-text-1.0.6.tgz'
+  /@learn-bit-react/ecommerce.ui.product.available-colors/0.0.6_react@16.13.1:
+    dependencies:
+      classnames: registry.npmjs.org/classnames/2.3.1
+      react: registry.npmjs.org/react/16.13.1
+    dev: false
+    peerDependencies:
+      react: 16.13.1
+    resolution:
+      integrity: sha1-fF+oW2lk8cNT//Pnbh0fRI/rLAA=
+      tarball: '@learn-bit-react/ecommerce.ui.product.available-colors/-/@learn-bit-react-ecommerce.ui.product.available-colors-0.0.6.tgz'
+  /@learn-bit-react/ecommerce.ui.product.price/1.0.6_react@16.13.1:
+    dependencies:
+      classnames: registry.npmjs.org/classnames/2.3.1
+      react: registry.npmjs.org/react/16.13.1
+    dev: false
+    peerDependencies:
+      react: 16.13.1
+    resolution:
+      integrity: sha1-ZEeqbUje1ZWs5J36fC7wr8ef+lI=
+      tarball: '@learn-bit-react/ecommerce.ui.product.price/-/@learn-bit-react-ecommerce.ui.product.price-1.0.6.tgz'
+  /@learn-bit-react/ecommerce.ui.product.product-card-grid/1.0.9_react-dom@16.13.1+react@16.13.1:
+    dependencies:
+      '@learn-bit-react/ecommerce.entity.product': 1.0.2
+      '@learn-bit-react/ecommerce.ui.product.product-card': 1.0.9_react-dom@16.13.1+react@16.13.1
+      classnames: registry.npmjs.org/classnames/2.3.1
+      react: registry.npmjs.org/react/16.13.1
+    dev: false
+    peerDependencies:
+      react: 16.13.1
+      react-dom: '*'
+    resolution:
+      integrity: sha1-pOO6BZ55fG28kXCWqX4oASJAPtI=
+      tarball: '@learn-bit-react/ecommerce.ui.product.product-card-grid/-/@learn-bit-react-ecommerce.ui.product.product-card-grid-1.0.9.tgz'
+  /@learn-bit-react/ecommerce.ui.product.product-card/1.0.9_react-dom@16.13.1+react@16.13.1:
+    dependencies:
+      '@learn-bit-react/base-ui.ui.card': 1.0.5_react-dom@16.13.1+react@16.13.1
+      '@learn-bit-react/base-ui.ui.heading': 1.0.5_react-dom@16.13.1+react@16.13.1
+      '@learn-bit-react/base-ui.ui.img': 1.0.5_react-dom@16.13.1+react@16.13.1
+      '@learn-bit-react/base-ui.ui.link': 1.0.8_react-dom@16.13.1+react@16.13.1
+      '@learn-bit-react/base-ui.ui.text': 1.0.5_react-dom@16.13.1+react@16.13.1
+      '@learn-bit-react/ecommerce.ui.product.available-colors': 0.0.6_react@16.13.1
+      '@learn-bit-react/ecommerce.ui.product.price': 1.0.6_react@16.13.1
+      classnames: registry.npmjs.org/classnames/2.3.1
+      react: registry.npmjs.org/react/16.13.1
+    dev: false
+    peerDependencies:
+      react: 16.13.1
+      react-dom: '*'
+    resolution:
+      integrity: sha1-p3zSpccIqMTLGwUDZN9EaVbuWls=
+      tarball: '@learn-bit-react/ecommerce.ui.product.product-card/-/@learn-bit-react-ecommerce.ui.product.product-card-1.0.9.tgz'
+  /@learn-bit-react/ecommerce.ui.store-hero/0.0.9_react-dom@16.13.1+react@16.13.1:
+    dependencies:
+      '@learn-bit-react/base-ui.ui.heading': 1.0.5_react-dom@16.13.1+react@16.13.1
+      '@learn-bit-react/base-ui.ui.hero': 1.0.5_react-dom@16.13.1+react@16.13.1
+      '@learn-bit-react/base-ui.ui.link': 1.0.8_react-dom@16.13.1+react@16.13.1
+      classnames: registry.npmjs.org/classnames/2.3.1
+      react: registry.npmjs.org/react/16.13.1
+    dev: false
+    peerDependencies:
+      react: 16.13.1
+      react-dom: '*'
+    resolution:
+      integrity: sha1-iPXqWPreb0nfYlnuh5LH5mJjak4=
+      tarball: '@learn-bit-react/ecommerce.ui.store-hero/-/@learn-bit-react-ecommerce.ui.store-hero-0.0.9.tgz'
   /@teambit/react.templates.styles.colors/0.0.2_8bea2159e6cd5f1e2e43db9fc3829767:
     dependencies:
       '@testing-library/react': registry.npmjs.org/@testing-library/react/12.0.0_react-dom@16.13.1+react@16.13.1
@@ -1003,6 +1247,22 @@ packages:
       registry: https://node.bit.dev/
       tarball: https://registry.npmjs.org/@teambit/base-ui.routing.link/-/base-ui.routing.link-1.0.0.tgz
     version: 1.0.0
+  registry.npmjs.org/@teambit/base-ui.routing.native-link/0.0.1_react-dom@16.13.1+react@16.13.1:
+    dependencies:
+      core-js: registry.npmjs.org/core-js/3.18.0
+      react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    dev: false
+    id: registry.npmjs.org/@teambit/base-ui.routing.native-link/0.0.1
+    name: '@teambit/base-ui.routing.native-link'
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    resolution:
+      integrity: sha512-ge8YwskUloqjuzYj6Cwi9f5fzIsAAMOUmIQn5Q0M3nql2xk5zUemlIrH9ZfJnctccB2qwoZAftRiqEI/eI2NwQ==
+      registry: https://node.bit.dev/
+      tarball: https://registry.npmjs.org/@teambit/base-ui.routing.native-link/-/base-ui.routing.native-link-0.0.1.tgz
+    version: 0.0.1
   registry.npmjs.org/@teambit/base-ui.routing.native-link/1.0.0_react-dom@16.13.1+react@16.13.1:
     dependencies:
       core-js: registry.npmjs.org/core-js/3.17.3
@@ -2209,6 +2469,48 @@ packages:
       registry: https://node.bit.dev/
       tarball: https://registry.npmjs.org/@teambit/toolbox.url.add-avatar-query-params/-/toolbox.url.add-avatar-query-params-0.0.371.tgz
     version: 0.0.371
+  registry.npmjs.org/@teambit/ui.react-router.link-anchor/0.0.4_react-dom@16.13.1+react@16.13.1:
+    dependencies:
+      core-js: registry.npmjs.org/core-js/3.18.0
+      react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+      url-join: registry.npmjs.org/url-join/4.0.1
+    dev: false
+    engines:
+      node: '>=12.15.0'
+    id: registry.npmjs.org/@teambit/ui.react-router.link-anchor/0.0.4
+    name: '@teambit/ui.react-router.link-anchor'
+    peerDependencies:
+      '@teambit/legacy': 1.0.85
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    resolution:
+      integrity: sha512-3/PD3Yl7VCy2cLE5We39SmkgR7dGaM254H1vUv6YqbqINs+ojaFgCEf+7caQKrMQutM27Gq0Am8d2E+V+4vsag==
+      registry: https://node.bit.dev/
+      tarball: https://registry.npmjs.org/@teambit/ui.react-router.link-anchor/-/ui.react-router.link-anchor-0.0.4.tgz
+    version: 0.0.4
+  registry.npmjs.org/@teambit/ui.react-router.link/0.0.368_react-dom@16.13.1+react@16.13.1:
+    dependencies:
+      '@teambit/base-ui.routing.native-link': registry.npmjs.org/@teambit/base-ui.routing.native-link/0.0.1_react-dom@16.13.1+react@16.13.1
+      '@teambit/ui.react-router.link-anchor': registry.npmjs.org/@teambit/ui.react-router.link-anchor/0.0.4_react-dom@16.13.1+react@16.13.1
+      core-js: registry.npmjs.org/core-js/3.18.0
+      react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+      react-router-dom: registry.npmjs.org/react-router-dom/5.2.0_react@16.13.1
+    dev: false
+    engines:
+      node: '>=12.15.0'
+    id: registry.npmjs.org/@teambit/ui.react-router.link/0.0.368
+    name: '@teambit/ui.react-router.link'
+    peerDependencies:
+      '@teambit/legacy': 1.0.85
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    resolution:
+      integrity: sha512-KAKvDJ7prm6plBFr0KmHWpGsCCVKyqIgbPmd0PjHxvWpZEX3qQp51bG4cl5dMxTwgxKwQsjSW+1+MK6L997haw==
+      registry: https://node.bit.dev/
+      tarball: https://registry.npmjs.org/@teambit/ui.react-router.link/-/ui.react-router.link-0.0.368.tgz
+    version: 0.0.368
   registry.npmjs.org/@testing-library/dom/8.3.0:
     dependencies:
       '@babel/code-frame': registry.npmjs.org/@babel/code-frame/7.14.5
