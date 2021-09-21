@@ -13,3 +13,7 @@ export const BitDevReactAspect = Aspect.create({
   //   baseUrl: 'https://symphony.bit.dev/graphql'
   // }
 });
+
+// export const ComponentTemplatesAspect = Aspect.create({
+//   id: 'teambit.base-react/generator/component-templates'
+// });
