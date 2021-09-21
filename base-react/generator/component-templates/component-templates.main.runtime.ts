@@ -130,24 +130,98 @@ it('should render with the correct text', () => {
             }
           ];
         }
-      }
+      },
 
-      // component 2
-      //       {
-      //         name: 'component2',
-      //         description: 'description for component2',
-      //         generateFiles: (context: ComponentContext) => {
-      //           return [
-      //             // index file
-      //             {
-      //               relativePath: 'index.ts',
-      //               isMain: true,
-      //               content: `export {} from '';
-      // `
-      //             }
-      //           ];
-      //         }
-      //       }
+      // entity component
+      {
+        name: 'my-entity',
+        description: 'entity component',
+        generateFiles: (context: ComponentContext) => {
+          return [
+            // index file
+            {
+              relativePath: 'index.ts',
+              isMain: true,
+              content: `export { ${context.namePascalCase} } from './${context.name}';
+export type { ${context.namePascalCase}Props } from './${context.name}';
+export { mock${context.namePascalCase} } from './${context.name}.mock';
+      `
+            },
+            // component file
+            {
+              relativePath: `${context.name}.ts`,
+              content: `export type ${context.namePascalCase}Props = {
+  id: string;
+  version: string;
+};
+
+export class ${context.namePascalCase} {
+  constructor(
+    /**
+     * ID of the component
+     */
+    readonly id: string,
+
+    /**
+     * version of the component
+     */
+    readonly version: string,
+  ) {}
+
+  static fromObject(plain${context.namePascalCase}: ${context.namePascalCase}Props) {
+    return new ${context.namePascalCase}(
+      plain${context.namePascalCase}.id,
+      plain${context.namePascalCase}.version,
+    );
+  }
+}
+`
+            },
+            // mock file
+            {
+              relativePath: `${context.name}.mock.ts`,
+              content: `export const mock${context.namePascalCase} = [
+  {
+    id: 'teambit.community/ui/homepage/logo@1.0.1',
+    version: '2.3.0'
+  },
+]
+`
+            },
+            // docs file
+            {
+              relativePath: `${context.name}.docs.mdx`,
+              content: `---
+description: 'Entity component for ${context.namePascalCase}'
+labels: ['mock', 'data', 'entity', 'types']
+---
+
+import { ${context.namePascalCase} } from './${context.name}';
+
+Array of types for the ${context.name}.
+
+\`\`\`js
+id: string;
+version: string;
+\`\`\`
+
+## Mock Json
+
+Mock data for ${context.namePascalCase}
+
+\`\`\`json
+export const ${context.namePascalCase} = [
+  {
+    id: 'teambit.community/ui/homepage/logo@1.0.1',
+    version: '2.3.0'
+  }
+];
+\`\`\`
+`
+            }
+          ];
+        }
+      }
     ]);
 
     return new ComponentTemplatesMain();
