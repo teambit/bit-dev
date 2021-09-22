@@ -272,7 +272,65 @@ export function mockHero() {
       position: 'bottom-right'
     },
     /**
-     * React + Angular combined
+     * Data Fetching, React and Angular (composed)
      */
+     {
+      id: 'teambit.mdx/ui/pages/book-page@0.0.2',
+      dependencies: [
+        'teambit.mdx/ui/book-list',
+        'teambit.frontend/ui/angular-renderer',
+        'learn-bit-react.angular-in-react/books/recommendations'
+      ],
+      icon: 'https://static.bit.dev/brands/logo-react.svg',
+      row: 5,
+      col: 2,
+      position: 'bottom-right'
+    },
+    {
+      id: 'teambit.frontend/ui/angular-renderer@0.0.2',
+      dependencies: [],
+      icon: 'https://static.bit.dev/brands/logo-react.svg',
+      row: 5,
+      col: 1,
+      position: 'bottom-right'
+    },
+    {
+      id: 'learn-bit-react.angular-in-react/books/recommendations@0.0.2',
+      dependencies: [
+      ],
+      icon: 'https://static.bit.dev/brands/logo-angular.svg',
+      row: 7,
+      col: 1,
+      position: 'top-left'
+    },
+    {
+      id: 'teambit.mdx/ui/book-list@0.0.2',
+      dependencies: [
+        'teambit.mdx/ui/hooks/use-book',
+        'learn-bit-react.data-fetching/models/book'
+      ],
+      icon: 'https://static.bit.dev/brands/logo-react.svg',
+      row: 6,
+      col: 2,
+      position: 'bottom-right'
+    },
+    {
+      id: 'teambit.mdx/ui/hooks/use-book@0.0.2',
+      dependencies: [
+        'learn-bit-react.data-fetching/models/book'
+      ],
+      icon: 'https://static.bit.dev/brands/logo-react.svg',
+      row: 7,
+      col: 2,
+      position: 'bottom-right'
+    },
+    {
+      id: 'learn-bit-react.data-fetching/models/book@0.0.2',
+      dependencies: [],
+      icon: 'https://static.bit.dev/brands/logo-nodejs.svg',
+      row: 7,
+      col: 3,
+      position: 'bottom-right'
+    },
   ]);  
 } 
