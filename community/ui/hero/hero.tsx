@@ -43,9 +43,9 @@ export function Hero({ title, heroGraph, teaser }: HeroProps) {
         return (
           <div className={styles.bubbleContainer} style={{ ...cell, ...bubblePosition }}>
             <ComponentBubble key={id} componentId={bubble.id} className={styles.bubble} id={id} icon={bubble.icon} />
-            {bubble.dependencies.map(dependency => {
+            {bubble.dependencies.map((dependency) => {
               const idStr = getValidId(dependency.toString())
-              return <Edge key={idStr} start={id} end={idStr} />
+              return <Edge key={`${id}->${idStr}`} start={id} end={idStr} />
             })}
           </div>
         )

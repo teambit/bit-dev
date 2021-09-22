@@ -14,9 +14,9 @@ export type LogoShowcaseProps = {
 export function LogoShowcase({ images, className }: LogoShowcaseProps) {
   return (
     <div className={classNames(styles.logoShowcase, className)}>
-      {images.map((image) => (
+      {images.map((image, index) => (
         <Image
-          key={image.alt}
+          key={index}
           alt={image.alt}
           src={image.src}
           loading={(image.loading = 'lazy')}

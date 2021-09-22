@@ -3,7 +3,6 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Link } from '@teambit/ui-foundation.ui.navigation.react-router.link'
 import { RouterContextProvider } from "@teambit/base-react.navigation.router-context";
 import { Header } from '@teambit/community.ui.header.header';
-import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 import { Homepage } from '@teambit/community.ui.pages.homepage';
 import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions';
 import { ComponentHighlighter } from '@teambit/react.ui.component-highlighter';
@@ -17,7 +16,6 @@ export function BitDevApp() {
           <BrowserRouter>
             {/* header component */}
             <Header />
-            <WideColumn>
               <Switch>
                 <Route exact path="/plugins">
                   <Plugins />
@@ -27,7 +25,6 @@ export function BitDevApp() {
                   <Homepage />
                 </Route>
               </Switch>
-            </WideColumn>
             {/* footer component */}
           </BrowserRouter>
         {/* </ComponentHighlighter> */}

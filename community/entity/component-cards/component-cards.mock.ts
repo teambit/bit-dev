@@ -1,4 +1,4 @@
-import { BasicLogo } from '@teambit/design.ui.logo';
+import { Logo } from '@teambit/design.ui.brand.logo';
 
 export const mockComponentCards = [
   {
@@ -6,7 +6,7 @@ export const mockComponentCards = [
     version: '2.3.0',
     description: 'Logo for the store',
     envIcon: 'https://static.bit.dev/brands/logo-react.svg',
-    preview: BasicLogo
+    preview: Logo
   },
   {
     id: 'teambit.community/ui/homepage/avatar@1.0.1',

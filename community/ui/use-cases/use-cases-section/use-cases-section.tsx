@@ -1,6 +1,7 @@
 import React from "react";
 import { UseCasesCardGrid } from "@teambit/community.ui.use-cases.use-cases-card-grid";
 import { UseCases } from "@teambit/community.entity.use-cases";
+import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 import { H2 } from "@teambit/design.ui.heading";
 import { Link } from "@teambit/design.ui.navigation.link";
 import { Icon } from "@teambit/design.elements.icon";
@@ -32,13 +33,13 @@ export function UseCasesSection({
   linkText,
 }: UseCasesSectionProps) {
   return (
-    <div className={styles.UseCasesSection}>
+    <WideColumn className={styles.UseCasesSection}>
       <div className={styles.heading}>
         <H2 className={styles.title}>{title}</H2>
         <Link href={href}>{linkText}</Link>
         <Icon of="right-arrow" className={styles.icon} />
       </div>
       <UseCasesCardGrid useCases={useCases} />
-    </div>
+    </WideColumn>
   );
 }

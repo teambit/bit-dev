@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { ComponentCard } from '@teambit/explorer.ui.gallery.component-card';
 import { Button } from '@teambit/design.ui.buttons.button';
-import { Logo } from '@teambit/design.ui.logo';
+import { Logo } from '@teambit/design.ui.brand.logo';
 import { ComponentCards } from '@teambit/community.entity.component-cards';
 import { Price } from '@learn-bit-react/ecommerce.ui.product.price';
 import { ProductCard } from '@learn-bit-react/ecommerce.ui.product.product-card';
