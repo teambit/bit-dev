@@ -187,8 +187,8 @@ export function mockHero() {
         'teambit.tester/eslint'
       ],
       icon: 'https://static.bit.dev/brands/logo-react.svg',
-      row: 7,
-      col: 3,
+      row: 6,
+      col: 4,
       position: 'bottom-right'
     },
     {
