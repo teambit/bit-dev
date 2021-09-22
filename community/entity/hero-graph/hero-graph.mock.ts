@@ -129,7 +129,7 @@ export function mockHero() {
       dependencies: [],
       icon: 'https://static.bit.dev/Community/icons/compile.svg',
       row: 6,
-      col: 5,
+      col: 7,
       position: 'top-left'
     },
     {
@@ -139,9 +139,9 @@ export function mockHero() {
       ],
       // TODO: add babel icon
       icon: 'https://static.bit.dev/Community/icons/babel.svg',
-      row: 6,
-      col: 7,
-      position: 'top-right'
+      row: 7,
+      col: 8,
+      position: 'top-left'
     },
     {
       id: 'teambit.typescript/typescript@1.3.1',
@@ -152,6 +152,54 @@ export function mockHero() {
       row: 7,
       col: 6,
       position: 'top-left'
+    },
+    {
+      id: 'teambit.tester/tester@1.2.1',
+      dependencies: [],
+      icon: 'https://static.bit.dev/envs/aspect.svg',
+      row: 7,
+      col: 7,
+      position: 'bottom-right'
+    },
+    {
+      id: 'teambit.tester/linter@1.2.1',
+      dependencies: [
+        'teambit.tester/eslint'
+      ],
+      icon: 'https://static.bit.dev/envs/aspect.svg',
+      row: 5,
+      col: 6,
+      position: 'bottom-right'
+    },
+    {
+      id: 'teambit.tester/eslint@1.2.1',
+      dependencies: [],
+      icon: 'https://static.bit.dev/Community/icons/esling.svg',
+      row: 6,
+      col: 5,
+      position: 'top-right'
+    },
+    {
+      id: 'teambit.react/react@2.0.1',
+      dependencies: [
+        'teambit.typescript/typescript',
+        'teambit.tester/jest',
+        'teambit.tester/eslint'
+      ],
+      icon: 'https://static.bit.dev/brands/logo-react.svg',
+      row: 7,
+      col: 3,
+      position: 'bottom-right'
+    },
+    {
+      id: 'teambit.tester/jest@3.2.1',
+      dependencies: [
+        'teambit.tester/tester'
+      ],
+      icon: 'https://static.bit.dev/Community/icons/jest.svg',
+      row: 7,
+      col: 5,
+      position: 'bottom-right'
     },
     /**
      * Angular graph
@@ -196,20 +244,19 @@ export function mockHero() {
      * NodeJS graph
      */
      {
-      id: 'teambit.component/component-id@3.1.2',
+      id: 'teambit.mdx/mdx@3.1.2',
       dependencies: [
-        'teambit.component/legacy-id',
-        'teambit.component/bit-error'
+        'teambit.mdx/modules/mdx-compiler',
       ],
-      icon: 'https://static.bit.dev/brands/logo-nodejs.svg',
+      icon: 'https://static.bit.dev/extensions-icons/mdx-icon-small.svg',
       row: 2,
       col: 1,
       position: 'bottom-left'
     },
     {
-      id: 'teambit.component/legacy-id@3.1.2',
+      id: 'teambit.mdx/mdx-loader@3.1.2',
       dependencies: [
-        'teambit.component/bit-error'
+        'teambit.mdx/modules/mdx-compiler'
       ],
       icon: 'https://static.bit.dev/brands/logo-nodejs.svg',
       row: 1,
@@ -217,7 +264,7 @@ export function mockHero() {
       position: 'bottom-right'
     },
     {
-      id: 'teambit.component/bit-error@1.0.12',
+      id: 'teambit.mdx/modules/mdx-compiler@1.0.12',
       dependencies: [],
       icon: 'https://static.bit.dev/brands/logo-nodejs.svg',
       row: 1,

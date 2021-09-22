@@ -9,6 +9,7 @@ import { Button } from '@teambit/design.ui.buttons.button';
 import { CopyBox } from '@teambit/documenter.ui.copy-box';
 import { HeroGraph } from '@teambit/community.entity.hero-graph';
 import { ComponentID } from '@teambit/component-id';
+import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 import { BubbleHighlighter } from '@teambit/community.ui.bubble-highlighter';
 import styles from './hero.module.scss';
 import { useHeroState, HeroState } from './use-hero-state';
@@ -35,42 +36,44 @@ export function Hero({ title, heroGraph, teaser }: HeroProps) {
   const headingClass = heroState === HeroState.HEADING_UPDATED ? styles.highlight : '';
 
   return (
-    <div className={styles.hero}>
-      {heroGraph.bubbles.map((bubble) => {
-        const id = getValidId(bubble.id.toString({ignoreVersion: true}))
-        const cell = getCell(bubble.row, bubble.col)
-        const bubblePosition = bubble.position && positions[bubble.position];
-        return (
-          <div className={styles.bubbleContainer} style={{ ...cell, ...bubblePosition }}>
-            <ComponentBubble key={id} componentId={bubble.id} className={styles.bubble} id={id} icon={bubble.icon} />
-            {bubble.dependencies.map((dependency) => {
-              const idStr = getValidId(dependency.toString())
-              return <Edge key={`${id}->${idStr}`} start={id} end={idStr} />
-            })}
+    <WideColumn>
+      <div className={styles.hero}>
+        {heroGraph.bubbles.map((bubble) => {
+          const id = getValidId(bubble.id.toString({ignoreVersion: true}))
+          const cell = getCell(bubble.row, bubble.col)
+          const bubblePosition = bubble.position && positions[bubble.position];
+          return (
+            <div className={styles.bubbleContainer} style={{ ...cell, ...bubblePosition }}>
+              <ComponentBubble key={id} componentId={bubble.id} className={styles.bubble} id={id} icon={bubble.icon} />
+              {bubble.dependencies.map((dependency) => {
+                const idStr = getValidId(dependency.toString())
+                return <Edge key={`${id}->${idStr}`} start={id} end={idStr} />
+              })}
+            </div>
+          )
+        })}
+          <Edge start={getValidId('teambit.design/ui/buttons/button')} end={getValidId('teambit.react-base/buttons/button')} />
+          <Edge start={getValidId('teambit.community/ui/content/heading')} end={getValidId('teambit.design/ui/content/heading')} />
+          <div className={styles.title}>
+            <BubbleHighlighter className={classNames(styles.titleHighlighter, styles.largeSvg)} componentId={ComponentID.fromString('teambit.community/ui/content/heading')}>
+              <Heading className={styles.marginZero} highlight={heroState === HeroState.HEADING_UPDATED}>{title}</Heading>
+            </BubbleHighlighter>
           </div>
-        )
-      })}
-        <Edge start={getValidId('teambit.design/ui/buttons/button')} end={getValidId('teambit.react-base/buttons/button')} />
-        <Edge start={getValidId('teambit.community/ui/content/heading')} end={getValidId('teambit.design/ui/content/heading')} />
-        <div className={styles.title}>
-          <BubbleHighlighter className={classNames(styles.titleHighlighter, styles.largeSvg)} componentId={ComponentID.fromString('teambit.community/ui/content/heading')}>
-            <Heading className={styles.marginZero} highlight={heroState === HeroState.HEADING_UPDATED}>{title}</Heading>
-          </BubbleHighlighter>
-        </div>
-        <div className={styles.subTitle}>
-          <BubbleHighlighter className={classNames(styles.subtitleHighlighter, styles.largeSvg)} componentId={ComponentID.fromString('teambit.design/ui/content/subtitle')}>
-            <Subtitle className={styles.marginZero}>{teaser}</Subtitle>
-          </BubbleHighlighter>
-        </div>
-        <div className={styles.getStarted}>
-          <BubbleHighlighter componentId={ComponentID.fromString('teambit.design/ui/buttons/button')}>
-            <Button className={styles.getStartedAction} href="http://bit.dev">Getting Started</Button>
-          </BubbleHighlighter>
-          <BubbleHighlighter componentId={ComponentID.fromString('teambit.documenter/ui/copy-box')}>
-            <CopyBox className={styles.copyBox}>npx @teambit/bvm install</CopyBox>
-          </BubbleHighlighter>
-        </div>
-    </div>
+          <div className={styles.subTitle}>
+            <BubbleHighlighter className={classNames(styles.subtitleHighlighter, styles.largeSvg)} componentId={ComponentID.fromString('teambit.design/ui/content/subtitle')}>
+              <Subtitle className={styles.marginZero}>{teaser}</Subtitle>
+            </BubbleHighlighter>
+          </div>
+          <div className={styles.getStarted}>
+            <BubbleHighlighter componentId={ComponentID.fromString('teambit.design/ui/buttons/button')}>
+              <Button className={styles.getStartedAction} href="http://bit.dev">Getting Started</Button>
+            </BubbleHighlighter>
+            <BubbleHighlighter componentId={ComponentID.fromString('teambit.documenter/ui/copy-box')}>
+              <CopyBox className={styles.copyBox}>npx @teambit/bvm install</CopyBox>
+            </BubbleHighlighter>
+          </div>
+      </div>
+    </WideColumn>
   );
 }
 
