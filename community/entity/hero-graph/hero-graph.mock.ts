@@ -254,7 +254,7 @@ export function mockHero() {
       position: 'bottom-left'
     },
     {
-      id: 'teambit.mdx/mdx-loader@3.1.2',
+      id: 'teambit.mdx/webpack/mdx-loader@3.1.2',
       dependencies: [
         'teambit.mdx/modules/mdx-compiler'
       ],
