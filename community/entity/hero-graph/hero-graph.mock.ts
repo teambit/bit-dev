@@ -73,40 +73,61 @@ export function mockHero() {
       position: 'top-left'
     },
     /**
-     * Aspect graph https://static.bit.dev/envs/aspect.svg
+     * Aspect graph 
+     * TODO: prepare icons for main aspects with amir
      */
      {
       id: 'teambit.workspace/workspace@1.4.1',
       dependencies: [
-        'teambit.component/component'
+        'teambit.component/component',
+        'teambit.ui-foundation/ui/component-tree',
+        'teambit.ui-foundation/ui/top-bar'
       ],
-      icon: 'https://static.bit.dev/envs/aspect.svg',
-      row: 5,
+      icon: 'https://static.bit.dev/Community/icons/workspace.svg',
+      row: 6,
       col: 11,
-      position: 'top-left'
+      position: 'bottom-left'
     },
     {
       id: 'teambit.scope/scope@1.3.1',
       dependencies: [
-        'teambit.component/component'
+        'teambit.component/component',
+        // 'teambit.ui-foundation/ui/component-tree',
+        'teambit.ui-foundation/ui/top-bar'
       ],
-      icon: 'https://static.bit.dev/envs/aspect.svg',
+      icon: 'https://static.bit.dev/Community/icons/collection.svg',
       row: 5,
       col: 10,
-      position: 'top-left'
+      position: 'bottom-left'
     },
     {
       id: 'teambit.component/component@1.3.1',
       dependencies: [],
       icon: 'https://static.bit.dev/envs/aspect.svg',
-      row: 6,
+      row: 5,
       col: 11,
+      position: 'top-right'
+    },
+    {
+      id: 'teambit.ui-foundation/ui/component-tree@1.2.1',
+      dependencies: [],
+      icon: 'https://static.bit.dev/brands/logo-react.svg',
+      row: 7,
+      col: 10,
+      position: 'bottom-right'
+    },
+    {
+      id: 'teambit.ui-foundation/ui/top-bar@1.0.1',
+      dependencies: [],
+      icon: 'https://static.bit.dev/brands/logo-react.svg',
+      row: 6,
+      col: 9,
       position: 'bottom-right'
     },
     {
       id: 'teambit.compilation/compiler@1.3.1',
       dependencies: [],
-      icon: 'https://static.bit.dev/envs/aspect.svg',
+      icon: 'https://static.bit.dev/Community/icons/compile.svg',
       row: 6,
       col: 5,
       position: 'top-left'
@@ -116,7 +137,8 @@ export function mockHero() {
       dependencies: [
         'teambit.compilation/compiler'
       ],
-      icon: 'https://static.bit.dev/envs/aspect.svg',
+      // TODO: add babel icon
+      icon: 'https://static.bit.dev/Community/icons/babel.svg',
       row: 6,
       col: 7,
       position: 'top-right'
@@ -126,7 +148,7 @@ export function mockHero() {
       dependencies: [
         'teambit.compilation/compiler'
       ],
-      icon: 'https://static.bit.dev/envs/aspect.svg',
+      icon: 'https://static.bit.dev/brands/logo-ts.svg',
       row: 7,
       col: 6,
       position: 'top-left'

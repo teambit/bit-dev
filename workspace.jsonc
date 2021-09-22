@@ -29,7 +29,7 @@
      **/
     "defaultScope": "teambit.community"
   },
-  // "teambit.community/apps/bit-dev": {},
+  "teambit.community/apps/bit-dev": {},
   // "teambit.generator/generator": {
   //   "aspects": ["teambit.base-react/generator/component-templates"]
   // },
@@ -104,6 +104,7 @@
     "installFromBitDevRegistry": true,
     "savePrefix": ""
   },
+  "teambit.community/envs/bitdev-react": {},
   /**
    * workspace variants allow to set different subsets of configuration for components in your
    * workspace. this is extremely useful for upgrading, aligning and building components with a new
