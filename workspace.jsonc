@@ -68,6 +68,7 @@
         "@teambit/design.ui.external-link": "0.0.344",
         "@teambit/design.ui.heading": "1.0.5",
         "@teambit/design.ui.message-card": "1.0.4",
+        "@teambit/design.ui.styles.ellipsis": "0.0.345",
         "@teambit/documenter.theme.theme-compositions": "4.1.1",
         "@teambit/documenter.theme.theme-context": "4.0.3",
         "@teambit/documenter.ui.copy-box": "4.1.1",

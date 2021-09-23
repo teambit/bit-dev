@@ -17,12 +17,24 @@ export type BubbleCardProps = {
    * svg corder
    */
   CornerSvg?: string;
+
+  /**
+   * override corner svg size
+   */
+   cornerSvgSize?: number;
+
+  /**
+   * override corner svg position. [height, wi]
+   */
+   cornerSvgClassName?: string;
 } & CardProps;
 
 export function BubbleCard({
   children,
   className,
   CornerSvg,
+  cornerSvgSize = 15,
+  cornerSvgClassName,
   ...rest
 }: BubbleCardProps) {
   return (
@@ -31,8 +43,9 @@ export function BubbleCard({
         <CornerSvg />
       ) : (
         <svg
-          width="15"
-          height="15"
+          width={cornerSvgSize}
+          height={cornerSvgSize}
+          className={cornerSvgClassName}
           viewBox="0 0 15 15"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
