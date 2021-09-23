@@ -1,42 +1,35 @@
 
 .buildSection {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    overflow: hidden;
-  }
-  
-  .title {
-    margin: 10px 0 80px 0;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
 
-  .content {
-      display: grid;
-    //   grid-template-columns: repeat(2, 1fr);
-      grid-template-columns: 60% 5% 35%;
-    //   grid-auto-rows: 500px;
-  }
-  
+.title {
+  margin: 10px 0 80px 0;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 60% 5% 35%;
   .componentGrid {
-    display: grid;
-    width: 100%;
     grid-template-columns: repeat(4, minmax(200px, 1fr));
     grid-auto-rows: minmax(340px, auto);
-    align-items: center;
-    grid-gap: 24px;
-    align-items: center;
-    justify-items: center;
+    grid-template-rows: unset;
+
     > div:last-child {
-      transform: translateY(-20px) ;
+      transform: translateY(-20px);
     }
   }
+}
 
-  .appImg {
-      max-height: 500px;
-  }
+.appImg {
+  max-height: 500px;
+}
 
-  .cardWrapper {
-    width: 100%;
-    padding: 10px;
-  }
+.cardWrapper {
+  width: 100%;
+  padding: 10px;
+}

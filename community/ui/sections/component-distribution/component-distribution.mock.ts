@@ -50,12 +50,12 @@ export const componentsMock = () => {
       },
       {
         id: 'teambit.community/ui/subtitle@1.0.0',
-        dependencies: ['teambit.design/ui/button'],
+        dependencies: ['teambit.design/ui/buttons'],
         position: 'top',
         preview: 'https://static.bit.dev/brands/logo-angular.svg'
       },
       {
-        id: 'teambit.design/ui/button@1.0.0',
+        id: 'teambit.design/ui/buttons@1.0.0',
         dependencies: [],
         position: 'top',
         preview: 'https://static.bit.dev/brands/logo-react.svg'

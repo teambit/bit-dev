@@ -3,7 +3,8 @@ import classNames from 'classnames';
 import {Image} from '@teambit/base-react.content.image'
 import { H2 } from '@teambit/design.ui.heading';
 import { Edge } from '@teambit/community.ui.graph.edge';
-import {ComponentCard} from '@teambit/explorer.ui.gallery.component-card'
+import {ComponentCard} from '@teambit/explorer.ui.gallery.component-card';
+import {GridGraph, GridGraphProps, GridItemProps} from '@teambit/community.ui.graph.grid-graph'
 import styles from './component-distribution.module.scss';
 // @ts-ignore
 import img from './shoe-store.png';
@@ -36,32 +37,28 @@ export function ComponentDistributionSection({
         <H2 className={styles.title}>{title}</H2>
       </div>
       <div className={styles.content}>
-        <div className={styles.componentGrid}>
+        <GridGraph className={styles.componentGrid}>
 
         {components.map((component, index) => {
           const componentName = component.id.toString({ignoreVersion: true})
-          // console.log("componentName", componentName)
-          // debugger
           return (
             <div key={`${componentName}-${index}`} className={styles.cardWrapper} style={{...positions[component.position]}}>
               <div id={getValidId(componentName)}>
               <ComponentCard id={componentName} version={component.version} />
               </div>
               {component.dependencies.map((dep) => {
-                // debugger
                 const depName = dep.toString({ignoreVersion: true})
-                // console.log("dep", getValidId(componentName), getValidId(depName))
-                // console.log("dep", getValidId(dep))
-                // console.log("comp", getValidId(componentName))
                 return <Edge key={`${componentName}-${depName}`} start={getValidId(componentName)} end={getValidId(depName)} />
 
               })}
           </div>
           )
         })}
-        </div>
+        </GridGraph>
         <div />
-        <Image src={img} className={styles.appImg} />
+        <div>
+          <Image src={img} className={styles.appImg} />
+        </div>
       </div>
     </div>
   );
