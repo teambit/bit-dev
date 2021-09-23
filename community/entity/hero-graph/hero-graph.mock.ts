@@ -103,7 +103,7 @@ export function mockHero() {
     {
       id: 'teambit.component/component@1.3.1',
       dependencies: [],
-      icon: 'https://static.bit.dev/envs/aspect.svg',
+      icon: 'https://static.bit.dev/Community/icons/workspace.svg',
       row: 5,
       col: 11,
       position: 'top-right'
@@ -127,7 +127,7 @@ export function mockHero() {
     {
       id: 'teambit.compilation/compiler@1.3.1',
       dependencies: [],
-      icon: 'https://static.bit.dev/Community/icons/compile.svg',
+      icon: 'https://static.bit.dev/Community/icons/compile.svg?123',
       row: 6,
       col: 7,
       position: 'top-left'
@@ -156,17 +156,17 @@ export function mockHero() {
     {
       id: 'teambit.tester/tester@1.2.1',
       dependencies: [],
-      icon: 'https://static.bit.dev/envs/aspect.svg',
+      icon: 'https://static.bit.dev/Community/icons/tester.svg?123',
       row: 7,
       col: 7,
       position: 'bottom-right'
     },
     {
-      id: 'teambit.tester/linter@1.2.1',
+      id: 'teambit.linting/linter@1.2.1',
       dependencies: [
         'teambit.tester/eslint'
       ],
-      icon: 'https://static.bit.dev/envs/aspect.svg',
+      icon: 'https://static.bit.dev/Community/icons/linter.svg',
       row: 5,
       col: 6,
       position: 'bottom-right'
