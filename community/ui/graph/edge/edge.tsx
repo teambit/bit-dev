@@ -14,14 +14,16 @@ export type EdgeProps = {
   strokeWidth?: number,
 
   /**
-   * a text to be rendered in the component.
+   * override edge styles
    */
-  // text: string
-} & XArrowProps & React.HTMLAttributes<HTMLDivElement>;
+  className?: string;
+} & XArrowProps;
 
-export function Edge({ strokeWidth = 2, color = '#ECEAFF', ...rest }: EdgeProps) {
+export function Edge({ strokeWidth = 2, color = '#ECEAFF', className, ...rest }: EdgeProps) {
+  // console.log("start", rest.start)
+  // console.log("end", rest.end)
   return (
-    <div {...rest}>
+    <div className={className}>
       <XArrow animateDrawing strokeWidth={strokeWidth} color={color} {...rest}>
         {rest}
       </XArrow>

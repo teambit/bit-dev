@@ -4,6 +4,7 @@ import { Image } from '@teambit/base-react.content.image';
 import { Label } from '@teambit/documenter.ui.label';
 import { Caption } from '@teambit/design.ui.content.caption';
 import classNames from 'classnames';
+import { GridItemProps } from '@teambit/community.ui.graph.grid-graph'
 import { getScopeName } from './get-scope-name';
 import styles from './component-bubble.module.scss';
 
@@ -42,11 +43,12 @@ export type ComponentBubbleProps = {
    * color of the bubble
    */
   color?: string
-} & React.HTMLAttributes<HTMLDivElement>;
+} & GridItemProps;
 
 export function ComponentBubble({ className, componentId, showOwner = false, icon, forceActive = false, color = '#EDEDED', ...rest }: ComponentBubbleProps) {
+  // console.log("componentId", getValidId(componentId.toString({ignoreVersion: true})))
   return (
-    <div className={classNames(styles.bubble, className, forceActive ? styles.active : '')} {...rest}>
+    <div /* id={getValidId(componentId.toString({ignoreVersion: true}))} */ className={classNames(styles.bubble, className, forceActive ? styles.active : '')} {...rest}>
       <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M13.1937 1.83337C8.09096 4.06476 3.9981 8.17609 1.79077 13.2917" stroke={color} strokeWidth="2" strokeLinecap="round"/>
       </svg>
@@ -58,4 +60,8 @@ export function ComponentBubble({ className, componentId, showOwner = false, ico
       {componentId ? <Label className={styles.versionLabel}>{componentId?.version}</Label>: ''}
     </div>
   );
+}
+
+export function getValidId(id: string) {
+  return id.replace(/[.\/]/g, '-');
 }

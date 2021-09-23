@@ -3,6 +3,7 @@ import { Hero } from '@teambit/community.ui.hero';
 import { clientLogos } from '@teambit/community.entity.images';
 import { UseCasesSection } from '@teambit/community.ui.use-cases.use-cases-section';
 import { FeaturesSection } from '@teambit/community.ui.features.features-section';
+import { ComponentDistributionSection, componentsMock } from '@teambit/community.ui.sections.component-distribution'
 import { useCases } from '@teambit/community.entity.use-cases';
 import { features } from '@teambit/community.entity.features';
 import { mockHero } from '@teambit/community.entity.hero-graph';
@@ -21,6 +22,7 @@ export function Homepage({ ...rest }: HomepageProps) {
       <section>
         <div className={styles.grid}>
           <Hero heroGraph={mockHero()} />
+          <ComponentDistributionSection title="Build components, compose apps" components={componentsMock().components} />
           <FeaturesSection
             features={features}
             title="Better software is built in components"
