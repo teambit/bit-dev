@@ -51,7 +51,7 @@ importers:
       '@testing-library/react-hooks': registry.npmjs.org/@testing-library/react-hooks/7.0.1_react-dom@16.13.1+react@16.13.1
       '@types/jest': registry.npmjs.org/@types/jest/26.0.20
       '@types/node': registry.npmjs.org/@types/node/12.20.4
-      '@types/react': registry.npmjs.org/@types/react/17.0.22
+      '@types/react': registry.npmjs.org/@types/react/17.0.24
       '@types/react-dom': registry.npmjs.org/@types/react-dom/17.0.9
       '@types/react-router': registry.npmjs.org/@types/react-router/5.1.16
       '@types/react-router-dom': registry.npmjs.org/@types/react-router-dom/5.1.8
@@ -96,7 +96,7 @@ importers:
       '@testing-library/react-hooks': 7.0.1
       '@types/jest': 26.0.20
       '@types/node': 12.20.4
-      '@types/react': ^17.0.22
+      '@types/react': ^17.0.24
       '@types/react-dom': ^17.0.9
       '@types/react-router': 5.1.16
       '@types/react-router-dom': 5.1.8
@@ -2645,7 +2645,7 @@ packages:
     version: 15.7.4
   registry.npmjs.org/@types/react-dom/17.0.9:
     dependencies:
-      '@types/react': registry.npmjs.org/@types/react/17.0.22
+      '@types/react': registry.npmjs.org/@types/react/17.0.24
     dev: true
     name: '@types/react-dom'
     resolution:
@@ -2698,7 +2698,7 @@ packages:
       registry: https://node.bit.dev/
       tarball: https://registry.npmjs.org/@types/react/-/react-17.0.20.tgz
     version: 17.0.20
-  registry.npmjs.org/@types/react/17.0.22:
+  registry.npmjs.org/@types/react/17.0.24:
     dependencies:
       '@types/prop-types': registry.npmjs.org/@types/prop-types/15.7.4
       '@types/scheduler': registry.npmjs.org/@types/scheduler/0.16.2
@@ -2706,10 +2706,10 @@ packages:
     dev: true
     name: '@types/react'
     resolution:
-      integrity: sha512-kq/BMeaAVLJM6Pynh8C2rnr/drCK+/5ksH0ch9asz+8FW3DscYCIEFtCeYTFeIx/ubvOsMXmRfy7qEJ76gM96A==
+      integrity: sha512-eIpyco99gTH+FTI3J7Oi/OH8MZoFMJuztNRimDOJwH4iGIsKV2qkGnk4M9VzlaVWeEEWLWSQRy0FEA0Kz218cg==
       registry: https://node.bit.dev/
-      tarball: https://registry.npmjs.org/@types/react/-/react-17.0.22.tgz
-    version: 17.0.22
+      tarball: https://registry.npmjs.org/@types/react/-/react-17.0.24.tgz
+    version: 17.0.24
   registry.npmjs.org/@types/scheduler/0.16.2:
     dev: true
     name: '@types/scheduler'

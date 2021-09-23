@@ -73,42 +73,63 @@ export function mockHero() {
       position: 'top-left'
     },
     /**
-     * Aspect graph https://static.bit.dev/envs/aspect.svg
+     * Aspect graph 
+     * TODO: prepare icons for main aspects with amir
      */
      {
       id: 'teambit.workspace/workspace@1.4.1',
       dependencies: [
-        'teambit.component/component'
+        'teambit.component/component',
+        'teambit.ui-foundation/ui/component-tree',
+        'teambit.ui-foundation/ui/top-bar'
       ],
-      icon: 'https://static.bit.dev/envs/aspect.svg',
-      row: 5,
+      icon: 'https://static.bit.dev/Community/icons/workspace.svg',
+      row: 6,
       col: 11,
-      position: 'top-left'
+      position: 'bottom-left'
     },
     {
       id: 'teambit.scope/scope@1.3.1',
       dependencies: [
-        'teambit.component/component'
+        'teambit.component/component',
+        // 'teambit.ui-foundation/ui/component-tree',
+        'teambit.ui-foundation/ui/top-bar'
       ],
-      icon: 'https://static.bit.dev/envs/aspect.svg',
+      icon: 'https://static.bit.dev/Community/icons/collection.svg',
       row: 5,
       col: 10,
-      position: 'top-left'
+      position: 'bottom-left'
     },
     {
       id: 'teambit.component/component@1.3.1',
       dependencies: [],
       icon: 'https://static.bit.dev/envs/aspect.svg',
-      row: 6,
+      row: 5,
       col: 11,
+      position: 'top-right'
+    },
+    {
+      id: 'teambit.ui-foundation/ui/component-tree@1.2.1',
+      dependencies: [],
+      icon: 'https://static.bit.dev/brands/logo-react.svg',
+      row: 7,
+      col: 10,
+      position: 'bottom-right'
+    },
+    {
+      id: 'teambit.ui-foundation/ui/top-bar@1.0.1',
+      dependencies: [],
+      icon: 'https://static.bit.dev/brands/logo-react.svg',
+      row: 6,
+      col: 9,
       position: 'bottom-right'
     },
     {
       id: 'teambit.compilation/compiler@1.3.1',
       dependencies: [],
-      icon: 'https://static.bit.dev/envs/aspect.svg',
+      icon: 'https://static.bit.dev/Community/icons/compile.svg',
       row: 6,
-      col: 5,
+      col: 7,
       position: 'top-left'
     },
     {
@@ -116,20 +137,69 @@ export function mockHero() {
       dependencies: [
         'teambit.compilation/compiler'
       ],
-      icon: 'https://static.bit.dev/envs/aspect.svg',
-      row: 6,
-      col: 7,
-      position: 'top-right'
+      // TODO: add babel icon
+      icon: 'https://static.bit.dev/Community/icons/babel.svg',
+      row: 7,
+      col: 8,
+      position: 'top-left'
     },
     {
       id: 'teambit.typescript/typescript@1.3.1',
       dependencies: [
         'teambit.compilation/compiler'
       ],
-      icon: 'https://static.bit.dev/envs/aspect.svg',
+      icon: 'https://static.bit.dev/brands/logo-ts.svg',
       row: 7,
       col: 6,
       position: 'top-left'
+    },
+    {
+      id: 'teambit.tester/tester@1.2.1',
+      dependencies: [],
+      icon: 'https://static.bit.dev/envs/aspect.svg',
+      row: 7,
+      col: 7,
+      position: 'bottom-right'
+    },
+    {
+      id: 'teambit.tester/linter@1.2.1',
+      dependencies: [
+        'teambit.tester/eslint'
+      ],
+      icon: 'https://static.bit.dev/envs/aspect.svg',
+      row: 5,
+      col: 6,
+      position: 'bottom-right'
+    },
+    {
+      id: 'teambit.tester/eslint@1.2.1',
+      dependencies: [],
+      icon: 'https://static.bit.dev/Community/icons/esling.svg',
+      row: 6,
+      col: 5,
+      position: 'top-right'
+    },
+    {
+      id: 'teambit.react/react@2.0.1',
+      dependencies: [
+        'teambit.typescript/typescript',
+        'teambit.tester/jest',
+        'teambit.tester/eslint'
+      ],
+      icon: 'https://static.bit.dev/brands/logo-react.svg',
+      row: 6,
+      col: 4,
+      position: 'bottom-right'
+    },
+    {
+      id: 'teambit.tester/jest@3.2.1',
+      dependencies: [
+        'teambit.tester/tester'
+      ],
+      icon: 'https://static.bit.dev/Community/icons/jest.svg',
+      row: 7,
+      col: 5,
+      position: 'bottom-right'
     },
     /**
      * Angular graph
@@ -174,20 +244,19 @@ export function mockHero() {
      * NodeJS graph
      */
      {
-      id: 'teambit.component/component-id@3.1.2',
+      id: 'teambit.mdx/mdx@3.1.2',
       dependencies: [
-        'teambit.component/legacy-id',
-        'teambit.component/bit-error'
+        'teambit.mdx/modules/mdx-compiler',
       ],
-      icon: 'https://static.bit.dev/brands/logo-nodejs.svg',
+      icon: 'https://static.bit.dev/extensions-icons/mdx-icon-small.svg',
       row: 2,
       col: 1,
       position: 'bottom-left'
     },
     {
-      id: 'teambit.component/legacy-id@3.1.2',
+      id: 'teambit.mdx/webpack/mdx-loader@3.1.2',
       dependencies: [
-        'teambit.component/bit-error'
+        'teambit.mdx/modules/mdx-compiler'
       ],
       icon: 'https://static.bit.dev/brands/logo-nodejs.svg',
       row: 1,
@@ -195,7 +264,7 @@ export function mockHero() {
       position: 'bottom-right'
     },
     {
-      id: 'teambit.component/bit-error@1.0.12',
+      id: 'teambit.mdx/modules/mdx-compiler@1.0.12',
       dependencies: [],
       icon: 'https://static.bit.dev/brands/logo-nodejs.svg',
       row: 1,
@@ -203,7 +272,65 @@ export function mockHero() {
       position: 'bottom-right'
     },
     /**
-     * React + Angular combined
+     * Data Fetching, React and Angular (composed)
      */
+     {
+      id: 'teambit.mdx/ui/pages/book-page@0.0.2',
+      dependencies: [
+        'teambit.mdx/ui/book-list',
+        'teambit.frontend/ui/angular-renderer',
+        'learn-bit-react.angular-in-react/books/recommendations'
+      ],
+      icon: 'https://static.bit.dev/brands/logo-react.svg',
+      row: 5,
+      col: 2,
+      position: 'bottom-right'
+    },
+    {
+      id: 'teambit.frontend/ui/angular-renderer@0.0.2',
+      dependencies: [],
+      icon: 'https://static.bit.dev/brands/logo-react.svg',
+      row: 5,
+      col: 1,
+      position: 'bottom-right'
+    },
+    {
+      id: 'learn-bit-react.angular-in-react/books/recommendations@0.0.2',
+      dependencies: [
+      ],
+      icon: 'https://static.bit.dev/brands/logo-angular.svg',
+      row: 7,
+      col: 1,
+      position: 'top-left'
+    },
+    {
+      id: 'teambit.mdx/ui/book-list@0.0.2',
+      dependencies: [
+        'teambit.mdx/ui/hooks/use-book',
+        'learn-bit-react.data-fetching/models/book'
+      ],
+      icon: 'https://static.bit.dev/brands/logo-react.svg',
+      row: 6,
+      col: 2,
+      position: 'bottom-right'
+    },
+    {
+      id: 'teambit.mdx/ui/hooks/use-book@0.0.2',
+      dependencies: [
+        'learn-bit-react.data-fetching/models/book'
+      ],
+      icon: 'https://static.bit.dev/brands/logo-react.svg',
+      row: 7,
+      col: 2,
+      position: 'bottom-right'
+    },
+    {
+      id: 'learn-bit-react.data-fetching/models/book@0.0.2',
+      dependencies: [],
+      icon: 'https://static.bit.dev/brands/logo-nodejs.svg',
+      row: 7,
+      col: 3,
+      position: 'bottom-right'
+    },
   ]);  
 } 

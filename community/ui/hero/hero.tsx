@@ -10,6 +10,7 @@ import { Button } from '@teambit/design.ui.buttons.button';
 import { CopyBox } from '@teambit/documenter.ui.copy-box';
 import { HeroGraph } from '@teambit/community.entity.hero-graph';
 import { ComponentID } from '@teambit/component-id';
+import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 import { BubbleHighlighter } from '@teambit/community.ui.bubble-highlighter';
 import { BubbleGraph } from '@teambit/community.ui.graph.bubble-graph';
 import styles from './hero.module.scss';

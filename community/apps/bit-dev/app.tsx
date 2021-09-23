@@ -5,6 +5,7 @@ import { RouterContextProvider } from "@teambit/base-react.navigation.router-con
 import { Header } from '@teambit/community.ui.header.header';
 import { Homepage } from '@teambit/community.ui.pages.homepage';
 import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions';
+import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 import { ComponentHighlighter } from '@teambit/react.ui.component-highlighter';
 import { Plugins } from '@teambit/community.ui.pages.plugins';
 
