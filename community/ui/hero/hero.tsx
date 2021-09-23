@@ -43,7 +43,7 @@ export function Hero({ title, heroGraph, teaser }: HeroProps) {
           const cell = getCell(bubble.row, bubble.col)
           const bubblePosition = bubble.position && positions[bubble.position];
           return (
-            <div className={styles.bubbleContainer} style={{ ...cell, ...bubblePosition }}>
+            <div key={id} className={styles.bubbleContainer} style={{ ...cell, ...bubblePosition }}>
               <ComponentBubble key={id} componentId={bubble.id} className={styles.bubble} id={id} icon={bubble.icon} />
               {bubble.dependencies.map((dependency) => {
                 const idStr = getValidId(dependency.toString())
@@ -55,7 +55,7 @@ export function Hero({ title, heroGraph, teaser }: HeroProps) {
           <Edge start={getValidId('teambit.design/ui/buttons/button')} end={getValidId('teambit.react-base/buttons/button')} />
           <Edge start={getValidId('teambit.community/ui/content/heading')} end={getValidId('teambit.design/ui/content/heading')} />
           <div className={styles.title}>
-            <BubbleHighlighter cornerSvgSize={40} cornerSvgClassName={styles.largeSvg} className={classNames(styles.titleHighlighter)} componentId={ComponentID.fromString('teambit.community/ui/content/heading')}>
+            <BubbleHighlighter showId cornerSvgSize={40} cornerSvgClassName={styles.largeSvg} className={classNames(styles.titleHighlighter)} componentId={ComponentID.fromString('teambit.community/ui/content/heading')}>
               <Heading className={styles.marginZero} highlight={heroState === HeroState.HEADING_UPDATED}>{title}</Heading>
             </BubbleHighlighter>
           </div>
