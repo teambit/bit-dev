@@ -4,11 +4,34 @@
   grid-template-columns: repeat(5, 1fr);
 }
 
-.sidebar {
-  padding: 10px;
-}
 
 .content {
-  grid-column-start: 2;
-  grid-column-end: 5;
+  height: calc(100vh - 44px);
+  overflow-y: auto;
+}
+
+
+.main {
+  flex: 1 1;
+
+  height: 100%;
+  overflow: hidden;
+}
+
+.splitter {
+  position: relative;
+  height: calc(100vh - 44px);
+
+  > :first-child {
+    z-index: 1;
+    position: absolute;
+  }
+}
+
+.sidebar {
+  min-width: 100px;
+  max-width: 85%;
+  position: relative;
+
+  height: 100%;
 }
