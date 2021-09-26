@@ -40,7 +40,6 @@ export function Hero({ title, heroGraph, teaser }: HeroProps) {
   return (
     <WideColumn>
           <BubbleGraph list={heroGraph.bubbles}>
-            
             <Edge start={getValidId('teambit.design/ui/buttons/button')} end={getValidId('teambit.react-base/buttons/button')} />
             <Edge start={getValidId('teambit.community/ui/content/heading')} end={getValidId('teambit.design/ui/content/heading')} />
             <div className={styles.title}>
