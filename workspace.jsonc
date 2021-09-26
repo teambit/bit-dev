@@ -29,7 +29,7 @@
      **/
     "defaultScope": "teambit.community"
   },
-  // "teambit.community/apps/bit-dev": {},
+  "teambit.community/apps/bit-dev": {},
   // "teambit.generator/generator": {
   //   "aspects": ["teambit.base-react/generator/component-templates"]
   // },
@@ -111,7 +111,7 @@
     "installFromBitDevRegistry": true,
     "savePrefix": ""
   },
-  "teambit.community/envs/community-react": {},
+  // "teambit.community/envs/community-react": {},
   /**
    * workspace variants allow to set different subsets of configuration for components in your
    * workspace. this is extremely useful for upgrading, aligning and building components with a new
@@ -121,7 +121,14 @@
    **/
   "teambit.workspace/variants": {
     "{ui/**}": {
-      "teambit.community/envs/bitdev-react": "-",
+      "teambit.community/envs/community-react": {}
+    },
+    "base-react": {
+      "defaultScope": "teambit.base-react",
+      "teambit.community/envs/community-react": {}
+    },
+    "base-react/content": {
+      "teambit.mdx/mdx": "-",
       "teambit.community/envs/community-react": {}
     },
     "{content/**}": {
@@ -130,10 +137,6 @@
     "{envs/**}, {extensions/*}, {apps/*}, {aspects/*}, {generator/*}": {
       "teambit.react/react": "-",
       "teambit.harmony/aspect": {}
-    },
-    "base-react": {
-      "defaultScope": "teambit.base-react",
-      "teambit.react/react": {}
     },
     "design": {
       "defaultScope": "teambit.design"
