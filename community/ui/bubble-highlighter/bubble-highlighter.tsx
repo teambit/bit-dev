@@ -38,7 +38,7 @@ type LabelProps = {
 function Label({id, ...rest}: LabelProps) {
   return (
     <div {...rest} className={styles.label}>
-      <div className={styles.left}>shoesinc.web</div>
+      <div className={styles.left}></div>
       <div className={styles.right}>{id}</div>
     </div>
   )

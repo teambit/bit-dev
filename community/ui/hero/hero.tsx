@@ -60,15 +60,15 @@ export function Hero({ title, heroGraph, teaser }: HeroProps) {
             </BubbleHighlighter>
           </div>
           <div className={styles.subTitle}>
-            <BubbleHighlighter cornerSvgSize={20} cornerSvgClassName={styles.subtitleSvg} className={classNames(styles.subtitleHighlighter)} componentId={ComponentID.fromString('teambit.design/ui/content/subtitle')}>
+            <BubbleHighlighter cornerSvgSize={20} cornerSvgClassName={styles.subtitleSvg} showId className={classNames(styles.subtitleHighlighter)} componentId={ComponentID.fromString('teambit.design/ui/content/subtitle')}>
               <Subtitle className={styles.marginZero}>{teaser}</Subtitle>
             </BubbleHighlighter>
           </div>
           <div className={styles.getStarted}>
-            <BubbleHighlighter componentId={ComponentID.fromString('teambit.design/ui/buttons/button')}>
+            <BubbleHighlighter componentId={ComponentID.fromString('teambit.design/ui/buttons/button')} showId>
               <Button className={styles.getStartedAction} href="/docs/quick-start">Getting Started</Button>
             </BubbleHighlighter>
-            <BubbleHighlighter componentId={ComponentID.fromString('teambit.documenter/ui/copy-box')}>
+            <BubbleHighlighter componentId={ComponentID.fromString('teambit.documenter/ui/copy-box')} showId>
               <CopyBox className={styles.copyBox}>npx @teambit/bvm install</CopyBox>
             </BubbleHighlighter>
           </div>

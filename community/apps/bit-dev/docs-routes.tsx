@@ -20,5 +20,11 @@ export const docsRoutes: DocsRoute[] = [
     path: 'getting-started/composing-components',
     title: 'Getting Started / Composing Components',
     component: <QuickStart />
+  },
+  {
+    sidebarPath: 'Workspace/Workspace Overview',
+    path: 'workspace/workspace-overview',
+    title: 'Workspace / Overview',
+    component: <QuickStart />
   }
 ];
