@@ -81,11 +81,11 @@
         "mainFile": "index.ts",
         "rootDir": "community/entity/use-cases"
     },
-    "envs/bitdev-react": {
+    "envs/community-react": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "community/envs/bitdev-react"
+        "rootDir": "community/envs/community-react"
     },
     "graph/tree/inflate-paths": {
         "scope": "teambit.base-ui",

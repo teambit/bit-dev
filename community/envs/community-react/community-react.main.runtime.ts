@@ -1,39 +1,86 @@
-import { EnvsMain, EnvsAspect } from '@teambit/envs';
-import { ReactAspect, ReactMain } from '@teambit/react';
 import { MainRuntime } from '@teambit/cli';
+import { ReactAspect, ReactMain } from '@teambit/react';
 import {
   GeneratorMain,
   GeneratorAspect,
   ComponentContext
 } from '@teambit/generator';
-import { BitDevReactAspect } from './bitdev-react.aspect';
+import { EnvsAspect, EnvsMain } from '@teambit/envs';
+import { CommunityReactAspect } from './community-react.aspect';
+// import { previewConfigTransformer, devServerConfigTransformer } from './webpack/webpack-transformers';
 
-export class BitDevReactMain {
-  constructor(private react: ReactMain) {}
+/**
+ * Uncomment to include config files for overrides of Typescript or Webpack
+ */
+// const tsconfig = require('./typescript/tsconfig');
 
-  static dependencies: any = [EnvsAspect, ReactAspect, GeneratorAspect];
+export class CommunityReactMain {
+  static slots = [];
+
+  static dependencies = [ReactAspect, EnvsAspect, GeneratorAspect];
 
   static runtime = MainRuntime;
 
-  static async provider([envs, react, generator]: [
-    EnvsMain,
+  static async provider([react, envs, generator]: [
     ReactMain,
+    EnvsMain,
     GeneratorMain
   ]) {
-    const BitdevReactEnv = react.compose([
-      /*
-        Use any of the "react.override..." transformers to
-      */
+    const templatesReactEnv = envs.compose(react.reactEnv, [
+      /**
+       * Uncomment to override the config files for TypeScript, Webpack or Jest
+       * Your config gets merged with the defaults
+       */
+
+      // react.overrideTsConfig(tsconfig),
+      // react.useWebpack({
+      //   previewConfig: [previewConfigTransformer],
+      //   devServerConfig: [devServerConfigTransformer],
+      // }),
+      // react.overrideJestConfig(require.resolve('./jest/jest.config')),
+
+      /**
+       * override the ESLint default config here then check your files for lint errors
+       * @example
+       * bit lint
+       * bit lint --fix
+       */
+      react.useEslint({
+        transformers: [
+          (config) => {
+            config.setRule('no-console', ['error']);
+            return config;
+          }
+        ]
+      }),
+
+      /**
+       * override the Prettier default config here the check your formatting
+       * @example
+       * bit format --check
+       * bit format
+       */
+      react.usePrettier({
+        transformers: [
+          (config) => {
+            config.setKey('tabWidth', 2);
+            return config;
+          }
+        ]
+      }),
+
+      /**
+       * override dependencies here
+       * @example
+       * Uncomment types to include version 17.0.3 of the types package
+       */
+      react.overrideDependencies({
+        devDependencies: {
+          // '@types/react': '17.0.3'
+        }
+      })
     ]);
-
-    envs.registerEnv(BitdevReactEnv);
-
-    /**
-     * Array of templates. Add as many templates as you want
-     * Separate the templates to multiple files if you prefer
-     * Modify, add or remove files as needed
-     * See the docs file of this component for more info
-     */
+    envs.registerEnv(templatesReactEnv);
 
     generator.registerComponentTemplate([
       {
@@ -241,8 +288,8 @@ export const ${context.namePascalCase} = [
       }
     ]);
 
-    return new BitDevReactMain(react);
+    return new CommunityReactMain();
   }
 }
 
-BitDevReactAspect.addRuntime(BitDevReactMain);
+CommunityReactAspect.addRuntime(CommunityReactMain);

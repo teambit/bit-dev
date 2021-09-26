@@ -1,7 +1,7 @@
 /**
  * this is the main configuration file of your bit workspace.
  * for full documentation, please see: https://harmony-docs.bit.dev/workspace/configurations
- **/{
+ **/ {
   "$schema": "https://static.bit.dev/teambit/schemas/schema.json",
   /**
    * main configuration of the Bit workspace.
@@ -29,7 +29,7 @@
      **/
     "defaultScope": "teambit.community"
   },
-  "teambit.community/apps/bit-dev": {},
+  // "teambit.community/apps/bit-dev": {},
   // "teambit.generator/generator": {
   //   "aspects": ["teambit.base-react/generator/component-templates"]
   // },
@@ -73,6 +73,7 @@
         "@teambit/design.ui.external-link": "0.0.344",
         "@teambit/design.ui.heading": "1.0.5",
         "@teambit/design.ui.message-card": "1.0.4",
+        "@teambit/design.ui.styles.ellipsis": "0.0.345",
         "@teambit/documenter.theme.theme-compositions": "4.1.1",
         "@teambit/documenter.theme.theme-context": "4.0.3",
         "@teambit/documenter.ui.copy-box": "4.1.1",
@@ -105,14 +106,12 @@
       }
     },
     "packageManagerArgs": [],
-    "devFilePatterns": [
-      "**/*.spec.ts"
-    ],
+    "devFilePatterns": ["**/*.spec.ts"],
     "strictPeerDependencies": true,
     "installFromBitDevRegistry": true,
     "savePrefix": ""
   },
-  "teambit.community/envs/bitdev-react": {},
+  "teambit.community/envs/community-react": {},
   /**
    * workspace variants allow to set different subsets of configuration for components in your
    * workspace. this is extremely useful for upgrading, aligning and building components with a new
@@ -122,7 +121,8 @@
    **/
   "teambit.workspace/variants": {
     "{ui/**}": {
-      "teambit.community/envs/bitdev-react": {}
+      "teambit.community/envs/bitdev-react": "-",
+      "teambit.community/envs/community-react": {}
     },
     "{content/**}": {
       "teambit.mdx/mdx": {}

@@ -55,12 +55,12 @@ export function Hero({ title, heroGraph, teaser }: HeroProps) {
           <Edge start={getValidId('teambit.design/ui/buttons/button')} end={getValidId('teambit.react-base/buttons/button')} />
           <Edge start={getValidId('teambit.community/ui/content/heading')} end={getValidId('teambit.design/ui/content/heading')} />
           <div className={styles.title}>
-            <BubbleHighlighter className={classNames(styles.titleHighlighter, styles.largeSvg)} componentId={ComponentID.fromString('teambit.community/ui/content/heading')}>
+            <BubbleHighlighter showId cornerSvgSize={40} cornerSvgClassName={styles.largeSvg} className={classNames(styles.titleHighlighter)} componentId={ComponentID.fromString('teambit.community/ui/content/heading')}>
               <Heading className={styles.marginZero} highlight={heroState === HeroState.HEADING_UPDATED}>{title}</Heading>
             </BubbleHighlighter>
           </div>
           <div className={styles.subTitle}>
-            <BubbleHighlighter className={classNames(styles.subtitleHighlighter, styles.largeSvg)} componentId={ComponentID.fromString('teambit.design/ui/content/subtitle')}>
+            <BubbleHighlighter cornerSvgSize={20} cornerSvgClassName={styles.subtitleSvg} className={classNames(styles.subtitleHighlighter)} componentId={ComponentID.fromString('teambit.design/ui/content/subtitle')}>
               <Subtitle className={styles.marginZero}>{teaser}</Subtitle>
             </BubbleHighlighter>
           </div>

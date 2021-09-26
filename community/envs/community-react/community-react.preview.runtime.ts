@@ -1,14 +1,15 @@
-import React, { ReactNode } from 'react';
 import { PreviewRuntime } from '@teambit/preview';
 import { ReactAspect, ReactPreview } from '@teambit/react';
 // import { GqlServerProvider } from '@teambit/base-ui.hooks.use-graphql-light';
 import { MemoryRouter } from 'react-router-dom';
 import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions';
-import { BitDevReactConfig, BitDevReactAspect } from './bitdev-react.aspect';
+import {
+  CommunityReactConfig,
+  CommunityReactAspect
+} from './community-react.aspect';
 
-export class BitDevReactPreview {
-  constructor(private config: BitDevReactConfig) {}
-
+export class CommunityReactPreview {
+  constructor(private config: CommunityReactConfig) {}
   /**
    * this is how other aspects can now access the configured port.
    */
@@ -16,13 +17,12 @@ export class BitDevReactPreview {
     return this.config.baseUrl;
   }
 
-  static runtime: any = PreviewRuntime;
+  static runtime = PreviewRuntime;
 
-  static dependencies: any = [ReactAspect];
+  static dependencies = [ReactAspect];
 
-  static async provider([react]: [ReactPreview], config: BitDevReactConfig) {
-    const bitdevReactEnv = new BitDevReactPreview(config);
-    // register a new provider to wrap all compositions in the symphony-react environment.
+  static async provider([react]: [ReactPreview], config: CommunityReactConfig) {
+    const communityReactPreview = new CommunityReactPreview(config);
     react.registerProvider([
       // ({ children }: { children?: ReactNode }) => {
       //   // creating a new instance of the Bit graphQL provider with my URL.
@@ -36,8 +36,8 @@ export class BitDevReactPreview {
       ThemeCompositions
     ]);
 
-    return bitdevReactEnv;
+    return communityReactPreview;
   }
 }
 
-BitDevReactAspect.addRuntime(BitDevReactPreview);
+CommunityReactAspect.addRuntime(CommunityReactPreview);
