@@ -21,6 +21,12 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/buttons/button"
     },
+    "community/ui/pages/page": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/community/ui/pages/page"
+    },
     "content/getting-started/installing-bit": {
         "scope": "",
         "version": "",

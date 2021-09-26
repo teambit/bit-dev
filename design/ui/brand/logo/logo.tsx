@@ -1,7 +1,7 @@
 import React from 'react';
 import { BaseImage } from '@teambit/base-ui.elements.image';
 import { RecommendedSizes } from './recommended-sizes';
-import logo from './logo.svg';
+import logo from './bit-logo.svg';
 
 export type LogoProps = {
   /**

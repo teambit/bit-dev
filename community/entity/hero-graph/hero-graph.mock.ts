@@ -83,7 +83,7 @@ export function mockHero() {
         'teambit.ui-foundation/ui/component-tree',
         'teambit.ui-foundation/ui/top-bar'
       ],
-      icon: 'https://static.bit.dev/Community/icons/workspace.svg?123',
+      icon: 'https://static.bit.dev/Community/icons/workspace-edit.svg',
       row: 6,
       col: 11,
       position: 'bottom-left'

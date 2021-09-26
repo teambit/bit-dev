@@ -16,9 +16,9 @@ export const docsRoutes: DocsRoute[] = [
     component: <QuickStart />
   },
   {
-    sidebarPath: 'Getting Started/Composing Components',
-    path: 'getting-started/composing-components',
-    title: 'Getting Started / Composing Components',
+    sidebarPath: 'Getting Started/Composing Components/Creating Components',
+    path: 'getting-started/composing-components/creating-components',
+    title: 'Getting Started / Composing Components / Creating Components',
     component: <QuickStart />
   },
   {

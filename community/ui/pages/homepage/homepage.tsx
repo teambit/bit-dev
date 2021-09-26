@@ -8,6 +8,7 @@ import { features } from '@teambit/community.entity.features';
 import { mockHero } from '@teambit/community.entity.hero-graph';
 import { LogoShowcase } from '@teambit/community.ui.logo-showcase';
 import { StickyMenu } from '@teambit/community.ui.sticky-menu';
+import { Page } from '@teambit/base-react.pages.page';
 import styles from './homepage.module.scss';
 
 export type HomepageProps = {} & React.HTMLAttributes<HTMLDivElement>;
@@ -17,7 +18,7 @@ const logoList = [...clientLogos, ...clientLogos];
 
 export function Homepage({ ...rest }: HomepageProps) {
   return (
-    <div {...rest}>
+    <Page title="Bit: Extensible component build framework" {...rest}>
       <section>
         <div className={styles.grid}>
           <Hero heroGraph={mockHero()} />
@@ -60,6 +61,6 @@ export function Homepage({ ...rest }: HomepageProps) {
           }
         ]}
       />
-    </div>
+    </Page>
   );
 }
