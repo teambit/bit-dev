@@ -43,8 +43,8 @@ export function Hero({ title, heroGraph, teaser }: HeroProps) {
           const cell = getCell(bubble.row, bubble.col)
           const bubblePosition = bubble.position && positions[bubble.position];
           return (
-            <div className={styles.bubbleContainer} style={{ ...cell, ...bubblePosition }}>
-              <ComponentBubble key={id} componentId={bubble.id} className={styles.bubble} id={id} icon={bubble.icon} />
+            <div key={id} className={styles.bubbleContainer} style={{ ...cell, ...bubblePosition }}>
+              <ComponentBubble componentId={bubble.id} className={styles.bubble} id={id} icon={bubble.icon} />
               {bubble.dependencies.map((dependency) => {
                 const idStr = getValidId(dependency.toString())
                 return <Edge key={`${id}->${idStr}`} start={id} end={idStr} />
@@ -66,7 +66,7 @@ export function Hero({ title, heroGraph, teaser }: HeroProps) {
           </div>
           <div className={styles.getStarted}>
             <BubbleHighlighter componentId={ComponentID.fromString('teambit.design/ui/buttons/button')}>
-              <Button className={styles.getStartedAction} href="http://bit.dev">Getting Started</Button>
+              <Button className={styles.getStartedAction} href="/docs/quick-start">Getting Started</Button>
             </BubbleHighlighter>
             <BubbleHighlighter componentId={ComponentID.fromString('teambit.documenter/ui/copy-box')}>
               <CopyBox className={styles.copyBox}>npx @teambit/bvm install</CopyBox>
@@ -80,7 +80,7 @@ export function Hero({ title, heroGraph, teaser }: HeroProps) {
 Hero.defaultProps = {
   title: 'Build anything in components',
   teaser:
-    'Bit helps build in components and compose them into infinite features and apps. Forget monolithic apps and distribute to component-driven software. '
+    'Bit helps build components and compose them into infinite features and apps. Forget monolithic apps and distribute to component-driven software. '
 };
 
 const positions = {

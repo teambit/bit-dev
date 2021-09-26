@@ -1,0 +1,14 @@
+---
+description: General purpose module for manipulating paths.
+---
+
+import { Paths } from './paths';
+
+### Generate a tree of nested objects
+
+```ts live
+const paths = Paths.from(['first/path', 'second/path'])
+JSON.stringify(
+  paths.toNestedObject()
+);
+```

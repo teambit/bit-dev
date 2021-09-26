@@ -21,11 +21,23 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/buttons/button"
     },
+    "content/getting-started/installing-bit": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/getting-started/installing-bit"
+    },
     "content/image": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "base-react/content/image"
+    },
+    "content/quick-start": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/quick-start"
     },
     "content/video": {
         "scope": "",
@@ -75,17 +87,23 @@
         "mainFile": "index.ts",
         "rootDir": "community/envs/bitdev-react"
     },
-    "generator/component-templates": {
-        "scope": "",
-        "version": "",
+    "graph/tree/inflate-paths": {
+        "scope": "teambit.base-ui",
+        "version": "1.0.0",
         "mainFile": "index.ts",
-        "rootDir": "base-react/generator/component-templates"
+        "rootDir": "base-ui/graph/tree/inflate-paths"
     },
     "layout/grid": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "base-react/layout/grid"
+    },
+    "modules/paths": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/modules/paths"
     },
     "navigation/link": {
         "scope": "",
@@ -110,6 +128,12 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "base-react/navigation/use-location"
+    },
+    "pages/page": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "base-react/pages/page"
     },
     "theme/create-theme": {
         "scope": "",
@@ -176,6 +200,12 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "design/ui/content/subtitle"
+    },
+    "ui/docs": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/ui/docs"
     },
     "ui/features/features-card": {
         "scope": "",
@@ -273,6 +303,12 @@
         "mainFile": "index.ts",
         "rootDir": "ui-foundation/ui/navigation/react-router/link"
     },
+    "ui/pages/doc-page": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/ui/pages/doc-page"
+    },
     "ui/pages/homepage": {
         "scope": "",
         "version": "",
@@ -290,6 +326,12 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "community/ui/plugins/plugin-group"
+    },
+    "ui/sidebar": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/ui/sidebar"
     },
     "ui/sticky-menu": {
         "scope": "",
@@ -314,6 +356,12 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "design/ui/theme/light-theme"
+    },
+    "ui/tree/tree-node": {
+        "scope": "teambit.ui-foundation",
+        "version": "0.0.440",
+        "mainFile": "index.ts",
+        "rootDir": "ui-foundation/ui/tree/tree-node"
     },
     "ui/use-cases/use-cases-card": {
         "scope": "",
