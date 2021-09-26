@@ -29,11 +29,11 @@
      **/
     "defaultScope": "teambit.community"
   },
-  // "teambit.community/apps/bit-dev": {},
+  "teambit.community/apps/bit-dev": {},
   // "teambit.generator/generator": {
   //   "aspects": ["teambit.base-react/generator/component-templates"]
   // },
-  "teambit.base-react/generator/component-templates": {},
+  // "teambit.base-react/generator/component-templates": {},
   /**
    * main configuration for component dependency resolution.
    **/
@@ -55,6 +55,11 @@
         "@react-types/button": "3.4.1",
         "@teambit/base-ui.constants.storage": "1.0.0",
         "@teambit/base-ui.elements.image": "1.0.0",
+        "@teambit/base-ui.graph.tree.indent": "1.0.0",
+        "@teambit/base-ui.graph.tree.inflate-paths": "1.0.0",
+        "@teambit/base-ui.graph.tree.recursive-tree": "1.0.0",
+        "@teambit/base-ui.graph.tree.root-node": "1.0.0",
+        "@teambit/base-ui.graph.tree.tree-context": "1.0.0",
         "@teambit/base-ui.layout.breakpoints": "1.0.0",
         "@teambit/base-ui.layout.grid-component": "1.0.1",
         "@teambit/base-ui.layout.page-frame": "1.0.0",
@@ -78,8 +83,11 @@
         "@teambit/explorer.ui.gallery.component-card": "0.0.438",
         "@teambit/explorer.ui.gallery.component-grid": "0.0.435",
         "@teambit/harmony": "0.2.11",
+        "@teambit/mdx.ui.mdx-layout": "0.0.441",
         "@teambit/react.templates.themes.theme": "0.0.3",
         "@teambit/react.ui.component-highlighter": "0.0.445",
+        "@teambit/ui-foundation.ui.tree.folder-tree-node": "0.0.439",
+        "@teambit/ui-foundation.ui.tree.tree-node": "0.0.440",
         "@testing-library/react-hooks": "7.0.1",
         "@types/react-router": "5.1.16",
         "@types/react-router-dom": "5.1.8",
@@ -103,7 +111,7 @@
     "installFromBitDevRegistry": true,
     "savePrefix": ""
   },
-  "teambit.community/envs/community-react": {},
+  // "teambit.community/envs/community-react": {},
   /**
    * workspace variants allow to set different subsets of configuration for components in your
    * workspace. this is extremely useful for upgrading, aligning and building components with a new
@@ -113,22 +121,31 @@
    **/
   "teambit.workspace/variants": {
     "{ui/**}": {
-      "teambit.community/envs/bitdev-react": "-",
       "teambit.community/envs/community-react": {}
+    },
+    "base-react": {
+      "defaultScope": "teambit.base-react",
+      "teambit.community/envs/community-react": {}
+    },
+    "base-react/content": {
+      "teambit.mdx/mdx": "-",
+      "teambit.community/envs/community-react": {}
+    },
+    "{content/**}": {
+      "teambit.mdx/mdx": {}
     },
     "{envs/**}, {extensions/*}, {apps/*}, {aspects/*}, {generator/*}": {
       "teambit.react/react": "-",
       "teambit.harmony/aspect": {}
-    },
-    "base-react": {
-      "defaultScope": "teambit.base-react",
-      "teambit.react/react": {}
     },
     "design": {
       "defaultScope": "teambit.design"
     },
     "community": {
       "defaultScope": "teambit.community"
+    },
+    "docs": {
+      "defaultScope": "teambit.docs"
     },
     "ui-foundation": {
       "defaultScope": "teambit.ui-foundation"

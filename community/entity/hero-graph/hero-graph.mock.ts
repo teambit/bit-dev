@@ -83,7 +83,7 @@ export function mockHero() {
         'teambit.ui-foundation/ui/component-tree',
         'teambit.ui-foundation/ui/top-bar'
       ],
-      icon: 'https://static.bit.dev/Community/icons/workspace.svg',
+      icon: 'https://static.bit.dev/Community/icons/workspace.svg?123',
       row: 6,
       col: 11,
       position: 'bottom-left'
@@ -138,7 +138,7 @@ export function mockHero() {
         'teambit.compilation/compiler'
       ],
       // TODO: add babel icon
-      icon: 'https://static.bit.dev/Community/icons/babel.svg',
+      icon: 'https://static.bit.dev/Community/icons/babel-puzzle.svg',
       row: 7,
       col: 8,
       position: 'top-left'
@@ -148,7 +148,7 @@ export function mockHero() {
       dependencies: [
         'teambit.compilation/compiler'
       ],
-      icon: 'https://static.bit.dev/brands/logo-ts.svg',
+      icon: 'https://static.bit.dev/Community/icons/typescript-puzzle.svg',
       row: 7,
       col: 6,
       position: 'top-left'
@@ -186,7 +186,7 @@ export function mockHero() {
         'teambit.tester/jest',
         'teambit.tester/eslint'
       ],
-      icon: 'https://static.bit.dev/brands/logo-react.svg',
+      icon: 'https://static.bit.dev/Community/icons/reactjs-puzzle.svg',
       row: 6,
       col: 4,
       position: 'bottom-right'
@@ -196,7 +196,7 @@ export function mockHero() {
       dependencies: [
         'teambit.tester/tester'
       ],
-      icon: 'https://static.bit.dev/Community/icons/jest.svg',
+      icon: 'https://static.bit.dev/Community/icons/jest-puzzle.svg',
       row: 7,
       col: 5,
       position: 'bottom-right'
@@ -254,7 +254,7 @@ export function mockHero() {
       position: 'bottom-left'
     },
     {
-      id: 'teambit.mdx/webpack/mdx-loader@3.1.2',
+      id: 'teambit.mdx/babel/mdx-loader@3.1.2',
       dependencies: [
         'teambit.mdx/modules/mdx-compiler'
       ],

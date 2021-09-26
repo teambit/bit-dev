@@ -1,0 +1,14 @@
+
+.docs {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.sidebar {
+  padding: 10px;
+}
+
+.content {
+  grid-column-start: 2;
+  grid-column-end: 5;
+}
