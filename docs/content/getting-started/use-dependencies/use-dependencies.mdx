@@ -4,15 +4,18 @@ import devDepGraphImg from './dev-dep-graph.png';
 
 # Using Dependencies
 
-Now that we have our first [Component](/components/overview) created, let's add our first dependency. [Dependencies](/dependencies) allow us to compose components out of other components. Dependencies for a component can be either [External Dependencies](/dependencies/external-dependencies) or [Workspace Components](/workspace/workspace-component) and are resolved from the `import` or the `require` statements added in your components.
+[Dependencies](/dependencies) allow us to compose components out of other components. Dependencies for a component can be either [External Dependencies](/dependencies/external-dependencies) or [Workspace Components](/workspace/workspace-component) and are resolved from the `import` or the `require` statements added in your components.
 
-Go to `my-welcome.ts` and add the following `import` statement just below the `react` import statement.
-[`Package name`](/packages/package-name) for a component is by default computed from its [Component ID](/components/component-id) and can be customized to different conventions.
+Go to `my-welcome.ts` and add the following `import` statement.
 
 ```ts title="my-welcome.ts"
 import React from 'react';
 import { Heading } from '@bitorg/experience.templates.ui.heading';
 ```
+
+:::note
+[`Package name`](/packages/package-name) for a component is by default computed from its [Component ID](/components/component-id) and can be customized to different conventions.
+:::
 
 Congrats you have added a new dependency for your component! You can view your new component dependency with `bit show`. Bit now recognizes `templates/ui/heading` as a dependency of your component.
 
@@ -92,7 +95,7 @@ MyWelcome.defaultProps = {
 
 By going to the component's [Dependencies UI](/dependencies/ui) tab, we can inspect the computed dependency graph, which includes direct and indirect dependencies.
 
-<Image src={depGraphImg} />
+<img src={depGraphImg} />
 
 As seen above, Bit understands more than just just the list of direct dependencies for a component and capable of showing the entire dependency / dependents graph of each component. A list of the component's direct dependencies can be seen using `bit show` or in the [Code UI tab](/code/ui).
 
@@ -142,7 +145,7 @@ bit show ui/my-welcome
 ```
 
 ## External dependencies
-[External dependencies](/dependencies/external-dependencies) are defined in the Dependency Policy and can be installed using the `bit install` command.
+[External dependencies](/dependencies/external-dependencies) are defined in the [Dependency Policy](/) and can be installed using the `bit install` command.
 
 ```bash
 bit install @teambit/base-ui.button
