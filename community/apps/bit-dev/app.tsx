@@ -5,10 +5,10 @@ import { RouterContextProvider } from "@teambit/base-react.navigation.router-con
 import { Header } from '@teambit/community.ui.header.header';
 import { Homepage } from '@teambit/community.ui.pages.homepage';
 import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions';
-import { Docs } from '@teambit/docs.ui.docs';
+import { NotFound } from '@teambit/community.ui.pages.errors.not-found';
+import { CommunityDocs } from '@teambit/docs.ui.community-docs';
 import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 import { ComponentHighlighter } from '@teambit/react.ui.component-highlighter';
-import { docsRoutes } from './docs-routes';
 import { Plugins } from '@teambit/community.ui.pages.plugins';
 
 export function BitDevApp() {
@@ -22,7 +22,7 @@ export function BitDevApp() {
               <Switch>
                 <Route path="/docs">
                   <WideColumn>
-                    <Docs routes={docsRoutes} />
+                    <CommunityDocs />
                   </WideColumn>
                 </Route>
                 <Route exact path="/plugins">
@@ -30,6 +30,9 @@ export function BitDevApp() {
                 </Route>
                 <Route exact path="/">
                   <Homepage />
+                </Route>
+                <Route path="/">
+                  <NotFound />
                 </Route>
               </Switch>
             {/* footer component */}

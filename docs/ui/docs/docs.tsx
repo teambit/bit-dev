@@ -20,9 +20,14 @@ export type DocsProps = {
    * a text to be rendered in the component.
    */
   routes: DocsRoute[];
-} & SplitPaneProps;
 
-export function Docs({ routes, ...rest }: DocsProps) {
+  /**
+   * base URL for the docs route.
+   */
+  baseUrl?: string
+} & Omit<SplitPaneProps, 'children'>;
+
+export function Docs({ routes, baseUrl = '/', ...rest }: DocsProps) {
   const docRoutes = DocsRoutes.from(routes);
   const [isSidebarOpen, handleSidebarToggle] = useReducer((x) => !x, true);
   const sidebarOpenness = isSidebarOpen ? Layout.row : Layout.right;
@@ -38,7 +43,7 @@ export function Docs({ routes, ...rest }: DocsProps) {
       <Pane className={styles.sidebar}>
         <Sidebar
           paths={docRoutes.getSideBarPaths()}
-          onSelect={(id) => console.log(id)}
+          linkPrefix={baseUrl}
         />
       </Pane>
       <HoverSplitter className={styles.splitter}>
@@ -53,7 +58,7 @@ export function Docs({ routes, ...rest }: DocsProps) {
         <Switch>
           {routes.map((route, key) => {
             return (
-              <Route key={key} path={`${path}/quick-start`}>
+              <Route key={key} path={`${path}/${route.path}`}>
                 <DocPage title={route.title}>{route.component}</DocPage>
               </Route>
             );

@@ -3,7 +3,7 @@ description: 'An MDX component.'
 labels: ['label1', 'label2', 'label3']
 ---
 
-import { Introduction } from './index';
+import { CreateComponents } from './index';
 
 ## Static Content Page in MDX
 
@@ -16,7 +16,7 @@ This is a simple MDX-file compiled by Bit to a reuseable component.
 
 ### Component usage
 ```js
-<Introduction />
+<CreateComponents />
 ```
 
 ### Render with theme and MDX providers
@@ -24,11 +24,11 @@ This is a simple MDX-file compiled by Bit to a reuseable component.
 ```js
 import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions'
 import { MDXLayout } from '@teambit/ui.mdx-layout'
-import { Introduction } from './index'
+import { CreateComponents } from './index'
 
 <ThemeCompositions>
   <MDXLayout>
-    <Introduction />
+    <CreateComponents />
   </MDXLayout>
 </ThemeCompositions>
 ```

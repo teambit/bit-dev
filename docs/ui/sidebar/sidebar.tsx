@@ -21,13 +21,18 @@ export type SidebarProps = {
    * array of sorted human-readable sidebar paths. 
    * `Getting Started/Installing Bit`, id of this path in the sidebar would be: getting-started/installing-bit
    */
-  paths: string[]
+  paths: string[],
+
+  /**
+   * prefix for all rendered links in the sidebar.
+   */
+  linkPrefix?: string
 
 } & React.HTMLAttributes<HTMLDivElement>;
 
-export function Sidebar({ onSelect, paths, selected, className, ...rest }: SidebarProps) {
+export function Sidebar({ onSelect, paths, linkPrefix, selected, className, ...rest }: SidebarProps) {
   const rootNode = useMemo(() => {
-    return createTree(paths);
+    return createTree(paths, linkPrefix);
   }, [paths]);
 
   return (
