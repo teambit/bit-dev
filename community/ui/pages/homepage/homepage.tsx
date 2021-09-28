@@ -18,7 +18,7 @@ const logoList = [...clientLogos, ...clientLogos];
 
 export function Homepage({ ...rest }: HomepageProps) {
   return (
-    <Page title="Bit: Component build framework" {...rest}>
+    <Page title="Bit: Component collaboration framework" {...rest}>
       <section>
         <div className={styles.grid}>
           <Hero heroGraph={mockHero()} />
