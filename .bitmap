@@ -21,7 +21,7 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/buttons/button"
     },
-    "community/ui/pages/page": {
+    "ui/pages/page": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",

@@ -31,9 +31,7 @@ export function BitDevApp() {
                 <Route exact path="/">
                   <Homepage />
                 </Route>
-                <Route path="/">
-                  <NotFound />
-                </Route>
+                <Route component={NotFound} />
               </Switch>
             {/* footer component */}
           </BrowserRouter>
