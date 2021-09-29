@@ -24,21 +24,30 @@ export type ButtonProps = AriaButtonProps & {
 export function Button(props: ButtonProps) {
   const ref = useRef();
 
-  const { buttonProps } = useButton({
-    ...props,
-    elementType: props.href ? 'a' : undefined
-  }, ref);
+  const { buttonProps } = useButton(
+    {
+      ...props,
+      elementType: props.href ? 'a' : undefined
+    },
+    ref
+  );
 
   const allProps = {
     ...buttonProps,
-    ...props
+    ...props,
   };
-  
+
   return (
-    <div>
-      {!props.href 
-        ? <button ref={ref} {...allProps}>{props.children}</button> 
-        : <div className={props.className}><a ref={ref} className="" {...allProps}>{props.children}</a></div>}
-    </div>
+    <>
+      {!props.href ? (
+        <button ref={ref} {...allProps}>
+          {props.children}
+        </button>
+      ) : (
+        <a ref={ref} className={props.className} {...allProps}>
+          {props.children}
+        </a>
+      )}
+    </>
   );
 }
