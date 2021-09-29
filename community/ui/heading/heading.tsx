@@ -16,7 +16,7 @@ export type HeadingProps = {
   highlight?: boolean;
 
   /**
-   * element to use. default is `h1`
+   * override heading size using the existing pallete
    */
   size?: Sizes;
 } & BaseHeadingProps;
