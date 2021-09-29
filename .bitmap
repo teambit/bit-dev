@@ -21,12 +21,6 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/buttons/button"
     },
-    "community/ui/pages/page": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "community/community/ui/pages/page"
-    },
     "content/code-splitting": {
         "scope": "",
         "version": "",
@@ -74,6 +68,12 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "docs/content/quick-start"
+    },
+    "content/react-router": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "react/content/react-router"
     },
     "content/video": {
         "scope": "",
@@ -362,6 +362,12 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "community/ui/pages/homepage"
+    },
+    "ui/pages/page": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/community/ui/pages/page"
     },
     "ui/pages/plugins": {
         "scope": "",

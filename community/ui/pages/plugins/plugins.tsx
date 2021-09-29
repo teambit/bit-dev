@@ -4,7 +4,7 @@ import { Subtitle } from '@teambit/documenter.ui.sub-title';
 import { ExternalLink } from '@teambit/design.ui.external-link';
 import { PluginGroup } from '@teambit/community.ui.plugins.plugin-group';
 import { Heading } from '@teambit/community.ui.heading';
-import { Page } from '@teambit/community.community.ui.pages.page';
+import { Page } from '@teambit/community.ui.pages.page';
 import { H2 } from '@teambit/design.ui.heading'
 
 export type PluginsProps = {
