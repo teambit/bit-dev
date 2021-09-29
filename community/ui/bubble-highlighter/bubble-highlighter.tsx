@@ -20,26 +20,28 @@ export type BubbleHighlighterProps = {
 } & BubbleCardProps;
 
 export function BubbleHighlighter({ children, componentId, showId = false, ...rest }: BubbleHighlighterProps) {
-  const labelId = componentId.toString();
-  const id = componentId.toString({ignoreVersion: true})
+  const id = componentId.toString({ignoreVersion: true}).replace(/[.\/]/g, '-');
+  const componentName = !!componentId.version && componentId.version !== 'latest' ? `${componentId.fullName}@${componentId.version}` : componentId.fullName;
 
   return (
     // TODO: refactor id stringify to a valid HTML ID to a component.
     // make sure to use this here and from Hero.
-    <BubbleCard className={styles.bubbleHighlighter} id={id.replace(/[.\/]/g, '-')} {...rest}>
-      {showId && <Label id={labelId} />}
+    <BubbleCard className={styles.bubbleHighlighter} id={id} {...rest}>
+      {showId && <Label scope={componentId.scope} name={componentName} />}
       {children}
     </BubbleCard>
   );
 }
 
 type LabelProps = {
+  scope: string;
+  name: string;
 } & React.HTMLAttributes<HTMLDivElement>;
-function Label({id, ...rest}: LabelProps) {
+function Label({scope, name, ...rest}: LabelProps) {
   return (
     <div {...rest} className={styles.label}>
-      <div className={styles.left}></div>
-      <div className={styles.right}>{id}</div>
+      <div className={styles.left}>{scope}</div>
+      <div className={styles.right}>{name}</div>
     </div>
   )
 }
