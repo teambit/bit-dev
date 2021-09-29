@@ -1,36 +1,46 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Elements } from './elements';
+import {
+  Heading as BaseHeading,
+  HeadingProps as BaseHeadingProps,
+} from '@teambit/design.ui.content.heading';
+import sizes from './heading-sizes.module.scss';
 import styles from './heading.module.scss';
+
+export type Sizes = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 export type HeadingProps = {
   /**
-   * a text to be rendered in the component.
-   */
-  children: string,
-
-  /**
    * highlight the heading.
    */
-  highlight?: boolean,
+  highlight?: boolean;
 
   /**
    * element to use. default is `h1`
    */
-  element?: Elements
-} & React.HTMLAttributes<HTMLDivElement>;
+  size?: Sizes;
+} & BaseHeadingProps;
 
-export function Heading({ highlight, children, element, className, ...rest }: HeadingProps) {
-  const Element = `${element}` as any;
+export function Heading({
+  highlight,
+  children,
+  className,
+  size,
+  ...rest
+}: HeadingProps) {
   const highlightClass = highlight ? styles.highlight : '';
 
   return (
-    <Element className={classNames(styles.heading, className, highlightClass)} {...rest}>
+    <BaseHeading
+      className={classNames(
+        styles.heading,
+        sizes[size],
+        className,
+        highlightClass
+      )}
+      {...rest}
+    >
       {children}
-    </Element>
+    </BaseHeading>
   );
 }
-
-Heading.defaultProps = {
-  element: Elements.H1
-};
