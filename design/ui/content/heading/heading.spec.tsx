@@ -4,6 +4,6 @@ import { BasicHeading } from './heading.composition';
 
 it('should render with the correct text', () => {
   const { getByText } = render(<BasicHeading />);
-  const rendered = getByText('hello from Heading');
+  const rendered = getByText('Build anything in components');
   expect(rendered).toBeTruthy();
 });
