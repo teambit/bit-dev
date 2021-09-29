@@ -337,6 +337,8 @@ importers:
     specifiers: {}
   react/content/code-splitting:
     specifiers: {}
+  react/content/react-router:
+    specifiers: {}
   ui-foundation/ui/navigation/react-router/link:
     specifiers: {}
   ui-foundation/ui/tree/tree-node:

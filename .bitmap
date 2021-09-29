@@ -75,6 +75,12 @@
         "mainFile": "index.ts",
         "rootDir": "react/content/react-router"
     },
+    "content/server-side-rendering": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "react/content/server-side-rendering"
+    },
     "content/video": {
         "scope": "",
         "version": "",

@@ -41,7 +41,8 @@ export class CommunityReactMain {
       //   previewConfig: [previewConfigTransformer],
       //   devServerConfig: [devServerConfigTransformer],
       // }),
-      // react.overrideJestConfig(require.resolve('./jest/jest.config')),
+      
+      react.overrideJestConfig(require.resolve('./jest/jest.config')),
 
       /**
        * override the ESLint default config here then check your files for lint errors
