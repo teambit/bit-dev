@@ -4,6 +4,7 @@ import { Subtitle } from '@teambit/documenter.ui.sub-title';
 import { ExternalLink } from '@teambit/design.ui.external-link';
 import { PluginGroup } from '@teambit/community.ui.plugins.plugin-group';
 import { Heading } from '@teambit/community.ui.heading';
+import { Page } from '@teambit/community.ui.pages.page';
 import { H2 } from '@teambit/design.ui.heading'
 
 export type PluginsProps = {
@@ -17,7 +18,7 @@ export type PluginsProps = {
 
 export function Plugins({ title = 'Explore Bit Plugins', abstract }: PluginsProps) {
   return (
-    <div>
+    <Page title="Plugins">
       <Heading>
         {title}
       </Heading>
@@ -60,6 +61,6 @@ export function Plugins({ title = 'Explore Bit Plugins', abstract }: PluginsProp
         <ComponentCard id="teambit.apps/docusaurus"></ComponentCard>
       </PluginGroup>
 
-    </div>
+    </Page>
   );
 }

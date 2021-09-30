@@ -7,8 +7,10 @@ import { Paths } from './paths';
 ### Generate a tree of nested objects
 
 ```ts live
-const paths = Paths.from(['first/path', 'second/path'])
-JSON.stringify(
-  paths.toNestedObject()
-);
+() => {
+  const paths = Paths.fromArray(['first/path', 'second/path'])
+  return JSON.stringify(
+    paths.toNestedObject()
+  );
+}
 ```

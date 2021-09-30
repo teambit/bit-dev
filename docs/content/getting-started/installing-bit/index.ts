@@ -1,1 +1,1 @@
-export { default as InstallingBit } from './installing-bit.mdx';
+export { default as InstallingBit, default } from './installing-bit.mdx';

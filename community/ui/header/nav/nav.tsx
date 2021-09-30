@@ -26,7 +26,7 @@ export function Nav({ className, ...rest }: NavProps) {
 const headerContent = [
   {
     title: 'Docs',
-    href: '/docs'
+    href: '/docs/quick-start'
   },
   {
     title: 'Plugins',

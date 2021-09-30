@@ -1,0 +1,24 @@
+# Code Splitting
+
+Code splitting allows to reduce bundle size and optimize app performance by loading components at runtime.
+
+
+```ts
+import()
+```
+
+## Transpiling ES6
+Code splitting components requires transpiling them to ES6 module format. Please make sure to configure your compiler 
+to output an ES6 module for code splitting to function properly.
+
+## Code splitting strategies
+
+### Page splitting
+Our [base-react Page component](https://bit.dev/teambit/base-react/pages/page) supports code splitting by default and loads.
+
+## Configuring Webpack SplitChunks Plugin in the React env
+
+```ts
+useWebpack();
+```
+

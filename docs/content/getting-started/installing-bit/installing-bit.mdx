@@ -1,9 +1,46 @@
-# Title - InstallingBit
+# Installing Bit
 
-This is markdown.
+Installing Bit is recommended using [BVM](/docs/bvm/introduction), Bit's version manager. 
 
-<p>This is HTML</p>
+```bash
+npx @teambit/bvm install
+```
 
-# Import a React Component or use HTML
+## Upgrading BVM
 
-<button>Button 👋 </button>
+To upgrade to the latest version of BVM.
+
+```bash
+npx @teambit/bvm upgrade
+```
+
+## Manage versions
+
+Get version information for Bit and BVM.
+
+```bash
+bvm version
+```
+
+List available versions of Bit and BVM.
+
+```bash
+bvm list --remote
+```
+
+List installed versions
+
+```bash
+bvm list
+```
+
+Remove a local version of Bit so it will fallback to a previous version.
+
+```bash
+bvm remove <bit-version>
+```
+
+## Troubleshooting
+
+If you get a warning or the bvm command is not available please see the [BVM guide](/reference/bvm).
+

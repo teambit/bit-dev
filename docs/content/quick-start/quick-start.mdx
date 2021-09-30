@@ -1,6 +1,8 @@
 # Quick Start
 
-Bit is an extensible, [open-source toolchain](https://github.com/teambit/bit) for building independent components, and composing them into highly performing and consistent [component-driven apps](/understanding-bit/component-driven-software) at speed. Instead of building a monolithic app, with Bit you build Components and compose them into <!-- TODO [Apps](/apps/overview) --> apps, driving [SOLID](https://en.wikipedia.org/wiki/SOLID) design principles, helping developers build better software while allowing organizations and communities to scale through autonomous teams and cross-team collaboration.
+Bit is a component build and collaboration framework. It helps teams build components together, and compose them into various 
+features and apps. This allows to build anything in a component-driven architecture, from UI applications, backend services
+and even CLI tools.
 
 ## Installing Bit
 
@@ -8,20 +10,18 @@ Bit is an extensible, [open-source toolchain](https://github.com/teambit/bit) fo
 npx @teambit/bvm install
 ```
 
-Learn more about upgrading Bit to the latest version in our [upgrading guide](/guides/upgrading/).
-
-## Compose Components
-
-Bit is all about creating [Independent Components](/components/overview) and composing them together. Every [Component](/components/overview) is an independent module, promoting modular and SOLID design principles and scalable for collaboration in all team sizes.
+Learn more about upgrading and installing Bit on the [BVM (Bit Version Manager) documantation](/bvm/installing-bit).
 
 ### Creating a Workspace
 
-A [Workspace](/workspace/overview) is where you build components and compose them into applications. Creating a [Workspace](/workspace/overview) can be easily with the `bit new` command.
+A [Workspace](/workspace/overview) is where you build and compose components. Creating a new [Workspace](/workspace/overview) can be done with the `bit new` command.
 [Workspace Templates](/workspace/workspace-templates). For more Workspace Templates search [Bit.dev](https://bit.dev/templates).
 
 ```bash
 bit new basic my-workspace
 ```
+
+Workspaces can also be on existing projects. Learn about how to [initlize Bit on an existing project here](/).
 
 ```bash
 cd my-workspace
@@ -30,14 +30,15 @@ cd my-workspace
 ```bash
 bit start
 ```
-Learn more about [Workspaces](/workspace/overview)
+
+Learn more about [Workspaces](/workspace/overview).
 
 ### Create Components
 
 [Creating Components](/getting-started/compose-components/create-components) can be done using our pre-defined templates which generates all necessary files for your component including compositions, docs and test files.
 Components must be in their own directory and have an index file that exports the component.
 
-The following command will add a new component to your workspace under the [namespace](/components/component-id#sub-categories-with-namespaces) of 'ui'.
+The following command will add a new component to your workspace under the `ui` [namespace](/components/component-id#sub-categories-with-namespaces).
 
 ```bash
 bit create react ui/my-component
@@ -48,6 +49,10 @@ Use the `bit templates` command to see a list of available templates.
 :::
 
 Learn more about [Creating Components](/getting-started/compose-components/create-components) including how to [create your own templates](/extending-bit/guides/creating-custom-generator).
+
+
+### Use Dependencies
+Creating dependencies
 
 ### Dev environments
 
@@ -86,7 +91,7 @@ Bit automatically watches and re-executes your component's tests when using `bit
 
 Learn more about [component testing](/tester/overview).
 
-## Release Components
+## Collaborate on Components
 
 Version your components and host them remotely to collaborate with others.
 
@@ -106,7 +111,7 @@ with a single command.
 bit tag --all 1.0.0 --message 'my first version'
 ```
 
-### Export Components
+### Share Components
 
 To export your components you need to create a remote scope. Creating a remote Scope can be done
 by [hosting your own](/getting-started/release-components/create-remote-scope/self-host-scope) or creating a Scope on [Bit's cloud provider](https://bit.dev).
@@ -119,7 +124,7 @@ bit export
 Before exporting make sure you have set the default scope to be your [remote scope](/scope/setting-remote-scope) in the `workspace.jsonc` file.
 :::
 
-## Use and Collaborate on Components
+## Use Components
 
 ### Install Components
 
@@ -137,8 +142,9 @@ for `bit install` are currently [Yarn 2.0](/) and [pnpm](/).
 
 Components can be installed with any package manager in any other app, whether it is a Bit Workspace or not.
 
-- NPM: `npm install @some-org.scope/my-component`
-- Yarn: `yarn add @some-org.scope/my-component`
+```bash
+npm install @teambit/base-ui.my-component
+```
 
 Make sure you [configure the Bit registry](/configurations/config-files#npm-config-npmrc) if you are using Bit's cloud provider. Components can be published to any registry or integrated with Artifactory or Nexus.
 

@@ -1,0 +1,26 @@
+---
+description: 'An MDX component.'
+labels: ['label1', 'label2', 'label3']
+---
+
+import { DevEnvs } from './index';
+
+### Component usage
+
+```js
+<DevEnvs />
+```
+
+### Render with theme and MDX providers
+
+```js
+import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions';
+import { MDXLayout } from '@teambit/mdx.ui.mdx-layout';
+import { DevEnvs } from './index';
+
+<ThemeCompositions>
+  <MDXLayout>
+    <DevEnvs />
+  </MDXLayout>
+</ThemeCompositions>
+```

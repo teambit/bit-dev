@@ -7,10 +7,16 @@
   top: -27px;
   left: 50%;
   right: 50%;
-  > div {
+  > a {
     padding: 2px 8px;
     background-color: #f6f6f6;
     white-space: nowrap;
+    color: #2b2b2b;
+    transition: background-color 300ms ease-in-out;
+    &:hover {
+      text-decoration: none;
+      background-color: #ededed;
+    }
   }
 
   .left {

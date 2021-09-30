@@ -21,11 +21,41 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/buttons/button"
     },
+    "content/code-splitting": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "react/content/code-splitting"
+    },
+    "content/getting-started/composing/create-components": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/content/getting-started/composing/create-components"
+    },
+    "content/getting-started/create-workspace": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/getting-started/create-workspace"
+    },
+    "content/getting-started/dev-envs": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/getting-started/dev-envs"
+    },
     "content/getting-started/installing-bit": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "docs/content/getting-started/installing-bit"
+    },
+    "content/getting-started/use-dependencies": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/getting-started/use-dependencies"
     },
     "content/image": {
         "scope": "",
@@ -38,6 +68,18 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "docs/content/quick-start"
+    },
+    "content/react-router": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "react/content/react-router"
+    },
+    "content/server-side-rendering": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "react/content/server-side-rendering"
     },
     "content/video": {
         "scope": "",
@@ -86,12 +128,6 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "community/envs/community-react"
-    },
-    "graph/tree/inflate-paths": {
-        "scope": "teambit.base-ui",
-        "version": "1.0.0",
-        "mainFile": "index.ts",
-        "rootDir": "base-ui/graph/tree/inflate-paths"
     },
     "layout/grid": {
         "scope": "",
@@ -177,6 +213,12 @@
         "mainFile": "index.ts",
         "rootDir": "design/ui/cards/card"
     },
+    "ui/community-docs": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/ui/community-docs"
+    },
     "ui/component-card-grid": {
         "scope": "",
         "version": "",
@@ -224,6 +266,12 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "community/ui/features/features-section"
+    },
+    "ui/framework-selector": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/framework-selector"
     },
     "ui/github-stars": {
         "scope": "",
@@ -321,11 +369,23 @@
         "mainFile": "index.ts",
         "rootDir": "docs/ui/pages/doc-page"
     },
+    "ui/pages/errors/not-found": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/pages/errors/not-found"
+    },
     "ui/pages/homepage": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "community/ui/pages/homepage"
+    },
+    "ui/pages/page": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/community/ui/pages/page"
     },
     "ui/pages/plugins": {
         "scope": "",
