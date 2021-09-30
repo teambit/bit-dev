@@ -38,7 +38,6 @@ export class Component {
   ) {}
 
   static fromObject(component: ComponentProps) {
-    debugger
     return new Component(
       ComponentID.fromString(component.id),
       component.dependencies.map((dep) => ComponentID.fromString(dep)),

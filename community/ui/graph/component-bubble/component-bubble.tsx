@@ -48,7 +48,7 @@ export type ComponentBubbleProps = {
 } & GridItemProps;
 
 export function ComponentBubble({ className, componentId, showOwner = false, icon, forceActive = false, color = '#EDEDED', ...rest }: ComponentBubbleProps) {
-  // console.log("componentId", getValidId(componentId.toString({ignoreVersion: true})))
+
   return (
     <BubbleCard className={classNames(styles.bubble, className, forceActive ? styles.active : '')} {...rest}>
       {icon && <Image src={icon} className={styles.icon} />}

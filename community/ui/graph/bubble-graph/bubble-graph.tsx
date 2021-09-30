@@ -19,7 +19,7 @@ export type BubbleGraphProps = {
 } & GridGraphProps;
 
 export function BubbleGraph({ list, children, ...rest }: BubbleGraphProps) {
-  // console.log("list", list)
+
   return (
     <GridGraph >
         {list.map((bubble) => {
