@@ -72,6 +72,7 @@
         "@teambit/base-ui.surfaces.split-pane.split-pane": "1.0.0",
         "@teambit/base-ui.text.paragraph": "1.0.3",
         "@teambit/component-id": "0.0.369",
+        "@teambit/component.modules.component-url": "0.0.71",
         "@teambit/design.elements.icon": "1.0.4",
         "@teambit/design.embeds.figma": "0.0.3",
         "@teambit/design.ui.dropdown": "1.0.8",
