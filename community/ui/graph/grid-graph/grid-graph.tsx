@@ -1,6 +1,6 @@
-import React, {ReactNode, ComponentType} from 'react';
-import {ComponentID} from '@teambit/component-id'
-import classNames from 'classnames'
+import React from 'react';
+import {ComponentID} from '@teambit/component-id';
+import classNames from 'classnames';
 import styles from './grid-graph.module.scss';
 
 export type GridItemProps = {
@@ -16,7 +16,7 @@ export type GridGraphProps = {} & React.HTMLAttributes<HTMLDivElement>;
 
 export function GridGraph({ children, className, ...rest }: GridGraphProps) {
   return (
-    <div className={classNames(styles.hero, className)} {...rest}>
+    <div className={classNames(styles.gridGraph, className)} {...rest}>
       {children}
     </div>
   );

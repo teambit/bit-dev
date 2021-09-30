@@ -11,7 +11,7 @@ import { CopyBox } from '@teambit/documenter.ui.copy-box';
 import { HeroGraph } from '@teambit/community.entity.hero-graph';
 import { ComponentID } from '@teambit/component-id';
 import { BubbleHighlighter } from '@teambit/community.ui.bubble-highlighter';
-import { BubbleGraph } from '@teambit/community.ui.graph.bubble-graph';
+import { BubbleGraph, getValidId } from '@teambit/community.ui.graph.bubble-graph';
 import styles from './hero.module.scss';
 import { useHeroState, HeroState } from './use-hero-state';
 
@@ -70,51 +70,3 @@ Hero.defaultProps = {
   teaser:
     'Bit helps build components and compose them into infinite features and apps. Forget monolithic apps and distribute to component-driven software. '
 };
-
-const positions = {
-  'top': {
-    alignSelf: 'start',
-    justifySelf: 'center',
-  },
-   'top-right': {
-     alignSelf: 'start',
-     justifySelf: 'end',
-   },
-   'right': {
-     alignSelf: 'center',
-     justifySelf: 'end',
-   },
-   'bottom-right': {
-     alignSelf: 'end',
-     justifySelf: 'end',
-   },
-   'bottom': {
-     alignSelf: 'end',
-     justifySelf: 'center',
-   },
-   'bottom-left': {
-     alignSelf: 'end',
-     justifySelf: 'end',
-   },
-   'left': {
-     alignSelf: 'center',
-     justifySelf: 'end',
-   },
-   'top-left': {
-     alignSelf: 'start',
-     justifySelf: 'end',
-   }
-};
-
-function getValidId(id: string) {
-  return id.replace(/[.\/]/g, '-');
-}
-
-function getCell(row: number, col: number) {
-  return {
-    gridColumnStart: col,
-    gridColumnEnd: col,
-    gridRowStart: row,
-    gridRowEnd: row
-  }
-}

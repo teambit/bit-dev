@@ -5,8 +5,9 @@ import {
   getValidId,
   positions,
   getCell,
-  GridItemProps
 } from "@teambit/community.ui.graph.grid-graph";
+
+import { Bubble } from '@teambit/community.entity.hero-graph'
 
 import { Edge } from "@teambit/community.ui.graph.edge";
 import { ComponentBubble } from "@teambit/community.ui.graph.component-bubble";
@@ -14,7 +15,7 @@ import { ComponentBubble } from "@teambit/community.ui.graph.component-bubble";
 import styles from "./bubble-graph.module.scss";
 
 export type BubbleGraphProps = {
-  list: GridItemProps[];
+  list: Bubble[];
 } & GridGraphProps;
 
 export function BubbleGraph({ list, children, ...rest }: BubbleGraphProps) {
