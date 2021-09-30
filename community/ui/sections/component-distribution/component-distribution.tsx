@@ -4,7 +4,7 @@ import { Image } from '@teambit/base-react.content.image';
 import { H2 } from '@teambit/design.ui.heading';
 import { Edge } from '@teambit/community.ui.graph.edge';
 import { ComponentCardGraph, getValidId } from '@teambit/community.ui.graph.component-card-graph';
-import { Component } from './component';
+import { Component } from '@teambit/community.entity.compnent-distribution-graph';
 import styles from './component-distribution.module.scss';
 // @ts-ignore
 import img from './shoe-store.png';
