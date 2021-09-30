@@ -87,6 +87,12 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/content/video"
     },
+    "entity/compnent-distribution-graph": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/entity/compnent-distribution-graph"
+    },
     "entity/component-cards": {
         "scope": "",
         "version": "",
@@ -399,6 +405,12 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/plugins/plugin-group"
     },
+    "ui/sections/component-distribution": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/sections/component-distribution"
+    },
     "ui/sidebar": {
         "scope": "",
         "version": "",
@@ -428,12 +440,6 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "design/ui/theme/light-theme"
-    },
-    "ui/sections/component-distribution": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "community/ui/sections/component-distribution"
     },
     "ui/tree/tree-node": {
         "scope": "teambit.ui-foundation",
