@@ -3,7 +3,8 @@ import { Hero } from '@teambit/community.ui.hero';
 import { clientLogos } from '@teambit/community.entity.images';
 import { UseCasesSection } from '@teambit/community.ui.use-cases.use-cases-section';
 import { FeaturesSection } from '@teambit/community.ui.features.features-section';
-import { ComponentDistributionSection, componentsMock } from '@teambit/community.ui.sections.component-distribution'
+import { ComponentDistributionSection } from '@teambit/community.ui.sections.component-distribution';
+import  { componentsMock } from '@teambit/community.entity.compnent-distribution-graph';
 import { useCases } from '@teambit/community.entity.use-cases';
 import { features } from '@teambit/community.entity.features';
 import { mockHero } from '@teambit/community.entity.hero-graph';

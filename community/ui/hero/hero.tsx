@@ -8,7 +8,7 @@ import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 import { Button } from '@teambit/design.ui.buttons.button';
 import { Subtitle } from '@teambit/design.ui.content.subtitle';
 import { CopyBox } from '@teambit/documenter.ui.copy-box';
-import { HeroGraph } from '@teambit/community.entity.hero-graph';
+import { HeroGraph } from '@teambit/community.entity.hero-graph'; // TODO - @oded - change 'hero-graph' to 'bubble-graph'
 import { ComponentID } from '@teambit/component-id';
 import { BubbleHighlighter } from '@teambit/community.ui.bubble-highlighter';
 import { BubbleGraph, getValidId } from '@teambit/community.ui.graph.bubble-graph';
@@ -36,7 +36,7 @@ export function Hero({ title, heroGraph, teaser }: HeroProps) {
   const { heroState, setStateFromTime } = useHeroState();
   const headingClass =
     heroState === HeroState.HEADING_UPDATED ? styles.highlight : "";
-  console.log("heroGraph.bubbles", heroGraph.bubbles)
+  
   return (
     <WideColumn>
           <BubbleGraph list={heroGraph.bubbles}>
