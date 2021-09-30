@@ -6,12 +6,10 @@ export type ComponentProps = {
   dependencies: string[];
   position?: 'top' | 'top-right' | 'right' | 'bottom-right' | 'bottom' | 'bottom-left' | 'left' | 'top-left';
   preview?: string;
+  edges?: Edge;
 };
 
-export type Dependency = {
-  id: ComponentID;
-  edge: EdgeProps;
-}
+export type Edge = Record<string, Omit<EdgeProps, 'start' | 'end'>>;
 
 export class Component {
   constructor(
@@ -32,15 +30,21 @@ export class Component {
     /**
      * the preview to be displayed in the card.
      */
-    readonly preview?: string
+    readonly preview?: string,
+    /**
+     * a list of egdes to override with custom styles
+     */
+    readonly edges?: Edge
   ) {}
 
   static fromObject(component: ComponentProps) {
+    debugger
     return new Component(
       ComponentID.fromString(component.id),
       component.dependencies.map((dep) => ComponentID.fromString(dep)),
       component.position,
       component.preview,
+      component.edges,
     );
   }
 

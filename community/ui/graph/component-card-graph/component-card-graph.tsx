@@ -13,7 +13,7 @@ import { Edge } from '@teambit/community.ui.graph.edge';
 import styles from './component-card-graph.module.scss';
 
 export type ComponentCardGraphProps = {
-  list: any[];
+  list: any[]; // TODO @oded - add type once component is in the correct place
 } & GridGraphProps;
 
 export function ComponentCardGraph({
@@ -38,11 +38,13 @@ export function ComponentCardGraph({
             </div>
             {component.dependencies.map((dep) => {
               const depName = dep.toString({ ignoreVersion: true });
+              const egdeProps = component?.edges?.[dep] || {};
               return (
                 <Edge
                   key={`${componentName}-${depName}`}
                   start={getValidId(componentName)}
                   end={getValidId(depName)}
+                  {...egdeProps}
                 />
               );
             })}

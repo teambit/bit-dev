@@ -7,9 +7,12 @@ export const componentsMock = () => {
           'teambit.community/ui/heading',
         ],
         position: 'bottom',
-        // edgePositions: [],
-        // row: 2,
-        // col: 1,
+        edges: {
+          'teambit.community/ui/hero@1.0.0': {
+            startAnchor: 'top',
+            endAnchor: 'top',
+          },
+        },
         preview: 'https://bitsrc.imgix.net/8906f31bf4ae987413d3fdc1171be928f6b16e59.png?fit=scale&w=70&h=70'
       },
       {
@@ -37,8 +40,6 @@ export const componentsMock = () => {
           'teambit.community/ui/heading',
         ],
         position: 'bottom',
-        // row: 2,
-        // col: 1,
         preview: 'https://bitsrc.imgix.net/8906f31bf4ae987413d3fdc1171be928f6b16e59.png?fit=scale&w=70&h=70'
       },
       {
@@ -51,6 +52,12 @@ export const componentsMock = () => {
       {
         id: 'teambit.community/ui/subtitle@1.0.0',
         dependencies: ['teambit.design/ui/buttons'],
+        edges: {
+          'teambit.design/ui/buttons': {
+            startAnchor: 'bottom',
+            endAnchor: 'top',
+          },
+        },
         position: 'top',
         preview: 'https://static.bit.dev/brands/logo-angular.svg'
       },

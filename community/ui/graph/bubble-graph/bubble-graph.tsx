@@ -31,7 +31,8 @@ export function BubbleGraph({ list, children, ...rest }: BubbleGraphProps) {
               <ComponentBubble key={id} componentId={bubble.id} className={styles.bubble} id={id} icon={bubble.icon} />
               {bubble.dependencies.map((dependency) => {
                 const idStr = getValidId(dependency.toString())
-                return <Edge key={`${id}->${idStr}`} start={id} end={idStr} />
+                const egdeProps = bubble?.edges?.[dependency.toString()] || {};
+                return <Edge key={`${id}->${idStr}`} start={id} end={idStr} {...egdeProps} />
               })}
             </div>
           )
