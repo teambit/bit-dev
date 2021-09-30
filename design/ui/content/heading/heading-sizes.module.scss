@@ -1,0 +1,25 @@
+// font sizes only!
+
+.h1 {
+	font-size: var(--bit-heading-xxl, 50px);
+}
+
+.h2 {
+	font-size: var(--bit-heading-xl, 40px);
+}
+
+.h3 {
+	font-size: var(--bit-heading-lg, 32px);
+}
+
+.h4 {
+	font-size: var(--bit-heading-md, 24px);
+}
+
+.h5 {
+	font-size: var(--bit-heading-sm, 18px);
+}
+
+.h6 {
+	font-size: var(--bit-heading-xs, 16px);
+}
