@@ -2,13 +2,11 @@ import { ComponentContext } from '@teambit/generator';
 import { indexFile } from './files/index';
 import { componentFile } from './files/component-file';
 import { docFile } from './files/doc-file';
-import { compositionFile } from './files/composition-file';
-import { testFile } from './files/test-file';
-import { scssFile } from './files/scss-file';
+import { mockFile } from './files/mock-file';
 
-export const myReactTemplate = {
-  name: 'my-react',
-  description: 'react components with figma embed and scss',
+export const myEntityTemplate = {
+  name: 'my-entity',
+  description: 'entity component',
   generateFiles: (context: ComponentContext) => {
     return [
       // index file
@@ -30,21 +28,10 @@ export const myReactTemplate = {
         content: docFile(context)
       },
 
-      // composition file
+      // mock file
       {
-        relativePath: `${context.name}.composition.tsx`,
-        content: compositionFile(context)
-      },
-
-      // test file
-      {
-        relativePath: `${context.name}.spec.tsx`,
-        content: testFile(context)
-      },
-      // scss file
-      {
-        relativePath: `${context.name}.module.scss`,
-        content: scssFile(context)
+        relativePath: `${context.name}.mock.ts`,
+        content: mockFile(context)
       }
     ];
   }
