@@ -1,11 +1,11 @@
 import { MainRuntime } from '@teambit/cli';
 import { ReactAspect, ReactMain } from '@teambit/react';
-import {
-  GeneratorMain,
-  GeneratorAspect,
-} from '@teambit/generator';
+import { GeneratorMain, GeneratorAspect } from '@teambit/generator';
 import { EnvsAspect, EnvsMain } from '@teambit/envs';
 import { CommunityReactAspect } from './community-react.aspect';
+import { myReactTemplate } from './templates/my-react-template';
+import { myEntityTemplate } from './templates/my-entity-template';
+
 // import { previewConfigTransformer, devServerConfigTransformer } from './webpack/webpack-transformers';
 
 /**
@@ -41,7 +41,7 @@ export class CommunityReactMain {
       //   previewConfig: [previewConfigTransformer],
       //   devServerConfig: [devServerConfigTransformer],
       // }),
-      
+
       react.overrideJestConfig(require.resolve('./jest/jest.config')),
 
       /**
@@ -86,6 +86,8 @@ export class CommunityReactMain {
       })
     ]);
     envs.registerEnv(templatesReactEnv);
+
+    generator.registerComponentTemplate([myReactTemplate, myEntityTemplate]);
 
     return new CommunityReactMain();
   }
