@@ -35,8 +35,8 @@ export function ComponentDistributionSection({
         <div />
         <div>
           <Image src={img} className={styles.appImg} id="image" />
-          <Edge start={"image"} end={getValidId('teambit/design.ui.button')}/>
-          <Edge start={"image"} end={getValidId('teambit/design.ui.buttons')} endAnchor="right" />
+          <Edge start={"image"} end={getValidId('learn-bit-react.shoe-store/ui/pages/home-page')}/>
+          <Edge start={"image"} end={getValidId('learn-bit-react.shoe-store/ui/shoes/shoes-card-grid')} endAnchor="right" />
         </div>
       </div>
     </div>
