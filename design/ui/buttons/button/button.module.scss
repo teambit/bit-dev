@@ -1,24 +1,26 @@
 
 .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #6C5CE7;
   border-radius: 8px;
-  border: none;
   height: 48px;
   width: 168px;
-  text-align: center;
-  font-size: 16px;
+  border: none;
   color: #FFF;
   cursor: pointer;
-  font-family: 'CircularPro';
   text-decoration: none;
-
-  a {
-    position: relative;
-    top: 25%;  
+  transition: background-color 300ms ease-in-out;
+  &:hover {
+    background-color: #3E29DF;
   }
 }
 
 .secondary {
   background: #ECEAFF;
   color: #5D4AEC;
+  &:hover {
+    background-color: #dfdcff;
+  }
 }
