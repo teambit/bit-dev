@@ -75,11 +75,23 @@
         "mainFile": "index.ts",
         "rootDir": "react/content/react-router"
     },
+    "content/server-side-rendering": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "react/content/server-side-rendering"
+    },
     "content/video": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "base-react/content/video"
+    },
+    "entity/compnent-distribution-graph": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/entity/compnent-distribution-graph"
     },
     "entity/component-cards": {
         "scope": "",
@@ -285,11 +297,23 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/graph/component-bubble"
     },
+    "ui/graph/component-card-graph": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/graph/component-card-graph"
+    },
     "ui/graph/edge": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "community/ui/graph/edge"
+    },
+    "ui/graph/grid-graph": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/graph/grid-graph"
     },
     "ui/header/header": {
         "scope": "",
@@ -380,6 +404,12 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "community/ui/plugins/plugin-group"
+    },
+    "ui/sections/component-distribution": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/sections/component-distribution"
     },
     "ui/sidebar": {
         "scope": "",
