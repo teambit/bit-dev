@@ -1,5 +1,6 @@
 import React, { ReactNode, useRef } from 'react';
 import { useButton } from '@react-aria/button';
+import { Link } from '@teambit/base-react.navigation.link';
 import type { AriaButtonProps } from '@react-types/button';
 
 export type ButtonElementType = 'a' | 'button';
@@ -24,21 +25,30 @@ export type ButtonProps = AriaButtonProps & {
 export function Button(props: ButtonProps) {
   const ref = useRef();
 
-  const { buttonProps } = useButton({
-    ...props,
-    elementType: props.href ? 'a' : undefined
-  }, ref);
+  const { buttonProps } = useButton(
+    {
+      ...props,
+      elementType: props.href ? 'a' : undefined
+    },
+    ref
+  );
 
   const allProps = {
     ...buttonProps,
-    ...props
+    ...props,
   };
-  
+
   return (
-    <div>
-      {!props.href 
-        ? <button ref={ref} {...allProps}>{props.children}</button> 
-        : <div className={props.className}><a ref={ref} className="" {...allProps}>{props.children}</a></div>}
-    </div>
+    <>
+      {!props.href ? (
+        <button ref={ref} {...allProps}>
+          {props.children}
+        </button>
+      ) : (
+        <Link ref={ref} className={props.className} {...allProps}>
+          {props.children}
+        </Link>
+      )}
+    </>
   );
 }

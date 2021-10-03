@@ -16,11 +16,9 @@
     z-index: 1;
   }
 }
-.bubbleContainer:nth-child(2n) {
-  align-self: end;
-}
-.bubbleContainer:nth-child(3n) {
-  align-self: start;
+
+.bubbleContainer {
+  position: relative;
 }
 
 .title {
@@ -84,8 +82,4 @@
   color: #ededed;
   width: 20em;
   height: 48px;
-}
-
-.bubbleContainer {
-  position: relative;
 }

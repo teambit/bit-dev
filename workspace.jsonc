@@ -1,7 +1,7 @@
 /**
  * this is the main configuration file of your bit workspace.
  * for full documentation, please see: https://harmony-docs.bit.dev/workspace/configurations
- **/{
+ **/ {
   "$schema": "https://static.bit.dev/teambit/schemas/schema.json",
   /**
    * main configuration of the Bit workspace.
@@ -29,11 +29,11 @@
      **/
     "defaultScope": "teambit.community"
   },
-  "teambit.community/apps/bit-dev": {},
+  // "teambit.community/apps/bit-dev": {},
   // "teambit.generator/generator": {
-  //   "aspects": ["teambit.base-react/generator/component-templates"]
+  //   "aspects": ["teambit.community/envs/community-react"]
   // },
-  // "teambit.base-react/generator/component-templates": {},
+  "teambit.community/envs/community-react": {},
   /**
    * main configuration for component dependency resolution.
    **/
@@ -118,9 +118,7 @@
       }
     },
     "packageManagerArgs": [],
-    "devFilePatterns": [
-      "**/*.spec.ts"
-    ],
+    "devFilePatterns": ["**/*.spec.ts"],
     "strictPeerDependencies": true,
     "installFromBitDevRegistry": true,
     "savePrefix": ""

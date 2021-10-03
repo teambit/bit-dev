@@ -5,6 +5,7 @@ import { Label } from '@teambit/documenter.ui.label';
 import { Caption } from '@teambit/design.ui.content.caption';
 import classNames from 'classnames';
 import { BubbleCard } from '@teambit/design.ui.cards.bubble-card';
+import type { GridItemProps } from '@teambit/community.ui.graph.grid-graph'
 import { Ellipsis, ellipsis } from '@teambit/design.ui.styles.ellipsis';
 import { getScopeName } from './get-scope-name';
 import styles from './component-bubble.module.scss';
@@ -44,9 +45,10 @@ export type ComponentBubbleProps = {
    * color of the bubble
    */
   color?: string
-} & React.HTMLAttributes<HTMLDivElement>;
+} & GridItemProps;
 
 export function ComponentBubble({ className, componentId, showOwner = false, icon, forceActive = false, color = '#EDEDED', ...rest }: ComponentBubbleProps) {
+
   return (
     <BubbleCard className={classNames(styles.bubble, className, forceActive ? styles.active : '')} {...rest}>
       {icon && <Image src={icon} className={styles.icon} />}
@@ -59,4 +61,8 @@ export function ComponentBubble({ className, componentId, showOwner = false, ico
       {componentId && <Label className={styles.versionLabel}>{componentId?.version}</Label>}
     </BubbleCard>
   );
+}
+
+export function getValidId(id: string) {
+  return id.replace(/[.\/]/g, '-');
 }

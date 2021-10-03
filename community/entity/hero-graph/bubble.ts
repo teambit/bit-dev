@@ -1,4 +1,5 @@
 import { ComponentID } from "@teambit/component-id";
+import type { EdgeProps } from '@teambit/community.ui.graph.edge'
 
 export type BubbleProps = {
   id: string;
@@ -7,7 +8,10 @@ export type BubbleProps = {
   icon?: string;
   col?: number;
   row?: number;
+  edges?: Edge;
 };
+
+export type Edge = Record<string, Omit<EdgeProps, 'start' | 'end'>>;
 
 export class Bubble {
   constructor(
@@ -36,7 +40,11 @@ export class Bubble {
     /**
      * the icon to be displayed in the bubble.
      */
-    readonly icon?: string
+    readonly icon?: string,
+    /**
+     * a list of egdes to override with custom styles
+     */
+     readonly edges?: Edge
   ) {}
 
   static fromObject(plainBubble: BubbleProps) {
@@ -47,6 +55,7 @@ export class Bubble {
       plainBubble.col,
       plainBubble.row,
       plainBubble.icon,
+      plainBubble.edges,
     );
   }
 

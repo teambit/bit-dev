@@ -1,0 +1,22 @@
+
+.buildSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+
+.title {
+  margin: 10px 0 80px 0;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 60% 5% 35%;
+  align-items: center;
+}
+
+.appImg {
+  max-height: 500px;
+}

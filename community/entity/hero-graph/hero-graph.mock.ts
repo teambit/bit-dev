@@ -281,6 +281,12 @@ export function mockHero() {
         'teambit.frontend/ui/angular-renderer',
         'learn-bit-react.angular-in-react/books/recommendations'
       ],
+      edges: {
+        'learn-bit-react.angular-in-react/books/recommendations': {
+          startAnchor: 'bottom',
+          endAnchor: 'top',
+        },
+      },
       icon: 'https://static.bit.dev/brands/logo-react.svg',
       row: 5,
       col: 2,
