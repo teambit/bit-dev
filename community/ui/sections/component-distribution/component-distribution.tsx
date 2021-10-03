@@ -30,15 +30,21 @@ export function ComponentDistributionSection({
       <div className={styles.heading}>
         <H2 className={styles.title}>{title}</H2>
       </div>
+      {/* created a connecting element for edge curve effect */}
+        <div id={getValidId("shoe-store/home-page-to-store-hero")} />
+        <Edge start={getValidId("shoe-store/home-page-to-store-hero")} endAnchor="top" end={getValidId('ecommerce/ui/store-hero')}/>
       <div className={styles.content}>
         <ComponentCardGraph list={components} />
         <div />
         <div>
           <Image src={img} className={styles.appImg} id="image" />
-          <Edge start={"image"} end={getValidId('learn-bit-react.shoe-store/ui/pages/home-page')}/>
-          <Edge start={"image"} end={getValidId('learn-bit-react.shoe-store/ui/shoes/shoes-card-grid')} endAnchor="right" />
+          <Edge start={"image"} end={getValidId('shoe-store/ui/pages/home-page')}/>
+          <Edge start={"image"} end={getValidId('shoe-store/ui/shoes/shoes-card-grid')} endAnchor="right" />
         </div>
       </div>
+      {/* created a connecting element for edge curve effect */}
+        <div id={getValidId("shoe-store/shoes-card-grid-to-shoes-card")} />
+        <Edge start={getValidId("shoe-store/shoes-card-grid-to-shoes-card")} endAnchor="bottom" end={getValidId('shoe-store/ui/shoes/shoes-card')}/>
     </div>
   );
 }
