@@ -1,0 +1,11 @@
+.bubble {
+  position: absolute;
+  background-color: white;
+  &:hover {
+    z-index: 1;
+  }
+}
+
+.bubbleContainer {
+  position: relative;
+}
