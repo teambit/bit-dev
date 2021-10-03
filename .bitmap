@@ -63,6 +63,12 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/content/image"
     },
+    "content/naming": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "component/content/naming"
+    },
     "content/quick-start": {
         "scope": "",
         "version": "",
