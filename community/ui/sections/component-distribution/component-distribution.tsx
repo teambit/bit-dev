@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { Image } from '@teambit/base-react.content.image';
-import { H2 } from '@teambit/design.ui.heading';
+import { Heading, Elements } from '@teambit/community.ui.heading';
 import { Edge } from '@teambit/community.ui.graph.edge';
 import { ComponentCardGraph, getValidId } from '@teambit/community.ui.graph.component-card-graph';
 import { Component } from '@teambit/community.entity.compnent-distribution-graph';
@@ -28,7 +28,7 @@ export function ComponentDistributionSection({
   return (
     <div className={classNames(styles.buildSection, className)}>
       <div className={styles.heading}>
-        <H2 className={styles.title}>{title}</H2>
+        <Heading element={Elements.H2} className={styles.title}>{title}</Heading>
       </div>
       {/* created a connecting element for edge curve effect */}
         <div id={getValidId("shoe-store/home-page-to-store-hero")} />
