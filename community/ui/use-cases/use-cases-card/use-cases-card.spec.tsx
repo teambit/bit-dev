@@ -19,12 +19,12 @@ it('should render with a text', () => {
 it('should contain an image', () => {
   render(<BasicUseCasesCard />);
   const displayedImage = document.querySelector('img') as HTMLImageElement;
-  expect(displayedImage.src).toContain('logo-react');
+  expect(displayedImage.src).toContain('https://storage.googleapis.com/static.bit.dev/Community/use-cases/library.svg');
 });
 
 it('image should contain an alt tag', () => {
   const { getByAltText } = render(<BasicUseCasesCard />);
-  const rendered = getByAltText('React logo');
+  const rendered = getByAltText('Library of Frameworks');
   expect(rendered).toBeTruthy();
 });
 

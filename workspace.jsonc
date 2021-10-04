@@ -34,7 +34,7 @@
   // "teambit.generator/generator": {
   //   "aspects": ["teambit.community/envs/community-react"]
   // },
-  "teambit.community/envs/community-react": {},
+  // "teambit.community/envs/community-react": {},
   /**
    * main configuration for component dependency resolution.
    **/
@@ -162,11 +162,11 @@
     "docs": {
       "defaultScope": "teambit.docs"
     },
-    "ui-foundation/ui/tree/tree-node": {
-      "propagate": false,
-      "defaultScope": "teambit.ui-foundation",
-      "teambit.community/envs/community-react": "-",
-      "teambit.react/react": {}
+    "component": {
+      "defaultScope": "teambit.component"
+    },
+    "ui-foundation": {
+      "defaultScope": "teambit.ui-foundation"
     },
     "react": {
       "defaultScope": "teambit.react"

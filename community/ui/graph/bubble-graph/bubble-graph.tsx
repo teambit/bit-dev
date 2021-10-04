@@ -1,17 +1,14 @@
-import React from "react";
+import React from 'react';
 import {
   GridGraph,
   GridGraphProps,
   getValidId,
   positions,
   getCell,
-} from "@teambit/community.ui.graph.grid-graph";
-
+} from '@teambit/community.ui.graph.grid-graph';
 import { Bubble } from '@teambit/community.entity.hero-graph'
-
-import { Edge } from "@teambit/community.ui.graph.edge";
-import { ComponentBubble } from "@teambit/community.ui.graph.component-bubble";
-
+import { Edge } from '@teambit/community.ui.graph.edge';
+import { ComponentBubble } from '@teambit/community.ui.graph.component-bubble';
 import styles from "./bubble-graph.module.scss";
 
 export type BubbleGraphProps = {

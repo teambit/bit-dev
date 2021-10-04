@@ -1,10 +1,9 @@
 import React, { useMemo } from 'react';
 import classnames from 'classnames';
-
 import {
   Link,
   LinkProps,
-} from "@teambit/base-react.navigation.link";
+} from '@teambit/base-react.navigation.link';
 import { compareUrl } from '@teambit/ui-foundation.urls.compare-url';
 
 export const isBrowser = typeof window !== 'undefined';

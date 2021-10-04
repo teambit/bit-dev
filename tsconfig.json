@@ -1,0 +1,13 @@
+{
+  "extends": "@teambit/react/typescript/tsconfig.json",
+  "compilerOptions": {
+    "target": "ES6",
+    "strict": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "emitDeclarationOnly": false,
+    "noEmit": true,
+    "strictPropertyInitialization": false,
+    "noImplicitAny": false,
+  }
+}

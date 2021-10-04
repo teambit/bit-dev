@@ -33,7 +33,7 @@ export function Logo({ size, customSize, alt, ...rest }: LogoProps) {
     <BaseImage
       {...rest}
       src={logo}
-      alt={alt}
+      alt={alt || ''}
       height={chosenSize}
       width={chosenSize}
     />

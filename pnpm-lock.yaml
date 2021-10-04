@@ -24,13 +24,11 @@ importers:
       '@teambit/base-ui.layout.grid-component': registry.npmjs.org/@teambit/base-ui.layout.grid-component/1.0.1_react-dom@16.13.1+react@16.13.1
       '@teambit/base-ui.layout.page-frame': registry.npmjs.org/@teambit/base-ui.layout.page-frame/1.0.1_react-dom@16.13.1+react@16.13.1
       '@teambit/base-ui.routing.native-nav-link': registry.npmjs.org/@teambit/base-ui.routing.native-nav-link/1.0.0_react-dom@16.13.1+react@16.13.1
-      '@teambit/base-ui.routing.nav-link': registry.npmjs.org/@teambit/base-ui.routing.nav-link/1.0.0_react-dom@16.13.1+react@16.13.1
       '@teambit/base-ui.routing.routing-provider': registry.npmjs.org/@teambit/base-ui.routing.routing-provider/1.0.0_react-dom@16.13.1+react@16.13.1
       '@teambit/base-ui.surfaces.card': registry.npmjs.org/@teambit/base-ui.surfaces.card/1.0.1_react-dom@16.13.1+react@16.13.1
       '@teambit/base-ui.surfaces.split-pane.hover-splitter': registry.npmjs.org/@teambit/base-ui.surfaces.split-pane.hover-splitter/1.0.0_react-dom@16.13.1+react@16.13.1
       '@teambit/base-ui.surfaces.split-pane.split-pane': registry.npmjs.org/@teambit/base-ui.surfaces.split-pane.split-pane/1.0.0_react-dom@16.13.1+react@16.13.1
       '@teambit/base-ui.text.paragraph': registry.npmjs.org/@teambit/base-ui.text.paragraph/1.0.3_react-dom@16.13.1+react@16.13.1
-      '@teambit/base-ui.theme.colors': registry.npmjs.org/@teambit/base-ui.theme.colors/1.0.0_react-dom@16.13.1+react@16.13.1
       '@teambit/component-id': registry.npmjs.org/@teambit/component-id/0.0.369_react-dom@16.13.1+react@16.13.1
       '@teambit/component.modules.component-url': registry.npmjs.org/@teambit/component.modules.component-url/0.0.71_react-dom@16.13.1+react@16.13.1
       '@teambit/design.elements.icon': registry.npmjs.org/@teambit/design.elements.icon/1.0.4_react-dom@16.13.1+react@16.13.1
@@ -105,13 +103,11 @@ importers:
       '@teambit/base-ui.layout.grid-component': 1.0.1
       '@teambit/base-ui.layout.page-frame': 1.0.1
       '@teambit/base-ui.routing.native-nav-link': 1.0.0
-      '@teambit/base-ui.routing.nav-link': 1.0.0
       '@teambit/base-ui.routing.routing-provider': 1.0.0
       '@teambit/base-ui.surfaces.card': 1.0.1
       '@teambit/base-ui.surfaces.split-pane.hover-splitter': 1.0.0
       '@teambit/base-ui.surfaces.split-pane.split-pane': 1.0.0
       '@teambit/base-ui.text.paragraph': 1.0.3
-      '@teambit/base-ui.theme.colors': 1.0.0
       '@teambit/component-id': 0.0.369
       '@teambit/component.modules.component-url': 0.0.71
       '@teambit/design.elements.icon': 1.0.4

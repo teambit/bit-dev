@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import styles from './grid-graph.module.scss';
 
 export type GridItemProps = {
-id: string,
+id?: string,
 dependencies?: ComponentID[]
 icon?: string,
 row?: number,

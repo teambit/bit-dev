@@ -10,7 +10,7 @@ export class DocsRoutes {
    */
   getSideBarPaths() {
     return this.routes.map((route) => {
-      return route.sidebarPath
+      return route.sidebarPath || ''
     });
   }
 
