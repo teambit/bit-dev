@@ -10,5 +10,8 @@ Docs sidebar.
 ### Render a simple sidebar with few entries
 
 ```js live
-<Sidebar paths={['Getting Started/Quick Start', 'Getting Started/Composing Components/Create Components']} />
+<Sidebar paths={[{id: 'Getting Started/Quick Start', icon: 'spinner'}, 
+    {id: 'Getting Started/Composing Components/Create Components', icon: 'spinner'},
+    {id: 'Workspace', icon: 'spinner'},
+    {id: 'Scope', icon: 'spinner'},]} />
 ```

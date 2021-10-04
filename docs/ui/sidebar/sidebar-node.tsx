@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { TreeNode, WidgetProps } from '@teambit/ui-foundation.ui.tree.tree-node';
-import { FolderTreeNode } from '@teambit/ui-foundation.ui.tree.folder-tree-node';
+import { FolderTreeNode, FolderTreeNodeProps } from '@teambit/ui-foundation.ui.tree.folder-tree-node';
 
 export type SidebarNodeProps = {
   /**
@@ -32,7 +32,7 @@ export function SidebarNode(props: SidebarNodeProps) {
   }
 
   // TODO: figure out why use any here with uri
-  return <FolderTreeNode {...props as any} />
+  return <FolderTreeNode {...props as FolderTreeNodeProps} />
 }
 
 // const routerValue = { useLocation: useLocation, Link: Link, NavLink: NavLink };
