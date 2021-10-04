@@ -93,11 +93,11 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/content/video"
     },
-    "entity/compnent-distribution-graph": {
+    "entity/component-distribution-graph": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "community/entity/compnent-distribution-graph"
+        "rootDir": "community/entity/component-distribution-graph"
     },
     "entity/component-cards": {
         "scope": "",
