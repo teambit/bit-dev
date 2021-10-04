@@ -97,7 +97,7 @@
         "scope": "teambit.community",
         "version": "1.0.8",
         "mainFile": "index.ts",
-        "rootDir": "community/entity/compnent-distribution-graph"
+        "rootDir": "community/entity/component-distribution-graph"
     },
     "entity/component-cards": {
         "scope": "teambit.community",
