@@ -447,12 +447,6 @@
         "mainFile": "index.ts",
         "rootDir": "design/ui/theme/light-theme"
     },
-    "ui/tree/tree-node": {
-        "scope": "teambit.ui-foundation",
-        "version": "0.0.440",
-        "mainFile": "index.ts",
-        "rootDir": "ui-foundation/ui/tree/tree-node"
-    },
     "ui/use-cases/use-cases-card": {
         "scope": "",
         "version": "",
