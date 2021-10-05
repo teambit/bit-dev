@@ -1,13 +1,21 @@
 import React, { useMemo } from 'react';
 import classNames from 'classnames';
+import { TreeNode } from '@teambit/base-ui.graph.tree.recursive-tree';
 // TODO: check with Uri why sidebar is distributed to many components and not documented.
 import { TreeContextProvider } from '@teambit/base-ui.graph.tree.tree-context';
-import { TreeNode } from '@teambit/base-ui.graph.tree.recursive-tree';
 import { indentStyle } from '@teambit/base-ui.graph.tree.indent';
 import { RootNode } from '@teambit/base-ui.graph.tree.root-node';
 import { TreeNodeContext } from '@teambit/base-ui.graph.tree.recursive-tree';
-import { createTree } from './create-tree';
 import { SidebarNode } from './sidebar-node';
+
+export type SidebarPayload = {
+  collapsed?: boolean;
+  icon?: string;
+  title: string;
+  path?: string;
+};
+
+export type SidebarNode = TreeNode<SidebarPayload>;
 
 export type SidebarProps = {
   /**
@@ -18,10 +26,9 @@ export type SidebarProps = {
   selected?: string,
 
   /**
-   * array of sorted human-readable sidebar paths. 
-   * `Getting Started/Installing Bit`, id of this path in the sidebar would be: getting-started/installing-bit
+   * a nested tree node, which includes children for tree nesting..
    */
-  paths: string[],
+  tree: SidebarNode,
 
   /**
    * prefix for all rendered links in the sidebar.
@@ -30,16 +37,12 @@ export type SidebarProps = {
 
 } & React.HTMLAttributes<HTMLDivElement>;
 
-export function Sidebar({ onSelect, paths, linkPrefix, selected, className, ...rest }: SidebarProps) {
-  const rootNode = useMemo(() => {
-    return createTree(paths, linkPrefix);
-  }, [paths]);
-
+export function Sidebar({ onSelect, tree, linkPrefix, selected, className, ...rest }: SidebarProps) {
   return (
     <div style={{ ...indentStyle(1), ...rest.style }} className={classNames(className)} {...rest}>
       <TreeNodeContext.Provider value={SidebarNode}>
         <TreeContextProvider onSelect={onSelect} selected={selected}>
-          <RootNode node={rootNode} depth={1} />
+          <RootNode node={tree} depth={1} />
         </TreeContextProvider>
       </TreeNodeContext.Provider>
     </div>

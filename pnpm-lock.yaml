@@ -195,6 +195,8 @@ importers:
     specifiers: {}
   community/entity/component-cards:
     specifiers: {}
+  community/entity/component-distribution-graph:
+    specifiers: {}
   community/entity/features:
     specifiers: {}
   community/entity/hero-graph:

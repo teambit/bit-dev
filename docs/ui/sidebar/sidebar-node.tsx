@@ -21,7 +21,7 @@ export function SidebarNode(props: SidebarNodeProps) {
     return (
       // TODO: migrate to use the new base-react link with React Router.
         <TreeNode 
-          node={{ id: props.node.id }}
+          node={{ id: props.node.payload.title }}
           icon={props.icon || ''}
           depth={1}
           onClick={() => setToActive(props.node.id)}
@@ -32,7 +32,7 @@ export function SidebarNode(props: SidebarNodeProps) {
   }
 
   // TODO: figure out why use any here with uri
-  return <FolderTreeNode {...props as any} />
+  return <FolderTreeNode node={{ id: props.node.payload.title, children: props.node.children }} depth={1} />
 }
 
 // const routerValue = { useLocation: useLocation, Link: Link, NavLink: NavLink };

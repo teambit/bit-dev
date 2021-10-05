@@ -6,6 +6,8 @@ export type ComponentProps = {
   dependencies: string[];
   position?: 'top' | 'top-right' | 'right' | 'bottom-right' | 'bottom' | 'bottom-left' | 'left' | 'top-left';
   preview?: string;
+  description?: string;
+  envIcon?: string;
   edges?: Edge;
 };
 
