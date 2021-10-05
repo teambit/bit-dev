@@ -24,7 +24,7 @@ export function BubbleGraph({ list, children, ...rest }: BubbleGraphProps) {
           const cell = getCell(bubble.row, bubble.col)
           const bubblePosition = bubble.position && positions[bubble.position];
           return (
-            <div className={styles.bubbleContainer} style={{ ...cell, ...bubblePosition }}>
+            <div key={bubble.id.toString()} className={styles.bubbleContainer} style={{ ...cell, ...bubblePosition }}>
               <ComponentBubble key={id} componentId={bubble.id} className={styles.bubble} id={id} icon={bubble.icon} />
               {bubble.dependencies.map((dependency) => {
                 const idStr = getValidId(dependency.toString())
