@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TreeNode, WidgetProps } from '@teambit/ui-foundation.ui.tree.tree-node';
+import { TreeNode, TreeNodeComponentProps } from '@teambit/ui-foundation.ui.tree.tree-node';
 import { FolderTreeNode } from '@teambit/ui-foundation.ui.tree.folder-tree-node';
 
 export type SidebarNodeProps = {
@@ -11,8 +11,8 @@ export type SidebarNodeProps = {
   /**
    * name of the active item id
    */
-  active?: string
-} & WidgetProps<any>;
+  active?: string,
+} & TreeNodeComponentProps<any>;
 
 export function SidebarNode(props: SidebarNodeProps) {
   const [active, setToActive] = useState(props.active);
@@ -32,7 +32,5 @@ export function SidebarNode(props: SidebarNodeProps) {
   }
 
   // TODO: figure out why use any here with uri
-  return <FolderTreeNode node={{ id: props.node.payload.title, children: props.node.children }} depth={1} />
+  return <FolderTreeNode node={{ id: props.node.payload.title, children: props.node.children }} depth={props.depth} />
 }
-
-// const routerValue = { useLocation: useLocation, Link: Link, NavLink: NavLink };
