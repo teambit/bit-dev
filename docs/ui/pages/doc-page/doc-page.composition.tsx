@@ -1,6 +1,9 @@
 import React from 'react';
 import { DocPage } from './doc-page';
+import { CreateWorkspace } from '@teambit/docs.content.getting-started.create-workspace';
 
 export const BasicDocPage = () => (
-  <DocPage text="hello from DocPage" />
+  <DocPage title="Creating a Workspace">
+    <CreateWorkspace />
+  </DocPage>
 );

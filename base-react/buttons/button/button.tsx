@@ -30,6 +30,7 @@ export function Button(props: ButtonProps) {
       ...props,
       elementType: props.href ? 'a' : undefined
     },
+    // @ts-ignore figure this out.
     ref
   );
 

@@ -11,7 +11,7 @@ export type GridProps = {
   /**
    * class name to inject.
    */
-  className: string
+className?: string
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export function Grid({ children, className, ...rest }: GridProps) {

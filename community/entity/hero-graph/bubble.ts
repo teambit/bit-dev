@@ -6,8 +6,8 @@ export type BubbleProps = {
   dependencies: string[];
   position?: 'top' | 'top-right' | 'right' | 'bottom-right' | 'bottom' | 'bottom-left' | 'left' | 'top-left';
   icon?: string;
-  col?: number;
-  row?: number;
+  col: number;
+  row: number;
   edges?: Edge;
 };
 
@@ -26,17 +26,19 @@ export class Bubble {
     readonly dependencies: ComponentID[],
 
     /**
-     * position of the bubbles in cell.
+     * row number in the grid.
      */
-    readonly position: string,
+    readonly row: number,
     /**
      * column number in the grid.
      */
-    readonly col?: number,
+     readonly col: number,
+
     /**
-     * row number in the grid.
+     * position of the bubbles in cell.
      */
-    readonly row?: number,
+    readonly position?: string,
+
     /**
      * the icon to be displayed in the bubble.
      */
@@ -51,9 +53,9 @@ export class Bubble {
     return new Bubble(
       ComponentID.fromString(plainBubble.id),
       plainBubble.dependencies.map((depId) => ComponentID.fromString(depId)),
-      plainBubble.position,
-      plainBubble.col,
       plainBubble.row,
+      plainBubble.col,
+      plainBubble.position,
       plainBubble.icon,
       plainBubble.edges,
     );

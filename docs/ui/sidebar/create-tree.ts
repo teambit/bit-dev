@@ -15,7 +15,7 @@ export type PayloadType = { // unify with folder payload type
 export function createTree(paths: Path[], linkPrefix?: string): TreeNode<PayloadType> { 
   const tree = [];
   paths.reduce((r, path: Path) => {
-    path.id.split('/').reduce((o, id) => {
+    path.id.split('/').reduce<any>((o, id) => {
         var temp = (o.children = o.children || []).find(q => q.id === id);
         // hack / remove docs from being hard coded here.
         if (!temp) o.children.push(temp = { id, payload: { path: generatePath(path.id, linkPrefix), icon: path.icon, open: path.open }});

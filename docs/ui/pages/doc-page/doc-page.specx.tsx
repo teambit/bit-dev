@@ -4,6 +4,6 @@ import { BasicDocPage } from './doc-page.composition';
 
 it('should render with the correct text', () => {
   const { getByText } = render(<BasicDocPage />);
-  const rendered = getByText('hello from DocPage');
+  const rendered = getByText('Create a new Workspace');
   expect(rendered).toBeTruthy();
 });

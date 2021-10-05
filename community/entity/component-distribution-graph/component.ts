@@ -26,7 +26,7 @@ export class Component {
     /**
      * position of the component card in cell.
      */
-    readonly position: string,
+    readonly position?: string,
     /**
      * the preview to be displayed in the card.
      */

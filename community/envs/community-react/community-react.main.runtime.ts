@@ -5,6 +5,7 @@ import { EnvsAspect, EnvsMain } from '@teambit/envs';
 import { CommunityReactAspect } from './community-react.aspect';
 import { myReactTemplate } from './templates/my-react-template';
 import { myEntityTemplate } from './templates/my-entity-template';
+import { transformTsConfig } from './typescript/transform-tsconfig';
 
 // import { previewConfigTransformer, devServerConfigTransformer } from './webpack/webpack-transformers';
 
@@ -30,13 +31,11 @@ export class CommunityReactMain {
        * Uncomment to override the config files for TypeScript, Webpack or Jest
        * Your config gets merged with the defaults
        */
-      react.overrideTsConfig(tsconfig),
-      // react.useTypescript({
-      //   devConfig: [(config) => {
-      //     config.setTarget('ES2017');
-      //     return config;
-      //   }]
-      // }),
+      react.useTypescript({
+        devConfig: [transformTsConfig],
+        buildConfig: [transformTsConfig]
+      }),
+      
       // react.useWebpack({
       //   previewConfig: [previewConfigTransformer],
       //   devServerConfig: [devServerConfigTransformer],

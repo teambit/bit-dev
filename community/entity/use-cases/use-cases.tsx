@@ -3,11 +3,11 @@ export enum ProductType {
 }
 
 export type UseCasesFromApi = {
-  title?: string;
-  text?: string;
-  image?: string;
-  alt?: string;
-  href?: string;
+  title: string;
+  text: string;
+  image: string;
+  alt: string;
+  href: string;
 };
 
 export class UseCases {
@@ -15,23 +15,23 @@ export class UseCases {
     /**
      * an image to be rendered in the card.
      */
-    public image?: string,
+    public image: string,
     /**
      * alt tag for the image
      */
-    public alt?: string,
+    public alt: string,
     /**
      * a title for the card
      */
-    public title?: string,
+    public title: string,
     /**
      * a text for the card
      */
-    public text?: string,
+    public text: string,
     /**
      * a href for internal link for the card
      */
-    public href?: string
+    public href: string
   ) {}
 
   static fromApiObject(object: UseCasesFromApi) {
