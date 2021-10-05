@@ -11,7 +11,7 @@ export const componentsMock = () => {
       envIcon: 'https://static.bit.dev/brands/logo-react.svg'
     },
     {
-      id: 'ecommerce/ui/store-hero',
+      id: 'ecommerce/ui/store-hero@1.0.0',
       dependencies: ['base-ui/ui/button'],
       position: 'bottom',
       preview: 'https://static.bit.dev/brands/logo-angular.svg',
@@ -78,7 +78,7 @@ export const componentsMock = () => {
       position: 'bottom',
       edges: {
         'shoe-store/shoes-card-grid-to-shoes-card': {
-          showHead: false
+        showHead: false
         }
       },
       preview:

@@ -111,11 +111,17 @@
         "mainFile": "index.ts",
         "rootDir": "community/entity/features"
     },
-    "entity/hero-graph": {
-        "scope": "teambit.community",
-        "version": "1.0.8",
+    "entity/graph/bubble-graph": {
+        "scope": "",
+        "version": "",
         "mainFile": "index.ts",
-        "rootDir": "community/entity/hero-graph"
+        "rootDir": "community/entity/graph/bubble-graph"
+    },
+    "entity/graph/grid-graph": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/entity/graph/grid-graph"
     },
     "entity/images": {
         "scope": "teambit.community",

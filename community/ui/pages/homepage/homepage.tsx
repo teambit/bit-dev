@@ -7,7 +7,7 @@ import { ComponentDistributionSection } from '@teambit/community.ui.sections.com
 import  { componentsMock } from '@teambit/community.entity.compnent-distribution-graph';
 import { useCases } from '@teambit/community.entity.use-cases';
 import { features } from '@teambit/community.entity.features';
-import { mockHero } from '@teambit/community.entity.hero-graph';
+import { mockBubbleGraph } from '@teambit/community.entity.graph.bubble-graph';
 import { LogoShowcase } from '@teambit/community.ui.logo-showcase';
 import { StickyMenu } from '@teambit/community.ui.sticky-menu';
 import { Page } from '@teambit/base-react.pages.page';
@@ -23,7 +23,7 @@ export function Homepage({ ...rest }: HomepageProps) {
     <Page title="Bit: Component build and collaboration framework" {...rest}>
       <section>
         <div className={styles.grid}>
-          <Hero heroGraph={mockHero()} />
+          <Hero bubbles={mockBubbleGraph()} />
           <ComponentDistributionSection title="Build components, compose apps" components={componentsMock().components} />
           <FeaturesSection
             features={features}

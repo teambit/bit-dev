@@ -45,7 +45,7 @@ export type ComponentBubbleProps = {
    * color of the bubble
    */
   color?: string
-} & GridItemProps;
+};
 
 export function ComponentBubble({ className, componentId, showOwner = false, icon, forceActive = false, color = '#EDEDED', ...rest }: ComponentBubbleProps) {
 

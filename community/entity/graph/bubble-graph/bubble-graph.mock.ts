@@ -1,7 +1,7 @@
-import { HeroGraph } from './hero-graph';
+import { createBubbleGraph } from './bubble-graph';
 
-export function mockHero() {
-  return HeroGraph.fromPlainBubbles([
+export function mockBubbleGraph() {
+  return createBubbleGraph([
     /**
      * Highlighted hero components graph
      */
@@ -13,7 +13,9 @@ export function mockHero() {
         'teambit.design/ui/content/subtitle',
         'teambit.documenter/ui/copy-box'
       ],
-      icon: 'https://static.bit.dev/brands/logo-react.svg',
+      payload: {
+        icon: 'https://static.bit.dev/brands/logo-react.svg',
+      },
       row: 3,
       col: 10,
       position: 'top-left'
@@ -23,7 +25,9 @@ export function mockHero() {
       dependencies: [
         'teambit.community/ui/homepage/hero'
       ],
-      icon: 'https://static.bit.dev/brands/logo-react.svg',
+      payload: {
+        icon: 'https://static.bit.dev/brands/logo-react.svg'
+      },
       row: 3,
       col: 11,
       position: 'top-right'
@@ -33,7 +37,9 @@ export function mockHero() {
       dependencies: [
         'teambit.community/ui/homepage/homepage'
       ],
-      icon: 'https://static.bit.dev/brands/logo-react.svg',
+      payload: {
+        icon: 'https://static.bit.dev/brands/logo-react.svg'
+      },
       row: 3,
       col: 11,
       position: 'bottom-right'
@@ -41,7 +47,9 @@ export function mockHero() {
     {
       id: 'teambit.design/ui/content/heading@2.2.1',
       dependencies: [],
-      icon: 'https://static.bit.dev/brands/logo-react.svg',
+      payload: {
+        icon: 'https://static.bit.dev/brands/logo-react.svg',
+      },
       row: 3,
       col: 2,
       position: 'right'
@@ -51,7 +59,9 @@ export function mockHero() {
       dependencies: [
         'teambit.react-base/navigation/link'
       ],
-      icon: 'https://static.bit.dev/brands/logo-react.svg',
+      payload: {
+        icon: 'https://static.bit.dev/brands/logo-react.svg',
+      },
       row: 5,
       col: 2,
       position: 'top-left'
@@ -59,7 +69,9 @@ export function mockHero() {
     {
       id: 'teambit.react-base/navigation/link@1.2.9',
       dependencies: [],
-      icon: 'https://static.bit.dev/brands/logo-react.svg',
+      payload: {
+        icon: 'https://static.bit.dev/brands/logo-react.svg',
+      },
       row: 4,
       col: 1,
       position: 'top-left'
@@ -67,7 +79,9 @@ export function mockHero() {
     {
       id: 'teambit.community/entities/hero-graph@1.3.1',
       dependencies: [],
-      icon: 'https://static.bit.dev/brands/logo-nodejs.svg',
+      payload: {
+        icon: 'https://static.bit.dev/brands/logo-nodejs.svg',
+      },
       row: 2,
       col: 9,
       position: 'top-left'
@@ -83,7 +97,9 @@ export function mockHero() {
         'teambit.ui-foundation/ui/component-tree',
         'teambit.ui-foundation/ui/top-bar'
       ],
-      icon: 'https://static.bit.dev/Community/icons/workspace-edit.svg',
+      payload: {
+        icon: 'https://static.bit.dev/Community/icons/workspace-edit.svg',
+      },
       row: 6,
       col: 11,
       position: 'bottom-left'
@@ -95,7 +111,9 @@ export function mockHero() {
         // 'teambit.ui-foundation/ui/component-tree',
         'teambit.ui-foundation/ui/top-bar'
       ],
-      icon: 'https://static.bit.dev/Community/icons/collection.svg',
+      payload: {
+        icon: 'https://static.bit.dev/Community/icons/collection.svg',
+      },
       row: 5,
       col: 10,
       position: 'bottom-left'
@@ -103,7 +121,9 @@ export function mockHero() {
     {
       id: 'teambit.component/component@1.3.1',
       dependencies: [],
-      icon: 'https://static.bit.dev/Community/icons/workspace.svg',
+      payload: {
+        icon: 'https://static.bit.dev/Community/icons/workspace.svg',
+      },
       row: 5,
       col: 11,
       position: 'top-right'
@@ -111,7 +131,9 @@ export function mockHero() {
     {
       id: 'teambit.ui-foundation/ui/component-tree@1.2.1',
       dependencies: [],
-      icon: 'https://static.bit.dev/brands/logo-react.svg',
+      payload: {
+        icon: 'https://static.bit.dev/brands/logo-react.svg',
+      },
       row: 7,
       col: 10,
       position: 'bottom-right'
@@ -119,7 +141,9 @@ export function mockHero() {
     {
       id: 'teambit.ui-foundation/ui/top-bar@1.0.1',
       dependencies: [],
-      icon: 'https://static.bit.dev/brands/logo-react.svg',
+      payload: {
+        icon: 'https://static.bit.dev/brands/logo-react.svg',
+      },
       row: 6,
       col: 9,
       position: 'bottom-right'
@@ -127,7 +151,9 @@ export function mockHero() {
     {
       id: 'teambit.compilation/compiler@1.3.1',
       dependencies: [],
-      icon: 'https://static.bit.dev/Community/icons/compile.svg?123',
+      payload: {
+        icon: 'https://static.bit.dev/Community/icons/compile.svg?123',
+      },
       row: 6,
       col: 7,
       position: 'top-left'
@@ -138,7 +164,9 @@ export function mockHero() {
         'teambit.compilation/compiler'
       ],
       // TODO: add babel icon
-      icon: 'https://static.bit.dev/Community/icons/babel-puzzle.svg',
+      payload: {
+        icon: 'https://static.bit.dev/Community/icons/babel-puzzle.svg',
+      },
       row: 7,
       col: 8,
       position: 'top-left'
@@ -148,7 +176,9 @@ export function mockHero() {
       dependencies: [
         'teambit.compilation/compiler'
       ],
-      icon: 'https://static.bit.dev/Community/icons/typescript-puzzle.svg',
+      payload: {
+        icon: 'https://static.bit.dev/Community/icons/typescript-puzzle.svg'
+      },
       row: 7,
       col: 6,
       position: 'top-left'
@@ -156,7 +186,9 @@ export function mockHero() {
     {
       id: 'teambit.tester/tester@1.2.1',
       dependencies: [],
-      icon: 'https://static.bit.dev/Community/icons/tester.svg?123',
+      payload: {
+        icon: 'https://static.bit.dev/Community/icons/esling.svg',
+      },
       row: 7,
       col: 7,
       position: 'bottom-right'
@@ -166,7 +198,9 @@ export function mockHero() {
       dependencies: [
         'teambit.tester/eslint'
       ],
-      icon: 'https://static.bit.dev/Community/icons/linter.svg',
+      payload: {
+        icon: 'https://static.bit.dev/Community/icons/esling.svg'
+      },
       row: 5,
       col: 6,
       position: 'bottom-right'
@@ -174,7 +208,9 @@ export function mockHero() {
     {
       id: 'teambit.tester/eslint@1.2.1',
       dependencies: [],
-      icon: 'https://static.bit.dev/Community/icons/esling.svg',
+      payload: {
+        icon: 'https://static.bit.dev/Community/icons/esling.svg',
+      },
       row: 6,
       col: 5,
       position: 'top-right'
@@ -186,7 +222,9 @@ export function mockHero() {
         'teambit.tester/jest',
         'teambit.tester/eslint'
       ],
-      icon: 'https://static.bit.dev/Community/icons/reactjs-puzzle.svg',
+      payload: {
+        icon: 'https://static.bit.dev/Community/icons/reactjs-puzzle.svg'
+      },
       row: 6,
       col: 4,
       position: 'bottom-right'
@@ -196,7 +234,9 @@ export function mockHero() {
       dependencies: [
         'teambit.tester/tester'
       ],
-      icon: 'https://static.bit.dev/Community/icons/jest-puzzle.svg',
+      payload: {
+        icon: 'https://static.bit.dev/brands/logo-nodejs.svg'
+      },
       row: 7,
       col: 5,
       position: 'bottom-right'
@@ -211,7 +251,9 @@ export function mockHero() {
         'learn-bit-angular.ecommerce/product',
         'learn-bit-angular.ecommerce/hero'
       ],
-      icon: 'https://static.bit.dev/brands/logo-angular.svg',
+      payload: {
+        icon: 'https://static.bit.dev/brands/logo-angular.svg',
+      },
       row: 1,
       col: 5,
       position: 'bottom-left'
@@ -219,7 +261,9 @@ export function mockHero() {
     {
       id: 'learn-bit-angular.ecommerce/cart@1.3.1',
       dependencies: [],
-      icon: 'https://static.bit.dev/brands/logo-angular.svg',
+      payload: {
+        icon: 'https://static.bit.dev/brands/logo-angular.svg',
+      },
       row: 1,
       col: 4,
       position: 'top-left'
@@ -227,7 +271,9 @@ export function mockHero() {
     {
       id: 'learn-bit-angular.ecommerce/hero@1.1.5',
       dependencies: [],
-      icon: 'https://static.bit.dev/brands/logo-angular.svg',
+      payload: {
+        icon: 'https://static.bit.dev/brands/logo-angular.svg',
+      },
       row: 2,
       col: 7,
       position: 'top-left'
@@ -235,7 +281,9 @@ export function mockHero() {
     {
       id: 'learn-bit-angular.ecommerce/product@1.3.1',
       dependencies: [],
-      icon: 'https://static.bit.dev/brands/logo-angular.svg',
+      payload: {
+        icon: 'https://static.bit.dev/brands/logo-angular.svg',
+      },
       row: 1,
       col: 6,
       position: 'top-left'
@@ -248,7 +296,9 @@ export function mockHero() {
       dependencies: [
         'teambit.mdx/modules/mdx-compiler',
       ],
-      icon: 'https://static.bit.dev/extensions-icons/mdx-icon-small.svg',
+      payload: {
+        icon: 'https://static.bit.dev/brands/logo-nodejs.svg',
+      },
       row: 2,
       col: 1,
       position: 'bottom-left'
@@ -258,7 +308,9 @@ export function mockHero() {
       dependencies: [
         'teambit.mdx/modules/mdx-compiler'
       ],
-      icon: 'https://static.bit.dev/brands/logo-nodejs.svg',
+      payload: {
+        icon: 'https://static.bit.dev/brands/logo-nodejs.svg',
+      },
       row: 1,
       col: 1,
       position: 'bottom-right'
@@ -266,7 +318,9 @@ export function mockHero() {
     {
       id: 'teambit.mdx/modules/mdx-compiler@1.0.12',
       dependencies: [],
-      icon: 'https://static.bit.dev/brands/logo-nodejs.svg',
+      payload: {
+        icon: 'https://static.bit.dev/brands/logo-nodejs.svg',
+      },
       row: 1,
       col: 2,
       position: 'bottom-right'
@@ -279,15 +333,17 @@ export function mockHero() {
       dependencies: [
         'teambit.mdx/ui/book-list',
         'teambit.frontend/ui/angular-renderer',
-        'learn-bit-react.angular-in-react/books/recommendations'
+        {
+          id: 'learn-bit-react.angular-in-react/books/recommendations',
+          edge: {
+            start: 'bottom',
+            end: 'top'  
+          }
+        }
       ],
-      edges: {
-        'learn-bit-react.angular-in-react/books/recommendations': {
-          startAnchor: 'bottom',
-          endAnchor: 'top',
-        },
+      payload: {
+        icon: 'https://static.bit.dev/brands/logo-react.svg',
       },
-      icon: 'https://static.bit.dev/brands/logo-react.svg',
       row: 5,
       col: 2,
       position: 'bottom-right'
@@ -295,7 +351,9 @@ export function mockHero() {
     {
       id: 'teambit.frontend/ui/angular-renderer@0.0.2',
       dependencies: [],
-      icon: 'https://static.bit.dev/brands/logo-react.svg',
+      payload: {
+        icon: 'https://static.bit.dev/brands/logo-react.svg',
+      },
       row: 5,
       col: 1,
       position: 'bottom-right'
@@ -304,7 +362,9 @@ export function mockHero() {
       id: 'learn-bit-react.angular-in-react/books/recommendations@0.0.2',
       dependencies: [
       ],
-      icon: 'https://static.bit.dev/brands/logo-angular.svg',
+      payload: {
+        icon: 'https://static.bit.dev/brands/logo-angular.svg',
+      },
       row: 7,
       col: 1,
       position: 'top-left'
@@ -315,7 +375,9 @@ export function mockHero() {
         'teambit.mdx/ui/hooks/use-book',
         'learn-bit-react.data-fetching/models/book'
       ],
-      icon: 'https://static.bit.dev/brands/logo-react.svg',
+      payload: {
+        icon: 'https://static.bit.dev/brands/logo-react.svg'
+      },
       row: 6,
       col: 2,
       position: 'bottom-right'
@@ -325,7 +387,9 @@ export function mockHero() {
       dependencies: [
         'learn-bit-react.data-fetching/models/book'
       ],
-      icon: 'https://static.bit.dev/brands/logo-react.svg',
+      payload: {
+        icon: 'https://static.bit.dev/brands/logo-react.svg',
+      },
       row: 7,
       col: 2,
       position: 'bottom-right'
@@ -333,7 +397,9 @@ export function mockHero() {
     {
       id: 'learn-bit-react.data-fetching/models/book@0.0.2',
       dependencies: [],
-      icon: 'https://static.bit.dev/brands/logo-nodejs.svg',
+      payload: {
+        icon: 'https://static.bit.dev/brands/logo-nodejs.svg',
+      },
       row: 7,
       col: 3,
       position: 'bottom-right'
