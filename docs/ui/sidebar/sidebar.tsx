@@ -5,8 +5,7 @@ import { TreeContextProvider } from '@teambit/base-ui.graph.tree.tree-context';
 import { indentStyle } from '@teambit/base-ui.graph.tree.indent';
 import { RootNode } from '@teambit/base-ui.graph.tree.root-node';
 import { TreeNodeContext } from '@teambit/base-ui.graph.tree.recursive-tree';
-import { inflateToTree, attachPayload } from '@teambit/base-ui.graph.tree.inflate-paths';
-// import { createTree } from './create-tree';
+import { createTree, Path } from './create-tree';
 import { SidebarNode } from './sidebar-node';
 
 export type SidebarProps = {
@@ -30,30 +29,9 @@ export type SidebarProps = {
 
 } & React.HTMLAttributes<HTMLDivElement>;
 
-export type Path = {
-  id: string;
-  icon?: string;
-  open?: boolean;
-}
-
-export type PayloadType = { // unify with folder payload type
-  path: string;
-  icon?: string;
-  open?: boolean
-}
-
 export function Sidebar({ onSelect, paths, linkPrefix, selected, className, ...rest }: SidebarProps) {
   const rootNode = useMemo(() => {
-    const tree = inflateToTree<Path, PayloadType>(paths, (path) => path.id);
-
-    // const payloadMap = new Map(paths.map(path => [path.id, path]))
-    const payloadMap = new Map(paths.map(({id, ...rest}) => {
-      return [id, { path: generatePath(id, linkPrefix), ...rest }];
-    }));
-    attachPayload(tree, payloadMap);
-
-    return tree;
-    
+    return createTree(paths, linkPrefix);
   }, [paths]);
 
   return (
@@ -65,10 +43,4 @@ export function Sidebar({ onSelect, paths, linkPrefix, selected, className, ...r
       </TreeNodeContext.Provider>
     </div>
   );
-}
-
-function generatePath(id: string, linkPrefix?: string) {
-  if (!linkPrefix) linkPrefix = '/';
-  // TODO - use path-browserify.join()
-  return `${linkPrefix}/${id.toLowerCase().replaceAll(' ', '-')}`; // TODO - use '.replace()', also why replace space with '-'? shouldnt replace '/'?
 }
