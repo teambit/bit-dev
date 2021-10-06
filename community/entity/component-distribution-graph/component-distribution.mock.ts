@@ -65,7 +65,13 @@ export const componentsMock = () => {
       dependencies: [
         'teambit.shoe-store/entity/shoes',
         'teambit.ecommerce/ui/product/currency',
-        'teambit.base-ui/ui/button'
+        {id: 'teambit.base-ui/ui/button',
+        edge: {
+          start: 'top',
+          end: 'bottom'
+        }
+      },
+
       ],
       payload: {
         description: 'A product card for shoes',
