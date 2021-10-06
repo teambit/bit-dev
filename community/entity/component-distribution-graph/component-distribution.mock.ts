@@ -30,7 +30,7 @@ export const componentsMock = () => {
       dependencies: [],
       payload: {
         preview:
-          'https://storage.googleapis.com/static.bit.dev/Community/app-components/footer.jpg',
+          'https://storage.googleapis.com/static.bit.dev/Community/app-components/header.jpg',
         description: 'A header component',
         envIcon: 'https://static.bit.dev/brands/logo-react.svg'
       }
@@ -65,13 +65,13 @@ export const componentsMock = () => {
       dependencies: [
         'teambit.shoe-store/entity/shoes',
         'teambit.ecommerce/ui/product/currency',
-        {id: 'teambit.base-ui/ui/button',
-        edge: {
-          start: 'top',
-          end: 'bottom'
+        {
+          id: 'teambit.base-ui/ui/button',
+          edge: {
+            start: 'top',
+            end: 'bottom'
+          }
         }
-      },
-
       ],
       payload: {
         description: 'A product card for shoes',
