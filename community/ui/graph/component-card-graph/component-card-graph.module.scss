@@ -1,5 +1,5 @@
 .componentGrid {
-  grid-template-columns: repeat(4, minmax(200px, 1fr));
+  grid-template-columns: repeat(4, minmax(150px, 1fr));
   grid-auto-rows: minmax(340px, auto);
   grid-template-rows: unset;
 

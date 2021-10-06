@@ -42,11 +42,9 @@ export function ComponentDistributionSection({
       <div className={styles.content}>
         <ComponentCardGraph nodes={components} />
         <div />
-        <div>
-          <Image src={img} className={styles.appImg} id={image.attrId} />
-          <Edge node={image} dependency={image.dependencies[0]} />
-          <Edge node={image} dependency={image.dependencies[1]} />
-        </div>
+        <Image src={img} className={styles.appImg} id={image.attrId} />
+        <Edge node={image} dependency={image.dependencies[0]} />
+        <Edge node={image} dependency={image.dependencies[1]} />
       </div>
       {/* created a connecting element for edge curve effect */}
       <div id={bottom.attrId} />
