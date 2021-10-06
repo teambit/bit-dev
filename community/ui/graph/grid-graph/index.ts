@@ -1,2 +1,2 @@
-export { GridGraph, positions, getValidId, getCell } from "./grid-graph";
-export type { GridGraphProps, GridItemProps } from "./grid-graph";
+export { GridGraph, positions, getValidId, getCell } from './grid-graph';
+export type { GridGraphProps, GridItemProps, GraphEdgeProps, GraphNodeProps } from './grid-graph';

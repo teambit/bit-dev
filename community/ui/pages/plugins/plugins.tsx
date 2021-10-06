@@ -24,12 +24,11 @@ export function Plugins({ title = 'Explore Bit Plugins', abstract }: PluginsProp
       </Heading>
 
       <Subtitle>
-        Enhance and customize your development experience with dozens of official and community Plugins and create your own.
+        Enhance and customize your development experience with dozens of official and community Plugins.
       </Subtitle>
 
       <ExternalLink href="https://bit.dev/components?env=aspect">Browse plugins</ExternalLink>
       <ExternalLink href="/docs/extending-bit/create-a-plugin">Create a new plugin</ExternalLink>
-
 
       <PluginGroup title="Dev environments">
         <ComponentCard id="teambit.react/react"></ComponentCard>
@@ -61,6 +60,7 @@ export function Plugins({ title = 'Explore Bit Plugins', abstract }: PluginsProp
         <ComponentCard id="teambit.apps/docusaurus"></ComponentCard>
       </PluginGroup>
 
+      <Heading size="h2">Creating a plugin has never been easier</Heading>      
     </Page>
   );
 }

@@ -28,10 +28,10 @@ export type DocsProps = {
 } & Omit<SplitPaneProps, 'children'>;
 
 export function Docs({ routes, baseUrl = '/', ...rest }: DocsProps) {
-  const docRoutes = DocsRoutes.from(routes);
+  const { path } = useRouteMatch();
+  const docRoutes = DocsRoutes.from(routes, baseUrl || path);
   const [isSidebarOpen, handleSidebarToggle] = useReducer((x) => !x, true);
   const sidebarOpenness = isSidebarOpen ? Layout.row : Layout.right;
-  const { path } = useRouteMatch();
 
   return (
     <SplitPane
@@ -42,7 +42,7 @@ export function Docs({ routes, baseUrl = '/', ...rest }: DocsProps) {
     >
       <Pane className={styles.sidebar}>
         <Sidebar
-          paths={docRoutes.getSideBarPaths()}
+          tree={docRoutes.toSideBarTree()}
           linkPrefix={baseUrl}
         />
       </Pane>
@@ -56,9 +56,9 @@ export function Docs({ routes, baseUrl = '/', ...rest }: DocsProps) {
       </HoverSplitter>
       <Pane className={styles.content}>
         <Switch>
-          {routes.map((route, key) => {
+          {docRoutes.getRoutes().map((route, key) => {
             return (
-              <Route key={key} path={`${path}/${route.path}`}>
+              <Route key={key} path={route.absPath}>
                 <DocPage title={route.title}>{route.component}</DocPage>
               </Route>
             );

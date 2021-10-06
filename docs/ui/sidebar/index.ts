@@ -1,2 +1,2 @@
 export { Sidebar } from './sidebar';
-export type { SidebarProps } from './sidebar';
+export type { SidebarProps, SidebarNode, SidebarPayload } from './sidebar';

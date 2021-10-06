@@ -8,17 +8,32 @@ export interface DocsRoute {
   title: string;
 
   /**
-   * path for the doc.
+   * path for the doc in the context.
    */
   path: string;
 
   /**
-   * path in the docs navigation. if not specified item will not show up on the sidebar.
+   * icon of the item. applies on categories and items.
    */
-  sidebarPath?: string;
+  icon?: string;
+
+  /**
+   * determines whether category should be collapsed or not.
+   */
+  collapsed?: boolean;
+
+  /**
+   * whether to show the doc in the sidebar. default to true.
+   */
+  displayInSidebar?: boolean;
+
+  /**
+   * doc routes to be nested in the current route. default to [].
+   */
+  children?: DocsRoute[];
 
   /**
    * component to use for the docs route.
    */
-  component: ReactNode
+  component?: ReactNode
 }
