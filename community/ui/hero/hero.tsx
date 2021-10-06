@@ -11,7 +11,7 @@ import { GridNode } from '@teambit/community.entity.graph.grid-graph';
 import { CopyBox } from '@teambit/documenter.ui.copy-box';
 import { ComponentID } from '@teambit/component-id';
 import { BubbleHighlighter } from '@teambit/community.ui.bubble-highlighter';
-import { BubbleGraph, getValidId } from '@teambit/community.ui.graph.bubble-graph';
+import { BubbleGraph } from '@teambit/community.ui.graph.bubble-graph';
 import styles from './hero.module.scss';
 import { useHeroState, HeroState } from './use-hero-state';
 
