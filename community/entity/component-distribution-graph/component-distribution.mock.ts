@@ -1,90 +1,95 @@
-import { ComponentGraph } from './component-graph';
+import { createComponentCardGraph } from './component-graph';
 
 export const componentsMock = () => {
-  return ComponentGraph.fromComponentList([
+  return createComponentCardGraph([
     {
-      id: 'base-ui/ui/button',
+      id: 'teambit.base-ui/ui/button',
       dependencies: [],
       position: 'top',
-      preview: 'https://static.bit.dev/brands/logo-react.svg',
-      description: 'A Button component for buttons and elements that look like buttons',
-      envIcon: 'https://static.bit.dev/brands/logo-react.svg'
+      payload: {
+        preview: 'https://static.bit.dev/brands/logo-react.svg',
+        description:
+          'A Button component for buttons and elements that look like buttons',
+        envIcon: 'https://static.bit.dev/brands/logo-react.svg',
+      },
     },
     {
-      id: 'ecommerce/ui/store-hero@1.0.0',
-      dependencies: ['base-ui/ui/button'],
+      id: 'teambit.ecommerce/ui/store-hero@1.0.0',
+      dependencies: ['teambit.base-ui/ui/button'],
       position: 'bottom',
-      preview: 'https://static.bit.dev/brands/logo-angular.svg',
-      description: 'A hero component for the store',
-      envIcon: 'https://static.bit.dev/brands/logo-react.svg'
+      payload: {
+        preview: 'https://static.bit.dev/brands/logo-angular.svg',
+        description: 'A hero component for the store',
+        envIcon: 'https://static.bit.dev/brands/logo-react.svg',
+      },
     },
     {
-      id: 'ecommerce/ui/header',
+      id: 'teambit.ecommerce/ui/header',
       dependencies: [],
-      preview: 'https://static.bit.dev/brands/logo-nodejs.svg',
-      description: 'A header component',
-      envIcon: 'https://static.bit.dev/brands/logo-react.svg'
+      payload: {
+        preview: 'https://static.bit.dev/brands/logo-nodejs.svg',
+        description: 'A header component',
+        envIcon: 'https://static.bit.dev/brands/logo-react.svg',
+      },
     },
     {
-      id: 'shoe-store/ui/pages/home',
+      id: 'teambit.shoe-store/ui/pages/home',
       dependencies: [
-        'ecommerce/ui/header',
-        'shoe-store/ui/shoes/shoes-card-grid',
-        'shoe-store/home-page-to-store-hero' // connecting node to create the curved edge effect
+        'teambit.ecommerce/ui/header',
+        'teambit.shoe-store/ui/shoes/shoes-card-grid',
       ],
       position: 'bottom',
-      edges: {
-        'shoe-store/home-page-to-store-hero': {
-          showHead: false,
-          startAnchor: 'top',
-          endAnchor: 'right'
-        }
+      payload: {
+        preview:
+          'https://bitsrc.imgix.net/8906f31bf4ae987413d3fdc1171be928f6b16e59.png?fit=scale&w=70&h=70',
+        description: 'A page component for rending contents of the home page',
+        envIcon: 'https://static.bit.dev/brands/logo-react.svg',
       },
-      preview:
-        'https://bitsrc.imgix.net/8906f31bf4ae987413d3fdc1171be928f6b16e59.png?fit=scale&w=70&h=70',
-      description: 'A page component for rending contents of the home page',
-      envIcon: 'https://static.bit.dev/brands/logo-react.svg'
     },
     {
-      id: 'ecommerce/ui/product/currency',
+      id: 'teambit.ecommerce/ui/product/currency',
       dependencies: [],
       position: 'top',
-      preview: 'https://static.bit.dev/brands/logo-react.svg',
-      description: 'A currency component',
-      envIcon: 'https://static.bit.dev/brands/logo-react.svg'
+      payload: {
+        preview: 'https://static.bit.dev/brands/logo-react.svg',
+        description: 'A currency component',
+        envIcon: 'https://static.bit.dev/brands/logo-react.svg',
+      },
     },
     {
-      id: 'shoe-store/ui/shoes/shoes-card',
+      id: 'teambit.shoe-store/ui/shoes/shoes-card',
       dependencies: [
-        'shoe-store/entity/shoes',
-        'ecommerce/ui/product/price',
-        'base-ui/ui/button'
+        'teambit.shoe-store/entity/shoes',
+        'teambit.ecommerce/ui/product/currency',
+        'teambit.base-ui/ui/button',
       ],
-      description: 'A product card for shoes',
-      preview: 'https://static.bit.dev/brands/logo-nodejs.svg',
-      envIcon: 'https://static.bit.dev/brands/logo-react.svg'
+      payload: {
+        description: 'A product card for shoes',
+
+        preview: 'https://static.bit.dev/brands/logo-nodejs.svg',
+        envIcon: 'https://static.bit.dev/brands/logo-react.svg',
+      },
     },
     {
-      id: 'shoe-store/entity/shoes',
+      id: 'teambit.shoe-store/entity/shoes',
       dependencies: [],
       position: 'top',
-      preview: 'https://static.bit.dev/brands/logo-angular.svg',
-      description: 'A shoes data structure',
-      envIcon: 'https://static.bit.dev/brands/logo-node.svg'
+      payload: {
+        preview: 'https://static.bit.dev/brands/logo-angular.svg',
+        description: 'A shoes data structure',
+        envIcon: 'https://static.bit.dev/brands/logo-node.svg',
+      },
     },
     {
-      id: 'shoe-store/ui/shoes/shoes-card-grid',
-      dependencies: ['shoe-store/shoes-card-grid-to-shoes-card'], // conneting node to create the curved edge effect
+      id: 'teambit.shoe-store/ui/shoes/shoes-card-grid',
+      dependencies: [],
       position: 'bottom',
-      edges: {
-        'shoe-store/shoes-card-grid-to-shoes-card': {
-        showHead: false
-        }
+      payload: {
+        preview:
+          'https://bitsrc.imgix.net/8906f31bf4ae987413d3fdc1171be928f6b16e59.png?fit=scale&w=70&h=70',
+        description: 'A card grid for the product cards for shoes',
+        envIcon: 'https://static.bit.dev/brands/logo-react.svg',
       },
-      preview:
-        'https://bitsrc.imgix.net/8906f31bf4ae987413d3fdc1171be928f6b16e59.png?fit=scale&w=70&h=70',
-      description: 'A card grid for the product cards for shoes',
-      envIcon: 'https://static.bit.dev/brands/logo-react.svg'
-    }
+    },
   ]);
 };

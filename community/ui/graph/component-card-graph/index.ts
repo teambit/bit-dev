@@ -5,3 +5,4 @@ export {
   positions,
   getCell,
 } from '@teambit/community.ui.graph.grid-graph';
+export { GridNode } from '@teambit/community.entity.graph.grid-graph';
