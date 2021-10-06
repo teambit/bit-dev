@@ -55,7 +55,11 @@ export function ComponentDistributionSection({
 const image = GridNode.fromPlain({
   id: 'teambit.image/image',
   dependencies: [
-    'teambit.shoe-store/ui/pages/home',
+    {id: 'teambit.shoe-store/ui/pages/home',
+    edge: {
+      end: 'right'
+    }
+  },
     {
       id: 'teambit.shoe-store/ui/shoes/shoes-card-grid',
       edge: {
