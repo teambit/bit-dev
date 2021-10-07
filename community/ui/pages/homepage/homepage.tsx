@@ -24,7 +24,7 @@ export function Homepage({ ...rest }: HomepageProps) {
       <section>
         <div className={styles.grid}>
           <Hero bubbles={mockBubbleGraph()} />
-          <ComponentDistributionSection title="Build components, compose apps" />
+          <ComponentDistributionSection title="Build components, compose apps"  components={componentsMock()} />
           <FeaturesSection
             features={features}
             title="Better software is built in components"
