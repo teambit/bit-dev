@@ -8,8 +8,7 @@ import { Heading, highlightClass } from '@teambit/community.ui.heading';
 import { BubbleGraph } from '@teambit/community.ui.graph.bubble-graph';
 import type { BubbleNodeProps } from '@teambit/community.ui.graph.bubble-graph';
 import { ComponentBubble } from '@teambit/community.ui.graph.component-bubble';
-
-import { mockPluginsHeroBubbleGraph } from '@teambit/community.entity.graph.bubble-graph';
+import { mockPluginsGraph } from './plugins-graph.mock';
 import styles from './hero.module.scss';
 
 export type HeroProps = {};
@@ -35,7 +34,7 @@ export function Hero({}: HeroProps) {
         </div>
         <BubbleGraph
           Node={BubbleNonInteractive}
-          nodes={mockPluginsHeroBubbleGraph()}
+          nodes={mockPluginsGraph()}
           className={classNames(styles.right, styles.gridGraph)}
         />
       </section>
