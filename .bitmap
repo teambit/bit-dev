@@ -453,6 +453,12 @@
         "mainFile": "index.ts",
         "rootDir": "ui-foundation/ui/tree/folder-tree-node"
     },
+    "ui/tree/tree-node": {
+        "scope": "teambit.ui-foundation",
+        "version": "0.0.446",
+        "mainFile": "index.ts",
+        "rootDir": "ui-foundation/ui/tree/tree-node"
+    },
     "ui/use-cases/use-cases-card": {
         "scope": "teambit.community",
         "version": "1.0.9",

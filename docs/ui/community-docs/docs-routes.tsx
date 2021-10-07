@@ -13,11 +13,13 @@ export const docsRoutes: DocsRoute[] = [
   {
     path: 'quick-start',
     title: 'Quick Start',
+    icon: 'workspace',
     component: <QuickStart />
   },
   {
     path: 'getting-started',
     title: 'Getting Started',
+    icon: 'workspace',
     children: [
       {
         path: 'installing-bit',

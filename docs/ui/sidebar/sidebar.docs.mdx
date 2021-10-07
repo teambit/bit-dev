@@ -4,14 +4,12 @@ labels: ['docs', 'sidebar']
 ---
 
 import { Sidebar } from './sidebar';
+import { sidebarMock } from './sidebar.mock';
 
 Docs sidebar.
 
 ### Render a simple sidebar with few entries
 
 ```js live
-<Sidebar paths={[{id: 'Getting Started/Quick Start', icon: 'spinner'}, 
-    {id: 'Getting Started/Composing Components/Create Components', icon: 'spinner'},
-    {id: 'Workspace', icon: 'spinner'},
-    {id: 'Scope', icon: 'spinner'},]} />
+<Sidebar tree={sidebarMock} />
 ```
