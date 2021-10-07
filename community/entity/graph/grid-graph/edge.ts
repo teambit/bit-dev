@@ -47,4 +47,8 @@ export type Edge = {
    * animate during edge drawing.
    */
   animate?: boolean;
+  /**
+   * show edge's arrow head
+   */
+  showHead?: boolean;
 };

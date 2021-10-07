@@ -11,6 +11,7 @@ export function Edge({ node, dependency, ...rest }: EdgeProps) {
   const anchors: any = {};
   if (dependency.edge?.start) anchors.startAnchor = dependency.edge.start;
   if (dependency.edge?.end) anchors.endAnchor = dependency.edge.end;
+  if (dependency.edge?.showHead !== undefined) anchors.showHead = dependency.edge.showHead;
 
   return (
     <div {...rest}>

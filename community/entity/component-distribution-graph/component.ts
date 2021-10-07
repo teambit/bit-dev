@@ -1,5 +1,5 @@
-import { ComponentID } from "@teambit/component-id";
-import type {EdgeProps} from '@teambit/community.ui.graph.edge'
+import { ComponentID } from '@teambit/component-id';
+import type {EdgeProps} from '@teambit/community.ui.graph.edge';
 
 export type ComponentProps = {
   id: string;

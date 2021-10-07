@@ -1,6 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Heading as BaseHeading, HeadingProps as BaseHeadingProps } from '@teambit/design.ui.content.heading';
+import {
+  Heading as BaseHeading,
+  HeadingProps as BaseHeadingProps,
+  Elements
+} from '@teambit/design.ui.content.heading';
 import sizes from './heading-sizes.module.scss';
 import styles from './heading.module.scss';
 
@@ -22,10 +26,24 @@ export type HeadingProps = {
   size?: Sizes;
 } & BaseHeadingProps;
 
-export function Heading({ highlight, children, className, size, ...rest }: HeadingProps) {
+export function Heading({
+  highlight,
+  children,
+  className,
+  element = Elements.H1,
+  size,
+  ...rest
+}: HeadingProps) {
+  const highlightClass = highlight ? styles.highlight : '';
+
   return (
     <BaseHeading
-      className={classNames(styles.heading, sizes[size || 'h1'], className, highlight && highlightClass)}
+      className={classNames(
+        styles.heading,
+        sizes[size || element],
+        className,
+        highlightClass
+      )}
       {...rest}
     >
       {children}

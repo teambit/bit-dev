@@ -1,19 +1,19 @@
 // font sizes only!
 :root {
-	--bit-heading-xxl: 72px;
-	--bit-heading-xl: 64px;
+	--bit-heading-xxl: 64px;
+	--bit-heading-xl: 56px;
 	--bit-heading-lg: 48px;
-	--bit-heading-md: 32px;
-	--bit-heading-sm: 24px;
-	--bit-heading-xs: 16px;
+	--bit-heading-md: 40px;
+	--bit-heading-sm: 32px;
+	--bit-heading-xs: 24px;
 }
 
 .h1 {
-	font-size: var(--bit-heading-xxl, 72px);
+	font-size: var(--bit-heading-xxl, 64px);
 }
 
 .h2 {
-	font-size: var(--bit-heading-xl, 64px);
+	font-size: var(--bit-heading-xl, 56px);
 }
 
 .h3 {
@@ -21,13 +21,13 @@
 }
 
 .h4 {
-	font-size: var(--bit-heading-md, 32px);
+	font-size: var(--bit-heading-md, 40px);
 }
 
 .h5 {
-	font-size: var(--bit-heading-sm, 24px);
+	font-size: var(--bit-heading-sm, 32px);
 }
 
 .h6 {
-	font-size: var(--bit-heading-xs, 16px);
+	font-size: var(--bit-heading-xs, 24px);
 }

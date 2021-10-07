@@ -7,7 +7,7 @@ export type BubbleCardProps = {
   /**
    * children
    */
-  children: ReactNode;
+  children?: ReactNode;
 
   /**
    * class name to be added to the card.

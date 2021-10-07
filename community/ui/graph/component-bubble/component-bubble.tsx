@@ -4,7 +4,7 @@ import { Image } from '@teambit/base-react.content.image';
 import { Label } from '@teambit/documenter.ui.label';
 import { Caption } from '@teambit/design.ui.content.caption';
 import classNames from 'classnames';
-import { BubbleCard } from '@teambit/design.ui.cards.bubble-card';
+import { BubbleCard, BubbleCardProps } from '@teambit/design.ui.cards.bubble-card';
 import type { GridItemProps } from '@teambit/community.ui.graph.grid-graph';
 import { Ellipsis, ellipsis } from '@teambit/design.ui.styles.ellipsis';
 import { getScopeName } from './get-scope-name';
@@ -50,7 +50,7 @@ export type ComponentBubbleProps = {
    * color of the bubble
    */
   color?: string;
-};
+} & BubbleCardProps;
 
 export function ComponentBubble({
   className,

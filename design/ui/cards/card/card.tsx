@@ -5,7 +5,7 @@ export type CardProps = {
   /**
    * children to be rendered within the card.
    */
-  children: ReactNode
+  children?: ReactNode
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export function Card({ children, ...rest }: CardProps) {

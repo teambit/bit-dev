@@ -13,10 +13,11 @@
 
 .content {
   display: grid;
-  grid-template-columns: 60% 5% 35%;
+  grid-template-columns: 65% 5% 30%;
   align-items: center;
 }
 
 .appImg {
-  max-height: 500px;
+  max-width: 500px;
+  border-radius: 8px;
 }

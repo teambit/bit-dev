@@ -7,5 +7,7 @@ export type BubblePayload = ComponentBubbleProps;
 export type BubbleNodeProps = GraphNodeProps<BubblePayload>;
 
 export function BubbleNode({ node, ...rest }: BubbleNodeProps) {
-  return <ComponentBubble className={styles.bubble} componentId={node.id} {...node.payload} {...rest} />;
+  return (
+    <ComponentBubble className={styles.bubble} id={node.attrId} componentId={node.id} {...node.payload} {...rest} />
+  );
 }

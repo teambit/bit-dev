@@ -40,7 +40,7 @@ export function GridGraph({ children, nodeClassName, nodes, Node = DefaultNode, 
           const bubblePosition = node.position && positions[node.position];
           return (
             <div key={node.id.toString()} className={nodeClassName} style={{ ...cell, ...bubblePosition }}>
-              <div id={id}><Node key={id} node={node} /></div>
+              <Node id={node.attrId} key={id} node={node} />
               
               {node.dependencies.map((dependency) => {
                 return <Edge key={`${node.attrId}->${dependency.attrId}`} node={node} dependency={dependency} />
