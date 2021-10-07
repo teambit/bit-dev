@@ -4,7 +4,6 @@ export const sidebarMock = {
     {
       id: 'quick-start',
       payload: {
-        icon: 'workspace',
         collapsed: false,
         title: 'Quick Start',
         path: '/docs/quick-start',
@@ -27,7 +26,6 @@ export const sidebarMock = {
                 collapsed: false,
                 title: 'Installing Bit',
                 path: '/docs/getting-started/installing-bit',
-                icon: 'workspace',
               },
             },
             {

@@ -42,7 +42,7 @@ export function Sidebar({ onSelect, tree, linkPrefix, selected, className, ...re
     <div style={{ ...indentStyle(1), ...rest.style }} className={classNames(className)} {...rest}>
       <TreeNodeContext.Provider value={SidebarNode}>
         <TreeContextProvider onSelect={onSelect} selected={selected}>
-          <RootNode node={tree} depth={1} />
+          <RootNode node={tree} depth={0} />
         </TreeContextProvider>
       </TreeNodeContext.Provider>
     </div>
