@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Heading } from '@teambit/community.ui.heading';
 import classNames from 'classnames';
 // TODO: move to be in `design` owned by @amir.
-import { ComponentBubble } from '@teambit/community.ui.graph.component-bubble';
 import { Edge } from '@teambit/community.ui.graph.edge';
 import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 import { Button } from '@teambit/design.ui.buttons.button';
@@ -12,7 +11,7 @@ import { GridNode } from '@teambit/community.entity.graph.grid-graph';
 import { CopyBox } from '@teambit/documenter.ui.copy-box';
 import { ComponentID } from '@teambit/component-id';
 import { BubbleHighlighter } from '@teambit/community.ui.bubble-highlighter';
-import { BubbleGraph, getValidId } from '@teambit/community.ui.graph.bubble-graph';
+import { BubbleGraph } from '@teambit/community.ui.graph.bubble-graph';
 import styles from './hero.module.scss';
 import { useHeroState, HeroState } from './use-hero-state';
 
