@@ -28,7 +28,7 @@ export function FolderTreeNode<T>({ node, depth }: FolderTreeNodeProps) {
   const CustomIcon =
     node.payload?.icon &&
     (typeof node.payload.icon === 'string' ? (
-      <Icon className={classNames(styles.arrow)} of={node.payload.icon} />
+      <Icon className={styles.icon} of={node.payload.icon} />
     ) : (
       node.payload.icon
     ));
@@ -38,7 +38,7 @@ export function FolderTreeNode<T>({ node, depth }: FolderTreeNodeProps) {
       {node.id && (
         <div className={classNames(indentClass, styles.folder)} onClick={() => setOpen(!open)}>
           <div className={styles.left}>
-            <Icon className={classNames(styles.arrow, !open && styles.collapsed)} of="fat-arrow-down" />
+            <Icon className={classNames(styles.icon, !open && styles.collapsed)} of="fat-arrow-down" />
             {CustomIcon}
             <span className={styles.name}>{displayName}</span>
           </div>
