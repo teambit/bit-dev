@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import {
   Heading as BaseHeading,
   HeadingProps as BaseHeadingProps,
+  Elements
 } from '@teambit/design.ui.content.heading';
 import sizes from './heading-sizes.module.scss';
 import styles from './heading.module.scss';
@@ -27,6 +28,7 @@ export function Heading({
   highlight,
   children,
   className,
+  element = Elements.H1,
   size,
   ...rest
 }: HeadingProps) {
@@ -36,7 +38,7 @@ export function Heading({
     <BaseHeading
       className={classNames(
         styles.heading,
-        sizes[size || 'h1'],
+        sizes[size || Elements[element]],
         className,
         highlightClass
       )}

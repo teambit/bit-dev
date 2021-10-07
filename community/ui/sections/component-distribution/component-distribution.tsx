@@ -7,7 +7,7 @@ import {
   ComponentCardGraph,
   GridNode
 } from '@teambit/community.ui.graph.component-card-graph';
-import { Component } from '@teambit/community.entity.compnent-distribution-graph';
+import { ComponentCardNode } from '@teambit/community.entity.compnent-distribution-graph';
 import styles from './component-distribution.module.scss';
 // @ts-ignore
 import img from './shoe-store.jpg';
@@ -16,7 +16,7 @@ export type ComponentDistributionSectionProps = {
   /**
    * An object of features with title and text and icon props
    */
-  components?: GridNode<Component>[];
+  components?: ComponentCardNode[];
   /**
    * Title of the section
    */
