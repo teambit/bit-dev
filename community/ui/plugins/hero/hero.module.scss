@@ -1,0 +1,29 @@
+.section {
+  margin: 40px 0;
+  display: flex;
+  .left,
+  .right {
+    flex: 1;
+  }
+  .left {
+    .heading {
+      margin-bottom: 24px;
+    }
+    .subtitle {
+      margin: 0 0 40px;
+    }
+  }
+  .right {
+    //border: 1px solid red;
+  }
+}
+.link {
+  margin-right: 24px;
+  .icon {
+    margin-left: 8px;
+  }
+}
+.gridGraph {
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(5, 0.4fr);
+}

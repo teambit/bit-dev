@@ -2,33 +2,29 @@ import React from 'react';
 import { ComponentCard } from '@teambit/explorer.ui.gallery.component-card';
 import { Subtitle } from '@teambit/documenter.ui.sub-title';
 import { ExternalLink } from '@teambit/design.ui.external-link';
+import { Link } from '@teambit/design.ui.navigation.link';
+import { Icon } from '@teambit/design.elements.icon';
 import { PluginGroup } from '@teambit/community.ui.plugins.plugin-group';
-import { Heading } from '@teambit/community.ui.heading';
+import { Hero } from '@teambit/community.ui.plugins.hero';
+import { Heading, highlightClass } from '@teambit/community.ui.heading';
 import { Page } from '@teambit/community.ui.pages.page';
-import { H2 } from '@teambit/design.ui.heading'
+import { H2 } from '@teambit/design.ui.heading';
+import { BubbleGraph, getValidId } from '@teambit/community.ui.graph.bubble-graph';
+import styles from './plugins.module.scss';
 
 export type PluginsProps = {
   /**
    * a text to be rendered in the component.
    */
-  title?: string,
+  title?: string;
 
   abstract?: string;
 };
 
-export function Plugins({ title = 'Explore Bit Plugins', abstract }: PluginsProps) {
+export function Plugins({ title = ' Bit Plugins', abstract }: PluginsProps) {
   return (
     <Page title="Plugins">
-      <Heading>
-        {title}
-      </Heading>
-
-      <Subtitle>
-        Enhance and customize your development experience with dozens of official and community Plugins.
-      </Subtitle>
-
-      <ExternalLink href="https://bit.dev/components?env=aspect">Browse plugins</ExternalLink>
-      <ExternalLink href="/docs/extending-bit/create-a-plugin">Create a new plugin</ExternalLink>
+      <Hero />
 
       <PluginGroup title="Dev environments">
         <ComponentCard id="teambit.react/react"></ComponentCard>
@@ -60,7 +56,7 @@ export function Plugins({ title = 'Explore Bit Plugins', abstract }: PluginsProp
         <ComponentCard id="teambit.apps/docusaurus"></ComponentCard>
       </PluginGroup>
 
-      <Heading size="h2">Creating a plugin has never been easier</Heading>      
+      <Heading size="h2">Creating a plugin has never been easier</Heading>
     </Page>
   );
 }

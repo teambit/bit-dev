@@ -1,13 +1,12 @@
 import React from 'react';
 import classNames from 'classnames';
-import {
-  Heading as BaseHeading,
-  HeadingProps as BaseHeadingProps,
-} from '@teambit/design.ui.content.heading';
+import { Heading as BaseHeading, HeadingProps as BaseHeadingProps } from '@teambit/design.ui.content.heading';
 import sizes from './heading-sizes.module.scss';
 import styles from './heading.module.scss';
 
-// TODO: oded please note that `Size` is a design thing and `h` is a schematic one. 
+export const highlightClass = styles.highlight;
+
+// TODO: oded please note that `Size` is a design thing and `h` is a schematic one.
 // they should probably not be coupled to each other.
 export type Sizes = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
@@ -23,23 +22,10 @@ export type HeadingProps = {
   size?: Sizes;
 } & BaseHeadingProps;
 
-export function Heading({
-  highlight,
-  children,
-  className,
-  size,
-  ...rest
-}: HeadingProps) {
-  const highlightClass = highlight ? styles.highlight : '';
-
+export function Heading({ highlight, children, className, size, ...rest }: HeadingProps) {
   return (
     <BaseHeading
-      className={classNames(
-        styles.heading,
-        sizes[size || 'h1'],
-        className,
-        highlightClass
-      )}
+      className={classNames(styles.heading, sizes[size || 'h1'], className, highlight && highlightClass)}
       {...rest}
     >
       {children}

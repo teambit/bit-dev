@@ -1,11 +1,11 @@
 import React from 'react';
-import { ComponentID } from '@teambit/component-id'
+import { ComponentID } from '@teambit/component-id';
 import { Image } from '@teambit/base-react.content.image';
 import { Label } from '@teambit/documenter.ui.label';
 import { Caption } from '@teambit/design.ui.content.caption';
 import classNames from 'classnames';
 import { BubbleCard } from '@teambit/design.ui.cards.bubble-card';
-import type { GridItemProps } from '@teambit/community.ui.graph.grid-graph'
+import type { GridItemProps } from '@teambit/community.ui.graph.grid-graph';
 import { Ellipsis, ellipsis } from '@teambit/design.ui.styles.ellipsis';
 import { getScopeName } from './get-scope-name';
 import styles from './component-bubble.module.scss';
@@ -14,51 +14,75 @@ export type ComponentBubbleProps = {
   /**
    * icon url to display within the bubble.
    */
-  icon?: string,
+  icon?: string;
 
   /**
    * Component ID to display.
    */
-  componentId?: ComponentID,
+  componentId?: ComponentID;
 
   /**
    * determine whether to show the owner of the scope
    */
-  showOwner?: boolean,
+  showOwner?: boolean;
 
   /**
    * allow hover behavior for the bubble. if false, no hover behavior would be applied.
    */
-  allowHover?: boolean,
+  allowHover?: boolean;
 
   /**
-   * forces the component to be in active state. 
+   * forces the component to be in active state.
    */
-  forceActive?: boolean,
+  forceActive?: boolean;
+
+  /**
+   * show the component version
+   */
+  showVersion?: boolean;
 
   /**
    * classname to inject the element.
    */
-  className?: string,
+  className?: string;
 
   /**
    * color of the bubble
    */
-  color?: string
+  color?: string;
 };
 
-export function ComponentBubble({ className, componentId, showOwner = false, icon, forceActive = false, color = '#EDEDED', ...rest }: ComponentBubbleProps) {
-
+export function ComponentBubble({
+  className,
+  componentId,
+  showOwner = false,
+  icon,
+  showVersion = true,
+  allowHover = true,
+  forceActive = false,
+  color = '#EDEDED',
+  ...rest
+}: ComponentBubbleProps) {
   return (
-    <BubbleCard className={classNames(styles.bubble, className, forceActive ? styles.active : '')} {...rest}>
+    <BubbleCard
+      className={classNames(
+        styles.bubble,
+        className,
+        forceActive && styles.active,
+        allowHover ? styles.allowHover : styles.noHoverAllowed
+      )}
+      {...rest}
+    >
       {icon && <Image src={icon} className={styles.icon} />}
       {componentId && (
         <div className={classNames(styles.id)}>
-          <Caption className={ellipsis}>{getScopeName(componentId.scope, showOwner)}/{componentId.namespace}</Caption>
+          <Caption className={ellipsis}>
+            {getScopeName(componentId.scope, showOwner)}/{componentId.namespace}
+          </Caption>
           <Ellipsis className={styles.name}>{componentId.name}</Ellipsis>
         </div>
       )}
-      {componentId && <Label className={styles.versionLabel}>{componentId?.version}</Label>}
+      {componentId && showVersion && <Label className={styles.versionLabel}>{componentId?.version}</Label>}
     </BubbleCard>
   );
 }
