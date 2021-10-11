@@ -405,11 +405,11 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/pages/plugins"
     },
-    "ui/plugins/hero": {
+    "ui/plugins/explore-section": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "community/ui/plugins/hero"
+        "rootDir": "community/ui/plugins/explore-section"
     },
     "ui/plugins/plugin-group": {
         "scope": "teambit.community",
