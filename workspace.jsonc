@@ -1,8 +1,7 @@
 /**
  * this is the main configuration file of your bit workspace.
  * for full documentation, please see: https://harmony-docs.bit.dev/workspace/configurations
- **/
- {
+ **/{
   "$schema": "https://static.bit.dev/teambit/schemas/schema.json",
   /**
    * main configuration of the Bit workspace.
@@ -101,12 +100,10 @@
         "@teambit/ui-foundation.ui.tree.tree-node": "0.0.442",
         "@testing-library/react-hooks": "7.0.1",
         "@types/react-helmet": "6.1.2",
-        "@types/react-router": "5.1.16",
-        "@types/react-router-dom": "5.1.8",
+        "@types/react-router-dom": "5.1.7",
         "classnames": "2.3.1",
         "millify": "4.0.0",
         "react-helmet": "6.1.0",
-        "react-router": "5.2.1",
         "react-router-dom": "5.2.0",
         "react-terminal": "1.2.1",
         "react-xarrows": "2.0.2",
