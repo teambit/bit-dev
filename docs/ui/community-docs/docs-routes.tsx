@@ -18,6 +18,7 @@ export const docsRoutes: DocsRoute[] = [
   {
     path: 'getting-started',
     title: 'Getting Started',
+    icon: 'workspace',
     children: [
       {
         path: 'installing-bit',
