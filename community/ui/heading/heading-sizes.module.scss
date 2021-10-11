@@ -1,11 +1,38 @@
 // font sizes only!
-:root {
+.heading {
 	--bit-heading-xxl: 64px;
 	--bit-heading-xl: 56px;
 	--bit-heading-lg: 48px;
 	--bit-heading-md: 40px;
 	--bit-heading-sm: 32px;
 	--bit-heading-xs: 24px;
+	@media screen and (max-width: 1440px) {
+		--bit-heading-xxl: 56px;
+		--bit-heading-xl: 48px;
+		--bit-heading-lg: 40px;
+		--bit-heading-md: 32px;
+		--bit-heading-sm: 24px;
+		--bit-heading-xs: 20px; // TBD
+		
+	}
+	@media screen and (max-width: 768px) {
+		--bit-heading-xxl: 48px;
+		--bit-heading-xl: 40px;
+		--bit-heading-lg: 32px;
+		--bit-heading-md: 24px;
+		--bit-heading-sm: 20px; // TBD
+		--bit-heading-xs: 18px; // TBD
+		
+	}
+	@media screen and (max-width: 360px) {
+		--bit-heading-xxl: 40px;
+		--bit-heading-xl: 32px;
+		--bit-heading-lg: 24px;
+		--bit-heading-md: 20px; // TBD
+		--bit-heading-sm: 18px; // TBD
+		--bit-heading-xs: 16px; // TBD
+
+	}
 }
 
 .h1 {

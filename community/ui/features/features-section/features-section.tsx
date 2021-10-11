@@ -24,7 +24,7 @@ export function FeaturesSection({
   return (
     <div className={classNames(styles.featuresSection, className)}>
       <div className={styles.heading}>
-      <Heading element={Elements.H2} className={styles.title}>{title}</Heading>
+      <Heading element={Elements.H3} className={styles.title}>{title}</Heading>
       </div>
       <FeaturesCardGrid features={features} />
     </div>

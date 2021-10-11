@@ -4,6 +4,7 @@ To get the workspace started, run `bit start` and open [localhost:3000](http://l
 
 ```bash
 bit install
+bit compile
 bit start
 ```
 

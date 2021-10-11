@@ -1,4 +1,4 @@
-importers:
+dddimporters:
   .:
     dependencies:
       '@babel/plugin-syntax-dynamic-import': registry.npmjs.org/@babel/plugin-syntax-dynamic-import/7.8.3
@@ -58,14 +58,12 @@ importers:
       '@teambit/ui-foundation.ui.tree.folder-tree-node': registry.npmjs.org/@teambit/ui-foundation.ui.tree.folder-tree-node/0.0.439_react-dom@16.13.1+react@16.13.1
       '@teambit/ui-foundation.ui.tree.tree-node': registry.npmjs.org/@teambit/ui-foundation.ui.tree.tree-node/0.0.442_react-dom@16.13.1+react@16.13.1
       '@testing-library/react': registry.npmjs.org/@testing-library/react/12.0.0_react-dom@16.13.1+react@16.13.1
-      '@types/react-router': registry.npmjs.org/@types/react-router/5.1.16
       classnames: registry.npmjs.org/classnames/2.3.1
       core-js: registry.npmjs.org/core-js/3.18.2
       millify: registry.npmjs.org/millify/4.0.0
       react: registry.npmjs.org/react/16.13.1
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
       react-helmet: registry.npmjs.org/react-helmet/6.1.0_react@16.13.1
-      react-router: registry.npmjs.org/react-router/5.2.1_react@16.13.1
       react-router-dom: registry.npmjs.org/react-router-dom/5.2.0_react@16.13.1
       react-terminal: registry.npmjs.org/react-terminal/1.2.1_react-dom@16.13.1+react@16.13.1
       react-xarrows: registry.npmjs.org/react-xarrows/2.0.2_react@16.13.1
@@ -78,7 +76,7 @@ importers:
       '@types/react': registry.npmjs.org/@types/react/17.0.27
       '@types/react-dom': registry.npmjs.org/@types/react-dom/17.0.9
       '@types/react-helmet': registry.npmjs.org/@types/react-helmet/6.1.2
-      '@types/react-router-dom': registry.npmjs.org/@types/react-router-dom/5.1.8
+      '@types/react-router-dom': registry.npmjs.org/@types/react-router-dom/5.1.7
       '@types/testing-library__jest-dom': registry.npmjs.org/@types/testing-library__jest-dom/5.9.5
     specifiers:
       '@babel/plugin-syntax-dynamic-import': 7.8.3
@@ -145,8 +143,7 @@ importers:
       '@types/react': ^17.0.27
       '@types/react-dom': ^17.0.9
       '@types/react-helmet': 6.1.2
-      '@types/react-router': 5.1.16
-      '@types/react-router-dom': 5.1.8
+      '@types/react-router-dom': 5.1.7
       '@types/testing-library__jest-dom': 5.9.5
       classnames: 2.3.1
       core-js: ^3.18.2
@@ -154,7 +151,6 @@ importers:
       react: 16.13.1
       react-dom: 16.13.1
       react-helmet: 6.1.0
-      react-router: 5.2.1
       react-router-dom: 5.2.0
       react-terminal: 1.2.1
       react-xarrows: 2.0.2
@@ -3980,6 +3976,7 @@ packages:
       tarball: https://registry.npmjs.org/@types/hast/-/hast-2.3.4.tgz
     version: 2.3.4
   registry.npmjs.org/@types/history/4.7.9:
+    dev: true
     name: '@types/history'
     resolution:
       integrity: sha512-MUc6zSmU3tEVnkQ78q0peeEjKWPUADMlC/t++2bI8WnAG2tvYRPIgHG8lWkXwqc8MsUF6Z2MOf+Mh5sazOmhiQ==
@@ -4064,28 +4061,29 @@ packages:
       registry: https://node.bit.dev/
       tarball: https://registry.npmjs.org/@types/react-helmet/-/react-helmet-6.1.2.tgz
     version: 6.1.2
-  registry.npmjs.org/@types/react-router-dom/5.1.8:
+  registry.npmjs.org/@types/react-router-dom/5.1.7:
     dependencies:
       '@types/history': registry.npmjs.org/@types/history/4.7.9
-      '@types/react': registry.npmjs.org/@types/react/17.0.20
-      '@types/react-router': registry.npmjs.org/@types/react-router/5.1.16
+      '@types/react': registry.npmjs.org/@types/react/17.0.27
+      '@types/react-router': registry.npmjs.org/@types/react-router/5.1.17
     dev: true
     name: '@types/react-router-dom'
     resolution:
-      integrity: sha512-03xHyncBzG0PmDmf8pf3rehtjY0NpUj7TIN46FrT5n1ZWHPZvXz32gUyNboJ+xsL8cpg8bQVLcllptcQHvocrw==
+      integrity: sha512-D5mHD6TbdV/DNHYsnwBTv+y73ei+mMjrkGrla86HthE4/PVvL1J94Bu3qABU+COXzpL23T1EZapVVpwHuBXiUg==
       registry: https://node.bit.dev/
-      tarball: https://registry.npmjs.org/@types/react-router-dom/-/react-router-dom-5.1.8.tgz
-    version: 5.1.8
-  registry.npmjs.org/@types/react-router/5.1.16:
+      tarball: https://registry.npmjs.org/@types/react-router-dom/-/react-router-dom-5.1.7.tgz
+    version: 5.1.7
+  registry.npmjs.org/@types/react-router/5.1.17:
     dependencies:
       '@types/history': registry.npmjs.org/@types/history/4.7.9
-      '@types/react': registry.npmjs.org/@types/react/17.0.20
+      '@types/react': registry.npmjs.org/@types/react/17.0.27
+    dev: true
     name: '@types/react-router'
     resolution:
-      integrity: sha512-8d7nR/fNSqlTFGHti0R3F9WwIertOaaA1UEB8/jr5l5mDMOs4CidEgvvYMw4ivqrBK+vtVLxyTj2P+Pr/dtgzg==
+      integrity: sha512-RNSXOyb3VyRs/EOGmjBhhGKTbnN6fHWvy5FNLzWfOWOGjgVUKqJZXfpKzLmgoU8h6Hj8mpALj/mbXQASOb92wQ==
       registry: https://node.bit.dev/
-      tarball: https://registry.npmjs.org/@types/react-router/-/react-router-5.1.16.tgz
-    version: 5.1.16
+      tarball: https://registry.npmjs.org/@types/react-router/-/react-router-5.1.17.tgz
+    version: 5.1.17
   registry.npmjs.org/@types/react-test-renderer/17.0.1:
     dependencies:
       '@types/react': registry.npmjs.org/@types/react/17.0.20
@@ -4101,6 +4099,7 @@ packages:
       '@types/prop-types': registry.npmjs.org/@types/prop-types/15.7.4
       '@types/scheduler': registry.npmjs.org/@types/scheduler/0.16.2
       csstype: registry.npmjs.org/csstype/3.0.9
+    dev: true
     name: '@types/react'
     resolution:
       integrity: sha512-wWZrPlihslrPpcKyCSlmIlruakxr57/buQN1RjlIeaaTWDLtJkTtRW429MoQJergvVKc4IWBpRhWw7YNh/7GVA==
@@ -4132,6 +4131,7 @@ packages:
       tarball: https://registry.npmjs.org/@types/react/-/react-17.0.27.tgz
     version: 17.0.27
   registry.npmjs.org/@types/scheduler/0.16.2:
+    dev: true
     name: '@types/scheduler'
     resolution:
       integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==
@@ -4877,6 +4877,7 @@ packages:
       tarball: https://registry.npmjs.org/crypto-random-string/-/crypto-random-string-1.0.0.tgz
     version: 1.0.0
   registry.npmjs.org/csstype/3.0.9:
+    dev: true
     name: csstype
     resolution:
       integrity: sha512-rpw6JPxK6Rfg1zLOYCSwle2GFOOsnjmDYDaBwEcwoOg4qlsIVCN789VkBZDJAGi4T07gI4YSutR43t9Zz4Lzuw==
@@ -7259,29 +7260,6 @@ packages:
       registry: https://node.bit.dev/
       tarball: https://registry.npmjs.org/react-router/-/react-router-5.2.0.tgz
     version: 5.2.0
-  registry.npmjs.org/react-router/5.2.1_react@16.13.1:
-    dependencies:
-      '@babel/runtime': registry.npmjs.org/@babel/runtime/7.12.18
-      history: registry.npmjs.org/history/4.10.1
-      hoist-non-react-statics: registry.npmjs.org/hoist-non-react-statics/3.3.2
-      loose-envify: registry.npmjs.org/loose-envify/1.4.0
-      mini-create-react-context: registry.npmjs.org/mini-create-react-context/0.4.1_prop-types@15.7.2+react@16.13.1
-      path-to-regexp: registry.npmjs.org/path-to-regexp/1.8.0
-      prop-types: registry.npmjs.org/prop-types/15.7.2
-      react: registry.npmjs.org/react/16.13.1
-      react-is: registry.npmjs.org/react-is/16.13.1
-      tiny-invariant: registry.npmjs.org/tiny-invariant/1.1.0
-      tiny-warning: registry.npmjs.org/tiny-warning/1.0.3
-    dev: false
-    id: registry.npmjs.org/react-router/5.2.1
-    name: react-router
-    peerDependencies:
-      react: '>=15'
-    resolution:
-      integrity: sha512-lIboRiOtDLFdg1VTemMwud9vRVuOCZmUIT/7lUoZiSpPODiiH1UQlfXy+vPLC/7IWdFYnhRwAyNqA/+I7wnvKQ==
-      registry: https://node.bit.dev/
-      tarball: https://registry.npmjs.org/react-router/-/react-router-5.2.1.tgz
-    version: 5.2.1
   registry.npmjs.org/react-side-effect/2.1.1_react@16.13.1:
     dependencies:
       react: registry.npmjs.org/react/16.13.1

@@ -31,7 +31,7 @@ export function ComponentDistributionSection({
   return (
     <div className={classNames(styles.buildSection, className)}>
       <div className={styles.heading}>
-        <Heading element={Elements.H2} className={styles.title}>
+        <Heading element={Elements.H3} className={styles.title}>
           {title}
         </Heading>
       </div>
