@@ -5,7 +5,6 @@ import { Label } from '@teambit/documenter.ui.label';
 import { Caption } from '@teambit/design.ui.content.caption';
 import classNames from 'classnames';
 import { BubbleCard, BubbleCardProps } from '@teambit/design.ui.cards.bubble-card';
-import type { GridItemProps } from '@teambit/community.ui.graph.grid-graph'
 import { Ellipsis, ellipsis } from '@teambit/design.ui.styles.ellipsis';
 import { getScopeName } from './get-scope-name';
 import styles from './component-bubble.module.scss';
