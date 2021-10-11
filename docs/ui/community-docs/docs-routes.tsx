@@ -13,7 +13,6 @@ export const docsRoutes: DocsRoute[] = [
   {
     path: 'quick-start',
     title: 'Quick Start',
-    icon: 'workspace',
     component: <QuickStart />
   },
   {

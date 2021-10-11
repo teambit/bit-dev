@@ -23,10 +23,8 @@ export function SidebarNode(props: SidebarNodeProps) {
       // TODO: migrate to use the new base-react link with React Router.
         <TreeNode 
           node={{ id: props.node.payload.title }}
-          icon={props.icon || ''}
-          depth={1}
-          // icon={props.node.payload?.icon || ''}
-          // depth={props.depth}
+          icon={props.node.payload?.icon}
+          depth={props.depth}
           // TODO - navLink should show up as active by itself
           // active/set active is not needed
           onClick={onSelect && (() => onSelect(props.node.id))}
