@@ -40,6 +40,7 @@ export function Heading({
     <BaseHeading
       className={classNames(
         styles.heading,
+        sizes.heading,
         sizes[size || element],
         className,
         highlightClass

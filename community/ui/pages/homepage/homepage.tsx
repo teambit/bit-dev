@@ -4,10 +4,11 @@ import { clientLogos } from '@teambit/community.entity.images';
 import { UseCasesSection } from '@teambit/community.ui.use-cases.use-cases-section';
 import { FeaturesSection } from '@teambit/community.ui.features.features-section';
 import { ComponentDistributionSection } from '@teambit/community.ui.sections.component-distribution';
-import  { componentsMock } from '@teambit/community.entity.compnent-distribution-graph';
+import { componentsMock } from '@teambit/community.entity.compnent-distribution-graph';
 import { useCases } from '@teambit/community.entity.use-cases';
 import { features } from '@teambit/community.entity.features';
 import { mockBubbleGraph } from '@teambit/community.entity.graph.bubble-graph';
+import { ExcludeHighlighter } from '@teambit/react.ui.component-highlighter';
 import { LogoShowcase } from '@teambit/community.ui.logo-showcase';
 import { StickyMenu } from '@teambit/community.ui.sticky-menu';
 import { Page } from '@teambit/base-react.pages.page';
@@ -20,20 +21,25 @@ const logoList = [...clientLogos, ...clientLogos];
 
 export function Homepage({ ...rest }: HomepageProps) {
   return (
-    <Page title="Bit: Component build and collaboration framework" {...rest}>
+    <Page title='Bit: Component build and collaboration framework' {...rest}>
       <section>
         <div className={styles.grid}>
-          <Hero bubbles={mockBubbleGraph()} />
-          <ComponentDistributionSection title="Build components, compose apps"  components={componentsMock()} />
+          <ExcludeHighlighter>
+            <Hero bubbles={mockBubbleGraph()} />
+          </ExcludeHighlighter>
+          <ComponentDistributionSection
+            title='Build components, compose apps'
+            components={componentsMock()}
+          />
           <FeaturesSection
             features={features}
-            title="Better software is built in components"
+            title='Better software is built in components'
           />
           <UseCasesSection
             useCases={useCases}
-            title="That makes hard things simple."
-            href="/"
-            linkText="See more use cases"
+            title='That makes hard things simple.'
+            href='/'
+            linkText='See more use cases'
           />
         </div>
         <div className={styles.imageStripSection}>
@@ -44,24 +50,24 @@ export function Homepage({ ...rest }: HomepageProps) {
         links={[
           {
             href: '#compose',
-            text: 'Compose'
+            text: 'Compose',
           },
           {
             href: '#collaborate',
-            text: 'Collaborate'
+            text: 'Collaborate',
           },
           {
             href: '#release',
-            text: 'Release'
+            text: 'Release',
           },
           {
             href: '#Standardize',
-            text: 'Standardize'
+            text: 'Standardize',
           },
           {
             href: '#extend',
-            text: 'Extend'
-          }
+            text: 'Extend',
+          },
         ]}
       />
     </Page>

@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { /* useState, */ useContext } from 'react';
 import { TreeNode, TreeNodeComponentProps } from '@teambit/ui-foundation.ui.tree.tree-node';
 import { FolderTreeNode } from '@teambit/ui-foundation.ui.tree.folder-tree-node';
+import { TreeContext } from '@teambit/base-ui.graph.tree.tree-context';
 
 export type SidebarNodeProps = {
   /**
@@ -15,7 +16,7 @@ export type SidebarNodeProps = {
 } & TreeNodeComponentProps<any>;
 
 export function SidebarNode(props: SidebarNodeProps) {
-  const [active, setToActive] = useState(props.active);
+  const { onSelect, selected } = useContext(TreeContext);
 
   if (!props.node.children) {
     return (
@@ -24,8 +25,10 @@ export function SidebarNode(props: SidebarNodeProps) {
           node={{ id: props.node.payload.title }}
           icon={props.icon || ''}
           depth={1}
-          onClick={() => setToActive(props.node.id)}
-          isActive={props.node.id === active}
+          // TODO - navLink should show up as active by itself
+          // active/set active is not needed
+          onClick={onSelect && (() => onSelect(props.node.id))}
+          isActive={props.node.id === selected}
           href={props.node.payload?.path}
       />
     );
