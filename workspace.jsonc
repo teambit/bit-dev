@@ -165,10 +165,6 @@
     "ui-foundation": {
       "defaultScope": "teambit.ui-foundation"
     },
-    "{ui/tree/folder-tree-node}": {
-      "defaultScope": "teambit.ui-foundation",
-      "teambit.community/envs/community-react": "-"
-    },
     "react": {
       "defaultScope": "teambit.react"
     }
