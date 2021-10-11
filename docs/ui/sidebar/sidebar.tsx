@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 import { TreeNode } from '@teambit/base-ui.graph.tree.recursive-tree';
 // TODO: check with Uri why sidebar is distributed to many components and not documented.
@@ -19,13 +19,6 @@ export type SidebarNode = TreeNode<SidebarPayload>;
 
 export type SidebarProps = {
   /**
-   * a text to be rendered in the component.
-   */
-  onSelect?: (id: string) => void,
-
-  selected?: string,
-
-  /**
    * a nested tree node, which includes children for tree nesting..
    */
   tree: SidebarNode,
@@ -37,12 +30,14 @@ export type SidebarProps = {
 
 } & React.HTMLAttributes<HTMLDivElement>;
 
-export function Sidebar({ onSelect, tree, linkPrefix, selected, className, ...rest }: SidebarProps) {
+export function Sidebar({ tree, linkPrefix, className, ...rest }: SidebarProps) {
+  const [active, setToActive] = useState(tree.id);
+
   return (
     <div style={{ ...indentStyle(1), ...rest.style }} className={classNames(className)} {...rest}>
       <TreeNodeContext.Provider value={SidebarNode}>
-        <TreeContextProvider onSelect={onSelect} selected={selected}>
-          <RootNode node={tree} depth={0} />
+        <TreeContextProvider onSelect={(id) => setToActive(id)} selected={active}>
+          <RootNode node={tree} depth={1} />
         </TreeContextProvider>
       </TreeNodeContext.Provider>
     </div>

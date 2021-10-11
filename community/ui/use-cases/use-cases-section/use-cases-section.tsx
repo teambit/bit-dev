@@ -35,7 +35,7 @@ export function UseCasesSection({
   return (
     <WideColumn className={styles.UseCasesSection}>
       <div className={styles.heading}>
-      <Heading element={Elements.H2} className={styles.title}>{title}</Heading>
+      <Heading element={Elements.H3} className={styles.title}>{title}</Heading>
         <Link href={href}>{linkText}</Link>
         <Icon of="right-arrow" className={styles.icon} />
       </div>
