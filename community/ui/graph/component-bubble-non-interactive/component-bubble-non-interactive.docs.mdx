@@ -1,0 +1,29 @@
+---
+description: A bubble to visually show components on a graph.
+labels: ['component', 'graph', 'bubble', 'bit']
+---
+
+import { ComponentBubbleNonInteractive } from './component-bubble-non-interactive';
+
+A non interactive bubble for showing Bit component on a visual graph.  
+This bubble have `showVersion` and `allowHover` false by default.
+
+### Basic usage
+
+```js
+<ComponentBubbleNonInteractive node={node} />
+```
+
+### Using an SVG image as icon
+
+```js live
+() => {
+  const node = {
+    payload: {
+      icon: 'https://static.bit.dev/brands/logo-react.svg',
+    },
+  };
+  //@ts-ignore
+  return <ComponentBubbleNonInteractive node={node} />;
+};
+```

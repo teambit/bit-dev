@@ -45,6 +45,7 @@ export function Heading({
         className,
         highlightClass
       )}
+      element={element}
       {...rest}
     >
       {children}

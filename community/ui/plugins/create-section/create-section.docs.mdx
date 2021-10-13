@@ -1,28 +1,29 @@
 ---
-description: 'Explore section for plugins page'
-labels: ['explore', 'section', 'plugins']
+description: 'Create section for plugins page'
+labels: ['create', 'section', 'plugins']
 ---
 
 import { FigmaEmbed } from '@teambit/design.embeds.figma';
 import { highlightClass } from '@teambit/community.ui.heading';
-import { mockExplorePluginsGraph } from '@teambit/community.ui.plugins.bubble-graph-mocks';
+import { mockCreatePluginsGraph } from '@teambit/community.ui.plugins.bubble-graph-mocks';
 import { ComponentBubbleNonInteractive } from '@teambit/community.ui.graph.component-bubble-non-interactive';
-import { ExploreSection } from './explore-section';
+import { CreateSection } from './create-section';
 
-Explore section for Plugins page on bit.dev website.
+Create section for Plugins page on bit.dev website.
 
 ### A section with title and bubbles
 
 ```js live
-<ExploreSection
+<CreateSection
   heading={
     <>
-      Explore <span className={highlightClass}>Bit Plugins</span>
+      Create a new plugin <br />
+      <span className={highlightClass}>in minutes</span>
     </>
   }
-  subtitle="Enhance and customize your development experience with dozens of official and community Plugins."
+  subtitle="Bit is extremly extendible and you can add any tool or functionality in minutes and using over 800 available APIs. So what will you make?"
   Node={ComponentBubbleNonInteractive}
-  nodes={mockExplorePluginsGraph()}
+  nodes={mockCreatePluginsGraph()}
 />
 ```
 

@@ -1,31 +1,29 @@
 import React from 'react';
 import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 import { ComponentCard } from '@teambit/explorer.ui.gallery.component-card';
-import { Subtitle } from '@teambit/documenter.ui.sub-title';
-import { ExternalLink } from '@teambit/design.ui.external-link';
-import { Link } from '@teambit/design.ui.navigation.link';
-import { Icon } from '@teambit/design.elements.icon';
 import { PluginGroup } from '@teambit/community.ui.plugins.plugin-group';
 import { ExploreSection } from '@teambit/community.ui.plugins.explore-section';
-import { Heading, highlightClass } from '@teambit/community.ui.heading';
-//import { Page } from '@teambit/community.ui.pages.page';
+import { CreateSection } from '@teambit/community.ui.plugins.create-section';
+import { mockExplorePluginsGraph, mockCreatePluginsGraph } from '@teambit/community.ui.plugins.bubble-graph-mocks';
+import { highlightClass } from '@teambit/community.ui.heading';
 import { Page } from '@teambit/base-react.pages.page';
-import { H2 } from '@teambit/design.ui.heading';
-import { BubbleGraph, getValidId } from '@teambit/community.ui.graph.bubble-graph';
+import { ComponentBubbleNonInteractive } from '@teambit/community.ui.graph.component-bubble-non-interactive';
 import styles from './plugins.module.scss';
 
 export type PluginsProps = {} & React.HTMLAttributes<HTMLDivElement>;
 
 export function Plugins({ ...rest }: PluginsProps) {
   return (
-    <Page title="Bit / Explore Plugins" {...rest}>
+    <Page title="Bit / Plugins" {...rest}>
       <ExploreSection
-        title={
+        heading={
           <>
             Explore <span className={highlightClass}>Bit Plugins</span>
           </>
         }
         subtitle="Enhance and customize your development experience with dozens of official and community Plugins."
+        Node={ComponentBubbleNonInteractive}
+        nodes={mockExplorePluginsGraph()}
       />
       <WideColumn>
         <PluginGroup title="Dev environments">
@@ -59,7 +57,18 @@ export function Plugins({ ...rest }: PluginsProps) {
         </PluginGroup>
       </WideColumn>
 
-      <Heading size="h2">Creating a plugin has never been easier</Heading>
+      <CreateSection
+        heading={
+          <>
+            Create a new plugin <br />
+            <span className={highlightClass}>in minutes</span>
+          </>
+        }
+        subtitle="Bit is extremly extendible and you can add any tool or functionality in minutes and using over 800 available APIs. So what will you make?"
+        Node={ComponentBubbleNonInteractive}
+        nodes={mockCreatePluginsGraph()}
+        className={styles.createSection}
+      />
     </Page>
   );
 }
