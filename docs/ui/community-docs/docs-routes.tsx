@@ -8,6 +8,8 @@ const CreateComponents = loadable(() => import('@teambit/community.content.getti
 const DevEnvs = loadable(() => import('@teambit/docs.content.getting-started.dev-envs'));
 const UseDependencies = loadable(() => import('@teambit/docs.content.getting-started.use-dependencies'));
 const CreateWorkspace = loadable(() => import('@teambit/docs.content.getting-started.create-workspace'));
+const Bitmap = loadable(() => import('@teambit/workspace.content.bitmap'));
+const ScopeOverview = loadable(() => import('@teambit/scope.content.scope-overview'));
 
 export const docsRoutes: DocsRoute[] = [
   {
@@ -33,6 +35,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'composing',
         title: 'Composing',
+        collapsed: false,
         children: [
           {
             path: 'creating-components',
@@ -50,6 +53,30 @@ export const docsRoutes: DocsRoute[] = [
             component: <UseDependencies />
           }        
         ]
+      }
+    ]
+  },
+  {
+    path: 'workspace',
+    title: 'Workspace',
+    icon: 'workspace',
+    children: [
+      {
+        path: 'bitmap',
+        title: 'bitmap',
+        component: <Bitmap />
+      }
+    ]
+  },
+  {
+    path: 'scope',
+    title: 'Scope',
+    icon: 'collection',
+    children: [
+      {
+        path: 'overview',
+        title: 'Overview',
+        component: <ScopeOverview />
       }
     ]
   }

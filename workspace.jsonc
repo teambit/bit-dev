@@ -168,6 +168,12 @@
     },
     "react": {
       "defaultScope": "teambit.react"
+    },
+    "workspace": {
+      "defaultScope": "teambit.workspace"
+    },
+    "scope": {
+      "defaultScope": "teambit.scope"
     }
   }
 }

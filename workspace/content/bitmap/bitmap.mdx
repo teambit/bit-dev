@@ -1,0 +1,46 @@
+# .bitmap
+
+`.bitmap` is a file auto-generated and managed by Bit in the [Workspace](/workspace/overview) for mapping component to their corresponding directory in the project's file system.
+The `.bitmap` file is meant to be tracked and committed to the VCS repository (Git/Mercurial)
+
+An example `.bitmap` file can be found on [this example project](https://github.com/bit-demos/ecommerce/blob/main/.bitmap).
+
+:::note
+Please note, `.bitmap` file should is not meant or designed to be manually changed by developers. Make sure to use it through Bit commands like `bit add`, `bit remove`, `bit create` or others commands related to controlling the Workspace.
+:::
+
+## Component entry
+
+A Component entry in the bitmap file is mapping a single component to is corresponding directory in the [Workspace](/workspace/overview) file system.
+
+```json
+{
+  "ui/avatar": {
+    "scope": "deepblue.people",
+    "version": "1.0.4",
+    "mainFile": "index.ts",
+    "rootDir": "people/ui/avatar"
+  }
+}
+```
+
+- `scope` / [Scope](/scope/overview) owning the [Component](/components/overview).
+- `version` / Current component version.
+- `mainFile` / Component's [Main File](/components/main-file)
+- `rootDir` / The [Component](/components/overview) root directory in the [Workspace](/workspace/overview) file system.
+
+## Schema Version
+
+`.bitmap` files include a $schema-version property for Bit to be able to recognize potential breaking changes between developers using different Bit versions.
+
+```json
+{
+  // ...
+  "$schema-version": "14.9.0"
+}
+```
+
+<!--TODO ## Resolving conflicts
+
+// @david anything to add here.
+ -->
