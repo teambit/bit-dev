@@ -6,6 +6,7 @@ import { ExploreSection } from '@teambit/community.ui.plugins.explore-section';
 import { CreateSection } from '@teambit/community.ui.plugins.create-section';
 import { highlightClass } from '@teambit/community.ui.heading';
 import { Page } from '@teambit/base-react.pages.page';
+import { devEnvsMock, compilingMock, testingMock, lintingFormatingMock, appsMock } from './plugins.mock';
 import styles from './plugins.module.scss';
 
 export type PluginsProps = {} & React.HTMLAttributes<HTMLDivElement>;
@@ -23,33 +24,33 @@ export function Plugins({ ...rest }: PluginsProps) {
       />
       <WideColumn>
         <PluginGroup title="Dev environments">
-          <ComponentCard id="teambit.react/react"></ComponentCard>
-          <ComponentCard id="teambit.harmony/node"></ComponentCard>
-          <ComponentCard id="teambit.angular/angular"></ComponentCard>
-          <ComponentCard id="teambit.web-components/lit"></ComponentCard>
-          <ComponentCard id="teambit.harmony/aspect"></ComponentCard>
+          {devEnvsMock.map((item, index) => (
+            <ComponentCard key={index} {...item} />
+          ))}
         </PluginGroup>
 
         <PluginGroup title="Compiling">
-          <ComponentCard id="teambit.typescript/typescript"></ComponentCard>
-          <ComponentCard id="teambit.compilation/babel"></ComponentCard>
-          <ComponentCard id="teambit.mdx/mdx"></ComponentCard>
+          {compilingMock.map((item, index) => (
+            <ComponentCard key={index} {...item} />
+          ))}
         </PluginGroup>
 
         <PluginGroup title="Testing">
-          <ComponentCard id="teambit.defender/jest"></ComponentCard>
-          <ComponentCard id="teambit.defender/mocha"></ComponentCard>
+          {testingMock.map((item, index) => (
+            <ComponentCard key={index} {...item} />
+          ))}
         </PluginGroup>
 
         <PluginGroup title="Linting and Formatting">
-          <ComponentCard id="teambit.defender/eslint"></ComponentCard>
-          <ComponentCard id="teambit.defender/prettier"></ComponentCard>
+          {lintingFormatingMock.map((item, index) => (
+            <ComponentCard key={index} {...item} />
+          ))}
         </PluginGroup>
 
         <PluginGroup title="Apps">
-          <ComponentCard id="teambit.apps/nextjs"></ComponentCard>
-          <ComponentCard id="teambit.apps/gatsby"></ComponentCard>
-          <ComponentCard id="teambit.apps/docusaurus"></ComponentCard>
+          {appsMock.map((item, index) => (
+            <ComponentCard key={index} {...item} />
+          ))}
         </PluginGroup>
       </WideColumn>
 

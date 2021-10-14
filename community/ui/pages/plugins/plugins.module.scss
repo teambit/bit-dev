@@ -1,3 +1,11 @@
 .createSection {
   padding-bottom: 40px; // add a temporary space at the bottom of the page until we will have a footer.
 }
+.componentCardPreview {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  > img {
+    width: 70px;
+  }
+}
