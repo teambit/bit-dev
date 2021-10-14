@@ -1,0 +1,35 @@
+.nextPage{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    > div {
+        margin-right: 16px;
+    }
+}
+
+.next {
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding-left: 24px;
+    color: var(--bit-text-inactive-heavy, #878c9a);
+}
+
+.title {
+    margin: 0;
+    &.margin {
+        margin-bottom: 8px;
+    }
+
+}
+.text {
+    margin: 0;
+    color: var(--bit-text-color-light, #6c707c);
+}
+
+.button {
+    height: 40px;
+    padding: 8px 16px;
+    width: fit-content;
+}
