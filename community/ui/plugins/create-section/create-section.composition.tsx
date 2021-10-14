@@ -1,8 +1,8 @@
 import React from 'react';
 import { highlightClass } from '@teambit/community.ui.heading';
-import { mockCreatePluginsGraph } from '@teambit/community.ui.plugins.bubble-graph-mocks';
-import { ComponentBubbleNonInteractive } from '@teambit/community.ui.graph.component-bubble-non-interactive';
-import { CreateSection } from './create-section';
+import { BubbleGraph } from '@teambit/community.ui.graph.bubble-graph';
+import { CreateSection, ComponentBubbleNonInteractive } from './create-section';
+import { mockBubbleGraph } from './bubble-graph.mock';
 
 export const BasicCreateSection = () => (
   <CreateSection
@@ -13,8 +13,10 @@ export const BasicCreateSection = () => (
       </>
     }
     subtitle="Bit is extremly extendible and you can add any tool or functionality in minutes and using over 800 available APIs. So what will you make?"
-    Node={ComponentBubbleNonInteractive}
-    nodes={mockCreatePluginsGraph()}
     data-testid="create-section"
   />
+);
+
+export const CreateBubbleGraph = () => (
+  <BubbleGraph Node={ComponentBubbleNonInteractive} nodes={mockBubbleGraph()} data-testid="create-graph" />
 );

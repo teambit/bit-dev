@@ -303,12 +303,6 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/graph/component-bubble"
     },
-    "ui/graph/component-bubble-non-interactive": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "community/ui/graph/component-bubble-non-interactive"
-    },
     "ui/graph/component-card-graph": {
         "scope": "teambit.community",
         "version": "1.1.1",
@@ -411,11 +405,11 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/pages/plugins"
     },
-    "ui/plugins/bubble-graph-mocks": {
+    "ui/plugins/create-row": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "community/ui/plugins/bubble-graph-mocks"
+        "rootDir": "community/ui/plugins/create-row"
     },
     "ui/plugins/create-section": {
         "scope": "",

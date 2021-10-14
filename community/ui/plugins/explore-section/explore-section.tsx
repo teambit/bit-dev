@@ -6,7 +6,9 @@ import { Link } from '@teambit/design.ui.navigation.link';
 import { Icon } from '@teambit/design.elements.icon';
 import { Heading } from '@teambit/community.ui.heading';
 import { BubbleGraph } from '@teambit/community.ui.graph.bubble-graph';
-import type { BubbleGraphProps } from '@teambit/community.ui.graph.bubble-graph';
+import type { BubbleNodeProps } from '@teambit/community.ui.graph.bubble-graph';
+import { ComponentBubble } from '@teambit/community.ui.graph.component-bubble';
+import { mockBubbleGraph } from './bubble-graph.mock';
 import styles from './explore-section.module.scss';
 
 export type ExploreSectionProps = {
@@ -18,9 +20,9 @@ export type ExploreSectionProps = {
    * Subtitle of the section.
    */
   subtitle?: string;
-} & BubbleGraphProps;
+} & React.HTMLAttributes<HTMLDivElement>;
 
-export function ExploreSection({ heading, subtitle, nodes, Node, className, ...rest }: ExploreSectionProps) {
+export function ExploreSection({ heading, subtitle, className, ...rest }: ExploreSectionProps) {
   return (
     <section className={classNames(styles.exploreSection, className)} {...rest}>
       <div className={styles.content}>
@@ -35,9 +37,17 @@ export function ExploreSection({ heading, subtitle, nodes, Node, className, ...r
             Create a new plugin <Icon of="right-arrow" className={styles.icon} />
           </Link>
         </div>
-        <BubbleGraph Node={Node} nodes={nodes} className={classNames(styles.right, styles.gridGraph)} />
+        <BubbleGraph
+          Node={ComponentBubbleNonInteractive}
+          nodes={mockBubbleGraph()}
+          className={classNames(styles.right, styles.gridGraph)}
+        />
       </div>
       <Separator />
     </section>
   );
+}
+
+export function ComponentBubbleNonInteractive({ node, ...rest }: BubbleNodeProps) {
+  return <ComponentBubble {...rest} {...node.payload} nonInteractive />;
 }

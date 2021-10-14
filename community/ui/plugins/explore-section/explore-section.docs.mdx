@@ -5,8 +5,6 @@ labels: ['explore', 'section', 'plugins']
 
 import { FigmaEmbed } from '@teambit/design.embeds.figma';
 import { highlightClass } from '@teambit/community.ui.heading';
-import { mockExplorePluginsGraph } from '@teambit/community.ui.plugins.bubble-graph-mocks';
-import { ComponentBubbleNonInteractive } from '@teambit/community.ui.graph.component-bubble-non-interactive';
 import { ExploreSection } from './explore-section';
 
 Explore section for Plugins page on bit.dev website.
@@ -21,8 +19,6 @@ Explore section for Plugins page on bit.dev website.
     </>
   }
   subtitle="Enhance and customize your development experience with dozens of official and community Plugins."
-  Node={ComponentBubbleNonInteractive}
-  nodes={mockExplorePluginsGraph()}
 />
 ```
 

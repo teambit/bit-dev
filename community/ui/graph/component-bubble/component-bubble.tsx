@@ -41,6 +41,11 @@ export type ComponentBubbleProps = {
   showVersion?: boolean;
 
   /**
+   * make bubble non interactive, showVersion and allowHover are false.
+   */
+  nonInteractive?: boolean;
+
+  /**
    * classname to inject the element.
    */
   className?: string;
@@ -59,9 +64,14 @@ export function ComponentBubble({
   showVersion = true,
   allowHover = true,
   forceActive = false,
+  nonInteractive = false,
   color = '#EDEDED',
   ...rest
 }: ComponentBubbleProps) {
+  if (nonInteractive) {
+    showVersion = false;
+    allowHover = false;
+  }
   return (
     <BubbleCard
       className={classNames(

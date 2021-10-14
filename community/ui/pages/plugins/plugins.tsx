@@ -4,10 +4,8 @@ import { ComponentCard } from '@teambit/explorer.ui.gallery.component-card';
 import { PluginGroup } from '@teambit/community.ui.plugins.plugin-group';
 import { ExploreSection } from '@teambit/community.ui.plugins.explore-section';
 import { CreateSection } from '@teambit/community.ui.plugins.create-section';
-import { mockExplorePluginsGraph, mockCreatePluginsGraph } from '@teambit/community.ui.plugins.bubble-graph-mocks';
 import { highlightClass } from '@teambit/community.ui.heading';
 import { Page } from '@teambit/base-react.pages.page';
-import { ComponentBubbleNonInteractive } from '@teambit/community.ui.graph.component-bubble-non-interactive';
 import styles from './plugins.module.scss';
 
 export type PluginsProps = {} & React.HTMLAttributes<HTMLDivElement>;
@@ -22,8 +20,6 @@ export function Plugins({ ...rest }: PluginsProps) {
           </>
         }
         subtitle="Enhance and customize your development experience with dozens of official and community Plugins."
-        Node={ComponentBubbleNonInteractive}
-        nodes={mockExplorePluginsGraph()}
       />
       <WideColumn>
         <PluginGroup title="Dev environments">
@@ -65,8 +61,6 @@ export function Plugins({ ...rest }: PluginsProps) {
           </>
         }
         subtitle="Bit is extremly extendible and you can add any tool or functionality in minutes and using over 800 available APIs. So what will you make?"
-        Node={ComponentBubbleNonInteractive}
-        nodes={mockCreatePluginsGraph()}
         className={styles.createSection}
       />
     </Page>

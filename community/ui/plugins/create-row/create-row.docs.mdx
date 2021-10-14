@@ -1,0 +1,43 @@
+---
+description: 'A bubble graph mocks component.'
+labels: ['mock', 'bubble', 'graph']
+---
+
+import ReactJson from 'react-json-view';
+import { createRow } from './create-row';
+
+## Create row function
+
+A function that generates a row of bubble nodes for rendering a bubble graph.
+
+### Component usage
+
+The function receives three parameters, `row` and `col` determine which row and from which column the bubbles will start.  
+And the `icons` is an array of icons to render the bubbles.
+
+```js live
+() => {
+  const icons = [
+    'logo-auth0.svg',
+    'logo-tailwindcss.svg',
+    'logo-npm.svg',
+    'logo-babbel.svg',
+    'logo-gatsby.svg',
+    'logo-cypress.svg',
+    'logo-mongodb.svg',
+  ];
+
+  return <ReactJson src={createRow(1, 1, icons)} />;
+};
+```
+
+### Usage with spaces
+
+The `icons` array can also receives number to add spaces between icons, the number represent how much column to move.
+
+```js live
+() => {
+  const icons = ['logo-auth0.svg', 4, 'logo-mongodb.svg'];
+  return <ReactJson src={createRow(1, 1, icons)} />;
+};
+```
