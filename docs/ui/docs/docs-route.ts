@@ -13,6 +13,11 @@ export interface DocsRoute {
   path: string;
 
   /**
+   * determines whether to show next page. default is determined by the Docs' component via the `showNext` prop.
+   */
+  showNext?: boolean;
+
+  /**
    * icon of the item. applies on categories and items.
    */
   icon?: string;
