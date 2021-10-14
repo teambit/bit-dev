@@ -5,6 +5,9 @@
     &:hover {
         text-decoration: none;
         color: var(--bit-accent-color, #6C5CE7);
+        img {
+            filter: none;
+        }
     }
 }
 .icon {
