@@ -5,34 +5,34 @@
   margin: auto;
 }
 .content {
-  margin: 40px 20px;
   display: flex;
-  @media screen and (min-width: $br-md) {
-    margin-right: 0px;
+  margin: 40px 0;
+  @media screen and (max-width: $br-md) {
+    margin-right: 20px;
   }
-  @media screen and (min-width: $br-xl) {
-    margin-left: 0px;
+  @media screen and (max-width: $br-xl) {
+    margin-left: 20px;
   }
   .left,
   .right {
     flex: 1;
   }
   .left {
+    min-width: 576px;
     .heading {
       margin-bottom: 24px;
     }
     .subtitle {
       margin: 0 0 40px;
     }
-    @media screen and (min-width: $br-md) {
-      min-width: 576px;
+    @media screen and (max-width: $br-md) {
+      min-width: unset;
     }
   }
   .right {
     overflow: hidden;
-    display: none;
-    @media screen and (min-width: $br-md) {
-      display: grid;
+    @media screen and (max-width: $br-md) {
+      display: none;
     }
   }
 }

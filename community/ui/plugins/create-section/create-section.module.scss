@@ -6,28 +6,29 @@
   overflow: hidden;
   display: flex;
   justify-content: center;
-  @media screen and (min-width: $br-md) {
-    margin: 40px auto;
+  margin: 40px auto;
+  @media screen and (max-width: $br-md) {
+    margin: 0;
   }
 }
 .gridGraph {
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(9, 0.4fr);
   min-width: 1440px;
-  display: none;
-  @media screen and (min-width: $br-md) {
-    display: grid;
+  @media screen and (max-width: $br-md) {
+    display: none;
   }
 }
 .content {
-  position: relative;
+  position: absolute;
+  top: 130px;
+  margin: 0;
   max-width: 660px;
   text-align: center;
-  margin: 40px 20px;
-  @media screen and (min-width: $br-md) {
-    position: absolute;
-    top: 130px;
-    margin: 0;
+  @media screen and (max-width: $br-md) {
+    position: relative;
+    top: unset;
+    margin: 40px 20px;
   }
   .heading,
   .subtitle {
