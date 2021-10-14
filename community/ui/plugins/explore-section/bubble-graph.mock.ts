@@ -1,49 +1,51 @@
 import { createBubbleGraph } from '@teambit/community.entity.graph.bubble-graph';
 import { createRow } from '@teambit/community.ui.graph.create-row';
 
+const staticBaseUrl = 'https://static.bit.dev/brands/';
+
 export function mockBubbleGraph() {
   const rowOne = [
-    'logo-auth0.svg',
-    'logo-tailwindcss.svg',
-    'logo-npm.svg',
-    'logo-babbel.svg',
-    'logo-gatsby.svg',
-    'logo-cypress.svg',
-    'logo-mongodb.svg',
+    `${staticBaseUrl}logo-auth0.svg`,
+    `${staticBaseUrl}logo-tailwindcss.svg`,
+    `${staticBaseUrl}logo-npm.svg`,
+    `${staticBaseUrl}logo-babbel.svg`,
+    `${staticBaseUrl}logo-gatsby.svg`,
+    `${staticBaseUrl}logo-cypress.svg`,
+    `${staticBaseUrl}logo-mongodb.svg`,
   ];
   const rowTwo = [
-    'logo-grphql.svg',
-    'logo-stencil.svg',
-    'logo-Linter.svg',
-    'logo-lit.svg',
-    'logo-next.svg',
-    'logo-less.svg',
-    'logo-serverless.svg',
+    `${staticBaseUrl}logo-grphql.svg`,
+    `${staticBaseUrl}logo-stencil.svg`,
+    `${staticBaseUrl}logo-Linter.svg`,
+    `${staticBaseUrl}logo-lit.svg`,
+    `${staticBaseUrl}logo-next.svg`,
+    `${staticBaseUrl}logo-less.svg`,
+    `${staticBaseUrl}logo-serverless.svg`,
   ];
   const rowThree = [
-    'logo-yarn.svg',
-    'logo-react.svg',
-    'logo-jest.svg',
-    'logo-typescript.svg',
-    'logo-angular.svg',
-    'logo-nodejs.svg',
+    `${staticBaseUrl}logo-yarn.svg`,
+    `${staticBaseUrl}logo-react.svg`,
+    `${staticBaseUrl}logo-jest.svg`,
+    `${staticBaseUrl}logo-typescript.svg`,
+    `${staticBaseUrl}logo-angular.svg`,
+    `${staticBaseUrl}logo-nodejs.svg`,
   ];
   const rowFour = [
-    'logo-styled-components.svg',
-    'logo-figma.svg',
-    'logo-mdx.svg',
-    'logo-webpack.svg',
-    'logo-sass.svg',
-    'github.svg',
+    `${staticBaseUrl}logo-styled-components.svg`,
+    `${staticBaseUrl}logo-figma.svg`,
+    `${staticBaseUrl}logo-mdx.svg`,
+    `${staticBaseUrl}logo-webpack.svg`,
+    `${staticBaseUrl}logo-sass.svg`,
+    `${staticBaseUrl}github.svg`,
   ];
   const rowFive = [
-    'logo-contentful.svg',
-    'logo-zeplin.svg',
-    'logo-sketch.svg',
-    'logo-vue.svg',
-    'logo-eslint.svg?v=0.1',
-    'logo-javascript.svg',
-    'logo-mocha.svg',
+    `${staticBaseUrl}logo-contentful.svg`,
+    `${staticBaseUrl}logo-zeplin.svg`,
+    `${staticBaseUrl}logo-sketch.svg`,
+    `${staticBaseUrl}logo-vue.svg`,
+    `${staticBaseUrl}logo-eslint.svg?v=0.1`,
+    `${staticBaseUrl}logo-javascript.svg`,
+    `${staticBaseUrl}logo-mocha.svg`,
   ];
   return createBubbleGraph([
     ...createRow(1, 2, rowOne),

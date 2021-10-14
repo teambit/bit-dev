@@ -2,8 +2,6 @@ import type { PlainBubbleNode } from '@teambit/community.entity.graph.bubble-gra
 
 type Icons = Array<string | number>;
 
-const staticBaseUrl = 'https://static.bit.dev/brands/';
-
 let pluginCounter = 0;
 const getPluginID = (): string => {
   pluginCounter++;
@@ -17,7 +15,7 @@ export const createRow = (row: number, col: number, icons: Icons): PlainBubbleNo
       const bubble: PlainBubbleNode = {
         id: getPluginID(),
         payload: {
-          icon: staticBaseUrl + icon,
+          icon,
         },
         row,
         col,
