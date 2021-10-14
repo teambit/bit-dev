@@ -327,6 +327,12 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/graph/component-card-graph"
     },
+    "ui/graph/create-row": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/graph/create-row"
+    },
     "ui/graph/edge": {
         "scope": "teambit.community",
         "version": "1.2.4",
@@ -422,12 +428,6 @@
         "version": "1.2.4",
         "mainFile": "index.ts",
         "rootDir": "community/ui/pages/plugins"
-    },
-    "ui/plugins/create-row": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "community/ui/plugins/create-row"
     },
     "ui/plugins/create-section": {
         "scope": "",

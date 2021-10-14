@@ -1,5 +1,5 @@
 import { createBubbleGraph } from '@teambit/community.entity.graph.bubble-graph';
-import { createRow } from '@teambit/community.ui.plugins.create-row';
+import { createRow } from '@teambit/community.ui.graph.create-row';
 
 export function mockBubbleGraph() {
   const rowOne = [
