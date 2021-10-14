@@ -24,14 +24,20 @@ export type DocsProps = {
   /**
    * base URL for the docs route.
    */
-  baseUrl?: string
+  baseUrl?: string,
+
+  /**
+   * shows a next page box after every page unless specifically set otherwise by the route using the `showNext` property on DocsRoute. 
+   */
+  showNext?: boolean,
 } & Omit<SplitPaneProps, 'children'>;
 
-export function Docs({ routes, baseUrl = '/', ...rest }: DocsProps) {
+export function Docs({ routes, showNext = true, baseUrl = '/', ...rest }: DocsProps) {
   const { path } = useRouteMatch();
   const docRoutes = DocsRoutes.from(routes, baseUrl || path);
   const [isSidebarOpen, handleSidebarToggle] = useReducer((x) => !x, true);
   const sidebarOpenness = isSidebarOpen ? Layout.row : Layout.right;
+  const routeArray = docRoutes.getRoutes();
 
   return (
     <SplitPane
@@ -56,10 +62,11 @@ export function Docs({ routes, baseUrl = '/', ...rest }: DocsProps) {
       </HoverSplitter>
       <Pane className={styles.content}>
         <Switch>
-          {docRoutes.getRoutes().map((route, key) => {
+          {routeArray.map((route, key) => {
+            const next = routeArray[key + 1] ? routeArray[key + 1] : undefined;
             return (
               <Route key={key} path={route.absPath}>
-                <DocPage title={route.title}>{route.component}</DocPage>
+                <DocPage nextPage={next} title={route.title}>{route.component}</DocPage>
               </Route>
             );
           })}
