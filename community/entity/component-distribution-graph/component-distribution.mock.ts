@@ -3,7 +3,7 @@ import { createComponentCardGraph } from './component-graph';
 export const componentsMock = () => {
   return createComponentCardGraph([
     {
-      id: 'teambit.base-ui/ui/button',
+      id: 'teambit.base-ui/ui/button@1.0.1',
       dependencies: [],
       position: 'top',
       payload: {
@@ -16,7 +16,7 @@ export const componentsMock = () => {
     },
     {
       id: 'teambit.ecommerce/ui/store-hero@1.0.0',
-      dependencies: ['teambit.base-ui/ui/button'],
+      dependencies: ['teambit.base-ui/ui/button@1.0.1'],
       position: 'bottom',
       payload: {
         preview:
@@ -26,7 +26,7 @@ export const componentsMock = () => {
       }
     },
     {
-      id: 'teambit.ecommerce/ui/header',
+      id: 'teambit.ecommerce/ui/header@1.0.5',
       dependencies: [],
       payload: {
         preview:
@@ -36,10 +36,10 @@ export const componentsMock = () => {
       }
     },
     {
-      id: 'teambit.shoe-store/ui/pages/home',
+      id: 'teambit.shoe-store/ui/pages/home@1.7.1',
       dependencies: [
-        'teambit.ecommerce/ui/header',
-        'teambit.shoe-store/ui/shoes/shoes-card-grid'
+        'teambit.ecommerce/ui/header@1.0.5',
+        'teambit.shoe-store/ui/shoes/shoes-card-grid@1.1.2'
       ],
       position: 'bottom',
       payload: {
@@ -50,7 +50,7 @@ export const componentsMock = () => {
       }
     },
     {
-      id: 'teambit.ecommerce/ui/product/currency',
+      id: 'teambit.ecommerce/ui/product/currency@1.0.0',
       dependencies: [],
       position: 'top',
       payload: {
@@ -61,12 +61,12 @@ export const componentsMock = () => {
       }
     },
     {
-      id: 'teambit.shoe-store/ui/shoes/shoes-card',
+      id: 'teambit.shoe-store/ui/shoes/shoes-card@1.1.6',
       dependencies: [
-        'teambit.shoe-store/entity/shoes',
-        'teambit.ecommerce/ui/product/currency',
+        'teambit.shoe-store/entity/shoes@1.3.4',
+        'teambit.ecommerce/ui/product/currency@1.0.0',
         {
-          id: 'teambit.base-ui/ui/button',
+          id: 'teambit.base-ui/ui/button@1.0.1',
           edge: {
             start: 'top',
             end: 'bottom'
@@ -82,7 +82,7 @@ export const componentsMock = () => {
       }
     },
     {
-      id: 'teambit.shoe-store/entity/shoes',
+      id: 'teambit.shoe-store/entity/shoes@1.3.4',
       dependencies: [],
       position: 'top',
       payload: {
@@ -93,7 +93,7 @@ export const componentsMock = () => {
       }
     },
     {
-      id: 'teambit.shoe-store/ui/shoes/shoes-card-grid',
+      id: 'teambit.shoe-store/ui/shoes/shoes-card-grid@1.1.2',
       dependencies: [],
       position: 'bottom',
       payload: {
