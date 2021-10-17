@@ -69,6 +69,12 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/content/image"
     },
+    "content/mfe/decoupled-codebases": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/mfe/decoupled-codebases"
+    },
     "content/naming": {
         "scope": "teambit.component",
         "version": "1.6.0",
@@ -405,17 +411,17 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/pages/errors/not-found"
     },
-    "ui/pages/homepage": {
-        "scope": "teambit.community",
-        "version": "1.6.0",
-        "mainFile": "index.ts",
-        "rootDir": "community/ui/pages/homepage"
-    },
     "ui/pages/guides": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/pages/guides"
+    },
+    "ui/pages/homepage": {
+        "scope": "teambit.community",
+        "version": "1.6.0",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/pages/homepage"
     },
     "ui/pages/page": {
         "scope": "teambit.community",

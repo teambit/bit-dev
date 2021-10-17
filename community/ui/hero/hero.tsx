@@ -78,5 +78,5 @@ export function Hero({ title, bubbles, teaser }: HeroProps) {
 Hero.defaultProps = {
   title: 'Build anything in components',
   teaser:
-    'Bit helps build components and compose them into infinite features and apps. Forget monolithic apps and distribute to component-driven software. '
+    'Bit helps distribute to components and compose them into infinite features and apps. Forget monolithic apps and distribute to component-driven software. '
 };

@@ -28,7 +28,7 @@ export function Homepage({ ...rest }: HomepageProps) {
             <Hero bubbles={mockBubbleGraph()} />
           </ExcludeHighlighter>
           <ComponentDistributionSection
-            title='Distribute to components, compose apps'
+            title='Build components, compose apps'
             components={componentsMock()}
           />
           <FeaturesSection
@@ -37,7 +37,7 @@ export function Homepage({ ...rest }: HomepageProps) {
           />
           <UseCasesSection
             useCases={useCases}
-            title='That makes hard things simple.'
+            title='Make hard things simple'
             href='/'
             linkText='See more use cases'
           />
