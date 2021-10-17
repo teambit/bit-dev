@@ -1,47 +1,49 @@
-export const footerMock = [
+import { Category, CategoryProps } from '@teambit/community.ui.footer.category';
+
+export const footerMock: CategoryProps[] = [
     {
-    title: 'Follow us',
+    title: 'Follow Us',
     links: [
-        { icon: 'https://static.bit.dev/bit-logo.svg', text: 'Bit', href: 'https://bit.dev', external },
-        { icon: 'slack', text: 'Slack', href: 'https://bit.dev', external },
+        { icon: 'https://static.bit.dev/bit-logo.svg', text: 'Bit', href: 'https://bit.dev', external: true },
+        { icon: 'slack', text: 'Slack', href: 'https://bit.dev', external: true },
         { icon: 'twitter-logo', text: 'Twitter', href: '#' },
         { icon: 'github-logo', text: 'Github', href: '#' },
       ],
   },
     {
-    title: 'Follow us',
+    title: 'Open Source',
     links: [
-        { text: 'Bit', href: '#' },
-        { text: 'Slack', href: '#' },
-        { text: 'Twitter', href: '#' },
-        { text: 'Github', href: '#' },
+        { text: 'Docs', href: '#' },
+        { text: 'Getting Started', href: '#' },
+        { text: 'Tutorials', href: '#' },
+        { text: 'Discussions', href: '#' },
       ],
   },
     {
-    title: 'Follow us',
+    title: 'Bit Cloud',
     links: [
-        { text: 'Bit', href: '#' },
-        { text: 'Slack', href: '#' },
-        { text: 'Twitter', href: '#' },
-        { text: 'Github', href: '#' },
+        { text: 'Features', href: '#' },
+        { text: 'Contact Sales', href: '#' },
+        { text: 'Tutorials', href: '#' },
+        { text: 'Use Cases', href: '#' },
       ],
   },
     {
-    title: 'Follow us',
+    title: 'Community',
     links: [
-        { text: 'Bit', href: '#' },
-        { text: 'Slack', href: '#' },
-        { text: 'Twitter', href: '#' },
-        { text: 'Github', href: '#' },
+        { text: 'Contributing', href: '#' },
+        { text: 'Streams', href: '#' },
+        { text: 'Events', href: '#' },
+        { text: 'Security', href: '#' },
       ],
   },
     {
-    title: 'Follow us',
+    title: 'Company',
     links: [
-        { text: 'Bit', href: '#' },
-        { text: 'Slack', href: '#' },
-        { text: 'Twitter', href: '#' },
-        { text: 'Github', href: '#' },
+        { text: 'About Us', href: '#' },
+        { text: 'Contact Us', href: '#' },
+        { text: 'Blog', href: '#' },
+        { text: 'Careers', href: '#' },
       ],
   },
 ];
