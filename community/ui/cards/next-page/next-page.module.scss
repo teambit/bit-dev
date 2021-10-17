@@ -1,4 +1,4 @@
-.nextPage{
+.nextPageCard{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -23,7 +23,7 @@
     }
 
 }
-.text {
+.description {
     margin: 0;
     color: var(--bit-text-color-light, #6c707c);
 }
