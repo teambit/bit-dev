@@ -20,10 +20,11 @@ export function NextPage({
   description,
   buttonText = 'Continue',
   href,
+  className,
   ...rest
 }: NextPageProps) {
   return (
-    <div {...rest}>
+    <div {...rest} className={classNames(styles.nexPage, className)}>
       <Subtitle className={styles.next}>next</Subtitle>
       <Card elevation="low" className={classNames(styles.nextPageCard)}>
         <div>
@@ -34,7 +35,7 @@ export function NextPage({
           )}
           {description && <Paragraph className={styles.description}>{description}</Paragraph>}
         </div>
-        <Button href={href} className={styles.button}>{buttonText}</Button>
+        <Button href={href} className={classNames(styles.button, href && styles.link)}>{buttonText}</Button>
         {children}
       </Card>
     </div>

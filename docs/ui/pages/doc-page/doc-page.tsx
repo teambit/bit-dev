@@ -32,6 +32,7 @@ export function DocPage({ title, nextPage, children }: DocPageProps) {
           className={styles.next}
           title={nextPage.title}
           description={nextPage.description}
+          href={nextPage.absPath}
         />
       )}
     </Page>
