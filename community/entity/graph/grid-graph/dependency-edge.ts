@@ -16,7 +16,7 @@ export class DependencyEdge {
   ) {}
 
   get attrId() {
-    return getAttrValidId(this.id.toString());
+    return getAttrValidId(this.id.toStringWithoutVersion());
   }
 
   static fromPlain(dep: Dependency) {

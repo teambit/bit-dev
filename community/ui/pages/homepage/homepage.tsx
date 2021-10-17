@@ -28,7 +28,7 @@ export function Homepage({ ...rest }: HomepageProps) {
             <Hero bubbles={mockBubbleGraph()} />
           </ExcludeHighlighter>
           <ComponentDistributionSection
-            title='Build components, compose apps'
+            title='Distribute to components, compose apps'
             components={componentsMock()}
           />
           <FeaturesSection

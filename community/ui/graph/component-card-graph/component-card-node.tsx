@@ -22,7 +22,12 @@ export function ComponentCardNode({
   );
   return (
     <div id={node.attrId}>
-      <ComponentCard preview={preview && Img} id={node.id.fullName} {...rest} />
+      <ComponentCard 
+        preview={preview && Img} 
+        id={node.id.fullName} 
+        version={node.id.version} 
+        {...rest} 
+      />
     </div>
   );
 }
