@@ -10,6 +10,7 @@
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   }
   @media screen and (max-width: 768px) {
+      // this will make the first column into a row above the other columns
       > div:first-child {
         grid-column: 1 / -1;
         display: flex;
@@ -17,7 +18,7 @@
         > a {
             margin-right: 24px;
         }
-
+        // this will hide the title of the first column once it turns into a row
         > div:first-child {
             display: none;
         }
