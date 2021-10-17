@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 import { ExternalLink } from '@teambit/design.ui.external-link';
 // import { Link } from 'react-router-dom';
-import { NavLink } from "@teambit/design.ui.navigation.nav-link";
+import { Link } from "@teambit/design.ui.navigation.link";
 import { Icon } from '@teambit/design.elements.icon';
 import styles from './nav.module.scss';
 
@@ -46,7 +46,7 @@ export function NavLinks({links}: NavLinksProps) {
     <div className={styles.navLinks}>
       {links.map((link, key) => {
         const isExternal = link.href?.startsWith('http://');
-      return <NavLink key={key} external={isExternal} className={styles.link} href={link.href}>{link.title}</NavLink>})}
+        return <Link key={key} external={isExternal} className={styles.link} activeClassName={styles.active} href={link.href}>{link.title}</Link>})}
       {/* {links.map((item, index) => (
         (item.href) ?
         <Placeholder key={index} className={styles.link}>
@@ -68,13 +68,13 @@ NavLinks.defaultProps = {
   items: []
 };
 
-export type PlaceholderProps = {} & React.HTMLAttributes<HTMLDivElement>;
+// export type PlaceholderProps = {} & React.HTMLAttributes<HTMLDivElement>;
 
-function Placeholder({children, className, ...rest}: PlaceholderProps) {
-  return (
-    <div {...rest} className={classNames(styles.placeholder, className)}>
-        {children}
-      <Icon of="fat-arrow-down" className={styles.arrow} />
-    </div>
-  )
-}
+// function Placeholder({children, className, ...rest}: PlaceholderProps) {
+//   return (
+//     <div {...rest} className={classNames(styles.placeholder, className)}>
+//         {children}
+//       <Icon of="fat-arrow-down" className={styles.arrow} />
+//     </div>
+//   )
+// }
