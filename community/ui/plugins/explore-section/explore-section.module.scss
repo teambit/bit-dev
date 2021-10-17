@@ -19,12 +19,6 @@
   }
   .left {
     min-width: 576px;
-    .heading {
-      margin-bottom: 24px;
-    }
-    .subtitle {
-      margin: 0 0 40px;
-    }
     @media screen and (max-width: $br-md) {
       min-width: unset;
     }
@@ -35,6 +29,12 @@
       display: none;
     }
   }
+}
+.heading {
+  margin-bottom: 24px;
+}
+.subtitle {
+  margin: 0 0 40px;
 }
 .link {
   margin-right: 24px;

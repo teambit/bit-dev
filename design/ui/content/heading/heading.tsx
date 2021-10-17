@@ -8,7 +8,7 @@ export type Sizes = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 export type HeadingProps = {
   /**
-   * a text to be rendered in the component.
+   * an element to be rendered in the heading.
    */
   children: ReactNode;
   /**

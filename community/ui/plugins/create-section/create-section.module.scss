@@ -26,7 +26,7 @@
   max-width: 660px;
   text-align: center;
   @media screen and (max-width: $br-md) {
-    position: relative;
+    position: unset;
     top: unset;
     margin: 40px 20px;
   }
