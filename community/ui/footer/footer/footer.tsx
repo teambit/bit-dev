@@ -13,8 +13,8 @@ export function Footer({ categoryList, className }: FooterProps) {
   return (
     <div className={classNames(styles.footer, className)}>
       <div className={styles.footerLinks}>
-        {categoryList.map((cat) => {
-          return <Category {...cat} className={styles.footerCategory} />;
+        {categoryList.map((category) => {
+          return <Category {...category} key={category.title} className={styles.footerCategory} />;
         })}
       </div>
       <div className={styles.bottom}>
