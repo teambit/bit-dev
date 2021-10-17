@@ -11,6 +11,11 @@ export interface DocsRoute {
    * path for the doc in the context.
    */
   path: string;
+  
+  /**
+   * description for the next docs page
+   */
+  description?: string;
 
   /**
    * determines whether to show next page. default is determined by the Docs' component via the `showNext` prop.
