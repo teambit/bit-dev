@@ -4,7 +4,7 @@ import styles from './category.module.scss';
 
 export type CategoryProps = {
   /**
-   * a text to be rendered in the component.
+   * a category title to be rendered above the link list.
    */
   title: string;
   /**

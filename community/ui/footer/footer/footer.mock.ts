@@ -2,8 +2,8 @@ export const footerMock = [
     {
     title: 'Follow us',
     links: [
-        { icon: 'https://static.bit.dev/bit-logo.svg', text: 'Bit', href: '#' },
-        { icon: 'slack', text: 'Slack', href: '#' },
+        { icon: 'https://static.bit.dev/bit-logo.svg', text: 'Bit', href: 'https://bit.dev', external },
+        { icon: 'slack', text: 'Slack', href: 'https://bit.dev', external },
         { icon: 'twitter-logo', text: 'Twitter', href: '#' },
         { icon: 'github-logo', text: 'Github', href: '#' },
       ],
