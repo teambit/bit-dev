@@ -29,15 +29,15 @@ const headerContent = [
     href: '/docs/quick-start'
   },
   {
+    title: 'Guides',
+    href: '/guides'
+  },
+  {
     title: 'Plugins',
     href: '/plugins'
   },
   {
-    title: 'Learn',
-    href: '/learn'
-  },
-  {
     title: 'bit.cloud',
     href: 'https://bit.cloud'
-  }
+  },
 ];

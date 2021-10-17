@@ -411,6 +411,12 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/pages/homepage"
     },
+    "ui/pages/guides": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/ui/pages/guides"
+    },
     "ui/pages/page": {
         "scope": "teambit.community",
         "version": "1.6.0",

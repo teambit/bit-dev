@@ -2,6 +2,7 @@ import React from 'react';
 import loadable from '@loadable/component';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Link } from '@teambit/ui-foundation.ui.navigation.react-router.link';
+import { Guides } from '@teambit/docs.ui.pages.guides';
 import { RouterContextProvider } from '@teambit/base-react.navigation.router-context';
 import { Header } from '@teambit/community.ui.header.header';
 import { Homepage } from '@teambit/community.ui.pages.homepage';
@@ -31,6 +32,12 @@ export function BitDevApp() {
                 <Route path="/docs">
                   <WideColumn>
                     <CommunityDocs />
+                  </WideColumn>
+                </Route>
+
+                <Route path="/guides">
+                  <WideColumn>
+                    <Guides />
                   </WideColumn>
                 </Route>
                 <Route exact path="/plugins">
