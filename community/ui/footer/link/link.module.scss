@@ -1,0 +1,22 @@
+.link{
+    color: var(--bit-text-color-light, #6c707c);
+    display: flex;
+    align-items: center;
+    &:hover {
+        text-decoration: none;
+        color: var(--bit-accent-color, #6C5CE7);
+        img {
+            filter: none;
+        }
+    }
+}
+.icon {
+    margin-right: 8px;
+}
+
+.img {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    filter: grayscale(1);
+}

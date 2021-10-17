@@ -12,6 +12,7 @@ import { CommunityDocs } from '@teambit/docs.ui.community-docs';
 import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 import { ComponentHighlighter } from '@teambit/react.ui.component-highlighter';
 import { RoutingProvider } from '@teambit/base-ui.routing.routing-provider';
+import { Footer, footerMock } from '@teambit/community.ui.footer.footer';
 import { legacyRouting } from './legacy-routing';
 
 /**
@@ -26,7 +27,6 @@ export function BitDevApp() {
         <ThemeCompositions>
           <ComponentHighlighter style={{border: 'none'}}>
             <BrowserRouter>
-              {/* header component */}
               <Header />
               <Switch>
                 <Route path="/docs">
@@ -48,6 +48,9 @@ export function BitDevApp() {
                 </Route>
                 <Route component={NotFound} />
               </Switch>
+              <WideColumn>
+                <Footer categoryList={footerMock} />
+              </WideColumn>
               {/* footer component */}
             </BrowserRouter>
           </ComponentHighlighter>

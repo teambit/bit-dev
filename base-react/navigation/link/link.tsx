@@ -9,7 +9,7 @@ export type { LinkProps };
 
 export function Link(props: LinkProps) {
   const { Link } = useRouter();
-  if (Link && !props.native) {
+  if (Link && !props.native && !props.external) {
     return <Link {...props} />;
   }
 

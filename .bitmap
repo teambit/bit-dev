@@ -309,6 +309,24 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/features/features-section"
     },
+    "ui/footer/category": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/footer/category"
+    },
+    "ui/footer/footer": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/footer/footer"
+    },
+    "ui/footer/link": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/footer/link"
+    },
     "ui/github-stars": {
         "scope": "teambit.community",
         "version": "1.6.0",
