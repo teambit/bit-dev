@@ -13,7 +13,7 @@ export interface DocsRoute {
   path: string;
   
   /**
-   * description for the next docs page
+   * description for the docs page
    */
   description?: string;
 
