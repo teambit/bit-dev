@@ -1,0 +1,38 @@
+---
+description: 'Category'
+labels: ['label1', 'label2', 'label3']
+---
+
+import { Category } from './category';
+import { categoryMock } from './category.mock';
+import { FigmaEmbed } from '@teambit/design.embeds.figma';
+
+A list of links with a title, to be displayed in the footer. 
+
+Icons can be used with `icomoon` icon or with url images.
+
+```js live
+<Category
+  title="category title"
+  links={[
+    { icon: 'https://static.bit.dev/bit-logo.svg', text: 'Bit', href: '#' },
+    { icon: 'github-logo', text: 'Github', href: '#' },
+  ]}
+/>
+```
+
+link icons are optional.
+
+```js live
+<Category
+  title="category title"
+  links={[
+    { text: 'Twitter', href: '#' },
+    { text: 'Github', href: '#' },
+  ]}
+/>
+```
+
+### Design
+
+<FigmaEmbed src="url-to-figma" />

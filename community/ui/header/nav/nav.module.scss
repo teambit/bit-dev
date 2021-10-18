@@ -13,6 +13,10 @@
 .link {
     margin-right: 40px;
     font-size: inherit;
+    color: inherit;
+    &:hover {
+        text-decoration: none;
+    }
 }
 .placeholder {
     display: flex;
@@ -21,6 +25,9 @@
     .arrow {
         padding-left: 8px;
     }
+}
+.active {
+    color: var(--bit-accent-color, #6C5CE7);
 }
 .navRight {
     display: flex;

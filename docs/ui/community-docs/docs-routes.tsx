@@ -159,6 +159,7 @@ export const docsRoutes: DocsRoute[] = [
     path: 'quick-start',
     icon: 'lightning',
     title: 'Quick Start',
+    description: 'Quick Start',
     component: <QuickStart />,
   },
   {
@@ -169,11 +170,13 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'installing-bit',
         title: 'Installing Bit',
+        description: 'Installing Bit',
         component: <InstallingBit />,
       },
       {
         path: 'create-new-workspace',
         title: 'Create a new Workspace',
+        description: 'Create a new Workspace',
         component: <CreateWorkspace />,
       },
       {
@@ -184,16 +187,19 @@ export const docsRoutes: DocsRoute[] = [
           {
             path: 'creating-components',
             title: 'Creating Components',
+            description: 'Creating Components',
             component: <CreateComponents />,
           },
           {
             path: 'dev-environments',
             title: 'Dev environments',
+            description: 'Dev environments',
             component: <DevEnvs />,
           },
           {
             path: 'use-dependencies',
             title: 'Use dependencies',
+            description: 'Use dependencies',
             component: <UseDependencies />,
           },
         ],

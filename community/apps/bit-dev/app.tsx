@@ -1,6 +1,8 @@
 import React from 'react';
+import loadable from '@loadable/component';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Link } from '@teambit/ui-foundation.ui.navigation.react-router.link';
+import { Guides } from '@teambit/docs.ui.pages.guides';
 import { RouterContextProvider } from '@teambit/base-react.navigation.router-context';
 import { Header } from '@teambit/community.ui.header.header';
 import { Homepage } from '@teambit/community.ui.pages.homepage';
@@ -9,23 +11,33 @@ import { NotFound } from '@teambit/community.ui.pages.errors.not-found';
 import { CommunityDocs } from '@teambit/docs.ui.community-docs';
 import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 import { ComponentHighlighter } from '@teambit/react.ui.component-highlighter';
-import { Plugins } from '@teambit/community.ui.pages.plugins';
 import { RoutingProvider } from '@teambit/base-ui.routing.routing-provider';
+import { Footer, footerMock } from '@teambit/community.ui.footer.footer';
 import { legacyRouting } from './legacy-routing';
+
+/**
+ * Load pages dynamically to enable code splitting.
+ */
+const Plugins = loadable(() => import('@teambit/community.ui.pages.plugins'));
 
 export function BitDevApp() {
   return (
     <RoutingProvider value={legacyRouting}>
       <RouterContextProvider Link={Link}>
         <ThemeCompositions>
-          <ComponentHighlighter disabled>
+          <ComponentHighlighter style={{ border: 'none' }}>
             <BrowserRouter>
-              {/* header component */}
               <Header />
               <Switch>
                 <Route path="/docs">
                   <WideColumn>
                     <CommunityDocs />
+                  </WideColumn>
+                </Route>
+
+                <Route path="/guides">
+                  <WideColumn>
+                    <Guides />
                   </WideColumn>
                 </Route>
                 <Route exact path="/plugins">
@@ -36,6 +48,9 @@ export function BitDevApp() {
                 </Route>
                 <Route component={NotFound} />
               </Switch>
+              <WideColumn>
+                <Footer categoryList={footerMock} />
+              </WideColumn>
               {/* footer component */}
             </BrowserRouter>
           </ComponentHighlighter>

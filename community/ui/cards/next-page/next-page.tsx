@@ -9,7 +9,7 @@ import styles from './next-page.module.scss';
 
 export type NextPageProps = {
   title?: string;
-  text?: string;
+  description?: string;
   buttonText?: string;
   href?: string;
 } & React.HTMLAttributes<HTMLDivElement>;
@@ -17,24 +17,25 @@ export type NextPageProps = {
 export function NextPage({
   children,
   title,
-  text,
+  description,
   buttonText = 'Continue',
   href,
+  className,
   ...rest
 }: NextPageProps) {
   return (
-    <div {...rest}>
+    <div {...rest} className={classNames(styles.nexPage, className)}>
       <Subtitle className={styles.next}>next</Subtitle>
-      <Card elevation="low" className={classNames(styles.nextPage)}>
+      <Card elevation="low" className={classNames(styles.nextPageCard)}>
         <div>
           {title && (
-            <Heading className={classNames(styles.title, text && styles.margin)} element={Elements.H6}>
+            <Heading className={classNames(styles.title, description && styles.margin)} element={Elements.H6}>
               {title}
             </Heading>
           )}
-          {text && <Paragraph className={styles.text}>{text}</Paragraph>}
+          {description && <Paragraph className={styles.description}>{description}</Paragraph>}
         </div>
-        <Button href={href} className={styles.button}>{buttonText}</Button>
+        <Button href={href} className={classNames(styles.button, href && styles.link)}>{buttonText}</Button>
         {children}
       </Card>
     </div>
