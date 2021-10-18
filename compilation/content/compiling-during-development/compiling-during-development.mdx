@@ -1,0 +1,94 @@
+# Compiling during Development
+
+During development, Bit compiles your components using the `bit compile` and `bit watch` commands. This commands
+are providing a standard dev experience for compiling any kind of [Component](/components/overview), whether it is a NodeJS modules, a React component or anything else.
+
+Compilation of components in the [Workspace](/workspace/overview) is optimized for dev experience, performance and debugging by default.
+
+This means Source Maps <!--TODO [Source Maps](/) --> are generated and components are just transpiled (without types) into in the `node_modules` directory to ensure consistency between using a component for development or consumption purposes.
+
+:::note
+For type resolution in the Workspace we rely on the [Workspace Component Link](/workspace/component-link) which symlinks the source code from within the link to the corresponding [Component Directory](/workspace/component-directory).
+:::
+
+```bash title="workspace component link"
+├── node_modules
+    ├── @my-org
+        ├── ui.button
+          ├── dist
+              ├── index.js
+              ├── index.js.map
+              ├── button.js
+              ├── button.js.map
+          ├── ...
+```
+
+## Compile all components in the Workspace
+
+Bit allows to compile all components in the [Workspace](/workspace/overview) regardless to the configured [Env](/envs/overview) and therefore Compiler
+with a single command.
+
+```bash
+bit compile
+```
+
+<!-- ## Compile only components that changed
+
+You can also use the `--changed` flag to compile only `new` and `modified` components. Use `bit status` to learn
+which components are either `new` or `modified`.
+
+```bash
+bit compile --changed
+``` -->
+
+## Compile with a verbose output
+
+Using the `--verbose` flag you can easily which files got generated for each component and where they were
+persisted.
+
+```bash
+bit compile --verbose
+```
+
+```bash
+✔ SUCCESS	aspect-docs/variants:
+		 - /Users/ranmizrahi/Bit/docs/node_modules/@teambit/workspace.aspect-docs.variants/dist/index.js
+		 - /Users/ranmizrahi/Bit/docs/node_modules/@teambit/workspace.aspect-docs.variants/dist/index.js.map
+		 - /Users/ranmizrahi/Bit/docs/node_modules/@teambit/workspace.aspect-docs.variants/dist/variants.composition.js
+		 - /Users/ranmizrahi/Bit/docs/node_modules/@teambit/workspace.aspect-docs.variants/dist/variants.composition.js.map
+		 - /Users/ranmizrahi/Bit/docs/node_modules/@teambit/workspace.aspect-docs.variants/dist/variants.docs.mdx
+		 - /Users/ranmizrahi/Bit/docs/node_modules/@teambit/workspace.aspect-docs.variants/dist/variants.mdx.js
+		 - /Users/ranmizrahi/Bit/docs/node_modules/@teambit/workspace.aspect-docs.variants/dist/variants.mdx.js.map
+
+✔ SUCCESS	aspect-docs/yarn:
+		 - /Users/ranmizrahi/Bit/docs/node_modules/@teambit/dependencies.aspect-docs.yarn/dist/index.js
+		 - /Users/ranmizrahi/Bit/docs/node_modules/@teambit/dependencies.aspect-docs.yarn/dist/index.js.map
+		 - /Users/ranmizrahi/Bit/docs/node_modules/@teambit/dependencies.aspect-docs.yarn/dist/yarn.composition.js
+		 - /Users/ranmizrahi/Bit/docs/node_modules/@teambit/dependencies.aspect-docs.yarn/dist/yarn.composition.js.map
+		 - /Users/ranmizrahi/Bit/docs/node_modules/@teambit/dependencies.aspect-docs.yarn/dist/yarn.docs.mdx
+		 - /Users/ranmizrahi/Bit/docs/node_modules/@teambit/dependencies.aspect-docs.yarn/dist/yarn.mdx.js
+		 - /Users/ranmizrahi/Bit/docs/node_modules/@teambit/dependencies.aspect-docs.yarn/dist/yarn.mdx.js.map
+
+
+✔ 20/20 components compiled successfully.
+```
+
+## Watch for changes and recompile
+
+Watching for component changes and recompiling can be done with a single command.
+
+```bash
+bit watch
+```
+
+Watch starts by default when starting the [Workspace](/workspace/overview) UI.
+
+```bash
+bit start
+```
+
+## CLI References
+
+- [bit compile](/reference/cli-reference#compile)
+- [bit watch](/reference/cli-reference#watch)
+- [bit start](/reference/cli-reference#start)

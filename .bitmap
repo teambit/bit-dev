@@ -27,11 +27,89 @@
         "mainFile": "index.ts",
         "rootDir": "workspace/content/bitmap"
     },
+    "content/cli-reference": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "harmony/content/cli-reference"
+    },
     "content/code-splitting": {
         "scope": "teambit.react",
         "version": "1.2.4",
         "mainFile": "index.ts",
         "rootDir": "react/content/code-splitting"
+    },
+    "content/compiler-overview": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "compilation/content/compiler-overview"
+    },
+    "content/compiling-during-build": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "compilation/content/compiling-during-build"
+    },
+    "content/compiling-during-development": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "compilation/content/compiling-during-development"
+    },
+    "content/configure-env-with-compiler": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "compilation/content/configure-env-with-compiler"
+    },
+    "content/configure-env-with-formatter": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "defender/content/configure-env-with-formatter"
+    },
+    "content/configure-env-with-linter": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "defender/content/configure-env-with-linter"
+    },
+    "content/configure-env-with-tester": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "defender/content/configure-env-with-tester"
+    },
+    "content/configure-webpack": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "webpack/content/configure-webpack"
+    },
+    "content/dev-services-overview": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "envs/content/dev-services-overview"
+    },
+    "content/formatter-overview": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "defender/content/formatter-overview"
+    },
+    "content/formatting-during-build": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "defender/content/formatting-during-build"
+    },
+    "content/formatting-during-development": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "defender/content/formatting-during-development"
     },
     "content/getting-started/composing/create-components": {
         "scope": "teambit.community",
@@ -69,11 +147,77 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/content/image"
     },
+    "content/implement-compiler": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "compilation/content/implement-compiler"
+    },
+    "content/implement-formatter": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "defender/content/implement-formatter"
+    },
+    "content/implement-linter": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "defender/content/implement-linter"
+    },
+    "content/implement-tester": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "defender/content/implement-tester"
+    },
+    "content/linter-overview": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "defender/content/linter-overview"
+    },
+    "content/linting-during-build": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "defender/content/linting-during-build"
+    },
+    "content/linting-during-development": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "defender/content/linting-during-development"
+    },
+    "content/multi-compiler": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "compilation/content/multi-compiler"
+    },
     "content/naming": {
         "scope": "teambit.component",
         "version": "1.2.4",
         "mainFile": "index.ts",
         "rootDir": "component/content/naming"
+    },
+    "content/preview-during-build": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "preview/content/preview-during-build"
+    },
+    "content/preview-during-development": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "preview/content/preview-during-development"
+    },
+    "content/preview-overview": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "preview/content/preview-overview"
     },
     "content/quick-start": {
         "scope": "teambit.docs",
@@ -87,6 +231,12 @@
         "mainFile": "index.ts",
         "rootDir": "react/content/react-router"
     },
+    "content/register-custom-preview": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "preview/content/register-custom-preview"
+    },
     "content/scope-overview": {
         "scope": "",
         "version": "",
@@ -98,6 +248,24 @@
         "version": "1.2.4",
         "mainFile": "index.ts",
         "rootDir": "react/content/server-side-rendering"
+    },
+    "content/tester-overview": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "defender/content/tester-overview"
+    },
+    "content/testing-during-build": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "defender/content/testing-during-build"
+    },
+    "content/testing-during-development": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "defender/content/testing-during-development"
     },
     "content/video": {
         "scope": "teambit.base-react",
@@ -482,6 +650,12 @@
         "version": "1.2.4",
         "mainFile": "index.ts",
         "rootDir": "community/ui/use-cases/use-cases-section"
+    },
+    "ui/zoomable-image": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/ui/zoomable-image"
     },
     "urls/compare-url": {
         "scope": "teambit.ui-foundation",

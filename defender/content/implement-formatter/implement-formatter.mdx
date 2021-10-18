@@ -1,0 +1,106 @@
+# Implement a Formatter
+
+Standard formatter like [Prettier](https://prettier.io/) are integrated into Bit using a Bit Aspect <!-- TODO: add link -->. For example, the [Prettier Aspect](https://bit.dev/teambit/defender/prettier).
+These Aspects implement the [Formatter's interface](https://bit.dev/teambit/defender/formatter/~code/formatter.ts).
+
+The easiest way to start implementing a [Formatter](/formatter/overview) is to create a new Bit Aspect using the `Aspect` template:
+
+```
+bit create aspect extensions/my-formatter
+```
+
+## Main runtime file
+
+The aspect main runtime (e.g, `my-formatter.main.ts`) should have the following methods:
+
+### createFormatter
+
+Create an instance of a class that should implement the [`Formatter` interface](https://bit.dev/teambit/defender/formatter/~code/formatter.ts). This is usually implemented in a file called `<formatter-name>.formatter.ts`
+
+```js
+/**
+ * create a prettier formatter instance.
+ * @param options prettier options.
+ * @param PrettierModule reference to an `prettier` module.
+ */
+createFormatter(
+  context: FormatterContext,
+  options: PrettierOptions,
+  transformers: PrettierConfigTransformer[] = [],
+  PrettierModule?: any
+): Formatter {
+  const configMutator = new PrettierConfigMutator(options.config);
+  const transformerContext: PrettierConfigTransformContext = { check: !!context.check };
+  const afterMutation = runTransformersWithContext(configMutator.clone(), transformers, transformerContext);
+  return new PrettierFormatter(this.logger, afterMutation.raw, PrettierModule);
+}
+```
+
+<!-- Add createTask method once it's implemented in the code -->
+
+The formatter should know to handle both - [format in workspace](./workspace-formatting) and for [build](./format-during-build) <!-- TODO: add link -->
+
+## Implementation file
+
+The formatter implementation uses the `formatter` extension as a convention. For example, `my-formatter.formatter.ts`.
+
+### Linting in the Workspace
+
+The formatter should implement `format` and `check` methods.
+
+#### format
+
+Run the formatter and change the files on the file system
+
+```js
+format(context: FormatterContext): Promise<FormatResults>;
+```
+
+#### check
+
+Run the formatter but _do not_ change the files on the file system
+
+```js
+check(context: FormatterContext): Promise<FormatResults>;
+```
+
+The `formatterContext` contains the regular `ExecutionContext` <!--TODO add link --> and the `formatterOptions`.
+
+## FormatResults
+
+```js
+type FormatResults = {
+  results: ComponentFormatResult[],
+  errors: Error[],
+};
+
+type ComponentFormatResult = {
+  /**
+   * the formatted component.
+   */
+  component: Component,
+
+  results: FileFormatResult[],
+};
+
+type FileFormatResult = {
+  /**
+   * path of the formatted file.
+   */
+  filePath: string,
+
+  /**
+   * Does the file has formatting issues (needs format)
+   */
+  hasIssues: boolean,
+
+  /**
+   * The new file content after the formatting
+   */
+  newContent?: string,
+};
+```
+
+### Formatting during build
+
+Formatting during build will soon be available.

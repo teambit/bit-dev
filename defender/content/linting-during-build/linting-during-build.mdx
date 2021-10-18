@@ -1,0 +1,25 @@
+# Linting during Build
+
+By default, linting is **not** part of the [Build Pipeline](/builder/build-pipelines).
+
+During build, the lint task is only used for checking linting issues. it will not re-write the components with the auto fix option.
+In case you want to use the auto fix option for your components, you should use the `bit lint --fix` command on your workspace.
+
+## Adding a linter task to your build pipeline
+
+To add your lint task to your build pipeline you need to add its task into the build pipeline using the `getBuildPipe` of your env:
+(built in envs come with an API to only add new tasks to their existing pipe)<!-- TODO: add link here -->
+
+```ts
+  getBuildPipe(modifiers: GetBuildPipeModifiers = {}): BuildTask[] {
+    return [...someTasks, linterTask];
+  }
+```
+
+To implement your own linter, [see here](#).<!-- TODO: add link here -->
+
+## CLI References
+
+- [bit build](/reference/cli-reference#build)
+- [bit tag](/reference/cli-reference#tag)
+- [bit snap](/reference/cli-reference#snap)
