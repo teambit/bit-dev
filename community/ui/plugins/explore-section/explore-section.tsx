@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 import { Separator } from '@teambit/base-ui.elements.separator';
 import { Subtitle } from '@teambit/design.ui.content.subtitle';
 import { Link } from '@teambit/design.ui.navigation.link';
 import { Icon } from '@teambit/design.elements.icon';
+import { IconText } from '@teambit/design.ui.input.icon-text';
 import { Heading } from '@teambit/community.ui.heading';
 import { BubbleGraph } from '@teambit/community.ui.graph.bubble-graph';
 import type { BubbleNodeProps } from '@teambit/community.ui.graph.bubble-graph';
@@ -23,19 +24,38 @@ export type ExploreSectionProps = {
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export function ExploreSection({ heading, subtitle, className, ...rest }: ExploreSectionProps) {
+  const [searchValue, setSearchValue] = useState('');
+
+  const onSearch = () => {
+    window.open(`https://bit.dev/components?packageDependencies=%40teambit%2Fharmony&q=${searchValue}`);
+  };
+
+  const onSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => setSearchValue(e.target.value);
+
   return (
     <section className={classNames(styles.exploreSection, className)} {...rest}>
       <div className={styles.content}>
         <div className={styles.left}>
           <Heading className={styles.heading}>{heading}</Heading>
           <Subtitle className={styles.subtitle}>{subtitle}</Subtitle>
-          <Link href="https://bit.dev/components?env=aspect" external className={styles.link}>
-            Browse plugins
-            <Icon of="right-arrow" className={styles.icon} />
-          </Link>
-          <Link href="/docs/extending-bit/create-a-plugin" className={styles.link}>
-            Create a new plugin <Icon of="right-arrow" className={styles.icon} />
-          </Link>
+          {/* ui/search/search-input  */}
+          <IconText
+            placeholder="Search plugins"
+            filled
+            className={styles.searchInput}
+            onIconClick={onSearch}
+            value={searchValue}
+            onChange={onSearchChange}
+          />
+          <div>
+            <Link href="https://bit.dev/components?env=aspect" external className={styles.link}>
+              Browse plugins
+              <Icon of="right-arrow" className={styles.icon} />
+            </Link>
+            <Link href="/docs/extending-bit/create-a-plugin" className={styles.link}>
+              Create a new plugin <Icon of="right-arrow" className={styles.icon} />
+            </Link>
+          </div>
         </div>
         <BubbleGraph
           Node={ComponentBubbleNonInteractive}

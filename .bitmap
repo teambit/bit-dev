@@ -303,6 +303,12 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/features/features-section"
     },
+    "ui/gallery/component-card-group": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "explorer/ui/gallery/component-card-group"
+    },
     "ui/github-stars": {
         "scope": "teambit.community",
         "version": "1.6.0",
