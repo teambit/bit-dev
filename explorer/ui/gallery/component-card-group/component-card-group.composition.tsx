@@ -27,29 +27,22 @@ const mockData: ComponentCardProps[] = [
     preview: <ComponentCardPreview src={`${staticBrandsBaseUrl}logo-nodejs.svg`} />,
   },
   {
-    id: 'teambit.angular/angular',
+    id: 'teambit.harmony/aspect',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum fdfd',
     envIcon: `${staticEnvBaseUrl}default.svg`,
-    preview: <ComponentCardPreview src={`${staticBrandsBaseUrl}logo-angular.svg`} />,
-  },
-  {
-    id: 'teambit.web-components/lit',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum fdfd',
-    envIcon: `${staticEnvBaseUrl}default.svg`,
-    preview: <ComponentCardPreview src={`${staticBrandsBaseUrl}logo-lit.svg`} />,
   },
   {
     id: 'teambit.harmony/aspect',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum fdfd',
     envIcon: `${staticEnvBaseUrl}default.svg`,
-    preview: <ComponentCardPreview src={`${staticEnvBaseUrl}default.svg`} />,
-  },
-  {
-    id: 'teambit.harmony/aspect',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum fdfd',
-    envIcon: `${staticEnvBaseUrl}default.svg`,
-    //preview: <ComponentCardPreview src={`${staticEnvBaseUrl}default.svg`} />,
+    preview: <div>hello world</div>,
   },
 ];
 
-export const BasicComponentCardGroup = () => <ComponentCardGroup title="My Components" components={mockData} />;
+export const BasicComponentCardGroup = () => (
+  <ComponentCardGroup title="My Components" components={mockData} data-testid="component-card-group" />
+);
+
+BasicComponentCardGroup.canvas = {
+  width: 1000,
+};

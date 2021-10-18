@@ -37,7 +37,11 @@
   margin: 0 0 40px;
 }
 .searchInput {
+  width: 320px;
   margin-bottom: 40px;
+  @media screen and (max-width: $br-xs) {
+    width: unset;
+  }
 }
 .link {
   margin-right: 24px;

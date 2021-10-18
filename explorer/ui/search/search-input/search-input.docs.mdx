@@ -1,0 +1,22 @@
+---
+description: 'Styled input with search icon.'
+labels: ['input', 'search']
+---
+
+import { useState } from 'react';
+import { SearchInput } from './search-input';
+
+A Input component used for search use cases.  
+Use `onIconClick` prop to pass a function when the search icon is clicked.  
+Supports all props from native html input.
+
+### Component usage
+
+```js live
+() => {
+  const [value, setvalue] = useState('');
+  return (
+    <SearchInput value={value} onChange={(e) => setvalue(e.target.value)} onIconClick={() => alert('on icon click')} />
+  );
+};
+```

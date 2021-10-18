@@ -6,7 +6,7 @@ import type { ComponentCardProps } from '@teambit/explorer.ui.gallery.component-
 
 export type ComponentCardGroupProps = {
   /**
-   * title of the group
+   * title for the group.
    */
   title?: string;
 

@@ -1,24 +1,24 @@
 ---
-description: 'A ComponentCardGroup component.'
-labels: ['label1', 'label2', 'label3']
+description: 'A group of components.'
+labels: ['components', 'group', 'card']
 ---
 
 import { ComponentCardGroup } from './component-card-group';
 
-## React Component for rendering text
-
-A basic div that renders some text
+A components that renders a group of components with a title.
 
 ### Component usage
 
-```js
-<ComponentCardGroup text="hello from ComponentCardGroup" />
-```
-
-### Using props to customize the text
-
-Modify the text to see it change live:
-
-```js
-<ComponentCardGroup text="hello from ComponentCardGroup" />
+```js live
+<ComponentCardGroup
+  title="My Components"
+  components={[
+    {
+      id: 'teambit.harmony/aspect',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum fdfd',
+      envIcon: 'https://static.bit.dev/extensions-icons/default.svg',
+      preview: <div>hello world</div>,
+    },
+  ]}
+/>
 ```
