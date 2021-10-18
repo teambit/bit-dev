@@ -15,21 +15,25 @@ export const docsRoutes: DocsRoute[] = [
   {
     path: 'quick-start',
     title: 'Quick Start',
+    description: 'Quick Start',
     component: <QuickStart />
   },
   {
     path: 'getting-started',
     title: 'Getting Started',
+    
     icon: 'workspace',
     children: [
       {
         path: 'installing-bit',
         title: 'Installing Bit',
+        description: 'Installing Bit',
         component: <InstallingBit />
       },
       {
         path: 'create-new-workspace',
         title: 'Create a new Workspace',
+        description: 'Create a new Workspace',
         component: <CreateWorkspace />
       },
       {
@@ -40,16 +44,19 @@ export const docsRoutes: DocsRoute[] = [
           {
             path: 'creating-components',
             title: 'Creating Components',
+            description: 'Creating Components',
             component: <CreateComponents />
           },
           {
             path: 'dev-environments',
             title: 'Dev environments',
+            description: 'Dev environments',
             component: <DevEnvs />        
           },
           {
             path: 'use-dependencies',
             title: 'Use dependencies',
+            description: 'Use dependencies',
             component: <UseDependencies />
           }        
         ]
@@ -64,6 +71,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'bitmap',
         title: 'bitmap',
+        description: 'bitmap',
         component: <Bitmap />
       }
     ]
@@ -76,6 +84,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'overview',
         title: 'Overview',
+        description: 'Overview',
         component: <ScopeOverview />
       }
     ]

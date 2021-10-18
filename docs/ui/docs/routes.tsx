@@ -4,6 +4,7 @@ import { DocsRoute } from './docs-route';
 
 export type Route = {
   title: string;
+  description?: string;
   absPath: string;
   component: ReactNode
 };
@@ -74,6 +75,7 @@ export class DocsRoutes {
 
     return [{
       title: currentRoute.title,
+      description: currentRoute.description,
       absPath: [
         this.basePath,
         this.accumulatePath(currentRoute.path, parentPath)

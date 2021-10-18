@@ -69,6 +69,12 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/content/image"
     },
+    "content/mfe/decoupled-codebases": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/mfe/decoupled-codebases"
+    },
     "content/naming": {
         "scope": "teambit.component",
         "version": "1.6.0",
@@ -303,11 +309,29 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/features/features-section"
     },
+    "ui/footer/category": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/footer/category"
+    },
     "ui/gallery/component-card-group": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "explorer/ui/gallery/component-card-group"
+    },
+    "ui/footer/footer": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/footer/footer"
+    },
+    "ui/footer/link": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/footer/link"
     },
     "ui/github-stars": {
         "scope": "teambit.community",
@@ -416,6 +440,12 @@
         "version": "1.6.0",
         "mainFile": "index.ts",
         "rootDir": "community/ui/pages/errors/not-found"
+    },
+    "ui/pages/guides": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/ui/pages/guides"
     },
     "ui/pages/homepage": {
         "scope": "teambit.community",
