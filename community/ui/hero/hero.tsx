@@ -32,7 +32,11 @@ export type HeroProps = {
   bubbles: BubbleNode[];
 };
 
-export function Hero({ title, bubbles, teaser }: HeroProps) {
+export function Hero({
+  title = 'Build anything in components',
+  teaser = 'Bit helps distribute to components and compose them into infinite features and apps. Forget monolithic apps and distribute to component-driven software. ',
+  bubbles,
+}: HeroProps) {
   const { heroState, setStateFromTime } = useHeroState();
   const headingClass =
     heroState === HeroState.HEADING_UPDATED ? styles.highlight : "";
@@ -74,9 +78,3 @@ export function Hero({ title, bubbles, teaser }: HeroProps) {
     </WideColumn>
   );
 }
-
-Hero.defaultProps = {
-  title: 'Build anything in components',
-  teaser:
-    'Bit helps distribute to components and compose them into infinite features and apps. Forget monolithic apps and distribute to component-driven software. '
-};
