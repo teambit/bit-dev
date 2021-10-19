@@ -1,0 +1,24 @@
+---
+description: 'A grid of component cards with an optional group title.'
+labels: ['components', 'group', 'card']
+---
+
+import { ComponentCardGroup } from './component-card-group';
+
+Renders a grid of component cards with an optional title above the group.
+
+### Component usage
+
+```js live
+<ComponentCardGroup
+  title="My Components"
+  components={[
+    {
+      id: 'teambit.harmony/aspect',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum fdfd',
+      envIcon: 'https://static.bit.dev/extensions-icons/default.svg',
+      preview: <div>hello world</div>,
+    },
+  ]}
+/>
+```

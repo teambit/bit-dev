@@ -2,8 +2,9 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { BasicHomepage } from './homepage.composition';
 
-it.skip('should render with the correct text', () => {
-  const { getByText } = render(<BasicHomepage />);
-  const rendered = getByText('Build in components');
-  expect(rendered).toBeTruthy();
+//@TODO
+it.skip('should be in the document', () => {
+  const { getByTestId } = render(<BasicHomepage />);
+  const rendered = getByTestId('home-page');
+  expect(rendered).toBeInTheDocument();
 });

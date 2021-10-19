@@ -1,0 +1,55 @@
+@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
+
+.exploreSection {
+  max-width: 1440px;
+  margin: auto;
+}
+.content {
+  display: flex;
+  margin: 40px 0;
+  @media screen and (max-width: $br-md) {
+    margin-right: 20px;
+  }
+  @media screen and (max-width: $br-xl) {
+    margin-left: 20px;
+  }
+  .left,
+  .right {
+    flex: 1;
+  }
+  .left {
+    min-width: 576px;
+    @media screen and (max-width: $br-md) {
+      min-width: unset;
+    }
+  }
+  .right {
+    overflow: hidden;
+    @media screen and (max-width: $br-md) {
+      display: none;
+    }
+  }
+}
+.heading {
+  margin-bottom: 24px;
+}
+.subtitle {
+  margin: 0 0 40px;
+}
+.searchInput {
+  width: 320px;
+  margin-bottom: 40px;
+  @media screen and (max-width: $br-xs) {
+    width: unset;
+  }
+}
+.link {
+  margin-right: 24px;
+  .icon {
+    margin-left: 8px;
+  }
+}
+.gridGraph {
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}

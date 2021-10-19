@@ -58,6 +58,7 @@
         "@teambit/application.netlify": "0.0.7",
         "@teambit/base-ui.constants.storage": "1.0.0",
         "@teambit/base-ui.elements.image": "1.0.0",
+        "@teambit/base-ui.elements.separator": "1.1.0",
         "@teambit/base-ui.graph.tree.indent": "1.0.0",
         "@teambit/base-ui.graph.tree.inflate-paths": "1.0.0",
         "@teambit/base-ui.graph.tree.recursive-tree": "1.0.0",
@@ -81,6 +82,7 @@
         "@teambit/design.ui.error-page": "0.0.350",
         "@teambit/design.ui.external-link": "0.0.344",
         "@teambit/design.ui.heading": "1.0.5",
+        "@teambit/design.ui.input.icon-text": "0.0.7",
         "@teambit/design.ui.message-card": "1.0.4",
         "@teambit/design.ui.styles.ellipsis": "0.0.345",
         "@teambit/documenter.theme.theme-compositions": "4.1.1",
@@ -107,6 +109,7 @@
         "classnames": "2.3.1",
         "millify": "4.0.0",
         "react-helmet": "6.1.0",
+        "react-json-view": "1.21.3",
         "react-medium-image-zoom": "4.3.5",
         "react-router-dom": "5.2.0",
         "react-terminal": "1.2.1",
@@ -201,6 +204,11 @@
     },
     "compositions": {
       "defaultScope": "teambit.compositions"
+    },
+    "explorer/ui": {
+      "teambit.community/envs/community-react": "-",
+      "teambit.react/react": {},
+      "defaultScope": "teambit.explorer"
     }
   }
 }
