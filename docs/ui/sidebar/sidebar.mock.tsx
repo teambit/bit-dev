@@ -1,3 +1,7 @@
+import React from 'react'
+
+const CustomImg = <img style={{width: 16, marginRight: 8}} src='https://bitsrc.imgix.net/bf5970b9b97dfb045867dd2842eaefd1e623e328.png?size=35&w=70&h=70&crop=faces&fit=crop&bg=fff' />;
+
 export const sidebarMock = {
   id: '',
   children: [
@@ -10,11 +14,17 @@ export const sidebarMock = {
     },
     {
       id: 'getting-started',
+      payload: {
+        icon: 'https://static.bit.dev/bit-logo.svg',
+        title: 'Getting Started',
+        path: '/docs/getting-started/getting-started',
+      },
       children: [
         {
           id: 'installing-bit',
           payload: {
             open: false,
+            icon: 'workspace',
             title: 'Installing Bit',
             path: '/docs/getting-started/installing-bit',
           },
@@ -75,6 +85,12 @@ export const sidebarMock = {
         },
         {
           id: 'composing',
+          payload: {
+            open: false,
+            icon: CustomImg,
+            title: 'Composing',
+            path: '/docs/getting-started/composing/composing',
+          },
           children: [
             {
               id: 'creating-components',
@@ -98,18 +114,8 @@ export const sidebarMock = {
               },
             },
           ],
-          payload: {
-            open: false,
-            title: 'Composing',
-            path: '/docs/getting-started/composing/composing',
-          },
         },
       ],
-      payload: {
-        icon: 'workspace',
-        title: 'Getting Started',
-        path: '/docs/getting-started/getting-started',
-      },
     },
   ],
 };
