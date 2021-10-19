@@ -399,6 +399,12 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/hooks/use-stars"
     },
+    "ui/layouts/sections/left-right": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "design/ui/layouts/sections/left-right"
+    },
     "ui/layouts/sections/section-group": {
         "scope": "",
         "version": "",
@@ -482,6 +488,12 @@
         "version": "1.6.0",
         "mainFile": "index.ts",
         "rootDir": "community/ui/sections/component-distribution"
+    },
+    "ui/sections/left-right": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/sections/left-right"
     },
     "ui/sections/top-down": {
         "scope": "",

@@ -248,6 +248,15 @@ importers:
   community/ui/features/features-section:
     specifiers: {}
 
+  community/ui/footer/category:
+    specifiers: {}
+
+  community/ui/footer/footer:
+    specifiers: {}
+
+  community/ui/footer/link:
+    specifiers: {}
+
   community/ui/github-stars:
     specifiers: {}
 
@@ -276,6 +285,9 @@ importers:
     specifiers: {}
 
   community/ui/hero:
+    specifiers: {}
+
+  community/ui/homepage/sections/distribution:
     specifiers: {}
 
   community/ui/hooks/use-stars:
@@ -339,6 +351,9 @@ importers:
     specifiers: {}
 
   design/ui/content/subtitle:
+    specifiers: {}
+
+  design/ui/layouts/sections/section-group:
     specifiers: {}
 
   design/ui/layouts/sections/top-down:

@@ -14,6 +14,7 @@ import { StickyMenu } from '@teambit/community.ui.sticky-menu';
 import { Page } from '@teambit/base-react.pages.page';
 import { Distribution } from '@teambit/community.ui.homepage.sections.distribution';
 import styles from './homepage.module.scss';
+import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 
 export type HomepageProps = {} & React.HTMLAttributes<HTMLDivElement>;
 
@@ -29,7 +30,7 @@ export function Homepage({ ...rest }: HomepageProps) {
             <Hero bubbles={mockBubbleGraph()} />
           </ExcludeHighlighter>
           <ComponentDistributionSection
-            title='Build components, compose apps'
+            title='From monoliths to component-driven'
             components={componentsMock()}
           />
           <FeaturesSection
@@ -47,31 +48,33 @@ export function Homepage({ ...rest }: HomepageProps) {
           <LogoShowcase className={styles.imgStrip} images={logoList} />
         </div>
       </section>
-      <StickyMenu
-        links={[
-          {
-            href: '#distribution',
-            text: 'Distribution',
-          },
-          {
-            href: '#standardization',
-            text: 'Standardization',
-          },
-          {
-            href: '#collaboration',
-            text: 'Collaboration',
-          },
-          {
-            href: '#Standardize',
-            text: 'Autonomy',
-          },
-          {
-            href: '#extend',
-            text: 'Extendability',
-          },
-        ]}
-      />
-      {/* <Distribution /> */}
+      <WideColumn>
+        <StickyMenu
+          links={[
+            {
+              href: '#distribution',
+              text: 'Distribution',
+            },
+            {
+              href: '#standardization',
+              text: 'Standardization',
+            },
+            {
+              href: '#collaboration',
+              text: 'Collaboration',
+            },
+            {
+              href: '#Standardize',
+              text: 'Autonomy',
+            },
+            {
+              href: '#extend',
+              text: 'Extendability',
+            },
+          ]}
+        />
+      </WideColumn>
+      <Distribution />
     </Page>
   );
 }
