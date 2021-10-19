@@ -1,7 +1,7 @@
 export const features = [
   {
-    title: 'Distributed',
-    text: 'Component ownership is distributed across developer teams',
+    title: 'Scalable',
+    text: 'Component ownership can be distributed across developer teams',
     image: 'https://static.bit.dev/Community/features/distributed.svg',
     alt: 'distributed'
   },
@@ -12,14 +12,14 @@ export const features = [
     alt: 'maintainable'
   },
   {
-    title: 'Visible',
+    title: 'Consistent',
     text: 'Every component is developed in isolation and is its own package.',
     image: 'https://static.bit.dev/Community/features/visibile.svg',
     alt: 'visible'
   },
   {
-    title: 'Reusable',
-    text: 'Every component is a reusable API which can be used to collaborate with anyone.',
+    title: 'Faster',
+    text: 'Compose existing components into new ones instead of reinventing the same wheels.',
     image: 'https://static.bit.dev/Community/features/reusable.svg',
     alt: 'reusable'
   }

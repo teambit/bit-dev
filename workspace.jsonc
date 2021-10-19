@@ -1,7 +1,7 @@
 /**
  * this is the main configuration file of your bit workspace.
  * for full documentation, please see: https://harmony-docs.bit.dev/workspace/configurations
- **/ {
+ **/{
   "$schema": "https://static.bit.dev/teambit/schemas/schema.json",
   /**
    * main configuration of the Bit workspace.
@@ -100,6 +100,7 @@
         "@teambit/ui-foundation.ui.react-router.nav-link": "0.0.441",
         "@teambit/ui-foundation.ui.tree.folder-tree-node": "0.0.446",
         "@teambit/ui-foundation.ui.tree.tree-node": "0.0.448",
+        "@teambit/ui.mdx-layout": "0.0.368",
         "@testing-library/react-hooks": "7.0.1",
         "@types/react-helmet": "6.1.2",
         "@types/react-router-dom": "5.1.7",
@@ -119,7 +120,9 @@
       }
     },
     "packageManagerArgs": [],
-    "devFilePatterns": ["**/*.spec.ts"],
+    "devFilePatterns": [
+      "**/*.spec.ts"
+    ],
     "strictPeerDependencies": true,
     "installFromBitDevRegistry": true,
     "savePrefix": ""

@@ -11,17 +11,17 @@ export type LeftRightProps = {
    * component to render on the right side of the layout.
    */
   right: ReactNode
-} & React.HTMLAttributes<HTMLDivElement>;
+} & React.HTMLAttributes<HTMLElement>;
 
 export function LeftRight({ left, right, ...rest }: LeftRightProps) {
   return (
-    <div className={styles.leftRight} {...rest}>
+    <section className={styles.leftRight} {...rest}>
       <div>
         {left}
       </div>
       <div>
         {right}
       </div>
-    </div>
+    </section>
   );
 }

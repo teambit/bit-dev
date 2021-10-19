@@ -56,12 +56,12 @@ export function Homepage({ ...rest }: HomepageProps) {
               text: 'Distribution',
             },
             {
-              href: '#standardization',
-              text: 'Standardization',
-            },
-            {
               href: '#collaboration',
               text: 'Collaboration',
+            },
+            {
+              href: '#standardization',
+              text: 'Standardization',
             },
             {
               href: '#Standardize',

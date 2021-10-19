@@ -605,8 +605,8 @@ export const docsRoutes: DocsRoute[] = [
     ],
   },
   {
-    path: 'bit-integrations',
-    title: 'Bit Integrations',
+    path: 'integrations',
+    title: 'Integrations',
     icon: 'sort',
     children: [
       {
