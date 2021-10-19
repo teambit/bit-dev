@@ -1,0 +1,87 @@
+# Doc Templates
+
+Doc templates display doc files content using a specific layout. This layout may also be enriched with additional data provided by the template.
+Templates are set by Envs to provide doc layout that best fits the Envs components.
+
+For example, the React Env uses the [`@teambit/react.ui.docs-app`](https://bit.dev/teambit/react/ui/docs-app) template to display react docs.
+This template is able to render React components, and provides layout and theme for MDX files. This template also enriches the docs with a 'property table' that presents the components prop types. The data for the property table is fetched by this template.
+
+## Setting a doc template
+
+To set your own template, create a new Env (or extend and existing one), and implement the `getDocsTemplate()` [service handler](/envs/services/dev-services-overview#service-handlers).
+
+```ts
+getDocsTemplate(...args : any[]): string
+```
+
+`getDocsTemplate` should return the path to the documentation template files.
+
+For example:
+
+```ts title="my-react.env.ts"
+import { DevEnv } from '@teambit/envs';
+
+// ...
+
+export class MyReactEnv implements DevEnv {
+  // ...
+
+  getDocsTemplate() {
+    return require.resolve('./docs');
+  }
+}
+```
+
+See the DevServer service to learn how customize the bundling of the docs in development.
+
+See the Bundler service to learn how to customize the bundling of the docs for distribution.
+
+## Creating a doc template
+
+### Rendering function
+
+The template should have a main file (usually, `index.*`) that exports, as default, a function that handles the rendering of that template.
+
+For example:
+
+```tsx title="docs/index.tsx"
+// ...
+
+export default function DocsRoot(
+  Provider: React.ComponentType | undefined,
+  componentId: string,
+  docs: DocsFile | undefined,
+  compositions: any,
+  context: RenderingContext
+) {
+  ReactDOM.render(
+    <DocsApp
+      Provider={Provider}
+      compositions={compositions}
+      docs={docs}
+      componentId={componentId}
+      renderingContext={context}
+    />,
+    document.getElementById('root')
+  );
+}
+```
+
+### Rendering function arguments
+
+The Docs Aspect invokes the rendering function and passes the following arguments:
+
+1. `React.ComponentType | undefined` - a "provider component" to wrap the template with (used only in React-based templates).
+2. `string` - the component ID
+3. [`DocsFile`](#the-docsfile-argument-the-docs-file-data) - data extracted from the component's docs file
+4. [`Record<string, any>`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type) - the component compositions
+5. `RenderingContext`
+
+#### The `DocsFile` argument (the docs file data)
+
+The `DocsFile` object, passed by the Docs Aspect, contains the data from the docs file. It consists of the following fields:
+
+- `default?: any` - the docs file ['content'](/overview#content) section.
+- [`examples: Example[]`](/overview#live-examples) - the docs file ['live examples'](/overview#live-examples).
+- `labels: string[]` - the docs file ['labels'](/overview#labels).
+- `abstract: string` - the docs file ['abstract'](/overview#abstract) (component description).

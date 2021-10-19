@@ -1,7 +1,7 @@
 /**
  * this is the main configuration file of your bit workspace.
  * for full documentation, please see: https://harmony-docs.bit.dev/workspace/configurations
- **/{
+ **/ {
   "$schema": "https://static.bit.dev/teambit/schemas/schema.json",
   /**
    * main configuration of the Bit workspace.
@@ -77,6 +77,7 @@
         "@teambit/component.modules.component-url": "0.0.71",
         "@teambit/design.elements.icon": "1.0.4",
         "@teambit/design.embeds.figma": "0.0.3",
+        "@teambit/design.ui.cli-snippet": "0.0.347",
         "@teambit/design.ui.dropdown": "1.0.8",
         "@teambit/design.ui.error-page": "0.0.350",
         "@teambit/design.ui.external-link": "0.0.344",
@@ -108,6 +109,7 @@
         "millify": "4.0.0",
         "react-helmet": "6.1.0",
         "react-json-view": "1.21.3",
+        "react-medium-image-zoom": "4.3.5",
         "react-router-dom": "5.2.0",
         "react-terminal": "1.2.1",
         "react-xarrows": "2.0.2",
@@ -120,9 +122,7 @@
       }
     },
     "packageManagerArgs": [],
-    "devFilePatterns": [
-      "**/*.spec.ts"
-    ],
+    "devFilePatterns": ["**/*.spec.ts"],
     "strictPeerDependencies": true,
     "installFromBitDevRegistry": true,
     "savePrefix": ""
@@ -177,6 +177,30 @@
     },
     "scope": {
       "defaultScope": "teambit.scope"
+    },
+    "preview": {
+      "defaultScope": "teambit.preview"
+    },
+    "webpack": {
+      "defaultScope": "teambit.webpack"
+    },
+    "defender": {
+      "defaultScope": "teambit.defender"
+    },
+    "compilation": {
+      "defaultScope": "teambit.compilation"
+    },
+    "harmony": {
+      "defaultScope": "teambit.harmony"
+    },
+    "envs": {
+      "defaultScope": "teambit.envs"
+    },
+    "pipelines": {
+      "defaultScope": "teambit.pipelines"
+    },
+    "compositions": {
+      "defaultScope": "teambit.compositions"
     },
     "explorer/ui": {
       "teambit.community/envs/community-react": "-",

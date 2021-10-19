@@ -1,0 +1,292 @@
+# Register a Custom Preview
+
+Use the preview aspect to add your own component previews.
+
+See the UI section, to learn how to add a tab for your new preview. <!-- TODO -->
+
+## Create an Aspect or update an existing one
+
+Your previews must be registered by an Aspect. Either create a dedicated Aspect or add the preview registration to an existing one.
+
+To generate a new Aspect, use the Aspect template. For example:
+
+```ts
+bit create aspect extension/my-aspect
+```
+
+To learn more about Aspects, see here. <!--TODO-->
+
+## Register files for bundling
+
+In your Aspect's `.main.runtime.ts` file, use the Preview's `registerDefinition()` API, to register your `PreviewDefinition`.
+
+The [`PreviewDefinition`](#previewdefinition) object contains data regarding the files and the template to be included in the Preview's link files, which will eventually be used by the bundlers.
+
+For example:
+
+```ts {21-27} title="my-aspect.main.runtime.ts"
+// my-aspect.main.runtime.ts
+
+import { PreviewAspect, PreviewMain } from '@teambit/preview';
+// ...
+
+export class MyAspectMain {
+
+    // ...
+
+    private filterFiles {
+        // ..
+    }
+
+    private getFilesForPreview = async (components: Component[]) => this.filterFiles(components);
+
+
+    static runtime = MainRuntime;
+    static dependencies = [PreviewAspect];
+    static async provider([previewMain]: [PreviewMain]) {
+    const myAspectMain = new MyAspectMain();
+
+
+    previewMain.registerDefinition({
+      prefix: 'my_preview_id',
+      getModuleMap: myAspectMain.getFilesForPreview,
+      renderTemplatePath: async function () {
+        return require.resolve('/path-to-template');
+      },
+    });
+
+    return customPreviewMain;
+  }
+}
+
+ComponentImagesAspect.addRuntime(MyAspectMain);
+
+
+}
+```
+
+[See here](https://github.com/teambit/custom-preview-example) for a full demo project.
+
+### PreviewDefinition
+
+#### prefix
+
+```ts
+prefix: string;
+```
+
+The name for the [link file](#) <!-- TODO --> and corresponding URL parameter (which will be used to fetch this type of previews).
+
+#### renderTemplatePath
+
+```ts
+renderTemplatePath?: (context: ExecutionContext) => Promise<string>
+```
+
+A function that gets an [`ExecutionContext`](https://bit.dev/teambit/envs/envs/~code/context/context.ts) with data regarding the Env's instance, and returns a path to the preview template which would be used to render the files returned by [`getModuleMap`](#getModuleMap) (for example, the [docs template](/docs/doc-templates)).
+
+#### getModuleMap
+
+```ts
+getModuleMap(components: Component[]): Promise<ComponentMap<AbstractVinyl[]>>
+```
+
+A function that gets an array of components (`Component[]`) that are used by the current Env instance. It returns an array of files to include in the link file.
+
+For example, the following code snippet shows a `getModuleMap` implementation that returns only the images file from a given set of components (components that use the current Env instance).
+
+```ts {10-16,18,19,28} title="Example: implementing the 'getModuleMap' method"
+// Example: implementing the 'getModuleMap' method
+
+import { PreviewAspect, PreviewMain } from '@teambit/preview';
+// Import methods for component handling
+import { Component, ComponentMap } from '@teambit/component';
+
+// Define a glob pattern for image files (this will be used to filter out all component files that are not images, and therefore are not part of the preview)
+const imageFilePattern = '**/*.{png,jpeg,jpg,svg}';
+
+export class ComponentImagesMain {
+  // Return component files that are images using the 'imageFilePattern' glob pattern
+  private selectComponentImages(components: Component[]) {
+    return ComponentMap.as<AbstractVinyl[]>(components, (component) => {
+      const files = component.state.filesystem.byGlob([imageFilePattern]);
+      return files;
+    });
+  }
+
+  /** list files to be bundled in the preview */
+  private getModuleMap = async (components: Component[]) =>
+    this.selectComponentImages(components);
+
+  // ...
+  static async provider([previewMain]: [PreviewMain]) {
+    const customPreviewMain = new ComponentImagesMain();
+
+    previewMain.registerDefinition({
+      prefix: 'images',
+      // Use the 'getModuleMap' method. Make sure to use an arrow function, or .bind() the functions to the instance
+      getModuleMap: customPreviewMain.getModuleMap,
+
+      renderTemplatePath: async function () {
+        return require.resolve('./path-to-template');
+      },
+    });
+
+    devFilesMain.registerDevPattern([devFilePattern]);
+
+    return customPreviewMain;
+  }
+}
+```
+
+## Register files for routing and rendering
+
+In your Aspect's `.main.preview.ts` file, use the Preview's `registerPreview()` API, to register your preview (`PreviewType`).
+
+The [`PreviewType`](#previewdefinition) object defines which modules (preview files that are registered in the link file) are relevant for the preview, an how that preview should be rendered.
+
+For Example:
+
+```ts title="my-aspect.preview.ts"
+// my-aspect.preview.ts
+
+import React, { ReactNode } from 'react';
+import {
+  PreviewAspect,
+  RenderingContext,
+  PreviewPreview,
+  PreviewRuntime,
+  PreviewModule,
+} from '@teambit/preview';
+
+// ...
+
+export class DocsPreview {
+  constructor(private preview: PreviewPreview) {}
+
+  render = (
+    componentId: string,
+    modules: PreviewModule,
+    context: RenderingContext
+  ) => {
+    // Get the modules relevant for this preview, and filter out the rest
+    const previewModel = this.selectPreviewModel(componentId, modules);
+
+    // Use the render function of the preview template ('mainModule') defined in the Aspect's main.runtime.ts file using the 'registerDefinition()' API
+    modules.mainModule.default(componentId, docsModule, context);
+  };
+
+  selectPreviewModel(componentId: string, modules: PreviewModule) {
+    const relevant = modules.componentMap[componentId];
+    if (!relevant) return undefined;
+
+    return relevant;
+  }
+
+  static runtime = PreviewRuntime;
+  static dependencies = [PreviewAspect];
+
+  static async provider([preview]: [PreviewPreview]) {
+    const myAspectPreview = new MyAspectPreview(preview);
+    preview.registerPreview({
+      name: 'my_preview_id',
+      render: myAspectPreview.render.bind(docsPreview),
+      selectPreviewModel: myAspectPreview.selectPreviewModel.bind(docsPreview),
+      include: ['another-preview'],
+    });
+
+    return myAspectPreview;
+  }
+}
+
+// ...
+```
+
+### PreviewType
+
+#### name
+
+```ts
+name: string;
+```
+
+The preview name (or preview 'prefix')
+
+#### render
+
+```ts
+render(componentId: string, linkedModules: PreviewModule<any>, includedPreviews: string[], renderingContext: RenderingContext): void
+```
+
+- `componentId: string`: The component ID
+
+- `linkedModules: PreviewModule<any>`: An object containing the modules for this preview, including the `mainModule`, i.e, the template.
+
+  - ```
+    PreviewModule<T = any> = {
+        componentMap: Record<string, ModuleFile<T>[]>;
+        mainModule: {
+            default: (...args: any[]) => void;
+        };
+    }
+
+    ```
+
+- `includedPreviews: string[]`: Other previews relevant for the rendering of this preview (for example, the 'overview' preview includes the 'compositions' preview).
+
+- `renderingContext: RenderingContext`:
+
+#### default
+
+```
+default?: boolean;
+```
+
+Determines if this should be the default preview to render.
+
+#### include
+
+```ts
+include?: string[]
+```
+
+The names of the previews that should be included in this preview
+
+#### selectPreviewModel
+
+```ts
+selectPreviewModel?: (componentId: string, module: PreviewModule) => any;
+```
+
+Selects the relevant information to include in the preview context.
+
+## Preview template (main module)
+
+The preview template is a component that renders a preview module <!--TODO --> i.e, it updates the DOM. The template component must be exported as `default`.
+
+For example:
+
+```ts title="my-aspect/my-template/index.ts"
+// my-aspect/my-template/index.ts
+
+export default function MyTemplate(
+  componentId: string,
+  modules: PreviewModule,
+  includes: any[],
+  context: RenderingContext
+) {
+  ReactDOM.render(
+    <PreviewTemplate
+      includes={includes}
+      modules={modules}
+      componentId={componentId}
+      renderingContext={renderingContext}
+    />,
+    document.getElementById('root')
+  );
+}
+```
+
+The preview template receives the [`PreviewType`](#previewdefinition) properties as arguments.
+
+[See here](#register-files-for-bundling), to learn how to register the template to the Preview aspect.

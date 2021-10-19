@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Heading } from '@teambit/community.ui.heading';
 import classNames from 'classnames';
 // TODO: move to be in `design` owned by @amir.

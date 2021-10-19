@@ -1,0 +1,25 @@
+---
+description: 'An MDX component.'
+labels: ['content', 'mdx']
+---
+
+import { MountingCompositionsToDom } from './index';
+
+### Component usage
+```js
+<MountingCompositionsToDom />
+```
+
+### Render with theme and MDX providers
+
+```js
+import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions'
+import { MDXLayout } from '@teambit/ui.mdx-layout'
+import { MountingCompositionsToDom } from './index'
+
+<ThemeCompositions>
+  <MDXLayout>
+    <MountingCompositionsToDom />
+  </MDXLayout>
+</ThemeCompositions>
+```

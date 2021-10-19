@@ -1,0 +1,12 @@
+
+
+.topDown {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  > div:first-child {
+    margin-bottom: 40px;
+  }
+}

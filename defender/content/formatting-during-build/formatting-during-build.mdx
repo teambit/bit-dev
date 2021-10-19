@@ -1,0 +1,25 @@
+# Formatting during Build
+
+By default, formatting is **not** part of the [Build Pipeline](/builder/build-pipelines).
+
+During build, the format task is only used for checking formatting issues. it will not re-write the components with the fixed format.
+In case you want to re-format your components, you should use the `bit format` command on your workspace.
+
+## Adding a formatter task to your build pipeline
+
+To add your format task to your build pipeline you need to add its task into the build pipeline using the `getBuildPipe` of your env:
+(built in envs come with an API to only add new tasks to their existing pipe)<!-- TODO: add link here -->
+
+```ts
+  getBuildPipe(modifiers: GetBuildPipeModifiers = {}): BuildTask[] {
+    return [...someTasks, formatterTask];
+  }
+```
+
+To implement your own Formatter, [see here](#).<!-- TODO: add link here -->
+
+## CLI References
+
+- [bit build](/reference/cli-reference#build)
+- [bit tag](/reference/cli-reference#tag)
+- [bit snap](/reference/cli-reference#snap)

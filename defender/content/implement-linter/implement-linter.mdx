@@ -1,0 +1,90 @@
+# Implement a Linter
+
+Standard linter like [Eslint](https://eslint.org/) are integrated into Bit using a Bit Aspect <!-- TODO: add link -->. For example, the [Eslint Aspect](https://bit.dev/teambit/defender/eslint).
+These Aspects implement the [Linter's interface](https://bit.dev/teambit/defender/linter/~code/linter.ts).
+
+The easiest way to start implementing a [Linter](/linter/overview) is to create a new Bit Aspect using the `Aspect` template:
+
+```
+bit create aspect extensions/my-linter
+```
+
+## Main runtime file
+
+The aspect main runtime (e.g, `my-linter.main.ts`) should have the following methods:
+
+### createLinter
+
+Create an instance of a class that should implement the [`Linter` interface](https://bit.dev/teambit/defender/linter/~code/linter.ts). This is usually implemented in a file called `<linter-name>.linter.ts`
+
+```js
+/**
+ * create a eslint linter instance.
+ * @param options eslint options.
+ * @param ESLintModule reference to an `eslint` module.
+ */
+createLinter(
+  context: LinterContext,
+  options: ESLintOptions,
+  transformers: EslintConfigTransformer[] = [],
+  ESLintModule?: any
+): Linter {
+  const mergedOptions = getOptions(options, context);
+  const configMutator = new EslintConfigMutator(mergedOptions);
+  const transformerContext: EslintConfigTransformContext = { fix: !!context.fix };
+  const afterMutation = runTransformersWithContext(configMutator.clone(), transformers, transformerContext);
+
+  return new ESLintLinter(this.logger, afterMutation.raw, ESLintModule);
+}
+```
+
+The linter should know to handle both - [lint in workspace](./workspace-linting) and for [build](./linting-during-build) <!-- TODO: add link -->
+
+<!-- Add createTask method once it's implemented in the code -->
+
+## Implementation file
+
+The linter implementation uses the `linter` extension as a convention. For example, `my-linter.linter.ts`.
+
+### Linting in the Workspace
+
+When implementing a workspace linting you should optimize for dev experience and performance by default
+The linter should implement `lint` method.
+
+#### lint
+
+```js
+lint(context: LinterContext): Promise<LintResults>;
+```
+
+The `LinterContext` contains the regular `ExecutionContext` <!--TODO add link --> and the `LinterOptions`.
+
+```js
+interface LinterOptions {
+  /**
+   * extensions formats to lint. (e.g. .ts, .tsx, etc.)
+   */
+  extensionFormats?: string[];
+
+  /**
+   * automatically fix problems
+   */
+  fix?: boolean;
+
+  /**
+   * specify the types of fixes to apply (problem, suggestion, layout)
+   */
+  fixTypes?: FixTypes;
+}
+type FixType = 'problem' | 'suggestion' | 'layout';
+type FixTypes = Array<FixType>;
+```
+
+This function get a fileContent and return the compiled content and the output path.
+:::note
+In case the compiler receives an unsupported file, it should return null.
+:::
+
+### Linting during build
+
+Linting during build will soon be available.

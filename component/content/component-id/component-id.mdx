@@ -1,0 +1,121 @@
+# Component ID
+
+import { Image } from '@teambit/docs.ui.zoomable-image';
+import nestedNamespaces from './namespaces_nested.png';
+import componentDiagram from './component-id.png';
+
+The Component ID is designed to be a unique, human-readable name that simplifies and help organize components while empowering team autonomy by avoiding cross-team naming conflicts. Every [Component](/components/overview) in Bit is identified and referenced by a Component ID.
+
+Simple example for a Component ID is:
+
+```
+teambit.base-ui/input/button
+```
+
+Every ID starts with the Scope Name (`teambit.base-ui`) and continuous to the Component Full Name, which includes the Namespace (`ui`) and its Name (`button`).
+
+A reference to a specific component version can be achieved by following with the `@` sign referencing the Component version, which might be either a [Semantic Version](/components/tag) or a [Snap Hash](/components/snap).
+
+```
+teambit.base-ui/ui/button@1.0.0
+```
+
+<Image src={componentDiagram} />
+
+## Scope name
+
+Component ID starts with the Scope Name, which references the Component's [Scope](/scope/overview). Scopes define the common responsibility for a set of Components and help through defining team boundaries and ownership. To learn more on Scopes head over to the [Scope documentation](/scope/overview).
+
+Common example to Scope names might be:
+
+- `design` - Basic and atomic UI components to help drive a consistent UI across all features and apps owned by the Design team.
+- `inventory` - e-commerce inventory management feature owned by the Inventory team.
+- `people` - User authentication and management feature owned by the People team.
+
+:::note Scope names in the Bit Cloud
+Scopes names in the Bit Cloud include the Scope owner and Scope name as a convention for referencing Scopes.
+In the example above, `teambit` refers to the [teambit organization](https://bit.dev/acme) which own the [`base-ui`](https://bit.dev/teambit/base-ui) scope.
+:::
+
+Setting the scope name for components can be done by configuring the `defaultScope` property on the Component configuration.
+
+```jsonc {4,8} title="workspace.jsonc"
+{
+  "teambit.workspace/workspace": {
+    "name": "My UI Workspace",
+    "defaultScope": "teambit.base-ui" // default scope of all workspace components.
+  },
+  "teambit.workspace/variants": {
+    "design": {
+      "defaultScope": "teambit.design" // configure all components under the design directory with the `teambit.design` scope.
+    }
+  }
+}
+```
+
+Head over to [Configuring Scopes](/workspace/configuring-scopes) to learn more.
+
+## Component full name
+
+A component's full name serves as a unique identifier of a [Component](/components/overview) in the Workspace.
+Throughout various Bit commands, components can be referenced with their full name instead of using the full Component ID.
+A component's full name is composed of its namespaces (if there are any), and name.
+
+In the below example, we are inspecting the `ui/button` component in the Workspace. Since the `ui/button` name in unique in the Workspace there is no need to mention the Scope.
+
+```bash
+bit show ui/welcome
+```
+
+Components can also be referenced with their Scope Name after they are first exported.
+
+```bash
+bit show teambit.design/ui/button
+```
+
+Component full names are defined when [Creating Components](/) and [Adding Components](/) in the Workspace and matched to directories via [.bitmap](/workspace/bitmap).
+
+### Namespaces
+
+Namespaces are used to organize components into taxonomy and help avoid conflicts on component names in Workspaces and Scopes.
+Namespaces in Bit are separated by `/` from the [Component Full Name](/components/component-id#component-full-name), where the last element represents the [Component Name](/components/component-id#component-name)
+
+In this simple example, the namespace for the Component is just `ui`.
+
+```
+teambit.base-ui/ui/button
+```
+
+In the below example, there are two hierarchical namespaces for the Component where `ui` is the top-level one, followed by `inputs` to define a more specific responsibility for certain UI components.
+
+```sh
+teambit.base-ui/ui/inputs/button
+```
+
+Now your components are also easier to find in the Workspace and Scope UIs, like so:
+
+<Image src={nestedNamespaces} />
+
+The hierarchal order formed by namespacing, allows us to select sets of components using semantic structures rather than our concrete (and prone to change) workspace directory structure.
+
+Using [Variants](/workspace/variants) for example, Components can be selected using their namespace which allows to easily configure all UI components in a Workspace with the [React env](/), regardless or their physical filesystem location inside the Workspace.
+
+```json title="workspace.jsonc" {3}
+{
+  "teambit.workspace/variants": {
+    "{ui/**}": {
+      "teambit.react/react": {}
+    }
+  }
+}
+```
+
+### Component name
+
+The component name is the last part of the ID, coming right after the namespace, starting from the last `/`. It usually describes the specific responsibility of a component.
+
+In the below example, `button` represents the component name.
+
+```
+teambit.base-ui/ui/button
+```

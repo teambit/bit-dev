@@ -1,0 +1,152 @@
+# Compositions and Stories (Storybook)
+
+Compositions and [Stories](https://storybook.js.org/docs/react/get-started/whats-a-story) can appear quite similar. Almost like two sibling solutions that solve the same problem.
+
+Compositions could be used as a way to examine components in a context-free environment (much like Storybook is often used), however that is not their main goal.
+Compositions are primarily used as simulated integration tests. They are a way to validate that a component is able to integrate successfully in its future consuming projects (before sharing it).
+
+Moreover, unlike stories, compositions are not limited to UI components. They are often used to visualize the behavior of a logical components.
+
+## Setting up Storybook in a Bit workspace
+
+### Initialize Storybook
+
+Since Bit workspaces do not use a `package.json`, Storybook is unable to determine, by itself, the type of components in the project.
+
+Use Storybook's `--type` option to manually set the type of components, when initializing Storybook. For example:
+
+```bash title="Example: Initializing SB for React"
+$ npx sb init --type react
+```
+
+:::note
+An alternative to manually configuring Storybook would be to initialize a `package.json` and install the dependencies (like, react) that will help Storybook understand the project requirements.
+:::
+
+### Manage Storybook dependencies
+
+Storybook dependencies listed in the generated `package.json` file can either be moved to the `workspace.jsonc` (nested in the Dependency Resolver's policy property), or remain in their `package.json` file. Either way, `bit install` will know to read them and install them accordingly.
+
+### Set Story files as dev files
+
+Stories are only used for development and not for runtime. Configure the `devFilePatterns` property of the Dependency Resolver, to consider any dependency of this type as a dev dependency.
+
+```json title="workspace.jsonc"
+// workspace.jsonc
+
+{
+  // ...
+  "teambit.dependencies/dependency-resolver": {
+    // ...
+    "devFilePatterns": ["**/*.spec.ts", "**/*.stories.tsx"]
+  }
+}
+```
+
+### Load stories from component directories
+
+Set the `.storybook/main.js` file, in the workspace directory, to use a glob pattern that fits the way components are structured in a Bit workspace, i.e, one directory for each component.
+
+```js title=".storybook/main.js"
+// .storybook/main.js
+
+module.exports = {
+  stories: ['../demo/**/*.stories.@(js|jsx|ts|tsx)'],
+  // ...
+};
+```
+
+### Create a Story
+
+Create Stories in story files inside their corresponding component directory.
+
+For example:
+
+```bash
+└── heading
+    ├── heading.composition.tsx
+    ├── heading.docs.mdx
+    ├── heading.module.scss
+    ├── heading.spec.tsx
+    ├── heading.stories.tsx
+    ├── heading.tsx
+    └── index.ts
+```
+
+## Use Compositions in a Story
+
+```ts title="card.stories.tsx"
+// card.stories.tsx
+
+import React from 'react';
+import { Card } from './card';
+import { BasicCard } from './card.composition';
+
+export default {
+  title: 'UI/Card',
+  component: Card,
+};
+
+export const BasicCardStory = () => <BasicCard />;
+```
+
+```ts title="card.compositions.tsx"
+// card.compositions.tsx
+
+import React from 'react';
+import { Card } from './card';
+
+export const BasicCard = () => (
+  <Card
+    link="https://harmony-docs.bit.dev/reference/bit-oss-server"
+    heading="Self Host"
+    text="lean how to self host these components"
+  />
+);
+```
+
+## Use a Story in Compositions
+
+```ts title="card.composition.tsx"
+// card.composition.tsx
+
+import React from 'react';
+import { BasicCard } from './card.stories';
+
+export const BasicCardComposition = () => <BasicCard />;
+```
+
+```ts title="card.stories.tsx"
+// card.stories.tsx
+
+import React from 'react';
+import { Card } from './card';
+
+export default {
+  title: 'UI/Card',
+  component: Card,
+};
+
+export const BasicCard = () => (
+  <Card
+    link="https://harmony-docs.bit.dev/reference/bit-oss-server"
+    heading="Self Host"
+    text="lean how to self host these components"
+  />
+);
+```
+
+## Limitations
+
+### Collaboration
+
+Storybook is designed for projects. Its configurations are set globally on all components in the project.
+That means, collaboration on [the components'] stories must also be done using their workspace as "the project". They cannot be maintained independently (in other workspaces) as the Storybook config is not part of the components' metadata.
+
+### Multiple Envs
+
+Bit Workspaces are not limited to just one Env. A single workspace can, for instance, maintain both React an Angular components. A single Storybook workspace, on the other hand, is not able to process and render components of different types.
+
+:::note title="Storybook Compositions"
+['Storybook Compositions'](https://storybook.js.org/docs/react/workflows/storybook-composition) are a way to render multiple Storybook workspaces in the same UI. This can be used (although not recommended) to initialize multiple Storybook workspaces in a single Bit workspace, and render them in a single UI.
+::

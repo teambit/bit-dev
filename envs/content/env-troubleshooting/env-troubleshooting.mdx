@@ -1,0 +1,94 @@
+# Envs Troubleshooting
+
+## Multiple Envs applied on a single component
+
+Incorrect component configuration may lead to having multiple Envs applied on a single component. This is not allowed as each component may only use a single Env at a time.
+
+This issue can be found by running `bit status`.
+
+For example:
+
+```bash
+$ bit status
+
+     > pages/welcome ...  issues found
+       multiple envs (remove the old envs by setting them with "-" sign in the variants. see https://harmony-docs.bit.dev/aspects/variants#removing-aspects ):
+          company.scope/envs/my-react, teambit.react/react
+```
+
+### Bad config example
+
+In the example below, the `pages/welcome` component is selected an applied with an Env, twice.
+
+First, it is selected using the `*` wildcard, and set to use the `teambit.react/react` env.
+
+Secondly, it is selected using the `"{pages/**}"` namespace glob pattern, and set to use the `company.scope/envs/my-react` Env.
+
+```json title="Bad config: Envs should be applied on mutually exclusive groups. Instead, they overlap."
+{
+  //...
+  "teambit.workspace/variants": {
+    "*": {
+      "teambit.react/react": {}
+    },
+    "{pages/**}": {
+      "company.scope/envs/my-react": {}
+    },
+}
+```
+
+### Solution #1: Use the exclude selector
+
+Exclude the subgroup of components selected with `{pages/**}` from the group of component selected using the `"*"` selector.
+This is done using the selection negator `!`.
+
+```json title="Solution #1: Exclude the overlapped group of components"
+{
+  //...
+  "teambit.workspace/variants": {
+    "*, !{pages/**}": {
+      "teambit.react/react": {}
+    },
+    "{pages/**}": {
+      "company.scope/envs/my-react": {}
+    },
+}
+```
+
+### Solution #2: Explicitly set an Env
+
+Set the Env to use by configuring the `teambit.envs/envs` Aspect.
+
+```json
+"{pages/**}": {
+  // Use the env as an Aspect dependency
+  "company.scope/envs/my-react": {},
+  // explicitly configure it as an Env
+  "teambit.envs/envs": {
+    "env": "company.scope/envs/my-react"
+  }
+},
+```
+
+:::note
+This solution will not remove the `"teambit.react/react"` from being an aspect dependency of the `pages/**` components.
+So, unless you need both aspects to be applied on this group of components, it's better to use one of the other methods.
+:::
+
+### Solution #3: Explicitly remove an Env
+
+Use the `-` to explicitly remove `teambit.react/react` as an Aspect dependency of that group of components.
+
+```json title="Explicitly remove an Env"
+"{pages/**}": {
+  // Remove the default react env configured by the "*" selector
+  "teambit.react/react": "-",
+  // Use the custom env
+  "company.scope/envs/my-react": {}
+},
+```
+
+:::note
+Aspects are copied to the component config from previously-tagged versions of it.
+If your component was tagged previously with multiple Envs, or with a different Env, you need to remove it explicitly (by choosing 'Solution #3').<!-- TODO: add link to explanation about this -->
+:::
