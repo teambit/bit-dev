@@ -7,8 +7,8 @@ import { useState } from 'react';
 import { SearchInput } from './search-input';
 
 A Input component used for search use cases.  
-Use `onIconClick` prop to pass a function when the search icon is clicked.  
-The `onIconClick` function will also be triggered when Enter key is pressed.  
+Use `onSubmit` prop to pass a function when the search icon is clicked.  
+The `onSubmit` function will also be triggered when Enter key is pressed.  
 Supports all props from native html input.
 
 ### Component usage
@@ -17,7 +17,7 @@ Supports all props from native html input.
 () => {
   const [value, setvalue] = useState('');
   return (
-    <SearchInput value={value} onChange={(e) => setvalue(e.target.value)} onIconClick={() => alert('on icon click')} />
+    <SearchInput value={value} onChange={(e) => setvalue(e.target.value)} onSubmit={() => alert('on icon click')} />
   );
 };
 ```

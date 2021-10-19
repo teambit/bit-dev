@@ -38,7 +38,7 @@ export function ExploreSection({ heading, subtitle, className, ...rest }: Explor
           <Subtitle className={styles.subtitle}>{subtitle}</Subtitle>
           <SearchInput
             placeholder="Search plugins"
-            onIconClick={onSearch}
+            onSubmit={onSearch}
             value={searchValue}
             onChange={onSearchChange}
             className={styles.searchInput}
