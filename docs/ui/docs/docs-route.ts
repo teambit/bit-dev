@@ -30,7 +30,7 @@ export interface DocsRoute {
   /**
    * determines whether category should be collapsed or not.
    */
-  collapsed?: boolean;
+  open?: boolean;
 
   /**
    * whether to show the doc in the sidebar. default to true.

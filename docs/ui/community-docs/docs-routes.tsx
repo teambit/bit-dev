@@ -21,7 +21,7 @@ export const docsRoutes: DocsRoute[] = [
   {
     path: 'getting-started',
     title: 'Getting Started',
-    
+    open: false,
     icon: 'workspace',
     children: [
       {
@@ -39,7 +39,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'composing',
         title: 'Composing',
-        collapsed: false,
+        open: false,
         children: [
           {
             path: 'creating-components',
@@ -67,6 +67,7 @@ export const docsRoutes: DocsRoute[] = [
     path: 'workspace',
     title: 'Workspace',
     icon: 'workspace',
+    open: false,
     children: [
       {
         path: 'bitmap',
@@ -80,6 +81,7 @@ export const docsRoutes: DocsRoute[] = [
     path: 'scope',
     title: 'Scope',
     icon: 'collection',
+    open: false,
     children: [
       {
         path: 'overview',

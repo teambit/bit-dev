@@ -4,7 +4,6 @@ export const sidebarMock = {
     {
       id: 'quick-start',
       payload: {
-        collapsed: false,
         title: 'Quick Start',
         path: '/docs/quick-start',
       },
@@ -15,7 +14,7 @@ export const sidebarMock = {
         {
           id: 'installing-bit',
           payload: {
-            collapsed: false,
+            open: false,
             title: 'Installing Bit',
             path: '/docs/getting-started/installing-bit',
           },
@@ -23,7 +22,6 @@ export const sidebarMock = {
             {
               id: 'installing-bit',
               payload: {
-                collapsed: false,
                 title: 'Installing Bit',
                 path: '/docs/getting-started/installing-bit',
               },
@@ -31,7 +29,6 @@ export const sidebarMock = {
             {
               id: 'create-new-workspace',
               payload: {
-                collapsed: false,
                 title: 'Create a new Workspace',
                 path: '/docs/getting-started/create-new-workspace',
               },
@@ -42,7 +39,6 @@ export const sidebarMock = {
                 {
                   id: 'creating-components',
                   payload: {
-                    collapsed: false,
                     title: 'Creating Components',
                     path: '/docs/getting-started/composing/creating-components',
                   },
@@ -50,7 +46,6 @@ export const sidebarMock = {
                 {
                   id: 'dev-environments',
                   payload: {
-                    collapsed: false,
                     title: 'Dev environments',
                     path: '/docs/getting-started/composing/dev-environments',
                   },
@@ -58,14 +53,13 @@ export const sidebarMock = {
                 {
                   id: 'use-dependencies',
                   payload: {
-                    collapsed: false,
                     title: 'Use dependencies',
                     path: '/docs/getting-started/composing/use-dependencies',
                   },
                 },
               ],
               payload: {
-                collapsed: false,
+                open: false,
                 title: 'Composing',
                 path: '/docs/getting-started/composing/composing',
               },
@@ -75,7 +69,6 @@ export const sidebarMock = {
         {
           id: 'create-new-workspace',
           payload: {
-            collapsed: false,
             title: 'Create a new Workspace',
             path: '/docs/getting-started/create-new-workspace',
           },
@@ -86,7 +79,6 @@ export const sidebarMock = {
             {
               id: 'creating-components',
               payload: {
-                collapsed: false,
                 title: 'Creating Components',
                 path: '/docs/getting-started/composing/creating-components',
               },
@@ -94,7 +86,6 @@ export const sidebarMock = {
             {
               id: 'dev-environments',
               payload: {
-                collapsed: false,
                 title: 'Dev environments',
                 path: '/docs/getting-started/composing/dev-environments',
               },
@@ -102,14 +93,13 @@ export const sidebarMock = {
             {
               id: 'use-dependencies',
               payload: {
-                collapsed: false,
                 title: 'Use dependencies',
                 path: '/docs/getting-started/composing/use-dependencies',
               },
             },
           ],
           payload: {
-            collapsed: false,
+            open: false,
             title: 'Composing',
             path: '/docs/getting-started/composing/composing',
           },
@@ -117,7 +107,6 @@ export const sidebarMock = {
       ],
       payload: {
         icon: 'workspace',
-        collapsed: false,
         title: 'Getting Started',
         path: '/docs/getting-started/getting-started',
       },

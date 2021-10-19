@@ -37,7 +37,7 @@ export class DocsRoutes {
   private computePayload(docRoute: DocsRoute, parentPath?: string): SidebarPayload {
     return {
       icon: docRoute.icon,
-      collapsed: docRoute.collapsed || false,
+      open: docRoute.open,
       title: docRoute.title,
       path: [
         this.basePath, 

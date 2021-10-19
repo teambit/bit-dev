@@ -9,7 +9,7 @@ import { TreeNodeContext } from '@teambit/base-ui.graph.tree.recursive-tree';
 import { SidebarNode } from './sidebar-node';
 
 export type SidebarPayload = {
-  collapsed?: boolean;
+  open?: boolean;
   icon?: string;
   title: string;
   path?: string;
