@@ -555,6 +555,12 @@
         "mainFile": "index.ts",
         "rootDir": "design/ui/content/heading"
     },
+    "ui/heading": {
+        "scope": "teambit.community",
+        "version": "1.6.0",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/heading"
+    },
     "ui/content/subtitle": {
         "scope": "teambit.design",
         "version": "1.6.0",

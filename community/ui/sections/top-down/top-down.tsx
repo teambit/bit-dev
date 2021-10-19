@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-import classNames from 'classnames';
 import { TopDown as TopDownLayout, TopDownProps as TopDownLayoutProps } from '@teambit/design.ui.layouts.sections.top-down';
 import { Heading } from '@teambit/community.ui.heading';
 import { Subtitle } from '@teambit/design.ui.content.subtitle';

@@ -1,11 +1,11 @@
-import React from "react";
-import { UseCasesCardGrid } from "@teambit/community.ui.use-cases.use-cases-card-grid";
-import { UseCases } from "@teambit/community.entity.use-cases";
+import React from 'react';
+import { UseCasesCardGrid } from '@teambit/community.ui.use-cases.use-cases-card-grid';
+import { UseCases } from '@teambit/community.entity.use-cases';
 import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 import { Heading, Elements } from '@teambit/community.ui.heading';
-import { Link } from "@teambit/design.ui.navigation.link";
-import { Icon } from "@teambit/design.elements.icon";
-import styles from "./use-cases-section.module.scss";
+import { Link } from '@teambit/design.ui.navigation.link';
+import { Icon } from '@teambit/design.elements.icon';
+import styles from './use-cases-section.module.scss';
 
 export type UseCasesSectionProps = {
   /**
