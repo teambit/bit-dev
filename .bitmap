@@ -387,12 +387,6 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/header/nav"
     },
-    "ui/heading": {
-        "scope": "teambit.community",
-        "version": "1.6.0",
-        "mainFile": "index.ts",
-        "rootDir": "community/ui/heading"
-    },
     "ui/hero": {
         "scope": "teambit.community",
         "version": "1.6.0",
@@ -476,12 +470,6 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "community/ui/plugins/explore-section"
-    },
-    "ui/plugins/plugin-group": {
-        "scope": "teambit.community",
-        "version": "1.6.0",
-        "mainFile": "index.ts",
-        "rootDir": "community/ui/plugins/plugin-group"
     },
     "ui/search/search-input": {
         "scope": "",
