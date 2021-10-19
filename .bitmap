@@ -369,11 +369,29 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/hero"
     },
+    "ui/homepage/sections/distribution": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/homepage/sections/distribution"
+    },
     "ui/hooks/use-stars": {
         "scope": "teambit.community",
         "version": "1.6.0",
         "mainFile": "index.ts",
         "rootDir": "community/ui/hooks/use-stars"
+    },
+    "ui/layouts/sections/section-group": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "design/ui/layouts/sections/section-group"
+    },
+    "ui/layouts/sections/top-down": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "design/ui/layouts/sections/top-down"
     },
     "ui/logo-showcase": {
         "scope": "teambit.community",
@@ -446,6 +464,12 @@
         "version": "1.6.0",
         "mainFile": "index.ts",
         "rootDir": "community/ui/sections/component-distribution"
+    },
+    "ui/sections/top-down": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/sections/top-down"
     },
     "ui/sidebar": {
         "scope": "teambit.docs",

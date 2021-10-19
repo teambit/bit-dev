@@ -15,5 +15,18 @@ export const Function = () => {};
 
 export const Array = ['hi', 'there'];
 
-export class ClassSomething {}
+class ClassSomething {
+  app = ''
 
+  constructor(
+    readonly da: 'dsa'
+  ) {}
+
+  a() {
+    return new Foo();
+  }
+}
+
+class Foo {}
+
+export { ClassSomething };

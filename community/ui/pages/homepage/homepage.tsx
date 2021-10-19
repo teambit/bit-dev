@@ -12,6 +12,7 @@ import { ExcludeHighlighter } from '@teambit/react.ui.component-highlighter';
 import { LogoShowcase } from '@teambit/community.ui.logo-showcase';
 import { StickyMenu } from '@teambit/community.ui.sticky-menu';
 import { Page } from '@teambit/base-react.pages.page';
+import { Distribution } from '@teambit/community.ui.homepage.sections.distribution';
 import styles from './homepage.module.scss';
 
 export type HomepageProps = {} & React.HTMLAttributes<HTMLDivElement>;
@@ -49,27 +50,28 @@ export function Homepage({ ...rest }: HomepageProps) {
       <StickyMenu
         links={[
           {
-            href: '#compose',
-            text: 'Compose',
+            href: '#distribution',
+            text: 'Distribution',
           },
           {
-            href: '#collaborate',
-            text: 'Collaborate',
+            href: '#standardization',
+            text: 'Standardization',
           },
           {
-            href: '#release',
-            text: 'Release',
+            href: '#collaboration',
+            text: 'Collaboration',
           },
           {
             href: '#Standardize',
-            text: 'Standardize',
+            text: 'Autonomy',
           },
           {
             href: '#extend',
-            text: 'Extend',
+            text: 'Extendability',
           },
         ]}
       />
+      {/* <Distribution /> */}
     </Page>
   );
 }

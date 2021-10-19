@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Heading } from '@teambit/community.ui.heading';
 import classNames from 'classnames';
 // TODO: move to be in `design` owned by @amir.
@@ -34,8 +34,7 @@ export type HeroProps = {
 
 export function Hero({ title, bubbles, teaser }: HeroProps) {
   const { heroState, setStateFromTime } = useHeroState();
-  const headingClass =
-    heroState === HeroState.HEADING_UPDATED ? styles.highlight : "";
+  const headingClass = heroState === HeroState.HEADING_UPDATED ? styles.highlight : "";
   
   const button = GridNode.fromPlain({
     id: 'teambit.design/ui/buttons/button',

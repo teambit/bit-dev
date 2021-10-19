@@ -1,23 +1,25 @@
 import React from 'react';
-import { ReactTerminal, TerminalContextProvider } from 'react-terminal';
+import classNames from 'classnames';
+import { CliSnippet } from '@teambit/design.ui.cli-snippet';
+import styles from './terminal.module.scss';
 
 export type TerminalProps = {
   /**
-   * a text to be rendered in the component.
+   * terminal content to output. 
    */
-  text: string
-};
+  children: string,
 
-export function Terminal({ text }: TerminalProps) {
-  const commands = {
-    whoami: "jackharper",
-    cd: (directory) => `changed path to ${directory}`,
-    'bit': () => `tagged components successfully`
-  };
+  /**
+   * determine whether to animate the output.
+   */
+  animate?: boolean,
+} & React.HTMLAttributes<HTMLDivElement>;
 
+export function Terminal({ children, animate, className }: TerminalProps) {
   return (
-    <TerminalContextProvider>
-      <ReactTerminal commands={commands} />
-    </TerminalContextProvider>
+    <CliSnippet 
+      className={classNames(animate ? styles.animate : '', className)} 
+      content={children} 
+    />
   );
 }

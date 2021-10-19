@@ -37,6 +37,7 @@ importers:
       '@teambit/component.modules.component-url': 0.0.71
       '@teambit/design.elements.icon': 1.0.4
       '@teambit/design.embeds.figma': 0.0.3
+      '@teambit/design.ui.cli-snippet': 0.0.347
       '@teambit/design.ui.dropdown': 1.0.8
       '@teambit/design.ui.error-page': 0.0.350
       '@teambit/design.ui.external-link': 0.0.344
@@ -113,6 +114,7 @@ importers:
       '@teambit/component-id': registry.npmjs.org/@teambit/component-id/0.0.369_react-dom@16.13.1+react@16.13.1
       '@teambit/component.modules.component-url': registry.npmjs.org/@teambit/component.modules.component-url/0.0.71_react-dom@16.13.1+react@16.13.1
       '@teambit/design.elements.icon': registry.npmjs.org/@teambit/design.elements.icon/1.0.4_react-dom@16.13.1+react@16.13.1
+      '@teambit/design.ui.cli-snippet': registry.npmjs.org/@teambit/design.ui.cli-snippet/0.0.347_react-dom@16.13.1+react@16.13.1
       '@teambit/design.ui.dropdown': registry.npmjs.org/@teambit/design.ui.dropdown/1.0.8_react-dom@16.13.1+react@16.13.1
       '@teambit/design.ui.error-page': registry.npmjs.org/@teambit/design.ui.error-page/0.0.350_react-dom@16.13.1+react@16.13.1
       '@teambit/design.ui.external-link': registry.npmjs.org/@teambit/design.ui.external-link/0.0.344_react-dom@16.13.1+react@16.13.1
@@ -297,6 +299,9 @@ importers:
   community/ui/sections/component-distribution:
     specifiers: {}
 
+  community/ui/sections/top-down:
+    specifiers: {}
+
   community/ui/sticky-menu:
     specifiers: {}
 
@@ -336,6 +341,9 @@ importers:
   design/ui/content/subtitle:
     specifiers: {}
 
+  design/ui/layouts/sections/top-down:
+    specifiers: {}
+
   design/ui/navigation/link:
     specifiers: {}
 
@@ -358,6 +366,9 @@ importers:
     specifiers: {}
 
   docs/content/getting-started/use-dependencies:
+    specifiers: {}
+
+  docs/content/mfe/decoupled-codebases:
     specifiers: {}
 
   docs/content/quick-start:
@@ -2278,6 +2289,24 @@ packages:
       - '@teambit/legacy'
     dev: false
 
+  registry.npmjs.org/@teambit/design.ui.cli-snippet/0.0.347_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha512-4Lg4RuVjWpPYdlQnm/USHefkxV75f+OBilcDeU1PAn8GyiynZH1Sti0U1ClfAsRVrPLvfksYrALxaQ6ApIijaA==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/design.ui.cli-snippet/-/design.ui.cli-snippet-0.0.347.tgz}
+    id: registry.npmjs.org/@teambit/design.ui.cli-snippet/0.0.347
+    name: '@teambit/design.ui.cli-snippet'
+    version: 0.0.347
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    dependencies:
+      ansi-to-html: registry.npmjs.org/ansi-to-html/0.6.14
+      classnames: registry.npmjs.org/classnames/2.2.6
+      core-js: registry.npmjs.org/core-js/3.18.3
+      html-escaper: registry.npmjs.org/html-escaper/3.0.0
+      react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    dev: false
+
   registry.npmjs.org/@teambit/design.ui.dropdown/1.0.8_react-dom@16.13.1+react@16.13.1:
     resolution: {integrity: sha512-dPRGNAz2J2VRG5a2/YE6c79CwvUORt5xzKadWOGYLXPGTlsISXsCuB+Z6EEzs5M40mbRs5J+98CnwZru4uq9qQ==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/design.ui.dropdown/-/design.ui.dropdown-1.0.8.tgz}
     id: registry.npmjs.org/@teambit/design.ui.dropdown/1.0.8
@@ -3786,6 +3815,15 @@ packages:
     engines: {node: '>=10'}
     dev: false
 
+  registry.npmjs.org/ansi-to-html/0.6.14:
+    resolution: {integrity: sha512-7ZslfB1+EnFSDO5Ju+ue5Y6It19DRnZXWv8jrGHgIlPna5Mh4jz7BV5jCbQneXNFurQcKoolaaAjHtgSBfOIuA==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/ansi-to-html/-/ansi-to-html-0.6.14.tgz}
+    name: ansi-to-html
+    version: 0.6.14
+    hasBin: true
+    dependencies:
+      entities: registry.npmjs.org/entities/1.1.2
+    dev: false
+
   registry.npmjs.org/archiver-utils/2.1.0:
     resolution: {integrity: sha512-bEL/yUb/fNNiNTuUz979Z0Yg5L+LzLxGJz8x79lYmR54fmTIb6ob/hNQgkQnIUDWIFjZVQwl9Xs356I6BAMHfw==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/archiver-utils/-/archiver-utils-2.1.0.tgz}
     name: archiver-utils
@@ -4468,6 +4506,12 @@ packages:
       once: registry.npmjs.org/once/1.4.0
     dev: false
 
+  registry.npmjs.org/entities/1.1.2:
+    resolution: {integrity: sha512-f2LZMYl1Fzu7YSBKg+RoROelpOaNrcGmE9AZubeDfrCEia483oW4MI4VyFd5VNHIgQ/7qm1I0wUHK1eJnn2y2w==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/entities/-/entities-1.1.2.tgz}
+    name: entities
+    version: 1.1.2
+    dev: false
+
   registry.npmjs.org/es5-ext/0.10.53:
     resolution: {integrity: sha512-Xs2Stw6NiNHWypzRTY1MtaG/uJlwCk8kH81920ma8mvN8Xq1gsfhZvpkImLQArw8AHnv8MT2I45J3c0R8slE+Q==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/es5-ext/-/es5-ext-0.10.53.tgz}
     name: es5-ext
@@ -4954,6 +4998,12 @@ packages:
     version: 3.3.2
     dependencies:
       react-is: registry.npmjs.org/react-is/16.13.1
+    dev: false
+
+  registry.npmjs.org/html-escaper/3.0.0:
+    resolution: {integrity: sha512-69CofXDozHqdHDl1BZ3YiFp5rYN1qTwSXIVcBhVcZNkzj1vzx6Sko1nT58mzKip19DbKo8lHR9hf6/XeZ9+s3w==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/html-escaper/-/html-escaper-3.0.0.tgz}
+    name: html-escaper
+    version: 3.0.0
     dev: false
 
   registry.npmjs.org/ieee754/1.2.1:
