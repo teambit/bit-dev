@@ -1,0 +1,41 @@
+# Configure an Env with a Formatter
+
+The `getFormatter` method sets the Env to use a Formatter implementation (for example, the [Prettier Aspect](https://bit.dev/teambit/defender/prettier)).
+
+```ts
+getFormatter (context: FormatterContext, transformers: any[]): Formatter
+```
+
+For example:
+
+```ts
+// my-env.env.ts
+
+import { FormatterEnv } from '@teambit/envs';
+import { ESLintMain } from '@teambit/eslint';
+import { Formatter, FormatterContext } from '@teambit/formatter';
+import { PrettierConfigTransformer, PrettierMain } from '@teambit/prettier';
+// ...
+
+export class MyEnv implements LinterEnv {
+    // ...
+    const eslintConfig = require('./eslint/eslintrc');
+    // ...
+    constructor(){
+        // ...
+        private eslint: ESLintMain
+    }
+
+    // ...
+
+    getFormatter(context: FormatterContext, transformers: PrettierConfigTransformer[] = []): Formatter {
+        return this.prettier.createFormatter(
+        context,
+        {
+            config: prettierConfig,
+        },
+        transformers
+        );
+    }
+}
+```

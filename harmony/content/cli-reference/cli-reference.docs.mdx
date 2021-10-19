@@ -1,0 +1,25 @@
+---
+description: 'An MDX component.'
+labels: ['content', 'mdx']
+---
+
+import { CliReference } from './index';
+
+### Component usage
+```js
+<CliReference />
+```
+
+### Render with theme and MDX providers
+
+```js
+import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions'
+import { MDXLayout } from '@teambit/ui.mdx-layout'
+import { CliReference } from './index'
+
+<ThemeCompositions>
+  <MDXLayout>
+    <CliReference />
+  </MDXLayout>
+</ThemeCompositions>
+```

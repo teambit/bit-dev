@@ -1,0 +1,91 @@
+import { Image } from '@teambit/docs.ui.zoomable-image';
+import devServiceDiagram from './dev-services-diagram.png';
+import devServiceAPIImg from './dev-service-api.png';
+
+# Env Services Overview
+
+Dev Services simplify and standardize component development processes, like testing, linting and documenting. They are applied on components, and used by components, via the components' [Envs](/envs/overview).
+
+Standardized development means you can use the same commands and APIs to operate different services of the same category. These services will produce outputs that have a standardized format, and that generate similar effects in the workspace or capsule.
+
+For instance, `bit compile` will compile all components in your workspace, regardless of the specific [compiler implementation](http://localhost:3001/compiler/implement-compiler) used by each component.
+The output to the CLI will have the same format, and the generated dist files will all be available in the components' corresponding `node_modules` directory.
+
+The below diagram and code, show an Env using three Dev Services: Compiler, Tester and Docs.
+
+<Image src={devServiceDiagram} width="70%" />
+
+```ts title="Example: An Env uses Dev Services"
+// ...
+
+export class MyReactEnv implements DevEnv, CompilerEnv, TesterEnv {
+  //...
+
+  // 'getCompiler' is the Compiler Service Handler.
+  // This method will be invoked by Compiler to compile components that use that Env.
+  getCompiler() {
+    return this.babel.createCompiler(config);
+  }
+
+  getTester(jestConfigPath: string, jestModulePath?: string): Tester {
+    return this.jestAspect.createTester(config);
+  }
+
+  getDocsTemplate() {
+    return require.resolve('@teambit/react.ui.docs-app');
+  }
+}
+```
+
+## Service Handlers
+
+Service Handlers are the link that binds an Env to a Dev Service. These are methods that are implemented the Env class, and invoked by their corresponding Env Service.
+
+For example, the 'MyReactEnv' Env, shown above, uses the Service Handler `getCompiler()` to configure the Compiler Env Service to run the Babel aspect. The `getCompiler()` method is expected to be found by the Compiler, which will invoke it
+
+Environment services run on various events. Whenever a service runs, it executes its corresponding service handler which consequently runs the configured Dev service implementation (in that example, that would be the Babel Aspect).
+
+Different components in a Bit workspace may use different environments. That means environment services need to execute their corresponding service handlers in the specific environment applied on the component currently being processed.
+
+For example, if _component A_ uses the Node environment then the Compiler service processing that component files, will execute the Service Handler (in that case, `getCompiler`) found in the Node environment.
+
+## Implementing a Dev Service
+
+Dev Services provide an API for Aspects to use, so they can serve as a development service of a specific type.
+
+<Image src={devServiceAPIImg} width="70%" />
+
+For example, the [Babel Aspect](https://bit.dev/teambit/defender/jest) implements the Compiler interface, to integrate [Babel](https://jestjs.io/) into Bit, _as a compiler_.
+Using the Dev Service API, the Babel Aspect is able to access and use all the relevant Aspects, and use them in a way that is consistent with other Aspects that serve as compilers.
+
+```ts title="Example: The Babel Aspect implements the Compiler interface"
+// Example: The Babel Aspect implements the Compiler interface
+
+import { Compiler } from '@teambit/compiler';
+import * as babel from '@babel/core';
+
+export class BabelCompiler implements Compiler {
+  constructor(
+    // ...
+    private babelModule = babel;
+  ){}
+  // ...
+
+  // 'version()'' is part of the Compiler interface.
+  // It enables Compiler to get access to the compiler version.
+
+  version() {
+    return this.babelModule.version;
+  }
+}
+```
+
+## Execution in the workspace VS Execution during build
+
+Dev Services can be used in the workspace, during development, or in the capsule, during the component build. When used during a build that runs as part of the `tag` or `snap` processes, Dev Services often persist output data in the component metadata and artifacts.
+
+For example, Compiler persists compilation results in the component metadata, and adds the dist files to the component artifacts.
+
+Development and build processes are often configured differently to address the needs of each context.
+
+For example, the TypeScript Aspect does not generate `.d.ts` files when used in the workspace (during development) but does generate these files when used during component build. This is done in order to improve performance during development.

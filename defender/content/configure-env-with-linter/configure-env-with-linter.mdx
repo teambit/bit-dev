@@ -1,0 +1,40 @@
+# Configure an Env with a Linter
+
+The `getLinter` method sets the Env to use a Linter implementation (for example, the [ESLint Aspect](https://bit.dev/teambit/defender/eslint)).
+
+```ts
+getLinter(context: LinterContext, transformers: any[]): Linter
+```
+
+For example:
+
+```ts
+// my-env.env.ts
+
+import { LinterEnv } from '@teambit/envs';
+import { ESLintMain } from '@teambit/eslint';
+
+export class MyEnv implements LinterEnv {
+    // ...
+    const eslintConfig = require('./eslint/eslintrc');
+    // ...
+    constructor(){
+        // ...
+        private eslint: ESLintMain
+    }
+
+    // ...
+
+    getLinter(context: LinterContext, transformers: EslintConfigTransformer[] = []): Linter {
+        return this.eslint.createLinter(
+        context,
+        {
+            config: eslintConfig,
+            // resolve all plugins from the react environment.
+            pluginPath: __dirname,
+        },
+        transformers
+        );
+    }
+}
+```

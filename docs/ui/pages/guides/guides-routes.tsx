@@ -1,7 +1,7 @@
 import React from 'react';
 import { DocsRoute } from '@teambit/docs.ui.docs';
 import loadable from '@loadable/component';
-import DecoupledCodebases from '@teambit/docs.content.mfe.decoupled-codebases';
+// import DecoupledCodebases from '@teambit/docs.content.mfe.decoupled-codebases';
 
 export const docsRoutes: DocsRoute[] = [
   {
@@ -10,50 +10,50 @@ export const docsRoutes: DocsRoute[] = [
     children: [
       {
         title: 'Overview',
-        path: 'overview'
+        path: 'overview',
       },
-      {
-        title: 'Decoupled codebases',
-        path: 'decoupled-codebases',
-        component: <DecoupledCodebases />
-      },
+      // {
+      //   title: 'Decoupled codebases',
+      //   path: 'decoupled-codebases',
+      //   component: <DecoupledCodebases />
+      // },
       {
         title: 'Autonomy and Independence',
-        path: 'autonomy-and-independence'
+        path: 'autonomy-and-independence',
       },
       {
         title: 'Standardization',
-        path: 'standardization'
+        path: 'standardization',
       },
       {
         title: 'Discoverability',
-        path: 'discoverability'
+        path: 'discoverability',
       },
       {
         title: 'Consumption strategies',
-        path: 'consumption-strategies'
+        path: 'consumption-strategies',
       },
       {
         title: 'Features and apps',
-        path: 'features-and-apps'
+        path: 'features-and-apps',
       },
       {
         title: 'Integration slots',
-        path: 'integration-slots'
+        path: 'integration-slots',
       },
       {
         title: 'Component sharing',
-        path: 'component-sharing'
+        path: 'component-sharing',
       },
       {
         title: 'Updates',
-        path: 'updates'
+        path: 'updates',
       },
       {
         title: 'Multi framework',
-        path: 'multi-framework'
-      }
-    ]
+        path: 'multi-framework',
+      },
+    ],
   },
   {
     path: 'component-libraries',
@@ -61,45 +61,45 @@ export const docsRoutes: DocsRoute[] = [
     children: [
       {
         title: 'Overview',
-        path: 'overview'
+        path: 'overview',
       },
       {
         title: 'Architecture',
-        path: 'architecture'
+        path: 'architecture',
       },
       {
         title: 'Development',
-        path: 'component-development'
+        path: 'component-development',
       },
       {
         title: 'Dependencies',
-        path: 'dependencies'
+        path: 'dependencies',
       },
       {
         title: 'Testing',
-        path: 'component-testing'
+        path: 'component-testing',
       },
       {
         title: 'Documenting',
-        path: 'documenting'
+        path: 'documenting',
       },
       {
         title: 'Building',
-        path: 'component-testing'
+        path: 'component-testing',
       },
       {
         title: 'Distribution',
-        path: 'distributing'
+        path: 'distributing',
       },
       {
         title: 'Reviewing',
-        path: 'reviewing'
+        path: 'reviewing',
       },
       {
         title: 'Adopting',
-        path: 'adopting'
-      }
-    ]
+        path: 'adopting',
+      },
+    ],
   },
   {
     title: 'Server side development',
@@ -107,20 +107,20 @@ export const docsRoutes: DocsRoute[] = [
     children: [
       {
         title: 'Micro services',
-        path: 'micro-services'
+        path: 'micro-services',
       },
       {
         title: 'BFF (backend for frontends)',
-        path: 'bff'
+        path: 'bff',
       },
       {
         title: 'Shared types',
-        path: 'shared-types'
+        path: 'shared-types',
       },
       {
         title: 'Data fetching',
-        path: 'data-fetching'
-      }
-    ]
-  }
+        path: 'data-fetching',
+      },
+    ],
+  },
 ];

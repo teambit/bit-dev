@@ -1,7 +1,7 @@
 /**
  * this is the main configuration file of your bit workspace.
  * for full documentation, please see: https://harmony-docs.bit.dev/workspace/configurations
- **/{
+ **/ {
   "$schema": "https://static.bit.dev/teambit/schemas/schema.json",
   /**
    * main configuration of the Bit workspace.
@@ -106,6 +106,7 @@
         "classnames": "2.3.1",
         "millify": "4.0.0",
         "react-helmet": "6.1.0",
+        "react-medium-image-zoom": "4.3.5",
         "react-router-dom": "5.2.0",
         "react-terminal": "1.2.1",
         "react-xarrows": "2.0.2",
@@ -118,9 +119,7 @@
       }
     },
     "packageManagerArgs": [],
-    "devFilePatterns": [
-      "**/*.spec.ts"
-    ],
+    "devFilePatterns": ["**/*.spec.ts"],
     "strictPeerDependencies": true,
     "installFromBitDevRegistry": true,
     "savePrefix": ""
@@ -175,6 +174,30 @@
     },
     "scope": {
       "defaultScope": "teambit.scope"
+    },
+    "preview": {
+      "defaultScope": "teambit.preview"
+    },
+    "webpack": {
+      "defaultScope": "teambit.webpack"
+    },
+    "defender": {
+      "defaultScope": "teambit.defender"
+    },
+    "compilation": {
+      "defaultScope": "teambit.compilation"
+    },
+    "harmony": {
+      "defaultScope": "teambit.harmony"
+    },
+    "envs": {
+      "defaultScope": "teambit.envs"
+    },
+    "pipelines": {
+      "defaultScope": "teambit.pipelines"
+    },
+    "compositions": {
+      "defaultScope": "teambit.compositions"
     }
   }
 }

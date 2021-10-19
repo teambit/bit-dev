@@ -1,0 +1,25 @@
+---
+description: 'An MDX component.'
+labels: ['content', 'mdx']
+---
+
+import { Capsule } from './index';
+
+### Component usage
+```js
+<Capsule />
+```
+
+### Render with theme and MDX providers
+
+```js
+import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions'
+import { MDXLayout } from '@teambit/ui.mdx-layout'
+import { Capsule } from './index'
+
+<ThemeCompositions>
+  <MDXLayout>
+    <Capsule />
+  </MDXLayout>
+</ThemeCompositions>
+```

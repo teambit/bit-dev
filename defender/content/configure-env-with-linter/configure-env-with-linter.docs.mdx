@@ -1,0 +1,26 @@
+---
+description: 'An MDX component.'
+labels: ['content', 'mdx']
+---
+
+import { ConfigureEnvWithLinter } from './index';
+
+### Component usage
+
+```js
+<ConfigureEnvWithLinter />
+```
+
+### Render with theme and MDX providers
+
+```js
+import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions';
+import { MDXLayout } from '@teambit/ui.mdx-layout';
+import { ConfigureEnvWithLinter } from './index';
+
+<ThemeCompositions>
+  <MDXLayout>
+    <ConfigureEnvWithLinter />
+  </MDXLayout>
+</ThemeCompositions>;
+```
