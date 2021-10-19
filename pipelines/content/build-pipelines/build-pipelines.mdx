@@ -1,0 +1,172 @@
+import { Image } from '@teambit/docs.ui.zoomable-image';
+import pipelinesImg from './pipelines.png';
+
+# Build Pipelines
+
+The Builder runs three separate build pipelines, the basic build pipeline, the snap pipeline and the tag pipeline.
+
+<Image src={pipelinesImg} />
+
+To get a list of the build tasks included in each pipeline for a specific component, run `bit build --list-tasks <id>`.
+For example:
+
+```bash
+bit build --list-tasks ui/button
+```
+
+```bash
+Tasks List
+id:    my-scope/ui/button@1.0.0
+envId: my-scope/custom-env@0.0.1
+
+Build Pipeline Tasks:
+teambit.harmony/aspect:CoreExporter
+teambit.compilation/compiler:TSCompiler
+teambit.defender/tester:TestComponents
+teambit.pkg/pkg:PreparePackages
+teambit.pkg/pkg:PublishDryRun
+teambit.preview/preview:GeneratePreview
+
+Tag Pipeline Tasks:
+teambit.harmony/application:build_ui_application
+teambit.pkg/pkg:PackComponents
+teambit.pkg/pkg:PublishComponents
+
+Snap Pipeline Tasks:
+teambit.pkg/pkg:PackComponents
+```
+
+## Build (the basic build pipeline)
+
+Components can be built without committing changes using the `bit build` command. This is often used to test the build process.
+`bit build` runs only the build's build pipeline which mainly includes:
+
+- Generating the component's `package.json`
+- Installing or symlinking the component's dependencies
+- Compiling the component's code (optional)
+- Testing the component (optional)
+- Performing ['dry run'](https://docs.npmjs.com/cli/v6/commands/npm-publish#:~:text=%5B--dry-run%5D%20As,the%20specified%20registry.)
+- Generating the component's visualization (mainly, docs and 'compositions')
+
+### Add a build task from an Env
+
+Use the `getBuildPipe` method to customize the Env's build pipeline.
+
+```ts
+getBuildPipe?: (tsconfig?: TsConfigSourceFile) => BuildTask[];
+```
+
+For example:
+
+```ts {2,13-24} title="my-react.main.runtime.ts"
+// ...
+import { PrintCmpNameTask } from './print-cmp-name.task';
+
+export class MyReactMain {
+  static slots = [];
+
+  static dependencies = [ReactAspect, EnvsAspect];
+
+  static runtime = MainRuntime;
+
+  static async provider([react, envs]: [ReactMain, EnvsMain]) {
+    // Get the env's default build pipeline
+    const reactPipe = react.env.getBuildPipe();
+
+    // Add the custom task to the end of the build tasks sequence.
+    // Provide the task with the component ID of the Aspect (Env) using it, and a task name (i chose not to set these values in the task itself)
+    const tasks = [
+      ...reactPipe,
+      new PrintCmpNameTask('company.scope/envs/my-react', 'PrintCmpNameTask'),
+    ];
+
+    const templatesReactEnv = envs.compose(react.reactEnv, [
+      react.overrideBuildPipe(tasks),
+    ]);
+    envs.registerEnv(templatesReactEnv);
+    return new MyReactMain();
+  }
+}
+
+// ..
+```
+
+See the custom task used in the example above, [here](/build-tasks).
+
+### Add a build task from any Aspect
+
+Use the `registerBuildTasks` API to register one or more tasks, from any Aspect.
+
+```ts
+registerBuildTasks(tasks: BuildTask[])
+```
+
+For example:
+
+```ts title="my-aspect.main.runtime.ts"
+import { BuilderMain } from '@teambit/builder';
+import { PrintCmpNameTask } from './print-cmp-name.task';
+
+export class MyAspectMain {
+  static slots = [];
+  static dependencies = [];
+  static runtime = MainRuntime;
+  static async provider() {
+    // Register this task using the Builder registration API.
+    builder.registerBuildTasks([
+      new ExampleTask('extensions/my-aspect', 'PrintCmpNameTask'),
+    ]);
+
+    return new MyAspectMain();
+  }
+}
+// ..
+```
+
+## Snap
+
+`bit snap` executes the basic pipeline before it runs its own build pipeline. The snap build pipeline consists, mainly, of packing <!--TODO [packing](#) --> the component without publishing it (since it is a snap and not a release version).
+
+### Add a build task from an Env
+
+Use the `getSnapPipe` method to customize the Env's build pipeline.
+
+```ts
+getSnapPipe?: (tsconfig?: TsConfigSourceFile) => BuildTask[];
+```
+
+See the [build pipeline example](#add-a-build-task-from-an-env), from more context.
+
+### Add a build task from any Aspect
+
+Use the `registerSnapTasks` API to register one or more tasks, from any Aspect.
+
+```ts
+registerSnapTasks(tasks: BuildTask[])
+```
+
+See the [build pipeline example](#add-a-build-task-from-any-aspect), from more context.
+
+## Tag
+
+`bit tag` executes the basic pipeline before it runs its own build pipeline. The snap build pipeline consists, mainly, of packing <!--TODO [packing](#) -->the component and publishing it.
+
+### Add a build task from an Env
+
+Use the `getTagPipe` method to customize the Env's build pipeline.
+
+```ts
+getTagPipe?: (tsconfig?: TsConfigSourceFile) => BuildTask[];
+```
+
+See the [build pipeline example](#add-a-build-task-from-an-env), from more context.
+
+### Add a build task from any Aspect
+
+Use the `registerTagTasks` API to register one or more tasks, from any Aspect.
+
+```ts
+registerTagTasks(tasks: BuildTask[])
+```
+
+See the [build pipeline example](#add-a-build-task-from-any-aspect), from more context.

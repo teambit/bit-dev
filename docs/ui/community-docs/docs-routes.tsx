@@ -33,6 +33,12 @@ const ScopeOverview = loadable(
   () => import('@teambit/scope.content.scope-overview')
 );
 
+/* Dev services */
+
+const DevServicesOverview = loadable(
+  () => import('@teambit/envs.content.dev-services-overview')
+);
+
 /* Preview */
 
 const PreviewOverview = loadable(
@@ -148,10 +154,82 @@ const CliReference = loadable(
   () => import('@teambit/harmony.content.cli-reference')
 );
 
-/* Env services */
+/* Builder */
 
-const DevServicesOverview = loadable(
-  () => import('@teambit/envs.content.dev-services-overview')
+const BuilderOverview = loadable(
+  () => import('@teambit/pipelines.content.builder-overview')
+);
+
+const BuildPipelines = loadable(
+  () => import('@teambit/pipelines.content.build-pipelines')
+);
+
+const BuildTasks = loadable(
+  () => import('@teambit/pipelines.content.build-tasks')
+);
+
+const BuildArtifacts = loadable(
+  () => import('@teambit/pipelines.content.build-artifacts')
+);
+
+const Capsule = loadable(() => import('@teambit/component.content.capsule'));
+
+/* Docs */
+
+const DocsOverview = loadable(
+  () => import('@teambit/docs.content.docs-overview')
+);
+
+const MDX = loadable(() => import('@teambit/docs.content.mdx'));
+
+const DocTemplates = loadable(
+  () => import('@teambit/docs.content.doc-templates')
+);
+
+const RenderingDocs = loadable(
+  () => import('@teambit/docs.content.rendering-docs')
+);
+
+/* Compositions */
+
+const CompositionsOverview = loadable(
+  () => import('@teambit/compositions.content.compositions-overview')
+);
+
+const CompositionFormat = loadable(
+  () => import('@teambit/compositions.content.composition-format')
+);
+
+const CompositionContext = loadable(
+  () => import('@teambit/compositions.content.composition-context')
+);
+
+const MountingCompositionsToDom = loadable(
+  () => import('@teambit/compositions.content.mounting-compositions-to-dom')
+);
+
+const CompositionsAndStories = loadable(
+  () => import('@teambit/compositions.content.compositions-and-stories')
+);
+
+/* Components */
+
+const ComponentId = loadable(
+  () => import('@teambit/component.content.component-id')
+);
+
+/* Envs */
+
+const InspectingEnv = loadable(
+  () => import('@teambit/envs.content.inspecting-env')
+);
+
+const ExtendingEnv = loadable(
+  () => import('@teambit/envs.content.extending-env')
+);
+
+const EnvToubleshooting = loadable(
+  () => import('@teambit/envs.content.env-troubleshooting')
 );
 
 export const docsRoutes: DocsRoute[] = [
@@ -210,11 +288,25 @@ export const docsRoutes: DocsRoute[] = [
     path: 'workspace',
     title: 'Workspace',
     icon: 'workspace',
+    collapsed: true,
     children: [
       {
         path: 'bitmap',
         title: 'bitmap',
         component: <Bitmap />,
+      },
+    ],
+  },
+  {
+    path: 'components',
+    title: 'Components',
+    icon: 'components',
+    collapsed: true,
+    children: [
+      {
+        path: 'component-id',
+        title: 'Component ID',
+        component: <ComponentId />,
       },
     ],
   },
@@ -227,6 +319,28 @@ export const docsRoutes: DocsRoute[] = [
         path: 'overview',
         title: 'Overview',
         component: <ScopeOverview />,
+      },
+    ],
+  },
+  {
+    path: 'envs',
+    title: 'Envs',
+    icon: 'code',
+    children: [
+      {
+        path: 'inspecting-env',
+        title: 'Inspecting an Env',
+        component: <InspectingEnv />,
+      },
+      {
+        path: 'extending-env',
+        title: 'Extending an Env',
+        component: <ExtendingEnv />,
+      },
+      {
+        path: 'env-troubleshooting',
+        title: 'Env Troubleshooting',
+        component: <EnvToubleshooting />,
       },
     ],
   },
@@ -265,6 +379,97 @@ export const docsRoutes: DocsRoute[] = [
             path: 'register-custom-preview',
             title: 'Register a Custom Preview',
             component: <RegisterCustomPreview />,
+          },
+        ],
+      },
+      {
+        path: 'builder',
+        title: 'Builder',
+        collapsed: true,
+        children: [
+          {
+            path: 'builder-overview',
+            title: 'Overview',
+            component: <BuilderOverview />,
+          },
+          {
+            path: 'build-pipelines',
+            title: 'Build Pipelines',
+            component: <BuildPipelines />,
+          },
+          {
+            path: 'build-tasks',
+            title: 'Build Tasks',
+            component: <BuildTasks />,
+          },
+          {
+            path: 'build-artifacts',
+            title: 'Build Artifacts',
+            component: <BuildArtifacts />,
+          },
+          {
+            path: 'capsule',
+            title: 'Caspule',
+            component: <Capsule />,
+          },
+        ],
+      },
+      {
+        path: 'docs',
+        title: 'Docs',
+        collapsed: true,
+        children: [
+          {
+            path: 'docs-overview',
+            title: 'Overview',
+            component: <DocsOverview />,
+          },
+          {
+            path: 'mdx',
+            title: 'MDX',
+            component: <MDX />,
+          },
+          {
+            path: 'docs-templates',
+            title: 'Doc Templates',
+            component: <DocTemplates />,
+          },
+          {
+            path: 'rendering-docs',
+            title: 'Rendering Docs',
+            component: <RenderingDocs />,
+          },
+        ],
+      },
+      {
+        path: 'compositions',
+        title: 'Compositions',
+        collapsed: true,
+        children: [
+          {
+            path: 'compositions-overview',
+            title: 'Overview',
+            component: <CompositionsOverview />,
+          },
+          {
+            path: 'composition-format',
+            title: 'Composition Format',
+            component: <CompositionFormat />,
+          },
+          {
+            path: 'composition-context',
+            title: 'Setting a Composition Context',
+            component: <CompositionContext />,
+          },
+          {
+            path: 'mounting-compositions-to-dom',
+            title: 'Mounting Compositions to the DOM',
+            component: <MountingCompositionsToDom />,
+          },
+          {
+            path: 'compositions-and-stories',
+            title: 'Compositions and Stories',
+            component: <CompositionsAndStories />,
           },
         ],
       },

@@ -1,0 +1,25 @@
+---
+description: 'An MDX component.'
+labels: ['content', 'mdx']
+---
+
+import { ImplementingNewEnv } from './index';
+
+### Component usage
+```js
+<ImplementingNewEnv />
+```
+
+### Render with theme and MDX providers
+
+```js
+import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions'
+import { MDXLayout } from '@teambit/ui.mdx-layout'
+import { ImplementingNewEnv } from './index'
+
+<ThemeCompositions>
+  <MDXLayout>
+    <ImplementingNewEnv />
+  </MDXLayout>
+</ThemeCompositions>
+```

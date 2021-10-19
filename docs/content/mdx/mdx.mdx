@@ -1,0 +1,132 @@
+# MDX
+
+import { Image } from '@teambit/docs.ui.zoomable-image';
+import staticCodeblockImg from './static_codeblock.png';
+import livePlaygroundImg from './live_playground.png';
+
+The [MDX format](https://mdxjs.com/) is perfect for writing documentation for components, as it joins together the ease-of-use and readability of the Markdown syntax with the great flexibility that's enabled by JSX.
+
+MDX docs use a Bit-specific flavor of MDX that [extends the docs front matter](https://bit.dev/teambit/mdx/modules/mdx-compiler) and renders them using [Bit's MDX layout](https://bit.dev/teambit/mdx/ui/mdx-layout).
+
+## Using MDX for component docs
+
+MDX is supported by Envs that use [Bit's MDX Webpack loader](https://bit.dev/teambit/mdx/modules/mdx-loader) for their component previews.
+These include the React Env, Node Env, and many others.
+
+To use MDX for component documentation, create a docs file with the `mdx` or `md` extensions.
+
+For example:
+
+```bash {3} title="A 'card' component documented using MDX"
+.
+├── card.composition.tsx
+├── card.docs.mdx
+├── card.module.scss
+├── card.spec.tsx
+├── card.tsx
+└── index.ts
+```
+
+## Using MDX as standalone components
+
+MDX can be used to create independent content components. That is, content that is not an internal dependency of a component, but a component in and of itself (that can be used by other components as an external dependency).
+This is done by setting the MDX component to use the [MDX Env](https://bit.dev/teambit/mdx/mdx).
+
+### Create an MDX component
+
+As any other component, MDX components can be created manually or using a pre-configured template.
+
+In the below example, we'll use MDX' component template:
+
+```bash
+bit create mdx content/my-mdx-component
+```
+
+This will generate the following files:
+
+```bash
+.
+├── index.ts
+├── my-mdx-component.composition.tsx
+├── my-mdx-component.docs.mdx
+└── my-mdx-component.mdx
+```
+
+Please note that the entry file (index) should export the MDX content as default. For example:
+
+```ts title="my-mdx-component/index.ts"
+export { default as MyMdxComponent } from './my-mdx-component.mdx';
+```
+
+### Set components to use the MDX Env
+
+Use Variants to set the MDX components to use the MDX Env. In the example below, we will use the `content` namespace to select all our content components:
+
+```json title="workspace.jsonc"
+  "teambit.workspace/variants": {
+    "{content/**}": {
+      "teambit.mdx/mdx": {}
+    },
+  }
+```
+
+## MDX docs structure and features
+
+### Abstract, Labels
+
+Use Bit's `description` and `labels` front matter properties to customize the docs ['abstract'](/overview#abstract) and ['labels'](/overview#labels).
+
+The front matter must be the first thing in the file and must take the form of valid YAML set between triple-dashed lines.
+
+For example:
+
+```mdx
+---
+description: 'Renders a heading with customizable element prop'
+labels: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6']
+---
+```
+
+### Content
+
+The MDX file content is compiled by Bit and exported as the default. There's no need to wrap the [content section](/overview#content) in a class or a function.
+
+For example:
+
+```mdx title="heading.docs.mdx"
+## Heading
+
+A heading component that renders a different heading element depending on what you pass into it. It also renders a text for the Heading.
+```
+
+### Live examples
+
+Add static codeblocks to your docs using the standard markdown syntax:
+
+For example:
+
+````md title="heading.docs.mdx"
+import { Heading } from './heading';
+
+```jsx
+<Heading element="h2">heading</Heading>
+```
+````
+
+<Image src={staticCodeblockImg} />
+
+Use Bit's live playground component by adding the `live` attribute to your codeblock.
+
+For example:
+
+````md title="heading.docs.mdx"
+import { Heading } from './heading';
+
+```jsx live
+<Heading element="h2">
+  heading<div>more heading</div>
+</Heading>
+```
+````
+
+<Image src={livePlaygroundImg} />

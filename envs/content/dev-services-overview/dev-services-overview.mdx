@@ -1,5 +1,6 @@
 import { Image } from '@teambit/docs.ui.zoomable-image';
 import devServiceDiagram from './dev-services-diagram.png';
+import devServiceAPIImg from './dev-service-api.png';
 
 # Env Services Overview
 
@@ -12,7 +13,7 @@ The output to the CLI will have the same format, and the generated dist files wi
 
 The below diagram and code, show an Env using three Dev Services: Compiler, Tester and Docs.
 
-<Image src={devServiceDiagram} />
+<Image src={devServiceDiagram} width="70%" />
 
 ```ts title="Example: An Env uses Dev Services"
 // ...
@@ -38,7 +39,7 @@ export class MyReactEnv implements DevEnv, CompilerEnv, TesterEnv {
 
 ## Service Handlers
 
-Service Handlers are the link that binds an Env to a Dev Service. They are methods that are implemented the Env class, and invoked by their corresponding Env Service.
+Service Handlers are the link that binds an Env to a Dev Service. These are methods that are implemented the Env class, and invoked by their corresponding Env Service.
 
 For example, the 'MyReactEnv' Env, shown above, uses the Service Handler `getCompiler()` to configure the Compiler Env Service to run the Babel aspect. The `getCompiler()` method is expected to be found by the Compiler, which will invoke it
 
@@ -48,17 +49,18 @@ Different components in a Bit workspace may use different environments. That mea
 
 For example, if _component A_ uses the Node environment then the Compiler service processing that component files, will execute the Service Handler (in that case, `getCompiler`) found in the Node environment.
 
-## Dev Service Implementations
+## Implementing a Dev Service
 
-A Dev Service Implementation is a Bit Aspect that implements a Dev Service interface and that is operated by that same Dev Service.
+Dev Services provide an API for Aspects to use, so they can serve as a development service of a specific type.
 
-In essence, the Dev Service defines a category of services. Each Dev Service Implementation is a member of that group of services (e.g, Compiler --> Babel Aspect).
+<Image src={devServiceAPIImg} width="70%" />
 
-Dev Service implementations can offer Bit-specific functionalities or serve as integrators of standard tools.
-For example, the [Babel Aspect](https://bit.dev/teambit/defender/jest) is a Dev Service Implementation that integrates [Babel](https://jestjs.io/) into Bit.
-This integration enables you to use Babel for component compilation in the workspace as well as during component build.
+For example, the [Babel Aspect](https://bit.dev/teambit/defender/jest) implements the Compiler interface, to integrate [Babel](https://jestjs.io/) into Bit, _as a compiler_.
+Using the Dev Service API, the Babel Aspect is able to access and use all the relevant Aspects, and use them in a way that is consistent with other Aspects that serve as compilers.
 
 ```ts title="Example: The Babel Aspect implements the Compiler interface"
+// Example: The Babel Aspect implements the Compiler interface
+
 import { Compiler } from '@teambit/compiler';
 import * as babel from '@babel/core';
 
@@ -77,112 +79,6 @@ export class BabelCompiler implements Compiler {
   }
 }
 ```
-
-### Integrated tools
-
-Dev Service Implementations can be used to integrate standard tools to Bit. In these cases it is important to make information regarding that integrated tool accessible to the Dev Service, and by that to other Bit Aspects.
-
-For example, the `bit env ui/text` command, shown below, lists information regarding the Env used by the `ui/text` component. This information contains the different services used by that Env.
-As you can see, that information includes details regarding the integrated tools, their name, version, config, etc.
-
-```bash {11,34}
-$ bit env ui/text
-
-
-Environment: company.scope/envs/my-react@0.0.1
-teambit.pipelines/builder
-
-// ...
-
-teambit.defender/tester
-
-configured tester: teambit.defender/jest (Jest @ 26.6.3)
-tester config:
-
-module.exports = {
-  // "roots": [
-  //   "<rootDir>/src"
-  // ],
-  // "collectCoverageFrom": [
-  //   "src/**/*.{js,jsx,ts,tsx}",
-  //   "!src/**/*.d.ts"
-  // ],
-  setupFiles: [require.resolve('react-app-polyfill/jsdom')],
-  setupFilesAfterEnv: [require.resolve('./setupTests.js')],
-  // "testMatch": [
-  // "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
-  // "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
-  // ],
-  // ...
-};
-
-//# sourceMappingURL=jest.config.js.map
-teambit.compilation/compiler
-
-configured compiler: teambit.typescript/typescript (TypeScript @ 4.4.2)
-compiler config:
-{
-  "compilerOptions": {
-    "lib": [
-      "es2019",
-      "DOM",
-      "ES6",
-      "DOM.Iterable"
-    ],
-    "target": "es2015",
-    "module": "commonjs",
-    "jsx": "react",
-    "declaration": true,
-    "sourceMap": true,
-    // ...
-  },
-  "exclude": [
-    "dist"
-  ]
-}
-```
-
-To make information about the integrated tool available to Bit, implement the following fields in the same class that implements the relevant Dev Service interface:
-
-#### id
-
-```ts
-id: string;
-```
-
-The ID of the integrated tool (e.g. jest, mocha, babel)
-
-#### displayName
-
-```ts
-displayName: string;
-```
-
-The display name of the integrated tool (e.g. Jest, Mocha, Babel)
-
-#### icon
-
-```ts
-icon: string;
-```
-
-The icon of that integrated tool.
-
-#### config
-
-```ts
-config: string;
-```
-
-The config for that integrated tool.
-
-#### version
-
-```ts
-version: string;
-```
-
-The version of that integrated tool (e.g, '1.2.3')
 
 ## Execution in the workspace VS Execution during build
 

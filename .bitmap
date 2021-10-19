@@ -27,6 +27,36 @@
         "mainFile": "index.ts",
         "rootDir": "workspace/content/bitmap"
     },
+    "content/build-artifacts": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "pipelines/content/build-artifacts"
+    },
+    "content/build-pipelines": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "pipelines/content/build-pipelines"
+    },
+    "content/build-tasks": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "pipelines/content/build-tasks"
+    },
+    "content/builder-overview": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "pipelines/content/builder-overview"
+    },
+    "content/capsule": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "component/content/capsule"
+    },
     "content/cli-reference": {
         "scope": "",
         "version": "",
@@ -56,6 +86,36 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "compilation/content/compiling-during-development"
+    },
+    "content/component-id": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "component/content/component-id"
+    },
+    "content/composition-context": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "compositions/content/composition-context"
+    },
+    "content/composition-format": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "compositions/content/composition-format"
+    },
+    "content/compositions-and-stories": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "compositions/content/compositions-and-stories"
+    },
+    "content/compositions-overview": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "compositions/content/compositions-overview"
     },
     "content/configure-env-with-compiler": {
         "scope": "",
@@ -92,6 +152,30 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "envs/content/dev-services-overview"
+    },
+    "content/doc-templates": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/doc-templates"
+    },
+    "content/docs-overview": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/docs-overview"
+    },
+    "content/env-troubleshooting": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "envs/content/env-troubleshooting"
+    },
+    "content/extending-env": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "envs/content/extending-env"
     },
     "content/formatter-overview": {
         "scope": "",
@@ -171,6 +255,18 @@
         "mainFile": "index.ts",
         "rootDir": "defender/content/implement-tester"
     },
+    "content/implementing-new-env": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "envs/content/implementing-new-env"
+    },
+    "content/inspecting-env": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "envs/content/inspecting-env"
+    },
     "content/linter-overview": {
         "scope": "",
         "version": "",
@@ -188,6 +284,18 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "defender/content/linting-during-development"
+    },
+    "content/mdx": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/mdx"
+    },
+    "content/mounting-compositions-to-dom": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "compositions/content/mounting-compositions-to-dom"
     },
     "content/multi-compiler": {
         "scope": "",
@@ -236,6 +344,12 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "preview/content/register-custom-preview"
+    },
+    "content/rendering-docs": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/rendering-docs"
     },
     "content/scope-overview": {
         "scope": "teambit.scope",

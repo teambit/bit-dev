@@ -191,6 +191,12 @@
     },
     "envs": {
       "defaultScope": "teambit.envs"
+    },
+    "pipelines": {
+      "defaultScope": "teambit.pipelines"
+    },
+    "compositions": {
+      "defaultScope": "teambit.compositions"
     }
   }
 }
