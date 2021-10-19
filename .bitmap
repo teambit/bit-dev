@@ -603,6 +603,12 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/footer/link"
     },
+    "ui/gallery/component-card-group": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "explorer/ui/gallery/component-card-group"
+    },
     "ui/github-stars": {
         "scope": "teambit.community",
         "version": "1.6.0",
@@ -627,6 +633,12 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/graph/component-card-graph"
     },
+    "ui/graph/create-row": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/graph/create-row"
+    },
     "ui/graph/edge": {
         "scope": "teambit.community",
         "version": "1.6.0",
@@ -650,12 +662,6 @@
         "version": "1.6.0",
         "mainFile": "index.ts",
         "rootDir": "community/ui/header/nav"
-    },
-    "ui/heading": {
-        "scope": "teambit.community",
-        "version": "1.6.0",
-        "mainFile": "index.ts",
-        "rootDir": "community/ui/heading"
     },
     "ui/hero": {
         "scope": "teambit.community",
@@ -753,11 +759,23 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/pages/plugins"
     },
-    "ui/plugins/plugin-group": {
-        "scope": "teambit.community",
-        "version": "1.6.0",
+    "ui/plugins/create-section": {
+        "scope": "",
+        "version": "",
         "mainFile": "index.ts",
-        "rootDir": "community/ui/plugins/plugin-group"
+        "rootDir": "community/ui/plugins/create-section"
+    },
+    "ui/plugins/explore-section": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/plugins/explore-section"
+    },
+    "ui/search/search-input": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "explorer/ui/search/search-input"
     },
     "ui/sections/component-distribution": {
         "scope": "teambit.community",

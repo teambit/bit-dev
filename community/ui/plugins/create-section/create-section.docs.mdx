@@ -1,0 +1,28 @@
+---
+description: 'Create section for plugins page'
+labels: ['create', 'section', 'plugins']
+---
+
+import { FigmaEmbed } from '@teambit/design.embeds.figma';
+import { highlightClass } from '@teambit/community.ui.heading';
+import { CreateSection } from './create-section';
+
+Create section is the bottom section for the Plugins page on bit.dev website, and showing a graph of supported plugins.
+
+### A section with title and bubbles
+
+```js live
+<CreateSection
+  heading={
+    <>
+      Create a new plugin <br />
+      <span className={highlightClass}>in minutes</span>
+    </>
+  }
+  subtitle="Bit is extremly extendible and you can add any tool or functionality in minutes and using over 800 available APIs. So what will you make?"
+/>
+```
+
+### Design
+
+<FigmaEmbed src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FesIa0ZGLe0bMyUmCX9bdV6%2FPlugins%3Fnode-id%3D104%253A4664" />

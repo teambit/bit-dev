@@ -28,7 +28,7 @@ export const clientLogos = [
     alt: 'Autodesk'
   },
   {
-    src: 'https://static.bit.dev/homepage-enterprise-logos/HOOPP.svg',
-    alt: 'HOOPP'
+    src: 'https://static.bit.dev/homepage-enterprise-logos/progressive-leasing.svg',
+    alt: 'Progressive Leasing'
   }
 ];

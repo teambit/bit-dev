@@ -1,9 +1,8 @@
-
 .bubble {
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  border: 2px solid #EDEDED;
+  border: 2px solid #ededed;
   border-radius: 50%;
   padding: 10px 14px;
   width: 58px;
@@ -18,12 +17,13 @@
     top: 5px;
     left: 5px;
   }
-  
+
   .id {
     visibility: hidden;
   }
-  
-  &.active, &:hover {
+
+  &.active,
+  &.allowHover:hover {
     cursor: pointer;
     width: 190px;
     border-radius: 100px;
@@ -38,6 +38,9 @@
     .name {
       display: block;
     }
+  }
+  &.noHoverAllowed {
+    opacity: 1;
   }
 
   &:hover {

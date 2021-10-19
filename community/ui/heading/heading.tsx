@@ -8,7 +8,9 @@ import {
 import sizes from './heading-sizes.module.scss';
 import styles from './heading.module.scss';
 
-// TODO: oded please note that `Size` is a design thing and `h` is a schematic one. 
+export const highlightClass = styles.highlight;
+
+// TODO: oded please note that `Size` is a design thing and `h` is a schematic one.
 // they should probably not be coupled to each other.
 export type Sizes = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
@@ -43,6 +45,7 @@ export function Heading({
         className,
         highlightClass
       )}
+      element={element}
       {...rest}
     >
       {children}

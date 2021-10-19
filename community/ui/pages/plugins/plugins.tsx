@@ -1,65 +1,41 @@
 import React from 'react';
-import { ComponentCard } from '@teambit/explorer.ui.gallery.component-card';
-import { Subtitle } from '@teambit/documenter.ui.sub-title';
-import { ExternalLink } from '@teambit/design.ui.external-link';
-import { PluginGroup } from '@teambit/community.ui.plugins.plugin-group';
-import { Heading } from '@teambit/community.ui.heading';
-import { Page } from '@teambit/community.ui.pages.page';
+import { WideColumn } from '@teambit/base-ui.layout.page-frame';
+import { ComponentCardGroup } from '@teambit/explorer.ui.gallery.component-card-group';
+import { ExploreSection } from '@teambit/community.ui.plugins.explore-section';
+import { CreateSection } from '@teambit/community.ui.plugins.create-section';
+import { highlightClass } from '@teambit/community.ui.heading';
+import { Page } from '@teambit/base-react.pages.page';
+import { devEnvsMock, compilingMock, testingMock, lintingFormatingMock, appsMock } from './plugins.mock';
 
-export type PluginsProps = {
-  /**
-   * a text to be rendered in the component.
-   */
-  title?: string,
+export type PluginsProps = React.HTMLAttributes<HTMLDivElement>;
 
-  abstract?: string;
-};
-
-export function Plugins({ title = 'Explore Bit Plugins', abstract }: PluginsProps) {
+export function Plugins({ ...props }: PluginsProps) {
   return (
-    <Page title="Plugins">
-      <Heading>
-        {title}
-      </Heading>
-
-      <Subtitle>
-        Enhance and customize your development experience with dozens of official and community Plugins.
-      </Subtitle>
-
-      <ExternalLink href="https://bit.dev/components?env=aspect">Browse plugins</ExternalLink>
-      <ExternalLink href="/docs/extending-bit/create-a-plugin">Create a new plugin</ExternalLink>
-
-      <PluginGroup title="Dev environments">
-        <ComponentCard id="teambit.react/react"></ComponentCard>
-        <ComponentCard id="teambit.harmony/node"></ComponentCard>
-        <ComponentCard id="teambit.angular/angular"></ComponentCard>
-        <ComponentCard id="teambit.web-components/lit"></ComponentCard>
-        <ComponentCard id="teambit.harmony/aspect"></ComponentCard>
-      </PluginGroup>
-
-      <PluginGroup title="Compiling">
-        <ComponentCard id="teambit.typescript/typescript"></ComponentCard>
-        <ComponentCard id="teambit.compilation/babel"></ComponentCard>
-        <ComponentCard id="teambit.mdx/mdx"></ComponentCard>
-      </PluginGroup>
-
-      <PluginGroup title="Testing">
-        <ComponentCard id="teambit.defender/jest"></ComponentCard>
-        <ComponentCard id="teambit.defender/mocha"></ComponentCard>
-      </PluginGroup>
-
-      <PluginGroup title="Linting and Formatting">
-        <ComponentCard id="teambit.defender/eslint"></ComponentCard>
-        <ComponentCard id="teambit.defender/prettier"></ComponentCard>
-      </PluginGroup>
-
-      <PluginGroup title="Apps">
-        <ComponentCard id="teambit.apps/nextjs"></ComponentCard>
-        <ComponentCard id="teambit.apps/gatsby"></ComponentCard>
-        <ComponentCard id="teambit.apps/docusaurus"></ComponentCard>
-      </PluginGroup>
-
-      <Heading size="h2">Creating a plugin has never been easier</Heading>      
+    <Page title="Bit / Plugins" {...props}>
+      <ExploreSection
+        heading={
+          <>
+            Explore <span className={highlightClass}>Bit Plugins</span>
+          </>
+        }
+        subtitle="Enhance and customize your development experience with dozens of official and community Plugins."
+      />
+      <WideColumn>
+        <ComponentCardGroup title="Dev environments" components={devEnvsMock} />
+        <ComponentCardGroup title="Compiling" components={compilingMock} />
+        <ComponentCardGroup title="Testing" components={testingMock} />
+        <ComponentCardGroup title="Linting and Formatting" components={lintingFormatingMock} />
+        <ComponentCardGroup title="Apps" components={appsMock} />
+      </WideColumn>
+      <CreateSection
+        heading={
+          <>
+            Create a new plugin <br />
+            <span className={highlightClass}>in minutes</span>
+          </>
+        }
+        subtitle="Bit is extremly extendible and you can add any tool or functionality in minutes and using over 800 available APIs. So what will you make?"
+      />
     </Page>
   );
 }
