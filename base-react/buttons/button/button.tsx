@@ -5,6 +5,8 @@ import type { AriaButtonProps } from '@react-types/button';
 
 export type ButtonElementType = 'a' | 'button';
 
+export type A = ReactNode;
+
 export type ButtonProps = AriaButtonProps & {
   /**
    * children of the Button.
