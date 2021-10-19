@@ -19,12 +19,12 @@ export type HeroProps = {
   /**
    * title to use in the Hero section.
    */
-  title: string;
+  title?: string;
 
   /**
    * teaser.
    */
-  teaser: string;
+  teaser?: string;
 
   /**
    * state for hero background graph.

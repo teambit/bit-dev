@@ -8,7 +8,7 @@ export type ComponentCardGroupProps = {
   /**
    * title for the group.
    */
-  title?: string;
+  title?: React.ReactNode;
 
   /**
    * array of components.

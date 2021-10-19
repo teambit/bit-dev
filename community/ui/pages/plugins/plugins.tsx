@@ -9,9 +9,9 @@ import { devEnvsMock, compilingMock, testingMock, lintingFormatingMock, appsMock
 
 export type PluginsProps = React.HTMLAttributes<HTMLDivElement>;
 
-export function Plugins({ ...rest }: PluginsProps) {
+export function Plugins({ ...props }: PluginsProps) {
   return (
-    <Page title="Bit / Plugins" {...rest}>
+    <Page title="Bit / Plugins" {...props}>
       <ExploreSection
         heading={
           <>

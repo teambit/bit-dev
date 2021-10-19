@@ -18,7 +18,7 @@ describe('should render create section', () => {
   it('should have h2 with given text', () => {
     expect(rendered.querySelector('h2')?.textContent).toBe('My Components');
   });
-  it('should have 4 component card', () => {
+  it('should have 4 component cards', () => {
     const componentGrid = rendered.lastChild;
     expect(componentGrid?.childNodes.length).toBe(4);
   });

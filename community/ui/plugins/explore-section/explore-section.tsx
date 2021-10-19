@@ -29,11 +29,6 @@ export function ExploreSection({ heading, subtitle, className, ...rest }: Explor
     window.open(`https://bit.dev/components?packageDependencies=%40teambit%2Fharmony&q=${searchValue}`);
   };
   const onSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => setSearchValue(event.target.value);
-  const onKeyUp = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
-      onSearch();
-    }
-  };
 
   return (
     <section className={classNames(styles.exploreSection, className)} {...rest}>
@@ -46,7 +41,6 @@ export function ExploreSection({ heading, subtitle, className, ...rest }: Explor
             onIconClick={onSearch}
             value={searchValue}
             onChange={onSearchChange}
-            onKeyUp={onKeyUp}
             className={styles.searchInput}
           />
           <div>
