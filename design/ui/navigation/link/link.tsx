@@ -10,7 +10,7 @@ export function Link({ className, activeClassName, ...rest }: LinkProps) {
   return (
     <BaseLink
       className={classNames(styles.link, className)}
-      // activeClassName={classNames(styles.active, activeClassName)}
+      activeClassName={activeClassName}
       {...rest}
     />
   );

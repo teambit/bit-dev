@@ -44,7 +44,7 @@ export function Button(props: ButtonProps) {
   return (
     <>
       {!props.href ? (
-        <button ref={ref} {...allProps}>
+        <button className={props.className} ref={ref} {...allProps}>
           {props.children}
         </button>
       ) : (
