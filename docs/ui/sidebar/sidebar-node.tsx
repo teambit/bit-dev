@@ -1,4 +1,4 @@
-import React, { /* useState, */ useContext } from 'react';
+import React from 'react';
 import { TreeNode, TreeNodeComponentProps } from '@teambit/ui-foundation.ui.tree.tree-node';
 import { FolderTreeNode } from '@teambit/ui-foundation.ui.tree.folder-tree-node';
 import { TreeContext } from '@teambit/base-ui.graph.tree.tree-context';

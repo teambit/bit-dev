@@ -23,7 +23,7 @@ export type DocPageProps = {
 };
 
 const scrollToRef = (ref) => {
-  return window.scrollTo(0, 0)
+  return window.scrollTo(0, -ref.current.offsetTop)
 }   
 
 
