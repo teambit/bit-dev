@@ -1,0 +1,141 @@
+# Docs Overview
+
+import { Image } from '@teambit/docs.ui.zoomable-image';
+import docsOverviewImg from './docs_overview.png';
+
+The docs service simplifies the documentation process and provides components with visually rich, custom-made, documentation. It utilizes doc templates to present component docs using the technology and layout that best fits their type.
+
+Doc files, of different formats, are loaded from the workspace's [component directories](/workspace/component-directory), and displayed using the [doc template](/doc-templates) that was set by each component's Env.
+
+The docs are presented in the 'Overview' tab of the Workspace UI/Scope UI.
+
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/cKMghSe_1RU?rel=0"
+  title="How to add Docs to your Bit components"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen
+></iframe>
+
+## Loading the component docs
+
+The docs service automatically loads component docs by searching in each [component directory](/workspace/component-directory) for files named with certain patterns.
+The default glob pattern for doc file is: `**/*.docs.*`.
+
+For example, the following `ui/card` component will have its docs file, `card.docs.mdx` automatically loaded. The docs file will be rendered in the 'Overview' section, using the docs template set by that component's Env.
+
+```bash {6} title="my-workspace"
+.
+├── demo
+│   └── ui
+│       ├── card
+│       │   ├── card.composition.tsx
+│       │   ├── card.docs.mdx
+│       │   ├── card.module.scss
+│       │   ├── card.spec.tsx
+│       │   ├── card.tsx
+│       │   └── index.ts
+```
+
+To change the default glob patterns, use the Docs config interface:
+
+```json title="workspace.jsonc"
+{
+  "teambit.docs/docs": {
+    "pattern": ["**/*.docs.*"]
+  }
+}
+```
+
+## The docs structure
+
+> The below overview page uses React's default template which follows Bit's recommendations
+
+<Image src={docsOverviewImg} />
+
+### Display name
+
+The 'display name' is determined by the [component name](/components/component-id#component-name).
+
+### Abstract
+
+The 'abstract' is a one or two liner description of a component. It should characterize the component's main concern.
+
+By default, the abstract is parsed out from the component's JSDocs annotations. It can be manually set using the `abstract` API:
+
+```js title="heading.docs.js"
+export const abstract = 'Renders a heading with customizable element prop';
+```
+
+### Labels
+
+'Labels' are keywords that describe and categorize the component. 'Labels' are also used by [Bit Cloud](https://bit.dev)'s search and filters.
+
+To manually set the labels use the `labels` API:
+
+```js title="heading.docs.js"
+export const labels = ['H1', 'H2', 'H3', 'H4', 'H5', 'H6'];
+```
+
+### Content
+
+'Content' is the body of the component documentation. This is where the unstructured docs content goes.
+
+Set the content by exporting as default a component. The type of component varies according to the Env being used. For example, when using the React Env, a React component will be exported.
+
+```js title=heading.docs.js
+import React from 'react';
+
+export default function Content() {
+  return (
+    <>
+        <h3>Heading<h3>
+        <div>
+            A heading component that renders a different heading element depending on
+            what you pass into it.
+        </div>
+    <>
+  );
+}
+```
+
+### Live examples
+
+Live examples are small interactive tutorials that instruct on how a component can be used.
+
+Use the `example` API to set an array of examples.
+
+```ts
+Example: {
+    scope: object, // All dependencies necessary for the live example to run
+    title: string, // The example's title
+    description: string, // The example's description
+    code: string // A template literal for the example code
+}
+```
+
+For example:
+
+```tsx title="card.docs.tsx"
+import React from 'react';
+import { Header } from './header';
+
+export const examples: Examples[] = [
+  {
+    scope: {
+      Header,
+    },
+    title: 'Live Playground',
+    description: 'Modify the text to see it change live:',
+    code: `<Heading element="h2">
+                heading<div>more heading</div>
+            </Heading>`,
+  },
+];
+```
+
+### Compositions
+
+The component compositions, embedded in the docs.

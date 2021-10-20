@@ -1,0 +1,68 @@
+# Testing during Development
+
+During development, Bit tests your components using the `bit test` and `bit watch` commands. These commands
+provide a standard dev experience for testing any kind of [Component](/components/overview), whether it is a NodeJS modules, a React component or anything else.
+
+## Test all components in the Workspace
+
+Bit tests all components in the [Workspace](/workspace/overview) regardless to the configured [Env](/envs/overview) and therefor tester,
+with a single command.
+
+```bash
+bit test
+```
+
+## Watch for changes and retest
+
+Watching for component changes and retesting can be done with a single command.
+
+```bash
+bit watch
+```
+
+Watch starts by default when starting the [Workspace](/workspace/overview) UI.
+
+```bash
+bit start
+```
+
+## CLI References
+
+- [bit test](/reference/cli-reference#test)
+- [bit watch](/reference/cli-reference#watch)
+- [bit start](/reference/cli-reference#start)
+
+## Tester workspace configurations
+
+The Tester aspect can be configured in the `workspace.jsonc` configuration file.
+
+### watchOnStart
+
+Determines whether to run the Tester in 'watch mode' when the running the development server.
+
+For example:
+
+```json
+{
+  "teambit.defender/tester": {
+    "watchOnStart": false
+  }
+}
+```
+
+### patterns
+
+Determines the file extensions for test files.
+
+For example:
+
+```json
+{
+  "teambit.defender/tester": {
+    "patterns": [
+      "**/*.spec.+(js|ts|jsx|tsx)",
+      "**/*.another-prefix.+(js|ts|jsx|tsx)"
+    ]
+  }
+}
+```

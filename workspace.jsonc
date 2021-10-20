@@ -58,6 +58,7 @@
         "@teambit/application.netlify": "0.0.7",
         "@teambit/base-ui.constants.storage": "1.0.0",
         "@teambit/base-ui.elements.image": "1.0.0",
+        "@teambit/base-ui.elements.separator": "1.1.0",
         "@teambit/base-ui.graph.tree.indent": "1.0.0",
         "@teambit/base-ui.graph.tree.inflate-paths": "1.0.0",
         "@teambit/base-ui.graph.tree.recursive-tree": "1.0.0",
@@ -76,10 +77,12 @@
         "@teambit/component.modules.component-url": "0.0.71",
         "@teambit/design.elements.icon": "1.0.4",
         "@teambit/design.embeds.figma": "0.0.3",
+        "@teambit/design.ui.cli-snippet": "0.0.347",
         "@teambit/design.ui.dropdown": "1.0.8",
         "@teambit/design.ui.error-page": "0.0.350",
         "@teambit/design.ui.external-link": "0.0.344",
         "@teambit/design.ui.heading": "1.0.5",
+        "@teambit/design.ui.input.icon-text": "0.0.7",
         "@teambit/design.ui.message-card": "1.0.4",
         "@teambit/design.ui.styles.ellipsis": "0.0.345",
         "@teambit/documenter.theme.theme-compositions": "4.1.1",
@@ -99,12 +102,15 @@
         "@teambit/ui-foundation.ui.react-router.nav-link": "0.0.441",
         "@teambit/ui-foundation.ui.tree.folder-tree-node": "0.0.446",
         "@teambit/ui-foundation.ui.tree.tree-node": "0.0.448",
+        "@teambit/ui.mdx-layout": "0.0.368",
         "@testing-library/react-hooks": "7.0.1",
         "@types/react-helmet": "6.1.2",
         "@types/react-router-dom": "5.1.7",
         "classnames": "2.3.1",
         "millify": "4.0.0",
         "react-helmet": "6.1.0",
+        "react-json-view": "1.21.3",
+        "react-medium-image-zoom": "4.3.5",
         "react-router-dom": "5.2.0",
         "react-terminal": "1.2.1",
         "react-xarrows": "2.0.2",
@@ -174,6 +180,35 @@
     },
     "scope": {
       "defaultScope": "teambit.scope"
+    },
+    "preview": {
+      "defaultScope": "teambit.preview"
+    },
+    "webpack": {
+      "defaultScope": "teambit.webpack"
+    },
+    "defender": {
+      "defaultScope": "teambit.defender"
+    },
+    "compilation": {
+      "defaultScope": "teambit.compilation"
+    },
+    "harmony": {
+      "defaultScope": "teambit.harmony"
+    },
+    "envs": {
+      "defaultScope": "teambit.envs"
+    },
+    "pipelines": {
+      "defaultScope": "teambit.pipelines"
+    },
+    "compositions": {
+      "defaultScope": "teambit.compositions"
+    },
+    "explorer/ui": {
+      "teambit.community/envs/community-react": "-",
+      "teambit.react/react": {},
+      "defaultScope": "teambit.explorer"
     }
   }
 }

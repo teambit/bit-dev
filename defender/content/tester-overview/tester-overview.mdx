@@ -1,0 +1,93 @@
+# Overview
+
+Standard test runners are integrated into Bit using a Bit Aspect. For example, [Jest](https://jestjs.io/) is integrated into Bit using the [Jest Aspect](https://bit.dev/teambit/defender/jest).
+These Aspects implement the [Tester interface](https://bit.dev/teambit/defender/tester/~code/tester.ts). A tester implementation should be able to provide [testing in the workspace](./workspace-testing) as well as [testing during build](./testing-during-build).
+
+The easiest way to start implementing a tester is to create a new Bit Aspect using the `Aspect` template.
+
+```bash title="Create a new Aspect component"
+bit create aspect extensions/my-tester
+```
+
+As a convention, the tester interface is implemented in a file named with the `tester` prefix. Since it is a specific implementation file, it is not part of the generic Aspect component template and therefore needs to be created manually:
+
+```bash title="Create a tester implementation file"
+cd extensions/my-tester
+touch my-tester.tester.ts
+```
+
+## Tester implementation file
+
+:::note
+When implementing testing in the workspace, make sure the tester implementation transpiles source files during testing. The tester receives the compiled code (compiled by the Env's [Compiler](/compiler/overview)) only during build.
+For example, the Jest Aspect uses the `transform` option to do so.
+:::
+
+### test
+
+```js
+test(context: TesterContext): Promise<Tests>;
+```
+
+- [`TesterContext`](https://bit.dev/teambit/defender/tester/~code/tester.ts)<!-- TODO: maybe change link to point to the builder docs here-->
+- [`Tests`](https://bit.dev/teambit/defender/tester/~code/tester.ts)<!-- TODO: maybe change link to point to the builder docs here-->
+
+The `test` method is used by Tester for testing in the workspace as well as during build. Use the received `context` object to handle both cases.
+
+## watch (optional)
+
+```ts
+watch?(context: TesterContext): Promise<Tests>
+```
+
+Watch tests on all components
+
+### onTestRunComplete (optional)
+
+```ts
+onTestRunComplete?(callback: CallbackFn): Promise<void>
+```
+
+on test run complete. (applies only during watch)
+
+### version
+
+```ts
+version(): string;
+```
+
+Returns the tester version.
+
+### displayConfig (optional)
+
+```ts
+displayConfig?(): string
+```
+
+The `displayConfig` function helps the user see the tester config when using the `bit env <comp-id>` command.
+It should return a string representation of the tester config. (for example JSON.stringify of the tsconfig file)
+
+### configPath (optional)
+
+```ts
+configPath?: string;
+```
+
+A path to the config of the specific tester in the filesystem.
+for example path to the jest config file.
+
+## Main runtime file
+
+```ts
+createTester(jestConfig: any, jestModulePath?: string): JestTester
+```
+
+Creates returns an instance of the implemented Tester.
+
+For example:
+
+```ts
+createTester(jestConfig: any, jestModulePath = require.resolve('jest')) {
+  return new JestTester(JestAspect.id, jestConfig, jestModulePath, this.jestWorker, this.logger);
+}
+```

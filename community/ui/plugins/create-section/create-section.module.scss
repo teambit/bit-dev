@@ -1,0 +1,40 @@
+@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
+
+.createSection {
+  position: relative;
+  max-width: 1440px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  margin: 40px auto;
+  @media screen and (max-width: $br-md) {
+    margin: 0;
+  }
+}
+.gridGraph {
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  min-width: 1440px;
+  @media screen and (max-width: $br-md) {
+    display: none;
+  }
+}
+.content {
+  position: absolute;
+  top: 130px;
+  margin: 0;
+  max-width: 660px;
+  text-align: center;
+  @media screen and (max-width: $br-md) {
+    position: unset;
+    top: unset;
+    margin: 40px 20px;
+  }
+  .heading,
+  .subtitle {
+    margin: 0 0 24px;
+  }
+  .icon {
+    margin-left: 8px;
+  }
+}

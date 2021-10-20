@@ -25,7 +25,7 @@ export function BitDevApp() {
     <RoutingProvider value={legacyRouting}>
       <RouterContextProvider Link={Link}>
         <ThemeCompositions>
-          <ComponentHighlighter style={{border: 'none'}}>
+          <ComponentHighlighter style={{ border: 'none' }}>
             <BrowserRouter>
               <Header />
               <Switch>

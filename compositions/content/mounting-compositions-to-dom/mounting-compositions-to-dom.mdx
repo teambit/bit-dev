@@ -1,0 +1,125 @@
+# Mounting Compositions to the DOM
+
+Compositions are mounted or appended to the DOM, using a "mounter" function.
+
+:::info
+A "mounter" is the main module used by the Preview Aspect to render the content of files (modules) for the 'compositions' preview. It is analogous to the docs' template.
+Learn more about it, [here](/preview/overview)
+:::
+
+## Setting a mounter
+
+To set your own template, create a new Env (or extend and existing one), and implement the `getMounter()` [service handler](/envs/services/dev-services-overview#service-handlers).
+
+```ts
+getMounter(): string
+```
+
+`getMounter` should return the path to the file with the mounter function.
+
+For example:
+
+```ts title="my-react.env.ts"
+// my-react.env.ts
+
+import { DevEnv } from '@teambit/envs';
+
+// ...
+
+export class MyReactEnv implements DevEnv {
+  // ...
+
+  getMounter() {
+    return require.resolve('./path-to-mounter');
+  }
+}
+```
+
+See the DevServer service to learn how customize the bundling of the compositions in development.
+
+See the Bundler service to learn how to customize the bundling of compositions for previewing in distributed components.
+
+## Creating a mounter
+
+### Mounter function
+
+The mounter fle should export, as default, a function that handles the mounting or rendering of compositions.
+
+For example:
+
+```ts title="Example: A mounter function used for React-based compositions"
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { RenderingContext } from '@teambit/preview';
+
+import { CompositionsApp } from './compositions-app';
+
+export default (
+  Composition: React.ComponentType,
+  previewContext: RenderingContext
+) => {
+  ReactDOM.render(
+    <CompositionsApp
+      Composition={Composition}
+      previewContext={previewContext}
+    />,
+    document.getElementById('root')
+  );
+};
+```
+
+### Mounter function arguments
+
+The Compositions Aspect invokes the mounter function and passes the following arguments:
+
+1. `Composition: any`: The composition to render. The type of `Compositions` varies from one Env to another (for example, compositions for React components will be of type `React.ComponentType`)
+
+2. `previewContext: RenderingContext`: The rendering context provides information regarding the executed aspects.
+
+```ts
+class RenderingContext {
+  private contexts;
+  constructor(contexts: RenderingContextSlot);
+  get(aspectId: string):
+    | {
+        [key: string]: any;
+      }
+    | undefined;
+}
+```
+
+It is mainly useful (in the context of compositions) to set context providers in a React-based mounter. For example:
+
+```ts title="Example: Wrapping the composition with context-providers"
+// Example: Wrapping the composition with context-providers
+
+export function CompositionsApp({
+  Composition,
+  previewContext,
+}: {
+  Composition?: React.ComponentType;
+  previewContext: RenderingContext;
+}) {
+  // Get data regarding the currently running `teambit.react/react` Aspect (the React Env)
+  const reactContext = previewContext.get(ReactAspect.id);
+  // Get the available Context Providers, if there are any
+  const providers = reactContext?.providers || [];
+
+  return (
+    <ErrorBoundary FallbackComponent={ErrorFallback} resetKeys={[Composition]}>
+      // Wrap the rendered composition using the provided Context Providers
+      <Composer components={providers}>
+        <style>{hideScrollbars}</style>
+        <LoaderFallback
+          Target={Composition}
+          DefaultComponent={StandaloneNotFoundPage}
+        />
+      </Composer>
+    </ErrorBoundary>
+  );
+}
+```
+
+:::tip
+Bit provides the [Composer](https://bit.dev/teambit/base-ui/utils/composer) component to wrap components with multiple providers/decorators in a simple and elegant way.
+:::

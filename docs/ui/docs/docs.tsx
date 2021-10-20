@@ -27,6 +27,11 @@ export type DocsProps = {
   baseUrl?: string,
 
   /**
+   * primary links to be presented in the top of the sidebar.
+   */
+  primaryLinks?: DocsRoute[],
+
+  /**
    * shows a next page box after every page unless specifically set otherwise by the route using the `showNext` property on DocsRoute. 
    */
   showNext?: boolean,

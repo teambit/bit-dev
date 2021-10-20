@@ -1,0 +1,66 @@
+# Inspecting an Env's Configuration
+
+Understanding your Env's config can be crucial for predicable and bug-free outcomes. Getting the right the information, however, can be quite tricky as there could be multiple sources for a single config.
+
+For example, an extended Env's compiler will have the merged config of the compiler implementation (e.g, TypeScript Aspect), of the base (extended) Env, and of the Env extension. It is not always clear what the calculated result for this merge is.
+
+To get the final calculated configs for your Env, run the `env` command with the full name of the component using the inspected env.
+
+```bash
+bit env <component-full-name>
+```
+
+The output will present you with the Env's build pipelines and integrated tools.
+
+### Build pipelines (build, snap, tag)
+
+The tasks set to run as part of the various build processes and their order of execution.
+
+For example:
+
+```bash
+teambit.pipelines/builder
+
+total 6 tasks are configured to be executed in the following order
+1. teambit.harmony/aspect:CoreExporter
+2. teambit.compilation/compiler:TSCompiler
+3. teambit.defender/tester:TestComponents
+4. teambit.pkg/pkg:PreparePackages
+5. teambit.pkg/pkg:PublishDryRun
+6. teambit.preview/preview:GeneratePreview
+```
+
+### Integrated tools
+
+An Env implements various dev services using specific Aspects, with specific configurations. These aspects often use third-party tools like Webpack, TypeScript, etc. The `env` command gives quick insight into all these tools.
+
+For example, the following output shows TypeScript as the tool used by the Compiler implementation, the version of TypeScript and its (calculated) config (`tsconfig.json`):
+
+```bash
+teambit.compilation/compiler
+
+configured compiler: teambit.typescript/typescript (TypeScript @ 4.4.2)
+compiler config:
+{
+  "compilerOptions": {
+    "lib": [
+      "es2019",
+      "DOM",
+      "ES6",
+      "DOM.Iterable"
+    ],
+    "target": "es2015",
+    "module": "commonjs",
+    "jsx": "react",
+    "declaration": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "outDir": "dist"
+  },
+  "exclude": [
+    "dist"
+  ]
+}
+```

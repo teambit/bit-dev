@@ -1,0 +1,62 @@
+# Multi-Compiler
+
+The multi-compiler aspect allows the configuration of multiple compilers on a component. This determines which compiler to apply on a component file using the `isFileSupported()` <!--TODO add links to implement compiler --> compiler API.
+
+- `createCompiler(compilers: Compiler[], options: CompilerOptions)` API to support the creation a Multi-compiler instance which can be used in the Env API (the `overrideCompiler` and `getCompiler` APIs).
+- Supports the creation of a multi-compiler build tasks.
+
+```ts
+// create a multi compiler instance.
+const compiler = multiCompiler.createCompiler([
+  createBabelCompiler(),
+  createTsCompiler(),
+]);
+
+// create a multi-compiler build task.
+compiler.createTask('MultiCompiler', compiler);
+```
+
+An example of using the multi compiler can be found in the [mdx env](https://bit.dev/teambit/mdx/mdx/~code/mdx.main.runtime.ts)
+
+## Special implementations details
+
+### transpileFile
+
+The `transpileFile` of the multi compiler is taking each one of the files and run it through the compilers.
+Each compiler get's the output of the previous compiler in the list.
+The check against isFileSupported are done against the previous compiler output path.
+for example the ts compiler will compile the code, and change the output file path from `.ts` to `.js`, then the next compiler in the list
+will check isFileSupported with the `.js` extension.
+If a compiler in the list does not support a specific file, the file will be passed to the next compiler in the list, as is.
+
+### build
+
+As opposed to the transpile file, the build for all the compiler gets the same context as argument.
+Which means, by default the compilers will be applied on the original source files, unless they know to read the outputs
+of the previous compiler from the capsules and use them as a base.
+The build is running in serial (build of each compiler only starts after the build of previous one finished) this is to
+be able to support reading the previous compiler output.
+
+### pre/post build
+
+The multi compiler will run all the pre/post build functions for any of the compilers that implement them.
+This tasks will be run in parallel.
+
+### getDistPathBySrcPath
+
+The multi compiler will return the distPath returned by the first compiler that support a given file.
+In case no compilers support a file, it will return `join(this.distDir, srcPath);`
+
+### isFileSupported
+
+The multi compiler return true if at least one of the compiler support the file.
+
+### version
+
+The multi compiler will return a string which contain the displayName@version for each one of the compilers, separated by new line.
+For example
+
+```
+typescript@4.4.0
+babel@7.11.6
+```

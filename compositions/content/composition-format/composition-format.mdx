@@ -1,0 +1,21 @@
+# Composition Format
+
+Compositions use the Component Story Format (CSF), an open standard for component examples based on JavaScript ES6 modules.
+
+Compositions are functions that return a component, in a specific state and/or a specific context. They are exported using a name and never as default.
+
+```jsx title="Example of a component in a certain state"
+export const DarkCard = () => <Card theme="dark">Hello dark world!</Card>;
+```
+
+```jsx title="Example of a component in a certain context"
+export const CardInHero = () => {
+  return (
+    <Hero>
+      <Card>A "card" component, used in a "hero" component</Card>
+    </Hero>
+  );
+};
+```
+
+The CSF format is as easy to implement as any other exported ES6 function. But, most importantly, it is a non-propriety format. That enables compositions to be used by test frameworks like Jest and Cypress, as well as other popular dev tools like Storybook.

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Heading } from '@teambit/community.ui.heading';
 import classNames from 'classnames';
 // TODO: move to be in `design` owned by @amir.
@@ -19,12 +19,12 @@ export type HeroProps = {
   /**
    * title to use in the Hero section.
    */
-  title: string;
+  title?: string;
 
   /**
    * teaser.
    */
-  teaser: string;
+  teaser?: string;
 
   /**
    * state for hero background graph.
@@ -32,51 +32,64 @@ export type HeroProps = {
   bubbles: BubbleNode[];
 };
 
-export function Hero({ title, bubbles, teaser }: HeroProps) {
+const defaultTitle = 'Build anything in components';
+const defaultTeaser =
+  'Bit helps distribute to components and compose them into infinite features and apps. Forget monolithic apps and distribute to component-driven software. ';
+
+export function Hero({ title = defaultTitle, teaser = defaultTeaser, bubbles }: HeroProps) {
   const { heroState, setStateFromTime } = useHeroState();
-  const headingClass =
-    heroState === HeroState.HEADING_UPDATED ? styles.highlight : "";
-  
+  const headingClass = heroState === HeroState.HEADING_UPDATED ? styles.highlight : '';
+
   const button = GridNode.fromPlain({
     id: 'teambit.design/ui/buttons/button',
-    dependencies: ['teambit.react-base/buttons/button']
+    dependencies: ['teambit.react-base/buttons/button'],
   });
 
   const heading = GridNode.fromPlain({
     id: 'teambit.community/ui/content/heading',
-    dependencies: ['teambit.design/ui/content/heading']
+    dependencies: ['teambit.design/ui/content/heading'],
   });
 
   return (
     <WideColumn>
-          <BubbleGraph nodes={bubbles}>
-            <Edge node={button} dependency={button.dependencies[0]} />
-            <Edge node={heading} dependency={heading.dependencies[0]} />
-            <div className={styles.title}>
-              <BubbleHighlighter showId cornerSvgSize={40} cornerSvgClassName={styles.largeSvg} className={classNames(styles.titleHighlighter)} componentId={ComponentID.fromString('teambit.community/ui/content/heading')}>
-                <Heading className={styles.marginZero} highlight={heroState === HeroState.HEADING_UPDATED}>{title}</Heading>
-              </BubbleHighlighter>
-            </div>
-            <div className={styles.subTitle}>
-              <BubbleHighlighter cornerSvgSize={20} cornerSvgClassName={styles.subtitleSvg} showId className={classNames(styles.subtitleHighlighter)} componentId={ComponentID.fromString('teambit.design/ui/content/subtitle')}>
-                <Subtitle className={styles.marginZero}>{teaser}</Subtitle>
-              </BubbleHighlighter>
-            </div>
-            <div className={styles.getStarted}>
-              <BubbleHighlighter componentId={ComponentID.fromString('teambit.design/ui/buttons/button')} showId>
-                <Button className={styles.getStartedAction} href="/docs/quick-start">Getting Started</Button>
-              </BubbleHighlighter>
-              <BubbleHighlighter componentId={ComponentID.fromString('teambit.documenter/ui/copy-box')} showId>
-                <CopyBox className={styles.copyBox}>npx @teambit/bvm install</CopyBox>
-              </BubbleHighlighter>
-            </div>
-          </BubbleGraph>
+      <BubbleGraph nodes={bubbles}>
+        <Edge node={button} dependency={button.dependencies[0]} />
+        <Edge node={heading} dependency={heading.dependencies[0]} />
+        <div className={styles.title}>
+          <BubbleHighlighter
+            showId
+            cornerSvgSize={40}
+            cornerSvgClassName={styles.largeSvg}
+            className={classNames(styles.titleHighlighter)}
+            componentId={ComponentID.fromString('teambit.community/ui/content/heading')}
+          >
+            <Heading className={styles.marginZero} highlight={heroState === HeroState.HEADING_UPDATED}>
+              {title}
+            </Heading>
+          </BubbleHighlighter>
+        </div>
+        <div className={styles.subTitle}>
+          <BubbleHighlighter
+            cornerSvgSize={20}
+            cornerSvgClassName={styles.subtitleSvg}
+            showId
+            className={classNames(styles.subtitleHighlighter)}
+            componentId={ComponentID.fromString('teambit.design/ui/content/subtitle')}
+          >
+            <Subtitle className={styles.marginZero}>{teaser}</Subtitle>
+          </BubbleHighlighter>
+        </div>
+        <div className={styles.getStarted}>
+          <BubbleHighlighter componentId={ComponentID.fromString('teambit.design/ui/buttons/button')} showId>
+            <Button className={styles.getStartedAction} href="/docs/quick-start">
+              Getting Started
+            </Button>
+          </BubbleHighlighter>
+          <BubbleHighlighter componentId={ComponentID.fromString('teambit.documenter/ui/copy-box')} showId>
+            <CopyBox className={styles.copyBox}>npx @teambit/bvm install</CopyBox>
+          </BubbleHighlighter>
+        </div>
+      </BubbleGraph>
     </WideColumn>
   );
 }
-
-Hero.defaultProps = {
-  title: 'Build anything in components',
-  teaser:
-    'Bit helps distribute to components and compose them into infinite features and apps. Forget monolithic apps and distribute to component-driven software. '
-};

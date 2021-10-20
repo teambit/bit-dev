@@ -1,0 +1,8 @@
+.componentCardPreview {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  > img {
+    width: 70px;
+  }
+}
