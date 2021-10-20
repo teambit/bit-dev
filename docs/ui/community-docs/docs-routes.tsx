@@ -605,8 +605,8 @@ export const docsRoutes: DocsRoute[] = [
     ],
   },
   {
-    path: 'integrations',
-    title: 'Integrations',
+    path: 'tools',
+    title: 'Tools',
     icon: 'sort',
     children: [
       {
