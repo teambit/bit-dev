@@ -1,7 +1,7 @@
 import type { PlainBubbleNode } from '@teambit/community.entity.graph.bubble-graph';
 import { createRow } from './create-row';
 
-describe('should create a row of bubbles data', () => {
+describe.skip('should create a row of bubbles data', () => {
   const icons = [
     'logo-auth0.svg',
     'logo-tailwindcss.svg',
