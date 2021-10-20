@@ -95,6 +95,7 @@
         "@teambit/explorer.ui.gallery.component-grid": "0.0.435",
         "@teambit/harmony": "0.2.11",
         "@teambit/mdx.ui.mdx-layout": "0.0.441",
+        "@teambit/react.eslint-config-bit-react": "0.0.448",
         "@teambit/react.templates.themes.theme": "0.0.3",
         "@teambit/react.ui.component-highlighter": "0.0.452",
         "@teambit/ui-foundation.ui.buttons.collapser": "0.0.144",
