@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, ReactNode } from 'react';
 import classNames from 'classnames';
 import { TreeNode } from '@teambit/base-ui.graph.tree.recursive-tree';
 // TODO: check with Uri why sidebar is distributed to many components and not documented.
@@ -9,8 +9,8 @@ import { TreeNodeContext } from '@teambit/base-ui.graph.tree.recursive-tree';
 import { SidebarNode } from './sidebar-node';
 
 export type SidebarPayload = {
-  collapsed?: boolean;
-  icon?: string;
+  open?: boolean;
+  icon?: string | ReactNode;
   title: string;
   path?: string;
 };

@@ -260,7 +260,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'composing',
         title: 'Composing',
-        collapsed: true,
+        open: false,
         children: [
           {
             path: 'creating-components',
@@ -288,7 +288,7 @@ export const docsRoutes: DocsRoute[] = [
     path: 'workspace',
     title: 'Workspace',
     icon: 'workspace',
-    collapsed: true,
+    open: false,
     children: [
       {
         path: 'bitmap',
@@ -301,7 +301,7 @@ export const docsRoutes: DocsRoute[] = [
     path: 'components',
     title: 'Components',
     icon: 'components',
-    collapsed: true,
+    open: false,
     children: [
       {
         path: 'component-id',
@@ -348,7 +348,7 @@ export const docsRoutes: DocsRoute[] = [
     path: 'dev-services',
     title: 'Dev Services',
     icon: 'compCI',
-    collapsed: true,
+    open: false,
     children: [
       {
         path: 'dev-services-overview',
@@ -358,7 +358,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'preview',
         title: 'Preview',
-        collapsed: true,
+        open: false,
         children: [
           {
             path: 'overview',
@@ -385,7 +385,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'builder',
         title: 'Builder',
-        collapsed: true,
+        open: false,
         children: [
           {
             path: 'builder-overview',
@@ -417,7 +417,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'docs',
         title: 'Docs',
-        collapsed: true,
+        open: false,
         children: [
           {
             path: 'docs-overview',
@@ -444,7 +444,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'compositions',
         title: 'Compositions',
-        collapsed: true,
+        open: false,
         children: [
           {
             path: 'compositions-overview',
