@@ -387,6 +387,12 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/content/video"
     },
+    "entities/docs-routes": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/entities/docs-routes"
+    },
     "entity/compnent-distribution-graph": {
         "scope": "teambit.community",
         "version": "1.8.0",

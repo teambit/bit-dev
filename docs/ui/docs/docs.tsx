@@ -1,6 +1,6 @@
 import React, { useReducer } from 'react';
 import classNames from 'classnames';
-import { DocsRoute } from './docs-route';
+import { DocsRoute, DocsRoutes } from '@teambit/docs.entities.docs-routes';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
 import { Sidebar } from '@teambit/docs.ui.sidebar';
 import { DocPage } from '@teambit/docs.ui.pages.doc-page';
@@ -13,7 +13,6 @@ import {
 } from '@teambit/base-ui.surfaces.split-pane.split-pane';
 import { HoverSplitter } from '@teambit/base-ui.surfaces.split-pane.hover-splitter';
 import styles from './docs.module.scss';
-import { DocsRoutes } from './routes';
 
 export type DocsProps = {
   /**

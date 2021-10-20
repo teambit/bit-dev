@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { SidebarNode, SidebarPayload } from '@teambit/docs.ui.sidebar';
 import { DocsRoute } from './docs-route';
 
