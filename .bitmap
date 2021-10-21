@@ -501,12 +501,6 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/layout/grid"
     },
-    "markdown/heading": {
-        "scope": "teambit.documenter",
-        "version": "0.1.2",
-        "mainFile": "index.ts",
-        "rootDir": "documenter/markdown/heading"
-    },
     "modules/paths": {
         "scope": "teambit.docs",
         "version": "1.8.9",
@@ -764,12 +758,6 @@
         "version": "1.8.9",
         "mainFile": "index.ts",
         "rootDir": "design/ui/layouts/sections/top-down"
-    },
-    "ui/linked-heading": {
-        "scope": "teambit.documenter",
-        "version": "4.1.2",
-        "mainFile": "index.ts",
-        "rootDir": "documenter/ui/linked-heading"
     },
     "ui/logo-showcase": {
         "scope": "teambit.community",
