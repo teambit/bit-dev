@@ -123,4 +123,15 @@ export const docsRoutes: DocsRoute[] = [
       },
     ],
   },
+
+  {
+    title: 'Code sharing',
+    path: 'code-sharing',
+    children: [
+      {
+        path: 'sharing-code-challenges',
+        title: 'Challenges of sharing code'
+      }
+    ]
+  }
 ];

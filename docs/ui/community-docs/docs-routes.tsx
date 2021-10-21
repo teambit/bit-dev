@@ -27,6 +27,7 @@ const CreateWorkspace = loadable(
 );
 
 /* Workspace */
+const WorkspaceOverview = loadable(() => import('@teambit/workspace.content.workspace-overview'));
 const Bitmap = loadable(() => import('@teambit/workspace.content.bitmap'));
 const WorkspaceLink = loadable(() => import('@teambit/workspace.content.workspace-link'));
 const DirectoryStructure = loadable(() => import('@teambit/workspace.content.directory-structure'));
@@ -308,7 +309,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'workspace-overview',
         title: 'Workspace overview',
-        component: <Bitmap />,
+        component: <WorkspaceOverview />,
       },
       {
         path: 'creating-workspaces',
@@ -564,6 +565,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'generator',
         title: 'Generator',
+        icon: 'generator',
         children: [
           {
             path: 'generator-overview',
@@ -574,7 +576,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'compiler',
         title: 'Compiler',
-        icon: 'https://static.bit.dev/Community/icons/compile.svg',
+        icon: 'compile',
         children: [
           {
             path: 'compiler-overview',
@@ -611,6 +613,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'tester',
         title: 'Tester',
+        icon: 'tester',
         children: [
           {
             path: 'tester-overview',
@@ -702,6 +705,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'preview',
         title: 'Preview',
+        icon: 'preview',
         open: false,
         children: [
           {
@@ -729,6 +733,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'linter',
         title: 'Linter',
+        icon: 'linter',
         children: [
           {
             path: 'linter-overview',
