@@ -204,6 +204,9 @@
     "compositions": {
       "defaultScope": "teambit.compositions"
     },
+    "dependencies": {
+      "defaultScope": "teambit.dependencies"
+    },
     "explorer/ui": {
       "teambit.community/envs/community-react": "-",
       "teambit.react/react": {},

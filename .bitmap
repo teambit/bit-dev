@@ -87,6 +87,12 @@
         "mainFile": "index.ts",
         "rootDir": "compilation/content/compiling-during-development"
     },
+    "content/component-directory": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "workspace/content/component-directory"
+    },
     "content/component-id": {
         "scope": "teambit.component",
         "version": "1.8.8",
@@ -153,6 +159,12 @@
         "mainFile": "index.ts",
         "rootDir": "envs/content/dev-services-overview"
     },
+    "content/directory-structure": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "workspace/content/directory-structure"
+    },
     "content/doc-templates": {
         "scope": "teambit.docs",
         "version": "1.8.8",
@@ -176,6 +188,12 @@
         "version": "1.8.8",
         "mainFile": "index.ts",
         "rootDir": "envs/content/extending-env"
+    },
+    "content/external-dependencies": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "dependencies/content/external-dependencies"
     },
     "content/formatter-overview": {
         "scope": "teambit.defender",
@@ -309,6 +327,18 @@
         "mainFile": "index.ts",
         "rootDir": "component/content/naming"
     },
+    "content/node-modules": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "dependencies/content/node-modules"
+    },
+    "content/package-managers": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "dependencies/content/package-managers"
+    },
     "content/preview-during-build": {
         "scope": "teambit.preview",
         "version": "1.8.8",
@@ -387,11 +417,23 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/content/video"
     },
+    "content/workspace-link": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "workspace/content/workspace-link"
+    },
     "content/workspace-overview": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "workspace/content/workspace-overview"
+    },
+    "content/workspace-status": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "workspace/content/workspace-status"
     },
     "entities/docs-routes": {
         "scope": "teambit.docs",

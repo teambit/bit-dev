@@ -27,8 +27,12 @@ const CreateWorkspace = loadable(
 );
 
 /* Workspace */
-
 const Bitmap = loadable(() => import('@teambit/workspace.content.bitmap'));
+const WorkspaceLink = loadable(() => import('@teambit/workspace.content.workspace-link'));
+const DirectoryStructure = loadable(() => import('@teambit/workspace.content.directory-structure'));
+const ComponentDir = loadable(() => import('@teambit/workspace.content.component-directory'));
+const WorkspaceStatus = loadable(() => import('@teambit/workspace.content.workspace-status'));
+
 
 /**
  * Scope
@@ -36,6 +40,13 @@ const Bitmap = loadable(() => import('@teambit/workspace.content.bitmap'));
 const ScopeOverview = loadable(
   () => import('@teambit/scope.content.scope-overview')
 );
+
+/**
+ * Dependencies
+ */
+const NodeModules = loadable(() => import('@teambit/dependencies.content.node-modules'));
+const ExternalDependencies = loadable(() => import('@teambit/dependencies.content.external-dependencies'));
+const PackageManagers = loadable(() => import('@teambit/dependencies.content.package-managers'));
 
 /* Dev services */
 
@@ -296,13 +307,53 @@ export const docsRoutes: DocsRoute[] = [
     children: [
       {
         path: 'workspace-overview',
-        title: 'Workspace Overview',
+        title: 'Workspace overview',
         component: <Bitmap />,
+      },
+      {
+        path: 'creating-workspaces',
+        title: 'Creating workspaces'
+      },
+      {
+        path: 'configuring-workspaces',
+        title: 'Configuring the workspace (workspace.jsonc)'
+      },
+      {
+        path: 'directory-structure',
+        title: 'Directory structure',
+        component: <DirectoryStructure />
+      },
+      {
+        path: 'component-directory',
+        title: 'Component directory',
+        component: <ComponentDir />
+      },
+      {
+        path: 'configuration-variants',
+        title: 'Configuration variants'
+      },
+      {
+        path: 'importing-components',
+        title: 'Importing components'
+      },
+      {
+        path: 'exporting-components',
+        title: 'Exporting components'
+      },
+      {
+        path: 'workspace-status',
+        title: 'Workspace Status',
+        component: <WorkspaceStatus />
       },
       {
         path: 'bitmap',
         title: 'bitmap',
         component: <Bitmap />,
+      },
+      {
+        path: 'component-links',
+        title: 'Workspace component link',
+        component: <WorkspaceLink />
       },
       {
         path: 'configuring-remote-scopes',
@@ -318,8 +369,12 @@ export const docsRoutes: DocsRoute[] = [
     children: [
       {
         path: 'components-overview',
-        title: 'Components Overview',
+        title: 'Components overview',
         component: <ComponentId />,
+      },
+      {
+        path: 'component',
+        title: 'Component'
       },
       {
         path: 'component-id',
@@ -332,6 +387,14 @@ export const docsRoutes: DocsRoute[] = [
         component: <ComponentId />,
       },
       {
+        path: 'naming-components',
+        title: 'Naming components'
+      },
+      {
+        path: 'inspecting-components',
+        title: 'Inspecting components'
+      },
+      {
         path: 'component-capsules',
         title: 'Component capsules',
         // component: 
@@ -341,22 +404,59 @@ export const docsRoutes: DocsRoute[] = [
   {
     path: 'dependencies',
     title: 'Dependencies',
+    open: false,
     icon: 'dependencies',
     children: [
       {
         path: 'dependencies-overview',
         title: 'Dependencies overview'
+      },
+      {
+        path: 'updates',
+        title: 'Dependency updates'
+      },
+      {
+        path: 'policies',
+        title: 'Dependency policies'
+      },
+      {
+        path: 'external-dependencies',
+        title: 'External dependencies',
+        component: <ExternalDependencies />
+      },
+      {
+        path: 'node-modules',
+        title: 'node_modules',
+        component: <NodeModules />
+      },
+      {
+        path: 'dependency-resolution',
+        title: 'Dependency resolution'
+      },
+      {
+        path: 'inspecting-dependencies',
+        title: 'Inspecting dependencies'
+      },
+      {
+        path: 'peer-dependencies',
+        title: 'Peer dependencies'
+      },
+      {
+        path: 'package-managers',
+        title: 'Package Managers',
+        component: <PackageManagers />
       }
     ]
   },
   {
     path: 'scope',
+    open: false,
     title: 'Scope',
     icon: 'collection',
     children: [
       {
         path: 'scope-overview',
-        title: 'Scope Overview',
+        title: 'Scope overview',
         component: <ScopeOverview />,
       },
       {
@@ -381,7 +481,7 @@ export const docsRoutes: DocsRoute[] = [
       },
       {
         path: 'extending-scopes',
-        title: 'Extending Scopes',
+        title: 'Extending scopes',
         component: <ScopeOverview />,
       }
     ],
@@ -390,7 +490,12 @@ export const docsRoutes: DocsRoute[] = [
     path: 'envs',
     title: 'Envs',
     icon: 'code',
+    open: false,
     children: [
+      {
+        path: 'envs-overview',
+        title: 'Envs overview'
+      },
       {
         path: 'inspecting-env',
         title: 'Inspecting an Env',
@@ -409,6 +514,11 @@ export const docsRoutes: DocsRoute[] = [
     ],
   },
   {
+    path: 'packages',
+    title: 'Packages',
+    children: []
+  },
+  {
     path: 'dev-services',
     title: 'Dev Services',
     icon: 'compCI',
@@ -418,33 +528,6 @@ export const docsRoutes: DocsRoute[] = [
         path: 'dev-services-overview',
         title: 'Dev Services Overview',
         component: <DevServicesOverview />,
-      },
-      {
-        path: 'preview',
-        title: 'Preview',
-        open: false,
-        children: [
-          {
-            path: 'overview',
-            title: 'Overview',
-            component: <PreviewOverview />,
-          },
-          {
-            path: 'preview-during-development',
-            title: 'Preview during Development',
-            component: <PreviewDuringDevelopment />,
-          },
-          {
-            path: 'preview-during-build',
-            title: 'Preview during Build',
-            component: <PreviewDuringBuild />,
-          },
-          {
-            path: 'register-custom-preview',
-            title: 'Register a Custom Preview',
-            component: <RegisterCustomPreview />,
-          },
-        ],
       },
       {
         path: 'builder',
@@ -479,8 +562,87 @@ export const docsRoutes: DocsRoute[] = [
         ],
       },
       {
+        path: 'generator',
+        title: 'Generator',
+        children: [
+          {
+            path: 'generator-overview',
+            title: 'Generator overview'
+          }
+        ]
+      },
+      {
+        path: 'compiler',
+        title: 'Compiler',
+        icon: 'https://static.bit.dev/Community/icons/compile.svg',
+        children: [
+          {
+            path: 'compiler-overview',
+            title: 'Overview',
+            component: <CompilerOverview />,
+          },
+          {
+            path: 'compiling-during-development',
+            title: 'Compiling during Development',
+            component: <CompilingDuringDevelopment />,
+          },
+          {
+            path: 'compiling-during-build',
+            title: 'Compiling during Build',
+            component: <CompilingDuringBuild />,
+          },
+          {
+            path: 'configure-env-with-compiler',
+            title: 'Configure an Env with a Compiler',
+            component: <ConfigureEnvWithCompiler />,
+          },
+          {
+            path: 'implement-compiler',
+            title: 'Implement a Compiler',
+            component: <ImplementCompiler />,
+          },
+          {
+            path: 'multi-compiler',
+            title: 'Multi-Compiler',
+            component: <MultiCompiler />,
+          },
+        ],
+      },
+      {
+        path: 'tester',
+        title: 'Tester',
+        children: [
+          {
+            path: 'tester-overview',
+            title: 'Overview',
+            component: <TesterOverview />,
+          },
+          {
+            path: 'testing-during-development',
+            title: 'Testing during Development',
+            component: <TestingDuringDevelopment />,
+          },
+          {
+            path: 'testing-during-build',
+            title: 'Testing during Build',
+            component: <TestingDuringBuild />,
+          },
+          {
+            path: 'configure-env-with-tester',
+            title: 'Configure an Env with a Tester',
+            component: <ConfigureEnvWithTester />,
+          },
+          {
+            path: 'implement-tester',
+            title: 'Implement a Tester',
+            component: <ImplementTester />,
+          },
+        ],
+      },
+      {
         path: 'docs',
         title: 'Docs',
+        icon: 'Ripple_list',
         open: false,
         children: [
           {
@@ -538,70 +700,29 @@ export const docsRoutes: DocsRoute[] = [
         ],
       },
       {
-        path: 'tester',
-        title: 'Tester',
+        path: 'preview',
+        title: 'Preview',
+        open: false,
         children: [
           {
-            path: 'tester-overview',
+            path: 'overview',
             title: 'Overview',
-            component: <TesterOverview />,
+            component: <PreviewOverview />,
           },
           {
-            path: 'testing-during-development',
-            title: 'Testing during Development',
-            component: <TestingDuringDevelopment />,
+            path: 'preview-during-development',
+            title: 'Preview during Development',
+            component: <PreviewDuringDevelopment />,
           },
           {
-            path: 'testing-during-build',
-            title: 'Testing during Build',
-            component: <TestingDuringBuild />,
+            path: 'preview-during-build',
+            title: 'Preview during Build',
+            component: <PreviewDuringBuild />,
           },
           {
-            path: 'configure-env-with-tester',
-            title: 'Configure an Env with a Tester',
-            component: <ConfigureEnvWithTester />,
-          },
-          {
-            path: 'implement-tester',
-            title: 'Implement a Tester',
-            component: <ImplementTester />,
-          },
-        ],
-      },
-      {
-        path: 'compiler',
-        title: 'Compiler',
-        icon: 'https://static.bit.dev/Community/icons/compile.svg',
-        children: [
-          {
-            path: 'compiler-overview',
-            title: 'Overview',
-            component: <CompilerOverview />,
-          },
-          {
-            path: 'compiling-during-development',
-            title: 'Compiling during Development',
-            component: <CompilingDuringDevelopment />,
-          },
-          {
-            path: 'compiling-during-build',
-            title: 'Compiling during Build',
-            component: <CompilingDuringBuild />,
-          },
-          {
-            path: 'configure-env-with-compiler',
-            title: 'Configure an Env with a Compiler',
-            component: <ConfigureEnvWithCompiler />,
-          },
-          {
-            path: 'implement-compiler',
-            title: 'Implement a Compiler',
-            component: <ImplementCompiler />,
-          },
-          {
-            path: 'multi-compiler',
-            title: 'Multi-Compiler',
-            component: <MultiCompiler />,
+            path: 'register-custom-preview',
+            title: 'Register a Custom Preview',
+            component: <RegisterCustomPreview />,
           },
         ],
       },
@@ -672,6 +793,7 @@ export const docsRoutes: DocsRoute[] = [
   {
     path: 'tools',
     title: 'Tools',
+    open: false,
     icon: 'sort',
     children: [
       {
@@ -690,11 +812,13 @@ export const docsRoutes: DocsRoute[] = [
   {
     path: 'platforms',
     title: 'Platforms',
+    open: false,
     icon: 'Internal',
     children: [],
   },
   {
     path: 'extending-bit',
+    open: false,
     icon: 'Extension',
     title: 'Extending Bit',
     children: [],
@@ -702,6 +826,7 @@ export const docsRoutes: DocsRoute[] = [
   {
     path: 'reference',
     icon: 'Ripple_list',
+    open: false,
     title: 'Reference',
     children: [
       {
