@@ -1,5 +1,5 @@
 import React from 'react';
-import { DocsRoute } from '@teambit/docs.ui.docs';
+import { DocsRoute } from '@teambit/docs.entities.docs-routes';
 import loadable from '@loadable/component';
 // import DecoupledCodebases from '@teambit/docs.content.mfe.decoupled-codebases';
 
@@ -123,4 +123,15 @@ export const docsRoutes: DocsRoute[] = [
       },
     ],
   },
+
+  {
+    title: 'Code sharing',
+    path: 'code-sharing',
+    children: [
+      {
+        path: 'sharing-code-challenges',
+        title: 'Challenges of sharing code'
+      }
+    ]
+  }
 ];

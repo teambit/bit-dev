@@ -6,7 +6,7 @@ export type SectionGroupProps = {
   /**
    * sections to render in the group. 
    */
-  children: ReactNode
+  children?: ReactNode
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export function SectionGroup({ children, className, ...rest }: SectionGroupProps) {
