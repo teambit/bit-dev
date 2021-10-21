@@ -214,10 +214,6 @@
       "teambit.community/envs/community-react": "-",
       "teambit.react/react": {},
       "defaultScope": "teambit.explorer"
-    },
-    "documenter/ui": {
-      "teambit.community/envs/community-react": "-",
-      "teambit.react/react": {}
     }
   }
 }
