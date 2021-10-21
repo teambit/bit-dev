@@ -133,5 +133,15 @@ export const docsRoutes: DocsRoute[] = [
         title: 'Challenges of sharing code'
       }
     ]
+  },
+  {
+    title: 'Component driven development',
+    path: 'component-driven-development',
+    children: [
+      {
+        title: 'Bottom up',
+        path: 'bottom-up'
+      }
+    ]
   }
 ];
