@@ -12,6 +12,6 @@ export type CommunityDocsProps = {
 
 export function CommunityDocs({ baseUrl = '/docs', ...rest }: CommunityDocsProps) {
   return (
-    <Docs {...rest} routes={docsRoutes} primaryRoutes={primaryRoutes} baseUrl={baseUrl} />
+    <Docs {...rest} routes={docsRoutes} primaryLinks={primaryRoutes} baseUrl={baseUrl} />
   );
 }

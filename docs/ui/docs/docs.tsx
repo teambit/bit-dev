@@ -17,10 +17,6 @@ import { PrimaryLinks } from './primary-links';
 
 export type DocsProps = {
   /**
-   * primary routes to be rendered at the top of the sidebar.
-   */
-   primaryRoutes: DocsRoute[];
-  /**
    * a routes to be rendered in the sidebar.
    */
   routes: DocsRoute[];
@@ -41,13 +37,13 @@ export type DocsProps = {
   showNext?: boolean,
 } & Omit<SplitPaneProps, 'children'>;
 
-export function Docs({ routes, primaryRoutes, showNext = true, baseUrl = '/', ...rest }: DocsProps) {
+export function Docs({ routes, primaryLinks = [], showNext = true, baseUrl = '/', ...rest }: DocsProps) {
   const { path } = useRouteMatch();
   const docRoutes = DocsRoutes.from(routes, baseUrl || path);
-  const primaryLinks = DocsRoutes.from(primaryRoutes, baseUrl || path);
+  const primaryRoutes = DocsRoutes.from(primaryLinks, baseUrl || path);
   const [isSidebarOpen, handleSidebarToggle] = useReducer((x) => !x, true);
   const sidebarOpenness = isSidebarOpen ? Layout.row : Layout.right;
-  const routeArray = useMemo(() => [...primaryLinks.getRoutes(), ...docRoutes.getRoutes()], [primaryLinks, docRoutes]);
+  const routeArray = useMemo(() => [...primaryRoutes.getRoutes(), ...docRoutes.getRoutes()], [primaryRoutes, docRoutes]);
 
   return (
     <SplitPane
@@ -57,7 +53,7 @@ export function Docs({ routes, primaryRoutes, showNext = true, baseUrl = '/', ..
       layout={sidebarOpenness}
     >
       <Pane className={styles.sidebar}>
-        <PrimaryLinks tree={primaryLinks.toSideBarTree()} />
+        <PrimaryLinks tree={primaryRoutes.toSideBarTree()} />
         <Sidebar
           tree={docRoutes.toSideBarTree()}
           linkPrefix={baseUrl}
