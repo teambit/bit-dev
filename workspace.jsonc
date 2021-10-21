@@ -85,10 +85,13 @@
         "@teambit/design.ui.input.icon-text": "0.0.7",
         "@teambit/design.ui.message-card": "1.0.4",
         "@teambit/design.ui.styles.ellipsis": "0.0.345",
+        "@teambit/documenter.markdown.heading": "0.1.2",
         "@teambit/documenter.theme.theme-compositions": "4.1.1",
         "@teambit/documenter.theme.theme-context": "4.0.3",
+        "@teambit/documenter.ui.anchor": "4.0.4",
         "@teambit/documenter.ui.copy-box": "4.1.1",
         "@teambit/documenter.ui.label": "4.0.4",
+        "@teambit/documenter.ui.linked-heading": "4.1.2",
         "@teambit/documenter.ui.sub-title": "4.1.1",
         "@teambit/evangelist.surfaces.tooltip": "1.0.1",
         "@teambit/explorer.ui.gallery.component-card": "0.0.438",
@@ -208,6 +211,10 @@
       "teambit.community/envs/community-react": "-",
       "teambit.react/react": {},
       "defaultScope": "teambit.explorer"
+    },
+    "documenter/ui": {
+      "teambit.community/envs/community-react": "-",
+      "teambit.react/react": {}
     }
   }
 }
