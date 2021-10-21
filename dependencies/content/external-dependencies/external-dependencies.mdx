@@ -1,0 +1,30 @@
+# External Dependencies
+
+External dependencies are either Components or packages, defined in your Workspace's [Dependency Policy](/dependencies/overview#dependency-policies), installed and resolved 
+from the [node_modules](/workspace/node-modules) directory.
+
+External dependencies configured in your Workspace Dependency Policy are allowed to use from [Workspace Components](/workspace/workspace-component). 
+
+They can be used through the [`bit install`](/dependencies/commands/install) command which uses the configured [Package Manager](/dependencies/package-managers) to install the requested dependency in the [node_modules](/workspace/node-modules) directory in your [Workspace](/workspace/overview).
+
+```bash
+bit install # makes sure your workspace is up to date.
+bit install @teambit/base-ui.button # adds @teambit/base-ui.button dependency to the workspace.
+```
+
+External dependencies allowed to use in your Workspace can be defined in the [Dependency Policy](/dependencies/overview#dependency-policies) in your
+[Workspace configuration](/workspace/workspace-json). `bit install` makes sure all external dependencies are up to date according to the dependency policy defined in the
+workspace.
+
+## Package dependencies 
+Packages dependencies can be added from the NPM registry or from any other custom registry configured to your `.npmrc` file.
+
+## Component dependencies
+Components are installed as regular package dependencies. Bit identifies they are components using the `componentId` property on the component's `package.json` file.
+
+```json
+{
+  "name": "@teambit/base-ui.button",
+  "componentId": "teambit.base-ui/button"
+}
+```

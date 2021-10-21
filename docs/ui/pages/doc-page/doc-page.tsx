@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from 'react';
+import React, { useRef, useEffect, ReactNode } from 'react';
 import { MDXLayout } from '@teambit/mdx.ui.mdx-layout';
 import type { MDXProviderComponents } from '@teambit/mdx.ui.mdx-layout';
 import { Page } from '@teambit/base-react.pages.page';
@@ -24,6 +24,10 @@ export type DocPageProps = {
   children: ReactNode;
 };
 
+const scrollToRef = (ref) => {
+  return window.scrollTo(0, -ref.current.offsetTop);
+};
+
 const getTextLink = (text: string) => text.trim().toLowerCase().split(' ').join('-');
 
 const mdxComponents: MDXProviderComponents = {
@@ -34,6 +38,10 @@ const mdxComponents: MDXProviderComponents = {
 
 export function DocPage({ title, nextPage, children }: DocPageProps) {
   useEffect(() => {
+    executeScroll();
+  }, []);
+
+  useEffect(() => {
     if (location.hash) {
       setTimeout(() => {
         const element = document.getElementById(location.hash.replace('#', ''));
@@ -42,8 +50,11 @@ export function DocPage({ title, nextPage, children }: DocPageProps) {
     }
   }, [location.hash]);
 
+  const myRef = useRef(null);
+  const executeScroll = () => scrollToRef(myRef);
   return (
     <Page title={title}>
+      <div ref={myRef} />
       <MDXLayout components={mdxComponents}>{children}</MDXLayout>
 
       {nextPage && (

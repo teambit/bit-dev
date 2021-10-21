@@ -55,7 +55,7 @@
         "@loadable/component": "5.15.0",
         "@react-aria/button": "3.3.3",
         "@react-types/button": "3.4.1",
-        "@teambit/application.netlify": "0.0.7",
+        "@teambit/application.netlify": "1.0.0",
         "@teambit/base-ui.constants.storage": "1.0.0",
         "@teambit/base-ui.elements.image": "1.0.0",
         "@teambit/base-ui.elements.separator": "1.1.0",
@@ -206,6 +206,9 @@
     },
     "compositions": {
       "defaultScope": "teambit.compositions"
+    },
+    "dependencies": {
+      "defaultScope": "teambit.dependencies"
     },
     "explorer/ui": {
       "teambit.community/envs/community-react": "-",

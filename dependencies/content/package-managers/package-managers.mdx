@@ -1,0 +1,55 @@
+# Package Managers
+
+Bit's [Package Manager Aspect](/packages/overview) encapsulates [Yarn](/aspects/yarn), [pnpm](/aspects/pnpm), [NPM](/aspects/npm) or any other [supported CommonJS package manager](package-manager/) using the `bit install` command.
+
+For package managers to work properly, Bit uses Workspace features such as [Yarn Workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) or [NPM Workspaces](https://docs.npmjs.com/cli/v7/using-npm/workspaces) that allow the installation of independent components with conflicting dependencies on the same [Workspace](/workspace/overview).
+
+Package Managers such as Yarn, pnpm and NPM In Bit are responsible for `node_modules` installation. Bit works with any of them, making sure to interact with their latest APIs, deduping component dependencies properly prior to `node_modules` installation.
+
+## Deduping of dependencies
+
+Bit handles deduping of component dependencies in the [Workspace](/workspace/overview). This means every component can be resolved with a different version of a specific package in case of conflicts in Component versions between different Workspace Components.
+
+<!--TODO // @gilad to complete -->
+
+```bash
+├── base-ui
+    ├── ui
+        ├── button
+          ├── node_modules -> created in case of conflicts in Component versions between different Workspace Components
+          ├── index.ts
+          ├── button.ts
+          ├── button.spec.ts
+          ├── button.docs.md
+          ├── ...
+    ├── hooks
+        ├── use-product
+          ├── index.ts
+          ├── use-product.ts
+          ├── button.spec.ts
+          ├── button.docs.md
+          ├── ...
+├── ecommerce
+    ├── ui
+        ├── button
+          ├── node_modules -> created in case of conflicts in Component versions between different Workspace Components.
+          ├── index.ts
+          ├── button.ts
+          ├── button.spec.ts
+          ├── button.docs.md
+          ├── ...
+├── ...
+```
+
+## pnpm
+`pnpm` is the default package manager for Bit.
+
+The pnpm aspect uses Bit's deduping algorithm to ensure only required symlinks are written to the Workspace file system.
+It searches for a common version that satisfies most components using the same dependency (taking into consideration permitted version ranges configured for each component) and installs it at the workspace root directory, where it can be shared by multiple dependent components.
+Versions that are used by a minority of components will be installed nested in each component directory.
+
+
+## Yarn
+
+Bit supports Yarn 2.0, and uses Yarn Workspaces to make sure proper deduping between components.
+
