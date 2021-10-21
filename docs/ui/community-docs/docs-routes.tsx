@@ -349,6 +349,10 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'configuring-remote-scopes',
         title: 'Configuring remote scopes'
+      },
+      {
+        path: 'local-scope',
+        title: 'Local scope'
       }
     ],
   },
