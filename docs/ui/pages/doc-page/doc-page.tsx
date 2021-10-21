@@ -28,7 +28,8 @@ const scrollToRef = (ref) => {
   return window.scrollTo(0, -ref.current.offsetTop);
 };
 
-const getTextLink = (text: string) => text.trim().toLowerCase().split(' ').join('-');
+const getTextLink = (element: React.ReactNode) =>
+  typeof element === 'string' ? element.trim().toLowerCase().replace(/ /g, '-') : undefined;
 
 const mdxComponents: MDXProviderComponents = {
   h1: ({ children, ...rest }) => <H1 link={getTextLink(children)} children={children} {...rest} />,
