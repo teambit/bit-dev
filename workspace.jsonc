@@ -85,6 +85,7 @@
         "@teambit/design.ui.input.icon-text": "0.0.7",
         "@teambit/design.ui.message-card": "1.0.4",
         "@teambit/design.ui.styles.ellipsis": "0.0.345",
+        "@teambit/design.ui.surfaces.menu.link-item": "0.0.374",
         "@teambit/documenter.theme.theme-compositions": "4.1.1",
         "@teambit/documenter.theme.theme-context": "4.0.3",
         "@teambit/documenter.ui.copy-box": "4.1.1",

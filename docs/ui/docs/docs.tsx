@@ -1,5 +1,4 @@
-import React, { useReducer } from 'react';
-import classNames from 'classnames';
+import React, { useReducer, useMemo } from 'react';
 import { DocsRoute } from './docs-route';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
 import { Sidebar } from '@teambit/docs.ui.sidebar';
@@ -14,10 +13,15 @@ import {
 import { HoverSplitter } from '@teambit/base-ui.surfaces.split-pane.hover-splitter';
 import styles from './docs.module.scss';
 import { DocsRoutes } from './routes';
+import { PrimaryLinks } from './primary-links';
 
 export type DocsProps = {
   /**
-   * a text to be rendered in the component.
+   * primary routes to be rendered at the top of the sidebar.
+   */
+   primaryRoutes: DocsRoute[];
+  /**
+   * a routes to be rendered in the sidebar.
    */
   routes: DocsRoute[];
 
@@ -37,12 +41,13 @@ export type DocsProps = {
   showNext?: boolean,
 } & Omit<SplitPaneProps, 'children'>;
 
-export function Docs({ routes, showNext = true, baseUrl = '/', ...rest }: DocsProps) {
+export function Docs({ routes, primaryRoutes, showNext = true, baseUrl = '/', ...rest }: DocsProps) {
   const { path } = useRouteMatch();
   const docRoutes = DocsRoutes.from(routes, baseUrl || path);
+  const primaryLinks = DocsRoutes.from(primaryRoutes, baseUrl || path);
   const [isSidebarOpen, handleSidebarToggle] = useReducer((x) => !x, true);
   const sidebarOpenness = isSidebarOpen ? Layout.row : Layout.right;
-  const routeArray = docRoutes.getRoutes();
+  const routeArray = useMemo(() => [...primaryLinks.getRoutes(), ...docRoutes.getRoutes()], [primaryLinks, docRoutes]);
 
   return (
     <SplitPane
@@ -52,6 +57,7 @@ export function Docs({ routes, showNext = true, baseUrl = '/', ...rest }: DocsPr
       layout={sidebarOpenness}
     >
       <Pane className={styles.sidebar}>
+        <PrimaryLinks tree={primaryLinks.toSideBarTree()} />
         <Sidebar
           tree={docRoutes.toSideBarTree()}
           linkPrefix={baseUrl}
