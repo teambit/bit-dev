@@ -2,9 +2,6 @@ import React from 'react';
 import loadable from '@loadable/component';
 import { DocsRoute } from '@teambit/docs.entities.docs-routes';;
 
-/* Quick Start */
-const QuickStart = loadable(() => import('@teambit/docs.content.quick-start'));
-
 /* Getting Started */
 
 const InstallingBit = loadable(
@@ -249,13 +246,6 @@ const EnvToubleshooting = loadable(
 );
 
 export const docsRoutes: DocsRoute[] = [
-  {
-    path: 'quick-start',
-    icon: 'lightning',
-    title: 'Quick Start',
-    description: 'Quick Start',
-    component: <QuickStart />,
-  },
   {
     path: 'getting-started',
     title: 'Getting Started',
