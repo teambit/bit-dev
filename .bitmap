@@ -387,6 +387,12 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/content/video"
     },
+    "content/workspace-overview": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "workspace/content/workspace-overview"
+    },
     "entities/docs-routes": {
         "scope": "teambit.docs",
         "version": "1.8.8",

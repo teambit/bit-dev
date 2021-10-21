@@ -601,6 +601,9 @@ importers:
   workspace/content/bitmap:
     specifiers: {}
 
+  workspace/content/workspace-overview:
+    specifiers: {}
+
 packages:
 
   /@learn-bit-react/base-ui.styles.button/0.0.5_react-dom@16.13.1+react@16.13.1:

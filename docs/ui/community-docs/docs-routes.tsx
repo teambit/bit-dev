@@ -29,6 +29,10 @@ const CreateWorkspace = loadable(
 /* Workspace */
 
 const Bitmap = loadable(() => import('@teambit/workspace.content.bitmap'));
+
+/**
+ * Scope
+ */
 const ScopeOverview = loadable(
   () => import('@teambit/scope.content.scope-overview')
 );
@@ -291,10 +295,19 @@ export const docsRoutes: DocsRoute[] = [
     open: false,
     children: [
       {
+        path: 'workspace-overview',
+        title: 'Workspace Overview',
+        component: <Bitmap />,
+      },
+      {
         path: 'bitmap',
         title: 'bitmap',
         component: <Bitmap />,
       },
+      {
+        path: 'configuring-remote-scopes',
+        title: 'Configuring remote scopes'
+      }
     ],
   },
   {
@@ -304,22 +317,73 @@ export const docsRoutes: DocsRoute[] = [
     open: false,
     children: [
       {
+        path: 'components-overview',
+        title: 'Components Overview',
+        component: <ComponentId />,
+      },
+      {
         path: 'component-id',
         title: 'Component ID',
         component: <ComponentId />,
       },
+      {
+        path: 'configuring-components',
+        title: 'Configuring components',
+        component: <ComponentId />,
+      },
+      {
+        path: 'component-capsules',
+        title: 'Component capsules',
+        // component: 
+      },
     ],
+  },
+  {
+    path: 'dependencies',
+    title: 'Dependencies',
+    icon: 'dependencies',
+    children: [
+      {
+        path: 'dependencies-overview',
+        title: 'Dependencies overview'
+      }
+    ]
   },
   {
     path: 'scope',
     title: 'Scope',
-    icon: 'dependencies',
+    icon: 'collection',
     children: [
       {
-        path: 'overview',
-        title: 'Overview',
+        path: 'scope-overview',
+        title: 'Scope Overview',
         component: <ScopeOverview />,
       },
+      {
+        path: 'creating-scopes',
+        title: 'Creating scopes',
+        component: <ScopeOverview />,
+      },
+      {
+        path: 'configuring-scopes',
+        title: 'Configuring scopes',
+        component: <ScopeOverview />,
+      },
+      {
+        path: 'running-a-scope-server',
+        title: 'Hosting scopes',
+        component: <ScopeOverview />,
+      },
+      {
+        path: 'inspecting-objects',
+        title: 'Inspecting scope objects',
+        component: <ScopeOverview />,
+      },
+      {
+        path: 'extending-scopes',
+        title: 'Extending Scopes',
+        component: <ScopeOverview />,
+      }
     ],
   },
   {
@@ -507,6 +571,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'compiler',
         title: 'Compiler',
+        icon: 'https://static.bit.dev/Community/icons/compile.svg',
         children: [
           {
             path: 'compiler-overview',
