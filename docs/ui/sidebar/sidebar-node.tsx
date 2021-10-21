@@ -31,8 +31,8 @@ export function SidebarNode(props: SidebarNodeProps) {
       />
       );
     }
-    
-  const isFolderActive = currentPath.includes(props.node.id)
+
+  const isFolderActive = currentPath.includes(`/${props.node.id}/`)
   return (
     <FolderTreeNode
       node={{
