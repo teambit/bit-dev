@@ -147,6 +147,30 @@
         "mainFile": "index.ts",
         "rootDir": "webpack/content/configure-webpack"
     },
+    "content/dependencies-configuration": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "dependencies/content/dependencies-configuration"
+    },
+    "content/dependencies-overview": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "dependencies/content/dependencies-overview"
+    },
+    "content/dependency-policies": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "dependencies/content/dependency-policies"
+    },
+    "content/dependency-resolution": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "dependencies/content/dependency-resolution"
+    },
     "content/dev-services-overview": {
         "scope": "",
         "version": "",
@@ -176,6 +200,12 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "envs/content/extending-env"
+    },
+    "content/external-dependencies": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "dependencies/content/external-dependencies"
     },
     "content/formatter-overview": {
         "scope": "",
@@ -267,6 +297,12 @@
         "mainFile": "index.ts",
         "rootDir": "envs/content/inspecting-env"
     },
+    "content/installing-dependencies": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "dependencies/content/installing-dependencies"
+    },
     "content/linter-overview": {
         "scope": "",
         "version": "",
@@ -284,6 +320,12 @@
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "defender/content/linting-during-development"
+    },
+    "content/lock-files": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "dependencies/content/lock-files"
     },
     "content/mdx": {
         "scope": "",
@@ -308,6 +350,12 @@
         "version": "1.6.0",
         "mainFile": "index.ts",
         "rootDir": "component/content/naming"
+    },
+    "content/package-managers": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "dependencies/content/package-managers"
     },
     "content/preview-during-build": {
         "scope": "",
@@ -555,12 +603,6 @@
         "mainFile": "index.ts",
         "rootDir": "design/ui/content/heading"
     },
-    "ui/heading": {
-        "scope": "teambit.community",
-        "version": "1.6.0",
-        "mainFile": "index.ts",
-        "rootDir": "community/ui/heading"
-    },
     "ui/content/subtitle": {
         "scope": "teambit.design",
         "version": "1.6.0",
@@ -668,6 +710,12 @@
         "version": "1.6.0",
         "mainFile": "index.ts",
         "rootDir": "community/ui/header/nav"
+    },
+    "ui/heading": {
+        "scope": "teambit.community",
+        "version": "1.6.0",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/heading"
     },
     "ui/hero": {
         "scope": "teambit.community",

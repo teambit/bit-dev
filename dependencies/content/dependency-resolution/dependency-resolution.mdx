@@ -1,0 +1,42 @@
+# Dependency Detection and Resolution
+
+Bit's dependency resolution favours consistency and predictability, making sure each time a component is installed
+
+Component dependencies are resolved and determined during component versioning.
+
+Dependencies
+
+```bash
+bit tag --all
+```
+
+Dependency resolution is handled by the [Dependency Resolver extension](https://bit.dev/teambit/dependencies/dependency-resolver).
+
+Dependency Resolver parses out all `import` \ `require` statements in the component's files.
+It then determines if these dependencies are packages, components (listed in the workspace `.bitmap` file) or internal implementation files.
+
+The generated data is integrated with dependency policies that were set by various Bit extensions (mainly,
+[Environment](/environments/overview)) and by the manually configured policies set in the [workspace configuration file](/workspace/workspace-json) (`workspace.jsonc`).
+
+The result of that process determines the list of dependencies for each component, as well as their dependency-type (`dependencies`, `devDependencies` and `peerDependencies`) and version number.
+
+## The dependency policies hierarchy
+
+The Dependency Resolver integrates dependency policies from various sources to determine the component's final dependency graph.
+
+Cases of conflicting policies are resolved according to a hierarchy of source types, where the one at the top overrides the rest.
+
+The hierarchy in a descending order:
+
+1. Policies set by Variants (@teambit/variants) and the component.json files of "ejected" components (these two sources are merged by Variants).
+2. Policies set by various extensions/aspects (using registerDependencyPolicy)
+3. Policies set by the environment (using getDependencies)
+4. Bit’s automated dependency detections, and policies set by the Dependency Resolver at the workspace configuration root-level.
+
+:::note
+Learn more about how the Variants extension selects and merges policies that were set using it, [here](/workspace/variants#merging-configurations)
+:::
+
+:::info understanding the resolved dependencies for a component
+Use the `bit dependencies <component-id>` command to understand the calculations and interactions that resolved in the generated dependency graph of a specific component.
+:::
