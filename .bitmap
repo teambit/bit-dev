@@ -243,6 +243,66 @@
         "mainFile": "index.ts",
         "rootDir": "docs/content/getting-started/use-dependencies"
     },
+    "content/getting-started/ci-export": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/getting-started/ci-export"
+    },
+    "content/getting-started/ci-install": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/getting-started/ci-install"
+    },
+    "content/getting-started/host-bit-cloud": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/getting-started/host-bit-cloud"
+    },
+    "content/getting-started/import-components": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/getting-started/import-components"
+    },
+    "content/getting-started/install-components": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/getting-started/install-components"
+    },
+    "content/getting-started/what-is-scope": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/getting-started/what-is-scope"
+    },
+    "content/getting-started/self-host-scope": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/getting-started/self-host-scope"
+    },
+    "content/getting-started/share-components": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/getting-started/share-components"
+    },
+    "content/getting-started/update-components": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/getting-started/update-components"
+    },
+    "content/getting-started/version-components": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/getting-started/version-components"
+    },
     "content/image": {
         "scope": "teambit.base-react",
         "version": "1.8.14",

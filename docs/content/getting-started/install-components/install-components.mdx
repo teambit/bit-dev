@@ -1,0 +1,51 @@
+# Install Components
+
+Components once exported to a remote scope can be consumed in any other project/app with the package manager of your choice.
+
+```bash
+npm install @my-org/scope.my-component
+yarn add @my-org/scope.my-component
+```
+
+You may also use Bit to install components:
+
+```bash
+bit install @my-org/scope.my-component
+```
+
+Once installing the component, the component resides in the `node_modules` directory.
+
+To use the component in the code, import the code as follow:
+
+```js
+import { myComponent } from '@my-org/scope.my-component';
+```
+
+### Authenticate Package Manager with Bit.dev
+
+When using [bit.dev](https://bit.dev) for hosting components, consumers will need to configure their package manager to know where to fetch components from. Do this by configuring [`.npmrc`](https://docs.npmjs.com/cli/v7/configuring-npm/npmrc) file:
+
+1. First of all - [install Bit](/getting-started/install-bit) on your system.
+1. Run the following command:
+
+```sh
+bit login
+```
+
+1. Bit generated a `.npmrc` in your user-home directory (`~` in macOS/Linux, `%USERPROFILE%` in Windows) with a basic config containing your authentication token.
+1. Open the `.npmrc` file and add the following line (complete the account name according to where components are hosted)
+
+```sh
+@ACCOUNT:registry=https://node.bit.dev
+```
+
+An example configured `.npmrc` file looks something like this:
+
+```sh
+@teambit:registry=https://node.bit.dev
+//node.bit.dev/:_authToken=<TOKEN>
+```
+
+### For Self-hosted Components
+
+When self hosting Bit on your own server you need to publish the components as packages to any package registry. The authentication process for the package manager is very much the same other then the fact you can't use `bit login` to set your token.

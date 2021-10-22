@@ -1,0 +1,26 @@
+---
+description: 'Hosting components on premise'
+labels: ['content', 'docs', 'getting-started']
+---
+
+import { SelfHostScope } from './index';
+
+### Component usage
+
+```js
+<SelfHostScope />
+```
+
+### Render with theme and MDX providers
+
+```js
+import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions';
+import { MDXLayout } from '@teambit/mdx.ui.mdx-layout';
+import { SelfHostScope } from './index';
+
+<ThemeCompositions>
+  <MDXLayout>
+    <SelfHostScope />
+  </MDXLayout>
+</ThemeCompositions>
+```

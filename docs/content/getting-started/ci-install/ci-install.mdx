@@ -1,0 +1,118 @@
+# Package Consumers
+
+Package managers use the `.npmrc` file to know where they should install dependencies from. This means that if a project depends on components, that file should contain the configuration for where the components are located.
+
+## Configure `.npmrc`
+
+Npm and yarn respect the following file locations:
+
+- per-project config file (`/path/to/my/project/.npmrc`)
+- per-user config file (`~/.npmrc`)
+- global config file (`$PREFIX/etc/npmrc`)
+- npm builtin config file (`/path/to/npm/npmrc`)
+
+If you already use such configuration file you may append the configuration relevant for Bit in it.
+
+### Components on [bit.dev](https://bit.dev)
+
+All components hosted on Bit.dev are accesible from the `https://node.bit.dev` domain with your account as a `registry`. To install components directly from there configure the following in your `.npmrc` file:
+
+```sh
+@ACCOUNT-NAME:registry=https://node.bit.dev
+//node.bit.dev/:_authToken=TOKEN
+```
+
+Replace the `ACCOUNT-NAME` with your account name and `TOKEN` with your token. To get a machine token follow [these steps](https://TODO).
+
+### Components published on a remote registry
+
+If you are publishing your components on a remote registry or integrated your registry to cache exported components from [bit.dev](https://bit.dev) configure your `.npmrc` with that information.
+
+## Common Errors
+
+### 'package not found' (404) when importing a component
+
+NPM or Yarn throws 'package not found' when importing a component. This is likely because the component has a dependency on a @bit component. Make sure `.npmrc` is configured.
+
+### Unauthorized (401) when installing a component
+
+Possible reasons:
+
+- npmrc is not properly configured.
+- You do not have the right permissions on the Collection that the components are hosted in, and are therefore unable to access its components. Make sure you have at least read permissions for the collection that host the components.
+- Yarn does not send an authentication token when installing packages from a `yarn.lock` file. This is a [known issue](https://github.com/yarnpkg/yarn/issues/4451). Make sure `always-auth` is configured in `.npmrc`.
+
+## Examples
+
+You can use these examples as a reference for configuring your `.npmrc` file.
+
+### Manually create npmrc file
+
+You can add a `.npmrc` in your project with the following:
+
+```shell
+@<account-name>:registry=https://node.bit.dev
+@teambit:registry=https://node.bit.dev
+//node.bit.dev/:_authToken=${BIT_TOKEN}
+always-auth=true
+```
+
+Define `BIT_TOKEN` as a secret global variable on the server.
+
+### Generate `.npmrc` on server
+
+To generate the file dynamically, you need to run the following script (e.g. create a `bit_npm.sh` script):
+
+```shell
+echo "Adding bit.dev to npm registry"
+echo "always-auth=true" >> ~/.npmrc
+echo "@<account-name>:registry=https://node.bit.dev" >> ~/.npmrc
+echo "@teambit:registry=https://node.bit.dev" >> ~/.npmrc
+echo "//node.bit.dev/:_authToken={$BIT_TOKEN}" >> ~/.npmrc
+echo "Completed adding bit.dev to npm registry"
+```
+
+### Netlify
+
+On Netlify, [you cannot generate the file dynamically](https://community.netlify.com/t/common-issue-using-private-npm-modules-on-netlify/795/11), and you should [add `.npmrc` file in your project](#define-npmrc-in-the-project).
+
+Add the BIT_TOKEN as [environment variable](https://www.netlify.com/docs/continuous-deployment/#environment-variables)
+
+### Vercel
+
+On Vercel add `NPM_RC` as an [environment variable](https://vercel.com/docs/build-step#using-environment-variables-and-secrets) with the contents of your `~/.npmrc` file.
+
+### Gitlab
+
+In `.gitlab-ci.yml` run the script that [generates the file for the user](#generate-npmrc-on-server) as an initial step before running npm install.
+
+Add the BIT_TOKEN as an [environment variable](https://docs.gitlab.com/ee/ci/variables/)
+
+### GitHub actions
+
+Add the BIT_TOKEN as a [secret](https://help.github.com/en/actions/configuring-and-managing-workflows/creating-and-storing-encrypted-secrets) in GitHub.
+
+In the GitHub workflow file, create a step before the npm install section:
+
+```shell
+- name: init bit.dev
+  run: |
+    echo "Adding bit.dev to npm registry"
+    npm config set @bit:registry https://node.bit.dev
+    npm config set @<account-name>:registry=https://node.bit.dev
+    npm config set @teambit:registry=https://node.bit.dev
+    npm config set //node.bit.dev/:_authToken ${BIT_TOKEN}
+    echo "Completed adding bit.dev to npm registry"
+  env:
+    BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
+```
+
+### Heroku
+
+To generate the `.npmrc` before installing dependencies, run a pre-build script as described [here](https://devcenter.heroku.com/articles/nodejs-support#heroku-specific-build-steps).
+
+Add the `BIT_TOKEN` as an [environment variable](https://devcenter.heroku.com/articles/config-vars#managing-config-vars)
+
+### Azure pipelines
+
+Use the [npm authenticate task](https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/package/npm-authenticate?view=azure-devops) to setup the `.npmrc` configuration in your pipeline.

@@ -1,0 +1,27 @@
+# What Are Scopes
+
+Scope is a virtual storage for components. Bit uses Scopes to save versions of components for developers to access them as needed.
+
+Set **Scopes** on remote servers to share components. Storing components on a remote scope makes them available for reuse in other projects. Use the `import` and `export` commands to fetch and push components from and to remote scopes.
+
+Remote scopes are hosted on [Bit.dev](/getting-started/release-components/create-remote-scope/host-on-bit-cloud) or [self-hosted Bit servers](/getting-started/release-components/create-remote-scope/self-host-scope).
+
+## Scope UI
+
+All components in a scope are presented on a web UI. This allows for visual exploration of the available components. You can see all past versions of components, their documentation, rendering, and code.
+
+## Sort Components in Scopes
+
+Use scopes for logical and physical grouping of components according to their functionality, business concerns or any other topic. Components in a scope don't have to share technical similarities. You can keep frontend React components, SDKs, utils and even shared data types. This makes scopes be more like "features" grouping together related components implementing a cross-cutting concern with components relevant to different parts in your architecture.
+
+## Cross-Scope Dependencies
+
+Components in different scopes may depend on each other. This creates a network of scopes which are connected according to component dependencies. In turn the network of scopes mimics the topology of how products and technology are built. It can also form a way to learn and measure how different teams communicate within a codebase.
+
+## Feature Ownership
+
+By setting read/write access on scopes, and sorting components according to cross-cutting business concerns, you gain **feature ownership**.  
+
+## Cached Component Dependencies
+
+Scopes cache all external dependencies (i.e, components located in other scopes). This is done to ensure your own scope is completely independent, even when its different components use components maintained by others. Even in cases where a scope you depend on is no longer accessible, each scope ensures all its components are operational.
