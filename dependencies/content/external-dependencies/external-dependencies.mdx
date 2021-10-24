@@ -21,3 +21,18 @@ The installation process is done by the package manager configured in the Depend
 Internal dependencies are components that are maintained in the workspace. Their corresponding module is generated in the `node_modules` directory and not installed.
 Since they are maintained in the workspace, they can be found listed in the `.bitmap` file.
 :::
+
+## Package dependencies
+
+Packages dependencies can be added from the NPM registry or from any other custom registry configured to your `.npmrc` file.
+
+## Component dependencies
+
+Components are installed as regular package dependencies. Bit identifies they are components using the `componentId` property on the component's `package.json` file.
+
+```json
+{
+  "name": "@teambit/base-ui.button",
+  "componentId": "teambit.base-ui/button"
+}
+```

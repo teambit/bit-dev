@@ -1,9 +1,6 @@
 import React from 'react';
 import loadable from '@loadable/component';
-import { DocsRoute } from '@teambit/docs.ui.docs';
-
-/* Quick Start */
-const QuickStart = loadable(() => import('@teambit/docs.content.quick-start'));
+import { DocsRoute } from '@teambit/docs.entities.docs-routes';
 
 /* Getting Started */
 
@@ -16,9 +13,24 @@ const UseDependencies = loadable(() => import('@teambit/docs.content.getting-sta
 const CreateWorkspace = loadable(() => import('@teambit/docs.content.getting-started.create-workspace'));
 
 /* Workspace */
-
+const WorkspaceOverview = loadable(() => import('@teambit/workspace.content.workspace-overview'));
 const Bitmap = loadable(() => import('@teambit/workspace.content.bitmap'));
+const WorkspaceLink = loadable(() => import('@teambit/workspace.content.workspace-link'));
+const DirectoryStructure = loadable(() => import('@teambit/workspace.content.directory-structure'));
+const ComponentDir = loadable(() => import('@teambit/workspace.content.component-directory'));
+const WorkspaceStatus = loadable(() => import('@teambit/workspace.content.workspace-status'));
+
+/**
+ * Scope
+ */
 const ScopeOverview = loadable(() => import('@teambit/scope.content.scope-overview'));
+
+/**
+ * Dependencies
+ */
+const NodeModules = loadable(() => import('@teambit/dependencies.content.node-modules'));
+const ExternalDependencies = loadable(() => import('@teambit/dependencies.content.external-dependencies'));
+const PackageManagers = loadable(() => import('@teambit/dependencies.content.package-managers'));
 
 /* Dev services */
 
@@ -121,13 +133,6 @@ const Yarn = loadable(() => import('@teambit/dependencies.content.yarn'));
 
 export const docsRoutes: DocsRoute[] = [
   {
-    path: 'quick-start',
-    icon: 'lightning',
-    title: 'Quick Start',
-    description: 'Quick Start',
-    component: <QuickStart />,
-  },
-  {
     path: 'getting-started',
     title: 'Getting Started',
     icon: 'Ripple_play',
@@ -147,7 +152,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'composing',
         title: 'Composing',
-        collapsed: true,
+        open: false,
         children: [
           {
             path: 'creating-components',
@@ -175,12 +180,65 @@ export const docsRoutes: DocsRoute[] = [
     path: 'workspace',
     title: 'Workspace',
     icon: 'workspace',
-    collapsed: true,
+    open: false,
     children: [
+      {
+        path: 'workspace-overview',
+        title: 'Workspace overview',
+        component: <WorkspaceOverview />,
+      },
+      {
+        path: 'creating-workspaces',
+        title: 'Creating workspaces',
+      },
+      {
+        path: 'configuring-workspaces',
+        title: 'Configuring the workspace (workspace.jsonc)',
+      },
+      {
+        path: 'directory-structure',
+        title: 'Directory structure',
+        component: <DirectoryStructure />,
+      },
+      {
+        path: 'component-directory',
+        title: 'Component directory',
+        component: <ComponentDir />,
+      },
+      {
+        path: 'configuration-variants',
+        title: 'Configuration variants',
+      },
+      {
+        path: 'importing-components',
+        title: 'Importing components',
+      },
+      {
+        path: 'exporting-components',
+        title: 'Exporting components',
+      },
+      {
+        path: 'workspace-status',
+        title: 'Workspace Status',
+        component: <WorkspaceStatus />,
+      },
       {
         path: 'bitmap',
         title: 'bitmap',
         component: <Bitmap />,
+      },
+      {
+        path: 'component-links',
+        title: 'Workspace component link',
+        component: <WorkspaceLink />,
+      },
+      {
+        path: 'configuring-remote-scopes',
+        title: 'Configuring remote scopes',
+      },
+      {
+        path: 'local-scope',
+        title: 'Local scope',
       },
     ],
   },
@@ -188,7 +246,7 @@ export const docsRoutes: DocsRoute[] = [
     path: 'components',
     title: 'Components',
     icon: 'components',
-    collapsed: true,
+    open: false,
     children: [
       {
         path: 'component-overview',
@@ -278,16 +336,102 @@ export const docsRoutes: DocsRoute[] = [
         title: 'Lock Files',
         component: <LockFiles />,
       },
+      {
+        path: 'naming-components',
+        title: 'Naming components',
+      },
+      {
+        path: 'inspecting-components',
+        title: 'Inspecting components',
+      },
+      {
+        path: 'component-capsules',
+        title: 'Component capsules',
+        // component:
+      },
+    ],
+  },
+  {
+    path: 'dependencies',
+    title: 'Dependencies',
+    open: false,
+    icon: 'dependencies',
+    children: [
+      {
+        path: 'dependencies-overview',
+        title: 'Dependencies overview',
+      },
+      {
+        path: 'updates',
+        title: 'Dependency updates',
+      },
+      {
+        path: 'policies',
+        title: 'Dependency policies',
+      },
+      {
+        path: 'external-dependencies',
+        title: 'External dependencies',
+        component: <ExternalDependencies />,
+      },
+      {
+        path: 'node-modules',
+        title: 'node_modules',
+        component: <NodeModules />,
+      },
+      {
+        path: 'dependency-resolution',
+        title: 'Dependency resolution',
+      },
+      {
+        path: 'inspecting-dependencies',
+        title: 'Inspecting dependencies',
+      },
+      {
+        path: 'peer-dependencies',
+        title: 'Peer dependencies',
+      },
+      {
+        path: 'package-managers',
+        title: 'Package Managers',
+        component: <PackageManagers />,
+      },
     ],
   },
   {
     path: 'scope',
+    open: false,
     title: 'Scope',
-    icon: 'dependencies',
+    icon: 'collection',
     children: [
       {
-        path: 'overview',
-        title: 'Overview',
+        path: 'scope-overview',
+        title: 'Scope overview',
+        component: <ScopeOverview />,
+      },
+      {
+        path: 'creating-scopes',
+        title: 'Creating scopes',
+        component: <ScopeOverview />,
+      },
+      {
+        path: 'configuring-scopes',
+        title: 'Configuring scopes',
+        component: <ScopeOverview />,
+      },
+      {
+        path: 'running-a-scope-server',
+        title: 'Hosting scopes',
+        component: <ScopeOverview />,
+      },
+      {
+        path: 'inspecting-objects',
+        title: 'Inspecting scope objects',
+        component: <ScopeOverview />,
+      },
+      {
+        path: 'extending-scopes',
+        title: 'Extending scopes',
         component: <ScopeOverview />,
       },
     ],
@@ -296,7 +440,12 @@ export const docsRoutes: DocsRoute[] = [
     path: 'envs',
     title: 'Envs',
     icon: 'code',
+    open: false,
     children: [
+      {
+        path: 'envs-overview',
+        title: 'Envs overview',
+      },
       {
         path: 'inspecting-env',
         title: 'Inspecting an Env',
@@ -315,10 +464,15 @@ export const docsRoutes: DocsRoute[] = [
     ],
   },
   {
+    path: 'packages',
+    title: 'Packages',
+    children: [],
+  },
+  {
     path: 'dev-services',
     title: 'Dev Services',
     icon: 'compCI',
-    collapsed: true,
+    open: false,
     children: [
       {
         path: 'dev-services-overview',
@@ -326,36 +480,9 @@ export const docsRoutes: DocsRoute[] = [
         component: <DevServicesOverview />,
       },
       {
-        path: 'preview',
-        title: 'Preview',
-        collapsed: true,
-        children: [
-          {
-            path: 'overview',
-            title: 'Overview',
-            component: <PreviewOverview />,
-          },
-          {
-            path: 'preview-during-development',
-            title: 'Preview during Development',
-            component: <PreviewDuringDevelopment />,
-          },
-          {
-            path: 'preview-during-build',
-            title: 'Preview during Build',
-            component: <PreviewDuringBuild />,
-          },
-          {
-            path: 'register-custom-preview',
-            title: 'Register a Custom Preview',
-            component: <RegisterCustomPreview />,
-          },
-        ],
-      },
-      {
         path: 'builder',
         title: 'Builder',
-        collapsed: true,
+        open: false,
         children: [
           {
             path: 'builder-overview',
@@ -385,98 +512,20 @@ export const docsRoutes: DocsRoute[] = [
         ],
       },
       {
-        path: 'docs',
-        title: 'Docs',
-        collapsed: true,
+        path: 'generator',
+        title: 'Generator',
+        icon: 'generator',
         children: [
           {
-            path: 'docs-overview',
-            title: 'Overview',
-            component: <DocsOverview />,
-          },
-          {
-            path: 'mdx',
-            title: 'MDX',
-            component: <MDX />,
-          },
-          {
-            path: 'docs-templates',
-            title: 'Doc Templates',
-            component: <DocTemplates />,
-          },
-          {
-            path: 'rendering-docs',
-            title: 'Rendering Docs',
-            component: <RenderingDocs />,
-          },
-        ],
-      },
-      {
-        path: 'compositions',
-        title: 'Compositions',
-        collapsed: true,
-        children: [
-          {
-            path: 'compositions-overview',
-            title: 'Overview',
-            component: <CompositionsOverview />,
-          },
-          {
-            path: 'composition-format',
-            title: 'Composition Format',
-            component: <CompositionFormat />,
-          },
-          {
-            path: 'composition-context',
-            title: 'Setting a Composition Context',
-            component: <CompositionContext />,
-          },
-          {
-            path: 'mounting-compositions-to-dom',
-            title: 'Mounting Compositions to the DOM',
-            component: <MountingCompositionsToDom />,
-          },
-          {
-            path: 'compositions-and-stories',
-            title: 'Compositions and Stories',
-            component: <CompositionsAndStories />,
-          },
-        ],
-      },
-      {
-        path: 'tester',
-        title: 'Tester',
-        children: [
-          {
-            path: 'tester-overview',
-            title: 'Overview',
-            component: <TesterOverview />,
-          },
-          {
-            path: 'testing-during-development',
-            title: 'Testing during Development',
-            component: <TestingDuringDevelopment />,
-          },
-          {
-            path: 'testing-during-build',
-            title: 'Testing during Build',
-            component: <TestingDuringBuild />,
-          },
-          {
-            path: 'configure-env-with-tester',
-            title: 'Configure an Env with a Tester',
-            component: <ConfigureEnvWithTester />,
-          },
-          {
-            path: 'implement-tester',
-            title: 'Implement a Tester',
-            component: <ImplementTester />,
+            path: 'generator-overview',
+            title: 'Generator overview',
           },
         ],
       },
       {
         path: 'compiler',
         title: 'Compiler',
+        icon: 'compile',
         children: [
           {
             path: 'compiler-overview',
@@ -511,8 +560,129 @@ export const docsRoutes: DocsRoute[] = [
         ],
       },
       {
+        path: 'tester',
+        title: 'Tester',
+        icon: 'tester',
+        children: [
+          {
+            path: 'tester-overview',
+            title: 'Overview',
+            component: <TesterOverview />,
+          },
+          {
+            path: 'testing-during-development',
+            title: 'Testing during Development',
+            component: <TestingDuringDevelopment />,
+          },
+          {
+            path: 'testing-during-build',
+            title: 'Testing during Build',
+            component: <TestingDuringBuild />,
+          },
+          {
+            path: 'configure-env-with-tester',
+            title: 'Configure an Env with a Tester',
+            component: <ConfigureEnvWithTester />,
+          },
+          {
+            path: 'implement-tester',
+            title: 'Implement a Tester',
+            component: <ImplementTester />,
+          },
+        ],
+      },
+      {
+        path: 'docs',
+        title: 'Docs',
+        icon: 'Ripple_list',
+        open: false,
+        children: [
+          {
+            path: 'docs-overview',
+            title: 'Overview',
+            component: <DocsOverview />,
+          },
+          {
+            path: 'mdx',
+            title: 'MDX',
+            component: <MDX />,
+          },
+          {
+            path: 'docs-templates',
+            title: 'Doc Templates',
+            component: <DocTemplates />,
+          },
+          {
+            path: 'rendering-docs',
+            title: 'Rendering Docs',
+            component: <RenderingDocs />,
+          },
+        ],
+      },
+      {
+        path: 'compositions',
+        title: 'Compositions',
+        open: false,
+        children: [
+          {
+            path: 'compositions-overview',
+            title: 'Overview',
+            component: <CompositionsOverview />,
+          },
+          {
+            path: 'composition-format',
+            title: 'Composition Format',
+            component: <CompositionFormat />,
+          },
+          {
+            path: 'composition-context',
+            title: 'Setting a Composition Context',
+            component: <CompositionContext />,
+          },
+          {
+            path: 'mounting-compositions-to-dom',
+            title: 'Mounting Compositions to the DOM',
+            component: <MountingCompositionsToDom />,
+          },
+          {
+            path: 'compositions-and-stories',
+            title: 'Compositions and Stories',
+            component: <CompositionsAndStories />,
+          },
+        ],
+      },
+      {
+        path: 'preview',
+        title: 'Preview',
+        icon: 'preview',
+        open: false,
+        children: [
+          {
+            path: 'overview',
+            title: 'Overview',
+            component: <PreviewOverview />,
+          },
+          {
+            path: 'preview-during-development',
+            title: 'Preview during Development',
+            component: <PreviewDuringDevelopment />,
+          },
+          {
+            path: 'preview-during-build',
+            title: 'Preview during Build',
+            component: <PreviewDuringBuild />,
+          },
+          {
+            path: 'register-custom-preview',
+            title: 'Register a Custom Preview',
+            component: <RegisterCustomPreview />,
+          },
+        ],
+      },
+      {
         path: 'linter',
         title: 'Linter',
+        icon: 'linter',
         children: [
           {
             path: 'linter-overview',
@@ -577,6 +747,7 @@ export const docsRoutes: DocsRoute[] = [
   {
     path: 'tools',
     title: 'Tools',
+    open: false,
     icon: 'sort',
     children: [
       {
@@ -605,11 +776,13 @@ export const docsRoutes: DocsRoute[] = [
   {
     path: 'platforms',
     title: 'Platforms',
+    open: false,
     icon: 'Internal',
     children: [],
   },
   {
     path: 'extending-bit',
+    open: false,
     icon: 'Extension',
     title: 'Extending Bit',
     children: [],
@@ -617,6 +790,7 @@ export const docsRoutes: DocsRoute[] = [
   {
     path: 'reference',
     icon: 'Ripple_list',
+    open: false,
     title: 'Reference',
     children: [
       {
