@@ -19,18 +19,12 @@ const WorkspaceLink = loadable(() => import('@teambit/workspace.content.workspac
 const DirectoryStructure = loadable(() => import('@teambit/workspace.content.directory-structure'));
 const ComponentDir = loadable(() => import('@teambit/workspace.content.component-directory'));
 const WorkspaceStatus = loadable(() => import('@teambit/workspace.content.workspace-status'));
+const Variants = loadable(() => import('@teambit/workspace.content.variants'));
 
 /**
  * Scope
  */
 const ScopeOverview = loadable(() => import('@teambit/scope.content.scope-overview'));
-
-/**
- * Dependencies
- */
-const NodeModules = loadable(() => import('@teambit/dependencies.content.node-modules'));
-const ExternalDependencies = loadable(() => import('@teambit/dependencies.content.external-dependencies'));
-const PackageManagers = loadable(() => import('@teambit/dependencies.content.package-managers'));
 
 /* Dev services */
 
@@ -104,9 +98,7 @@ const CompositionsAndStories = loadable(() => import('@teambit/compositions.cont
 /* Components */
 
 const ComponentOverview = loadable(() => import('@teambit/component.content.component-overview'));
-const CreatingComponents = loadable(() => import('@teambit/workspace.content.creating-components'));
 const RemovingDeprecating = loadable(() => import('@teambit/docs.content.guides.removing-deprecating-components'));
-const Tags = loadable(() => import('@teambit/component.content.tags'));
 const MergingComponentVersions = loadable(() => import('@teambit/docs.content.guides.merging-component-versions'));
 const ComponentId = loadable(() => import('@teambit/component.content.component-id'));
 const MainFile = loadable(() => import('@teambit/component.content.component-main-file'));
@@ -130,6 +122,8 @@ const DependencyResolution = loadable(() => import('@teambit/dependencies.conten
 const LockFiles = loadable(() => import('@teambit/dependencies.content.lock-files'));
 const Pnpm = loadable(() => import('@teambit/dependencies.content.pnpm'));
 const Yarn = loadable(() => import('@teambit/dependencies.content.yarn'));
+const NodeModules = loadable(() => import('@teambit/dependencies.content.node-modules'));
+const PackageManagers = loadable(() => import('@teambit/dependencies.content.package-managers'));
 
 export const docsRoutes: DocsRoute[] = [
   {
@@ -154,12 +148,6 @@ export const docsRoutes: DocsRoute[] = [
         title: 'Composing',
         open: false,
         children: [
-          {
-            path: 'creating-components',
-            title: 'Creating Components',
-            description: 'Creating Components',
-            component: <CreateComponents />,
-          },
           {
             path: 'dev-environments',
             title: 'Dev environments',
@@ -206,8 +194,9 @@ export const docsRoutes: DocsRoute[] = [
         component: <ComponentDir />,
       },
       {
-        path: 'configuration-variants',
+        path: 'variants',
         title: 'Configuration variants',
+        component: <Variants />,
       },
       {
         path: 'importing-components',
@@ -254,19 +243,9 @@ export const docsRoutes: DocsRoute[] = [
         component: <ComponentOverview />,
       },
       {
-        path: 'creating-components',
-        title: 'Creating Components',
-        component: <CreatingComponents />,
-      },
-      {
         path: 'removing-deprecating-components',
         title: 'Removing or Deprecating Components',
         component: <RemovingDeprecating />,
-      },
-      {
-        path: 'tags',
-        title: 'Tags (component releases)',
-        component: <Tags />,
       },
       {
         path: 'merging-component-versions',
@@ -293,13 +272,26 @@ export const docsRoutes: DocsRoute[] = [
         title: 'component.json',
         component: <ComponentJson />,
       },
+      {
+        path: 'naming-components',
+        title: 'Naming components',
+      },
+      {
+        path: 'inspecting-components',
+        title: 'Inspecting components',
+      },
+      {
+        path: 'component-capsules',
+        title: 'Component capsules',
+        component: <Capsule />,
+      },
     ],
   },
   {
     path: 'dependencies',
     title: 'Dependencies',
     icon: 'dependency',
-    collapsed: true,
+    open: false,
     children: [
       {
         path: 'dependencies-overview',
@@ -337,42 +329,12 @@ export const docsRoutes: DocsRoute[] = [
         component: <LockFiles />,
       },
       {
-        path: 'naming-components',
-        title: 'Naming components',
-      },
-      {
-        path: 'inspecting-components',
-        title: 'Inspecting components',
-      },
-      {
-        path: 'component-capsules',
-        title: 'Component capsules',
-        // component:
-      },
-    ],
-  },
-  {
-    path: 'dependencies',
-    title: 'Dependencies',
-    open: false,
-    icon: 'dependencies',
-    children: [
-      {
-        path: 'dependencies-overview',
-        title: 'Dependencies overview',
-      },
-      {
         path: 'updates',
         title: 'Dependency updates',
       },
       {
         path: 'policies',
         title: 'Dependency policies',
-      },
-      {
-        path: 'external-dependencies',
-        title: 'External dependencies',
-        component: <ExternalDependencies />,
       },
       {
         path: 'node-modules',

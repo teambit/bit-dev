@@ -177,12 +177,6 @@
         "mainFile": "index.ts",
         "rootDir": "webpack/content/configure-webpack"
     },
-    "content/creating-components": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "workspace/content/creating-components"
-    },
     "content/dependencies-configuration": {
         "scope": "",
         "version": "",
@@ -411,12 +405,6 @@
         "mainFile": "index.ts",
         "rootDir": "component/content/naming"
     },
-    "content/pnpm": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "dependencies/content/pnpm"
-    },
     "content/node-modules": {
         "scope": "teambit.dependencies",
         "version": "0.0.6",
@@ -428,6 +416,12 @@
         "version": "0.0.6",
         "mainFile": "index.ts",
         "rootDir": "dependencies/content/package-managers"
+    },
+    "content/pnpm": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "dependencies/content/pnpm"
     },
     "content/preview-during-build": {
         "scope": "teambit.preview",
@@ -483,12 +477,6 @@
         "mainFile": "index.ts",
         "rootDir": "react/content/server-side-rendering"
     },
-    "content/tags": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "component/content/tags"
-    },
     "content/tester-overview": {
         "scope": "teambit.defender",
         "version": "1.8.14",
@@ -519,12 +507,6 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/content/video"
     },
-    "content/yarn": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "dependencies/content/yarn"
-    },
     "content/workspace-link": {
         "scope": "teambit.workspace",
         "version": "0.0.6",
@@ -542,6 +524,12 @@
         "version": "0.0.6",
         "mainFile": "index.ts",
         "rootDir": "workspace/content/workspace-status"
+    },
+    "content/yarn": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "dependencies/content/yarn"
     },
     "entities/docs-routes": {
         "scope": "teambit.docs",
