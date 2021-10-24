@@ -1,0 +1,187 @@
+# Automate Component Export
+
+
+To ensure a component is built and published in a consistent manner its recommended to use CI.  
+The `tag` command versions components, but as this is a local command, we need to provide it with the parameters to run on a remote server. Bit features a **soft** and **persist** options for `tag` to manage a remote runs for component versioning as follows:
+
+1. In your project run `bit tag` with the `--soft` option to annotate that modified components should be versioned and exported.
+1. Bit will update `.bitmap` with information on which components should be versioned.
+1. Commit changes and publish a pull request to your Git repository.
+1. Get results of the PR build and collaborate on the soon-to-be published components.
+1. Merge changes to main branch.
+1. CI versions all marked components and publish them.
+1. CI commits back to the repository the updated `.bitmap` in a post-export state.
+
+## Step-by-step
+
+Below are the steps you should follow to automate component export.
+
+### Install and authenticate Bit
+
+Your CI container should have Bit installed and authenticated with your remote Bit server(s). You can use `bvm` to install Bit.  
+Authenticating Bit depends on how you host your Bit servers. If using a self-hosted Bit server you should manage authentication as you set it up for yourself.  
+If using [bit.dev](https://bit.dev) head over here to [learn how to create a machine token](https://TODO).
+
+### "soft" tag components
+
+When your feature branch is done and you want to mark which components are published, their next version and a changelog message use `--soft` option.
+
+```sh title="soft tag components"
+bit tag --soft --all --message "my message"
+```
+
+Bit then update `.bitmap` for all modified components and their dependents with the new version and the changelog message. Commit changes and push your branch.
+
+```sh
+git commit -am "my message" && git push
+```
+
+### Build modified components
+
+When developing in a local workspace Bit prioritize performance and dev experience for the test and build process of each component. When you open a PR with changes to components it's recommended for Bit to run the entire isolation process for each component. To run a component complete build pipeline and have Bit ensure component isolation run the `build` command:
+
+```sh title="build command prioritize isolation over performance"
+bit build
+```
+
+Use the PR to collaborate on components and merge changes to main branch.
+
+### Merge, version and publish
+
+When soft-tagged components are merged to the main branch your CI should run the `tag` command to version and publish the components.
+
+```sh title="persist soft tags"
+bit tag --persist
+```
+
+After new versions are persisted to Bit's storage you can safely export:
+
+```sh title="export components"
+bit export
+```
+
+### Commit back to the repository
+
+The aforementioned steps would cause `.bitmap` file to be updated. It's important to commit back these changes to the repository.
+
+```sh title="commit changes to repository"
+git add .bitmap
+git commit -m "update .bitmap with new component versions (automated). [skip-ci]"
+git push
+```
+
+:::info using `skip-ci`
+Ensure your CI system has a feature to skip-ci on the commit-back step, otherwise your CI will try to run another CI step without your intention.
+:::
+
+## Examples
+
+Below are some examples/references to help you get started with your CI.
+
+:::note
+Below examples assume you use [bit.dev](https://bit.dev) to host your components.
+:::
+
+### Using GitHub Actions
+
+> You can also follow along with this [example project.](https://github.com/teambit/harmony-with-github-actions)
+
+1. Create a new [secret variable](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets) in your Github repository. Name it `BIT_TOKEN` and set the value of it to the `user.token` value.
+1. Create a new `tag-and-export.yml` file in your remote repository `./.github/workflows` directory.
+1. Create your script.
+
+Here's a demo script you can start with:
+
+```yaml
+# This workflow hard-tags and exports soft-tagged components
+name: Tag and Export Components
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  tag-and-export:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '--skip-ci')"
+    env:
+      BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js 12
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Install Bit Version Manager
+        run: npm i -g @teambit/bvm
+      - name: Install latest Bit version
+        run: bvm install
+      - name: add bvm bin folder to path
+        run: echo "$HOME/bin" >> $GITHUB_PATH
+      - name: Set up bit config
+        run: |
+          bit config set analytics_reporting false
+          bit config set anonymous_reporting false
+          bit config set user.token $BIT_TOKEN
+      - name: Install packages using bit
+        run: bit install
+      - name: Hard-tag pending components
+        run: bit tag --persist
+      - name: Export components
+        run: bit export
+      - name: Commit changes made to .bitmap
+        run: |
+          git config --global user.name '${{ github.actor }}'
+          git config --global user.email '${{ github.actor }}@users.noreply.github.com'
+          git add .bitmap
+          git commit -m "update .bitmap with new component versions (automated). --skip-ci"
+          git push
+```
+
+### Using GitLab CI
+
+1. Generate a Personal Access Token with "Read Repository" and "Write Repository" permissions (this will be `GL_TOKEN`).
+1. Generate `BIT_TOKEN` by grabbing it from your local "bit config" output.
+1. Configure both tokens as project variables for your GitLab project and name them `GL_TOKEN` and `BIT_USER_TOKEN`.
+1. Create a `.gitlab-ci.yml` file in the root of the repository.
+1. Create your script.
+
+Here's a demo script you can start with:
+
+```yml
+publish_components:
+  image: node:latest
+  only: master
+  script:
+    # Install Bit and configure permissions
+    - npm i -g @teambit/bvm
+    - bvm install
+    - export PATH=$HOME/bin:$PATH
+    - bit config set analytics_reporting false
+    - bit config set anonymous_reporting false
+    - bit config set user.token $BIT_TOKEN
+    # Install dependencies
+    - bit install
+    # Version all pending components
+    - bit tag --persist
+    # Export components
+    - bit export
+    # Setup Git and commit back .bitmap changes
+    - git config --global user.email "some@email.address"
+    - git config --global user.name "some ci account"
+    - export GL_RELEASE_GITLAB_API_TOKEN=$GL_TOKEN
+    # This checkout is a workaround for the "error: src refspec master does not match any." error
+    - git checkout master
+    # Add the modified ".bitmap" file
+    - git add .
+    # Replace origin with authenticated origin
+    - git remote rm origin
+    - git remote add origin https://[repo-owner]:$GL_RELEASE_GITLAB_API_TOKEN@gitlab.com/[repo-ower]/[repo-name].git
+    # Using [skip ci] as its a feature for GitLab that will not trigger CI for this commit
+    - git commit -am 'publish components [skip ci]'
+    - git pull origin master
+    - git push origin master
+```
