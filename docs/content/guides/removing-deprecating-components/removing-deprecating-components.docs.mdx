@@ -1,0 +1,25 @@
+---
+description: 'An MDX component.'
+labels: ['content', 'mdx']
+---
+
+import { RemovingDeprecatingComponents } from './index';
+
+### Component usage
+```js
+<RemovingDeprecatingComponents />
+```
+
+### Render with theme and MDX providers
+
+```js
+import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions'
+import { MDXLayout } from '@teambit/ui.mdx-layout'
+import { RemovingDeprecatingComponents } from './index'
+
+<ThemeCompositions>
+  <MDXLayout>
+    <RemovingDeprecatingComponents />
+  </MDXLayout>
+</ThemeCompositions>
+```

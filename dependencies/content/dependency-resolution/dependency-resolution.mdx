@@ -1,24 +1,27 @@
+import { Image } from '@teambit/docs.ui.zoomable-image';
+import dependencyLockImg from './dependency-lock.png';
+import dependencyModuleTypeImg from './dependency-module-type.png';
+import dependencyTypeImg from './dependency-type.png';
+import dependencyPolicyHierarchyImg from './dependency-policy-hierarchy.png';
+
 # Dependency Detection and Resolution
 
-Bit's dependency resolution favours consistency and predictability, making sure each time a component is installed
+Bit greatly simplifies component dependency management by automating most of it. The Dependency Resolver detects component dependencies by parsing out their [files'] `import`/`require` statements. It then determines their dependency type ('runtime', 'peer', or 'dev'), their module type ('package' or 'component'), and resolves their version number.
 
-Component dependencies are resolved and determined during component versioning.
+Dependency versions are resolved during the component versioning (`bit tag` or `bit snap`).
 
-Dependencies
+Dependencies of module-type 'components', are always registered using the concrete version number of the dependency that was installed in their `node_modules` directory, during their build.
+This is done to ensure a component functions the same when installed in other projects.
 
-```bash
-bit tag --all
-```
+<Image width="80%" src={dependencyLockImg} alt="locking the version of dependencies of type 'component'" />
 
-Dependency resolution is handled by the [Dependency Resolver extension](https://bit.dev/teambit/dependencies/dependency-resolver).
+## Determining the dependency module type
 
-Dependency Resolver parses out all `import` \ `require` statements in the component's files.
-It then determines if these dependencies are packages, components (listed in the workspace `.bitmap` file) or internal implementation files.
+<Image src={dependencyModuleTypeImg} />
 
-The generated data is integrated with dependency policies that were set by various Bit extensions (mainly,
-[Environment](/environments/overview)) and by the manually configured policies set in the [workspace configuration file](/workspace/workspace-json) (`workspace.jsonc`).
+## Determining the dependency type
 
-The result of that process determines the list of dependencies for each component, as well as their dependency-type (`dependencies`, `devDependencies` and `peerDependencies`) and version number.
+<Image src={dependencyTypeImg} />
 
 ## The dependency policies hierarchy
 
@@ -29,13 +32,11 @@ Cases of conflicting policies are resolved according to a hierarchy of source ty
 The hierarchy in a descending order:
 
 1. Policies set by Variants (@teambit/variants) and the component.json files of "ejected" components (these two sources are merged by Variants).
-2. Policies set by various extensions/aspects (using registerDependencyPolicy)
-3. Policies set by the environment (using getDependencies)
+2. Policies set by various aspects (using `registerDependencyPolicy`)
+3. Policies set by the Env (using the `getDependencies` service handler)
 4. Bit’s automated dependency detections, and policies set by the Dependency Resolver at the workspace configuration root-level.
 
-:::note
-Learn more about how the Variants extension selects and merges policies that were set using it, [here](/workspace/variants#merging-configurations)
-:::
+<Image width="80%" src={dependencyPolicyHierarchyImg} />
 
 :::info understanding the resolved dependencies for a component
 Use the `bit dependencies <component-id>` command to understand the calculations and interactions that resolved in the generated dependency graph of a specific component.

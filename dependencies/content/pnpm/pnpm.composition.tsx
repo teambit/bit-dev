@@ -1,13 +1,13 @@
 import React from 'react';
 import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions';
 import { MDXLayout } from '@teambit/ui.mdx-layout';
-import { InstallingDependencies } from './index';
+import { Pnpm } from './index';
 
-export const BasicInstallingDependencies = () => {
+export const BasicPnpm = () => {
   return (
     <ThemeCompositions>
       <MDXLayout>
-        <InstallingDependencies />
+        <Pnpm />
       </MDXLayout>
     </ThemeCompositions>
   );

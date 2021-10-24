@@ -1,6 +1,3 @@
-import { Image } from '@teambit/docs.ui.zoomable-image';
-import dependencyLockImg from './dependency-lock.png';
-
 # Dependencies Overview
 
 Dependency management is a major concern for developers looking to build and deliver components independently. It must be done efficiently, to handle an unlimited number of components, each with its own dependency graph.
@@ -65,8 +62,6 @@ Bit makes the consumption of components predictable and consistent. That means, 
 Traditionally, resolution of dependencies is done in installation time, and cached via Lock file (e.g. yarn.lock, package-lock.json) by package managers.
 
 Bit's default, and best practice, is to compute and set dependencies for each version upon [tag](/components/tags) to make sure a component uses the exact version (of components) it needs.
-
-<Image src={dependencyLockImg} alt="locking the version of dependencies of type 'component'" />
 
 <!--TODO ## Dependency Safety -->
 

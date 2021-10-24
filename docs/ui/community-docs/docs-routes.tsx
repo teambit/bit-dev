@@ -34,120 +34,90 @@ const RegisterCustomPreview = loadable(() => import('@teambit/preview.content.re
 
 /* Tester */
 const TesterOverview = loadable(() => import('@teambit/defender.content.tester-overview'));
-
 const TestingDuringDevelopment = loadable(() => import('@teambit/defender.content.testing-during-development'));
-
 const TestingDuringBuild = loadable(() => import('@teambit/defender.content.testing-during-build'));
-
 const ConfigureEnvWithTester = loadable(() => import('@teambit/defender.content.configure-env-with-tester'));
-
 const ImplementTester = loadable(() => import('@teambit/defender.content.implement-tester'));
 
 /* Linter */
 
 const LinterOverview = loadable(() => import('@teambit/defender.content.linter-overview'));
-
 const LintingDuringDevelopment = loadable(() => import('@teambit/defender.content.linting-during-development'));
-
 const LintingDuringBuild = loadable(() => import('@teambit/defender.content.linting-during-build'));
-
 const ConfigureEnvWithLinter = loadable(() => import('@teambit/defender.content.configure-env-with-linter'));
-
 const ImplementLinter = loadable(() => import('@teambit/defender.content.implement-linter'));
 
 /* Formatter */
 
 const FormatterOverview = loadable(() => import('@teambit/defender.content.formatter-overview'));
-
 const FormattingDuringDevelopment = loadable(() => import('@teambit/defender.content.formatting-during-development'));
-
 const FormattingDuringBuild = loadable(() => import('@teambit/defender.content.formatting-during-build'));
-
 const ConfigureEnvWithFormatter = loadable(() => import('@teambit/defender.content.configure-env-with-formatter'));
-
 const ImplementFormatter = loadable(() => import('@teambit/defender.content.implement-formatter'));
 
 /* Compiler  */
 
 const CompilerOverview = loadable(() => import('@teambit/compilation.content.compiler-overview'));
-
 const CompilingDuringDevelopment = loadable(() => import('@teambit/compilation.content.compiling-during-development'));
-
 const CompilingDuringBuild = loadable(() => import('@teambit/compilation.content.compiling-during-build'));
-
 const ConfigureEnvWithCompiler = loadable(() => import('@teambit/compilation.content.configure-env-with-compiler'));
-
 const ImplementCompiler = loadable(() => import('@teambit/compilation.content.implement-compiler'));
-
 const MultiCompiler = loadable(() => import('@teambit/compilation.content.multi-compiler'));
-
 const ConfigureWebpck = loadable(() => import('@teambit/webpack.content.configure-webpack'));
-
 const CliReference = loadable(() => import('@teambit/harmony.content.cli-reference'));
 
 /* Builder */
 
 const BuilderOverview = loadable(() => import('@teambit/pipelines.content.builder-overview'));
-
 const BuildPipelines = loadable(() => import('@teambit/pipelines.content.build-pipelines'));
-
 const BuildTasks = loadable(() => import('@teambit/pipelines.content.build-tasks'));
-
 const BuildArtifacts = loadable(() => import('@teambit/pipelines.content.build-artifacts'));
-
 const Capsule = loadable(() => import('@teambit/component.content.capsule'));
 
 /* Docs */
 
 const DocsOverview = loadable(() => import('@teambit/docs.content.docs-overview'));
-
 const MDX = loadable(() => import('@teambit/docs.content.mdx'));
-
 const DocTemplates = loadable(() => import('@teambit/docs.content.doc-templates'));
-
 const RenderingDocs = loadable(() => import('@teambit/docs.content.rendering-docs'));
 
 /* Compositions */
 
 const CompositionsOverview = loadable(() => import('@teambit/compositions.content.compositions-overview'));
-
 const CompositionFormat = loadable(() => import('@teambit/compositions.content.composition-format'));
-
 const CompositionContext = loadable(() => import('@teambit/compositions.content.composition-context'));
-
 const MountingCompositionsToDom = loadable(() => import('@teambit/compositions.content.mounting-compositions-to-dom'));
-
 const CompositionsAndStories = loadable(() => import('@teambit/compositions.content.compositions-and-stories'));
 
 /* Components */
 
+const ComponentOverview = loadable(() => import('@teambit/component.content.component-overview'));
+const CreatingComponents = loadable(() => import('@teambit/workspace.content.creating-components'));
+const RemovingDeprecating = loadable(() => import('@teambit/docs.content.guides.removing-deprecating-components'));
+const Tags = loadable(() => import('@teambit/component.content.tags'));
+const MergingComponentVersions = loadable(() => import('@teambit/docs.content.guides.merging-component-versions'));
 const ComponentId = loadable(() => import('@teambit/component.content.component-id'));
+const MainFile = loadable(() => import('@teambit/component.content.component-main-file'));
+const ComponentConfig = loadable(() => import('@teambit/component.content.component-config'));
+const ComponentJson = loadable(() => import('@teambit/component.content.component-json'));
 
 /* Envs */
 
 const InspectingEnv = loadable(() => import('@teambit/envs.content.inspecting-env'));
-
 const ExtendingEnv = loadable(() => import('@teambit/envs.content.extending-env'));
-
 const EnvToubleshooting = loadable(() => import('@teambit/envs.content.env-troubleshooting'));
 
 /* Dependencies */
 
 const DependenciesOverview = loadable(() => import('@teambit/dependencies.content.dependencies-overview'));
-
 const ExternalDependencies = loadable(() => import('@teambit/dependencies.content.external-dependencies'));
-
 const DependencyPolicies = loadable(() => import('@teambit/dependencies.content.dependency-policies'));
-
 const DependenciesConfiguration = loadable(() => import('@teambit/dependencies.content.dependencies-configuration'));
-
 const DependencyInstallation = loadable(() => import('@teambit/dependencies.content.installing-dependencies'));
-
 const DependencyResolution = loadable(() => import('@teambit/dependencies.content.dependency-resolution'));
-
-const PackageManagers = loadable(() => import('@teambit/dependencies.content.package-managers'));
-
 const LockFiles = loadable(() => import('@teambit/dependencies.content.lock-files'));
+const Pnpm = loadable(() => import('@teambit/dependencies.content.pnpm'));
+const Yarn = loadable(() => import('@teambit/dependencies.content.yarn'));
 
 export const docsRoutes: DocsRoute[] = [
   {
@@ -221,9 +191,49 @@ export const docsRoutes: DocsRoute[] = [
     collapsed: true,
     children: [
       {
+        path: 'component-overview',
+        title: 'Component Overview',
+        component: <ComponentOverview />,
+      },
+      {
+        path: 'creating-components',
+        title: 'Creating Components',
+        component: <CreatingComponents />,
+      },
+      {
+        path: 'removing-deprecating-components',
+        title: 'Removing or Deprecating Components',
+        component: <RemovingDeprecating />,
+      },
+      {
+        path: 'tags',
+        title: 'Tags (component releases)',
+        component: <Tags />,
+      },
+      {
+        path: 'merging-component-versions',
+        title: 'Merging Component Versions',
+        component: <MergingComponentVersions />,
+      },
+      {
         path: 'component-id',
         title: 'Component ID',
         component: <ComponentId />,
+      },
+      {
+        path: 'component-main-file',
+        title: 'Main File',
+        component: <MainFile />,
+      },
+      {
+        path: 'component-config',
+        title: 'Component Configuration',
+        component: <ComponentConfig />,
+      },
+      {
+        path: 'component-json',
+        title: 'component.json',
+        component: <ComponentJson />,
       },
     ],
   },
@@ -262,11 +272,6 @@ export const docsRoutes: DocsRoute[] = [
         path: 'dependencies-config',
         title: 'Dependencies Config',
         component: <DependenciesConfiguration />,
-      },
-      {
-        path: 'package-managers',
-        title: 'Package Managers',
-        component: <PackageManagers />,
       },
       {
         path: 'lock-files',
@@ -584,6 +589,16 @@ export const docsRoutes: DocsRoute[] = [
             component: <ConfigureWebpck />,
           },
         ],
+      },
+      {
+        path: 'pnpm',
+        title: 'pnpm',
+        component: <Pnpm />,
+      },
+      {
+        path: 'yarn',
+        title: 'Yarn',
+        component: <Yarn />,
       },
     ],
   },

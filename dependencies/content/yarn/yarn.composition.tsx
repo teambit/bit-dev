@@ -1,13 +1,13 @@
 import React from 'react';
 import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions';
 import { MDXLayout } from '@teambit/ui.mdx-layout';
-import { InstallingDependencies } from './index';
+import { Yarn } from './index';
 
-export const BasicInstallingDependencies = () => {
+export const BasicYarn = () => {
   return (
     <ThemeCompositions>
       <MDXLayout>
-        <InstallingDependencies />
+        <Yarn />
       </MDXLayout>
     </ThemeCompositions>
   );

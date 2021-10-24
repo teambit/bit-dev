@@ -1,14 +1,10 @@
 # Dependency Installation
 
-Dependency installation is handled by the [Dependency Resolver extension](https://bit.dev/teambit/dependencies/dependency-resolver).
+<!-- This page is a WIP -->
 
-Dependency Resolver directs the package manager to install the right packages at the right place in the workspace file structure.
+Dependency Resolver directs the [package manager](dependencies-config#packagemanager) to install the right packages at the right place in the workspace file structure.
 
 ## Install command
-
-:::note install and import
-The 'install' process includes importing components (listed in the workspace `.bitmap` file) and linking them to the `node_modules` directory.
-:::
 
 :::note registry authentication
 By default, the Dependency Resolver installs packages from Bit.dev's registry. The authentication for that is done using your Bit.dev token, listed under `@bit`, in your `.npmrc` file.
@@ -17,11 +13,14 @@ If that token cannot be found in the `.npmrc` file, it will look for it in your 
 If your npm is configured to use a registry different than npmjs's - the Dependency Resolver will use that configured registry, instead.
 :::
 
-### Install all dependencies listed in the Dependency Resolver configuration
+### Install all dependencies and import all components
 
 ```shell
 bit install
 ```
+
+`bit install` installs all dependencies listed in the dependency policies. It also imports all components listed in the workspace `.bitmap` file, and links them to the `node_modules` directory.
+Importing components can be skipped using the `--skip-import` option.
 
 ### Install the latest version of a package
 
@@ -54,15 +53,6 @@ bit install <package> --update-existing
 
 ```shell
 bit install <package> -u
-```
-
-### Install packages without importing components
-
-The 'install' process includes importing components listed in the `.bitmap` file and linking them to the `node_modules` directory.
-To disable importing and install all packages and components as standard packages use:
-
-```shell
-bit install --skip-import
 ```
 
 ## Enforce the installation of a specific package version
