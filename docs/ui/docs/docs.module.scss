@@ -1,15 +1,12 @@
-
 .docs {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
 }
 
-
 .content {
   padding: 0 36px;
   box-sizing: border-box;
 }
-
 
 .main {
   flex: 1 1;
@@ -19,7 +16,7 @@
   .splitter {
     position: relative;
     height: calc(100% - 44px);
-  
+
     > :first-child {
       z-index: 1;
       position: absolute;
@@ -33,4 +30,10 @@
   position: relative;
   overflow: hidden;
   height: 100%;
+}
+
+.primaryLinks {
+  border-bottom: 1px solid var(--bit-border-color-lightest, #ededed);
+  font-size: var(--bit-p-xs, 14px);
+  padding: 16px 0;
 }

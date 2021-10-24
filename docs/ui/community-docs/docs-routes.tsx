@@ -2,9 +2,6 @@ import React from 'react';
 import loadable from '@loadable/component';
 import { DocsRoute } from '@teambit/docs.entities.docs-routes';;
 
-/* Quick Start */
-const QuickStart = loadable(() => import('@teambit/docs.content.quick-start'));
-
 /* Getting Started */
 
 const InstallingBit = loadable(
@@ -27,6 +24,7 @@ const CreateWorkspace = loadable(
 );
 
 /* Workspace */
+const WorkspaceOverview = loadable(() => import('@teambit/workspace.content.workspace-overview'));
 const Bitmap = loadable(() => import('@teambit/workspace.content.bitmap'));
 const WorkspaceLink = loadable(() => import('@teambit/workspace.content.workspace-link'));
 const DirectoryStructure = loadable(() => import('@teambit/workspace.content.directory-structure'));
@@ -249,13 +247,6 @@ const EnvToubleshooting = loadable(
 
 export const docsRoutes: DocsRoute[] = [
   {
-    path: 'quick-start',
-    icon: 'lightning',
-    title: 'Quick Start',
-    description: 'Quick Start',
-    component: <QuickStart />,
-  },
-  {
     path: 'getting-started',
     title: 'Getting Started',
     icon: 'Ripple_play',
@@ -308,7 +299,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'workspace-overview',
         title: 'Workspace overview',
-        component: <Bitmap />,
+        component: <WorkspaceOverview />,
       },
       {
         path: 'creating-workspaces',
@@ -358,6 +349,10 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'configuring-remote-scopes',
         title: 'Configuring remote scopes'
+      },
+      {
+        path: 'local-scope',
+        title: 'Local scope'
       }
     ],
   },
@@ -564,6 +559,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'generator',
         title: 'Generator',
+        icon: 'generator',
         children: [
           {
             path: 'generator-overview',
@@ -574,7 +570,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'compiler',
         title: 'Compiler',
-        icon: 'https://static.bit.dev/Community/icons/compile.svg',
+        icon: 'compile',
         children: [
           {
             path: 'compiler-overview',
@@ -611,6 +607,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'tester',
         title: 'Tester',
+        icon: 'tester',
         children: [
           {
             path: 'tester-overview',
@@ -702,6 +699,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'preview',
         title: 'Preview',
+        icon: 'preview',
         open: false,
         children: [
           {
@@ -729,6 +727,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'linter',
         title: 'Linter',
+        icon: 'linter',
         children: [
           {
             path: 'linter-overview',
