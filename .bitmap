@@ -843,6 +843,12 @@
         "mainFile": "index.ts",
         "rootDir": "ui-foundation/ui/navigation/react-router/link"
     },
+    "ui/navigation/react-router/routing-adapter": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "ui-foundation/ui/navigation/react-router/routing-adapter"
+    },
     "ui/pages/doc-page": {
         "scope": "teambit.docs",
         "version": "1.8.20",

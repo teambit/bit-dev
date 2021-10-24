@@ -59,6 +59,7 @@
         "@teambit/base-ui.constants.storage": "1.0.0",
         "@teambit/base-ui.elements.image": "1.0.0",
         "@teambit/base-ui.elements.separator": "1.1.0",
+        "@teambit/base-ui.elements.noop": "1.0.0",
         "@teambit/base-ui.graph.tree.indent": "1.0.0",
         "@teambit/base-ui.graph.tree.inflate-paths": "1.0.0",
         "@teambit/base-ui.graph.tree.recursive-tree": "1.0.0",
@@ -104,8 +105,8 @@
         "@teambit/ui-foundation.ui.tree.folder-tree-node": "0.0.446",
         "@teambit/ui-foundation.ui.tree.tree-node": "0.0.453",
         "@testing-library/react-hooks": "7.0.1",
+        "@types/loadable__component": "5.13.4",
         "@types/react-helmet": "6.1.2",
-        "@types/react-router-dom": "5.1.7",
         "classnames": "2.3.1",
         "millify": "4.0.0",
         "react-helmet": "6.1.0",
@@ -118,8 +119,12 @@
       },
       "peerDependencies": {
         "@testing-library/react": "12.0.0",
+        "@types/history": "^4.0.0",
+        "@types/react-router-dom": "^5.0.0",
+        "history": "^5.0.0",
         "react": "16.13.1",
-        "react-dom": "16.13.1"
+        "react-dom": "16.13.1",
+        "react-router-dom": "^5.0.0"
       }
     },
     "packageManagerArgs": [],
