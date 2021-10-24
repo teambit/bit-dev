@@ -1,0 +1,55 @@
+# Update Components
+
+There are several ways you may update your component. This guide walks through how to update components and measure the impact of your updates.
+
+## Update Implementation
+
+Updating implementation is as simple as editing the code of a component.
+TODO
+
+## Update Configuration
+
+workspace.json
+TODO
+
+## Update Dependencies
+
+Update your workspace dependencies by running the `install` command:
+
+```sh
+bit install
+```
+
+## Show Modified Components
+
+To see how updating dependencies has affected each component run:
+
+```bash title="See updated components"
+bit status
+```
+
+Bit tracks which component it using any dependency, and shows you how the changes to installed dependencies affect each component.
+
+```bash title="List of update components"
+TODO - GET OUTPUT
+```
+
+We see that `COMPONENT` is modified, and as a result `COMPONENT` is pending to be tagged as well, since its dependency was modified.
+
+### Component Diff
+
+Bit uses Git to provide you with a diff for each component. You can use the `diff` command to see what are the exact changes made to a specific component.
+
+```bash
+bit diff COMPONENT
+```
+
+Component version contains code, configuration and dependencies, so the diff output gives us a complete glimpse of what has changed.
+
+```bash title="Diff output"
+TODO
+```
+
+## Build Affected Components
+
+Bit keeps a dependency graph of all components so when a component is modified it knows to build it and its dependents only, instead of building all components in the workspace.  
