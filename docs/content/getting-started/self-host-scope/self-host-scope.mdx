@@ -1,0 +1,142 @@
+# Self Host Scope
+
+When self-hosting Bit on your own infrastructure you will also need to publish components to an external registry so components will be available to install with package managers.
+
+## Creating your own Server
+
+To create your own remote server you will need to provision your own server and run the `bit init --bare` command. This will create a bare scope that you can use to host your own components.
+
+```bash
+mkdir my-server
+cd my-server
+bit init --bare
+```
+
+### Start your Server
+
+To start your server you can run the `bit start` command.
+
+```bash
+bit start
+```
+
+This will open up the server on the available port eg. `http://localhost:3001`. You will notice that it is an empty remote scope as no components have been exported yet.
+
+### Update your Default Scope
+
+In the `workspace.jsonc` file in the project where your components are, change the default scope to be the name of your server.
+
+```json title=workspace.jsonc
+{
+  "defaultScope": "my-server"
+}
+```
+
+### Add your Remote Scope
+
+On any computer you want to export to your scope configure the remote:
+
+```bash
+bit remote add http://localhost:3001 # url of the scope
+```
+
+## Publish your Components to NPM
+
+The `teambit.pkg/pkg` is added to the variants section in your `workspace.jsonc` file. We can apply this to all components by using the `"{*}"` wildcard or to a specific set of components. This gives us better control over publishing our components as we can decide which ones we want to publish and to which remote scopes. `teambit.pkg/pkg` is used for managing `package.json` for components.
+
+```json {4} title=workspace.jsonc
+"teambit.workspace/variants": {
+  "{ui/**}": {
+      // add component environment here, React/Angular/Node etc
+      "teambit.pkg/pkg": {}
+    }
+}
+```
+
+### Make your Components Public
+
+If you want to make your package a public package on npm add `["--access public"]` to the value for `packageManagerPublishArgs`.
+
+```json {4-6} title=workspace.jsonc
+"teambit.workspace/variants": {
+  "{ui/**}": {
+      // add component environment here, React/Angular/Node etc
+      "teambit.pkg/pkg": {
+        "packageManagerPublishArgs": [
+          "--access public"
+        ],
+      }
+    }
+}
+```
+
+### Override the `package.json`
+
+We can override the properties of the `package.json` for all our components at once. To do this we add the `"packageJson"` key and inside our object we add any of the properties we want to override. For the name property we add the dynamic value `"@{scope}/{name}"`. This will take the scope value from the `defaultScope` property in the `workspace.jsonc` file and append it to the name of your component.
+
+```json {8-11} title=workspace.jsonc
+"teambit.workspace/variants": {
+  "{ui/**}": {
+      // add component environment here, React/Angular/Node etc
+      "teambit.pkg/pkg": {
+        "packageManagerPublishArgs": [
+          "--access public"
+        ],
+        "packageJson": {
+          "name": "@{scope}/{name}",
+          "private": false
+        }
+      }
+    }
+}
+```
+
+:::tip Add other key/value pairs
+You can add other key/value pairs to the `package.json` file. For example you can add a `"license"` property to specify the license of your package.
+:::
+
+### Setting the Scope and registry
+
+In order to publish our components to the npm registry we first must [login to npm](https://www.npmjs.com/) and add a new **organization/scope** in npm. We can then add the name of this **organization/scope** to the `publishConfig` property under our `"packageJson"`" key. We then need to add the registry url to the `registry` property which in this case is the url to the npm registry.
+
+```json {11-14} title=workspace.jsonc
+"teambit.workspace/variants": {
+  "{ui/**}": {
+      // add component environment here, React/Angular/Node etc
+      "teambit.pkg/pkg": {
+        "packageManagerPublishArgs": [
+          "--access public"
+        ],
+        "packageJson": {
+          "name": "@{scope}/{name}",
+          "private": false,
+          "publishConfig": {
+            "scope": "@test-remote",
+            "registry": "https://registry.npmjs.org/"
+          }
+        }
+      }
+    }
+}
+```
+
+:::note
+Here we are publishing to npmjs.org, but it's also possible to publish to Artifactory, Nexus or Verddacio.
+:::
+
+### Logging in to npm
+
+In the terminal login to npm so that you can use Bit to publish your components to npm.
+
+```bash
+npm login
+```
+
+## Building a Scope Network
+
+If you build components with several scopes in your projects that have cross-dependencies, you will need to configure remote scopes for each scope. The steps for it are:
+
+1. Provision a server and initialize a remote Bit scope for each component-scope.
+1. Start the server for each scope with `bit start-scope` command.
+1. In each server run `bit remote add <url>` for each of the other remote scopes.
+1. In each client machine run `bit remote add <url>` to all scopes.

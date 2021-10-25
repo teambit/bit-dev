@@ -10,8 +10,10 @@ export function PrimaryLinks({ tree }: { tree: SidebarNode; }) {
   return (
     <div className={styles.primaryLinks}>
       {links.map((link, index) => {
+        // TODO: oded fix that
+        const icon = typeof link.payload?.icon === 'string' ? link.payload?.icon : undefined;
         return (
-          <MenuLinkItem key={index} href={link.payload?.path} icon={link.payload?.icon}>
+          <MenuLinkItem key={index} href={link.payload?.path} icon={icon}>
             {link.payload?.title}
           </MenuLinkItem>
         );
