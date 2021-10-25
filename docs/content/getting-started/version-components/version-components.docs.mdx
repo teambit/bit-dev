@@ -1,0 +1,26 @@
+---
+description: 'Describe how to version components'
+labels: ['content', 'docs', 'getting-started']
+---
+
+import { VersionComponents } from './index';
+
+### Component usage
+
+```js
+<VersionComponents />
+```
+
+### Render with theme and MDX providers
+
+```js
+import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions';
+import { MDXLayout } from '@teambit/mdx.ui.mdx-layout';
+import { VersionComponents } from './index';
+
+<ThemeCompositions>
+  <MDXLayout>
+    <VersionComponents />
+  </MDXLayout>
+</ThemeCompositions>
+```

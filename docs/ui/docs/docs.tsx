@@ -1,6 +1,5 @@
-import React, { useReducer } from 'react';
-import classNames from 'classnames';
-import { DocsRoute } from './docs-route';
+import React, { useReducer, useMemo } from 'react';
+import { DocsRoute, DocsRoutes } from '@teambit/docs.entities.docs-routes';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
 import { Sidebar } from '@teambit/docs.ui.sidebar';
 import { DocPage } from '@teambit/docs.ui.pages.doc-page';
@@ -13,11 +12,11 @@ import {
 } from '@teambit/base-ui.surfaces.split-pane.split-pane';
 import { HoverSplitter } from '@teambit/base-ui.surfaces.split-pane.hover-splitter';
 import styles from './docs.module.scss';
-import { DocsRoutes } from './routes';
+import { PrimaryLinks } from './primary-links';
 
 export type DocsProps = {
   /**
-   * a text to be rendered in the component.
+   * a routes to be rendered in the sidebar.
    */
   routes: DocsRoute[];
 
@@ -27,17 +26,23 @@ export type DocsProps = {
   baseUrl?: string,
 
   /**
+   * primary links to be presented in the top of the sidebar.
+   */
+  primaryLinks?: DocsRoute[],
+
+  /**
    * shows a next page box after every page unless specifically set otherwise by the route using the `showNext` property on DocsRoute. 
    */
   showNext?: boolean,
 } & Omit<SplitPaneProps, 'children'>;
 
-export function Docs({ routes, showNext = true, baseUrl = '/', ...rest }: DocsProps) {
+export function Docs({ routes, primaryLinks = [], showNext = true, baseUrl = '/', ...rest }: DocsProps) {
   const { path } = useRouteMatch();
   const docRoutes = DocsRoutes.from(routes, baseUrl || path);
+  const primaryRoutes = DocsRoutes.from(primaryLinks, baseUrl || path);
   const [isSidebarOpen, handleSidebarToggle] = useReducer((x) => !x, true);
   const sidebarOpenness = isSidebarOpen ? Layout.row : Layout.right;
-  const routeArray = docRoutes.getRoutes();
+  const routeArray = useMemo(() => [...primaryRoutes.getRoutes(), ...docRoutes.getRoutes()], [primaryRoutes, docRoutes]);
 
   return (
     <SplitPane
@@ -47,6 +52,7 @@ export function Docs({ routes, showNext = true, baseUrl = '/', ...rest }: DocsPr
       layout={sidebarOpenness}
     >
       <Pane className={styles.sidebar}>
+        <PrimaryLinks tree={primaryRoutes.toSideBarTree()} />
         <Sidebar
           tree={docRoutes.toSideBarTree()}
           linkPrefix={baseUrl}

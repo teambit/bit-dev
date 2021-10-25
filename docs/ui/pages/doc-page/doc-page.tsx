@@ -1,8 +1,10 @@
-import React, { ReactNode } from 'react';
+import React, { useRef, useEffect, ReactNode } from 'react';
 import { MDXLayout } from '@teambit/mdx.ui.mdx-layout';
+import type { MDXProviderComponents } from '@teambit/mdx.ui.mdx-layout';
 import { Page } from '@teambit/base-react.pages.page';
 import { NextPage } from '@teambit/community.ui.cards.next-page';
-import type { Route } from '@teambit/docs.ui.docs';
+import type { Route } from '@teambit/docs.entities.docs-routes';
+import { h1 as H1, h2 as H2, h3 as H3 } from '@teambit/documenter.markdown.heading';
 import styles from './doc-page.module.scss';
 
 export type DocPageProps = {
@@ -22,10 +24,40 @@ export type DocPageProps = {
   children: ReactNode;
 };
 
+const scrollToRef = (ref) => {
+  return window.scrollTo(0, -ref.current.offsetTop);
+};
+
+const getTextLink = (element: React.ReactNode) =>
+  typeof element === 'string' ? element.trim().toLowerCase().replace(/ /g, '-') : undefined;
+
+const mdxComponents: MDXProviderComponents = {
+  h1: ({ children, ...rest }) => <H1 link={getTextLink(children)} children={children} {...rest} />,
+  h2: ({ children, ...rest }) => <H2 link={getTextLink(children)} children={children} {...rest} />,
+  h3: ({ children, ...rest }) => <H3 link={getTextLink(children)} children={children} {...rest} />,
+};
+
 export function DocPage({ title, nextPage, children }: DocPageProps) {
+  useEffect(() => {
+    executeScroll();
+  }, []);
+
+  //@TODO @josh remove when ssr is working
+  useEffect(() => {
+    if (location.hash) {
+      setTimeout(() => {
+        const element = document.getElementById(location.hash.replace('#', ''));
+        element?.scrollIntoView();
+      }, 500);
+    }
+  }, [location.hash]);
+
+  const myRef = useRef(null);
+  const executeScroll = () => scrollToRef(myRef);
   return (
     <Page title={title}>
-      <MDXLayout>{children}</MDXLayout>
+      <div ref={myRef} />
+      <MDXLayout components={mdxComponents}>{children}</MDXLayout>
 
       {nextPage && (
         <NextPage

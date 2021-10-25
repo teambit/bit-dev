@@ -1,5 +1,5 @@
 import React from 'react';
-import { DocsRoute } from '@teambit/docs.ui.docs';
+import { DocsRoute } from '@teambit/docs.entities.docs-routes';
 import loadable from '@loadable/component';
 // import DecoupledCodebases from '@teambit/docs.content.mfe.decoupled-codebases';
 
@@ -7,6 +7,7 @@ export const docsRoutes: DocsRoute[] = [
   {
     path: 'micro-frontends',
     title: 'Micro Frontends',
+    icon: 'micro',
     children: [
       {
         title: 'Overview',
@@ -58,6 +59,7 @@ export const docsRoutes: DocsRoute[] = [
   {
     path: 'component-libraries',
     title: 'Component Libraries',
+    icon: 'library',
     children: [
       {
         title: 'Overview',
@@ -104,6 +106,7 @@ export const docsRoutes: DocsRoute[] = [
   {
     title: 'Server side development',
     path: 'server-side-development',
+    icon: 'side-server-js',
     children: [
       {
         title: 'Micro services',
@@ -123,4 +126,26 @@ export const docsRoutes: DocsRoute[] = [
       },
     ],
   },
+
+  {
+    title: 'Code sharing',
+    path: 'code-sharing',
+    icon: 'components-bubble',
+    children: [
+      {
+        path: 'sharing-code-challenges',
+        title: 'Challenges of sharing code'
+      }
+    ]
+  },
+  {
+    title: 'Component driven development',
+    path: 'component-driven-development',
+    children: [
+      {
+        title: 'Bottom up',
+        path: 'bottom-up'
+      }
+    ]
+  }
 ];

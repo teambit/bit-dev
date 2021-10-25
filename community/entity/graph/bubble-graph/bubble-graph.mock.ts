@@ -177,7 +177,7 @@ export function mockBubbleGraph() {
       id: 'teambit.tester/tester@1.2.1',
       dependencies: [],
       payload: {
-        icon: 'https://static.bit.dev/Community/icons/esling.svg',
+        icon: 'https://static.bit.dev/Community/icons/tester.svg',
       },
       row: 7,
       col: 7,
@@ -187,7 +187,7 @@ export function mockBubbleGraph() {
       id: 'teambit.linting/linter@1.2.1',
       dependencies: ['teambit.tester/eslint'],
       payload: {
-        icon: 'https://static.bit.dev/Community/icons/esling.svg',
+        icon: 'https://static.bit.dev/Community/icons/linter.svg',
       },
       row: 5,
       col: 6,

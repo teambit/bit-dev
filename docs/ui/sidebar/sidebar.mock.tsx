@@ -1,21 +1,30 @@
+import React from 'react'
+
+const CustomImg = <img style={{width: 16, marginRight: 8}} src='https://bitsrc.imgix.net/bf5970b9b97dfb045867dd2842eaefd1e623e328.png?size=35&w=70&h=70&crop=faces&fit=crop&bg=fff' />;
+
 export const sidebarMock = {
   id: '',
   children: [
     {
       id: 'quick-start',
       payload: {
-        collapsed: false,
         title: 'Quick Start',
         path: '/docs/quick-start',
       },
     },
     {
       id: 'getting-started',
+      payload: {
+        icon: 'https://static.bit.dev/bit-logo.svg',
+        title: 'Getting Started',
+        path: '/docs/getting-started/getting-started',
+      },
       children: [
         {
           id: 'installing-bit',
           payload: {
-            collapsed: false,
+            open: false,
+            icon: 'workspace',
             title: 'Installing Bit',
             path: '/docs/getting-started/installing-bit',
           },
@@ -23,7 +32,6 @@ export const sidebarMock = {
             {
               id: 'installing-bit',
               payload: {
-                collapsed: false,
                 title: 'Installing Bit',
                 path: '/docs/getting-started/installing-bit',
               },
@@ -31,7 +39,6 @@ export const sidebarMock = {
             {
               id: 'create-new-workspace',
               payload: {
-                collapsed: false,
                 title: 'Create a new Workspace',
                 path: '/docs/getting-started/create-new-workspace',
               },
@@ -42,7 +49,6 @@ export const sidebarMock = {
                 {
                   id: 'creating-components',
                   payload: {
-                    collapsed: false,
                     title: 'Creating Components',
                     path: '/docs/getting-started/composing/creating-components',
                   },
@@ -50,7 +56,6 @@ export const sidebarMock = {
                 {
                   id: 'dev-environments',
                   payload: {
-                    collapsed: false,
                     title: 'Dev environments',
                     path: '/docs/getting-started/composing/dev-environments',
                   },
@@ -58,14 +63,13 @@ export const sidebarMock = {
                 {
                   id: 'use-dependencies',
                   payload: {
-                    collapsed: false,
                     title: 'Use dependencies',
                     path: '/docs/getting-started/composing/use-dependencies',
                   },
                 },
               ],
               payload: {
-                collapsed: false,
+                open: false,
                 title: 'Composing',
                 path: '/docs/getting-started/composing/composing',
               },
@@ -75,18 +79,22 @@ export const sidebarMock = {
         {
           id: 'create-new-workspace',
           payload: {
-            collapsed: false,
             title: 'Create a new Workspace',
             path: '/docs/getting-started/create-new-workspace',
           },
         },
         {
           id: 'composing',
+          payload: {
+            open: false,
+            icon: CustomImg,
+            title: 'Composing',
+            path: '/docs/getting-started/composing/composing',
+          },
           children: [
             {
               id: 'creating-components',
               payload: {
-                collapsed: false,
                 title: 'Creating Components',
                 path: '/docs/getting-started/composing/creating-components',
               },
@@ -94,7 +102,6 @@ export const sidebarMock = {
             {
               id: 'dev-environments',
               payload: {
-                collapsed: false,
                 title: 'Dev environments',
                 path: '/docs/getting-started/composing/dev-environments',
               },
@@ -102,25 +109,13 @@ export const sidebarMock = {
             {
               id: 'use-dependencies',
               payload: {
-                collapsed: false,
                 title: 'Use dependencies',
                 path: '/docs/getting-started/composing/use-dependencies',
               },
             },
           ],
-          payload: {
-            collapsed: false,
-            title: 'Composing',
-            path: '/docs/getting-started/composing/composing',
-          },
         },
       ],
-      payload: {
-        icon: 'workspace',
-        collapsed: false,
-        title: 'Getting Started',
-        path: '/docs/getting-started/getting-started',
-      },
     },
   ],
 };
