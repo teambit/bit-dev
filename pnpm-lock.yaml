@@ -16,7 +16,7 @@ importers:
       '@mdx-js/react': 1.6.22
       '@react-aria/button': 3.3.3
       '@react-types/button': 3.4.1
-      '@teambit/application.netlify': 1.0.0
+      '@teambit/apps.netlify': 0.0.1
       '@teambit/base-ui.constants.storage': 1.0.0
       '@teambit/base-ui.elements.image': 1.0.0
       '@teambit/base-ui.elements.separator': 1.1.0
@@ -36,17 +36,18 @@ importers:
       '@teambit/base-ui.text.paragraph': 1.0.3
       '@teambit/component-id': 0.0.369
       '@teambit/component.modules.component-url': 0.0.71
-      '@teambit/design.elements.icon': 1.0.4
+      '@teambit/design.elements.icon': 1.0.6
       '@teambit/design.embeds.figma': 0.0.3
       '@teambit/design.ui.cli-snippet': 0.0.347
-      '@teambit/design.ui.dropdown': 1.0.8
-      '@teambit/design.ui.error-page': 0.0.350
-      '@teambit/design.ui.external-link': 0.0.344
-      '@teambit/design.ui.heading': 1.0.5
+      '@teambit/design.ui.dropdown': 1.0.10
+      '@teambit/design.ui.error-page': 0.0.351
+      '@teambit/design.ui.external-link': 0.0.346
+      '@teambit/design.ui.heading': 1.0.7
       '@teambit/design.ui.input.icon-text': 0.0.7
-      '@teambit/design.ui.message-card': 1.0.4
-      '@teambit/design.ui.styles.ellipsis': 0.0.345
+      '@teambit/design.ui.message-card': 1.0.6
+      '@teambit/design.ui.styles.ellipsis': 0.0.346
       '@teambit/design.ui.surfaces.menu.link-item': 0.0.374
+      '@teambit/documenter.markdown.heading': 0.1.4
       '@teambit/documenter.theme.theme-compositions': 4.1.1
       '@teambit/documenter.theme.theme-context': 4.0.3
       '@teambit/documenter.ui.copy-box': 4.1.1
@@ -59,7 +60,7 @@ importers:
       '@teambit/mdx.ui.mdx-layout': 0.0.441
       '@teambit/mdx.ui.mdx-scope-context': 0.0.368
       '@teambit/react.templates.themes.theme': 0.0.3
-      '@teambit/react.ui.component-highlighter': 0.0.452
+      '@teambit/react.ui.component-highlighter': 0.0.458
       '@teambit/ui-foundation.ui.buttons.collapser': 0.0.144
       '@teambit/ui-foundation.ui.react-router.link': 0.0.441
       '@teambit/ui-foundation.ui.react-router.nav-link': 0.0.441
@@ -99,7 +100,7 @@ importers:
       '@mdx-js/react': registry.npmjs.org/@mdx-js/react/1.6.22_react@16.13.1
       '@react-aria/button': registry.npmjs.org/@react-aria/button/3.3.3_react@16.13.1
       '@react-types/button': registry.npmjs.org/@react-types/button/3.4.1_react@16.13.1
-      '@teambit/application.netlify': 1.0.0_react-dom@16.13.1+react@16.13.1
+      '@teambit/apps.netlify': 0.0.1_react-dom@16.13.1+react@16.13.1
       '@teambit/base-ui.constants.storage': registry.npmjs.org/@teambit/base-ui.constants.storage/1.0.0_react-dom@16.13.1+react@16.13.1
       '@teambit/base-ui.elements.image': registry.npmjs.org/@teambit/base-ui.elements.image/1.0.0_react-dom@16.13.1+react@16.13.1
       '@teambit/base-ui.elements.separator': registry.npmjs.org/@teambit/base-ui.elements.separator/1.1.0_react-dom@16.13.1+react@16.13.1
@@ -119,16 +120,17 @@ importers:
       '@teambit/base-ui.text.paragraph': registry.npmjs.org/@teambit/base-ui.text.paragraph/1.0.3_react-dom@16.13.1+react@16.13.1
       '@teambit/component-id': registry.npmjs.org/@teambit/component-id/0.0.369_react-dom@16.13.1+react@16.13.1
       '@teambit/component.modules.component-url': registry.npmjs.org/@teambit/component.modules.component-url/0.0.71_react-dom@16.13.1+react@16.13.1
-      '@teambit/design.elements.icon': registry.npmjs.org/@teambit/design.elements.icon/1.0.4_react-dom@16.13.1+react@16.13.1
+      '@teambit/design.elements.icon': registry.npmjs.org/@teambit/design.elements.icon/1.0.6_react-dom@16.13.1+react@16.13.1
       '@teambit/design.ui.cli-snippet': registry.npmjs.org/@teambit/design.ui.cli-snippet/0.0.347_react-dom@16.13.1+react@16.13.1
-      '@teambit/design.ui.dropdown': registry.npmjs.org/@teambit/design.ui.dropdown/1.0.8_react-dom@16.13.1+react@16.13.1
-      '@teambit/design.ui.error-page': registry.npmjs.org/@teambit/design.ui.error-page/0.0.350_react-dom@16.13.1+react@16.13.1
-      '@teambit/design.ui.external-link': registry.npmjs.org/@teambit/design.ui.external-link/0.0.344_react-dom@16.13.1+react@16.13.1
-      '@teambit/design.ui.heading': registry.npmjs.org/@teambit/design.ui.heading/1.0.5_react-dom@16.13.1+react@16.13.1
+      '@teambit/design.ui.dropdown': registry.npmjs.org/@teambit/design.ui.dropdown/1.0.10_react-dom@16.13.1+react@16.13.1
+      '@teambit/design.ui.error-page': registry.npmjs.org/@teambit/design.ui.error-page/0.0.351_react-dom@16.13.1+react@16.13.1
+      '@teambit/design.ui.external-link': registry.npmjs.org/@teambit/design.ui.external-link/0.0.346_react-dom@16.13.1+react@16.13.1
+      '@teambit/design.ui.heading': registry.npmjs.org/@teambit/design.ui.heading/1.0.7_react-dom@16.13.1+react@16.13.1
       '@teambit/design.ui.input.icon-text': registry.npmjs.org/@teambit/design.ui.input.icon-text/0.0.7_react-dom@16.13.1+react@16.13.1
-      '@teambit/design.ui.message-card': registry.npmjs.org/@teambit/design.ui.message-card/1.0.4_react-dom@16.13.1+react@16.13.1
-      '@teambit/design.ui.styles.ellipsis': registry.npmjs.org/@teambit/design.ui.styles.ellipsis/0.0.345_react-dom@16.13.1+react@16.13.1
+      '@teambit/design.ui.message-card': registry.npmjs.org/@teambit/design.ui.message-card/1.0.6_react-dom@16.13.1+react@16.13.1
+      '@teambit/design.ui.styles.ellipsis': registry.npmjs.org/@teambit/design.ui.styles.ellipsis/0.0.346_react-dom@16.13.1+react@16.13.1
       '@teambit/design.ui.surfaces.menu.link-item': registry.npmjs.org/@teambit/design.ui.surfaces.menu.link-item/0.0.374_react-dom@16.13.1+react@16.13.1
+      '@teambit/documenter.markdown.heading': registry.npmjs.org/@teambit/documenter.markdown.heading/0.1.4_react-dom@16.13.1+react@16.13.1
       '@teambit/documenter.theme.theme-compositions': registry.npmjs.org/@teambit/documenter.theme.theme-compositions/4.1.1_react-dom@16.13.1+react@16.13.1
       '@teambit/documenter.theme.theme-context': registry.npmjs.org/@teambit/documenter.theme.theme-context/4.0.3_react-dom@16.13.1+react@16.13.1
       '@teambit/documenter.ui.copy-box': registry.npmjs.org/@teambit/documenter.ui.copy-box/4.1.1_react-dom@16.13.1+react@16.13.1
@@ -141,15 +143,13 @@ importers:
       '@teambit/mdx.ui.mdx-layout': registry.npmjs.org/@teambit/mdx.ui.mdx-layout/0.0.441_74a731d90b40cb8887687dbdac54d7ad
       '@teambit/mdx.ui.mdx-scope-context': registry.npmjs.org/@teambit/mdx.ui.mdx-scope-context/0.0.368_react-dom@16.13.1+react@16.13.1
       '@teambit/react.templates.themes.theme': 0.0.3_8bea2159e6cd5f1e2e43db9fc3829767
-      '@teambit/react.ui.component-highlighter': registry.npmjs.org/@teambit/react.ui.component-highlighter/0.0.452_react-dom@16.13.1+react@16.13.1
+      '@teambit/react.ui.component-highlighter': registry.npmjs.org/@teambit/react.ui.component-highlighter/0.0.458_react-dom@16.13.1+react@16.13.1
       '@teambit/ui-foundation.ui.buttons.collapser': registry.npmjs.org/@teambit/ui-foundation.ui.buttons.collapser/0.0.144_react-dom@16.13.1+react@16.13.1
       '@teambit/ui-foundation.ui.react-router.link': registry.npmjs.org/@teambit/ui-foundation.ui.react-router.link/0.0.441_react-dom@16.13.1+react@16.13.1
       '@teambit/ui-foundation.ui.react-router.nav-link': registry.npmjs.org/@teambit/ui-foundation.ui.react-router.nav-link/0.0.441_react-dom@16.13.1+react@16.13.1
       '@teambit/ui-foundation.ui.tree.folder-tree-node': registry.npmjs.org/@teambit/ui-foundation.ui.tree.folder-tree-node/0.0.446_react-dom@16.13.1+react@16.13.1
       '@teambit/ui-foundation.ui.tree.tree-node': registry.npmjs.org/@teambit/ui-foundation.ui.tree.tree-node/0.0.453_react-dom@16.13.1+react@16.13.1
       '@testing-library/react': registry.npmjs.org/@testing-library/react/12.0.0_react-dom@16.13.1+react@16.13.1
-      '@types/react-helmet': registry.npmjs.org/@types/react-helmet/6.1.2
-      '@types/react-router-dom': registry.npmjs.org/@types/react-router-dom/5.1.7
       classnames: registry.npmjs.org/classnames/2.3.1
       core-js: registry.npmjs.org/core-js/3.19.0
       millify: registry.npmjs.org/millify/4.0.0
@@ -168,6 +168,8 @@ importers:
       '@types/node': registry.npmjs.org/@types/node/12.20.4
       '@types/react': registry.npmjs.org/@types/react/17.0.32
       '@types/react-dom': registry.npmjs.org/@types/react-dom/17.0.10
+      '@types/react-helmet': registry.npmjs.org/@types/react-helmet/6.1.2
+      '@types/react-router-dom': registry.npmjs.org/@types/react-router-dom/5.1.7
       '@types/testing-library__jest-dom': registry.npmjs.org/@types/testing-library__jest-dom/5.9.5
       react-json-view: registry.npmjs.org/react-json-view/1.21.3_74a731d90b40cb8887687dbdac54d7ad
 
@@ -460,7 +462,10 @@ importers:
     specifiers: {}
 
   design/ui/content/heading:
-    specifiers: {}
+    specifiers:
+      '@teambit/design.embeds.figma': 0.0.6
+    devDependencies:
+      '@teambit/design.embeds.figma': registry.npmjs.org/@teambit/design.embeds.figma/0.0.6_react-dom@16.13.1+react@16.13.1
 
   design/ui/content/subtitle:
     specifiers: {}
@@ -492,16 +497,46 @@ importers:
   docs/content/docs-overview:
     specifiers: {}
 
+  docs/content/getting-started/ci-export:
+    specifiers: {}
+
+  docs/content/getting-started/ci-install:
+    specifiers: {}
+
   docs/content/getting-started/create-workspace:
     specifiers: {}
 
   docs/content/getting-started/dev-envs:
     specifiers: {}
 
+  docs/content/getting-started/host-bit-cloud:
+    specifiers: {}
+
+  docs/content/getting-started/import-components:
+    specifiers: {}
+
+  docs/content/getting-started/install-components:
+    specifiers: {}
+
   docs/content/getting-started/installing-bit:
     specifiers: {}
 
+  docs/content/getting-started/self-host-scope:
+    specifiers: {}
+
+  docs/content/getting-started/share-components:
+    specifiers: {}
+
+  docs/content/getting-started/update-components:
+    specifiers: {}
+
   docs/content/getting-started/use-dependencies:
+    specifiers: {}
+
+  docs/content/getting-started/version-components:
+    specifiers: {}
+
+  docs/content/getting-started/what-is-scope:
     specifiers: {}
 
   docs/content/mdx:
@@ -849,21 +884,16 @@ packages:
       - react-dom
     dev: false
 
-  /@teambit/application.netlify/1.0.0_react-dom@16.13.1+react@16.13.1:
-    resolution: {integrity: sha1-+/nacKXBfYl8SU5BvWSJwOpSdpI=, tarball: '@teambit/application.netlify/-/@teambit-application.netlify-1.0.0.tgz'}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
+  /@teambit/apps.netlify/0.0.1_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha1-jm8NNWaxA/lfQGtXa2ZdphsyHBU=, tarball: '@teambit/apps.netlify/-/@teambit-apps.netlify-0.0.1.tgz'}
     dependencies:
-      '@babel/runtime': registry.npmjs.org/@babel/runtime/7.12.18
       '@teambit/component-id': registry.npmjs.org/@teambit/component-id/0.0.324_react-dom@16.13.1+react@16.13.1
       '@teambit/harmony': registry.npmjs.org/@teambit/harmony/0.2.11
-      core-js: registry.npmjs.org/core-js/3.19.0
       netlify: registry.npmjs.org/netlify/6.1.29
-      react: registry.npmjs.org/react/16.13.1
-      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
     transitivePeerDependencies:
       - '@teambit/legacy'
+      - react
+      - react-dom
       - supports-color
     dev: false
 
@@ -2361,6 +2391,23 @@ packages:
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
     dev: false
 
+  registry.npmjs.org/@teambit/bit-error/0.0.366_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha512-B2kfBID2wQDhwSXYQqenFSr0b27M/ZUde7i2BKq+4UXVrh2TAEDlf8THZIjVyu+cJSD4t/Rd9fvk+bMxCR5qMA==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/bit-error/-/bit-error-0.0.366.tgz}
+    id: registry.npmjs.org/@teambit/bit-error/0.0.366
+    name: '@teambit/bit-error'
+    version: 0.0.366
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      '@teambit/legacy': 1.0.76
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    dependencies:
+      '@babel/runtime': registry.npmjs.org/@babel/runtime/7.12.18
+      core-js: registry.npmjs.org/core-js/3.19.0
+      react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    dev: false
+
   registry.npmjs.org/@teambit/component-id/0.0.324_react-dom@16.13.1+react@16.13.1:
     resolution: {integrity: sha512-ngiLuE4yRKTTsOlqmhydU6yU1rCMCH0v4J98SnG1KD8yuVKuLppt4ZwrMj+JjXtfkyylu6qBhU/xVgvydUl9+A==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/component-id/-/component-id-0.0.324.tgz}
     id: registry.npmjs.org/@teambit/component-id/0.0.324
@@ -2388,6 +2435,21 @@ packages:
       '@teambit/legacy': 1.0.76
     dependencies:
       '@teambit/legacy-bit-id': registry.npmjs.org/@teambit/legacy-bit-id/0.0.368_react-dom@16.13.1+react@16.13.1
+    transitivePeerDependencies:
+      - react
+      - react-dom
+    dev: false
+
+  registry.npmjs.org/@teambit/component-id/0.0.370_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha512-EvGE55s5sJJDifzA4LZNnkapFHDdvpDcakyGyx66wAgobXMKHQQN2UeGyS8uM0JLf/tXn625ZUtVm9hKRt/e8g==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/component-id/-/component-id-0.0.370.tgz}
+    id: registry.npmjs.org/@teambit/component-id/0.0.370
+    name: '@teambit/component-id'
+    version: 0.0.370
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      '@teambit/legacy': 1.0.76
+    dependencies:
+      '@teambit/legacy-bit-id': registry.npmjs.org/@teambit/legacy-bit-id/0.0.369_react-dom@16.13.1+react@16.13.1
     transitivePeerDependencies:
       - react
       - react-dom
@@ -2428,6 +2490,22 @@ packages:
       - react-dom
     dev: false
 
+  registry.npmjs.org/@teambit/component-version/0.0.367_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha512-ncEhOsenQaMLF+3EF/Um0RrSC0FOYMrIYiEnF68RgQdt5DcZ/RymWLOE+OFsqDUIgU4gR8QvqjPl4zLXp0Y+qQ==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/component-version/-/component-version-0.0.367.tgz}
+    id: registry.npmjs.org/@teambit/component-version/0.0.367
+    name: '@teambit/component-version'
+    version: 0.0.367
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      '@teambit/legacy': 1.0.76
+    dependencies:
+      '@teambit/bit-error': registry.npmjs.org/@teambit/bit-error/0.0.366_react-dom@16.13.1+react@16.13.1
+      semver: registry.npmjs.org/semver/7.3.4
+    transitivePeerDependencies:
+      - react
+      - react-dom
+    dev: false
+
   registry.npmjs.org/@teambit/component.modules.component-url/0.0.71_react-dom@16.13.1+react@16.13.1:
     resolution: {integrity: sha512-pEfGW9in0mMIaGXtEZ+j0Mr1H3oETYnblZ5v/isZzct8X4WSyn5FEUeCfUUaHZgzwdXVLmVDj7vfI2nmPghUKA==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/component.modules.component-url/-/component.modules.component-url-0.0.71.tgz}
     id: registry.npmjs.org/@teambit/component.modules.component-url/0.0.71
@@ -2445,17 +2523,17 @@ packages:
       - react-dom
     dev: false
 
-  registry.npmjs.org/@teambit/component.modules.component-url/0.0.76_react-dom@16.13.1+react@16.13.1:
-    resolution: {integrity: sha512-YssEyM/9LhHvfp+Syfz1fJYlsBemqPVJ1VRWoVjTLcptNZ49jTESEs7VikK3niTX8IsEKBWoZrciqUEhnB9hVw==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/component.modules.component-url/-/component.modules.component-url-0.0.76.tgz}
-    id: registry.npmjs.org/@teambit/component.modules.component-url/0.0.76
+  registry.npmjs.org/@teambit/component.modules.component-url/0.0.82_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha512-pxuTZkkppt7BhV8iUcuaVGFwszYkHenJ7AqhfyT787kGh/pg44/wONrWAH7ch9U06PusQMImzX8DWqmhxqCyhw==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/component.modules.component-url/-/component.modules.component-url-0.0.82.tgz}
+    id: registry.npmjs.org/@teambit/component.modules.component-url/0.0.82
     name: '@teambit/component.modules.component-url'
-    version: 0.0.76
+    version: 0.0.82
     engines: {node: '>=12.22.0'}
     peerDependencies:
-      '@teambit/legacy': 1.0.159
+      '@teambit/legacy': 1.0.164
     dependencies:
       '@teambit/base-ui.utils.string.affix': registry.npmjs.org/@teambit/base-ui.utils.string.affix/1.0.0_react-dom@16.13.1+react@16.13.1
-      '@teambit/component-id': registry.npmjs.org/@teambit/component-id/0.0.369_react-dom@16.13.1+react@16.13.1
+      '@teambit/component-id': registry.npmjs.org/@teambit/component-id/0.0.370_react-dom@16.13.1+react@16.13.1
       query-string: registry.npmjs.org/query-string/7.0.0
     transitivePeerDependencies:
       - react
@@ -2477,11 +2555,41 @@ packages:
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
     dev: false
 
+  registry.npmjs.org/@teambit/design.elements.icon/1.0.6_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha512-WwPc5KWGuOziFkSjGwC+m7UeCz3cLqaGvWAPT9YQT5VZYhjZOyx1oC8FH0Wt6lKbKc5C7UQbCMTiBifk0rALXg==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/design.elements.icon/-/design.elements.icon-1.0.6.tgz}
+    id: registry.npmjs.org/@teambit/design.elements.icon/1.0.6
+    name: '@teambit/design.elements.icon'
+    version: 1.0.6
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    dependencies:
+      '@teambit/base-ui.elements.icon': registry.npmjs.org/@teambit/base-ui.elements.icon/1.0.0_react-dom@16.13.1+react@16.13.1
+      core-js: registry.npmjs.org/core-js/3.19.0
+      react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    dev: false
+
   registry.npmjs.org/@teambit/design.embeds.figma/0.0.3_react-dom@16.13.1+react@16.13.1:
     resolution: {integrity: sha512-Tefil8i/YO1TGfBFqSb/cNF0xGyI999KUckk00w7hhKXLrX7TAKVi9lJn3cZ2EgO/nWrv9T5ygzigW12Q9tCOQ==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/design.embeds.figma/-/design.embeds.figma-0.0.3.tgz}
     id: registry.npmjs.org/@teambit/design.embeds.figma/0.0.3
     name: '@teambit/design.embeds.figma'
     version: 0.0.3
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    dependencies:
+      classnames: registry.npmjs.org/classnames/2.3.1
+      core-js: registry.npmjs.org/core-js/3.19.0
+      react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    dev: true
+
+  registry.npmjs.org/@teambit/design.embeds.figma/0.0.6_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha512-NVnW+d9BYW850Z6AdRmIBJdWGk6n9nhPTT0xd33apov1f7dDdUgz5yfhL/6LGlP9ELj4ZWfOPioZnAvLWCvnLw==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/design.embeds.figma/-/design.embeds.figma-0.0.6.tgz}
+    id: registry.npmjs.org/@teambit/design.embeds.figma/0.0.6
+    name: '@teambit/design.embeds.figma'
+    version: 0.0.6
     peerDependencies:
       react: ^16.8.0 || ^17.0.0
       react-dom: ^16.8.0 || ^17.0.0
@@ -2550,11 +2658,11 @@ packages:
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
     dev: false
 
-  registry.npmjs.org/@teambit/design.ui.dropdown/1.0.8_react-dom@16.13.1+react@16.13.1:
-    resolution: {integrity: sha512-dPRGNAz2J2VRG5a2/YE6c79CwvUORt5xzKadWOGYLXPGTlsISXsCuB+Z6EEzs5M40mbRs5J+98CnwZru4uq9qQ==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/design.ui.dropdown/-/design.ui.dropdown-1.0.8.tgz}
-    id: registry.npmjs.org/@teambit/design.ui.dropdown/1.0.8
+  registry.npmjs.org/@teambit/design.ui.dropdown/1.0.10_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha512-C0RqVS3F8Tkt46uG4F+tMqdOpktlR455OZTWrhrv7DpQx3qhT9NdVMnQZYUHfenran9Yjb25S5DYNV1JGuLtgA==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/design.ui.dropdown/-/design.ui.dropdown-1.0.10.tgz}
+    id: registry.npmjs.org/@teambit/design.ui.dropdown/1.0.10
     name: '@teambit/design.ui.dropdown'
-    version: 1.0.8
+    version: 1.0.10
     peerDependencies:
       react: ^16.8.0 || ^17.0.0
       react-dom: ^16.8.0 || ^17.0.0
@@ -2572,11 +2680,11 @@ packages:
       - '@teambit/legacy'
     dev: false
 
-  registry.npmjs.org/@teambit/design.ui.error-page/0.0.350_react-dom@16.13.1+react@16.13.1:
-    resolution: {integrity: sha512-IhNtxcF3peNNZ02FGZv7tlAtqdgD2jl/TR8gE5OU8YGVGFca17GXiHWlPLktjNrUGElQF+YPP6sC1fPn5q/6Fg==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/design.ui.error-page/-/design.ui.error-page-0.0.350.tgz}
-    id: registry.npmjs.org/@teambit/design.ui.error-page/0.0.350
+  registry.npmjs.org/@teambit/design.ui.error-page/0.0.351_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha512-MoHLYqMqw/1ARr7cVDOCWVrZvoe92ncU8j+EjkLp20SsDqn11M1eL9bGddw9OAXKEFNaXomb73zMcLkv9NK75Q==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/design.ui.error-page/-/design.ui.error-page-0.0.351.tgz}
+    id: registry.npmjs.org/@teambit/design.ui.error-page/0.0.351
     name: '@teambit/design.ui.error-page'
-    version: 0.0.350
+    version: 0.0.351
     engines: {node: '>=12.22.0'}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0
@@ -2588,12 +2696,12 @@ packages:
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
     dev: false
 
-  registry.npmjs.org/@teambit/design.ui.external-link/0.0.344_react-dom@16.13.1+react@16.13.1:
-    resolution: {integrity: sha512-LISsva3Y1ZGT8RIjyBj/pTANRrFwFA5OmP1uGtZ1qxfXY9ZaOs7/s5JKeB/KRLIwu4UH91C/0+4RLyHB8BK6cw==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/design.ui.external-link/-/design.ui.external-link-0.0.344.tgz}
-    id: registry.npmjs.org/@teambit/design.ui.external-link/0.0.344
+  registry.npmjs.org/@teambit/design.ui.external-link/0.0.346_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha512-KHQfeOMxoVzQ2f6RbGQpOPdGRBAjVXIzKgNcXqcXq4zaWAXzLMS04LrMol09R6TJrvyLaw3zOO78a+avGvjGzg==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/design.ui.external-link/-/design.ui.external-link-0.0.346.tgz}
+    id: registry.npmjs.org/@teambit/design.ui.external-link/0.0.346
     name: '@teambit/design.ui.external-link'
-    version: 0.0.344
-    engines: {node: '>=12.15.0'}
+    version: 0.0.346
+    engines: {node: '>=12.22.0'}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0
       react-dom: ^16.8.0 || ^17.0.0
@@ -2604,11 +2712,11 @@ packages:
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
     dev: false
 
-  registry.npmjs.org/@teambit/design.ui.heading/1.0.5_react-dom@16.13.1+react@16.13.1:
-    resolution: {integrity: sha512-x5KKFQ1G5xHhmE6jLzYfb87FK0oi4cJOSsEOhDMD3Ku2qM2s/9TenrKNLEVgfnAwXx11qaXcGGrX7wSckRXlzQ==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/design.ui.heading/-/design.ui.heading-1.0.5.tgz}
-    id: registry.npmjs.org/@teambit/design.ui.heading/1.0.5
+  registry.npmjs.org/@teambit/design.ui.heading/1.0.7_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha512-dYR7KSf7i4SPlRiuaARXJrgsLos/6/Zln8tdfuv0y818pO3WPBjQtD/IMUfcXoJ3X/AHY4iSRSAQNwAMfQWpEg==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/design.ui.heading/-/design.ui.heading-1.0.7.tgz}
+    id: registry.npmjs.org/@teambit/design.ui.heading/1.0.7
     name: '@teambit/design.ui.heading'
-    version: 1.0.5
+    version: 1.0.7
     peerDependencies:
       react: ^16.8.0 || ^17.0.0
       react-dom: ^16.8.0 || ^17.0.0
@@ -2653,17 +2761,17 @@ packages:
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
     dev: false
 
-  registry.npmjs.org/@teambit/design.ui.message-card/1.0.4_react-dom@16.13.1+react@16.13.1:
-    resolution: {integrity: sha512-Bp/bK9z6LV/JfFdd7tRqZcbf6NxUoyAN/rUs8sBpfWGNBKKtJjZ5/R1QHlLPrBedfPn8jAnd1cTffxDPyiLOTA==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/design.ui.message-card/-/design.ui.message-card-1.0.4.tgz}
-    id: registry.npmjs.org/@teambit/design.ui.message-card/1.0.4
+  registry.npmjs.org/@teambit/design.ui.message-card/1.0.6_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha512-ZzJaSnktiIqvBKi1JqlczCzyaoopV6WRIUWr6Q8RFn03BSHqGJgEmkH4dwseVnpfXHu5DIsYz9OeYBmUEaZm5w==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/design.ui.message-card/-/design.ui.message-card-1.0.6.tgz}
+    id: registry.npmjs.org/@teambit/design.ui.message-card/1.0.6
     name: '@teambit/design.ui.message-card'
-    version: 1.0.4
+    version: 1.0.6
     peerDependencies:
       react: ^16.8.0 || ^17.0.0
       react-dom: ^16.8.0 || ^17.0.0
     dependencies:
       '@teambit/base-ui.surfaces.card': registry.npmjs.org/@teambit/base-ui.surfaces.card/1.0.1_react-dom@16.13.1+react@16.13.1
-      '@teambit/design.elements.icon': registry.npmjs.org/@teambit/design.elements.icon/1.0.4_react-dom@16.13.1+react@16.13.1
+      '@teambit/design.elements.icon': registry.npmjs.org/@teambit/design.elements.icon/1.0.6_react-dom@16.13.1+react@16.13.1
       classnames: registry.npmjs.org/classnames/2.3.1
       core-js: registry.npmjs.org/core-js/3.19.0
       react: registry.npmjs.org/react/16.13.1
@@ -2717,11 +2825,11 @@ packages:
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
     dev: false
 
-  registry.npmjs.org/@teambit/design.ui.styles.ellipsis/0.0.345_react-dom@16.13.1+react@16.13.1:
-    resolution: {integrity: sha512-3bb5NG6w7Kdl7MTOhHZ0dOEG4r3gyZ62vwhulVp6EmAsaLjatb459VfXQ/5GjRmeFnxX3YgZLofOStPVTNISZA==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/design.ui.styles.ellipsis/-/design.ui.styles.ellipsis-0.0.345.tgz}
-    id: registry.npmjs.org/@teambit/design.ui.styles.ellipsis/0.0.345
+  registry.npmjs.org/@teambit/design.ui.styles.ellipsis/0.0.346_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha512-BfAkZdNGcxYpV+P5pXo69c9F636E1s27Z6HyoBQ2/Y3gxoN2VUFNW6QOxyhqplR+s5QVNjz4tn0NS4gKLF7s/A==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/design.ui.styles.ellipsis/-/design.ui.styles.ellipsis-0.0.346.tgz}
+    id: registry.npmjs.org/@teambit/design.ui.styles.ellipsis/0.0.346
     name: '@teambit/design.ui.styles.ellipsis'
-    version: 0.0.345
+    version: 0.0.346
     engines: {node: '>=12.22.0'}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0
@@ -2765,42 +2873,6 @@ packages:
       '@teambit/evangelist.elements.icon': registry.npmjs.org/@teambit/evangelist.elements.icon/1.0.2_react-dom@16.13.1+react@16.13.1
       classnames: registry.npmjs.org/classnames/2.2.6
       core-js: registry.npmjs.org/core-js/3.19.0
-      react: registry.npmjs.org/react/16.13.1
-      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
-    dev: false
-
-  registry.npmjs.org/@teambit/design.ui.surfaces.menu.item/0.0.350_react-dom@16.13.1+react@16.13.1:
-    resolution: {integrity: sha512-/W7mYhQOX0wwk4YZFO6sBPC37PRakESPscUYpb3ZSzLSXMkeyHatrH6Xay0aMARQHbr2Ds5SOTzeBAJ/eRTeHA==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/design.ui.surfaces.menu.item/-/design.ui.surfaces.menu.item-0.0.350.tgz}
-    id: registry.npmjs.org/@teambit/design.ui.surfaces.menu.item/0.0.350
-    name: '@teambit/design.ui.surfaces.menu.item'
-    version: 0.0.350
-    engines: {node: '>=12.22.0'}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
-    dependencies:
-      '@teambit/evangelist.elements.icon': registry.npmjs.org/@teambit/evangelist.elements.icon/1.0.2_react-dom@16.13.1+react@16.13.1
-      classnames: registry.npmjs.org/classnames/2.2.6
-      core-js: registry.npmjs.org/core-js/3.18.3
-      react: registry.npmjs.org/react/16.13.1
-      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
-    dev: false
-
-  registry.npmjs.org/@teambit/design.ui.surfaces.menu.link-item/0.0.374_react-dom@16.13.1+react@16.13.1:
-    resolution: {integrity: sha512-2sLzZsMXh8hENxudrbqOJ5GhccWLdSDARO5X94J/MO4ua0RQizSQODzpMPpfSVLEhXHbQQVd1zJ83mZLomMnVQ==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/design.ui.surfaces.menu.link-item/-/design.ui.surfaces.menu.link-item-0.0.374.tgz}
-    id: registry.npmjs.org/@teambit/design.ui.surfaces.menu.link-item/0.0.374
-    name: '@teambit/design.ui.surfaces.menu.link-item'
-    version: 0.0.374
-    engines: {node: '>=12.22.0'}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
-    dependencies:
-      '@teambit/base-ui.routing.nav-link': registry.npmjs.org/@teambit/base-ui.routing.nav-link/1.0.0_react-dom@16.13.1+react@16.13.1
-      '@teambit/design.ui.surfaces.menu.item': registry.npmjs.org/@teambit/design.ui.surfaces.menu.item/0.0.350_react-dom@16.13.1+react@16.13.1
-      '@teambit/evangelist.elements.icon': registry.npmjs.org/@teambit/evangelist.elements.icon/1.0.2_react-dom@16.13.1+react@16.13.1
-      classnames: registry.npmjs.org/classnames/2.2.6
-      core-js: registry.npmjs.org/core-js/3.18.3
       react: registry.npmjs.org/react/16.13.1
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
     dev: false
@@ -2861,6 +2933,22 @@ packages:
       '@teambit/documenter.ui.linked-heading': registry.npmjs.org/@teambit/documenter.ui.linked-heading/4.1.1_react-dom@16.13.1+react@16.13.1
       classnames: registry.npmjs.org/classnames/2.3.1
       core-js: registry.npmjs.org/core-js/3.18.3
+      react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    dev: false
+
+  registry.npmjs.org/@teambit/documenter.markdown.heading/0.1.4_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha512-pXu3Qy2AxwWzfpD7W3pCNcVCNo6JttiKNzNUEFiekvbidIEZMFAIckRf0YJf9LgGopKY9nR8mvI9u3EL1DmSaQ==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/documenter.markdown.heading/-/documenter.markdown.heading-0.1.4.tgz}
+    id: registry.npmjs.org/@teambit/documenter.markdown.heading/0.1.4
+    name: '@teambit/documenter.markdown.heading'
+    version: 0.1.4
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    dependencies:
+      '@teambit/documenter.ui.linked-heading': registry.npmjs.org/@teambit/documenter.ui.linked-heading/4.1.4_react-dom@16.13.1+react@16.13.1
+      classnames: registry.npmjs.org/classnames/2.3.1
+      core-js: registry.npmjs.org/core-js/3.19.0
       react: registry.npmjs.org/react/16.13.1
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
     dev: false
@@ -2982,6 +3070,22 @@ packages:
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
     dev: false
 
+  registry.npmjs.org/@teambit/documenter.ui.anchor/4.0.5_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha512-QU0Grr897QdwtYFCA4IQ7NDTYjDlKUPpaK8+x2kz+TBIqnbkRH4qRkQVpj9RF7m1PFnyk97PRObbFnHJjejV9A==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/documenter.ui.anchor/-/documenter.ui.anchor-4.0.5.tgz}
+    id: registry.npmjs.org/@teambit/documenter.ui.anchor/4.0.5
+    name: '@teambit/documenter.ui.anchor'
+    version: 4.0.5
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    dependencies:
+      '@teambit/evangelist.elements.icon': registry.npmjs.org/@teambit/evangelist.elements.icon/1.0.3_react-dom@16.13.1+react@16.13.1
+      classnames: registry.npmjs.org/classnames/2.3.1
+      core-js: registry.npmjs.org/core-js/3.19.0
+      react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    dev: false
+
   registry.npmjs.org/@teambit/documenter.ui.block-quote/4.0.3_react-dom@16.13.1+react@16.13.1:
     resolution: {integrity: sha512-57hnZ0xfo6LgNBlXt6X5Jm4pyx7/+U/FhLa08xu8Ux2XgujqqHK+A7KQO/pGU4UTjwItTZVRY21FKTh/MFqOpA==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/documenter.ui.block-quote/-/documenter.ui.block-quote-4.0.3.tgz}
     id: registry.npmjs.org/@teambit/documenter.ui.block-quote/4.0.3
@@ -3081,6 +3185,22 @@ packages:
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
     dev: false
 
+  registry.npmjs.org/@teambit/documenter.ui.heading/4.1.3_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha512-Uex+df6hMI6QMlGMDYyI2MVE8Stp9JqC0YpvUwxJnZK9J5C1RUCfpydWomzx77tpS6xZgz3Jga/oWYpEf3R/Rg==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/documenter.ui.heading/-/documenter.ui.heading-4.1.3.tgz}
+    id: registry.npmjs.org/@teambit/documenter.ui.heading/4.1.3
+    name: '@teambit/documenter.ui.heading'
+    version: 4.1.3
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    dependencies:
+      '@teambit/base-ui.text.heading': registry.npmjs.org/@teambit/base-ui.text.heading/1.0.3_react-dom@16.13.1+react@16.13.1
+      classnames: registry.npmjs.org/classnames/2.3.1
+      core-js: registry.npmjs.org/core-js/3.19.0
+      react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    dev: false
+
   registry.npmjs.org/@teambit/documenter.ui.image/4.0.0_react-dom@16.13.1+react@16.13.1:
     resolution: {integrity: sha512-eErD5sDVGFR33gJeR9A+tCbGWQF8Eym0SZJMGmWDG1eEVuVEQEWgRec9Li39ur1ZbVn2vh+I5pg2K+03QN/V1g==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/documenter.ui.image/-/documenter.ui.image-4.0.0.tgz}
     id: registry.npmjs.org/@teambit/documenter.ui.image/4.0.0
@@ -3154,6 +3274,23 @@ packages:
       '@teambit/documenter.ui.heading': registry.npmjs.org/@teambit/documenter.ui.heading/4.1.1_react-dom@16.13.1+react@16.13.1
       classnames: registry.npmjs.org/classnames/2.3.1
       core-js: registry.npmjs.org/core-js/3.18.3
+      react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    dev: false
+
+  registry.npmjs.org/@teambit/documenter.ui.linked-heading/4.1.4_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha512-XgNRPFyYl9DamLOEEK+WYm9tqD5CEMBaDhIG/D2l09dCGLV6kEbWaV/bnlVSPf4nPNOSBcUE3UrLg8prykZAxA==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/documenter.ui.linked-heading/-/documenter.ui.linked-heading-4.1.4.tgz}
+    id: registry.npmjs.org/@teambit/documenter.ui.linked-heading/4.1.4
+    name: '@teambit/documenter.ui.linked-heading'
+    version: 4.1.4
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    dependencies:
+      '@teambit/documenter.ui.anchor': registry.npmjs.org/@teambit/documenter.ui.anchor/4.0.5_react-dom@16.13.1+react@16.13.1
+      '@teambit/documenter.ui.heading': registry.npmjs.org/@teambit/documenter.ui.heading/4.1.3_react-dom@16.13.1+react@16.13.1
+      classnames: registry.npmjs.org/classnames/2.3.1
+      core-js: registry.npmjs.org/core-js/3.19.0
       react: registry.npmjs.org/react/16.13.1
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
     dev: false
@@ -3341,6 +3478,21 @@ packages:
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
     dev: false
 
+  registry.npmjs.org/@teambit/evangelist.elements.icon/1.0.3_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha512-v4BbfHiwm8M5tIhsXOEgg8qw6c24h+1Z2nxLLLoxeQi+ai7/SwBJo8/y6nEB2Pfe0et5A8+TvzJHRIQM8irxcw==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/evangelist.elements.icon/-/evangelist.elements.icon-1.0.3.tgz}
+    id: registry.npmjs.org/@teambit/evangelist.elements.icon/1.0.3
+    name: '@teambit/evangelist.elements.icon'
+    version: 1.0.3
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    dependencies:
+      '@teambit/base-ui.elements.icon': registry.npmjs.org/@teambit/base-ui.elements.icon/1.0.0_react-dom@16.13.1+react@16.13.1
+      core-js: registry.npmjs.org/core-js/3.19.0
+      react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    dev: false
+
   registry.npmjs.org/@teambit/evangelist.surfaces.tooltip/1.0.1_react-dom@16.13.1+react@16.13.1:
     resolution: {integrity: sha512-tHsYDm7xB2FAlPeHonfAHzFgTtY5ij7ldNZaHMpw87Ecn28J2vtmmCCpfI4/9q/aZiFa6NTtDFsqFEkRUjr3yA==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/evangelist.surfaces.tooltip/-/evangelist.surfaces.tooltip-1.0.1.tgz}
     id: registry.npmjs.org/@teambit/evangelist.surfaces.tooltip/1.0.1
@@ -3462,6 +3614,25 @@ packages:
     dependencies:
       '@teambit/bit-error': registry.npmjs.org/@teambit/bit-error/0.0.365_react-dom@16.13.1+react@16.13.1
       '@teambit/component-version': registry.npmjs.org/@teambit/component-version/0.0.366_react-dom@16.13.1+react@16.13.1
+      decamelize: registry.npmjs.org/decamelize/1.2.0
+      lodash: registry.npmjs.org/lodash/4.17.21
+      semver: registry.npmjs.org/semver/7.3.4
+    transitivePeerDependencies:
+      - react
+      - react-dom
+    dev: false
+
+  registry.npmjs.org/@teambit/legacy-bit-id/0.0.369_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha512-sYOrlOFW8J7Y2dj5fufthJqkFSMJTxdpJ2R3OPZGO5FsJYoVSD6yea2l1KGamovr4iT2FBzq6+VEJOqu9OW1og==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/legacy-bit-id/-/legacy-bit-id-0.0.369.tgz}
+    id: registry.npmjs.org/@teambit/legacy-bit-id/0.0.369
+    name: '@teambit/legacy-bit-id'
+    version: 0.0.369
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      '@teambit/legacy': 1.0.76
+    dependencies:
+      '@teambit/bit-error': registry.npmjs.org/@teambit/bit-error/0.0.366_react-dom@16.13.1+react@16.13.1
+      '@teambit/component-version': registry.npmjs.org/@teambit/component-version/0.0.367_react-dom@16.13.1+react@16.13.1
       decamelize: registry.npmjs.org/decamelize/1.2.0
       lodash: registry.npmjs.org/lodash/4.17.21
       semver: registry.npmjs.org/semver/7.3.4
@@ -3640,18 +3811,18 @@ packages:
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
     dev: false
 
-  registry.npmjs.org/@teambit/react.babel.bit-react-transformer/0.0.449_react-dom@16.13.1+react@16.13.1:
-    resolution: {integrity: sha512-hURjxPFuPsvhx1wn20itgEGyGmkf/eF3NRHeV+7OeerU7p6RMmb/XqHQrjW/4UyXRkqLMzvNJQoA91MxZqEsEA==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/react.babel.bit-react-transformer/-/react.babel.bit-react-transformer-0.0.449.tgz}
-    id: registry.npmjs.org/@teambit/react.babel.bit-react-transformer/0.0.449
+  registry.npmjs.org/@teambit/react.babel.bit-react-transformer/0.0.455_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha512-iOq/Ztum6dm3ZTQ8dgyCjslUlQjI79BdQ/fvIdeEPTi52uF8fNh/tq/YMbawMMyNHJ743ABEnIpEpq0ym950Ag==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/react.babel.bit-react-transformer/-/react.babel.bit-react-transformer-0.0.455.tgz}
+    id: registry.npmjs.org/@teambit/react.babel.bit-react-transformer/0.0.455
     name: '@teambit/react.babel.bit-react-transformer'
-    version: 0.0.449
+    version: 0.0.455
     engines: {node: '>=12.22.0'}
     peerDependencies:
-      '@teambit/legacy': 1.0.159
+      '@teambit/legacy': 1.0.164
     dependencies:
       '@babel/core': registry.npmjs.org/@babel/core/7.12.17
       '@babel/types': registry.npmjs.org/@babel/types/7.15.6
-      '@teambit/component-id': registry.npmjs.org/@teambit/component-id/0.0.369_react-dom@16.13.1+react@16.13.1
+      '@teambit/component-id': registry.npmjs.org/@teambit/component-id/0.0.370_react-dom@16.13.1+react@16.13.1
       find-root: registry.npmjs.org/find-root/1.1.0
       fs-extra: registry.npmjs.org/fs-extra/10.0.0
       memoizee: registry.npmjs.org/memoizee/0.4.15
@@ -3661,27 +3832,27 @@ packages:
       - supports-color
     dev: false
 
-  registry.npmjs.org/@teambit/react.modules.dom-to-react/0.0.443_react@16.13.1:
-    resolution: {integrity: sha512-NmFeMjEXqjig/TjmvcRL5heOUdU2YJVc8nZY0rUmkQmiex+yin2J+cY/lOUnlVcjmVDFNguOP6utmwlI0t+9SQ==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/react.modules.dom-to-react/-/react.modules.dom-to-react-0.0.443.tgz}
-    id: registry.npmjs.org/@teambit/react.modules.dom-to-react/0.0.443
+  registry.npmjs.org/@teambit/react.modules.dom-to-react/0.0.449_react@16.13.1:
+    resolution: {integrity: sha512-fJFe+l4QbXaLPHnVK/8nY3vU/LQzFc8e3fg5t5iGjEYvDKUMXe9/FPHOFfSNeRtJLw6Pno85zsYMdIuzUfYD8g==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/react.modules.dom-to-react/-/react.modules.dom-to-react-0.0.449.tgz}
+    id: registry.npmjs.org/@teambit/react.modules.dom-to-react/0.0.449
     name: '@teambit/react.modules.dom-to-react'
-    version: 0.0.443
+    version: 0.0.449
     engines: {node: '>=12.22.0'}
     peerDependencies:
-      '@teambit/legacy': 1.0.159
+      '@teambit/legacy': 1.0.164
       react: 17.0.2
     dependencies:
       react: registry.npmjs.org/react/16.13.1
     dev: false
 
-  registry.npmjs.org/@teambit/react.ui.component-highlighter/0.0.452_react-dom@16.13.1+react@16.13.1:
-    resolution: {integrity: sha512-XTnjQuFlls5uzBlQPRq0y9rGRIl2/AanNSpz29XIIC44f4qcgswNey3ckCIjACwmNVbHIgMKDFk1U1uaHvjMQQ==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/react.ui.component-highlighter/-/react.ui.component-highlighter-0.0.452.tgz}
-    id: registry.npmjs.org/@teambit/react.ui.component-highlighter/0.0.452
+  registry.npmjs.org/@teambit/react.ui.component-highlighter/0.0.458_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha512-CmagUSlCQ6gRP8bI6NO9Xlnc1CHx7nuBTm7tnmT8yHEYKfSyE7/pa4oFb6h7p4n7b6aK2VH7VXFpmsZhM/HLHw==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/react.ui.component-highlighter/-/react.ui.component-highlighter-0.0.458.tgz}
+    id: registry.npmjs.org/@teambit/react.ui.component-highlighter/0.0.458
     name: '@teambit/react.ui.component-highlighter'
-    version: 0.0.452
+    version: 0.0.458
     engines: {node: '>=12.22.0'}
     peerDependencies:
-      '@teambit/legacy': 1.0.159
+      '@teambit/legacy': 1.0.164
       react: ^16.8.0 || ^17.0.0
       react-dom: ^16.8.0 || ^17.0.0
     dependencies:
@@ -3690,11 +3861,11 @@ packages:
       '@teambit/base-ui.surfaces.card': registry.npmjs.org/@teambit/base-ui.surfaces.card/1.0.1_react-dom@16.13.1+react@16.13.1
       '@teambit/base-ui.utils.popper-js.ignore-popper-size': registry.npmjs.org/@teambit/base-ui.utils.popper-js.ignore-popper-size/1.0.0_5159e1a2488360169c306aff5c31cd46
       '@teambit/base-ui.utils.popper-js.resize-to-match-reference': registry.npmjs.org/@teambit/base-ui.utils.popper-js.resize-to-match-reference/1.0.0_5159e1a2488360169c306aff5c31cd46
-      '@teambit/component-id': registry.npmjs.org/@teambit/component-id/0.0.369_react-dom@16.13.1+react@16.13.1
-      '@teambit/component.modules.component-url': registry.npmjs.org/@teambit/component.modules.component-url/0.0.76_react-dom@16.13.1+react@16.13.1
-      '@teambit/react.babel.bit-react-transformer': registry.npmjs.org/@teambit/react.babel.bit-react-transformer/0.0.449_react-dom@16.13.1+react@16.13.1
-      '@teambit/react.modules.dom-to-react': registry.npmjs.org/@teambit/react.modules.dom-to-react/0.0.443_react@16.13.1
-      '@teambit/react.ui.hover-selector': registry.npmjs.org/@teambit/react.ui.hover-selector/0.0.122_react-dom@16.13.1+react@16.13.1
+      '@teambit/component-id': registry.npmjs.org/@teambit/component-id/0.0.370_react-dom@16.13.1+react@16.13.1
+      '@teambit/component.modules.component-url': registry.npmjs.org/@teambit/component.modules.component-url/0.0.82_react-dom@16.13.1+react@16.13.1
+      '@teambit/react.babel.bit-react-transformer': registry.npmjs.org/@teambit/react.babel.bit-react-transformer/0.0.455_react-dom@16.13.1+react@16.13.1
+      '@teambit/react.modules.dom-to-react': registry.npmjs.org/@teambit/react.modules.dom-to-react/0.0.449_react@16.13.1
+      '@teambit/react.ui.hover-selector': registry.npmjs.org/@teambit/react.ui.hover-selector/0.0.128_react-dom@16.13.1+react@16.13.1
       classnames: registry.npmjs.org/classnames/2.2.6
       core-js: registry.npmjs.org/core-js/3.19.0
       react: registry.npmjs.org/react/16.13.1
@@ -3707,14 +3878,14 @@ packages:
       - supports-color
     dev: false
 
-  registry.npmjs.org/@teambit/react.ui.hover-selector/0.0.122_react-dom@16.13.1+react@16.13.1:
-    resolution: {integrity: sha512-SATKG5GZJc9eX/O2OihuiMeGAmp7nKKvmj4DW7f0EpRrxB3gA9PuMMWvtDTZX2zSzq1bTrhc1KfO3OpGowRHGg==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/react.ui.hover-selector/-/react.ui.hover-selector-0.0.122.tgz}
-    id: registry.npmjs.org/@teambit/react.ui.hover-selector/0.0.122
+  registry.npmjs.org/@teambit/react.ui.hover-selector/0.0.128_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha512-Ex/ffWKhyD6+KpYZPpB67j+uJ7BKIzS6V5vi3af6Zt16Xoc9Udx2ufCai7BO8HJgNrY0EsS7IJ5zDY0q3VpfnA==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/react.ui.hover-selector/-/react.ui.hover-selector-0.0.128.tgz}
+    id: registry.npmjs.org/@teambit/react.ui.hover-selector/0.0.128
     name: '@teambit/react.ui.hover-selector'
-    version: 0.0.122
+    version: 0.0.128
     engines: {node: '>=12.22.0'}
     peerDependencies:
-      '@teambit/legacy': 1.0.159
+      '@teambit/legacy': 1.0.164
       react: ^16.8.0 || ^17.0.0
       react-dom: ^16.8.0 || ^17.0.0
     dependencies:
@@ -3878,7 +4049,7 @@ packages:
       '@teambit/base-ui.graph.tree.recursive-tree': registry.npmjs.org/@teambit/base-ui.graph.tree.recursive-tree/1.0.0_react-dom@16.13.1+react@16.13.1
       '@teambit/base-ui.routing.nav-link': registry.npmjs.org/@teambit/base-ui.routing.nav-link/1.0.0_react-dom@16.13.1+react@16.13.1
       '@teambit/base-ui.theme.colors': registry.npmjs.org/@teambit/base-ui.theme.colors/1.0.0_react-dom@16.13.1+react@16.13.1
-      classnames: registry.npmjs.org/classnames/2.3.1
+      classnames: registry.npmjs.org/classnames/2.2.6
       core-js: registry.npmjs.org/core-js/3.19.0
       react: registry.npmjs.org/react/16.13.1
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
@@ -4026,7 +4197,7 @@ packages:
     resolution: {integrity: sha512-MUc6zSmU3tEVnkQ78q0peeEjKWPUADMlC/t++2bI8WnAG2tvYRPIgHG8lWkXwqc8MsUF6Z2MOf+Mh5sazOmhiQ==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/history/-/history-4.7.9.tgz}
     name: '@types/history'
     version: 4.7.9
-    dev: false
+    dev: true
 
   registry.npmjs.org/@types/istanbul-lib-coverage/2.0.3:
     resolution: {integrity: sha512-sz7iLqvVUg1gIedBOvlkxPlc8/uVzyS5OwGz1cKjXzkl3FpL3al0crU8YGU1WoHkxn0Wxbw5tyi6hvzJKNzFsw==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.3.tgz}
@@ -4092,7 +4263,7 @@ packages:
     version: 6.1.2
     dependencies:
       '@types/react': registry.npmjs.org/@types/react/17.0.32
-    dev: false
+    dev: true
 
   registry.npmjs.org/@types/react-router-dom/5.1.7:
     resolution: {integrity: sha512-D5mHD6TbdV/DNHYsnwBTv+y73ei+mMjrkGrla86HthE4/PVvL1J94Bu3qABU+COXzpL23T1EZapVVpwHuBXiUg==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/react-router-dom/-/react-router-dom-5.1.7.tgz}
@@ -4102,7 +4273,7 @@ packages:
       '@types/history': registry.npmjs.org/@types/history/4.7.9
       '@types/react': registry.npmjs.org/@types/react/17.0.32
       '@types/react-router': registry.npmjs.org/@types/react-router/5.1.17
-    dev: false
+    dev: true
 
   registry.npmjs.org/@types/react-router/5.1.17:
     resolution: {integrity: sha512-RNSXOyb3VyRs/EOGmjBhhGKTbnN6fHWvy5FNLzWfOWOGjgVUKqJZXfpKzLmgoU8h6Hj8mpALj/mbXQASOb92wQ==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/react-router/-/react-router-5.1.17.tgz}
@@ -4111,7 +4282,7 @@ packages:
     dependencies:
       '@types/history': registry.npmjs.org/@types/history/4.7.9
       '@types/react': registry.npmjs.org/@types/react/17.0.32
-    dev: false
+    dev: true
 
   registry.npmjs.org/@types/react-test-renderer/17.0.1:
     resolution: {integrity: sha512-3Fi2O6Zzq/f3QR9dRnlnHso9bMl7weKCviFmfF6B4LS1Uat6Hkm15k0ZAQuDz+UBq6B3+g+NM6IT2nr5QgPzCw==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/react-test-renderer/-/react-test-renderer-17.0.1.tgz}
@@ -4129,11 +4300,13 @@ packages:
       '@types/prop-types': registry.npmjs.org/@types/prop-types/15.7.4
       '@types/scheduler': registry.npmjs.org/@types/scheduler/0.16.2
       csstype: registry.npmjs.org/csstype/3.0.9
+    dev: true
 
   registry.npmjs.org/@types/scheduler/0.16.2:
     resolution: {integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/scheduler/-/scheduler-0.16.2.tgz}
     name: '@types/scheduler'
     version: 0.16.2
+    dev: true
 
   registry.npmjs.org/@types/testing-library__jest-dom/5.9.5:
     resolution: {integrity: sha512-ggn3ws+yRbOHog9GxnXiEZ/35Mow6YtPZpd7Z5mKDeZS/o7zx3yAle0ov/wjhVB5QT4N2Dt+GNoGCdqkBGCajQ==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/testing-library__jest-dom/-/testing-library__jest-dom-5.9.5.tgz}
@@ -4257,7 +4430,7 @@ packages:
     dependencies:
       glob: registry.npmjs.org/glob/7.2.0
       graceful-fs: registry.npmjs.org/graceful-fs/4.2.8
-      lazystream: registry.npmjs.org/lazystream/1.0.0
+      lazystream: registry.npmjs.org/lazystream/1.0.1
       lodash.defaults: registry.npmjs.org/lodash.defaults/4.2.0
       lodash.difference: registry.npmjs.org/lodash.difference/4.5.0
       lodash.flatten: registry.npmjs.org/lodash.flatten/4.4.0
@@ -5043,7 +5216,7 @@ packages:
     hasBin: true
     dependencies:
       esprima: registry.npmjs.org/esprima/4.0.1
-      estraverse: registry.npmjs.org/estraverse/5.2.0
+      estraverse: registry.npmjs.org/estraverse/5.3.0
       esutils: registry.npmjs.org/esutils/2.0.3
       optionator: registry.npmjs.org/optionator/0.8.3
     optionalDependencies:
@@ -5065,10 +5238,10 @@ packages:
     hasBin: true
     dev: false
 
-  registry.npmjs.org/estraverse/5.2.0:
-    resolution: {integrity: sha512-BxbNGGNm0RyRYvUdHpIwv9IWzeM9XClbOxwoATuFdOE7ZE6wHL+HQ5T8hoPM+zHvmKzzsEqhgy0GrQ5X13afiQ==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/estraverse/-/estraverse-5.2.0.tgz}
+  registry.npmjs.org/estraverse/5.3.0:
+    resolution: {integrity: sha512-MMdARuVEQziNTeJD8DgMqmhwR11BRQ/cBP+pLtYdSTnf3MIO8fFeiINEbX36ZdNlfU/7A9f3gUw49B3oQsvwBA==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/estraverse/-/estraverse-5.3.0.tgz}
     name: estraverse
-    version: 5.2.0
+    version: 5.3.0
     engines: {node: '>=4.0'}
     dev: false
 
@@ -5804,10 +5977,10 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
-  registry.npmjs.org/lazystream/1.0.0:
-    resolution: {integrity: sha1-9plf4PggOS9hOWvolGJAe7dxaOQ=, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/lazystream/-/lazystream-1.0.0.tgz}
+  registry.npmjs.org/lazystream/1.0.1:
+    resolution: {integrity: sha512-b94GiNHQNy6JNTrt5w6zNyffMrNkXZb3KTkCZJb2V1xaEGCk093vkZ2jk3tpaeP33/OiXC+WvK9AxUebnf5nbw==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/lazystream/-/lazystream-1.0.1.tgz}
     name: lazystream
-    version: 1.0.0
+    version: 1.0.1
     engines: {node: '>= 0.6.3'}
     dependencies:
       readable-stream: registry.npmjs.org/readable-stream/2.3.7

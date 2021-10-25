@@ -21,6 +21,12 @@ export const devEnvsMock: ComponentCardProps[] = [
     preview: <ComponentCardPreview src={`${staticBrandsBaseUrl}logo-react.svg`} />,
   },
   {
+    id: 'teambit.react/react-native',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum fdfd',
+    envIcon: `${staticEnvBaseUrl}default.svg`,
+    preview: <ComponentCardPreview src={`${staticBrandsBaseUrl}logo-react.svg`} />,
+  },
+  {
     id: 'teambit.harmony/node',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum fdfd',
     envIcon: `${staticEnvBaseUrl}default.svg`,
@@ -37,6 +43,12 @@ export const devEnvsMock: ComponentCardProps[] = [
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum fdfd',
     envIcon: `${staticEnvBaseUrl}default.svg`,
     preview: <ComponentCardPreview src={`${staticBrandsBaseUrl}logo-lit.svg`} />,
+  },
+  {
+    id: 'teambit.html/html',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum fdfd',
+    envIcon: `${staticEnvBaseUrl}default.svg`,
+    preview: <ComponentCardPreview src={`${staticBrandsBaseUrl}html5.svg`} />,
   },
   {
     id: 'teambit.harmony/aspect',
