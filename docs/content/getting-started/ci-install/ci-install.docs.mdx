@@ -1,0 +1,26 @@
+---
+description: 'Describe how to install components during CI'
+labels: ['content', 'docs', 'getting-started']
+---
+
+import { CiInstall } from './index';
+
+### Component usage
+
+```js
+<CiInstall />
+```
+
+### Render with theme and MDX providers
+
+```js
+import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions';
+import { MDXLayout } from '@teambit/mdx.ui.mdx-layout';
+import { CiInstall } from './index';
+
+<ThemeCompositions>
+  <MDXLayout>
+    <CiInstall />
+  </MDXLayout>
+</ThemeCompositions>
+```

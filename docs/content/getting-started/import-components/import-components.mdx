@@ -1,0 +1,48 @@
+# Import Components
+
+A fundamental feature of a Bit workspace is the ability to vendor components. This means you can use a single command, and instead of adding a component as a dependency, you import that component's implementation to your workspace, as-if you are its author.
+
+:::info Compatible with Bit workspaces
+
+Using `bit import` requires the consumer to be a Bit workspace as a prerequisite.
+
+:::
+
+## Importing a Component
+
+```bash
+bit import my-org.my-scope/my-teams-component
+```
+
+You may also use glob patterns to import multiple components with a single command:
+
+```bash title="Imports all components in the remote scope"
+bit import "<owner>.<scope>/*"
+```
+
+```bash title="Imports all component under the namespace in a remote scope"
+bit import "<owner>.<scope>/<namespace>/*"
+```
+
+Bit imports all components to the local scope, create a directory for the component according to the workspace directory structure, and check-out the latest version to the workspace, adds an entry to `.bitmap` and creates a module in `node_modules`.  
+These steps makes imported component be identical to all other components in the workspace.
+
+## Working with Imported Components
+
+You can do local modifications to it, commit to your Git repository and work with it as if it is yours, even to the point of exporting a new version for that component.
+
+Managing imported components works just the same as managing components originated from your workspace:
+
+- Use `bit start` to show component in the local workspace UI.
+- Run component operations like compile, test, format and lint with the `compile`, `test`, `format` and `lint` commands.
+- Commit local changes for components to your SCM.
+
+## Eject components
+
+You can remove a component from the codebase and turn it to a dependency with the `eject` command:
+
+```sh
+bit eject my-teams-component
+```
+
+Bit then removes the component code from your code base and adds that component as a dependency to your `workspace.jsonc`.
