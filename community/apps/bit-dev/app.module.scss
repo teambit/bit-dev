@@ -1,0 +1,12 @@
+.label {
+    a {
+        background-color: #f6f6f6 !important;
+        &:hover {
+            background-color: #ededed !important;
+        }
+    }
+}
+
+.frame {
+    border: 1px solid #ededed;
+}

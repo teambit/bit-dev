@@ -4,16 +4,25 @@ import { Logo } from '@teambit/design.ui.brand.logo';
 import { Nav } from '@teambit/community.ui.header.nav';
 import { Link } from 'react-router-dom';
 import { WideColumn } from '@teambit/base-ui.layout.page-frame';
+import { Toggle } from '@teambit/design.ui.input.toggle';
 import styles from './header.module.scss';
 
-export function Header() {
+export type HeaderProps = {
+  highlighting?: boolean;
+  setHighlighting?: (e: boolean) => void;
+} & React.HTMLAttributes<HTMLElement>;
+
+export function Header({ highlighting, setHighlighting, className, ...rest }: HeaderProps) {
   return (
-    <header className={classNames(styles.header)}>
+    <header className={classNames(styles.header, className)} {...rest}>
       <WideColumn className={styles.headerContent}>
         <Link to="/">
           <Logo className={styles.logo} alt="bit-logo" />
         </Link>
-        <Nav />
+        <Nav className={styles.nav}>
+          <span className={styles.inspect}>Inspect</span> 
+          <Toggle onInputChanged={(e) => setHighlighting?.(e.target.checked) } checked={highlighting} />
+        </Nav>
       </WideColumn>
     </header>
   );
