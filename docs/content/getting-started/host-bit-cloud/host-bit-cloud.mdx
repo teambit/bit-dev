@@ -1,0 +1,41 @@
+# Host on Bit.cloud
+
+By default, Bit is connected to [bit.dev](https://bit.dev) as its default hosting provider.  
+We recommend running your first POC with hosting your components on the cloud to reduce the amount of resources required to run your POC.
+
+## Login to the Bit Cloud
+
+Run the bit login command for Bit to open a login/sign-up form for a new personal account.
+
+```bash
+bit login
+```
+
+Once logged in you can create a remote scope for your Bit project. This is done on the [bit.dev](https://bit.dev) website. Start by choosing if it is a team project or personal project. Then give your remote scope a name and select if you want your scope to be public or private.
+
+## Setting the Default Scope
+
+Once you have setup a remote scope you need to make sure the defaultScope is set to the name of your remote scope in the `workspace.jsonc` file.
+
+```json title="workspace.jsonc"
+{
+  "teambit.workspace/workspace": {
+    "defaultScope": "your-username.your-scope"
+  }
+}
+```
+
+## Setting Multiple Default Scopes
+
+With Bit you can export different sets of components to different scopes. This is done by adding a `defaultScope` property to each set of components in the variants section of your `workspace.jsonc` file.
+
+```json title="workspace.jsonc"
+"teambit.workspace/variants": {
+    "{ecommerce/**}": {
+      "defaultScope": "my-org.ecommerce"
+    },
+    "{ui/**}": {
+      "defaultScope": "my-org.base-ui"
+    },
+  }
+```

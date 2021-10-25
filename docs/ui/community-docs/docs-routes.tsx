@@ -23,6 +23,18 @@ const CreateWorkspace = loadable(
   () => import('@teambit/docs.content.getting-started.create-workspace')
 );
 
+const VersionComponents = loadable(() => import('@teambit/docs.content.getting-started.version-components'));
+const WhatIsScope = loadable(() => import('@teambit/docs.content.getting-started.what-is-scope'));
+const HostBitCloud = loadable(() => import('@teambit/docs.content.getting-started.host-bit-cloud'));
+const SelfHostScope = loadable(() => import('@teambit/docs.content.getting-started.self-host-scope'));
+const ShareComponents = loadable(() => import('@teambit/docs.content.getting-started.share-components'));
+const InstallComponents = loadable(() => import('@teambit/docs.content.getting-started.install-components'));
+const ImportComponents = loadable(() => import('@teambit/docs.content.getting-started.import-components'));
+const UpdateComponents = loadable(() => import('@teambit/docs.content.getting-started.update-components'));
+const CiExport = loadable(() => import('@teambit/docs.content.getting-started.ci-export'));
+const CiInstall = loadable(() => import('@teambit/docs.content.getting-started.ci-install'));
+
+
 /* Workspace */
 const WorkspaceOverview = loadable(() => import('@teambit/workspace.content.workspace-overview'));
 const Bitmap = loadable(() => import('@teambit/workspace.content.bitmap'));
@@ -265,7 +277,7 @@ export const docsRoutes: DocsRoute[] = [
       },
       {
         path: 'composing',
-        title: 'Composing',
+        title: 'Compose',
         open: false,
         children: [
           {
@@ -286,6 +298,94 @@ export const docsRoutes: DocsRoute[] = [
             description: 'Use dependencies',
             component: <UseDependencies />,
           },
+        ],
+      },
+      {
+        path: 'collaborate',
+        title: 'Collaborate',
+        open: false,
+        children: [
+          {
+            path: 'version-components',
+            title: 'Version Components',
+            description: 'Version Components',
+            component: <VersionComponents />,
+          },
+          {
+            path: 'remote-scope',
+            title: 'Create a Remote Scope',
+            open: false,
+            children: [
+              {
+                path: 'scope-overview',
+                title: 'Scope Overview',
+                description: 'Scope Overview',
+                component: <WhatIsScope />,
+              },
+              {
+                path: 'host-on-bit-cloud',
+                title: 'Host on Bit Cloud',
+                description: 'Host on Bit Cloud',
+                component: <HostBitCloud />,
+              },
+              {
+                path: 'self-host-scope',
+                title: 'Self Host Scope',
+                description: 'Self Host Scope',
+                component: <SelfHostScope />,
+              },
+            ],
+          },
+          {
+            path: 'share-components',
+            title: 'Share Components',
+            description: 'Share Components',
+            component: <ShareComponents />,
+          },
+        ],
+      },
+      {
+        path: 'use',
+        title: 'Use',
+        open: false,
+        children: [
+          {
+            path: 'install-components',
+            title: 'Install Components',
+            description: 'Install Components',
+            component: <InstallComponents />,
+          },
+          {
+            path: 'import-components',
+            title: 'Import Components',
+            description: 'Import Components',
+            component: <ImportComponents />,
+          },
+          {
+            path: 'update-components',
+            title: 'Update Components',
+            description: 'Update Components',
+            component: <UpdateComponents />,
+          },
+        ],
+      },
+      {
+        path: 'set-up-ci',
+        title: 'Set Up CI',
+        open: false,
+        children: [
+          {
+            path: 'automate-export',
+            title: 'Automate Component Export',
+            description: 'Automate Component Export',
+            component: <CiExport />,
+          },
+          {
+            path: 'package-consumers',
+            title: 'Package Consumers',
+            description: 'Package Consumers',
+            component: <CiInstall />,
+          }
         ],
       },
     ],
