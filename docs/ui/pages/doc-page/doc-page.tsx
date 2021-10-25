@@ -42,6 +42,7 @@ export function DocPage({ title, nextPage, children }: DocPageProps) {
     executeScroll();
   }, []);
 
+  //@TODO @josh remove when ssr is working
   useEffect(() => {
     if (location.hash) {
       setTimeout(() => {
