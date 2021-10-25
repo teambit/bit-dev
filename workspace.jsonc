@@ -83,6 +83,7 @@
         "@teambit/design.ui.external-link": "0.0.344",
         "@teambit/design.ui.heading": "1.0.5",
         "@teambit/design.ui.input.icon-text": "0.0.7",
+        "@teambit/design.ui.input.toggle": "1.0.7",
         "@teambit/design.ui.message-card": "1.0.4",
         "@teambit/design.ui.styles.ellipsis": "0.0.345",
         "@teambit/design.ui.surfaces.menu.link-item": "0.0.374",
