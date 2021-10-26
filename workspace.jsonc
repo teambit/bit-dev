@@ -160,10 +160,17 @@
       "teambit.harmony/aspect": {}
     },
     "design": {
-      "defaultScope": "teambit.design"
+      "defaultScope": "teambit.design",
     },
     "community": {
-      "defaultScope": "teambit.community"
+      "defaultScope": "teambit.community",
+      "teambit.dependencies/dependency-resolver": {
+        "policy": {
+          "devDependencies": {
+            "@teambit/design.embeds.figma": "0.0.6"
+          }
+        }
+      }
     },
     "docs": {
       "defaultScope": "teambit.docs"

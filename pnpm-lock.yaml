@@ -37,7 +37,7 @@ importers:
       '@teambit/component-id': 0.0.369
       '@teambit/component.modules.component-url': 0.0.71
       '@teambit/design.elements.icon': 1.0.6
-      '@teambit/design.embeds.figma': 0.0.3
+      '@teambit/design.embeds.figma': 0.0.6
       '@teambit/design.ui.cli-snippet': 0.0.347
       '@teambit/design.ui.dropdown': 1.0.10
       '@teambit/design.ui.error-page': 0.0.351
@@ -162,7 +162,7 @@ importers:
       react-xarrows: registry.npmjs.org/react-xarrows/2.0.2_react@16.13.1
       url-parse: registry.npmjs.org/url-parse/1.5.3
     devDependencies:
-      '@teambit/design.embeds.figma': registry.npmjs.org/@teambit/design.embeds.figma/0.0.3_react-dom@16.13.1+react@16.13.1
+      '@teambit/design.embeds.figma': registry.npmjs.org/@teambit/design.embeds.figma/0.0.6_react-dom@16.13.1+react@16.13.1
       '@testing-library/react-hooks': registry.npmjs.org/@testing-library/react-hooks/7.0.1_react-dom@16.13.1+react@16.13.1
       '@types/jest': registry.npmjs.org/@types/jest/26.0.20
       '@types/node': registry.npmjs.org/@types/node/12.20.4
@@ -462,10 +462,7 @@ importers:
     specifiers: {}
 
   design/ui/content/heading:
-    specifiers:
-      '@teambit/design.embeds.figma': 0.0.6
-    devDependencies:
-      '@teambit/design.embeds.figma': registry.npmjs.org/@teambit/design.embeds.figma/0.0.6_react-dom@16.13.1+react@16.13.1
+    specifiers: {}
 
   design/ui/content/subtitle:
     specifiers: {}
@@ -2569,21 +2566,6 @@ packages:
       react: registry.npmjs.org/react/16.13.1
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
     dev: false
-
-  registry.npmjs.org/@teambit/design.embeds.figma/0.0.3_react-dom@16.13.1+react@16.13.1:
-    resolution: {integrity: sha512-Tefil8i/YO1TGfBFqSb/cNF0xGyI999KUckk00w7hhKXLrX7TAKVi9lJn3cZ2EgO/nWrv9T5ygzigW12Q9tCOQ==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/design.embeds.figma/-/design.embeds.figma-0.0.3.tgz}
-    id: registry.npmjs.org/@teambit/design.embeds.figma/0.0.3
-    name: '@teambit/design.embeds.figma'
-    version: 0.0.3
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
-    dependencies:
-      classnames: registry.npmjs.org/classnames/2.3.1
-      core-js: registry.npmjs.org/core-js/3.19.0
-      react: registry.npmjs.org/react/16.13.1
-      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
-    dev: true
 
   registry.npmjs.org/@teambit/design.embeds.figma/0.0.6_react-dom@16.13.1+react@16.13.1:
     resolution: {integrity: sha512-NVnW+d9BYW850Z6AdRmIBJdWGk6n9nhPTT0xd33apov1f7dDdUgz5yfhL/6LGlP9ELj4ZWfOPioZnAvLWCvnLw==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/design.embeds.figma/-/design.embeds.figma-0.0.6.tgz}
