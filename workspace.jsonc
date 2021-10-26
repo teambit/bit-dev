@@ -103,7 +103,7 @@
         "@teambit/ui-foundation.ui.buttons.collapser": "0.0.144",
         "@teambit/ui-foundation.ui.react-router.link": "0.0.441",
         "@teambit/ui-foundation.ui.react-router.nav-link": "0.0.441",
-        "@teambit/ui-foundation.ui.tree.folder-tree-node": "0.0.446",
+        "@teambit/ui-foundation.ui.tree.folder-tree-node": "0.0.453",
         "@teambit/ui-foundation.ui.tree.tree-node": "0.0.453",
         "@testing-library/react-hooks": "7.0.1",
         "@types/react-helmet": "6.1.2",
