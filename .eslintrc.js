@@ -1,7 +1,7 @@
 module.exports = {
-  extends: [require.resolve('@teambit/react.eslint-config-bit-react')],
+  extends: ['./node_modules/@teambit/react.eslint-config-bit-react'],
   parserOptions: {
-    project: require.resolve('./tsconfig.json'),
+    project: './tsconfig.json',
   },
   rules: {
     'no-console': ['error'],
