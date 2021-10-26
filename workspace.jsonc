@@ -98,11 +98,11 @@
         "@teambit/harmony": "0.2.11",
         "@teambit/mdx.ui.mdx-layout": "0.0.451",
         "@teambit/react.templates.themes.theme": "0.0.3",
-        "@teambit/react.ui.component-highlighter": "0.0.458",
+        "@teambit/react.ui.component-highlighter": "0.0.461",
         "@teambit/ui-foundation.ui.buttons.collapser": "0.0.144",
         "@teambit/ui-foundation.ui.react-router.link": "0.0.441",
         "@teambit/ui-foundation.ui.react-router.nav-link": "0.0.441",
-        "@teambit/ui-foundation.ui.tree.folder-tree-node": "0.0.446",
+        "@teambit/ui-foundation.ui.tree.folder-tree-node": "0.0.453",
         "@teambit/ui-foundation.ui.tree.tree-node": "0.0.453",
         "@testing-library/react-hooks": "7.0.1",
         "@types/react-helmet": "6.1.2",
@@ -159,7 +159,7 @@
       "teambit.harmony/aspect": {}
     },
     "design": {
-      "defaultScope": "teambit.design",
+      "defaultScope": "teambit.design"
     },
     "community": {
       "defaultScope": "teambit.community",
