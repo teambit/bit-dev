@@ -2,14 +2,22 @@
 .header {
   width: 100%;
   padding: 8px 0;
+  font-size: 14px;
   border-bottom: 1px solid #EDEDED;
 }
 
 .headerContent {
   display: flex;
   align-items: center;
+  > a {
+    display: inline-flex;
+  }
 }
 
 .logo {
   margin-right: 32px;
+}
+
+.inspect {
+  padding-left: 24px;
 }

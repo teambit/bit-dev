@@ -1,3 +1,4 @@
+@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
 
 .nav {
     display: flex;
@@ -9,6 +10,11 @@
     display: flex;
     align-items: center;
     font-size: var(--bit-p-xs, 14px);
+    @media screen and (max-width: $br-md) {
+        > * {
+            display: none;
+        }
+    }
 }
 .link {
     margin-right: 40px;
@@ -33,8 +39,11 @@
     display: flex;
     align-items: center;
     font-size: var(--bit-p-xs, 14px);
-    > * {
+    > *:not(:last-child) {
         font-size: inherit;
         margin-right: 8px;
+    }
+    a {
+        display: inline-flex;
     }
 }
