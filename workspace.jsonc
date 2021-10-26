@@ -97,6 +97,7 @@
         "@teambit/explorer.ui.gallery.component-grid": "0.0.435",
         "@teambit/harmony": "0.2.11",
         "@teambit/mdx.ui.mdx-layout": "0.0.451",
+        "@teambit/react.eslint-config-bit-react": "0.0.451",
         "@teambit/react.templates.themes.theme": "0.0.3",
         "@teambit/react.ui.component-highlighter": "0.0.458",
         "@teambit/ui-foundation.ui.buttons.collapser": "0.0.144",
@@ -107,7 +108,16 @@
         "@testing-library/react-hooks": "7.0.1",
         "@types/react-helmet": "6.1.2",
         "@types/react-router-dom": "5.1.7",
+        "@typescript-eslint/eslint-plugin": "4.30.0",
+        "@typescript-eslint/parser": "4.30.0",
         "classnames": "2.3.1",
+        "eslint": "7.32.0",
+        "eslint-plugin-import": "2.22.1",
+        "eslint-plugin-jest": "24.1.5",
+        "eslint-plugin-jsx-a11y": "6.4.1",
+        "eslint-plugin-mdx": "1.13.0",
+        "eslint-plugin-react": "7.22.0",
+        "eslint-plugin-react-hooks": "4.2.0",
         "millify": "4.0.0",
         "react-helmet": "6.1.0",
         "react-json-view": "1.21.3",
@@ -115,15 +125,13 @@
         "react-router-dom": "5.2.0",
         "react-terminal": "1.2.1",
         "react-xarrows": "2.0.2",
+        "typescript": "4.4.2",
         "url-parse": "1.5.3"
       },
       "peerDependencies": {
         "@testing-library/react": "12.0.0",
         "react": "16.13.1",
         "react-dom": "16.13.1"
-      },
-      "devDependencies": {
-        "@teambit/react.eslint-config-bit-react": "0.0.450"
       }
     },
     "packageManagerArgs": [],
