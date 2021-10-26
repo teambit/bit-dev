@@ -53,6 +53,7 @@ export class CommunityReactMain {
         transformers: [
           (config) => {
             config.setRule('no-console', ['error']);
+            config.setRule('react/jsx-props-no-spreading', 'off');
             return config;
           }
         ]

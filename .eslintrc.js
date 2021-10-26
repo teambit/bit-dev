@@ -5,6 +5,6 @@ module.exports = {
   },
   rules: {
     'no-console': ['error'],
-    'react/jsx-props-no-spreading': ['off'],
+    'react/jsx-props-no-spreading': 'off',
   },
 };
