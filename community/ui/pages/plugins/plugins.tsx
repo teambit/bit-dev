@@ -5,7 +5,9 @@ import { ExploreSection } from '@teambit/community.ui.plugins.explore-section';
 import { CreateSection } from '@teambit/community.ui.plugins.create-section';
 import { highlightClass } from '@teambit/community.ui.heading';
 import { Page } from '@teambit/base-react.pages.page';
-import { devEnvsMock, compilingMock, testingMock, lintingFormatingMock, appsMock } from './plugins.mock';
+import {
+  devEnvsMock, compilingMock, testingMock, lintingFormatingMock, appsMock,
+} from './plugins.mock';
 
 export type PluginsProps = React.HTMLAttributes<HTMLDivElement>;
 

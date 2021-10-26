@@ -2,9 +2,6 @@
 .bit
 public
 
-# vscode
-.vscode
-
 # Logs
 logs
 *.log
