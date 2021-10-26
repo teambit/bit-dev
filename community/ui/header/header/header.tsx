@@ -13,6 +13,9 @@ export type HeaderProps = {
 } & React.HTMLAttributes<HTMLElement>;
 
 export function Header({ highlighting, setHighlighting, className, ...rest }: HeaderProps) {
+  function onToggleClick(e) {
+    return setHighlighting?.(e.target.checked)
+  }
   return (
     <header className={classNames(styles.header, className)} {...rest}>
       <WideColumn className={styles.headerContent}>
@@ -21,7 +24,7 @@ export function Header({ highlighting, setHighlighting, className, ...rest }: He
         </Link>
         <Nav className={styles.nav}>
           <span className={styles.inspect}>Inspect</span> 
-          <Toggle onInputChanged={(e) => setHighlighting?.(e.target.checked) } checked={highlighting} />
+          <Toggle onInputChanged={onToggleClick} checked={highlighting} />
         </Nav>
       </WideColumn>
     </header>

@@ -1,12 +1,12 @@
 .label {
     a {
-        background-color: #f6f6f6 !important;
+        background-color: var(--bit-bg-heavy, #f6f6f6) !important;
         &:hover {
-            background-color: #ededed !important;
+            background-color: var(--bit-border-color-lightest, #ededed) !important;
         }
     }
 }
 
 .frame {
-    border: 1px solid #ededed;
+    border: 1px solid var(--bit-border-color-lightest, #ededed);
 }

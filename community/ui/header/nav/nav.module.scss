@@ -1,3 +1,4 @@
+@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
 
 .nav {
     display: flex;
@@ -9,7 +10,7 @@
     display: flex;
     align-items: center;
     font-size: var(--bit-p-xs, 14px);
-    @media screen and (max-width: 768px) {
+    @media screen and (max-width: $br-md) {
         > * {
             display: none;
         }
