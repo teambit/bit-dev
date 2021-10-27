@@ -1,0 +1,25 @@
+---
+description: 'An MDX component.'
+labels: ['content', 'mdx']
+---
+
+import { LockFiles } from './index';
+
+### Component usage
+```js
+<LockFiles />
+```
+
+### Render with theme and MDX providers
+
+```js
+import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions'
+import { MDXLayout } from '@teambit/ui.mdx-layout'
+import { LockFiles } from './index'
+
+<ThemeCompositions>
+  <MDXLayout>
+    <LockFiles />
+  </MDXLayout>
+</ThemeCompositions>
+```

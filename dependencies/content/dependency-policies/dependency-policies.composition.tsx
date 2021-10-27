@@ -1,13 +1,13 @@
 import React from 'react';
 import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions';
 import { MDXLayout } from '@teambit/ui.mdx-layout';
-import { ExternalDependencies } from './index';
+import { DependencyPolicies } from './index';
 
-export const BasicExternalDependencies = () => {
+export const BasicDependencyPolicies = () => {
   return (
     <ThemeCompositions>
       <MDXLayout>
-        <ExternalDependencies />
+        <DependencyPolicies />
       </MDXLayout>
     </ThemeCompositions>
   );

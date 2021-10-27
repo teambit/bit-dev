@@ -1,0 +1,164 @@
+<!-- This page is a WIP -->
+
+# Merging Components
+
+Bit behaves slightly differently when importing changes for a component that was modified locally:
+
+```bash
+bit status
+```
+
+```shell
+modified components
+  > baz... ok
+```
+
+> If a component was changed locally for internal use, it is recommended to commit the component's source code to the project’s SCM.
+
+When running `bit import` with the component id, Bit imports the changes into the scope, but stops before checking out the component into the workspace. The component now exists in two parallel statues: modified, due to the local changes and pending updates, due to the incoming version:
+
+```bash
+bit status
+```
+
+```shell
+pending updates
+(use "bit checkout [version] [component_id]" to merge changes)
+(use "bit log [component_id]" to list all available versions)
+
+    > bit.example/foo current: 1.0.0 latest: 1.0.1
+
+modified components
+(use "bit tag --all [version]" to lock a version with all your changes)
+
+    > foo ... ok
+```
+
+The two options for handling the changes are:
+
+### Checkout
+
+running [`bit checkout`](/docs/apis/cli-all#checkout) checks the latest version (or a version that was specified as the component's version) in the workspace. Bit uses git diff to merge with existing changes. In case of conflicts, Bit notifies and let merge the changes:
+
+```bash
+bit checkout 1.0.1 foo
+```
+
+```shell
+bit checkout 1.0.1 foo
+successfully switched bit.example/foo to version 1.0.1
+
+updated src/foo/foo.spec.js
+updated src/foo/index.js
+auto-merged src/foo/foo.js
+```
+
+The component is now on the version that was checked out with the local changes on top of it.
+
+### Merge
+
+Running [`bit merge`](/docs/apis/cli-all#merge) gets the changes from the remote into the component's version that exists in our workspace.
+
+```bash
+bit status
+```
+
+```shell
+modified components
+(use "bit tag --all [version]" to lock a version with all your changes)
+
+    > foo ... ok
+```
+
+Bit uses [`git merge-file`](https://git-scm.com/docs/git-merge-file) to attempt merging the changes between versions. When trying to merge, conflicts may occur:
+
+```bash
+bit checkout 1.0.5 bit.example/foo --manual
+```
+
+```shell
+successfully run npm install at /Users/user/Bit/test/src/foo
+successfully switched bit.example/foo to version 1.0.5
+updated src/foo/foo.spec.js
+updated src/foo/index.js
+CONFLICT src/foo/foo.js automatic merge failed. please fix conflicts manually and then tag the results.
+```
+
+If it cannot resolve the conflict, it needs user's guidance to select one of three possible options:
+
+- `--theirs` - the remote version overrides the local modifications.
+- `--ours` - the local implementation overrides the remote changes.
+- `--manual` - resolve the conflict manually.
+
+> For both merge and checkout bit can be instructed on how to resolve merge conflicts if exist, using the ours, theirs or manual strategies.
+
+Once we resolve the merge, we can run `bit status` and see the result:
+
+```bash
+bit status
+```
+
+```shell
+modified components
+(use "bit tag --all [version]" to lock a version with all your changes)
+
+     > foo ... ok
+```
+
+## Merge remote conflicts
+
+We may encounter a merge conflict, if we tagged a new version and exported it. Let's resolve such conflict.  
+The example shows a sourced component `foo`, tagged as `1.0.5`. It also has a remote version of `1.0.5`. Trying to import the remote version to merge the changes between them won't work. Bit cannot import a version that already exists:
+
+```shell
+bit import
+error: merge conflict occurred while importing the component bit.example/string/pad-left. conflict version(s): 1.0.5
+to resolve it and merge your local and remote changes, please do the following:
+1) bit untag bit.example/foo 1.0.5
+2) bit import
+3) bit checkout 1.0.5 bit.example/foo
+```
+
+To resolve the conflict, `untag` the component’s local version.
+
+```bash
+bit untag bit.example/foo 1.0.5
+```
+
+```shell
+1 component(s) were untagged:
+bit.example/foo. version(s): 1.0.5
+```
+
+Next, `import` the remote version.
+
+```bash
+bit import
+```
+
+```shell
+successfully imported one component
+- updated bit.example/foo new versions: 1.0.5
+```
+
+Next, `checkout` the component’s latest version to the project's workspace. Resolve merge conflicts as they occur.
+
+```bash
+bit checkout 1.0.5 foo
+```
+
+```shell
+successfully switched bit.example/foo to version 1.0.5
+
+updated src/foo/foo.spec.js
+updated src/foo/index.js
+auto-merged src/foo/foo.js
+```
+
+Now `tag` a new version for the component.
+
+```shell
+bit tag --all
+```
+
+Version `1.0.6` can be now exported to the remote collection.
