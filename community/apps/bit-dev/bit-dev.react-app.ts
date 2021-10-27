@@ -1,5 +1,5 @@
 import { ReactAppOptions } from '@teambit/react';
-import { Netlify } from '@teambit/application.netlify';
+import { Netlify } from '@teambit/apps.netlify';
 
 const netlify = new Netlify(
   process.env.NETLIFY_AUTH_TOKEN as string,
@@ -10,7 +10,9 @@ const netlify = new Netlify(
 export const BitDevApp: ReactAppOptions = {
   name: 'bit-dev',
   entry: [require.resolve('./bit-dev.app-root')],
-  deploy: netlify.deploy.bind(netlify)
+  deploy: netlify.deploy.bind(netlify),
+  prerenderRoutes:['/plugins']
+
 };
 
 export default BitDevApp;
