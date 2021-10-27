@@ -1,0 +1,116 @@
+# Component Configuration
+
+import { Image } from '@teambit/docs.ui.zoomable-image';
+import componentConfig from './comp-config.png';
+
+Components in Bit can be configured components and used for variety of purposes such as setting dependencies, envs, remote scopes and controlling the generated package.json and anything else you might imagine.
+
+Components are configured with [Aspects](/extending-bit/aspect), each can accept user configurations and do useful operations accordingly. Components configuration are commonly controlled by a [component.json](./component-json), or through [Variants](/variants/overview) and possibly through any Aspect offering this kind of functionality. Component configuration can be viewed in different methods including the `bit show` command and the UI.
+
+Configuration for Components is computed by propagating to all configured Aspects starting from the `component.json` file as a base. `component.json` files can be ejected to the filesystem any time to take control over a specific component configuration.
+
+```bash
+bit eject-conf ui/my-welcome
+```
+
+This commands ejects the `component.json` file for the `ui/my-welcome` component to the Workspace for you to modify its configuration.
+
+In the example below, we are configuring a Component with the [Pkg](/packages) Aspect to control its [generated package.json](/packages/package-json) properties.
+
+```json title="component.json"
+{
+  "teambit.pkg/pkg": {
+    "packageJson": {
+      "private": true
+    }
+  }
+}
+```
+
+In the same sense, dependencies can be controlled by configuring the `teambit.dependencies/dependency-resolver` Aspect with a specific `policy`.
+
+```json title="component.json"
+{
+  "teambit.dependencies/dependency-resolver": {
+    "policy": {
+      "dependencies": {
+        "@teambit/base-ui.button": "1.0.0"
+      }
+    }
+  }
+}
+```
+
+Components are rarely configured with a [component.json](/components/component-json) and mostly are configured through easier and cleaner methods like Variants and other Aspects automating their entire configuration.
+
+In the example below, all components under the `ui` namespace in my project are configured with the [React env](/).
+
+```json title="workspace.json"
+{
+  "teambit.workspace/variants": {
+    "{ui/*}": {
+      "teambit.react/react": {}
+    }
+  }
+}
+```
+
+To learn more about Variants, head over to the [Variants documentation](/workspace/variants) section.
+
+Component configuration can be viewed in different methods including the `bit show` command and the UI.
+
+```bash
+bit show ui/my-welcome
+```
+
+```bash {26-31}
+┌───────────────────┬────────────────────────────────────────────────────────────────┐
+│ id                │ company.scope/ui/my-welcome                                    │
+├───────────────────┼────────────────────────────────────────────────────────────────┤
+│ scope             │ company.scope                                                  │
+├───────────────────┼────────────────────────────────────────────────────────────────┤
+│ name              │ ui/my-welcome                                                  │
+├───────────────────┼────────────────────────────────────────────────────────────────┤
+│ env               │ teambit.harmony/node                                           │
+├───────────────────┼────────────────────────────────────────────────────────────────┤
+│ package name      │ @company/scope.ui.my-welcome                                   │
+├───────────────────┼────────────────────────────────────────────────────────────────┤
+│ deprecated        │ false                                                          │
+├───────────────────┼────────────────────────────────────────────────────────────────┤
+│ main file         │ index.ts                                                       │
+├───────────────────┼────────────────────────────────────────────────────────────────┤
+│ files             │ index.ts                                                       │
+│                   │ my-welcome.composition.tsx                                     │
+│                   │ my-welcome.docs.mdx                                            │
+│                   │ my-welcome.spec.tsx                                            │
+│                   │ my-welcome.tsx                                                 │
+├───────────────────┼────────────────────────────────────────────────────────────────┤
+│ dev files         │ my-welcome.spec.tsx (teambit.defender/tester)                  │
+│                   │ my-welcome.composition.tsx (teambit.compositions/compositions) │
+│                   │ my-welcome.docs.mdx (teambit.docs/docs)                        │
+├───────────────────┼────────────────────────────────────────────────────────────────┤
+│ extensions        │ teambit.component/dev-files                                    │
+│                   │ teambit.compositions/compositions                              │
+│                   │ teambit.pkg/pkg                                                │
+│                   │ teambit.docs/docs                                              │
+│                   │ teambit.envs/envs                                              │
+│                   │ teambit.dependencies/dependency-resolver                       │
+├───────────────────┼────────────────────────────────────────────────────────────────┤
+│ dependencies      │ @company/scope.templates.ui.card@latest---- (component)        │
+│                   │ @company/scope.templates.ui.heading@latest- (component)        │
+├───────────────────┼────────────────────────────────────────────────────────────────┤
+│ dev dependencies  │ @company/scope.templates.envs.my-react@latest- (component)     │
+│                   │ @babel/runtime@7.12.18------------------------ (package)       │
+│                   │ @types/node@12.20.4--------------------------- (package)       │
+│                   │ @types/jest@26.0.20--------------------------- (package)       │
+├───────────────────┼────────────────────────────────────────────────────────────────┤
+│ peer dependencies │ react@16.13.1----------------- (package)                       │
+│                   │ @testing-library/react@12.0.0- (package)                       │
+└───────────────────┴────────────────────────────────────────────────────────────────┘
+```
+
+In the example above, all highlighted extensions are the configured [Aspects](/extending-bit/aspect) on the Component. Other properties such as `dependencies`, `package name` and even `env` is Metadata generated by one of the configured extensions.
+
+Configuration can also be seen from the Component UI.
+
+<Image src={componentConfig} />

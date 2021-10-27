@@ -1,25 +1,33 @@
 # External Dependencies
 
-External dependencies are either Components or packages, defined in your Workspace's [Dependency Policy](/dependencies/overview#dependency-policies), installed and resolved 
-from the [node_modules](/workspace/node-modules) directory.
+External dependencies are Components or packages, defined in your Workspace's [Dependency Policy](/dependencies/overview#dependency-policies), and installed and resolved from the [node_modules](/workspace/node-modules) directory.
 
-External dependencies configured in your Workspace Dependency Policy are allowed to use from [Workspace Components](/workspace/workspace-component). 
-
-They can be used through the [`bit install`](/dependencies/commands/install) command which uses the configured [Package Manager](/dependencies/package-managers) to install the requested dependency in the [node_modules](/workspace/node-modules) directory in your [Workspace](/workspace/overview).
+External dependencies are installed in the workspace `node_modules` directory, where they're available to be used by the [Workspace Components](/workspace/workspace-component).
 
 ```bash
-bit install # makes sure your workspace is up to date.
-bit install @teambit/base-ui.button # adds @teambit/base-ui.button dependency to the workspace.
+// Read the dependency policies and install any missing package, accordingly
+bit install
 ```
 
-External dependencies allowed to use in your Workspace can be defined in the [Dependency Policy](/dependencies/overview#dependency-policies) in your
-[Workspace configuration](/workspace/workspace-json). `bit install` makes sure all external dependencies are up to date according to the dependency policy defined in the
-workspace.
+```bash
+// Install @teambit/base-ui.button and add it to the workspaces dependency policy
+bit install @teambit/base-ui.button
+```
 
-## Package dependencies 
+The installation process is done by the package manager configured in the Dependency Resolver. Transitive dependencies (the dependencies of dependencies, and so on) are installed as well.
+
+:::tip
+'External dependencies' can be contrasted with 'Internal workspace dependencies'.
+Internal dependencies are components that are maintained in the workspace. Their corresponding module is generated in the `node_modules` directory and not installed.
+Since they are maintained in the workspace, they can be found listed in the `.bitmap` file.
+:::
+
+## Package dependencies
+
 Packages dependencies can be added from the NPM registry or from any other custom registry configured to your `.npmrc` file.
 
 ## Component dependencies
+
 Components are installed as regular package dependencies. Bit identifies they are components using the `componentId` property on the component's `package.json` file.
 
 ```json

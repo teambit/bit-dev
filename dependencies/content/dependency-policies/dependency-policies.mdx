@@ -1,0 +1,247 @@
+# Dependency Policy
+
+Dependency policies define the version and dependency type of dependencies used by components in the workspace.
+
+Dependency policies are set either on the Workspace or on Components. This can be done manually, or programmatically.
+
+## Structure and notations
+
+### SemVer
+
+Dependency policies follow the [Semantic Versioning specification](https://semver.org/). Versions use the `MAJOR.MINOR.PATCH` format, and can be prefixed with a [version range](https://docs.npmjs.com/cli/v6/using-npm/semver#ranges) (for example, `"module": "^1.2.3"`).
+
+### Dependency types
+
+Dependencies can be configured to one of three types: `dependencies`, `devDependencies` or `peerDependencies` (`optionalDependencies` and `bundledDependencies` are not supported).
+
+#### dependencies
+
+Regular (runtime) dependencies.
+
+```json
+{
+  "@teambit.dependencies/dependency-resolver": {
+    "policy": {
+      "dependencies": {
+        "lodash": "^4.17.0",
+        "classnames": "~4.17.0"
+      }
+    }
+  }
+}
+```
+
+#### peerDependencies
+
+Setting a dependency as a peer dependency directs the package manager to install only a single version of it.
+If that's not possible, if there is no single "agreed upon" version for all components in the workspace, then an error will be thrown.
+
+This can be crucial when different components communicate with each other using shared objects that are instantiated by an installed package (the dependency).
+If different versions of the same package create different object instances then the "means of communication" is broken. There is no single object to address, no single source of truth.
+This can turn out to be critical when working with modules that are used as "plugins" for other modules (for example, Babel), or when working with components that are coordinated in runtime using a shared library (for example, React).
+
+```json
+// Example
+{
+  "@teambit.dependencies/dependency-resolver": {
+    "policy": {
+      "peerDependencies": {
+        "react": "^17.0.0",
+        "react-dom": "^17.0.0"
+      }
+    }
+  }
+}
+```
+
+#### devDependencies
+
+`devDependencies` are dependencies that are used for development, and not for runtime execution (for example, `@testing-library/react`).
+
+Bit automatically resolves dependencies as `devDependencies` when the files using these dependencies are development files. For example, `*.composition.*`, `*.docs.*`, `*.test.*`, and so on.
+If the same dependency is used by other non-dev files of the component, then the dependency is resolved to a regular (runtime) dependency.
+
+The list of glob patterns that describe the type of files that need to be considered as dev files, is handled by the Dev Files Aspect.
+To register additional glob patterns, set the [devFilePatterns](./dependencies-config#devFilePatterns) property.
+
+`devDependencies` can also be configured directly in the dependency policy. However, this option is only available for component dependency policies, and not for workspace dependency policies (as the latter only describe the modules to be installed).
+
+```json
+// Example: setting dev dependencies (note that dev dependencies cannot be used in the workspace dependency policy)
+{
+  "@teambit.dependencies/dependency-resolver": {
+    "policy": {
+      "devDependencies": {
+        "@testing-library/react": "^12.1.2"
+      }
+    }
+  }
+}
+```
+
+### Special notations
+
+#### Remove a dependency
+
+Using the `-` sign, dependency policies can be used to remove a dependency. That's especially useful when a dependency is not defined with the correct dependency type.
+
+For example, a module can be "moved" from `dependencies` to `peerDependencies` by removing it from `dependencies` and listing it under `peerDependencies`.
+
+```json title="Removing a dependency and setting it as a peer dependency"
+"teambit.dependencies/dependency-resolver": {
+    "policy": {
+      "dependencies": {
+        "enzyme": "-"
+      },
+      "peerDependencies": {
+        "enzyme": "^3.11.0"
+      }
+    }
+```
+
+## Workspace dependency policy
+
+The Workspace dependency policy determines the [External Dependencies](/external-dependencies) version to install and whether they are a standard dependencies or a peer dependencies (i.e, whether they should only be installed once).
+
+Workspace dependency policies that do not conflict with component dependency policies, will determine the dependency version in the relevant component dependency graphs (they will not, however, add a dependency that is not already listed in the component's dependency graph).
+
+<!-- Dependencies of type package will be listed in the component's dependency graph with the version range prefix (e.g, `"module": "^1.2.3"`). Dependencies of type component will be listed in the component's dependency graph with the concrete installed version (e.g,`"module": "1.2.3"`). -->
+
+The workspace dependency policy is only configured at the root level of the workspace configuration (`workspace.jsonc`).
+
+```ts
+// Example: workspace dependency policy
+  "teambit.dependencies/dependency-resolver": {
+    "policy": {
+      "dependencies": {
+        "@teambit/documenter.ui.copy-box": "4.1.1",
+        "classnames": "^2.3.1",
+      },
+      "peerDependencies": {
+        "react": "17.0.2",
+        "react-dom": "17.0.2"
+      }
+    },
+  },
+```
+
+## Component dependency policy (manually)
+
+A component dependency policy will set the type and version of a component's dependency. If that dependency is not already listed in the component's dependency graph (i.e, if it wasn't automatically detected), it will be added.
+
+### Variants
+
+Use the Variants config to apply a dependency policy on a group of components. Components can be selected by their common (relative) directory path or by their namespaces.
+
+```json
+{
+  "teambit.dependencies/dependency-resolver": {
+    "policy": {
+      "{ui/**}": {
+        "dependencies": {
+          "classnames": "1.0.0" // sets 'classnames@1.0.0' as a dependency of all components selected by their 'ui' namespace
+        }
+      }
+    }
+  }
+}
+```
+
+Policies set on one group of components can be overridden by other rules set on a more specific group of components (similarly to CSS selections).
+
+For example:
+
+```json
+// Example: override dependency policies by using more specific selectors
+{
+  "teambit.workspace/variants": {
+    "{*}": {
+      "teambit.dependencies/dependency-resolver": {
+        "policy": {
+          "dependencies": {
+            "classnames": "1.0.0" // use 'classnames@1.0.0' on all components (using the '*' selector)
+          }
+        }
+      }
+    },
+    "{ui/**}": {
+      "teambit.dependencies/dependency-resolver": {
+        "policy": {
+          "dependencies": {
+            "classnames": "2.0.0" // use 'classnames@2.0.0' on all components with the namespace 'ui' (using the 'ui/**' selector)
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+### component.json
+
+Component dependency policies can be configured directly on the component by ejecting its [`component.json`](/component-json). Policies set in the `component.json` file are merged with the ones set via Variants.
+
+```json
+// Example: A dependency policy ser directly on an ejected component.json file
+{
+  "componentId": {
+    "name": "ui/text",
+    "version": "0.0.1",
+    "scope": "company.scope"
+  },
+  "propagate": true,
+  "extensions": {
+    "teambit.dependencies/dependency-resolver": {
+      "policy": {
+        "dependencies": {
+          "lodash": "^14.17.21"
+        }
+      }
+    }
+  }
+}
+```
+
+## Component dependency policy (programmatically)
+
+Aspects can sue the Dependency Resolver API to configure the dependency policy for component using them.
+
+### Envs
+
+```ts
+getDependencies(component: any): Promise<DependencyList>
+```
+
+Returns an object that defines the default dependencies for components handled by this environment.
+
+Use the `getDependencies` service handler to standardize the dependency policy of component using [your Env](../envs/extending-env)
+
+For example:
+
+```ts
+import { DependenciesEnv } from '@teambit/envs';
+
+export class MyEnv implements DependenciesEnv {
+  // ...
+
+  async getDependencies() {
+    return {
+      dependencies: {
+        react: '-',
+      },
+      devDependencies: {
+        '@types/react': '16.9.43',
+        '@types/jest': '~26.0.9',
+      },
+      peerDependencies: {
+        react: '^16.13.1',
+        'react-dom': '^16.13.1',
+      },
+    };
+  }
+}
+```
+
+### Aspects (general)
+
+<!-- TODO -->

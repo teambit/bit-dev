@@ -3,24 +3,24 @@ description: 'An MDX component.'
 labels: ['content', 'mdx']
 ---
 
-import { ExternalDependencies } from './index';
+import { Pnpm } from './index';
 
 ### Component usage
 
 ```js
-<ExternalDependencies />
+<Pnpm />
 ```
 
 ### Render with theme and MDX providers
 
 ```js
 import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions';
-import { MDXLayout } from '@teambit/mdx.ui.mdx-layout';
-import { ExternalDependencies } from './index';
+import { MDXLayout } from '@teambit/ui.mdx-layout';
+import { Pnpm } from './index';
 
 <ThemeCompositions>
   <MDXLayout>
-    <ExternalDependencies />
+    <Pnpm />
   </MDXLayout>
 </ThemeCompositions>;
 ```

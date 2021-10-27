@@ -1,0 +1,25 @@
+---
+description: 'An MDX component.'
+labels: ['content', 'mdx']
+---
+
+import { Yarn } from './index';
+
+### Component usage
+```js
+<Yarn />
+```
+
+### Render with theme and MDX providers
+
+```js
+import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions'
+import { MDXLayout } from '@teambit/ui.mdx-layout'
+import { Yarn } from './index'
+
+<ThemeCompositions>
+  <MDXLayout>
+    <Yarn />
+  </MDXLayout>
+</ThemeCompositions>
+```
