@@ -500,7 +500,7 @@ export const docsRoutes: DocsRoute[] = [
     path: 'dependencies',
     title: 'Dependencies',
     open: false,
-    icon: 'dependencies',
+    icon: 'dependencies-icn',
     children: [
       {
         path: 'dependencies-overview',
@@ -611,6 +611,7 @@ export const docsRoutes: DocsRoute[] = [
   {
     path: 'packages',
     title: 'Packages',
+    icon: 'dependencies',
     children: []
   },
   {
@@ -859,6 +860,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'formatter',
         title: 'Formatter',
+        icon: 'formatting',
         children: [
           {
             path: 'formatter-overview',
