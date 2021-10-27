@@ -244,8 +244,8 @@ export const docsRoutes: DocsRoute[] = [
         ],
       },
       {
-        path: 'set-up-ci',
-        title: 'Set Up CI',
+        path: 'setup-ci',
+        title: 'Setup CI',
         open: false,
         children: [
           {
@@ -377,6 +377,10 @@ export const docsRoutes: DocsRoute[] = [
         title: 'Naming components',
       },
       {
+        path: 'dev-files',
+        title: 'Dev files',
+      },
+      {
         path: 'inspecting-components',
         title: 'Inspecting components',
       },
@@ -440,10 +444,6 @@ export const docsRoutes: DocsRoute[] = [
         path: 'node-modules',
         title: 'node_modules',
         component: <NodeModules />,
-      },
-      {
-        path: 'dependency-resolution',
-        title: 'Dependency resolution',
       },
       {
         path: 'inspecting-dependencies',

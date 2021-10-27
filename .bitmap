@@ -291,48 +291,6 @@
         "mainFile": "index.ts",
         "rootDir": "docs/content/getting-started/dev-envs"
     },
-    "content/getting-started/installing-bit": {
-        "scope": "teambit.docs",
-        "version": "1.8.20",
-        "mainFile": "index.ts",
-        "rootDir": "docs/content/getting-started/installing-bit"
-    },
-    "content/getting-started/use-dependencies": {
-        "scope": "teambit.docs",
-        "version": "1.8.20",
-        "mainFile": "index.ts",
-        "rootDir": "docs/content/getting-started/use-dependencies"
-    },
-    "content/guides/inspecting-components": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "docs/content/guides/inspecting-components"
-    },
-    "content/guides/merging-component-versions": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "docs/content/guides/merging-component-versions"
-    },
-    "content/guides/removing-deprecating-components": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "docs/content/guides/removing-deprecating-components"
-    },
-    "content/getting-started/ci-export": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "docs/content/getting-started/ci-export"
-    },
-    "content/getting-started/ci-install": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "docs/content/getting-started/ci-install"
-    },
     "content/getting-started/host-bit-cloud": {
         "scope": "teambit.docs",
         "version": "0.0.3",
@@ -392,6 +350,24 @@
         "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "docs/content/getting-started/what-is-scope"
+    },
+    "content/guides/inspecting-components": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/guides/inspecting-components"
+    },
+    "content/guides/merging-component-versions": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/guides/merging-component-versions"
+    },
+    "content/guides/removing-deprecating-components": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/guides/removing-deprecating-components"
     },
     "content/image": {
         "scope": "teambit.base-react",
