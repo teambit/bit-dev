@@ -57,6 +57,12 @@
         "mainFile": "index.ts",
         "rootDir": "component/content/capsule"
     },
+    "content/clearing-cache": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "workspace/content/clearing-cache"
+    },
     "content/cli-reference": {
         "scope": "teambit.harmony",
         "version": "1.8.20",
@@ -153,6 +159,18 @@
         "mainFile": "index.ts",
         "rootDir": "webpack/content/configure-webpack"
     },
+    "content/configuring-remote-scopes": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "workspace/content/configuring-remote-scopes"
+    },
+    "content/creating-workspaces": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "workspace/content/creating-workspaces"
+    },
     "content/dev-services-overview": {
         "scope": "teambit.envs",
         "version": "1.8.20",
@@ -182,6 +200,12 @@
         "version": "1.8.20",
         "mainFile": "index.ts",
         "rootDir": "envs/content/env-troubleshooting"
+    },
+    "content/exporting-components": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "workspace/content/exporting-components"
     },
     "content/extending-env": {
         "scope": "teambit.envs",
@@ -213,6 +237,18 @@
         "mainFile": "index.ts",
         "rootDir": "defender/content/formatting-during-development"
     },
+    "content/getting-started/ci-export": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/getting-started/ci-export"
+    },
+    "content/getting-started/ci-install": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/getting-started/ci-install"
+    },
     "content/getting-started/composing/create-components": {
         "scope": "teambit.community",
         "version": "1.8.20",
@@ -230,30 +266,6 @@
         "version": "1.8.20",
         "mainFile": "index.ts",
         "rootDir": "docs/content/getting-started/dev-envs"
-    },
-    "content/getting-started/installing-bit": {
-        "scope": "teambit.docs",
-        "version": "1.8.20",
-        "mainFile": "index.ts",
-        "rootDir": "docs/content/getting-started/installing-bit"
-    },
-    "content/getting-started/use-dependencies": {
-        "scope": "teambit.docs",
-        "version": "1.8.20",
-        "mainFile": "index.ts",
-        "rootDir": "docs/content/getting-started/use-dependencies"
-    },
-    "content/getting-started/ci-export": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "docs/content/getting-started/ci-export"
-    },
-    "content/getting-started/ci-install": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "docs/content/getting-started/ci-install"
     },
     "content/getting-started/host-bit-cloud": {
         "scope": "",
@@ -273,11 +285,11 @@
         "mainFile": "index.ts",
         "rootDir": "docs/content/getting-started/install-components"
     },
-    "content/getting-started/what-is-scope": {
-        "scope": "",
-        "version": "",
+    "content/getting-started/installing-bit": {
+        "scope": "teambit.docs",
+        "version": "1.8.20",
         "mainFile": "index.ts",
-        "rootDir": "docs/content/getting-started/what-is-scope"
+        "rootDir": "docs/content/getting-started/installing-bit"
     },
     "content/getting-started/self-host-scope": {
         "scope": "",
@@ -297,11 +309,23 @@
         "mainFile": "index.ts",
         "rootDir": "docs/content/getting-started/update-components"
     },
+    "content/getting-started/use-dependencies": {
+        "scope": "teambit.docs",
+        "version": "1.8.20",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/getting-started/use-dependencies"
+    },
     "content/getting-started/version-components": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
         "rootDir": "docs/content/getting-started/version-components"
+    },
+    "content/getting-started/what-is-scope": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/getting-started/what-is-scope"
     },
     "content/image": {
         "scope": "teambit.base-react",
@@ -339,6 +363,12 @@
         "mainFile": "index.ts",
         "rootDir": "envs/content/implementing-new-env"
     },
+    "content/importing-components": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "workspace/content/importing-components"
+    },
     "content/inspecting-env": {
         "scope": "teambit.envs",
         "version": "1.8.20",
@@ -363,6 +393,12 @@
         "mainFile": "index.ts",
         "rootDir": "defender/content/linting-during-development"
     },
+    "content/local-scope": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "workspace/content/local-scope"
+    },
     "content/mdx": {
         "scope": "teambit.docs",
         "version": "1.8.20",
@@ -374,6 +410,12 @@
         "version": "1.8.20",
         "mainFile": "index.ts",
         "rootDir": "compositions/content/mounting-compositions-to-dom"
+    },
+    "content/moving-components": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "workspace/content/moving-components"
     },
     "content/multi-compiler": {
         "scope": "teambit.compilation",
@@ -476,6 +518,12 @@
         "version": "1.8.20",
         "mainFile": "index.ts",
         "rootDir": "base-react/content/video"
+    },
+    "content/workspace-configuration": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "workspace/content/workspace-configuration"
     },
     "content/workspace-link": {
         "scope": "teambit.workspace",

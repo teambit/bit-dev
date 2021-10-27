@@ -1,0 +1,24 @@
+# Clearing Cache
+
+```bash
+bit clear-cache
+```
+
+The clear-cache command removes the following:
+
+1. Bit's compiled code (compiled as part of V8's Just-in-Time compilation). Caching is optimized using the [v8-compile-cache](https://www.npmjs.com/package/v8-compile-cache) package.
+
+2. Components cache on the filesystem
+
+- The parsed component docs (e.g, prop types)
+- The results for the dependency detection and resolution (saved in `.git/bit/components/deps/`).
+
+3. The scope's index file `.git/bit/index.json`, which maps the component-id:object-hash
+
+```bash
+$ bit clear-cache
+the following cache(s) have been cleared:
+  ✔ v8-compile-cache code
+  ✔ components cache on the filesystem
+  ✔ scope-index file
+```

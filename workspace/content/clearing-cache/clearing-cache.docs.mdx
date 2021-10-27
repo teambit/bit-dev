@@ -1,0 +1,25 @@
+---
+description: 'An MDX component.'
+labels: ['content', 'mdx']
+---
+
+import { ClearingCache } from './index';
+
+### Component usage
+```js
+<ClearingCache />
+```
+
+### Render with theme and MDX providers
+
+```js
+import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions'
+import { MDXLayout } from '@teambit/ui.mdx-layout'
+import { ClearingCache } from './index'
+
+<ThemeCompositions>
+  <MDXLayout>
+    <ClearingCache />
+  </MDXLayout>
+</ThemeCompositions>
+```
