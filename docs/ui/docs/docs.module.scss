@@ -6,30 +6,16 @@
 .content {
   padding: 0 36px;
   box-sizing: border-box;
+  min-width: 0; // prevents content from overflowing
 }
 
 .main {
-  flex: 1 1;
-
-  height: 100%;
-  overflow: hidden;
-  .splitter {
-    position: relative;
-    height: calc(100% - 44px);
-
-    > :first-child {
-      z-index: 1;
-      position: absolute;
-    }
-  }
+  display: flex;
 }
 
 .sidebar {
-  min-width: 100px;
-  max-width: 85%;
-  position: relative;
-  overflow: hidden;
-  height: 100%;
+  min-width: 264px;
+  border-right: 1px solid var(--bit-border-color-lightest, #ededed);
 }
 
 .primaryLinks {
