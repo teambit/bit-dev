@@ -8,7 +8,7 @@ import styles from './nav.module.scss';
 
 export type NavProps = {} & React.HTMLAttributes<HTMLDivElement>;
 
-export function Nav({ className, ...rest }: NavProps) {
+export function Nav({ className, children, ...rest }: NavProps) {
   return (
     <div {...rest} className={classNames(styles.nav, className)}>
       <NavLinks links={headerContent} />
@@ -17,7 +17,7 @@ export function Nav({ className, ...rest }: NavProps) {
         <ExternalLink href="https://join.slack.com/t/bit-dev-community/shared_invite/zt-o2tim18y-UzwOCFdTafmFKEqm2tXE4w">
           <Icon of="slack" />
         </ExternalLink>
-        <Icon of="settings" />
+        {children}
       </div>
     </div>
   );

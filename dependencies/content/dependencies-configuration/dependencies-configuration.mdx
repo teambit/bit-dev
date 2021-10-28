@@ -1,0 +1,133 @@
+# Dependency Configuration
+
+## policy
+
+```ts
+policy: WorkspacePolicyConfigObject;
+```
+
+The dependency policies. See [here](#).
+
+## packageManager
+
+```ts
+packageManager: string;
+```
+
+Set the aspect ID of the package manager to use for dependency installation (a custom package manager may also be used).
+
+- [pnpm](#)
+
+- [yarn](#)
+
+## packageManagerArgs
+
+```ts
+packageManagerArgs: string[];
+```
+
+A map of extra arguments to pass to the configured package manager upon the installation of dependencies.
+
+## devFilePatterns
+
+```ts
+devFilePatterns: string[];
+```
+
+A glob pattern for determining whether a file is a development file. This will automatically consider all dependencies of that file as `devDependencies` (unless other files in the same component use this dependency for runtime).
+
+For example: `["**/*.spec.ts]"`
+
+## strictPeerDependencies
+
+```ts
+strictPeerDependencies: boolean;
+```
+
+If true, Bit will add the `"--strict-peer-dependencies"` option when invoking package managers. This causes "bit install" to fail if there are unsatisfied peer dependencies, which is an invalid state that can cause build failures or incompatible dependency versions.
+(For historical reasons, JavaScript package managers generally do not treat this invalid state as an error.)
+
+The default value is false to avoid legacy compatibility issues. It is strongly recommended to set `strictPeerDependencies=true`.
+
+## savePrefix
+
+```ts
+savePrefix: string;
+```
+
+Set the version prefix to use when adding a dependency to `policy` (in `workspace.jsonc`) via `bit install`.
+
+By default, a dependency installed is registered in `policy` with the caret prefix (for example, `^1.2.3`). This allows for minor (and patch) upgrades for that dependency.
+
+- To enable only patch upgrades: `savePrefix: "~"`
+
+- To enable only specific versions (set an empty string): `savePrefix: ""`
+
+## proxy
+
+```ts
+proxy?: string;
+```
+
+A proxy server for outgoing network requests by the package manager. Used for both HTTP and HTTPS requests (unless the `httpsProxy` is defined).
+
+## httpsProxy
+
+```ts
+httpsProxy?: string;
+```
+
+A proxy server for outgoing https requests by the package manager. Use this in case you want different proxy for https requests (this will override `proxy` for HTTPS requests).
+
+## ca
+
+```ts
+ca?: string;
+```
+
+A path to a file containing one or multiple Certificate Authority signing certificates. This allows for multiple CA's, as well as for the CA information, to be stored in a file on disk.
+
+## strictSsl
+
+```ts
+strictSsl?: string;
+```
+
+Whether or not to perform SSL key validation when making requests to the registry via https.
+
+## cert
+
+```ts
+cert?: string;
+```
+
+A client certificate to pass when accessing the registry. Values should be in PEM format (Windows calls it "Base-64 encoded X.509 (.CER)") with newlines replaced by the string "\n". For example:
+`cert="-----BEGIN CERTIFICATE-----\nXXXX\nXXXX\n-----END CERTIFICATE-----"`. It is not the path to a certificate file (and there is no "certfile" option).
+
+## key
+
+```ts
+key?: string;
+```
+
+A client key to pass when accessing the registry. Values should be in PEM format with newlines replaced by the string "\n".
+For example: `key="-----BEGIN PRIVATE KEY-----\nXXXX\nXXXX\n-----END PRIVATE KEY-----"`. It is not the path to a key file (and there is no "keyfile" option).
+
+## noProxy
+
+```ts
+noProxy?: string;
+```
+
+A comma-separated string of domain extensions that a proxy should not be used for.
+
+## installFromBitDevRegistry
+
+```ts
+installFromBitDevRegistry: boolean;
+```
+
+By default, `.npmrc` files that are set to use the `https://registry.npmjs.org/` registry, will be replaced with `node.bit.dev` before a `bit install` is executed.
+Bit does this in order to save you the need to configure many scoped registries for components from different owners. `bit.dev` registry serves as a proxy the request to npmjs registry for packages that are not found in the `bit.dev` registry.
+
+To disable this behavior, set this property to `false`.

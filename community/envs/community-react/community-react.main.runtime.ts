@@ -21,11 +21,7 @@ export class CommunityReactMain {
 
   static runtime = MainRuntime;
 
-  static async provider([react, envs, generator]: [
-    ReactMain,
-    EnvsMain,
-    GeneratorMain
-  ]) {
+  static async provider([react, envs, generator]: [ReactMain, EnvsMain, GeneratorMain]) {
     const templatesReactEnv = envs.compose(react.reactEnv, [
       /**
        * Uncomment to override the config files for TypeScript, Webpack or Jest
@@ -33,9 +29,9 @@ export class CommunityReactMain {
        */
       react.useTypescript({
         devConfig: [transformTsConfig],
-        buildConfig: [transformTsConfig]
+        buildConfig: [transformTsConfig],
       }),
-      
+
       // react.useWebpack({
       //   previewConfig: [previewConfigTransformer],
       //   devServerConfig: [devServerConfigTransformer],
@@ -53,9 +49,11 @@ export class CommunityReactMain {
         transformers: [
           (config) => {
             config.setRule('no-console', ['error']);
+            config.setRule('react/jsx-props-no-spreading', 'off');
+
             return config;
-          }
-        ]
+          },
+        ],
       }),
 
       /**
@@ -68,9 +66,11 @@ export class CommunityReactMain {
         transformers: [
           (config) => {
             config.setKey('tabWidth', 2);
+            config.setKey('printWidth', 120);
+            config.setKey('singleQuote', true);
             return config;
-          }
-        ]
+          },
+        ],
       }),
 
       /**
@@ -81,8 +81,8 @@ export class CommunityReactMain {
       react.overrideDependencies({
         devDependencies: {
           // '@types/react': '17.0.3'
-        }
-      })
+        },
+      }),
     ]);
     envs.registerEnv(templatesReactEnv);
 

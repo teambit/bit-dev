@@ -1,3 +1,5 @@
+@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
+
 .featuresCardGrid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -5,14 +7,14 @@
   margin-bottom: 40px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: $br-lg) {
   .featuresCardGrid {
     grid-template-columns: repeat(2, 1fr);
     grid-row-gap: 40px;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $br-md) {
   .featuresCardGrid {
     grid-template-columns: 1fr;
     grid-row-gap: 40px;
