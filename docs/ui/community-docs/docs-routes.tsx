@@ -424,7 +424,7 @@ export const docsRoutes: DocsRoute[] = [
       },
       {
         path: 'package-managers',
-        title: 'Package Managers',
+        title: 'Package managers',
         component: <PackageManagers />,
       },
       {
@@ -441,6 +441,11 @@ export const docsRoutes: DocsRoute[] = [
         path: 'dependency-resolution',
         title: 'Dependency resolution',
         component: <DependencyResolution />,
+      },
+      {
+        path: 'cyclic-dependencies',
+        title: 'Cyclic dependencies',
+        component: <LockFiles />,
       },
       {
         path: 'lock-files',

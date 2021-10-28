@@ -1,4 +1,4 @@
-import React, { useReducer, useMemo } from 'react';
+import React, { ReactNode, useReducer, useMemo } from 'react';
 import { DocsRoute, DocsRoutes } from '@teambit/docs.entities.docs-routes';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
 import { Sidebar } from '@teambit/docs.ui.sidebar';
@@ -31,12 +31,17 @@ export type DocsProps = {
   primaryLinks?: DocsRoute[],
 
   /**
+   * Component to render for doc contribution instructions.
+   */
+  contribution?: ReactNode,
+
+  /**
    * shows a next page box after every page unless specifically set otherwise by the route using the `showNext` property on DocsRoute. 
    */
   showNext?: boolean,
 } & Omit<SplitPaneProps, 'children'>;
 
-export function Docs({ routes, primaryLinks = [], showNext = true, baseUrl = '/', ...rest }: DocsProps) {
+export function Docs({ routes, primaryLinks = [], showNext = true, baseUrl = '/', contribution, ...rest }: DocsProps) {
   const { path } = useRouteMatch();
   const docRoutes = DocsRoutes.from(routes, baseUrl || path);
   const primaryRoutes = DocsRoutes.from(primaryLinks, baseUrl || path);
@@ -68,6 +73,12 @@ export function Docs({ routes, primaryLinks = [], showNext = true, baseUrl = '/'
       </HoverSplitter>
       <Pane className={styles.content}>
         <Switch>
+        {contribution ? 
+            <Route>
+              {contribution}
+            </Route>
+          : ''
+        }
           {routeArray.map((route, key) => {
             const next = routeArray[key + 1] ? routeArray[key + 1] : undefined;
             return (
