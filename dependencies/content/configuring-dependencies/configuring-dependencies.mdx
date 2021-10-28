@@ -1,0 +1,179 @@
+# Configuring Dependencies
+
+Even though dependencies are usally set automatically by using [dependency policies](/docs/dependencies/dependency-policies). Components in the Workspace can be configured with a 
+specific set of dependencies. Component dependencies can either be configured with [Variants](/docs/workspace/variants), the development environment, from by ejecting the component configuration and editing [component.json](/docs/components/component-json)
+like any [component configuration](/docs/components/component-config) in Bit. 
+
+Specific dependencies can be configured by setting `dependencies` property on the `teambit.dependencies/dependency-resolver` configuration.
+
+In the example below, `classnames` is configured to all components under the `ui` namespace.
+
+```json
+{
+  "teambit.dependencies/dependency-resolver": {
+    "dependencies": {
+      "{ui/**}": {
+        "standard": {
+          "classnames": "1.0.0" 
+        }
+      }
+    }
+  }
+}
+```
+
+To check whether the configuration has applied on selected components use `bit show`.
+```
+$ bit show ui/heading
+```
+
+```bash {6}
+┌───────────────────┬────────────────────────────────────────────────────────────┐
+│ id                │ myorg.design/ui/button                                     │
+├───────────────────┼────────────────────────────────────────────────────────────┤
+│ name              │ ui/heading                                                 │
+├───────────────────┼────────────────────────────────────────────────────────────┤
+│ module name       │ @myorg/design.ui.heading                                   │
+├───────────────────┼────────────────────────────────────────────────────────────┤
+│ dependencies      │ classnames@1.0.0- (package)                                │
+└───────────────────┴────────────────────────────────────────────────────────────┘
+```
+
+:::tip
+Variants can be used to select components by directories, or even to select specific components. To learn more about configuring components with Variants, head over to the
+[Variants documantation](/docs/workspace/variants). 
+:::
+
+As mentioned, dependencies can also be configured through `component.json` which can be easily ejected for any component in the Workspace with `bit eject-conf`.
+
+```bash
+bit eject conf ui/heading
+```
+
+```json
+{
+  "componentId": {
+    "name": "ui/heading",
+    "version": "1.0.0",
+    "scope": "myorg.design"
+  },
+  "propagate": true,
+  "extensions": {
+    "teambit.dependencies/dependency-resolver": {
+      "policy": {
+        "dependencies": {
+          "classnames": "1.0.0"
+        }
+      }
+    }
+  }
+}
+```
+
+## Remove a dependency
+
+Using the `-` sign, components can be forced to ignore a specific dependency. This might be useful in cases where the dependency type has to be changed and in other special cases.
+For example, a dependency can be moved from `dependencies` to `peerDependencies` by removing it from `dependencies` and listing it under `peerDependencies`.
+
+```json title="Removing a dependency and setting it as a peer dependency"
+"teambit.dependencies/dependency-resolver": {
+    "dependencies": {
+      "standard": {
+        "enzyme": "-"
+      },
+      "peerDependencies": {
+        "enzyme": "^3.11.0"
+      }
+    }
+```
+
+## Dev and peer dependencies
+Components can be also configured to use dependencies of different types. Configuring either dev or peer dependencies to a component can be done by using the `devDependencies` or `peerDependencies` properties.
+In the example below, `@testing-library/react` is configured as a dependency 
+
+```json
+{
+  "@teambit.dependencies/dependency-resolver": {
+    "policy": {
+      "devDependencies": {
+        "@testing-library/react": "^12.1.2"
+      }
+    }
+  }
+}
+```
+
+
+
+A component dependency policy will set the type and version of a component's dependency. If that dependency is not already listed in the component's dependency graph (i.e, if it wasn't automatically detected), it will be added.
+
+
+## Configuring dependencies from an Env
+Configuring dependencies from the Env is useful for standardizing component dependencies, such as peer dependencies across a large set of components. This helps ensure
+consistent and efficient dependency trees. Other example for configuration of dependencies that might apply by the env could be dependencies added throughout component
+compilation.
+
+
+To set dependencies from a React env, implement the env `getDependencies` method and return a set up dependencies.
+```ts
+getDependencies(component: any): Promise<DependencyList>
+```
+
+An example env, removing React as a dependency and adding common types packages to all components can be as following. 
+
+```ts
+import { DependenciesEnv } from '@teambit/envs';
+
+export class MyEnv implements DependenciesEnv {
+  // ...
+
+  async getDependencies() {
+    return {
+      dependencies: {
+        react: '-',
+      },
+      devDependencies: {
+        '@types/react': '16.9.43',
+        '@types/jest': '~26.0.9',
+      },
+      peerDependencies: {
+        react: '^16.13.1',
+        'react-dom': '^16.13.1',
+      },
+    };
+  }
+}
+```
+
+### Configuring from Aspects
+
+Configuring dependencies from an Aspect can be useful for various automations, improvement of development experience and more advanced use cases. 
+
+```bash
+bit create aspect my-aspect
+```
+
+Use the dependency resolver aspect as a dependency.
+
+```ts
+import { DependencyResolverAspect, DependencyResolverMain } from '@teambit/dependency-resolver';
+
+export class MyAspect {
+  static dependencies = [DependencyResolverAspect];
+  static provider([depResolver]: [DependencyResolverMain]) {
+    dependencyResolver.registerDependenciesPolicies([
+      {
+        standard: {
+          classnames: '1.0.0'
+        }
+      }
+    ]);
+    return new MyAspect();
+  }
+}
+...
+```
+
+Snippet above configures any component configured with the `MyAspect` aspect with the `classnames` package. To configure components with this aspect 
+
+

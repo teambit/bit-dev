@@ -128,6 +128,7 @@ const EnvToubleshooting = loadable(() => import('@teambit/envs.content.env-troub
 const DependenciesOverview = loadable(() => import('@teambit/dependencies.content.dependencies-overview'));
 const ExternalDependencies = loadable(() => import('@teambit/dependencies.content.external-dependencies'));
 const DependencyPolicies = loadable(() => import('@teambit/dependencies.content.dependency-policies'));
+const ConfiguringDependencies = loadable(() => import('@teambit/dependencies.content.configuring-dependencies'));
 const DependenciesConfiguration = loadable(() => import('@teambit/dependencies.content.dependencies-configuration'));
 const DependencyInstallation = loadable(() => import('@teambit/dependencies.content.installing-dependencies'));
 const DependencyResolution = loadable(() => import('@teambit/dependencies.content.dependency-resolution'));
@@ -399,46 +400,37 @@ export const docsRoutes: DocsRoute[] = [
     children: [
       {
         path: 'dependencies-overview',
-        title: 'Dependencies Overview',
+        title: 'Dependencies overview',
         component: <DependenciesOverview />,
       },
       {
-        path: 'external-dependencies',
-        title: 'External Dependencies',
-        component: <ExternalDependencies />,
-      },
-      {
-        path: 'dependency-policies',
-        title: 'Dependency Policies',
-        component: <DependencyPolicies />,
-      },
-      {
-        path: 'dependency-resolution',
-        title: 'Dependency Resolution',
-        component: <DependencyResolution />,
-      },
-      {
         path: 'dependency-installation',
-        title: 'Dependency Installation',
+        title: 'Dependency installation',
         component: <DependencyInstallation />,
       },
       {
-        path: 'dependencies-config',
-        title: 'Dependencies Config',
-        component: <DependenciesConfiguration />,
+        path: 'dependency-policies',
+        title: 'Dependency policies',
+        component: <DependencyPolicies />,
       },
       {
-        path: 'lock-files',
-        title: 'Lock Files',
-        component: <LockFiles />,
+        path: 'configuring-dependencies',
+        title: 'Configuring dependencies',
+        component: <ConfiguringDependencies />,
       },
       {
         path: 'updates',
         title: 'Dependency updates',
       },
       {
-        path: 'policies',
-        title: 'Dependency policies',
+        path: 'package-managers',
+        title: 'Package Managers',
+        component: <PackageManagers />,
+      },
+      {
+        path: 'external-dependencies',
+        title: 'External dependencies',
+        component: <ExternalDependencies />,
       },
       {
         path: 'node-modules',
@@ -446,17 +438,23 @@ export const docsRoutes: DocsRoute[] = [
         component: <NodeModules />,
       },
       {
+        path: 'dependency-resolution',
+        title: 'Dependency resolution',
+        component: <DependencyResolution />,
+      },
+      {
+        path: 'lock-files',
+        title: 'Lock files',
+        component: <LockFiles />,
+      },
+      {
         path: 'inspecting-dependencies',
         title: 'Inspecting dependencies',
       },
       {
-        path: 'peer-dependencies',
-        title: 'Peer dependencies',
-      },
-      {
-        path: 'package-managers',
-        title: 'Package Managers',
-        component: <PackageManagers />,
+        path: 'dependencies-config',
+        title: 'Dependencies Config',
+        component: <DependenciesConfiguration />,
       },
     ],
   },

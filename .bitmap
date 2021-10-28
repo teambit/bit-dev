@@ -177,6 +177,12 @@
         "mainFile": "index.ts",
         "rootDir": "webpack/content/configure-webpack"
     },
+    "content/configuring-dependencies": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "dependencies/content/configuring-dependencies"
+    },
     "content/dependencies-configuration": {
         "scope": "",
         "version": "",
