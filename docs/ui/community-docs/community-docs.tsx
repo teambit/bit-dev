@@ -18,7 +18,7 @@ export function CommunityDocs({ baseUrl = '/docs', ...rest }: CommunityDocsProps
       routes={docsRoutes} 
       primaryLinks={primaryRoutes} 
       baseUrl={baseUrl} 
-      contribution={<ContributingDocs
-    />} />
+      // contribution={<ContributingDocs/>} 
+    />
   );
 }
