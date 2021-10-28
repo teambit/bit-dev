@@ -1,0 +1,20 @@
+# Yarn
+
+Yarn is an aspect that integrates Yarn **v2** package manager into Bit. This aspect can be used by the Dependency Resolver, for dependency installation.
+
+To start using the yarn aspect as a package manager for your workspace, set the Dependency Resolver `packageManager` property to 'yarn'.
+
+```json
+{
+  "teambit.dependencies/dependency-resolver": {
+    "packageManager": "teambit.dependencies/yarn"
+  }
+}
+```
+
+> Package manager are only configurable at the workspace configuration root-level.
+> That means, different components in the same workspace cannot use different package manager.
+
+---
+
+> Packages on NPM will be installed from Bit.dev's registry instead of NPM's. This will be done using the user's Bit credentials.

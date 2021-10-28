@@ -1,0 +1,43 @@
+import { Image } from '@teambit/docs.ui.zoomable-image';
+import dependencyLockImg from './dependency-lock.png';
+import dependencyModuleTypeImg from './dependency-module-type.png';
+import dependencyTypeImg from './dependency-type.png';
+import dependencyPolicyHierarchyImg from './dependency-policy-hierarchy.png';
+
+# Dependency Detection and Resolution
+
+Bit greatly simplifies component dependency management by automating most of it. The Dependency Resolver detects component dependencies by parsing out their [files'] `import`/`require` statements. It then determines their dependency type ('runtime', 'peer', or 'dev'), their module type ('package' or 'component'), and resolves their version number.
+
+Dependency versions are resolved during the component versioning (`bit tag` or `bit snap`).
+
+Dependencies of module-type 'components', are always registered using the concrete version number of the dependency that was installed in their `node_modules` directory, during their build.
+This is done to ensure a component functions the same when installed in other projects.
+
+<Image width="80%" src={dependencyLockImg} alt="locking the version of dependencies of type 'component'" />
+
+## Determining the dependency module type
+
+<Image src={dependencyModuleTypeImg} />
+
+## Determining the dependency type
+
+<Image src={dependencyTypeImg} />
+
+## The dependency policies hierarchy
+
+The Dependency Resolver integrates dependency policies from various sources to determine the component's final dependency graph.
+
+Cases of conflicting policies are resolved according to a hierarchy of source types, where the one at the top overrides the rest.
+
+The hierarchy in a descending order:
+
+1. Policies set by Variants (@teambit/variants) and the component.json files of "ejected" components (these two sources are merged by Variants).
+2. Policies set by various aspects (using `registerDependencyPolicy`)
+3. Policies set by the Env (using the `getDependencies` service handler)
+4. Bit’s automated dependency detections, and policies set by the Dependency Resolver at the workspace configuration root-level.
+
+<Image width="80%" src={dependencyPolicyHierarchyImg} />
+
+:::info understanding the resolved dependencies for a component
+Use the `bit dependencies <component-id>` command to understand the calculations and interactions that resolved in the generated dependency graph of a specific component.
+:::

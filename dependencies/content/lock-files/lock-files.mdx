@@ -1,0 +1,28 @@
+# Lock Files
+
+A lock file is a representation of the `node_modules` directory, written in a YAML format.
+It is automatically generated and updated, whenever the `node_modules` directory structure is modified by the package manager (when packages are either installed or removed).
+
+Lock files are generally used as way to achieve consistent and predictable CIs ([among other things](https://docs.npmjs.com/cli/v7/configuring-npm/package-lock-json)).
+They provide the package manager with the latest dependency resolution results, so as not to run an additional dependency resolution process which may produce different results (and consequently, install different packages in the CI server).
+
+```yaml
+// Example: A pnpm lock file (pnpm-lock.yaml)
+
+  registry.npmjs.org/@babel/highlight/7.14.5:
+    resolution: {integrity: sha512-qf9u2WFWVV0MppaL877j2dBtQIDgmidgjGk5VIMw3OadXvYaXn66U1BFlH2t4+t3i+8PhedppRv+i40ABzd+gg==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@babel/highlight/-/highlight-7.14.5.tgz}
+    name: '@babel/highlight'
+    version: 7.14.5
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      '@babel/helper-validator-identifier': registry.npmjs.org/@babel/helper-validator-identifier/7.15.7
+      chalk: registry.npmjs.org/chalk/2.4.2
+      js-tokens: registry.npmjs.org/js-tokens/4.0.0
+    dev: false
+```
+
+When running `bit install`, a lock file is generated in the workspace root directory. The type of lock file is determined by the package manager (used via the Dependency resolver).
+
+Lock files are used by the package manager to optimize the installation process in the workspace (by making use of the previous dependency resolution results, whenever possible). However, they are not used by Bit to lock the versions of component dependencies.
+
+Furthermore, lock files, generated in Capsules, are mere side effects. They are not used by any build task, nor persisted in the component objects.
