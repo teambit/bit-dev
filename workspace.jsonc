@@ -70,8 +70,6 @@
         "@teambit/base-ui.routing.native-nav-link": "1.0.0",
         "@teambit/base-ui.routing.routing-provider": "1.0.0",
         "@teambit/base-ui.surfaces.card": "1.0.1",
-        "@teambit/base-ui.surfaces.split-pane.hover-splitter": "1.0.0",
-        "@teambit/base-ui.surfaces.split-pane.split-pane": "1.0.0",
         "@teambit/base-ui.text.paragraph": "1.0.3",
         "@teambit/component-id": "0.0.369",
         "@teambit/component.modules.component-url": "0.0.71",
