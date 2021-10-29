@@ -21,6 +21,12 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/buttons/button"
     },
+    "content/angular-overview": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "angular/content/angular-overview"
+    },
     "content/bitmap": {
         "scope": "teambit.workspace",
         "version": "1.9.0",
