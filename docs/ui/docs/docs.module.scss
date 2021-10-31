@@ -8,6 +8,7 @@
 .content {
   padding: 0 36px;
   box-sizing: border-box;
+  width: 100%;
   min-width: 0; // prevents content from overflowing
 }
 
@@ -17,9 +18,12 @@
 
 .sidebar {
   border-right: 1px solid var(--bit-border-color-lightest, #ededed);
+  @media screen and (max-width: $br-md) {
+    border-right: none;
+  }
   .overlay {
     display: none;
-    z-index: 99999;
+    z-index: 99999; // TODO: get from zindexs
     position: absolute;
     background-color: var(--bit-text-color-heavy, #2b2b2b);
     opacity: 0.8;
@@ -41,9 +45,8 @@
   overflow: hidden;
   flex: 0 0 240px;
   width: 240px;
-  z-index: 999999;
+  z-index: 999999; // TODO: get from zindexs
   background-color: white;
-  // border-right: 1px solid var(--bit-border-color-lightest, #ededed);
   transition: flex-basis 300ms, width 300ms ease-in-out;
   div {
     white-space: nowrap;
