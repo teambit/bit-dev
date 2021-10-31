@@ -50,6 +50,8 @@ export class CommunityReactMain {
           (config) => {
             config.setRule('no-console', ['error']);
             config.setRule('react/jsx-props-no-spreading', 'off');
+            config.setRule('consistent-return', 'off');
+            config.setRule('arrow-body-style', 'off');
 
             return config;
           },
