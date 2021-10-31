@@ -1,0 +1,175 @@
+# Dependency Policies
+
+Component dependnecies are defined in Bit through dependency policies. A dependency policy is definition of a set of dependencies, with a [SemVer](https://semver.org) range, allowed to use from components 
+in your development workspace. Dependencies are set to components upon usage through an `import` or a `require` statement. 
+
+Defining a dependency policy in the Workspace can be done by configuring the `teambit.dependnecies/dependency.resolver` key in `workspace.json`.
+
+```json
+{
+  "teambit.dependencies/dependency-resolver": {
+    "policy": {
+      "dependencies": {
+        "lodash": "^4.17.0",
+        "classnames": "~4.17.0"
+      }
+    }
+  }
+}
+```
+
+:::note
+Dependencies defined in a Workspace `package.json` are also considered as policy by Bit, but it is recommended to use `workspace.json` for more advanced dependency configuration
+features such as force notations. Also, `package.json` and `workspace.json` can be combined on the same workspace. Bit uses both and merges them into a single policy.
+:::
+
+In the example above, we are configuring `lodash` and `classnames` to use specific SemVer ranges. Every installation of dependnecies using `bit install` command would install
+the latest versions allowed by the defined ranges.
+
+Once adding `lodash` to be used from my one of my components through an `import` or a `require` statement, bit sets `lodash` as a dependency on my component.
+
+```ts
+import { get } from 'lodash';
+```
+
+To see the new dependnecy defined on my component, you can use `bit show`.
+
+```bash
+$ bit show ui/button
+```
+
+```bash {6}
+┌───────────────────┬────────────────────────────────────────────────────────────┐
+│ id                │ myorg.design/ui/button                                     │
+├───────────────────┼────────────────────────────────────────────────────────────┤
+│ name              │ ui/heading                                                 │
+├───────────────────┼────────────────────────────────────────────────────────────┤
+│ module name       │ @myorg/design.ui.heading                                   │
+├───────────────────┼────────────────────────────────────────────────────────────┤
+│ dependencies      │ lodash@4.17.21- (package)                                  │
+└───────────────────┴────────────────────────────────────────────────────────────┘
+```
+
+As seen above, Bit has detected the use of `lodash` and set this dependency to the `ui/button` component. `classnames` is not defined as a dependency since it is not used
+by the component.
+
+To learn about how Bit resolves dependencies, head over to the [Depedency Resolution](/) docs.
+
+
+## Dev dependencies
+`devDependencies` are used only during development but not used in production. Usually dev dependencies are used from test files, documantation and other files that are required
+only for component development purposes. In the policy, dev dependencies are set just like any other depenendecy unlike in the `package.json` dependencies entry like in the example
+below.
+
+```json
+{
+  "teambit.dependencies/dependency-resolver": {
+    "policy": {
+      "dependencies": {
+        "@testing-library/react": "~12.0.0"
+      }
+    }
+  }
+}
+```
+
+Bit automatically resolves dependencies as `devDependencies` when the files using them are classified as [Dev Files](/docs/components/dev-files). By default, different aspects of
+bit classify files as `*.composition.*`, `*.docs.*` and `*.test.*`.
+
+For example, using the `@testing-library/react` package only from the test file: `heading.spec.ts` will result in Bit defining the package as a dev dependency of my component. 
+In the example below, using `bit show`, you can see which files are classified as dev files and that bit detected @testing-library/react as a dev dependency for my component
+as a result.  
+
+
+
+```
+$ bit show ui/button
+```
+
+```bash {6}
+┌───────────────────┬─────────────────────────────────────────────────────────────┐
+│ id                │ myorg.design/ui/heading                                     │
+├───────────────────┼─────────────────────────────────────────────────────────────┤
+│ scope             │ myorg.design                                                │
+├───────────────────┼─────────────────────────────────────────────────────────────┤
+│ name              │ ui/heading                                                  │
+├───────────────────┼─────────────────────────────────────────────────────────────┤
+│ module name       │ @myorg/design.ui.heading                                    │
+├───────────────────┼─────────────────────────────────────────────────────────────┤
+│ dev files         │ heading.spec.tsx (teambit.defender/tester)                  │
+├───────────────────┼─────────────────────────────────────────────────────────────┤
+│ dependencies      │ ...                                                         │
+├───────────────────┼─────────────────────────────────────────────────────────────┤
+│ dev dependencies  │ @testing-library/react@12.0.0- (package)                    │                                     │
+├───────────────────┼─────────────────────────────────────────────────────────────┤
+│ peer dependencies │ ...                                                         │
+└───────────────────┴─────────────────────────────────────────────────────────────┘
+```
+
+By using the `@testing-library/react` package from a runtime file such as `button.ts`, Bit will switch the definition of the dependency to be a regular dependency instead.
+
+
+## Peer dependencies
+Peer dependencies are used when a single instance of a module is allowed in a single process. In a component-driven architecture, only apps are the ones to define and decide on 
+peer dependencies and their specific versions. Therefore, in Bit, peer dependencies are defined by the component' development env.
+
+To understand this further, you can use `bit show` on a React component in the Workspace. 
+
+```bash
+bit show ui/button
+```
+```
+┌───────────────────┬─────────────────────────────────────────────────────────────┐
+│ id                │ myorg.design/ui/heading                                     │
+├───────────────────┼─────────────────────────────────────────────────────────────┤
+│ scope             │ myorg.design                                                │
+├───────────────────┼─────────────────────────────────────────────────────────────┤
+│ env               │ teambit.bit/react                                           │
+├───────────────────┼─────────────────────────────────────────────────────────────┤
+│ name              │ ui/heading                                                  │
+├───────────────────┼─────────────────────────────────────────────────────────────┤
+│ module name       │ @myorg/design.ui.heading                                    │
+├───────────────────┼─────────────────────────────────────────────────────────────┤
+│ main file         │ index.ts                                                    │
+├───────────────────┼─────────────────────────────────────────────────────────────┤
+│ dependencies      │ ...                                                         │
+├───────────────────┼─────────────────────────────────────────────────────────────┤
+│ dev dependencies  │ ...                                                         │
+├───────────────────┼─────────────────────────────────────────────────────────────┤
+│ peer dependencies │ react-dom@^16.8.0 || ^17.0.0-- (package)                    │
+│                   │ react@^16.8.0 || ^17.0.0------ (package)                    │
+└───────────────────┴─────────────────────────────────────────────────────────────┘
+```
+
+In the example above, peer dependencies are set by the configured environment `teambit.bit/react` which is the offcial react development envrionemnt by the Bit team. Our official 
+environments sets every React component peer dependencies to include `react` and `react-dom`. Other examples for peer dependencies could be `vue` or even `@teambit/harmony` for Aspects.
+
+Under different circumcisions, it is also possible to define a peer dependencies through the workspace policy. Simply use the `peerDependencies` entry in the policy like
+in the example below.
+
+```json
+{
+  "teambit.dependencies/dependency-resolver": {
+    "policy": {
+      "peerDependencies": {
+        "@testing-library/react": "~12.0.0"
+      }
+    }
+  }
+}
+```
+
+### Prefer wide ranges
+Best practice to prefer the widest range of ranges for peer dependencies, that allows component consumers maxiumum flexability using the component easily from variaty of React
+versions that might be of a constraint. Of course, the component has to be complient with all supported versions defined in the range, and breaking changes are an important 
+constraint choosing your peer dependencies.
+
+In the example above, we are defining `react` and `react-dom` to support apps the range of 16.8.0 to 17.0.0+. Constraint was that React 16.8.0 include React hooks and components
+using hooks can't be used in a React 15.x.x app.
+
+:::tip
+Using different versions of peer dependnecies is depending on the use case and can be avhieved through various techniques
+For example, React 17+ components using React hooks can be used in the same process through the Adapter pattern method. We offer variaty of components
+to address different cases but in general, it is not recommended to do, as it might decrease performence and downgrade dev experience for component consumers.
+:::
+

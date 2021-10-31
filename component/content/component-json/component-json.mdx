@@ -1,0 +1,59 @@
+# component.json
+
+The `component.json` file enables you to set component configurations directly on a component. The `component.json` configuration is merged with the configurations set by Variants.
+
+To eject it to the component's directory, run:
+
+```bash
+bit eject-conf <component-full-name>
+```
+
+For example:
+
+```bash
+bit eject-conf ui/text
+```
+
+The ejected file will contain the following:
+
+```json
+{
+  "componentId": {
+    "name": "ui/text",
+    "version": "0.0.1",
+    "scope": "company.scope"
+  },
+  "propagate": false,
+  "extensions": {}
+}
+```
+
+## propagate
+
+Set the `propagate` property to `true` if you want the component to be affected by the workspace configurations.
+
+## extensions
+
+Use the `extensions` property to configure Aspects. Configuration is done similarly to the workspace configuration file (`workspace.jsonc`).
+
+For example, to set a dependency policy using the Dependency Resolver Aspect:
+
+```json
+{
+  "componentId": {
+    "name": "ui/text",
+    "version": "0.0.1",
+    "scope": "company.scope"
+  },
+  "propagate": true,
+  "extensions": {
+    "teambit.dependencies/dependency-resolver": {
+      "policy": {
+        "dependencies": {
+          "lodash": "^14.17.21"
+        }
+      }
+    }
+  }
+}
+```
