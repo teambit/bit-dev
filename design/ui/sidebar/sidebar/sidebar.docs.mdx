@@ -1,19 +1,25 @@
 ---
-description: 'Sidebar'
-labels: ['label1', 'label2', 'label3']
+description: 'A responsive sidebar'
+labels: ['react', 'ui', 'sidebar']
 ---
 
 import { Sidebar } from './sidebar';
-import { FigmaEmbed } from '@teambit/design.embeds.figma';
+// import { FigmaEmbed } from '@teambit/design.embeds.figma';
 
-Div with some text
+A collapsable sidebar wrapper that accepts children and handles different screen sizes and adjusts accordingly
 
 ### Renders a div with some text
 
 ```js live
-<Sidebar text="hello" />
+<Sidebar isOpen={true}>
+  <div>element 1</div>
+  <div>element 2</div>
+  <div>element 3</div>
+  <div>element 4</div>
+  <div>element 5</div>
+</Sidebar>
 ```
 
 ### Design
 
-<FigmaEmbed src="url-to-figma" />
+{/_ <FigmaEmbed src="https://www.figma.com/proto/o2B6LIoVxeZ5zWWwueLotU/Docs?node-id=7%3A1423&scaling=scale-down&page-id=0%3A1&starting-point-node-id=160%3A3046&show-proto-sidebar=1" /> _/}

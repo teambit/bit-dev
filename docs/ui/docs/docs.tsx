@@ -2,9 +2,10 @@ import React, { useMemo, useContext, ReactNode } from 'react';
 import classNames from 'classnames';
 import { DocsRoute, DocsRoutes } from '@teambit/docs.entities.docs-routes';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
-import { Sidebar as Tree, SidebarTreeNode } from '@teambit/docs.ui.sidebar';
+import { Sidebar as Tree } from '@teambit/docs.ui.sidebar';
 import { DocPage } from '@teambit/docs.ui.pages.doc-page';
-import { UseSidebarContext } from '@teambit/community.ui.context.use-sidebar';
+import { SidebarContext } from '@teambit/design.ui.sidebar.sidebar-context';
+import { Sidebar } from '@teambit/design.ui.sidebar.sidebar';
 import styles from './docs.module.scss';
 import { PrimaryLinks } from './primary-links';
 
@@ -45,7 +46,7 @@ export function Docs({
   ...rest
 }: DocsProps) {
   const { path } = useRouteMatch();
-  const sidebarContext = useContext(UseSidebarContext);
+  const sidebarContext = useContext(SidebarContext);
   const docRoutes = DocsRoutes.from(routes, baseUrl || path);
   const primaryRoutes = DocsRoutes.from(primaryLinks, baseUrl || path);
 
@@ -56,20 +57,17 @@ export function Docs({
 
   return (
     <div {...rest} className={classNames(styles.main, className)}>
-      <Sidebar
-        primaryRoutes={primaryRoutes.toSideBarTree()}
-        docRoutes={docRoutes.toSideBarTree()}
-        isOpen={sidebarContext.isOpen}
-        toggle={sidebarContext.setIsOpen}
-        baseUrl={baseUrl}
-      />
+      <Sidebar isOpen={sidebarContext.isOpen} toggle={sidebarContext.setIsOpen}>
+        <PrimaryLinks tree={primaryRoutes.toSideBarTree()} />
+        <Tree tree={docRoutes.toSideBarTree()} linkPrefix={baseUrl} />
+      </Sidebar>
       <div className={styles.content}>
         <Switch>
           {contribution ? <Route>{contribution}</Route> : ''}
           {routeArray.map((route, key) => {
             const next = routeArray[key + 1] ? routeArray[key + 1] : undefined;
             return (
-              <Route key={key} path={route.absPath}>
+              <Route key={route.title} path={route.absPath}>
                 <DocPage nextPage={next} title={route.title}>
                   {route.component}
                 </DocPage>
@@ -77,27 +75,6 @@ export function Docs({
             );
           })}
         </Switch>
-      </div>
-    </div>
-  );
-}
-
-// TODO - find a proper name for this and move to separate component. ui/sidebar is taken
-export type SidebarProps = {
-  toggle?: () => void;
-  isOpen?: boolean;
-  baseUrl?: string;
-  primaryRoutes: SidebarTreeNode;
-  docRoutes: SidebarTreeNode;
-} & React.HtmlHTMLAttributes<HTMLDivElement>;
-
-function Sidebar({ toggle, isOpen, baseUrl, primaryRoutes, docRoutes, className, ...rest }: SidebarProps) {
-  return (
-    <div {...rest} className={classNames(styles.sidebar, isOpen && styles.open, className)}>
-      <div className={styles.overlay} onClick={toggle} role="none" />
-      <div className={classNames(styles.sidebarContent, !isOpen && styles.closed)}>
-        <PrimaryLinks tree={primaryRoutes} />
-        <Tree tree={docRoutes} linkPrefix={baseUrl} />
       </div>
     </div>
   );
