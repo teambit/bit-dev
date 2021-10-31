@@ -777,6 +777,12 @@
         "mainFile": "index.ts",
         "rootDir": "design/ui/content/subtitle"
     },
+    "ui/context/use-sidebar": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/context/use-sidebar"
+    },
     "ui/docs": {
         "scope": "teambit.docs",
         "version": "1.8.29",
