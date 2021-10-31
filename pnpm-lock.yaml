@@ -36,7 +36,7 @@ importers:
       '@teambit/component.modules.component-url': 0.0.71
       '@teambit/design.elements.icon': 1.0.6
       '@teambit/design.embeds.figma': 0.0.6
-      '@teambit/design.ui.cli-snippet': 0.0.347
+      '@teambit/design.ui.cli-snippet': 0.0.349
       '@teambit/design.ui.dropdown': 1.0.10
       '@teambit/design.ui.error-page': 0.0.351
       '@teambit/design.ui.external-link': 0.0.346
@@ -133,7 +133,7 @@ importers:
       '@teambit/component-id': registry.npmjs.org/@teambit/component-id/0.0.369_react-dom@16.13.1+react@16.13.1
       '@teambit/component.modules.component-url': registry.npmjs.org/@teambit/component.modules.component-url/0.0.71_react-dom@16.13.1+react@16.13.1
       '@teambit/design.elements.icon': registry.npmjs.org/@teambit/design.elements.icon/1.0.6_react-dom@16.13.1+react@16.13.1
-      '@teambit/design.ui.cli-snippet': registry.npmjs.org/@teambit/design.ui.cli-snippet/0.0.347_react-dom@16.13.1+react@16.13.1
+      '@teambit/design.ui.cli-snippet': registry.npmjs.org/@teambit/design.ui.cli-snippet/0.0.349_react-dom@16.13.1+react@16.13.1
       '@teambit/design.ui.dropdown': registry.npmjs.org/@teambit/design.ui.dropdown/1.0.10_react-dom@16.13.1+react@16.13.1
       '@teambit/design.ui.error-page': registry.npmjs.org/@teambit/design.ui.error-page/0.0.351_react-dom@16.13.1+react@16.13.1
       '@teambit/design.ui.external-link': registry.npmjs.org/@teambit/design.ui.external-link/0.0.346_react-dom@16.13.1+react@16.13.1
@@ -2895,11 +2895,11 @@ packages:
       - '@teambit/legacy'
     dev: false
 
-  registry.npmjs.org/@teambit/design.ui.cli-snippet/0.0.347_react-dom@16.13.1+react@16.13.1:
-    resolution: {integrity: sha512-4Lg4RuVjWpPYdlQnm/USHefkxV75f+OBilcDeU1PAn8GyiynZH1Sti0U1ClfAsRVrPLvfksYrALxaQ6ApIijaA==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/design.ui.cli-snippet/-/design.ui.cli-snippet-0.0.347.tgz}
-    id: registry.npmjs.org/@teambit/design.ui.cli-snippet/0.0.347
+  registry.npmjs.org/@teambit/design.ui.cli-snippet/0.0.349_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha512-4pDCl9m9wy2KFypayzJZYv9Am+P+nmZcdMit23PMpoDroz62ZY7uTTyW8vG0N3tgw+0R0DVs6dzowNT2YUdnrQ==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/design.ui.cli-snippet/-/design.ui.cli-snippet-0.0.349.tgz}
+    id: registry.npmjs.org/@teambit/design.ui.cli-snippet/0.0.349
     name: '@teambit/design.ui.cli-snippet'
-    version: 0.0.347
+    version: 0.0.349
     engines: {node: '>=12.22.0'}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0
