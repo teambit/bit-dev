@@ -25,12 +25,17 @@ export type DocsProps = {
   primaryLinks?: DocsRoute[];
 
   /**
+   * Component to render for doc contribution instructions.
+   */
+  contribution?: ReactNode,
+
+  /**
    * shows a next page box after every page unless specifically set otherwise by the route using the `showNext` property on DocsRoute.
    */
   showNext?: boolean;
 } & React.HtmlHTMLAttributes<HTMLDivElement>;
 
-export function Docs({ routes, primaryLinks = [], baseUrl = '/', className, ...rest }: DocsProps) {
+export function Docs({ routes, primaryLinks = [], showNext = true, baseUrl = '/', contribution, ...rest }: DocsProps) {
   const { path } = useRouteMatch();
   const sidebarContext = useContext(UseSidebarContext);
   const docRoutes = DocsRoutes.from(routes, baseUrl || path);
@@ -52,6 +57,12 @@ export function Docs({ routes, primaryLinks = [], baseUrl = '/', className, ...r
       />
       <div className={styles.content}>
         <Switch>
+        {contribution ? 
+            <Route>
+              {contribution}
+            </Route>
+          : ''
+        }
           {routeArray.map((route, key) => {
             const next = routeArray[key + 1] ? routeArray[key + 1] : undefined;
             return (

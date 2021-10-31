@@ -15,7 +15,7 @@ export const footerMock: CategoryProps[] = [
     links: [
         { text: 'Docs', href: '#' },
         { text: 'Getting Started', href: '#' },
-        { text: 'Tutorials', href: '#' },
+        { text: 'Contributing docs', href: '/docs/contributing-docs' },
         { text: 'Discussions', href: '#' },
       ],
   },

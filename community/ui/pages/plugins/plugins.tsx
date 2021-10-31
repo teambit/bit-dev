@@ -15,10 +15,10 @@ export function Plugins({ ...props }: PluginsProps) {
       <ExploreSection
         heading={
           <>
-            Explore <span className={highlightClass}>Bit Plugins</span>
+            Explore <span className={highlightClass}>Endless Aspects of Bit</span>
           </>
         }
-        subtitle="Enhance and customize your development experience with dozens of official and community Plugins."
+        subtitle="Aspects are component-driven plugins. Enhance and customize your development experience with dozens of official and community Aspects."
       />
       <WideColumn>
         <ComponentCardGroup title="Dev environments" components={devEnvsMock} />
