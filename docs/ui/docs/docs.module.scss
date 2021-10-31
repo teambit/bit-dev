@@ -24,7 +24,7 @@
   .overlay {
     display: none;
     z-index: 99999; // TODO: get from zindexs
-    position: absolute;
+    position: fixed;
     background-color: var(--bit-text-color-heavy, #2b2b2b);
     opacity: 0.8;
     top: 0;
@@ -52,7 +52,8 @@
     white-space: nowrap;
   }
   @media screen and (max-width: $br-md) {
-    position: absolute;
+    overflow-y: auto;
+    position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
