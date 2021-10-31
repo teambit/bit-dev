@@ -77,7 +77,7 @@
         "@teambit/component.modules.component-url": "0.0.71",
         "@teambit/design.elements.icon": "1.0.6",
         "@teambit/design.embeds.figma": "0.0.6",
-        "@teambit/design.ui.cli-snippet": "0.0.347",
+        "@teambit/design.ui.cli-snippet": "0.0.349",
         "@teambit/design.ui.dropdown": "1.0.10",
         "@teambit/design.ui.error-page": "0.0.351",
         "@teambit/design.ui.external-link": "0.0.346",
