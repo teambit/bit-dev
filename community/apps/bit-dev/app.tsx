@@ -13,7 +13,7 @@ import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 import { ComponentHighlighter } from '@teambit/react.ui.component-highlighter';
 import { RoutingProvider } from '@teambit/base-ui.routing.routing-provider';
 import { Footer, footerMock } from '@teambit/community.ui.footer.footer';
-import { UseSidebarProvider } from '@teambit/community.ui.context.use-sidebar';
+import { SidebarProvider } from '@teambit/design.ui.sidebar.sidebar-context';
 import { legacyRouting } from './legacy-routing';
 import styles from './app.module.scss';
 
@@ -27,7 +27,7 @@ export function BitDevApp() {
 
   return (
     <RoutingProvider value={legacyRouting}>
-      <UseSidebarProvider>
+      <SidebarProvider>
         <RouterContextProvider Link={Link}>
           <ThemeCompositions>
             <ComponentHighlighter
@@ -66,7 +66,7 @@ export function BitDevApp() {
             </ComponentHighlighter>
           </ThemeCompositions>
         </RouterContextProvider>
-      </UseSidebarProvider>
+      </SidebarProvider>
     </RoutingProvider>
   );
 }

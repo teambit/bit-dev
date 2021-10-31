@@ -5,7 +5,7 @@ import { Nav } from '@teambit/community.ui.header.nav';
 import { Link } from 'react-router-dom';
 import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 import { Toggle } from '@teambit/design.ui.input.toggle';
-import { UseSidebarContext } from '@teambit/community.ui.context.use-sidebar';
+import { SidebarContext } from '@teambit/design.ui.sidebar.sidebar-context';
 import { IconButton } from '@teambit/design.ui.icon-button';
 import styles from './header.module.scss';
 
@@ -15,7 +15,7 @@ export type HeaderProps = {
 } & React.HTMLAttributes<HTMLElement>;
 
 export function Header({ highlighting, setHighlighting, className, ...rest }: HeaderProps) {
-  const sidebar = useContext(UseSidebarContext);
+  const sidebar = useContext(SidebarContext);
 
   function onToggleClick(e) {
     return setHighlighting?.(e.target.checked);

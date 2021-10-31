@@ -783,11 +783,11 @@
         "mainFile": "index.ts",
         "rootDir": "design/ui/content/subtitle"
     },
-    "ui/context/use-sidebar": {
+    "ui/sidebar/sidebar-context": {
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "community/ui/context/use-sidebar"
+        "rootDir": "design/ui/sidebar/sidebar-context"
     },
     "ui/docs": {
         "scope": "teambit.docs",
@@ -1034,6 +1034,12 @@
         "version": "1.9.1",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/sidebar"
+    },
+    "ui/sidebar/sidebar": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "design/ui/sidebar/sidebar"
     },
     "ui/sticky-menu": {
         "scope": "teambit.community",
