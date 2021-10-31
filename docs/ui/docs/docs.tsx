@@ -1,4 +1,4 @@
-import React, { useMemo, useContext } from 'react';
+import React, { useMemo, useContext, ReactNode } from 'react';
 import classNames from 'classnames';
 import { DocsRoute, DocsRoutes } from '@teambit/docs.entities.docs-routes';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
@@ -27,7 +27,7 @@ export type DocsProps = {
   /**
    * Component to render for doc contribution instructions.
    */
-  contribution?: ReactNode,
+  contribution?: ReactNode;
 
   /**
    * shows a next page box after every page unless specifically set otherwise by the route using the `showNext` property on DocsRoute.
@@ -35,7 +35,15 @@ export type DocsProps = {
   showNext?: boolean;
 } & React.HtmlHTMLAttributes<HTMLDivElement>;
 
-export function Docs({ routes, primaryLinks = [], showNext = true, baseUrl = '/', contribution, ...rest }: DocsProps) {
+export function Docs({
+  routes,
+  primaryLinks = [],
+  showNext = true,
+  baseUrl = '/',
+  contribution,
+  className,
+  ...rest
+}: DocsProps) {
   const { path } = useRouteMatch();
   const sidebarContext = useContext(UseSidebarContext);
   const docRoutes = DocsRoutes.from(routes, baseUrl || path);
@@ -57,12 +65,7 @@ export function Docs({ routes, primaryLinks = [], showNext = true, baseUrl = '/'
       />
       <div className={styles.content}>
         <Switch>
-        {contribution ? 
-            <Route>
-              {contribution}
-            </Route>
-          : ''
-        }
+          {contribution ? <Route>{contribution}</Route> : ''}
           {routeArray.map((route, key) => {
             const next = routeArray[key + 1] ? routeArray[key + 1] : undefined;
             return (
