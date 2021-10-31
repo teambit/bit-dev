@@ -1,6 +1,6 @@
 import { createContext } from 'react';
 
-export type UseSidebarContextType = {
+export type SidebarContextType = {
   /**
    * primary color of theme.
    */
@@ -8,8 +8,8 @@ export type UseSidebarContextType = {
   setIsOpen?: () => void;
 };
 
-// export const UseSidebarContext = createContext({ isOpen: false });
-export const UseSidebarContext = createContext<UseSidebarContextType>({
+// export const SidebarContext = createContext({ isOpen: false });
+export const SidebarContext = createContext<SidebarContextType>({
   isOpen: false,
   setIsOpen: () => undefined,
 });

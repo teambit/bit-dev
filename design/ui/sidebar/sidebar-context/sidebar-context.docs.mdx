@@ -1,11 +1,11 @@
 ---
-description: UseSidebar context.
+description: Sidebar context.
 labels: ['context']
 ---
 
-import { UseSidebarContext } from './use-sidebar-context';
-import { UseSidebarProvider } from './use-sidebar-context-provider';
-import { MockComponent } from './use-sidebar-context.composition';
+import { SidebarContext } from './sidebar-context';
+import { SidebarProvider } from './sidebar-context-provider';
+import { MockComponent } from './sidebar-context.composition';
 
 ## React Theme Context
 
@@ -20,10 +20,10 @@ import React, { useContext } from 'react';
 import { ThemeProvider } from './theme-context-provider';
 import { ThemeContext } from './theme-context';
 
-<UseSidebarProvider color="blue">
+<SidebarProvider color="blue">
   // My lovely children now get a theme!
   <MockComponent />
-</UseSidebarProvider>;
+</SidebarProvider>;
 ```
 
 ### Using props to customize the theme
@@ -33,9 +33,9 @@ Change the color to see the text change:
 ```tsx live
 () => {
   return (
-    <UseSidebarProvider color="red">
+    <SidebarProvider>
       <MockComponent />
-    </UseSidebarProvider>
+    </SidebarProvider>
   );
 };
 ```

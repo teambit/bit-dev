@@ -1,17 +1,17 @@
 import React, { useContext } from 'react';
-import { UseSidebarProvider } from './use-sidebar-context-provider';
-import { UseSidebarContext } from './use-sidebar-context';
+import { SidebarProvider } from './sidebar-context-provider';
+import { SidebarContext } from './sidebar-context';
 
 export function MockComponent() {
-  const theme = useContext(UseSidebarContext);
+  const theme = useContext(SidebarContext);
 
   return <div style={{ color: theme.color }}>this should be {theme.color}</div>;
 }
 
 export const BasicThemeUsage = () => (
   // return (
-  <UseSidebarProvider color="blue">
+  <SidebarProvider>
     <MockComponent />
-  </UseSidebarProvider>
+  </SidebarProvider>
   // );
 );

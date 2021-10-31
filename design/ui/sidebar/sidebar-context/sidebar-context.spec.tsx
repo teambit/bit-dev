@@ -1,4 +1,4 @@
-import { BasicThemeUsage } from './use-sidebar-context.composition';
+import { BasicThemeUsage } from './sidebar-context.composition';
 import { render } from '@testing-library/react';
 
 it('should render the button in the color blue', () => {
