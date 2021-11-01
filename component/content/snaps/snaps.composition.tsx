@@ -1,12 +1,12 @@
 import React from 'react';
 import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions';
 import { MDXLayout } from '@teambit/ui.mdx-layout';
-import { Tags } from './index';
+import { Snaps } from './index';
 
-export const BasicTags = () => (
+export const BasicSnaps = () => (
   <ThemeCompositions>
     <MDXLayout>
-      <Tags />
+      <Snaps />
     </MDXLayout>
   </ThemeCompositions>
 );
