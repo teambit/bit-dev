@@ -1,12 +1,12 @@
 import React from 'react';
 import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions';
 import { MDXLayout } from '@teambit/mdx.ui.mdx-layout';
-import { ComponentObjects } from './index';
+import { ExportingComponents } from './index';
 
-export const BasicComponentObjects = () => (
+export const BasicExportingComponents = () => (
   <ThemeCompositions>
     <MDXLayout>
-      <ComponentObjects />
+      <ExportingComponents />
     </MDXLayout>
   </ThemeCompositions>
 );
