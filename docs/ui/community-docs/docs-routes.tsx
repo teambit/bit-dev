@@ -307,8 +307,8 @@ export const docsRoutes: DocsRoute[] = [
       },
       {
         path: 'workspace-configuration',
-        title: 'Configuring the Workspace',
         component: <WorkspaceConfiguration />,
+        title: 'Creating Workspaces',
       },
       {
         path: 'directory-structure',
@@ -584,7 +584,7 @@ export const docsRoutes: DocsRoute[] = [
     title: 'Apps',
     path: 'apps',
     icon: 'app',
-    children: [],
+    children: []
   },
   {
     path: 'packages',
@@ -908,28 +908,28 @@ export const docsRoutes: DocsRoute[] = [
         children: [
           {
             path: 'configuring-typescript',
-            title: 'Configuring Typescript',
-          },
-        ],
+            title: 'Configuring Typescript'
+          }
+        ]
       },
       {
         title: 'Babel',
         path: 'babel',
         open: false,
         icon: 'babel',
-        children: [],
+        children: []
       },
       {
         title: 'Jest',
         path: 'jest',
         icon: 'Jest',
-        children: [],
+        children: []
       },
       {
         path: 'pnpm',
         title: 'pnpm',
         icon: 'pnpm',
-        children: [],
+        children: []
       },
       {
         path: 'yarn',
