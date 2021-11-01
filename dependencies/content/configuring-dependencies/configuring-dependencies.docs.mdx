@@ -1,0 +1,25 @@
+---
+description: 'An MDX component.'
+labels: ['content', 'mdx']
+---
+
+import { ConfiguringDependencies } from './index';
+
+### Component usage
+```js
+<ConfiguringDependencies />
+```
+
+### Render with theme and MDX providers
+
+```js
+import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions'
+import { MDXLayout } from '@teambit/mdx.ui.mdx-layout'
+import { ConfiguringDependencies } from './index'
+
+<ThemeCompositions>
+  <MDXLayout>
+    <ConfiguringDependencies />
+  </MDXLayout>
+</ThemeCompositions>
+```

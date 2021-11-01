@@ -1,0 +1,166 @@
+# Dev Files
+
+Dev files are component files used for development and not for production. Dev files are determined as such by the Dev Files Aspect.
+
+Categorizing files as dev files is especially useful in dependency resolution, as dependencies can be inferred to be of type `devDependencies` by looking at the type of files that use them (if 'package-a' is only used by the component's dev files, then it is a dev dependency of that component).
+
+For example, the `ui/card` component has the following file structure:
+
+```
+└── card
+    ├── card.composition.tsx
+    ├── card.docs.mdx
+    ├── card.spec.tsx
+    ├── card.tsx
+    └── index.ts
+```
+
+To examine it:
+
+```
+$ bit show ui/card
+
+┌───────────────────┬──────────────────────────────────────────────────────────┐
+│ id                │ company.scope/ui/card                                    │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ ...               │                                                          │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ files             │ card.composition.tsx                                     │
+│                   │ card.docs.mdx                                            │
+│                   │ card.spec.tsx                                            │
+│                   │ card.stories.tsx                                         │
+│                   │ card.tsx                                                 │
+│                   │ index.ts                                                 │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ dev files         │ card.spec.tsx (teambit.defender/tester)                  │
+│                   │ card.composition.tsx (teambit.compositions/compositions) │
+│                   │ card.docs.mdx (teambit.docs/docs)                        │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ extensions        │ ...                                                      │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ dependencies      │ ...                                                      │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ dev dependencies  │ @company/scope.envs.my-react@0.0.1----- (component)      │
+│                   │ @types/testing-library__jest-dom@5.9.5- (package)        │
+│                   │ @babel/runtime@7.12.18----------------- (package)        │
+│                   │ @types/jest@^26.0.0-------------------- (package)        │
+│                   │ @types/react-dom@^17.0.5--------------- (package)        │
+│                   │ @types/react@^17.0.8------------------- (package)        │
+│                   │ @types/node@12.20.4-------------------- (package)        │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ peer dependencies │ ...                                                      │
+└───────────────────┴──────────────────────────────────────────────────────────┘
+```
+
+The component's compositions, documentation and test files are categorized as 'dev files'.
+To the side of each listed dev file, you'll find the Aspect that registered it as such (via the Dev Files Aspect).
+
+If, for example, `@testing-library/react` will be used by the test file, `card.spec.tsx` (and no other production file), it will be inferred as a dev dependency of that component.
+
+```tsx
+// card.spec.tsx
+
+import React from 'react';
+import { render } from '@testing-library/react';
+import { BasicCard } from './card.composition';
+
+it('should render a Heading', () => {
+  const { getByText } = render(<BasicCard />);
+  const rendered = getByText('Self Host');
+  expect(rendered).toBeTruthy();
+});
+```
+
+```bash
+$ bit show ui/card
+
+// ...
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ dev dependencies  │ @company/scope.envs.my-react@0.0.1----- (component)      │
+│                   │ @types/testing-library__jest-dom@5.9.5- (package)        │
+│                   │ @babel/runtime@7.12.18----------------- (package)        │
+│                   │ @types/jest@^26.0.0-------------------- (package)        │
+│                   │ @types/react-dom@^17.0.5--------------- (package)        │
+│                   │ @types/react@^17.0.8------------------- (package)        │
+│                   │ @types/node@12.20.4-------------------- (package)        │
+│                   │ @testing-library/react@12.0.0---------- (package)        │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+// ...
+```
+
+## Configuring Dev Files
+
+Dev files are configured by setting glob patterns that match the files' names.
+
+### Setting Glob Patterns via `workspace.jsonc`
+Use the `devFilePatterns` property in `teambit.dependencies/dependency-resolver` to manually set a glob pattern for dev files.
+
+```json
+{
+  "teambit.dependencies/dependency-resolver": {
+    /**
+     * choose the package manager for Bit to use. you can choose between 'yarn', 'pnpm'
+     */
+    "packageManager": "teambit.dependencies/pnpm",
+    "policy": {
+        // ...
+    },
+    "devFilePatterns": [
+      "**/*.spec.ts"
+    ],
+  }
+}
+```
+
+### Setting Glob Patterns via the Dev Files API
+
+Update your extension or create an new one to register glob patterns for dev files, using the Dev Files `registerDevPattern` API.
+
+```
+bit create aspect extensions/my-dev-files
+```
+
+#### registerDevPattern
+
+```ts
+registerDevPattern: (pattern: string[]) : void
+```
+
+Use the `registerDevPattern` API to register an array of glob patterns.
+
+For example:
+
+```ts
+import { MainRuntime } from '@teambit/cli';
+import { DevFilesAspect, DevFilesMain } from '@teambit/dev-files';
+import { MyDevFilesAspect } from './my-dev-files.aspect';
+
+export class MyDevFilesMain {
+  constructor(private devFiles: DevFilesMain) {}
+
+  static slots = [];
+
+  static dependencies = [DevFilesAspect];
+
+  static runtime = MainRuntime;
+
+  static async provider([devFiles]: [DevFilesMain]) {
+    devFiles.registerDevPattern(['**/*.my-dev.*']);
+
+    return new MyDevFilesMain(devFiles);
+  }
+}
+
+MyDevFilesAspect.addRuntime(MyDevFilesMain);
+
+```
+
+Configure the workspace config with that aspect to apply it on all components in the workspace:
+
+```json
+// workspace.jsonc
+{
+    "company.scope/extensions/my-dev-files": {},
+}
+```
+

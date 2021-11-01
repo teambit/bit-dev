@@ -23,6 +23,9 @@ const UpdateComponents = loadable(() => import('@teambit/docs.content.getting-st
 const CiExport = loadable(() => import('@teambit/docs.content.getting-started.ci-export'));
 const CiInstall = loadable(() => import('@teambit/docs.content.getting-started.ci-install'));
 
+/* Harmony */
+const CliReference = loadable(() => import('@teambit/harmony.content.cli-reference'));
+
 /* Workspace */
 const WorkspaceOverview = loadable(() => import('@teambit/workspace.content.workspace-overview'));
 const Bitmap = loadable(() => import('@teambit/workspace.content.bitmap'));
@@ -38,6 +41,7 @@ const CreatingWorkspaces = loadable(() => import('@teambit/workspace.content.cre
 const ConfiguringRemoteScopes = loadable(() => import('@teambit/workspace.content.configuring-remote-scopes'));
 const LocalScope = loadable(() => import('@teambit/workspace.content.local-scope'));
 const MovingComponents = loadable(() => import('@teambit/workspace.content.moving-components'));
+const Variants = loadable(() => import('@teambit/workspace.content.variants'));
 
 /**
  * Scope
@@ -65,102 +69,95 @@ const RegisterCustomPreview = loadable(() => import('@teambit/preview.content.re
 
 /* Tester */
 const TesterOverview = loadable(() => import('@teambit/defender.content.tester-overview'));
-
 const TestingDuringDevelopment = loadable(() => import('@teambit/defender.content.testing-during-development'));
-
 const TestingDuringBuild = loadable(() => import('@teambit/defender.content.testing-during-build'));
-
 const ConfigureEnvWithTester = loadable(() => import('@teambit/defender.content.configure-env-with-tester'));
-
 const ImplementTester = loadable(() => import('@teambit/defender.content.implement-tester'));
 
 /* Linter */
 
 const LinterOverview = loadable(() => import('@teambit/defender.content.linter-overview'));
-
 const LintingDuringDevelopment = loadable(() => import('@teambit/defender.content.linting-during-development'));
-
 const LintingDuringBuild = loadable(() => import('@teambit/defender.content.linting-during-build'));
-
 const ConfigureEnvWithLinter = loadable(() => import('@teambit/defender.content.configure-env-with-linter'));
-
 const ImplementLinter = loadable(() => import('@teambit/defender.content.implement-linter'));
 
 /* Formatter */
 
 const FormatterOverview = loadable(() => import('@teambit/defender.content.formatter-overview'));
-
 const FormattingDuringDevelopment = loadable(() => import('@teambit/defender.content.formatting-during-development'));
-
 const FormattingDuringBuild = loadable(() => import('@teambit/defender.content.formatting-during-build'));
-
 const ConfigureEnvWithFormatter = loadable(() => import('@teambit/defender.content.configure-env-with-formatter'));
-
 const ImplementFormatter = loadable(() => import('@teambit/defender.content.implement-formatter'));
 
 /* Compiler  */
 
 const CompilerOverview = loadable(() => import('@teambit/compilation.content.compiler-overview'));
-
 const CompilingDuringDevelopment = loadable(() => import('@teambit/compilation.content.compiling-during-development'));
-
 const CompilingDuringBuild = loadable(() => import('@teambit/compilation.content.compiling-during-build'));
-
 const ConfigureEnvWithCompiler = loadable(() => import('@teambit/compilation.content.configure-env-with-compiler'));
-
 const ImplementCompiler = loadable(() => import('@teambit/compilation.content.implement-compiler'));
-
 const MultiCompiler = loadable(() => import('@teambit/compilation.content.multi-compiler'));
-
 const ConfigureWebpck = loadable(() => import('@teambit/webpack.content.configure-webpack'));
-
-const CliReference = loadable(() => import('@teambit/harmony.content.cli-reference'));
 
 /* Builder */
 
 const BuilderOverview = loadable(() => import('@teambit/pipelines.content.builder-overview'));
-
 const BuildPipelines = loadable(() => import('@teambit/pipelines.content.build-pipelines'));
-
 const BuildTasks = loadable(() => import('@teambit/pipelines.content.build-tasks'));
-
 const BuildArtifacts = loadable(() => import('@teambit/pipelines.content.build-artifacts'));
-
 const Capsule = loadable(() => import('@teambit/component.content.capsule'));
 
 /* Docs */
 
 const DocsOverview = loadable(() => import('@teambit/docs.content.docs-overview'));
-
 const MDX = loadable(() => import('@teambit/docs.content.mdx'));
-
 const DocTemplates = loadable(() => import('@teambit/docs.content.doc-templates'));
-
 const RenderingDocs = loadable(() => import('@teambit/docs.content.rendering-docs'));
 
 /* Compositions */
 
 const CompositionsOverview = loadable(() => import('@teambit/compositions.content.compositions-overview'));
-
 const CompositionFormat = loadable(() => import('@teambit/compositions.content.composition-format'));
-
 const CompositionContext = loadable(() => import('@teambit/compositions.content.composition-context'));
-
 const MountingCompositionsToDom = loadable(() => import('@teambit/compositions.content.mounting-compositions-to-dom'));
-
 const CompositionsAndStories = loadable(() => import('@teambit/compositions.content.compositions-and-stories'));
 
 /* Components */
 
 const ComponentId = loadable(() => import('@teambit/component.content.component-id'));
+const ComponentOverview = loadable(() => import('@teambit/component.content.component-overview'));
+const RemovingDeprecating = loadable(() => import('@teambit/docs.content.guides.removing-deprecating-components'));
+const MergingComponentVersions = loadable(() => import('@teambit/docs.content.guides.merging-component-versions'));
+const MainFile = loadable(() => import('@teambit/component.content.component-main-file'));
+const ComponentConfig = loadable(() => import('@teambit/component.content.component-config'));
+const ComponentJson = loadable(() => import('@teambit/component.content.component-json'));
+const ComponentObjects = loadable(() => import('@teambit/component.content.component-objects'));
+const DevFiles = loadable(() => import('@teambit/component.content.dev-files'));
+const InspectingComponents = loadable(() => import('@teambit/component.content.inspecting-components'));
+const Tags = loadable(() => import('@teambit/component.content.tags'));
+const Snaps = loadable(() => import('@teambit/component.content.snaps'));
 
 /* Envs */
 
 const InspectingEnv = loadable(() => import('@teambit/envs.content.inspecting-env'));
-
 const ExtendingEnv = loadable(() => import('@teambit/envs.content.extending-env'));
-
 const EnvToubleshooting = loadable(() => import('@teambit/envs.content.env-troubleshooting'));
+
+/* Dependencies */
+
+const DependenciesOverview = loadable(() => import('@teambit/dependencies.content.dependencies-overview'));
+const ExternalDependencies = loadable(() => import('@teambit/dependencies.content.external-dependencies'));
+const DependencyPolicies = loadable(() => import('@teambit/dependencies.content.dependency-policies'));
+const ConfiguringDependencies = loadable(() => import('@teambit/dependencies.content.configuring-dependencies'));
+const DependenciesConfiguration = loadable(() => import('@teambit/dependencies.content.dependencies-configuration'));
+const DependencyInstallation = loadable(() => import('@teambit/dependencies.content.installing-dependencies'));
+const DependencyResolution = loadable(() => import('@teambit/dependencies.content.dependency-resolution'));
+const LockFiles = loadable(() => import('@teambit/dependencies.content.lock-files'));
+const Pnpm = loadable(() => import('@teambit/dependencies.content.pnpm'));
+const Yarn = loadable(() => import('@teambit/dependencies.content.yarn'));
+const NodeModules = loadable(() => import('@teambit/dependencies.content.node-modules'));
+const PackageManagers = loadable(() => import('@teambit/dependencies.content.package-managers'));
 
 export const docsRoutes: DocsRoute[] = [
   {
@@ -185,12 +182,6 @@ export const docsRoutes: DocsRoute[] = [
         title: 'Compose',
         open: false,
         children: [
-          {
-            path: 'creating-components',
-            title: 'Creating Components',
-            description: 'Creating Components',
-            component: <CreateComponents />,
-          },
           {
             path: 'dev-environments',
             title: 'Dev environments',
@@ -275,8 +266,8 @@ export const docsRoutes: DocsRoute[] = [
         ],
       },
       {
-        path: 'set-up-ci',
-        title: 'Set Up CI',
+        path: 'setup-ci',
+        title: 'Setup CI',
         open: false,
         children: [
           {
@@ -332,17 +323,18 @@ export const docsRoutes: DocsRoute[] = [
         component: <MovingComponents />,
       },
       {
-        path: 'configuration-variants',
-        title: 'Configuration variants',
-      },
-      {
         path: 'importing-components',
         title: 'Importing components',
         component: <ImportingComponents />,
       },
       {
+        path: 'variants',
+        title: 'Configuration Variants',
+        component: <Variants />,
+      },
+      {
         path: 'exporting-components',
-        title: 'Exporting components',
+        title: 'Exporting Components',
         component: <ExportingComponents />,
       },
       {
@@ -357,7 +349,7 @@ export const docsRoutes: DocsRoute[] = [
       },
       {
         path: 'component-links',
-        title: 'Workspace component link',
+        title: 'Workspace Component Link',
         component: <WorkspaceLink />,
       },
       {
@@ -384,12 +376,29 @@ export const docsRoutes: DocsRoute[] = [
     open: false,
     children: [
       {
-        path: 'components-overview',
-        title: 'Components overview',
+        path: 'component-overview',
+        title: 'Component Overview',
+        component: <ComponentOverview />,
       },
       {
-        path: 'component',
-        title: 'Component',
+        path: 'tags',
+        title: 'Tags (release versions)',
+        component: <Tags />,
+      },
+      {
+        path: 'snaps',
+        title: 'Snaps (snapshots)',
+        component: <Snaps />,
+      },
+      {
+        path: 'removing-deprecating-components',
+        title: 'Removing or Deprecating Components',
+        component: <RemovingDeprecating />,
+      },
+      {
+        path: 'merging-component-versions',
+        title: 'Merging Component Versions',
+        component: <MergingComponentVersions />,
       },
       {
         path: 'component-id',
@@ -397,22 +406,39 @@ export const docsRoutes: DocsRoute[] = [
         component: <ComponentId />,
       },
       {
-        path: 'configuring-components',
-        title: 'Configuring components',
-        component: <ComponentId />,
+        path: 'component-main-file',
+        title: 'Main File',
+        component: <MainFile />,
       },
       {
-        path: 'naming-components',
-        title: 'Naming components',
+        path: 'component-config',
+        title: 'Component Configuration',
+        component: <ComponentConfig />,
+      },
+      {
+        path: 'component-json',
+        title: 'component.json',
+        component: <ComponentJson />,
+      },
+      {
+        path: 'dev-files',
+        title: 'Dev files',
+        component: <DevFiles />,
       },
       {
         path: 'inspecting-components',
-        title: 'Inspecting components',
+        title: 'Inspecting Components',
+        component: <InspectingComponents />,
       },
       {
         path: 'component-capsules',
-        title: 'Component capsules',
-        // component:
+        title: 'Component Capsules',
+        component: <Capsule />,
+      },
+      {
+        path: 'component-objects',
+        title: 'Component Objects',
+        component: <ComponentObjects />,
       },
     ],
   },
@@ -420,19 +446,36 @@ export const docsRoutes: DocsRoute[] = [
     path: 'dependencies',
     title: 'Dependencies',
     open: false,
-    icon: 'dependencies',
+    icon: 'dependencies-icn',
     children: [
       {
         path: 'dependencies-overview',
         title: 'Dependencies overview',
+        component: <DependenciesOverview />,
+      },
+      {
+        path: 'dependency-installation',
+        title: 'Dependency installation',
+        component: <DependencyInstallation />,
+      },
+      {
+        path: 'dependency-policies',
+        title: 'Dependency policies',
+        component: <DependencyPolicies />,
+      },
+      {
+        path: 'configuring-dependencies',
+        title: 'Configuring dependencies',
+        component: <ConfiguringDependencies />,
       },
       {
         path: 'updates',
         title: 'Dependency updates',
       },
       {
-        path: 'policies',
-        title: 'Dependency policies',
+        path: 'package-managers',
+        title: 'Package managers',
+        component: <PackageManagers />,
       },
       {
         path: 'external-dependencies',
@@ -447,19 +490,25 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'dependency-resolution',
         title: 'Dependency resolution',
+        component: <DependencyResolution />,
+      },
+      {
+        path: 'cyclic-dependencies',
+        title: 'Cyclic dependencies',
+      },
+      {
+        path: 'lock-files',
+        title: 'Lock files',
+        component: <LockFiles />,
       },
       {
         path: 'inspecting-dependencies',
         title: 'Inspecting dependencies',
       },
       {
-        path: 'peer-dependencies',
-        title: 'Peer dependencies',
-      },
-      {
-        path: 'package-managers',
-        title: 'Package Managers',
-        component: <PackageManagers />,
+        path: 'dependencies-config',
+        title: 'Dependencies Config',
+        component: <DependenciesConfiguration />,
       },
     ],
   },
@@ -531,6 +580,7 @@ export const docsRoutes: DocsRoute[] = [
   {
     path: 'packages',
     title: 'Packages',
+    icon: 'dependencies',
     children: [],
   },
   {
@@ -779,6 +829,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'formatter',
         title: 'Formatter',
+        icon: 'formatting',
         children: [
           {
             path: 'formatter-overview',
@@ -825,6 +876,16 @@ export const docsRoutes: DocsRoute[] = [
             component: <ConfigureWebpck />,
           },
         ],
+      },
+      {
+        path: 'pnpm',
+        title: 'pnpm',
+        component: <Pnpm />,
+      },
+      {
+        path: 'yarn',
+        title: 'Yarn',
+        component: <Yarn />,
       },
     ],
   },

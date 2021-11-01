@@ -220,6 +220,28 @@ Commands that are marked as workspace only must be executed inside a workspace. 
 
 **Description**: set a global configuration
 
+## snap
+
+**Workspace only**: yes  
+**Description**: record component changes and lock versions.
+you can use a pattern for multiple ids, such as bit tag "utils/\*". (wrap the pattern with quotes to avoid collision with shell commands)
+
+`bit snap [id...]`
+
+| **Option**                | **Option alias** | **Description**                                                             |
+| ------------------------- | :--------------: | --------------------------------------------------------------------------- |
+| `--message <message>`     |       `-m`       | log message describing the user changes                                     |
+| `--all [version]`         |       `-a`       | tag all new and modified components                                         |
+| `--force`                 |       `-f`       | force-tag even if tests are failing and even when component has not changed |
+| `--verbose`               |       `-v`       | show specs output on failure                                                |
+| `--ignore-issues`         |       `-i`       | ignore component issues (shown in "bit status" as "issues found")           |
+| `--skip-tests`            |                  | skip running component tests during tag process                             |
+| `--skip-auto-snap`        |                  | skip auto snapping dependents                                               |
+| `--build`                 |                  | Harmony only. run the pipeline build and complete the snap                  |
+| `--disable-snap-pipeline` |                  | skip the snap pipeline                                                      |
+
+---
+
 ### del
 
 **Usage**: `del <key>`
