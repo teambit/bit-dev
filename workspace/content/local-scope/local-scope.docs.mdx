@@ -6,6 +6,7 @@ labels: ['content', 'mdx']
 import { LocalScope } from './index';
 
 ### Component usage
+
 ```js
 <LocalScope />
 ```
@@ -13,13 +14,13 @@ import { LocalScope } from './index';
 ### Render with theme and MDX providers
 
 ```js
-import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions'
-import { MDXLayout } from '@teambit/ui.mdx-layout'
-import { LocalScope } from './index'
+import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions';
+import { MDXLayout } from '@teambit/mdx.ui.mdx-layout';
+import { LocalScope } from './index';
 
 <ThemeCompositions>
   <MDXLayout>
     <LocalScope />
   </MDXLayout>
-</ThemeCompositions>
+</ThemeCompositions>;
 ```

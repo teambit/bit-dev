@@ -6,6 +6,7 @@ labels: ['content', 'mdx']
 import { InspectingComponents } from './index';
 
 ### Component usage
+
 ```js
 <InspectingComponents />
 ```
@@ -13,13 +14,13 @@ import { InspectingComponents } from './index';
 ### Render with theme and MDX providers
 
 ```js
-import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions'
-import { MDXLayout } from '@teambit/ui.mdx-layout'
-import { InspectingComponents } from './index'
+import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions';
+import { MDXLayout } from '@teambit/mdx.ui.mdx-layout';
+import { InspectingComponents } from './index';
 
 <ThemeCompositions>
   <MDXLayout>
     <InspectingComponents />
   </MDXLayout>
-</ThemeCompositions>
+</ThemeCompositions>;
 ```

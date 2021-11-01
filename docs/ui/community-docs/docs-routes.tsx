@@ -48,13 +48,6 @@ const Variants = loadable(() => import('@teambit/workspace.content.variants'));
  */
 const ScopeOverview = loadable(() => import('@teambit/scope.content.scope-overview'));
 
-/**
- * Dependencies
- */
-const NodeModules = loadable(() => import('@teambit/dependencies.content.node-modules'));
-const ExternalDependencies = loadable(() => import('@teambit/dependencies.content.external-dependencies'));
-const PackageManagers = loadable(() => import('@teambit/dependencies.content.package-managers'));
-
 /* Dev services */
 
 const DevServicesOverview = loadable(() => import('@teambit/envs.content.dev-services-overview'));
@@ -182,6 +175,12 @@ export const docsRoutes: DocsRoute[] = [
         title: 'Compose',
         open: false,
         children: [
+          {
+            path: 'create-components',
+            title: 'Create Components',
+            description: 'Create components',
+            component: <CreateComponents />,
+          },
           {
             path: 'dev-environments',
             title: 'Dev environments',
