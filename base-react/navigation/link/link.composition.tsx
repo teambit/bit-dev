@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from './link';
+import { Link, NavLink } from './link';
 
 export const BasicLink = () => <Link href="https://bit.dev">bit.dev</Link>;
 export const ExternalLink = () => (
@@ -14,42 +14,32 @@ export const ExternalLink = () => (
 );
 
 export const ActiveLink = () => (
-  <div>
+  <div style={{ padding: 20 }}>
     <div>
       current url:
-      <div style={{ textDecoration: 'underline' }}>
-        "{typeof window !== 'undefined' && window.location.href}"
-      </div>
-      (active links should be red)
+      <div style={{ textDecoration: 'underline' }}>"{typeof window !== 'undefined' && window.location.pathname}"</div>
+      (active links should be orange)
     </div>
 
     <br />
 
     <div>
       local link:{' '}
-      <Link
-        href="/preview/teambit.harmony/aspect"
-        active="auto"
-        activeStyle={{ color: 'red' }}
-      >
-        /preview/teambit.harmony/aspect
-      </Link>
+      <NavLink href="/preview/teambit.react/react" activeStyle={{ color: 'darkorange' }}>
+        /preview/teambit.react/react
+      </NavLink>
     </div>
     <div>
       base-react scope link{' '}
-      <Link
-        href="/api/teambit.base-react"
-        active="auto"
-        activeStyle={{ color: 'red' }}
-      >
+      <NavLink href="/api/teambit.base-react" activeStyle={{ color: 'darkorange' }}>
         /api/teambit.base-react
-      </Link>
+      </NavLink>
     </div>
     <div>
       another link:
-      <Link href="inactive/link" active="auto" activeStyle={{ color: 'red' }}>
+      <NavLink href="inactive/link" activeStyle={{ color: 'darkorange' }}>
         inactive/link
-      </Link>
+      </NavLink>
     </div>
   </div>
 );

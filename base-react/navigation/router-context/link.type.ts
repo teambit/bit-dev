@@ -1,7 +1,6 @@
 import React, { ComponentType } from 'react';
 
-export interface LinkProps
-  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   /**
    * key-value state for stateful routing systems. (Has to be supported by the speicifc link implementation)
    */

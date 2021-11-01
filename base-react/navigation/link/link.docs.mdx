@@ -1,55 +1,95 @@
 ---
-description: A standard and router-agnostic Link. 
+description: A standard and router-agnostic Link.
 labels: ['link', 'router', 'nav']
 ---
 
-import { Link } from './link';
+import { Link, NavLink } from './link';
 
+A standard link with an important beneifit:  
+It gets its underlying implementation from context, so it can work in any component and any application.
 
-Isomorphic link component, with the standard html `<a/>` interface.
+Simply use it like you would use an `<a>` tag.
+The link will get the implementation from context, or default to a regular `<a>` tag:
+
+```tsx
+function Component() {
+  return (
+    // this always works
+    <Link href="/pricing">pricing page</Link>
+  );
+}
+```
+
+In our projects, we've found that _links_ are much more common than routes, and at much lower levels.
+**Using a single link in a large page forced all of it to use a specific routing system** (in our legacy site, it was `react-router: ^3.0.1`),
+or use a native link, or get links by as props. None of these were good options.
+That's why we chose to inject the link from context, which allowed our link to move between projects with ease, and plug into the existing routing mechanism.
+
+You can easily provide a _Routing Adapter_, like so:
 
 ```tsx
 import { Link } from '@teambit/base-react.navigation.link';
 import { RouterContextProvider } from '@teambit/base-react.navigation.router-context';
 
-const routingSystem = { Link }
+const routingSystem = { Link };
 
-function Page(){
-	return (
-		<div>
-			<h1>Awesome page</h1>
-			<RouterContextProvider value={ routingSystem }>
+function Page() {
+  return (
+    <div>
+      <h1>Awesome page</h1>
 
-				{/* will render ReactRouter link */}
-				<Link href="/account">account</Link>
+      {/* this link will render ReactRouter link */}
+      <RouterContextProvider value={ReactRouterSystem}>
+        <Link href="/account">account</Link>
+      </RouterContextProvider>
 
-			</RouterContextProvider>
+      {/* this link will render Wouter link */}
+      <RouterContextProvider value={wouterRoutingSystem}>
+        <Link href="/account">account</Link>
+      </RouterContextProvider>
 
-
-			<RouterContextProvider value={ wouterRoutingSystem }>
-
-				{/* will render Wouter link */}
-				<Link href="/account">account</Link>
-
-			</RouterContextProvider>
-
-
-			{/* will render NativeLink */}
-			<Link href="/legals">legals</Link>
-		</div>
-	)
+      {/* this link will default to a NativeLink */}
+      <Link href="/legals">legals</Link>
+    </div>
+  );
 }
 ```
 
-## Why isomorphic link?
+## NavLink
 
-Different projects may have different routing systems.  
-For examples, a legacy project may use an older version of `React Router`, and will simply not work with ReactRouter v5 link.
+Like ReactRouter, we provide a `NavLink` component. It is a regular link, that also applies the provided styles when the `href` prop matches the current url. For example:
 
-The base-ui `routing.link` receives the underlying implementation from the `routing-provider` context, so it will work out of the box everywhere!  
-Didn't setup context? No problems, the default is `routing.native-link`, which will give you the same behavior as the browser's default `<a/>` tag.
+```tsx live
+<>
+  <div>
+    current path:
+    <span style={{ textDecoration: 'underline' }}>"{typeof window !== 'undefined' && window.location.pathname}"</span>
+  </div>
+  <br />
+  (active links should be orange)
+  <br />
+  local link:{' '}
+  <NavLink href={typeof window !== 'undefined' && window.location.pathname} activeStyle={{ color: 'darkorange' }}>
+    {typeof window !== 'undefined' ? window.location.pathname : "?"}
+  </NavLink>
+  <br />
+  other link:{' '}
+  <NavLink href="/some/site/" activeStyle={{ color: 'darkorange' }}>
+    /some/site/
+  </NavLink>
+</>
+```
 
 ## Additional props:
+These non-standard props allow extra funcitonality:
 
--   `external` - open the link in a new tab
--   `replace` - replace the history entry when opening the link.
+- `external` - open the link in a new tab (uses a native link).
+- `native` - don't use the routing system, and just render a regular link.
+- `state` - includes History state in the link, compatible with the native [pushState](https://developer.mozilla.org/en-US/docs/Web/API/History/pushState) api.  
+  This needs to be supported by the routing sytem, and currently ignored in the native implementation.
+
+`NavLink` also has the following props:
+- `activeClassName`, `activeStyles` - styles to apply when href matches the current location.
+- `active` - explicitly apply active styles. (leave `undefined` for automatic value).
+- `exact` - match url exactly, and don't include subpaths.
+- `strict` - include trailing slash when matching location.

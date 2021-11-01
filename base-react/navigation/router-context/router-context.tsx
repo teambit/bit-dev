@@ -1,6 +1,5 @@
 import React from 'react';
-import { LinkType } from './link';
-import { useNativeHref } from './native-use-href';
+import { LinkType } from './link.type';
 
 // export function useLocation<S = H.LocationState>(): H.Location<S>;
 export type Location<StateType = {}> = {
@@ -36,10 +35,8 @@ export type RouterContextType = {
    */
   useLocation?: UseLocation;
 
-  // useHistory?: UseHistory; // TBD
-
   /** adapt location to context and convert to string */
-  useHref?: (location: string | Location) => string;
+  useHref?: (location: string | Partial<Location>) => string;
 };
 
 export const RouterContext = React.createContext<RouterContextType>({});

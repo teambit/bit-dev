@@ -1,11 +1,10 @@
-import {
-  useRouter,
-  Location,
-} from '@teambit/base-react.navigation.router-context';
+import { useRouter, Location } from '@teambit/base-react.navigation.router-context';
 
 export function useLocation(): Location | undefined {
-  const { useLocation } = useRouter();
-  if (!useLocation) return window?.location;
+  const router = useRouter();
+  const actualUseLocation = router.useLocation;
 
-  return useLocation();
+  if (!actualUseLocation) return window?.location;
+
+  return actualUseLocation();
 }
