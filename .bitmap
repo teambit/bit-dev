@@ -669,6 +669,12 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/layout/grid"
     },
+    "ui/navigation/react-router/link-anchor": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "ui-foundation/ui/navigation/react-router/link-anchor"
+    },
     "modules/paths": {
         "scope": "teambit.docs",
         "version": "1.9.0",

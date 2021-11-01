@@ -1,1 +1,1 @@
-export { ReactRouterRoutingAdapter } from './react-routing-adapter';
+export { ReactRouterRoutingAdapter, reactRouterAdapter } from './react-routing-adapter';
