@@ -173,6 +173,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'composing',
         title: 'Compose',
+        icon: 'compose',
         open: false,
         children: [
           {
@@ -198,6 +199,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'collaborate',
         title: 'Collaborate',
+        icon: 'collaborate',
         open: false,
         children: [
           {
@@ -242,6 +244,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'use',
         title: 'Use',
+        icon: 'use',
         open: false,
         children: [
           {
@@ -267,6 +270,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'setup-ci',
         title: 'Setup CI',
+        icon: 'terminal',
         open: false,
         children: [
           {
@@ -305,15 +309,16 @@ export const docsRoutes: DocsRoute[] = [
         path: 'workspace-configuration',
         title: 'Configuring the Workspace',
         component: <WorkspaceConfiguration />,
+        title: 'Creating Workspaces',
       },
       {
         path: 'directory-structure',
-        title: 'Directory structure',
+        title: 'Directory Structure',
         component: <DirectoryStructure />,
       },
       {
         path: 'component-directory',
-        title: 'Component directory',
+        title: 'Component Directory',
         component: <ComponentDir />,
       },
       {
@@ -371,7 +376,7 @@ export const docsRoutes: DocsRoute[] = [
   {
     path: 'components',
     title: 'Components',
-    icon: 'components',
+    icon: 'comps',
     open: false,
     children: [
       {
@@ -577,6 +582,12 @@ export const docsRoutes: DocsRoute[] = [
     ],
   },
   {
+    title: 'Apps',
+    path: 'apps',
+    icon: 'app',
+    children: []
+  },
+  {
     path: 'packages',
     title: 'Packages',
     icon: 'dependencies',
@@ -596,6 +607,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'builder',
         title: 'Builder',
+        icon: 'builder',
         open: false,
         children: [
           {
@@ -629,6 +641,7 @@ export const docsRoutes: DocsRoute[] = [
         path: 'generator',
         title: 'Generator',
         icon: 'generator',
+        open: false,
         children: [
           {
             path: 'generator-overview',
@@ -640,6 +653,7 @@ export const docsRoutes: DocsRoute[] = [
         path: 'compiler',
         title: 'Compiler',
         icon: 'compile',
+        open: false,
         children: [
           {
             path: 'compiler-overview',
@@ -677,6 +691,7 @@ export const docsRoutes: DocsRoute[] = [
         path: 'tester',
         title: 'Tester',
         icon: 'tester',
+        open: false,
         children: [
           {
             path: 'tester-overview',
@@ -736,6 +751,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'compositions',
         title: 'Compositions',
+        icon: 'compositions',
         open: false,
         children: [
           {
@@ -797,6 +813,7 @@ export const docsRoutes: DocsRoute[] = [
         path: 'linter',
         title: 'Linter',
         icon: 'linter',
+        open: false,
         children: [
           {
             path: 'linter-overview',
@@ -829,6 +846,7 @@ export const docsRoutes: DocsRoute[] = [
         path: 'formatter',
         title: 'Formatter',
         icon: 'formatting',
+        open: false,
         children: [
           {
             path: 'formatter-overview',
@@ -868,23 +886,57 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'webpack',
         title: 'Webpack',
+        icon: 'webpack',
+        open: false,
         children: [
           {
             path: 'configure-webpack',
             title: 'Configure Webpack',
             component: <ConfigureWebpck />,
           },
+          {
+            path: 'module-federation',
+            title: 'Module Federation',
+            component: <ConfigureWebpck />,
+          },
         ],
+      },
+      {
+        title: 'TypeScript',
+        path: 'typescript',
+        icon: 'typescript',
+        open: false,
+        children: [
+          {
+            path: 'configuring-typescript',
+            title: 'Configuring Typescript'
+          }
+        ]
+      },
+      {
+        title: 'Babel',
+        path: 'babel',
+        open: false,
+        icon: 'babel',
+        children: []
+      },
+      {
+        title: 'Jest',
+        path: 'jest',
+        icon: 'Jest',
+        children: []
       },
       {
         path: 'pnpm',
         title: 'pnpm',
-        component: <Pnpm />,
+        icon: 'pnpm',
+        children: []
       },
       {
         path: 'yarn',
         title: 'Yarn',
-        component: <Yarn />,
+        icon: 'yarn-logo',
+        children: [],
       },
     ],
   },
