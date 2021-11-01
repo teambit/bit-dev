@@ -552,6 +552,12 @@ export const docsRoutes: DocsRoute[] = [
     ],
   },
   {
+    title: 'Apps',
+    path: 'apps',
+    icon: 'app',
+    children: []
+  },
+  {
     path: 'packages',
     title: 'Packages',
     icon: 'dependencies',
