@@ -20,11 +20,17 @@ A reference to a specific component version can be achieved by following with th
 teambit.base-ui/ui/button@1.0.0
 ```
 
-<Image src={componentDiagram} />
+<Image src={componentDiagram} width="70%" />
 
-## Scope name
+## Scope ID
 
-Component ID starts with the Scope Name, which references the Component's [Scope](/scope/overview). Scopes define the common responsibility for a set of Components and help through defining team boundaries and ownership. To learn more on Scopes head over to the [Scope documentation](/scope/overview).
+### Owner
+
+The name of the organization or user that owns that scope.
+
+### Scope name
+
+Scope names define the common responsibility for a set of Components and help through defining team boundaries and ownership. To learn more on Scopes head over to the [Scope documentation](/scope/overview).
 
 Common example to Scope names might be:
 
@@ -39,7 +45,7 @@ In the example above, `teambit` refers to the [teambit organization](https://bit
 
 Setting the scope name for components can be done by configuring the `defaultScope` property on the Component configuration.
 
-```jsonc {4,8} title="workspace.jsonc"
+```jsonc {0} title="workspace.jsonc"
 {
   "teambit.workspace/workspace": {
     "name": "My UI Workspace",

@@ -23,6 +23,8 @@ const UpdateComponents = loadable(() => import('@teambit/docs.content.getting-st
 const CiExport = loadable(() => import('@teambit/docs.content.getting-started.ci-export'));
 const CiInstall = loadable(() => import('@teambit/docs.content.getting-started.ci-install'));
 
+/* Harmony */
+const CliReference = loadable(() => import('@teambit/harmony.content.cli-reference'));
 
 /* Workspace */
 const WorkspaceOverview = loadable(() => import('@teambit/workspace.content.workspace-overview'));
@@ -82,7 +84,6 @@ const ConfigureEnvWithCompiler = loadable(() => import('@teambit/compilation.con
 const ImplementCompiler = loadable(() => import('@teambit/compilation.content.implement-compiler'));
 const MultiCompiler = loadable(() => import('@teambit/compilation.content.multi-compiler'));
 const ConfigureWebpck = loadable(() => import('@teambit/webpack.content.configure-webpack'));
-const CliReference = loadable(() => import('@teambit/harmony.content.cli-reference'));
 
 /* Builder */
 
@@ -116,6 +117,11 @@ const ComponentId = loadable(() => import('@teambit/component.content.component-
 const MainFile = loadable(() => import('@teambit/component.content.component-main-file'));
 const ComponentConfig = loadable(() => import('@teambit/component.content.component-config'));
 const ComponentJson = loadable(() => import('@teambit/component.content.component-json'));
+const ComponentObjects = loadable(() => import('@teambit/component.content.component-objects'));
+const DevFiles = loadable(() => import('@teambit/component.content.dev-files'));
+const InspectingComponents = loadable(() => import('@teambit/component.content.inspecting-components'));
+const Tags = loadable(() => import('@teambit/component.content.tags'));
+const Snaps = loadable(() => import('@teambit/component.content.snaps'));
 
 /* Envs */
 
@@ -264,7 +270,7 @@ export const docsRoutes: DocsRoute[] = [
             title: 'Package Consumers',
             description: 'Package Consumers',
             component: <CiInstall />,
-          }
+          },
         ],
       },
     ],
@@ -282,34 +288,34 @@ export const docsRoutes: DocsRoute[] = [
       },
       {
         path: 'creating-workspaces',
-        title: 'Creating workspaces',
+        title: 'Creating Workspaces',
       },
       {
         path: 'configuring-workspaces',
-        title: 'Configuring the workspace (workspace.jsonc)',
+        title: 'Configuring the Workspace (workspace.jsonc)',
       },
       {
         path: 'directory-structure',
-        title: 'Directory structure',
+        title: 'Directory Structure',
         component: <DirectoryStructure />,
       },
       {
         path: 'component-directory',
-        title: 'Component directory',
+        title: 'Component Directory',
         component: <ComponentDir />,
       },
       {
         path: 'variants',
-        title: 'Configuration variants',
+        title: 'Configuration Variants',
         component: <Variants />,
       },
       {
         path: 'importing-components',
-        title: 'Importing components',
+        title: 'Importing Components',
       },
       {
         path: 'exporting-components',
-        title: 'Exporting components',
+        title: 'Exporting Components',
       },
       {
         path: 'workspace-status',
@@ -323,16 +329,16 @@ export const docsRoutes: DocsRoute[] = [
       },
       {
         path: 'component-links',
-        title: 'Workspace component link',
+        title: 'Workspace Component Link',
         component: <WorkspaceLink />,
       },
       {
         path: 'configuring-remote-scopes',
-        title: 'Configuring remote scopes',
+        title: 'Configuring Remote Scopes',
       },
       {
         path: 'local-scope',
-        title: 'Local scope',
+        title: 'Local Scope',
       },
     ],
   },
@@ -346,6 +352,16 @@ export const docsRoutes: DocsRoute[] = [
         path: 'component-overview',
         title: 'Component Overview',
         component: <ComponentOverview />,
+      },
+      {
+        path: 'tags',
+        title: 'Tags (release versions)',
+        component: <Tags />,
+      },
+      {
+        path: 'snaps',
+        title: 'Snaps (snapshots)',
+        component: <Snaps />,
       },
       {
         path: 'removing-deprecating-components',
@@ -378,21 +394,24 @@ export const docsRoutes: DocsRoute[] = [
         component: <ComponentJson />,
       },
       {
-        path: 'naming-components',
-        title: 'Naming components',
-      },
-      {
         path: 'dev-files',
         title: 'Dev files',
+        component: <DevFiles />,
       },
       {
         path: 'inspecting-components',
-        title: 'Inspecting components',
+        title: 'Inspecting Components',
+        component: <InspectingComponents />,
       },
       {
         path: 'component-capsules',
-        title: 'Component capsules',
+        title: 'Component Capsules',
         component: <Capsule />,
+      },
+      {
+        path: 'component-objects',
+        title: 'Component Objects',
+        component: <ComponentObjects />,
       },
     ],
   },
