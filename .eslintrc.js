@@ -7,6 +7,8 @@ module.exports = {
     'no-console': ['error'],
     'react/jsx-props-no-spreading': 'off',
     'prettier/prettier': 'error',
+    'consistent-return': 'off',
+    'arrow-body-style': 'off',
   },
   plugins: ['prettier'],
 };
