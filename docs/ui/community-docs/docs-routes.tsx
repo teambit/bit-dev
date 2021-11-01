@@ -33,6 +33,14 @@ const WorkspaceLink = loadable(() => import('@teambit/workspace.content.workspac
 const DirectoryStructure = loadable(() => import('@teambit/workspace.content.directory-structure'));
 const ComponentDir = loadable(() => import('@teambit/workspace.content.component-directory'));
 const WorkspaceStatus = loadable(() => import('@teambit/workspace.content.workspace-status'));
+const ClearingCache = loadable(() => import('@teambit/workspace.content.clearing-cache'));
+const WorkspaceConfiguration = loadable(() => import('@teambit/workspace.content.workspace-configuration'));
+const ImportingComponents = loadable(() => import('@teambit/workspace.content.importing-components'));
+const ExportingComponents = loadable(() => import('@teambit/workspace.content.exporting-components'));
+const CreatingWorkspaces = loadable(() => import('@teambit/workspace.content.creating-workspaces'));
+const ConfiguringRemoteScopes = loadable(() => import('@teambit/workspace.content.configuring-remote-scopes'));
+const LocalScope = loadable(() => import('@teambit/workspace.content.local-scope'));
+const MovingComponents = loadable(() => import('@teambit/workspace.content.moving-components'));
 const Variants = loadable(() => import('@teambit/workspace.content.variants'));
 
 /**
@@ -110,10 +118,10 @@ const CompositionsAndStories = loadable(() => import('@teambit/compositions.cont
 
 /* Components */
 
+const ComponentId = loadable(() => import('@teambit/component.content.component-id'));
 const ComponentOverview = loadable(() => import('@teambit/component.content.component-overview'));
 const RemovingDeprecating = loadable(() => import('@teambit/docs.content.guides.removing-deprecating-components'));
 const MergingComponentVersions = loadable(() => import('@teambit/docs.content.guides.merging-component-versions'));
-const ComponentId = loadable(() => import('@teambit/component.content.component-id'));
 const MainFile = loadable(() => import('@teambit/component.content.component-main-file'));
 const ComponentConfig = loadable(() => import('@teambit/component.content.component-config'));
 const ComponentJson = loadable(() => import('@teambit/component.content.component-json'));
@@ -168,6 +176,12 @@ export const docsRoutes: DocsRoute[] = [
         icon: 'compose',
         open: false,
         children: [
+          {
+            path: 'create-components',
+            title: 'Create Components',
+            description: 'Create components',
+            component: <CreateComponents />,
+          },
           {
             path: 'dev-environments',
             title: 'Dev environments',
@@ -288,11 +302,14 @@ export const docsRoutes: DocsRoute[] = [
       },
       {
         path: 'creating-workspaces',
-        title: 'Creating Workspaces',
+        title: 'Creating workspaces',
+        component: <CreatingWorkspaces />,
       },
       {
-        path: 'configuring-workspaces',
-        title: 'Configuring the Workspace (workspace.jsonc)',
+        path: 'workspace-configuration',
+        title: 'Configuring the Workspace',
+        component: <WorkspaceConfiguration />,
+        title: 'Creating Workspaces',
       },
       {
         path: 'directory-structure',
@@ -305,17 +322,24 @@ export const docsRoutes: DocsRoute[] = [
         component: <ComponentDir />,
       },
       {
+        path: 'moving-components',
+        title: 'Moving Components',
+        component: <MovingComponents />,
+      },
+      {
+        path: 'importing-components',
+        title: 'Importing components',
+        component: <ImportingComponents />,
+      },
+      {
         path: 'variants',
         title: 'Configuration Variants',
         component: <Variants />,
       },
       {
-        path: 'importing-components',
-        title: 'Importing Components',
-      },
-      {
         path: 'exporting-components',
         title: 'Exporting Components',
+        component: <ExportingComponents />,
       },
       {
         path: 'workspace-status',
@@ -334,11 +358,18 @@ export const docsRoutes: DocsRoute[] = [
       },
       {
         path: 'configuring-remote-scopes',
-        title: 'Configuring Remote Scopes',
+        title: 'Configuring remote scopes',
+        component: <ConfiguringRemoteScopes />,
       },
       {
         path: 'local-scope',
-        title: 'Local Scope',
+        title: 'Local scope',
+        component: <LocalScope />,
+      },
+      {
+        path: 'clearing-cache',
+        title: 'Clearing Cache',
+        component: <ClearingCache />,
       },
     ],
   },
@@ -468,7 +499,6 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'cyclic-dependencies',
         title: 'Cyclic dependencies',
-        component: <LockFiles />,
       },
       {
         path: 'lock-files',

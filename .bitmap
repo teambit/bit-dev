@@ -57,6 +57,12 @@
         "mainFile": "index.ts",
         "rootDir": "component/content/capsule"
     },
+    "content/clearing-cache": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "workspace/content/clearing-cache"
+    },
     "content/cli-reference": {
         "scope": "teambit.harmony",
         "version": "1.9.3",
@@ -183,6 +189,18 @@
         "mainFile": "index.ts",
         "rootDir": "webpack/content/configure-webpack"
     },
+    "content/configuring-remote-scopes": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "workspace/content/configuring-remote-scopes"
+    },
+    "content/creating-workspaces": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "workspace/content/creating-workspaces"
+    },
     "content/configuring-dependencies": {
         "scope": "teambit.dependencies",
         "version": "1.9.1",
@@ -254,6 +272,12 @@
         "version": "1.9.3",
         "mainFile": "index.ts",
         "rootDir": "envs/content/env-troubleshooting"
+    },
+    "content/exporting-components": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "workspace/content/exporting-components"
     },
     "content/extending-env": {
         "scope": "teambit.envs",
@@ -429,6 +453,12 @@
         "mainFile": "index.ts",
         "rootDir": "envs/content/implementing-new-env"
     },
+    "content/importing-components": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "workspace/content/importing-components"
+    },
     "content/inspecting-components": {
         "scope": "teambit.component",
         "version": "0.0.2",
@@ -465,6 +495,12 @@
         "mainFile": "index.ts",
         "rootDir": "defender/content/linting-during-development"
     },
+    "content/local-scope": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "workspace/content/local-scope"
+    },
     "content/lock-files": {
         "scope": "teambit.dependencies",
         "version": "1.9.3",
@@ -482,6 +518,12 @@
         "version": "1.9.3",
         "mainFile": "index.ts",
         "rootDir": "compositions/content/mounting-compositions-to-dom"
+    },
+    "content/moving-components": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "workspace/content/moving-components"
     },
     "content/multi-compiler": {
         "scope": "teambit.compilation",
@@ -608,6 +650,12 @@
         "version": "1.9.2",
         "mainFile": "index.ts",
         "rootDir": "base-react/content/video"
+    },
+    "content/workspace-configuration": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "workspace/content/workspace-configuration"
     },
     "content/workspace-link": {
         "scope": "teambit.workspace",
