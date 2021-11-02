@@ -53,8 +53,6 @@ export function GridGraph({ children, nodeClassName, nodes, Node = DefaultNode, 
   );
 }
 
-
-
 export const positions = {
   'top': {
     alignSelf: 'start',

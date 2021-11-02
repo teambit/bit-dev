@@ -1,25 +1,44 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import classNames from 'classnames';
 import { CliSnippet } from '@teambit/design.ui.cli-snippet';
+import type { CliSnippetProps } from '@teambit/design.ui.cli-snippet';
 import styles from './terminal.module.scss';
 
 export type TerminalProps = {
   /**
-   * terminal content to output. 
+   * Determine whether to animate the output.
    */
-  children: string,
+  animate?: boolean;
 
   /**
-   * determine whether to animate the output.
+   * The delay between each key when typing.
    */
-  animate?: boolean,
-} & React.HTMLAttributes<HTMLDivElement>;
+  delay?: number;
 
-export function Terminal({ children, animate, className }: TerminalProps) {
-  return (
-    <CliSnippet 
-      className={classNames(animate ? styles.animate : '', className)} 
-      content={children} 
-    />
-  );
+  /**
+   * Whether to keep looping or not.
+   */
+  loop?: boolean;
+} & CliSnippetProps;
+
+export function Terminal({ animate = false, delay = 140, loop = false, content, className }: TerminalProps) {
+  const [text, setText] = useState(animate ? '' : content);
+
+  useEffect(() => {
+    if (animate) {
+      const timer = setInterval(() => {
+        setText((prevText) => {
+          const newText = content.substring(0, prevText.length + 1);
+          if (content.length === newText.length) {
+            if (loop) return '';
+            clearInterval(timer);
+          }
+          return newText;
+        });
+      }, delay);
+      return () => clearInterval(timer);
+    }
+  }, []);
+
+  return <CliSnippet className={classNames(styles.terminal, className)} content={text} />;
 }

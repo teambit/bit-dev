@@ -1,24 +1,22 @@
 ---
 description: 'A Terminal component.'
-labels: ['label1', 'label2', 'label3']
+labels: ['terminal', 'code', 'cli']
 ---
 
 import { Terminal } from './terminal';
 
-## React Component for rendering text
-
-A basic div that renders some text
+A terminal that renders some code examples.
 
 ### Component Usage
 
 ```js
-<Terminal text="hello from Terminal" />
+<Terminal content="hello from Terminal" />
 ```
 
-### Using props to customize the text
+### Using props to customize the text and animate it.
 
 Modify the text to see it change live:
 
 ```js live
-<Terminal text="hello from Terminal" />
+<Terminal content="hello from Terminal" animate={false} delay={140} />
 ```
