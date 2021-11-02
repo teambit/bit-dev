@@ -60,6 +60,7 @@
 
 .getStarted {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   grid-column-start: 4;
   grid-column-end: 10;
