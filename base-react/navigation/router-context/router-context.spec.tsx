@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { BasicLink } from './router-context.composition';
+import { Preview } from './router-context.composition';
 
 it('should render with the correct link', () => {
-  const { getByText } = render(<BasicLink />);
-  const rendered = getByText('bit.dev');
+  const { getByText } = render(<Preview />);
+  const rendered = getByText('System 1');
   expect(rendered).toBeTruthy();
 });

@@ -1,8 +1,8 @@
 import React from 'react';
-import { useRouter, LinkProps, NavigationLinkProps } from '@teambit/base-react.navigation.router-context';
+import { useRouter, LinkProps, NavLinkProps } from '@teambit/base-react.navigation.router-context';
 import { NativeLink, NativeNavLink } from './native-link';
 
-export type { LinkProps, NavigationLinkProps };
+export type { LinkProps, NavLinkProps };
 
 /** implementation agnostic Link component, basic on the standard `a` tag */
 export function Link(props: LinkProps) {
@@ -16,7 +16,7 @@ export function Link(props: LinkProps) {
   return <ActualLink {...props} />;
 }
 
-export function NavLink(props: NavigationLinkProps) {
+export function NavLink(props: NavLinkProps) {
   const router = useRouter();
   const ActualNavLink = router.NavLink || NativeNavLink;
 

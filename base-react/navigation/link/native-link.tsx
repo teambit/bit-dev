@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import classNames from 'classnames';
 import { compareUrl } from '@teambit/ui-foundation.urls.compare-url';
 import { useLocation } from '@teambit/base-react.navigation.use-location';
-import type { LinkProps, NavigationLinkProps } from '@teambit/base-react.navigation.router-context';
+import type { LinkProps, NavLinkProps } from '@teambit/base-react.navigation.router-context';
 
 const externalLinkAttributes = { rel: 'noopener', target: '_blank' };
 export const isBrowser = typeof window !== 'undefined';
@@ -23,7 +23,7 @@ export function NativeNavLink({
   exact,
   href,
   ...rest
-}: NavigationLinkProps) {
+}: NavLinkProps) {
   const location = useLocation();
 
   const isActive = useMemo(() => {

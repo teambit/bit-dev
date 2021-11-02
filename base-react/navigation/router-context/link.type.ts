@@ -14,7 +14,7 @@ export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement>
   external?: boolean;
 }
 
-export interface NavigationLinkProps extends LinkProps {
+export interface NavLinkProps extends LinkProps {
   /** styles class name to apply when link href matches the current page */
   activeClassName?: string;
 
@@ -38,4 +38,4 @@ export interface NavigationLinkProps extends LinkProps {
  * A standard API schema for a Link component.
  */
 export type LinkType = ComponentType<LinkProps>;
-export type NavLinkType = ComponentType<NavigationLinkProps>;
+export type NavLinkType = ComponentType<NavLinkProps>;
