@@ -24,9 +24,6 @@ describe('footer link', () => {
   it('should support url image', () => {
     const { getByTestId } = render(<LinkWithImage />);
     const rendered = getByTestId('bit-link').childNodes[0];
-    expect(rendered).toHaveAttribute(
-      'src',
-      'https://static.bit.dev/bit-logo.svg'
-    );
+    expect(rendered).toHaveAttribute('src', 'https://static.bit.dev/bit-logo.svg');
   });
 });
