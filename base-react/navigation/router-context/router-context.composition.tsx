@@ -13,7 +13,7 @@ const routingB: RouterContextType = {
 export const Preview = () => (
   <div>
     <RouterProvider value={routingA}>
-      System 1 <Link href="https://bit.dev">Link</Link>
+      <span>System 1</span> <Link href="https://bit.dev">Link</Link>
     </RouterProvider>
     <br />
     <RouterProvider value={routingB}>
