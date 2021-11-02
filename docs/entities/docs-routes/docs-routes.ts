@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { SidebarNode, SidebarPayload } from '@teambit/docs.ui.sidebar';
+import { SidebarTreeNode, SidebarPayload } from '@teambit/docs.ui.sidebar';
 import { DocsRoute } from './docs-route';
 
 export type Route = {
@@ -27,7 +27,7 @@ export class DocsRoutes {
   /**
    * create a sidebar tree.
    */
-   toSideBarTree(): SidebarNode {
+   toSideBarTree(): SidebarTreeNode {
     return {
       id: '',
       children: this.tree.map(node => this.computeTreeNode(node))
