@@ -1,0 +1,42 @@
+# Exporting Components
+
+Exporting is the process of copying Component versions from the Local Scope to remote Scopes, to make them available to other projects.
+
+Components can be exported to Scopes on Bit Cloud or to self-hosted Scopes. Bit exports each component to the specific Scope configured for it by the Workspace/Component Configurations.
+
+## Export all Staged Components
+
+To export all component versions that have not yet been exported:
+
+```bash
+bit export
+```
+
+## Export Selected Components
+
+To export only selected components, list the component IDs:
+
+```bash
+bit export <component-id>
+```
+
+## Configuring Components with Scopes
+
+See here to learn how to configure Components with Scopes.
+
+## Creating a Scope
+
+- Create a Scope on Bit Cloud
+- Self-host a Scope
+
+## Post Export
+
+The export process updates your workspace' `.bitmap` file. Make sure to commit these changes to Git.
+
+```bash
+git commit -am 'updated .bitmap file after a successful export'
+```
+
+## Export by a Remote Caching
+
+[See here](/docs/getting-started/set-up-ci/automate-export) to learn how to use your CI to export components.
