@@ -1,10 +1,10 @@
-import React, { useMemo, useContext, ReactNode } from 'react';
+import React, { useMemo, ReactNode } from 'react';
 import classNames from 'classnames';
 import { DocsRoute, DocsRoutes } from '@teambit/docs.entities.docs-routes';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
 import { Sidebar as Tree } from '@teambit/docs.ui.sidebar';
 import { DocPage } from '@teambit/docs.ui.pages.doc-page';
-import { SidebarContext } from '@teambit/design.ui.sidebar.sidebar-context';
+import { useSidebar } from '@teambit/design.ui.sidebar.sidebar-context';
 import { Sidebar } from '@teambit/design.ui.sidebar.sidebar';
 import styles from './docs.module.scss';
 import { PrimaryLinks } from './primary-links';
@@ -46,7 +46,7 @@ export function Docs({
   ...rest
 }: DocsProps) {
   const { path } = useRouteMatch();
-  const sidebarContext = useContext(SidebarContext);
+  const sidebar = useSidebar();
   const docRoutes = DocsRoutes.from(routes, baseUrl || path);
   const primaryRoutes = DocsRoutes.from(primaryLinks, baseUrl || path);
 
@@ -57,7 +57,7 @@ export function Docs({
 
   return (
     <div {...rest} className={classNames(styles.main, className)}>
-      <Sidebar isOpen={sidebarContext.isOpen} toggle={sidebarContext.setIsOpen}>
+      <Sidebar isOpen={sidebar.isOpen} toggle={sidebar.setIsOpen}>
         <PrimaryLinks tree={primaryRoutes.toSideBarTree()} />
         <Tree tree={docRoutes.toSideBarTree()} linkPrefix={baseUrl} />
       </Sidebar>

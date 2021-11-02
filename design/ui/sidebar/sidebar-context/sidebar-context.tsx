@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, useContext } from 'react';
 
 export type SidebarContextType = {
   /**
@@ -15,3 +15,5 @@ export const SidebarContext = createContext<SidebarContextType>({
   isOpen: false,
   setIsOpen: () => undefined,
 });
+
+export const useSidebar = () => useContext(SidebarContext);

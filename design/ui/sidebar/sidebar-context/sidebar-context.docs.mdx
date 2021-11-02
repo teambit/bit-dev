@@ -3,19 +3,16 @@ description: Sidebar context.
 labels: ['react', 'context', 'sidebar']
 ---
 
-import { SidebarContext } from './sidebar-context';
+import { useSidebar } from './sidebar-context';
 import { SidebarProvider } from './sidebar-context-provider';
 import { MockComponent } from './sidebar-context.composition';
 
-## React Theme Context
 
 This is a simple [React Context](https://reactjs.org/docs/context.html) shared as a Bit component.
 
-Use this component to access the sidebar's status and control as a context to be used in it's children.
+### Provider Usage
 
-### Component usage
-
-Wrap your app in the `SidebarProvider`
+Wrap your app in `SidebarProvider`
 
 ```tsx
 () => {
@@ -33,13 +30,15 @@ Wrap your app in the `SidebarProvider`
 
 The children can now access the context.
 
+use the `useSidebar` hook to access the sidebar's status and toggle.
+
 ```tsx
 import React, { useContext } from 'react';
-import { SidebarContext } from '@teambit/design.ui.sidebar.sidebar-context';
+import { useSidebar } from '@teambit/design.ui.sidebar.sidebar-context';
 
 function SidebarComponent() {
-  // sidebar component can access the context.
-  const { isOpen, setIsOpen } = useContext(SidebarContext);
+  // sidebar component can access the context via the hook.
+  const { isOpen, setIsOpen } = useSidebar();
   return <div></div>;
 }
 ```
