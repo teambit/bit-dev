@@ -1,0 +1,43 @@
+# Configuring Remote Scopes
+
+## Workspace Configurations
+
+Use the Workspace Configuration to set a default Scope for all Components in the Workspace:
+
+```json
+{
+  "teambit.workspace/workspace": {
+    "defaultScope": "my-org.my-scope"
+  }
+}
+```
+
+## Variants
+
+Variants can be used to set a group of components with a remote Scope. The following example sets the `my-scope` Scope on all components inside the `my-scope` directory.
+
+```json
+{
+  "teambit.workspace/variants": {
+    "my-scope": {
+      "defaultScope": "my-org.my-scope"
+    }
+  }
+}
+```
+
+## component.json
+
+Use the `scope` property in the Component's `component.json` to set a remote Scope directly on that Component:
+
+```json
+{
+  "componentId": {
+    "name": "ui/text",
+    "version": "0.0.1",
+    "scope": "company.scope"
+  },
+  "propagate": false,
+  "extensions": {}
+}
+```

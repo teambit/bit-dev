@@ -1,0 +1,98 @@
+import { Image } from '@teambit/docs.ui.zoomable-image';
+import importDepsImg from './import-deps.png';
+
+# Importing Components
+
+Importing is the process of copying Components from their Scope to the Local Scope, to use and maintain them in the Workspace.
+
+When a component gets imported into a workspace, it becomes maintainable in that Workspace. Its source code can be modified, as well as its configurations.
+Modified components can be versioned, along with their built artifacts and metadata, and exported back to their Scope.
+
+:::note component version immutability
+A component can be modified and tagged with a new version. Previous versions, however, are completely immutable.
+:::
+
+## Import a Component
+
+A component is imported using its [Component ID](/docs/components/components-overview):
+
+```bash
+bit import <component-id>
+```
+
+To import a component version different than the latest:
+
+```bash
+bit import <component-id>@<version>
+```
+
+## Import All Components Listed in the Workspace `.bitmap`
+
+To import all workspace components (listed in the `.bitmap` file):
+
+```bash
+bit import
+```
+
+:::tip
+Use the `bit install` command to install all packages _and_ import all components.
+:::
+
+## Using an Imported Components
+
+Imported Components are symlinked from their corresponding module directories, in the workspace `node_modules`. Their compiled code is output to the `dist` of these directories. To consume an imported component, use its (absolute) module name, and not its relative path.
+That makes the `import` statements valid even when the Component is used in other projects, with different directory structures.
+
+```ts
+import { Card } from '@teambit/design.ui.input.color-picker';
+```
+
+To learn how Bit enables this way of consumption, [see here]('#the-import-process-for-initial-imports').
+
+## Check Out a Component Version into the Working Directory
+
+When importing a component that does not exist in the workspace, Bit will checkout and use the imported version (Bit defaults to the latest version).
+
+If a previous version already exists, Bit will fetch newer versions but will not check them out to the working directory.
+To check out a fetched version, into the working directory:
+
+```bash
+bit checkout <version-to-checkout> <component-id>
+```
+
+:::note merge conflicts
+You may encounter merge conflicts when trying to checkout a different version. This happens when the local component version is modified in a way that does not enable Bit to merge by itself.
+
+To solve that, see ['Merging Component Versions'](/mergin-component-versions)
+:::
+
+## The Import Process for Initial Imports
+
+1. Bit fetches the Component from its Scope
+1. Bit stores the fetched Component in the Local Scope
+1. Bit checks out the latest Component version to the Workspace:
+   1. Bit writes the Component source files into the Workspace directory (using the value set in the `defaultDirectory` of the Workspace Configuration, or according to the value passed using the `--path` option - `bit import --path 'path'`)
+   1. Bit adds the Component (with the exact version of it) to the `.bitmap` file
+1. Bit re-calculates the Component dependencies and installs them
+1. Bit symlinks from the Workspace `node_modules` directory to the component source files
+1. Bit writes the `package.json` to the component’s corresponding module directory (nested in the workspace `node_modules` directory)
+1. Bit compiles the component
+
+## Installing the Dependencies of Imported Components
+
+Let's say we import 'Component A'.
+
+<Image src={importDepsImg} />
+
+1. Bit fetches 'Component A', as well as of 'Component B', and stores them in the Local Scope
+2. Bit checks out 'Component A' to the workspace
+3. Bit installs 'Component B'
+4. Bit installs the dependencies of 'Component B' (as well as its transitive dependencies)
+5. Bit re-calculates the dependencies of 'Component A' based on its new hosting workspace configuration (the re-calculation includes only dependencies of module-type 'package')
+6. Bit installs the dependencies of 'Component A'
+7. Bit writes the `package.json` file into Component A's corresponding (linked) module in the `node_modules` directory (located at the root of the Workspace)
+
+:::note
+If a component is first installed, and then imported - the imported version will replace the installed one (even if the two are of different versions).
+This will not affect transitive dependencies (a dependency of a dependency will still be able to use the installed component as it will be nested and not on the root).
+:::
