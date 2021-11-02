@@ -1,36 +1,20 @@
 import React from 'react';
-import {
-  MemoryRouter,
-  BrowserRouter,
-  Route,
-  useLocation,
-  useHistory,
-} from 'react-router-dom';
+import { MemoryRouter, Route, useLocation } from 'react-router-dom';
 import { Link } from './link';
 
-export const Preview = () => {
-  return (
-    <BrowserRouter basename="hello">
-      <Lunk />
-    </BrowserRouter>
-  );
-};
+export const Preview = () => (
+  <MemoryRouter>
+    <SomeLinks />
+  </MemoryRouter>
+);
 
-function Lunk() {
+function SomeLinks() {
   const location = useLocation();
-  // const history = useHistory();
-  // const { state, } = history;
-
-  // // history
-  // const somehref = history.createHref({
-  //   pathname: '/boot',
-  //   search: 'bob=isDog',
-  // });
 
   return (
     <div>
-      <div>location: {JSON.stringify(location)}</div>
-      {/* <div>some href - {somehref}</div> */}
+      <div>location: {JSON.stringify(location, undefined, 1)}</div>
+
       <div>
         link:{' '}
         <Link href="/path/one?what=is" state={{ some: 'state' }}>

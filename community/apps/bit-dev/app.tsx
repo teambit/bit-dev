@@ -28,7 +28,7 @@ export function BitDevApp() {
   return (
     // {/* TODO @Uri - remove the legacy RoutingProvider */}
     <RoutingProvider value={legacyRouting}>
-      <ReactRouterRoutingAdapter>
+      <ReactRouterRoutingAdapter useBrowserRouter>
         <ThemeCompositions>
           <ComponentHighlighter
             classes={{ label: styles.label, frame: styles.frame }}

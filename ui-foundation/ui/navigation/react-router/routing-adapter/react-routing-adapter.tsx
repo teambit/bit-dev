@@ -17,7 +17,7 @@ export const reactRouterAdapter: RouterContextType = {
 
 type ReactRouterRoutingAdapterProps = {
   children: ReactNode;
-  /* automatically add BrowserRouter (on by default) */
+  /** automatically add a BrowserRouter context  */
   useBrowserRouter?: boolean;
 
   // consider passing a function to calculate the display
@@ -33,7 +33,7 @@ type ReactRouterRoutingAdapterProps = {
 /** wrap your code with this adapter to use React Router 5 as your Routing system */
 export function ReactRouterRoutingAdapter({
   children,
-  useBrowserRouter = true,
+  useBrowserRouter = false,
   displayUrl,
 }: ReactRouterRoutingAdapterProps) {
   const RouterComponent = useBrowserRouter ? BrowserRouter : Noop;

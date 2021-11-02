@@ -1,0 +1,49 @@
+---
+description: 'React router context adapter for our abstract routing system'
+labels: ['ui', 'react-router', 'link']
+---
+
+import { MemoryRouter } from 'react-router-dom';
+import { Link, NavLink } from '@teambit/base-react.navigation.link';
+import { useLocation } from '@teambit/base-react.navigation.use-location';
+import { ReactRouterRoutingAdapter } from './react-routing-adapter';
+
+A React Router adapter for our routing system. Any `<Link>` rendered under this will have the React Router implementation!
+
+Simply wrap you app with `<ReactRouterRoutingAdapter>`, like so:
+
+```tsx
+function AppContext({ children }) {
+  return <ReactRouterRoutingAdapter>{children}</ReactRouterRoutingAdapter>;
+}
+```
+
+Try it out!
+
+```tsx live
+() => {
+  const Example = () => {
+    const location = useLocation();
+
+    return (
+      <div>
+        <div>current location is: {JSON.stringify(location, undefined, 1)}</div>
+        <Link href="/some/link">/some/link</Link>
+        <br />
+        <NavLink href="/some/link" activeStyle={{ fontWeigth: 'bold' }}>
+          /another/link
+        </NavLink>
+      </div>
+    );
+  };
+
+  return (
+    <MemoryRouter> {/* <- required by React Router */}
+      <ReactRouterRoutingAdapter>
+        <Example />
+      </ReactRouterRoutingAdapter>
+    </MemoryRouter>
+  );
+};
+```
+
