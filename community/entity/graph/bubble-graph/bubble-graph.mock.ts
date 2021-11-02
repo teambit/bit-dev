@@ -10,7 +10,13 @@ export function mockBubbleGraph() {
       dependencies: [
         'teambit.community/entities/hero-graph',
         'teambit.community/ui/content/heading',
-        'teambit.design/ui/content/subtitle',
+        {
+          id: 'teambit.design/ui/content/subtitle',
+          edge: {
+            start: 'bottom',
+            end: 'right',
+          },
+        },
         'teambit.documenter/ui/copy-box',
       ],
       payload: {
@@ -96,6 +102,12 @@ export function mockBubbleGraph() {
       },
       row: 6,
       col: 11,
+      sizes: {
+        md: {
+          row: null,
+          col: null,
+        },
+      },
       position: 'bottom-left',
     },
     {
@@ -110,6 +122,12 @@ export function mockBubbleGraph() {
       },
       row: 5,
       col: 10,
+      sizes: {
+        md: {
+          row: null,
+          col: null,
+        },
+      },
       position: 'bottom-left',
     },
     {
@@ -120,6 +138,12 @@ export function mockBubbleGraph() {
       },
       row: 5,
       col: 11,
+      sizes: {
+        md: {
+          row: null,
+          col: null,
+        },
+      },
       position: 'top-right',
     },
     {
@@ -130,6 +154,12 @@ export function mockBubbleGraph() {
       },
       row: 7,
       col: 10,
+      sizes: {
+        md: {
+          row: null,
+          col: null,
+        },
+      },
       position: 'bottom-right',
     },
     {
@@ -140,6 +170,12 @@ export function mockBubbleGraph() {
       },
       row: 6,
       col: 9,
+      sizes: {
+        md: {
+          row: null,
+          col: null,
+        },
+      },
       position: 'bottom-right',
     },
     {
@@ -150,6 +186,12 @@ export function mockBubbleGraph() {
       },
       row: 6,
       col: 7,
+      sizes: {
+        md: {
+          row: null,
+          col: null,
+        },
+      },
       position: 'top-left',
     },
     {
@@ -161,6 +203,12 @@ export function mockBubbleGraph() {
       },
       row: 7,
       col: 8,
+      sizes: {
+        md: {
+          row: null,
+          col: null,
+        },
+      },
       position: 'top-left',
     },
     {
@@ -171,6 +219,12 @@ export function mockBubbleGraph() {
       },
       row: 7,
       col: 6,
+      sizes: {
+        md: {
+          row: null,
+          col: null,
+        },
+      },
       position: 'top-left',
     },
     {
@@ -181,6 +235,12 @@ export function mockBubbleGraph() {
       },
       row: 7,
       col: 7,
+      sizes: {
+        md: {
+          row: null,
+          col: null,
+        },
+      },
       position: 'bottom-right',
     },
     {
@@ -191,6 +251,12 @@ export function mockBubbleGraph() {
       },
       row: 5,
       col: 6,
+      sizes: {
+        md: {
+          row: null,
+          col: null,
+        },
+      },
       position: 'bottom-right',
     },
     {
@@ -201,6 +267,12 @@ export function mockBubbleGraph() {
       },
       row: 6,
       col: 5,
+      sizes: {
+        md: {
+          row: null,
+          col: null,
+        },
+      },
       position: 'top-right',
     },
     {
@@ -211,6 +283,12 @@ export function mockBubbleGraph() {
       },
       row: 6,
       col: 4,
+      sizes: {
+        md: {
+          row: null,
+          col: null,
+        },
+      },
       position: 'bottom-right',
     },
     {
@@ -221,6 +299,12 @@ export function mockBubbleGraph() {
       },
       row: 7,
       col: 5,
+      sizes: {
+        md: {
+          row: null,
+          col: null,
+        },
+      },
       position: 'bottom-right',
     },
     /**
@@ -238,6 +322,12 @@ export function mockBubbleGraph() {
       },
       row: 1,
       col: 5,
+      sizes: {
+        md: {
+          row: null,
+          col: null,
+        },
+      },
       position: 'bottom-left',
     },
     {
@@ -248,6 +338,12 @@ export function mockBubbleGraph() {
       },
       row: 1,
       col: 4,
+      sizes: {
+        md: {
+          row: null,
+          col: null,
+        },
+      },
       position: 'top-left',
     },
     {
@@ -258,6 +354,12 @@ export function mockBubbleGraph() {
       },
       row: 2,
       col: 7,
+      sizes: {
+        md: {
+          row: null,
+          col: null,
+        },
+      },
       position: 'top-left',
     },
     {
@@ -268,6 +370,12 @@ export function mockBubbleGraph() {
       },
       row: 1,
       col: 6,
+      sizes: {
+        md: {
+          row: null,
+          col: null,
+        },
+      },
       position: 'top-left',
     },
     /**
@@ -281,6 +389,12 @@ export function mockBubbleGraph() {
       },
       row: 2,
       col: 1,
+      sizes: {
+        md: {
+          row: null,
+          col: null,
+        },
+      },
       position: 'bottom-left',
     },
     {
@@ -291,6 +405,12 @@ export function mockBubbleGraph() {
       },
       row: 1,
       col: 1,
+      sizes: {
+        md: {
+          row: null,
+          col: null,
+        },
+      },
       position: 'bottom-right',
     },
     {
@@ -301,6 +421,12 @@ export function mockBubbleGraph() {
       },
       row: 1,
       col: 2,
+      sizes: {
+        md: {
+          row: null,
+          col: null,
+        },
+      },
       position: 'bottom-right',
     },
     /**
@@ -324,6 +450,12 @@ export function mockBubbleGraph() {
       },
       row: 5,
       col: 2,
+      sizes: {
+        md: {
+          row: null,
+          col: null,
+        },
+      },
       position: 'bottom-right',
     },
     {
@@ -334,6 +466,12 @@ export function mockBubbleGraph() {
       },
       row: 5,
       col: 1,
+      sizes: {
+        md: {
+          row: null,
+          col: null,
+        },
+      },
       position: 'bottom-right',
     },
     {
@@ -344,6 +482,12 @@ export function mockBubbleGraph() {
       },
       row: 7,
       col: 1,
+      sizes: {
+        md: {
+          row: null,
+          col: null,
+        },
+      },
       position: 'top-left',
     },
     {
@@ -354,6 +498,12 @@ export function mockBubbleGraph() {
       },
       row: 6,
       col: 2,
+      sizes: {
+        md: {
+          row: null,
+          col: null,
+        },
+      },
       position: 'bottom-right',
     },
     {
@@ -364,6 +514,12 @@ export function mockBubbleGraph() {
       },
       row: 7,
       col: 2,
+      sizes: {
+        md: {
+          row: null,
+          col: null,
+        },
+      },
       position: 'bottom-right',
     },
     {
@@ -374,6 +530,12 @@ export function mockBubbleGraph() {
       },
       row: 7,
       col: 3,
+      sizes: {
+        md: {
+          row: null,
+          col: null,
+        },
+      },
       position: 'bottom-right',
     },
   ]);
