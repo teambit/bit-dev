@@ -1,6 +1,6 @@
 ---
 description: Sidebar context.
-labels: ['context']
+labels: ['react', 'context', 'sidebar']
 ---
 
 import { SidebarContext } from './sidebar-context';
@@ -10,32 +10,36 @@ import { MockComponent } from './sidebar-context.composition';
 ## React Theme Context
 
 This is a simple [React Context](https://reactjs.org/docs/context.html) shared as a Bit component.
-Use this component to apply a theme as a context to set on it's children.
+
+Use this component to access the sidebar's status and control as a context to be used in it's children.
 
 ### Component usage
 
+Wrap your app in the `SidebarProvider`
+
 ```tsx
 () => {
-import React, { useContext } from 'react';
-import { ThemeProvider } from './theme-context-provider';
-import { ThemeContext } from './theme-context';
+  import React from 'react';
+  import { SidebarProvider } from '@teambit/design.ui.sidebar.sidebar-context';
 
-<SidebarProvider color="blue">
-  // My lovely children now get a theme!
-  <MockComponent />
-</SidebarProvider>;
+  // My lovely children now get the context!
+  <SidebarProvider>
+    <SidebarComponent />
+  </SidebarProvider>;
+};
 ```
 
-### Using props to customize the theme
+### Using the context 
 
-Change the color to see the text change:
+The children can now access the context.
 
-```tsx live
-() => {
-  return (
-    <SidebarProvider>
-      <MockComponent />
-    </SidebarProvider>
-  );
-};
+```tsx
+import React, { useContext } from 'react';
+import { SidebarContext } from '@teambit/design.ui.sidebar.sidebar-context';
+
+function SidebarComponent() {
+  // sidebar component can access the context.
+  const { isOpen, setIsOpen } = useContext(SidebarContext);
+  return <div></div>;
+}
 ```

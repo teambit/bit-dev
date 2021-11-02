@@ -27,10 +27,10 @@
 
 .sidebarContent {
   overflow: hidden;
-  flex: 0 0 240px;
+  flex-basis: 240px;
   width: 240px;
   z-index: 999999; // TODO: get from zindexs
-  background-color: white;
+  background-color: var(--bit-bg-color, #ffffff);
   transition: flex-basis 300ms, width 300ms ease-in-out;
   div {
     white-space: nowrap;
