@@ -80,6 +80,7 @@
         "@teambit/design.ui.error-page": "0.0.351",
         "@teambit/design.ui.external-link": "0.0.346",
         "@teambit/design.ui.heading": "1.0.7",
+        "@teambit/design.ui.icon-button": "1.0.10",
         "@teambit/design.ui.input.icon-text": "0.0.7",
         "@teambit/design.ui.input.toggle": "1.0.7",
         "@teambit/design.ui.message-card": "1.0.6",

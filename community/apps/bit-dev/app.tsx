@@ -13,6 +13,7 @@ import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 import { ComponentHighlighter } from '@teambit/react.ui.component-highlighter';
 import { RoutingProvider } from '@teambit/base-ui.routing.routing-provider';
 import { Footer, footerMock } from '@teambit/community.ui.footer.footer';
+import { SidebarProvider } from '@teambit/design.ui.sidebar.sidebar-context';
 import { legacyRouting } from './legacy-routing';
 import styles from './app.module.scss';
 
@@ -22,42 +23,50 @@ import styles from './app.module.scss';
 const Plugins = loadable(() => import('@teambit/community.ui.pages.plugins'));
 
 export function BitDevApp() {
-  const [highlighting, setHighlighting] = useState(true)
+  const [highlighting, setHighlighting] = useState(true);
+
   return (
     <RoutingProvider value={legacyRouting}>
-      <RouterContextProvider Link={Link}>
-        <ThemeCompositions>
-          <ComponentHighlighter classes={{label: styles.label, frame: styles.frame }} placement="top" style={{ border: 'none' }} disabled={!highlighting}>
-            <BrowserRouter>
-              <Header highlighting={highlighting} setHighlighting={setHighlighting} />
-              <Switch>
-                <Route path="/docs">
-                  <WideColumn>
-                    <CommunityDocs />
-                  </WideColumn>
-                </Route>
+      <SidebarProvider>
+        <RouterContextProvider Link={Link}>
+          <ThemeCompositions>
+            <ComponentHighlighter
+              classes={{ label: styles.label, frame: styles.frame }}
+              placement="top"
+              style={{ border: 'none' }}
+              disabled={!highlighting}
+            >
+              <BrowserRouter>
+                <Header highlighting={highlighting} setHighlighting={setHighlighting} />
+                <Switch>
+                  <Route path="/docs">
+                    <WideColumn>
+                      <CommunityDocs />
+                    </WideColumn>
+                  </Route>
 
-                <Route path="/guides">
-                  <WideColumn>
-                    <Guides />
-                  </WideColumn>
-                </Route>
-                <Route exact path="/plugins">
-                  <Plugins />
-                </Route>
-                <Route exact path="/">
-                  <Homepage />
-                </Route>
-                <Route component={NotFound} />
-              </Switch>
-              <WideColumn>
-                <Footer categoryList={footerMock} />
-              </WideColumn>
-              {/* footer component */}
-            </BrowserRouter>
-          </ComponentHighlighter>
-        </ThemeCompositions>
-      </RouterContextProvider>
+                  <Route path="/guides">
+                    <WideColumn>
+                      <Guides />
+                    </WideColumn>
+                  </Route>
+                  <Route exact path="/plugins">
+                    <Plugins />
+                  </Route>
+                  <Route exact path="/">
+                    <Homepage />
+                  </Route>
+                  <Route component={NotFound} />
+                </Switch>
+                <WideColumn>
+                  <Footer categoryList={footerMock} />
+                </WideColumn>
+                {/* footer component */}
+              </BrowserRouter>
+            </ComponentHighlighter>
+          </ThemeCompositions>
+        </RouterContextProvider>
+      </SidebarProvider>
     </RoutingProvider>
   );
 }
