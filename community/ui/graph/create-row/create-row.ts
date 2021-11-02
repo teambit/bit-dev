@@ -9,7 +9,7 @@ const getPluginID = (): string => {
 };
 
 export const createRow = (row: number, col: number, icons: Icons): PlainBubbleNode[] => {
-  let newRow: PlainBubbleNode[] = [];
+  const newRow: PlainBubbleNode[] = [];
   icons.forEach((icon) => {
     if (typeof icon === 'string') {
       const bubble: PlainBubbleNode = {
