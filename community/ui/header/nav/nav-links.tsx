@@ -1,10 +1,10 @@
 import React, { ReactNode } from 'react';
 // import { TooltipDrawer } from '@teambit/evangelist.surfaces.tooltip';
-import classNames from 'classnames';
-import { ExternalLink } from '@teambit/design.ui.external-link';
+// import classNames from 'classnames';
+// import { ExternalLink } from '@teambit/design.ui.external-link';
 // import { Link } from 'react-router-dom';
-import { Link } from "@teambit/design.ui.navigation.link";
-import { Icon } from '@teambit/design.elements.icon';
+import { NavLink } from "@teambit/design.ui.navigation.link";
+// import { Icon } from '@teambit/design.elements.icon';
 import styles from './nav.module.scss';
 
 export type NavLinkType = {
@@ -46,7 +46,7 @@ export function NavLinks({links}: NavLinksProps) {
     <div className={styles.navLinks}>
       {links.map((link, key) => {
         const isExternal = link.href?.startsWith('http://') || undefined;
-        return <Link key={key} external={isExternal} className={styles.link} activeClassName={styles.active} href={link.href}>{link.title}</Link>})}
+        return <NavLink key={key} external={isExternal} className={styles.link} activeClassName={styles.active} href={link.href}>{link.title}</NavLink>})}
       {/* {links.map((item, index) => (
         (item.href) ?
         <Placeholder key={index} className={styles.link}>
