@@ -1,7 +1,8 @@
 # Quick Start
 
-Bit is a component build and collaboration framework. It helps teams build components together, and compose them into various 
-features and apps. This allows to build anything in a component-driven architecture, from UI applications, backend services
+Welcome to Bits' Documentation!
+
+Bit is a framework for building and collaborating on components. It helps teams build components together and compose them into various features and apps. This kind of workflow allows assembling anything in a component-driven architecture ([CDD](https://blog.bitsrc.io/component-driven-development-with-bit-dd7bc91ae387)): from UI applications, backend services
 and even CLI tools.
 
 ## Installing Bit
@@ -10,24 +11,24 @@ and even CLI tools.
 npx @teambit/bvm install
 ```
 
+The command above will install Bit Version Manager and the latest version of Bit.
+
 Learn more about upgrading and installing Bit on the [BVM (Bit Version Manager) documantation](/bvm/installing-bit).
 
 ### Creating a Workspace
 
-A [Workspace](/workspace/overview) is where you build and compose components. Creating a new [Workspace](/workspace/overview) can be done with the `bit new` command.
-[Workspace Templates](/workspace/workspace-templates). For more Workspace Templates search [Bit.dev](https://bit.dev/templates).
+A [Workspace](/workspace/overview) is where you build and compose components. Creating a new [Workspace](/workspace/overview) is performed with the `bit new` command followed by the [Workspace Template](/workspace/workspace-templates) of your choice and the directory name for the Workspace.
+
+For instance, to create a Workspace with the React template on a directory named my-workspace, run the following command:
 
 ```bash
-bit new basic my-workspace
+bit new react my-workspace
 ```
 
-Workspaces can also be on existing projects. Learn about how to [initlize Bit on an existing project here](/).
+After the command above finishes running, we can enter the Workspace folder and run the Bit dev server. You'll be able to see some demo components that come with the template:
 
 ```bash
 cd my-workspace
-```
-
-```bash
 bit start
 ```
 
@@ -35,31 +36,40 @@ Learn more about [Workspaces](/workspace/overview).
 
 ### Create Components
 
-[Creating Components](/getting-started/compose-components/create-components) can be done using our pre-defined templates which generates all necessary files for your component including compositions, docs and test files.
-Components must be in their own directory and have an index file that exports the component.
+A quick way to [create a new component](/getting-started/compose-components/create-components) is to use our pre-defined templates.
 
-The following command will add a new component to your workspace under the `ui` [namespace](/components/component-id#sub-categories-with-namespaces).
+For example, to create a new React component, run:
 
 ```bash
 bit create react ui/my-component
 ```
 
-:::note
-Use the `bit templates` command to see a list of available templates.
+This command will add a new React component to your workspace under the `ui` [namespace](/components/component-id#sub-categories-with-namespaces).
+
+You'll find in this folder five files:
+
+- **index.ts**: For exporting the component. This file is a must-have.
+- **my-component.tsx**: The implementation of the component.
+- **my-component.composition.tsx**: In this file, we create various compositions for our component.
+- **my-component.spec.tsx**: This is the place where we import our compositions and test them.
+- **my-component.docs.mdx**: A good component is a well-documented one.
+
+:::tip
+Use the `bit templates` command to see a list of available component templates.
 :::
 
 Learn more about [Creating Components](/getting-started/compose-components/create-components) including how to [create your own templates](/extending-bit/guides/creating-custom-generator).
 
-
 ### Use Dependencies
-Creating dependencies
+
+<!-- TODO -->
 
 ### Dev environments
 
 Bit helps to simplify and standardize common operations required for developing components like [compiling](/compiler/overview), [testing](/tester/overview), [linting](/linter/overview), [formatting](/formatter/overview) and more.
-To learn more about the different services available in Bit go to [Env Services](/envs/core-services).
+Go to [Env Services](/envs/core-services) to learn more about Bits' different services.
 
-Compile your components and output in the `node_modules` directory:
+Compile your components and store the output in the `node_modules` directory:
 
 ```bash
 bit compile
@@ -86,7 +96,7 @@ bit format
 You can use the `--help` flag for each of these commands to learn more.
 
 :::note
-Bit automatically watches and re-executes your component's tests when using `bit start`.
+Bit automatically watches and re-executes your components tests while running the dev-server using the `bit start` command.
 :::
 
 Learn more about [component testing](/tester/overview).
@@ -97,15 +107,15 @@ Version your components and host them remotely to collaborate with others.
 
 ### Version Components
 
-With Bit status, you can see which components have changes and need to be versioned as well as how dependents are affected
-from these changes.
+With `bit status`, you can see the components that were modified and need to be versioned as well as how dependents are affected
+from these changes:
 
 ```bash
 bit status
 ```
 
-Bit helps version multiple components and dependencies at ease. Version changed components and their dependents
-with a single command.
+You can version multiple components and dependencies with ease. Version modified components and their dependents
+with a single command:
 
 ```bash
 bit tag --all 1.0.0 --message 'my first version'
@@ -113,58 +123,45 @@ bit tag --all 1.0.0 --message 'my first version'
 
 ### Share Components
 
-To export your components you need to create a remote scope. Creating a remote Scope can be done
-by [hosting your own](/getting-started/release-components/create-remote-scope/self-host-scope) or creating a Scope on [Bit's cloud provider](https://bit.dev).
+To export your components, you need to create a remote scope. Creating a remote Scope can be done
+by [hosting your own](/getting-started/release-components/create-remote-scope/self-host-scope) or creating a Scope on [Bits' cloud provider](https://bit.dev).
 
 ```bash
 bit export
 ```
 
 :::note
-Before exporting make sure you have set the default scope to be your [remote scope](/scope/setting-remote-scope) in the `workspace.jsonc` file.
+Before exporting make sure you have set the default scope to be your [remote scope](/scope/setting-remote-scope) in the `workspace.jsonc` file and run `bit link
 :::
 
 ## Use Components
 
 ### Install Components
 
-Bit helps you install and resolve packages in your workspace with the Bit install command. It makes sure that every
-component in your Workspace is resolved with the right package dependencies and their corresponding versions.
+Bit helps you install and resolve packages in your Workspace with the `bit install` command. It makes sure that every component in your Workspace is resolved with the correct package dependencies and their corresponding versions.
 
 ```bash
 bit install @teambit/base-ui.my-component
 ```
 
 :::note
-You can configure the package manager of your choice in the `workspace.jsonc` file. Supported package managers
-for `bit install` are currently [Yarn 2.0](/) and [pnpm](/).
+You can configure the package manager of your choice in the `workspace.jsonc` file. The supported package managers for `bit install` are currently [Yarn 2.0](/) and [pnpm](/).
 :::
 
-Components can be installed with any package manager in any other app, whether it is a Bit Workspace or not.
+Components can be installed with any package manager in any other app, be it a Bit Workspace or not.
 
 ```bash
 npm install @teambit/base-ui.my-component
 ```
 
-Make sure you [configure the Bit registry](/configurations/config-files#npm-config-npmrc) if you are using Bit's cloud provider. Components can be published to any registry or integrated with Artifactory or Nexus.
+Make sure you [configure the Bit registry](/configurations/config-files#npm-config-npmrc) if you use Bits' cloud provider. Components can be published to any registry or integrated with Artifactory or Nexus.
 
 ### Importing Components
 
-Components can be [imported (cloned)](/workspace/importing-components) to any Bit Workspace. By importing components you can make changes to any component
-from any Bit Workspace and then export a new version and eject it from your workspace.
+Components can be [imported (cloned)](/workspace/importing-components) to any Bit Workspace. By importing components, you can change the components' source code from any Bit Workspace and then export a new version and eject it from your Workspace.
 
 ```bash
 bit import some-org.scope/my-component
-```
-
-<!-- ### Change requests
-
-Create a new branch for your component, commit your changes and then export your components to a remote scope.
-
-```bash
-bit switch my-feature --create # create and switch to a new branch called my-feature
-bit snap --all # commit all changes
-bit export # export your components to a remote scope
 ```
 
 :::warning

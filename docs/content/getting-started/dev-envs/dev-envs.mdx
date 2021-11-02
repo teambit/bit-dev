@@ -4,81 +4,88 @@ import builderImg from './builder.png';
 # Development Environments
 
 Component development is simplified and standardized using [Component Development Environments](/envs/overview) (or **envs** in short). An env is a compositions of several [Services](/envs/services/overview).  
-A service implementes an operation, for example: [Compiler](/compiler/overview), [Tester](/tester/overview), [Builder](/builder/overview), [Linter](/linter/overview), Bundler<!--TODO [Bundler](/bundler/overview) -->. Services use tool-specific implementations like [TypeScript](/typescript/overview) or [Jest](/jest/overview) and used from [Env](/envs/env) like 
+A service implementes an operation, for example: [Compiler](/compiler/overview), [Tester](/tester/overview), [Builder](/builder/overview), [Linter](/linter/overview), Bundler<!--TODO [Bundler](/bundler/overview) -->. Services use tool-specific implementations like [TypeScript](/typescript/overview) or [Jest](/jest/overview) and used from [Env](/envs/env) like
 [React](/react/overview) or [Node](/node/overview).  
 Composed together with their configurations, they form an entire development experience. When shared between different teams and developers, they simplify and standardize the development process.
 
-To check which envs are configured on your components you can use the `bit env` command or check the icon on its left on the UI.
+In a Workspace, each component can run on a different env. To present the env that applies on the Workspace components run:
 
 ```bash
 bit env
 ```
 
 ```bash
-┌───────────────────────────────────────┬───────────────────────────────────────┐
-│ component                             │ env                                   │
-├───────────────────────────────────────┼───────────────────────────────────────┤
-│ company.scope/templates/ui/text       │ teambit.bit/react                     │
-├───────────────────────────────────────┼───────────────────────────────────────┤
-│ company.scope/ui/my-welcome           │ teambit.bit/react                     │
-└───────────────────────────────────────┴───────────────────────────────────────┘
+┌─────────────────────────────────┬─────────────────────────────────┐
+│ component                       │ env                             │
+├─────────────────────────────────┼─────────────────────────────────┤
+│ bitorg.experience/envs/my-react │ teambit.harmony/aspect          │
+├─────────────────────────────────┼─────────────────────────────────┤
+│ bitorg.experience/pages/welcome │ bitorg.experience/envs/my-react │
+├─────────────────────────────────┼─────────────────────────────────┤
+│ bitorg.experience/ui/card       │ bitorg.experience/envs/my-react │
+├─────────────────────────────────┼─────────────────────────────────┤
+│ bitorg.experience/ui/heading    │ bitorg.experience/envs/my-react │
+├─────────────────────────────────┼─────────────────────────────────┤
+│ bitorg.experience/ui/text       │ bitorg.experience/envs/my-react │
+└─────────────────────────────────┴─────────────────────────────────┘
 ```
 
-Since we created this component under the `ui` namespace, the newly component created is configured to use 
-the [React Env](/aspects/react). The [React Env](/aspects/react) is the official [Env](/envs/overview) 
+:::tip
+It is also possible to view the components' env by hovering on its icon in the Workspace UI
+:::
+
+Since the `ui` namespace is configured to apply the [React Env](/aspects/react) extension on all components it owns, all of our new components use it . The [React Env](/aspects/react) is the official [Env](/envs/overview)
 for development of React Components. It comes baked with best practices from the React community and makes it easy and repeatable to create and maintain React components. By default, the [React Env](/aspects/react) is configured to use Typescript <!--TODO [TypeScript](/typescript/overview)--> for compiling, [ESLint](/linter/overview) for linting, <!--TODO [Jest](/jest/overview)--> Jest for testing and a contains a basic build pipeline.
 
 :::info Benefits of Component Environments
 
-- Clean your codebase from configuration files.
-- Versioning for your build pipeline and tooling configuration.
-- Standardize build process by reusing the same settings on many components.
-- Apply unique build process on each component.
+- Clean codebase from configuration files.
+- Versioning for build pipeline and tooling configuration.
+- Standardize the build process by reusing the same settings on many components.
+- Apply a unique build process on each component.
 
 :::
 
 ## Developer Workflow Commands and Services
 
-[Environment Services](/envs/services/overview) define what tools would run and their configs. These services correspond to the different Bit commands you can use while building with Bit.
-
+[Environment Services](/envs/services/overview) define what tools and configs would run on your code. These services correspond to the different Bit commands available while building with Bit, as shown in the following section.
 
 ### `start`
 
-The workspace UI displays your components. The component's env defines the configuration for the dev-server rendering documentation and compositions. Run workspace UI and see the list of dev-servers operated by the different environments. All dev-servers are then presented in the same app using iFrames for compositions (so both Angular and React components can be rendered in the same app).
+The workspace UI displays your components. The components' env defines the configuration for the dev-server rendering documentation and compositions. Run workspace UI and see the list of dev-servers operated by the different environments. All dev-servers are then presented in the same app using iFrames for compositions (so both Angular and React components can be rendered simultaneously).
 
 ```sh
 bit start
 ```
 
-```sh title="Running workspace UI with components configured with 2 envs"
-ENVIRONMENT NAME                    URL                                          STATUS
-teambit.react/react                 http://localhost:3300                        RUNNING
-teambit.harmony/node                http://localhost:3301                        RUNNING
+```sh title="Running workspace UI with components configured with two envs"
+ENVIRONMENT NAME                                                 URL                                                              STATUS
+teambit.harmony/aspect on behalf of teambit.harmony/aspect,      http://localhost:3300                                            RUNNING
+│ bitorg.experience/envs/my-react
 
 
-You can now view 'my workspace' components in the browser.
-Bit server is running on http://localhost:3000
+You can now view 'my-workspace' components in the browser.
+Bit server is running on http://localhost:3001
 ```
 
 ### `compile`
 
-Bit allows a single command to compile all components in your workspace, regardless to the specific Compiler configured to them. For example, this allows some of your components to be compiles with [TypeScript](/aspects/typescript) and others with [Babel](/aspects/babel) (or different configs for the same compiler as different envs might use different `tsconfig.json` or `.babelrc.js`).
+Bit allows a single command to compile all components in the Workspace, regardless of their specific compiler. For example, this allows some of the components to compile with [TypeScript](/aspects/typescript) and others with [Babel](/aspects/babel) (or different configs for the same compiler as different envs might use different `tsconfig.json` or `.babelrc.js`).
 
 ```sh
 bit compile
 ```
 
 ```bash
-  STATUS  COMPONENT ID
-✔ SUCCESS templates/envs/my-react # Using the Aspect env which is set to use the `Babel` Compiler.
-✔ SUCCESS templates/pages/welcome # Using the React env which is set to use the `TypeScript` Compiler.
-✔ SUCCESS templates/ui/card # Using the React env which is set to use the `TypeScript` Compiler.
-✔ SUCCESS templates/ui/heading # Using the React env which is set to use the `TypeScript` Compiler.
-✔ SUCCESS templates/ui/text # Using the React env which is set to use the `TypeScript` Compiler.
-✔ SUCCESS ui/my-welcome # Using the React env which is set to use the `TypeScript` Compiler.
+  STATUS        COMPONENT ID
+✔ SUCCESS       envs/my-react
+✔ SUCCESS       pages/welcome
+✔ SUCCESS       ui/card
+✔ SUCCESS       ui/heading
+✔ SUCCESS       ui/text
 
-✔ 6/6 components compiled successfully.
-Finished. (3s)
+✔ 5/5 components compiled successfully.
+Finished. (6s)
 ```
 
 `bit watch` uses the same operation as `compile`.
@@ -87,36 +94,37 @@ Finished. (3s)
 bit watch
 ```
 
-To learn more on Compiler, head to over to the [Compiler documentation](/compiler/overview).
+To learn more on the compiler, head to the [Compiler documentation](/compiler/overview).
 
 ### `test`
 
-Running tests for components built with purposes may result in requiring vastly different configurations and approaches. For example, for UI components you may want to set visual regression testing, while for utils this is less relevant. Some components may also need different testers.  
-The [tester](/tester/overview) service knows to run tests and extract their results to a standardized format to be presented in the UI.
+Running tests for components with various purposes may result in requiring vastly different configurations and approaches. For example, it may be necessary to set visual regression testing for UI components, while for utils, this is less relevant. Some components may also need different testers.  
+The [tester](/tester/overview) service knows to run tests, extract their results to a standardized format, and present them in the UI.
 
 ```bash
 bit test
 ```
 
 ```bash
-testing total of 6 components in workspace 'my-workspace'
-testing 5 components with environment company.scope/templates/envs/my-react
+testing total of 5 components in workspace 'my-workspace'
+testing 4 components with environment company.scope/envs/my-react
 
- PASS  ui/my-welcome/my-welcome.spec.tsx
- PASS  templates/pages/welcome/welcome.spec.tsx
- PASS  templates/ui/text/text.spec.tsx
- PASS  templates/ui/card/card.spec.tsx
- PASS  templates/ui/heading/heading.spec.tsx
+ PASS  demo/pages/welcome/welcome.spec.tsx
+ PASS  demo/pages/welcome/welcome.spec.tsx
+ PASS  demo/ui/text/text.spec.tsx
+ PASS  demo/ui/heading/heading.spec.tsx
+ PASS  demo/ui/card/card.spec.tsx
 
 Test Suites: 5 passed, 5 total
-Tests:       18 passed, 18 total
+Tests:       22 passed, 22 total
 Snapshots:   0 total
-Time:        2.815 s, estimated 3 s
+Time:        7.067 s
 Ran all test suites.
-tested 6 components in 4.194 seconds.
+tested 5 components in 10.605 seconds.
 ```
 
 :::info Run Tests in Watch Mode
+The following command will run tests every time a component is modified:
 
 ```bash
 bit test --watch
@@ -132,22 +140,22 @@ When using `bit start` as your development environment, the UI will display the 
 
 :::
 
-To learn more about the Tester and component Testing, head over to the [Tester documentation](/tester/overview).
+To learn more about the Tester and component Testing, please refer to the [Tester documentation](/tester/overview).
 
 ### `lint`
 
-Depending on the environment configured on components, components in the same workspace may have different linting rules. Still, the operation itself is the same as all other services.
+Depending on the environment configured on components, components in the same Workspace may have different linting rules. Still, the operation itself is the same as all other services:
 
 ```bash
 bit lint
 bit lint --fix
 ```
 
-To learn more about linting components and the Linter, head over to the [Linter documentation](/linter/overview) section.
+Head over to the [Linter documentation](/linter/overview) section to learn more about linting components and the Linter.
 
 ### `format`
 
-Depending on the environment configured on components, components in the same workspace may have different formatting rules. Still, the operation itself is the same as all other services.
+Depending on the environment configured on components, components in the same Workspace may have different formatting rules. Still, the operation itself is the same as all other services.
 
 ```bash
 bit format
@@ -165,12 +173,8 @@ bit build
 
 <img src={builderImg} width="100%" />
 
-To learn about building components and the Builder, head over to the [Builder documentation](/builder/overview) section.
+To learn about building components and the Builder, head to the [Builder documentation](/builder/overview) section.
 
-## Customzing envs with different tools and configrations
-
-
+## Customizing envs with various tools and configurations
 
 ## Build your own Env Services
-
-

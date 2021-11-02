@@ -1,6 +1,6 @@
 # Installing Bit
 
-Installing Bit is recommended using [BVM](/docs/bvm/introduction), Bit's version manager. 
+Installing Bit is recommended using [BVM](/docs/bvm/introduction) - Bits' version manager.
 
 ```bash
 npx @teambit/bvm install
@@ -16,31 +16,40 @@ npx @teambit/bvm upgrade
 
 ## Manage versions
 
-Get version information for Bit and BVM.
+Get version information for Bit and BVM:
 
 ```bash
 bvm version
 ```
 
-List available versions of Bit and BVM.
+Upgrade to the latest version of Bit:
+
+```bash
+bvm upgrade
+```
+
+List available versions of Bit and BVM:
 
 ```bash
 bvm list --remote
 ```
 
-List installed versions
+List installed versions:
 
 ```bash
 bvm list
 ```
 
-Remove a local version of Bit so it will fallback to a previous version.
+Remove a local installation of a chosen version:
 
 ```bash
 bvm remove <bit-version>
 ```
 
+:::note
+Removing the latest version of Bit will set the previous version as the one currently in use.
+:::
+
 ## Troubleshooting
 
-If you get a warning or the bvm command is not available please see the [BVM guide](/reference/bvm).
-
+If you get a warning or the bvm command is unavailable, please refer to the [BVM guide](/reference/bvm).
