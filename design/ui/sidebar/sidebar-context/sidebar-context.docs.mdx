@@ -1,0 +1,43 @@
+---
+description: Sidebar context.
+labels: ['react', 'context', 'sidebar']
+---
+
+import { useSidebar } from './sidebar-context';
+import { SidebarProvider } from './sidebar-context-provider';
+
+
+This is a simple [React Context](https://reactjs.org/docs/context.html) shared as a Bit component.
+
+### Provider Usage
+
+Wrap your app in `SidebarProvider`
+
+```tsx
+() => {
+  import React from 'react';
+  import { SidebarProvider } from '@teambit/design.ui.sidebar.sidebar-context';
+
+  // My lovely children now get the context!
+  <SidebarProvider>
+    <SidebarComponent />
+  </SidebarProvider>;
+};
+```
+
+### Using the context 
+
+The children can now access the context.
+
+use the `useSidebar` hook to access the sidebar's status and toggle.
+
+```tsx
+import React, { useContext } from 'react';
+import { useSidebar } from '@teambit/design.ui.sidebar.sidebar-context';
+
+function SidebarComponent() {
+  // sidebar component can access the context via the hook.
+  const { isOpen, setIsOpen } = useSidebar();
+  return <div></div>;
+}
+```
