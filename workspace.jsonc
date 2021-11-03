@@ -232,6 +232,9 @@
       "teambit.community/envs/community-react": "-",
       "teambit.react/react": {},
       "defaultScope": "teambit.explorer"
+    },
+    "pkg": {
+      "defaultScope": "teambit.pkg"
     }
   }
 }

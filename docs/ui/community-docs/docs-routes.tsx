@@ -152,6 +152,17 @@ const Yarn = loadable(() => import('@teambit/dependencies.content.yarn'));
 const NodeModules = loadable(() => import('@teambit/dependencies.content.node-modules'));
 const PackageManagers = loadable(() => import('@teambit/dependencies.content.package-managers'));
 
+/* Packages */
+
+const PackagesOverview = loadable(() => import('@teambit/pkg.content.packages-overview'));
+const PackageJson = loadable(() => import('@teambit/pkg.content.package-json'));
+const ManagingPackageJson = loadable(() => import('@teambit/pkg.content.managing-package-json'));
+const PackageName = loadable(() => import('@teambit/pkg.content.package-name'));
+const PackingComponents = loadable(() => import('@teambit/pkg.content.packing-components'));
+const CommonjsPackageRegistries = loadable(() => import('@teambit/pkg.content.commonjs-package-registries'));
+const PkgBuildTasks = loadable(() => import('@teambit/pkg.content.pkg-build-tasks'));
+const Npmrc = loadable(() => import('@teambit/pkg.content.npmrc'));
+
 export const docsRoutes: DocsRoute[] = [
   {
     path: 'getting-started',
@@ -302,7 +313,7 @@ export const docsRoutes: DocsRoute[] = [
       },
       {
         path: 'creating-workspaces',
-        title: 'Creating workspaces',
+        title: 'Creating wWrkspaces',
         component: <CreatingWorkspaces />,
       },
       {
@@ -327,7 +338,7 @@ export const docsRoutes: DocsRoute[] = [
       },
       {
         path: 'importing-components',
-        title: 'Importing components',
+        title: 'Importing Components',
         component: <ImportingComponents />,
       },
       {
@@ -584,13 +595,56 @@ export const docsRoutes: DocsRoute[] = [
     title: 'Apps',
     path: 'apps',
     icon: 'app',
-    children: []
+    open: false,
+    children: [],
   },
   {
     path: 'packages',
     title: 'Packages',
     icon: 'dependencies',
-    children: [],
+    open: false,
+    children: [
+      {
+        path: 'packages-overview',
+        title: 'Packages Overview',
+        component: <PackagesOverview />,
+      },
+      {
+        path: 'package-json',
+        title: 'package.json',
+        component: <PackageJson />,
+      },
+      {
+        path: 'managing-package-json',
+        title: 'Managing the package.json',
+        component: <ManagingPackageJson />,
+      },
+      {
+        path: 'package-name',
+        title: 'Package Name',
+        component: <PackageName />,
+      },
+      {
+        path: 'packing-components',
+        title: 'Packing Components',
+        component: <PackingComponents />,
+      },
+      {
+        path: 'publishing-components-to-commonjs-registries',
+        title: 'Publishing to CommonJS Registries',
+        component: <CommonjsPackageRegistries />,
+      },
+      {
+        path: 'build-tasks',
+        title: 'Build Tasks',
+        component: <PkgBuildTasks />,
+      },
+      {
+        path: 'npmrc',
+        title: 'Configuring Bit Cloud in NPM config',
+        component: <Npmrc />,
+      },
+    ],
   },
   {
     path: 'dev-services',
@@ -908,34 +962,46 @@ export const docsRoutes: DocsRoute[] = [
         children: [
           {
             path: 'configuring-typescript',
-            title: 'Configuring Typescript'
-          }
-        ]
+            title: 'Configuring Typescript',
+          },
+        ],
       },
       {
         title: 'Babel',
         path: 'babel',
         open: false,
         icon: 'babel',
-        children: []
+        children: [],
       },
       {
         title: 'Jest',
         path: 'jest',
         icon: 'Jest',
-        children: []
+        children: [],
       },
       {
         path: 'pnpm',
         title: 'pnpm',
         icon: 'pnpm',
-        children: []
+        children: [
+          {
+            path: 'pnpm',
+            title: 'pnpm',
+            component: <Pnpm />,
+          },
+        ],
       },
       {
         path: 'yarn',
         title: 'Yarn',
         icon: 'yarn-logo',
-        children: [],
+        children: [
+          {
+            path: 'yarn',
+            title: 'Yarn',
+            component: <Yarn />,
+          },
+        ],
       },
     ],
   },

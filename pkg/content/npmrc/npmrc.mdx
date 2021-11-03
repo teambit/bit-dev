@@ -1,0 +1,34 @@
+# Configuring Bit Cloud in your NPM config
+
+[npmrc's](https://docs.npmjs.com/cli/v7/configuring-npm/npmrc) are npm config files (used by other package manager as well).
+
+`npmrc` can be configured [per project](https://docs.npmjs.com/cli/v7/configuring-npm/npmrc#per-project-config-file), [per user](https://docs.npmjs.com/cli/v7/configuring-npm/npmrc#per-user-config-file), or [globally](https://docs.npmjs.com/cli/v7/configuring-npm/npmrc#global-config-file).
+
+Use it to configure your [scope owner name](/docs/components/component-id#owner) on Bit Cloud as a [scoped registry](https://docs.npmjs.com/cli/v7/using-npm/scope). That will enable you to install your components using npm or Yarn.
+
+### Set a scoped registry using npm CLI
+
+```shell
+npm config set '@owner:registry' https://node.bit.dev
+```
+
+### Set a scoped registry manually
+
+To set it manually choose the `.npmrc` file to modify:
+
+- per-project config file `/path/to/my/project/.npmrc`
+- per-user config file `~/.npmrc`
+- global config file `$PREFIX/etc/npmrc`
+- npm builtin config file `/path/to/npm/npmrc`
+
+```bash
+@<owner>:registry=https://node.bit.dev
+@teambit:registry=https://node.bit.dev
+//node.bit.dev/:_authToken=${BIT_TOKEN}
+always-auth=true
+```
+
+When running `bit login` the `.npmrc` file is updated with the `_authToken`. However, there could be cases where a `bit login` is not executed (for example, on a remote CI).
+In these cases, you can set the `_authToken` value manually. Get the Bit token from a logged-in machine, by running `bit config get user.token`.
+
+`@teambit` should also be configured to get access to Bit dependencies.
