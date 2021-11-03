@@ -1,3 +1,4 @@
+@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
 
 .header {
   width: 100%;
@@ -11,6 +12,14 @@
   align-items: center;
   > a {
     display: inline-flex;
+  }
+  .hamburgerButton {
+    display: none;
+    border: none;
+    margin-right: 8px;
+    @media screen and (max-width: $br-md) {
+      display: unset;
+    }
   }
 }
 
