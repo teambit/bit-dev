@@ -699,6 +699,21 @@ you can use a pattern for multiple ids, such as bit export remote-scope "utils/\
 
 ---
 
+## publish
+
+**Workspace only**: yes  
+**Description**: publish components their configured commonJS package registry
+
+`bit publish <componentId>`
+
+| **Option**       | **Option alias** | **Description**                                                           |
+| ---------------- | :--------------: | ------------------------------------------------------------------------- |
+| `--dry-run`      |       `-d`       | npm publish --dry-run [boolean]                                           |
+| `--allow-staged` |                  | publish components that were not exported yet (not recommended) [boolean] |
+| `--json`         |       `-j`       | sreturn the output as JSON [boolean]                                      |
+
+---
+
 ## remote
 
 **Workspace only**: yes  
