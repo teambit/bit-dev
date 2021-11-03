@@ -75,6 +75,12 @@
         "mainFile": "index.ts",
         "rootDir": "react/content/code-splitting"
     },
+    "content/commonjs-package-registries": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "pkg/content/commonjs-package-registries"
+    },
     "content/compiler-overview": {
         "scope": "teambit.compilation",
         "version": "1.9.4",
@@ -507,6 +513,12 @@
         "mainFile": "index.ts",
         "rootDir": "dependencies/content/lock-files"
     },
+    "content/managing-package-json": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "pkg/content/managing-package-json"
+    },
     "content/mdx": {
         "scope": "teambit.docs",
         "version": "1.9.5",
@@ -543,11 +555,47 @@
         "mainFile": "index.ts",
         "rootDir": "dependencies/content/node-modules"
     },
+    "content/npmrc": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "pkg/content/npmrc"
+    },
+    "content/package-json": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "pkg/content/package-json"
+    },
     "content/package-managers": {
         "scope": "teambit.dependencies",
         "version": "1.9.1",
         "mainFile": "index.ts",
         "rootDir": "dependencies/content/package-managers"
+    },
+    "content/package-name": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "pkg/content/package-name"
+    },
+    "content/packages-overview": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "pkg/content/packages-overview"
+    },
+    "content/packing-components": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "pkg/content/packing-components"
+    },
+    "content/pkg-build-tasks": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "pkg/content/pkg-build-tasks"
     },
     "content/pnpm": {
         "scope": "teambit.dependencies",

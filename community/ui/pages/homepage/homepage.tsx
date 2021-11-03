@@ -13,8 +13,8 @@ import { LogoShowcase } from '@teambit/community.ui.logo-showcase';
 import { StickyMenu } from '@teambit/community.ui.sticky-menu';
 import { Page } from '@teambit/base-react.pages.page';
 import { Distribution } from '@teambit/community.ui.homepage.sections.distribution';
-import styles from './homepage.module.scss';
 import { WideColumn } from '@teambit/base-ui.layout.page-frame';
+import styles from './homepage.module.scss';
 
 export type HomepageProps = {} & React.HTMLAttributes<HTMLDivElement>;
 

@@ -152,6 +152,17 @@ const Yarn = loadable(() => import('@teambit/dependencies.content.yarn'));
 const NodeModules = loadable(() => import('@teambit/dependencies.content.node-modules'));
 const PackageManagers = loadable(() => import('@teambit/dependencies.content.package-managers'));
 
+/* Packages */
+
+const PackagesOverview = loadable(() => import('@teambit/pkg.content.packages-overview'));
+const PackageJson = loadable(() => import('@teambit/pkg.content.package-json'));
+const ManagingPackageJson = loadable(() => import('@teambit/pkg.content.managing-package-json'));
+const PackageName = loadable(() => import('@teambit/pkg.content.package-name'));
+const PackingComponents = loadable(() => import('@teambit/pkg.content.packing-components'));
+const CommonjsPackageRegistries = loadable(() => import('@teambit/pkg.content.commonjs-package-registries'));
+const PkgBuildTasks = loadable(() => import('@teambit/pkg.content.pkg-build-tasks'));
+const Npmrc = loadable(() => import('@teambit/pkg.content.npmrc'));
+
 export const docsRoutes: DocsRoute[] = [
   {
     path: 'getting-started',
@@ -302,7 +313,7 @@ export const docsRoutes: DocsRoute[] = [
       },
       {
         path: 'creating-workspaces',
-        title: 'Creating workspaces',
+        title: 'Creating wWrkspaces',
         component: <CreatingWorkspaces />,
       },
       {
@@ -327,7 +338,7 @@ export const docsRoutes: DocsRoute[] = [
       },
       {
         path: 'importing-components',
-        title: 'Importing components',
+        title: 'Importing Components',
         component: <ImportingComponents />,
       },
       {
@@ -380,7 +391,7 @@ export const docsRoutes: DocsRoute[] = [
     children: [
       {
         path: 'component-overview',
-        title: 'Component Overview',
+        title: 'Component overview',
         component: <ComponentOverview />,
       },
       {
@@ -395,12 +406,12 @@ export const docsRoutes: DocsRoute[] = [
       },
       {
         path: 'removing-deprecating-components',
-        title: 'Removing or Deprecating Components',
+        title: 'Removing or deprecating components',
         component: <RemovingDeprecating />,
       },
       {
         path: 'merging-component-versions',
-        title: 'Merging Component Versions',
+        title: 'Merging component versions',
         component: <MergingComponentVersions />,
       },
       {
@@ -410,12 +421,12 @@ export const docsRoutes: DocsRoute[] = [
       },
       {
         path: 'component-main-file',
-        title: 'Main File',
+        title: 'Main file',
         component: <MainFile />,
       },
       {
         path: 'component-config',
-        title: 'Component Configuration',
+        title: 'Component configuration',
         component: <ComponentConfig />,
       },
       {
@@ -430,17 +441,17 @@ export const docsRoutes: DocsRoute[] = [
       },
       {
         path: 'inspecting-components',
-        title: 'Inspecting Components',
+        title: 'Inspecting components',
         component: <InspectingComponents />,
       },
       {
         path: 'component-capsules',
-        title: 'Component Capsules',
+        title: 'Component capsules',
         component: <Capsule />,
       },
       {
         path: 'component-objects',
-        title: 'Component Objects',
+        title: 'Component objects',
         component: <ComponentObjects />,
       },
     ],
@@ -490,11 +501,11 @@ export const docsRoutes: DocsRoute[] = [
         title: 'node_modules',
         component: <NodeModules />,
       },
-      {
-        path: 'dependency-resolution',
-        title: 'Dependency resolution',
-        component: <DependencyResolution />,
-      },
+      // {
+      //   path: 'dependency-resolution',
+      //   title: 'Dependency resolution',
+      //   component: <DependencyResolution />,
+      // },
       {
         path: 'cyclic-dependencies',
         title: 'Cyclic dependencies',
@@ -584,13 +595,56 @@ export const docsRoutes: DocsRoute[] = [
     title: 'Apps',
     path: 'apps',
     icon: 'app',
-    children: []
+    open: false,
+    children: [],
   },
   {
     path: 'packages',
     title: 'Packages',
     icon: 'dependencies',
-    children: [],
+    open: false,
+    children: [
+      {
+        path: 'packages-overview',
+        title: 'Packages Overview',
+        component: <PackagesOverview />,
+      },
+      {
+        path: 'package-json',
+        title: 'package.json',
+        component: <PackageJson />,
+      },
+      {
+        path: 'managing-package-json',
+        title: 'Managing the package.json',
+        component: <ManagingPackageJson />,
+      },
+      {
+        path: 'package-name',
+        title: 'Package Name',
+        component: <PackageName />,
+      },
+      {
+        path: 'packing-components',
+        title: 'Packing Components',
+        component: <PackingComponents />,
+      },
+      {
+        path: 'publishing-components-to-commonjs-registries',
+        title: 'Publishing to CommonJS Registries',
+        component: <CommonjsPackageRegistries />,
+      },
+      {
+        path: 'build-tasks',
+        title: 'Build Tasks',
+        component: <PkgBuildTasks />,
+      },
+      {
+        path: 'npmrc',
+        title: 'Configuring Bit Cloud in NPM config',
+        component: <Npmrc />,
+      },
+    ],
   },
   {
     path: 'dev-services',
@@ -908,34 +962,46 @@ export const docsRoutes: DocsRoute[] = [
         children: [
           {
             path: 'configuring-typescript',
-            title: 'Configuring Typescript'
-          }
-        ]
+            title: 'Configuring Typescript',
+          },
+        ],
       },
       {
         title: 'Babel',
         path: 'babel',
         open: false,
         icon: 'babel',
-        children: []
+        children: [],
       },
       {
         title: 'Jest',
         path: 'jest',
         icon: 'Jest',
-        children: []
+        children: [],
       },
       {
         path: 'pnpm',
         title: 'pnpm',
         icon: 'pnpm',
-        children: []
+        children: [
+          {
+            path: 'pnpm',
+            title: 'pnpm',
+            component: <Pnpm />,
+          },
+        ],
       },
       {
         path: 'yarn',
         title: 'Yarn',
         icon: 'yarn-logo',
-        children: [],
+        children: [
+          {
+            path: 'yarn',
+            title: 'Yarn',
+            component: <Yarn />,
+          },
+        ],
       },
     ],
   },

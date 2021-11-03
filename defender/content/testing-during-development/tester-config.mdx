@@ -1,0 +1,35 @@
+
+## Tester workspace configurations
+
+The Tester aspect can be configured in the `workspace.jsonc` configuration file.
+
+### watchOnStart
+
+Determines whether to run the Tester in 'watch mode' when the running the development server.
+
+For example:
+
+```json
+{
+  "teambit.defender/tester": {
+    "watchOnStart": false
+  }
+}
+```
+
+### patterns
+
+Determines the file extensions for test files.
+
+For example:
+
+```json
+{
+  "teambit.defender/tester": {
+    "patterns": [
+      "**/*.spec.+(js|ts|jsx|tsx)",
+      "**/*.another-prefix.+(js|ts|jsx|tsx)"
+    ]
+  }
+}
+```
