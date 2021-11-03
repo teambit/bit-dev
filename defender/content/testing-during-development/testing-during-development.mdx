@@ -1,68 +1,54 @@
+import { Image } from '@teambit/docs.ui.zoomable-image';
+import testResultsImg from './test_results_ui.png';
+
 # Testing during Development
 
-During development, Bit tests your components using the `bit test` and `bit watch` commands. These commands
-provide a standard dev experience for testing any kind of [Component](/components/overview), whether it is a NodeJS modules, a React component or anything else.
+During development, the Tester optimizes for dev experience and performance. It tests modified components, in isolation, to help tackle issues quickly during development.
 
-## Test all components in the Workspace
-
-Bit tests all components in the [Workspace](/workspace/overview) regardless to the configured [Env](/envs/overview) and therefor tester,
-with a single command.
+[`bit test`](/reference/bit-test) allows testing components in the workspace. Each component is tested im isolation with its configured tester as defined in the development env. 
 
 ```bash
 bit test
 ```
 
-## Watch for changes and retest
+```
+testing total of 6 components in workspace 'docs-examples'
+testing 5 components with environment company.scope/envs/my-react@b28b35cee4c99abcf304f746b9fadf94cfef4538
 
-Watching for component changes and retesting can be done with a single command.
+ PASS  demo/pages/welcome/wecome.spec.tsx
+ PASS  demo/pages/welcome/welcome.spec.tsx
+ PASS  demo/ui/heading/heading.spec.tsx
+ PASS  demo/ui/card/card.spec.tsx
+ PASS  scope/ui/button/button.spec.tsx
+ PASS  demo/ui/text/text.spec.tsx
 
-```bash
-bit watch
+Test Suites: 6 passed, 6 total
+Tests:       23 passed, 23 total
+Snapshots:   0 total
+Time:        8.627 s
+Ran all test suites.
+tested 6 components in 13.342 seconds.
 ```
 
-Watch starts by default when starting the [Workspace](/workspace/overview) UI.
+## Watch for changes and retest
+
+Watching for component changes is done using the `--watch` flag.
+
+```bash
+bit test --watch
+```
+
+## Testing UI
+
+Bit saves the test results and standarizes them to a single format, regardless of the specific test runner used. It provides a single, standard UI for testing components
+during development, with live updates.
+
+Bit watches for re-runs tests by default when starting the [Workspace](/workspace/overview) UI. 
 
 ```bash
 bit start
 ```
 
-## CLI References
+<Image src={testResultsImg} />
 
-- [bit test](/reference/cli-reference#test)
-- [bit watch](/reference/cli-reference#watch)
-- [bit start](/reference/cli-reference#start)
-
-## Tester workspace configurations
-
-The Tester aspect can be configured in the `workspace.jsonc` configuration file.
-
-### watchOnStart
-
-Determines whether to run the Tester in 'watch mode' when the running the development server.
-
-For example:
-
-```json
-{
-  "teambit.defender/tester": {
-    "watchOnStart": false
-  }
-}
-```
-
-### patterns
-
-Determines the file extensions for test files.
-
-For example:
-
-```json
-{
-  "teambit.defender/tester": {
-    "patterns": [
-      "**/*.spec.+(js|ts|jsx|tsx)",
-      "**/*.another-prefix.+(js|ts|jsx|tsx)"
-    ]
-  }
-}
-```
+Stopping the Tester from watching changes on bit start can be done using the `watchOnStart` config.

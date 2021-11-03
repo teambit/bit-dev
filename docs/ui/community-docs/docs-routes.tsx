@@ -380,7 +380,7 @@ export const docsRoutes: DocsRoute[] = [
     children: [
       {
         path: 'component-overview',
-        title: 'Component Overview',
+        title: 'Component overview',
         component: <ComponentOverview />,
       },
       {
@@ -395,12 +395,12 @@ export const docsRoutes: DocsRoute[] = [
       },
       {
         path: 'removing-deprecating-components',
-        title: 'Removing or Deprecating Components',
+        title: 'Removing or deprecating components',
         component: <RemovingDeprecating />,
       },
       {
         path: 'merging-component-versions',
-        title: 'Merging Component Versions',
+        title: 'Merging component versions',
         component: <MergingComponentVersions />,
       },
       {
@@ -410,12 +410,12 @@ export const docsRoutes: DocsRoute[] = [
       },
       {
         path: 'component-main-file',
-        title: 'Main File',
+        title: 'Main file',
         component: <MainFile />,
       },
       {
         path: 'component-config',
-        title: 'Component Configuration',
+        title: 'Component configuration',
         component: <ComponentConfig />,
       },
       {
@@ -430,17 +430,17 @@ export const docsRoutes: DocsRoute[] = [
       },
       {
         path: 'inspecting-components',
-        title: 'Inspecting Components',
+        title: 'Inspecting components',
         component: <InspectingComponents />,
       },
       {
         path: 'component-capsules',
-        title: 'Component Capsules',
+        title: 'Component capsules',
         component: <Capsule />,
       },
       {
         path: 'component-objects',
-        title: 'Component Objects',
+        title: 'Component objects',
         component: <ComponentObjects />,
       },
     ],
@@ -490,11 +490,11 @@ export const docsRoutes: DocsRoute[] = [
         title: 'node_modules',
         component: <NodeModules />,
       },
-      {
-        path: 'dependency-resolution',
-        title: 'Dependency resolution',
-        component: <DependencyResolution />,
-      },
+      // {
+      //   path: 'dependency-resolution',
+      //   title: 'Dependency resolution',
+      //   component: <DependencyResolution />,
+      // },
       {
         path: 'cyclic-dependencies',
         title: 'Cyclic dependencies',
