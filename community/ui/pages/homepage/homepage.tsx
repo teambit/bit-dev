@@ -23,26 +23,15 @@ const logoList = [...clientLogos, ...clientLogos];
 
 export function Homepage({ ...rest }: HomepageProps) {
   return (
-    <Page title='Bit: Component build and collaboration framework' {...rest}>
+    <Page title="Bit: Component build and collaboration framework" {...rest}>
       <section>
         <div className={styles.grid}>
           <ExcludeHighlighter>
             <Hero bubbles={mockBubbleGraph()} />
           </ExcludeHighlighter>
-          <ComponentDistributionSection
-            title='From monoliths to component-driven'
-            components={componentsMock()}
-          />
-          <FeaturesSection
-            features={features}
-            title='Better software is built in components'
-          />
-          <UseCasesSection
-            useCases={useCases}
-            title='Make hard things simple'
-            href='/'
-            linkText='See more use cases'
-          />
+          <ComponentDistributionSection title="From monoliths to component-driven" components={componentsMock()} />
+          <FeaturesSection features={features} title="Better software is built in components" />
+          <UseCasesSection useCases={useCases} title="Make hard things simple" href="/" linkText="See more use cases" />
         </div>
         <div className={styles.imageStripSection}>
           <LogoShowcase className={styles.imgStrip} images={logoList} />

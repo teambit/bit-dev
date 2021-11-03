@@ -54,6 +54,9 @@ export function GridGraph({
     if (debouncedSize[0] < 1200) {
       setBreakpoint('md');
     }
+    // if (debouncedSize[0] < 768) {
+    //   setBreakpoint('sm');
+    // }
   }, [debouncedSize]);
 
   return (
@@ -68,7 +71,13 @@ export function GridGraph({
             <Node id={node.attrId} key={id} node={node} />
 
             {node.dependencies.map((dependency) => {
-              return <Edge key={`${node.attrId}->${dependency.attrId}`} node={node} dependency={dependency} />;
+              return (
+                <Edge
+                  key={`${node.attrId}->${dependency.attrId}-${currentBreakpoint}`}
+                  node={node}
+                  dependency={dependency}
+                />
+              );
             })}
           </div>
         );

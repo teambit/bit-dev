@@ -1,3 +1,4 @@
+import { Direction } from '@teambit/community.entity.graph.grid-graph';
 import { createBubbleGraph } from './bubble-graph';
 
 export function mockBubbleGraph() {
@@ -17,7 +18,13 @@ export function mockBubbleGraph() {
             end: 'right',
           },
         },
-        'teambit.documenter/ui/copy-box',
+        {
+          id: 'teambit.documenter/ui/copy-box',
+          edge: {
+            start: 'bottom',
+            end: 'right',
+          },
+        },
       ],
       payload: {
         icon: 'https://static.bit.dev/brands/logo-react.svg',
@@ -28,11 +35,19 @@ export function mockBubbleGraph() {
     },
     {
       id: 'teambit.community/ui/homepage/homepage@1.1.2',
-      dependencies: ['teambit.community/ui/homepage/hero'],
+      dependencies: [
+        {
+          id: 'teambit.community/ui/homepage/hero',
+          edge: {
+            start: 'left',
+            end: 'top',
+          },
+        },
+      ],
       payload: {
         icon: 'https://static.bit.dev/brands/logo-react.svg',
       },
-      row: 3,
+      row: 2,
       col: 11,
       position: 'top-right',
     },
@@ -48,17 +63,38 @@ export function mockBubbleGraph() {
     },
     {
       id: 'teambit.design/ui/content/heading@2.2.1',
-      dependencies: [],
+      dependencies: [
+        {
+          id: 'teambit.community/ui/content/heading',
+          edge: {
+            direction: Direction.TAIL,
+          },
+        },
+      ],
       payload: {
         icon: 'https://static.bit.dev/brands/logo-react.svg',
       },
       row: 3,
-      col: 2,
+      col: 1,
+      sizes: {
+        md: {
+          row: 3,
+          col: 1,
+        },
+      },
       position: 'right',
     },
     {
       id: 'teambit.react-base/buttons/button@2.0.3',
-      dependencies: ['teambit.react-base/navigation/link'],
+      dependencies: [
+        'teambit.react-base/navigation/link',
+        {
+          id: 'teambit.design/ui/buttons/button',
+          edge: {
+            direction: Direction.TAIL,
+          },
+        },
+      ],
       payload: {
         icon: 'https://static.bit.dev/brands/logo-react.svg',
       },
@@ -156,6 +192,14 @@ export function mockBubbleGraph() {
       col: 10,
       sizes: {
         md: {
+          row: null,
+          col: null,
+        },
+        sm: {
+          row: null,
+          col: null,
+        },
+        xs: {
           row: null,
           col: null,
         },
