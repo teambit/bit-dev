@@ -1,10 +1,10 @@
 import React from 'react';
 import { GridNode, DependencyEdge } from '@teambit/community.entity.graph.grid-graph';
-import XArrow, {xarrowPropsType as XArrowProps} from 'react-xarrows';
+import XArrow, { xarrowPropsType as XArrowProps } from 'react-xarrows';
 
 export type EdgeProps = {
   node: GridNode<unknown>;
-  dependency: DependencyEdge
+  dependency: DependencyEdge;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export function Edge({ node, dependency, ...rest }: EdgeProps) {
@@ -15,15 +15,14 @@ export function Edge({ node, dependency, ...rest }: EdgeProps) {
 
   return (
     <div {...rest}>
-      <XArrow 
+      <XArrow
         start={node.attrId}
         end={dependency.attrId}
         animateDrawing={!!dependency.edge?.animate}
-        strokeWidth={dependency.edge?.strokeWidth || 2} 
+        strokeWidth={dependency.edge?.strokeWidth || 2}
         color={dependency.edge?.color || '#ECEAFF'}
         {...anchors}
-      >
-      </XArrow>
+      />
     </div>
   );
 }

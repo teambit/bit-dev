@@ -8,7 +8,7 @@ const staticEnvBaseUrl = 'https://static.bit.dev/extensions-icons/';
 function ComponentCardPreview({ src }: { src: string }) {
   return (
     <div className={styles.componentCardPreview}>
-      <img src={src} />
+      <img src={src} alt="" />
     </div>
   );
 }
@@ -110,6 +110,12 @@ export const lintingFormatingMock: ComponentCardProps[] = [
 ];
 
 export const appsMock: ComponentCardProps[] = [
+  {
+    id: 'teambit.application/netlify',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum fdfd',
+    envIcon: `${staticEnvBaseUrl}default.svg`,
+    preview: <ComponentCardPreview src={`${staticBrandsBaseUrl}netlify.svg`} />,
+  },
   {
     id: 'teambit.apps/nextjs',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum fdfd',

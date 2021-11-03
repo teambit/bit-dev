@@ -1,22 +1,15 @@
 ---
-description: 'A ComponentCardGraph component.'
-labels: ['label1', 'label2', 'label3']
+description: 'A component card graph component.'
+labels: ['components', 'graph', 'card']
 ---
 
+import { componentsMock } from '@teambit/community.entity.compnent-distribution-graph';
 import { ComponentCardGraph } from './component-card-graph';
 
-## React Component for rendering text
-
-A basic div that renders some text
+A graph that render a graph of components.
 
 ### Component usage
+
 ```js
-<ComponentCardGraph text="hello from ComponentCardGraph" />
-```
-
-### Using props to customize the text
-
-Modify the text to see it change live:
-```js live
-<ComponentCardGraph text="hello from ComponentCardGraph" />
+<ComponentCardGraph nodes={components} />
 ```
