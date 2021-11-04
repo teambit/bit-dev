@@ -195,14 +195,6 @@ export function mockBubbleGraph() {
           row: null,
           col: null,
         },
-        sm: {
-          row: null,
-          col: null,
-        },
-        xs: {
-          row: null,
-          col: null,
-        },
       },
       position: 'bottom-right',
     },
