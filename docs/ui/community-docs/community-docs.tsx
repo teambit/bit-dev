@@ -8,17 +8,17 @@ export type CommunityDocsProps = {
   /**
    * base url to use for docs section.
    */
-  baseUrl?: string
+  baseUrl?: string;
 } & Omit<DocsProps, 'routes'>;
 
 export function CommunityDocs({ baseUrl = '/docs', ...rest }: CommunityDocsProps) {
   return (
-    <Docs 
-      {...rest} 
-      routes={docsRoutes} 
-      primaryLinks={primaryRoutes} 
-      baseUrl={baseUrl} 
-      // contribution={<ContributingDocs/>} 
+    <Docs
+      {...rest}
+      routes={docsRoutes}
+      primaryLinks={primaryRoutes}
+      baseUrl={baseUrl}
+      // contribution={<ContributingDocs/>}
     />
   );
 }
