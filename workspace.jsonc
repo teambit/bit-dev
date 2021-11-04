@@ -188,7 +188,7 @@
       "defaultScope": "teambit.docs"
     },
     "component": {
-      "defaultScope": "teambit.component"
+      "defaultScope": "teambit.component" 
     },
     "ui-foundation": {
       "defaultScope": "teambit.ui-foundation"

@@ -29,3 +29,19 @@ Component packages can be manually generated, for any purpose, using [`bit pack`
 ```shell
 bit pack ui/heading
 ```
+
+## Excluding sources
+
+To exclude sources from being included in the package, you can set the `files` property either from the env or with component configuraiton.
+
+```json
+{
+  "teambit.pkg/pkg": {
+    "packageJsonProps": {
+      "files": [
+        "dist"
+      ]
+    }
+  }
+}
+```
