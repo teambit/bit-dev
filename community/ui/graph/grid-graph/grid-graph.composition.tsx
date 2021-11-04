@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBubbleGraph } from '@teambit/community.entity.graph.bubble-graph';
-import { BubbleNode } from '@teambit/community.ui.graph.bubble-graph';
+// import { BubbleNode } from '@teambit/community.ui.graph.bubble-graph';
 import { GridGraph } from './grid-graph';
 
 const nodes = createBubbleGraph([
@@ -44,6 +44,6 @@ export const BasicGridGraph = () => (
 
 export const BubbleNodeGridGraph = () => (
   <div style={{ width: 500 }}>
-    <GridGraph nodes={nodes} Node={BubbleNode} />
+    {/* <GridGraph nodes={nodes} Node={BubbleNode} /> */}
   </div>
 );
