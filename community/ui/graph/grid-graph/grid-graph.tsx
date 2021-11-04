@@ -6,6 +6,7 @@ import classNames from 'classnames';
 import { GridNode, DependencyEdge } from '@teambit/community.entity.graph.grid-graph';
 import { Edge as DefaultEdge } from '@teambit/community.ui.graph.edge';
 import { DefaultNode } from './default-node';
+import { positions, getCell, getValidId } from './utils';
 import styles from './grid-graph.module.scss';
 
 export type GridItemProps = {
@@ -64,7 +65,6 @@ export function GridGraph({
       {nodes.map((node) => {
         const id = getValidId(node.id.toString({ ignoreVersion: true }));
         const cell = getCell(node, currentBreakpoint);
-        // console.log("cell", cell)
         const bubblePosition = node.position && positions[node.position];
         return (
           <div key={node.id.toString()} className={nodeClassName} style={{ ...cell, ...bubblePosition }}>
@@ -85,65 +85,4 @@ export function GridGraph({
       {children}
     </div>
   );
-}
-
-export const positions = {
-  top: {
-    alignSelf: 'start',
-    justifySelf: 'center',
-  },
-  'top-right': {
-    alignSelf: 'start',
-    justifySelf: 'end',
-  },
-  right: {
-    alignSelf: 'center',
-    justifySelf: 'end',
-  },
-  'bottom-right': {
-    alignSelf: 'end',
-    justifySelf: 'end',
-  },
-  bottom: {
-    alignSelf: 'end',
-    justifySelf: 'center',
-  },
-  'bottom-left': {
-    alignSelf: 'end',
-    justifySelf: 'end',
-  },
-  left: {
-    alignSelf: 'center',
-    justifySelf: 'end',
-  },
-  'top-left': {
-    alignSelf: 'start',
-    justifySelf: 'end',
-  },
-};
-
-export function getValidId(id: string) {
-  return id.replace(/[.\/]/g, '-');
-}
-
-export function getCell<T>(node: GridNode<T>, graphSize?: string) {
-  // prevent flickering on first load
-  if (graphSize === null) {
-    return { display: 'none' };
-  }
-
-  // when specifying col and row to equal to null, it removed the node
-  if (graphSize && node?.sizes?.[graphSize]?.col === null && node?.sizes?.[graphSize]?.row === null) {
-    return { display: 'none' };
-  }
-
-  const col = (graphSize && node?.sizes?.[graphSize]?.col) || node.col;
-  const row = (graphSize && node?.sizes?.[graphSize]?.row) || node.row;
-
-  return {
-    gridColumnStart: col,
-    gridColumnEnd: col,
-    gridRowStart: row,
-    gridRowEnd: row,
-  };
 }
