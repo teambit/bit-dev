@@ -15,7 +15,7 @@ export const reactRouterAdapter: RouterContextType = {
   useHref: useReactRouterHref,
 };
 
-type ReactRouterRoutingAdapterProps = {
+type ReactRouterRoutingProviderProps = {
   children: ReactNode;
   /** automatically add a BrowserRouter context  */
   useBrowserRouter?: boolean;
@@ -31,11 +31,11 @@ type ReactRouterRoutingAdapterProps = {
 };
 
 /** wrap your code with this adapter to use React Router 5 as your Routing system */
-export function ReactRouterRoutingAdapter({
+export function ReactRouterRoutingProvider({
   children,
   useBrowserRouter = false,
   displayUrl,
-}: ReactRouterRoutingAdapterProps) {
+}: ReactRouterRoutingProviderProps) {
   const RouterComponent = useBrowserRouter ? BrowserRouter : Noop;
 
   return (

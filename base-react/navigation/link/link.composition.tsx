@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, NavLink } from './link';
+import { Link } from './link';
+import { NavLink } from './nav-link';
 
 export const BasicLink = () => <Link href="https://bit.dev">bit.dev</Link>;
 export const ExternalLink = () => (

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import loadable from '@loadable/component';
 import { Switch, Route } from 'react-router-dom';
-import { ReactRouterRoutingAdapter } from '@teambit/ui-foundation.ui.navigation.react-router.routing-adapter';
+import { ReactRouterRoutingProvider } from '@teambit/ui-foundation.ui.navigation.react-router.routing-adapter';
 import { SidebarProvider } from '@teambit/design.ui.sidebar.sidebar-context';
 
 // content:
@@ -31,7 +31,7 @@ export function BitDevApp() {
     // {/* TODO @Uri - remove the legacy RoutingProvider */}
     <RoutingProvider value={legacyRouting}>
       <SidebarProvider>
-        <ReactRouterRoutingAdapter useBrowserRouter>
+        <ReactRouterRoutingProvider useBrowserRouter>
           <ThemeCompositions>
             <ComponentHighlighter
               classes={{ label: styles.label, frame: styles.frame }}
@@ -66,7 +66,7 @@ export function BitDevApp() {
               {/* footer component */}
             </ComponentHighlighter>
           </ThemeCompositions>
-        </ReactRouterRoutingAdapter>
+        </ReactRouterRoutingProvider>
       </SidebarProvider>
     </RoutingProvider>
   );

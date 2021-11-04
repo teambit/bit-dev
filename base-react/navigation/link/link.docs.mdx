@@ -3,7 +3,8 @@ description: A standard and router-agnostic Link.
 labels: ['link', 'router', 'nav']
 ---
 
-import { Link, NavLink } from './link';
+import { Link } from './link';
+import { NavLink } from './nav-link.tsx';
 
 A standard link with an important beneifit:  
 It gets its underlying implementation from context, so it can work in any component and any application.
@@ -70,7 +71,7 @@ Like ReactRouter, we provide a `NavLink` component. It is a regular link, that a
   <br />
   local link:{' '}
   <NavLink href={typeof window !== 'undefined' && window.location.pathname} activeStyle={{ color: 'darkorange' }}>
-    {typeof window !== 'undefined' ? window.location.pathname : "?"}
+    {typeof window !== 'undefined' ? window.location.pathname : '?'}
   </NavLink>
   <br />
   other link:{' '}
@@ -81,6 +82,7 @@ Like ReactRouter, we provide a `NavLink` component. It is a regular link, that a
 ```
 
 ## Additional props:
+
 These non-standard props allow extra funcitonality:
 
 - `external` - open the link in a new tab (uses a native link).
@@ -89,6 +91,7 @@ These non-standard props allow extra funcitonality:
   This needs to be supported by the routing sytem, and currently ignored in the native implementation.
 
 `NavLink` also has the following props:
+
 - `activeClassName`, `activeStyles` - styles to apply when href matches the current location.
 - `active` - explicitly apply active styles. (leave `undefined` for automatic value).
 - `exact` - match url exactly, and don't include subpaths.

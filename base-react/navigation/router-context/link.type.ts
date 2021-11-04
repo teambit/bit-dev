@@ -11,6 +11,7 @@ export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement>
    */
   native?: boolean;
 
+  /** open the link in a new page (renders as native link) */
   external?: boolean;
 }
 
