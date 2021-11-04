@@ -66,6 +66,9 @@
   grid-column-end: 10;
   grid-row-start: 5;
   text-align: center;
+  > div {
+    margin-bottom: 24px;
+  }
   > div:first-child {
     margin-right: 8px;
   }
