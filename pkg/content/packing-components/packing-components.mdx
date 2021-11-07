@@ -1,8 +1,9 @@
 # Packing Components
 
-Component packages are generated during execution of the Component [Build Pipelines](build-tasks) and persisted as [Artifacts](/docs/dev-services/builder/build-artifacts) on the Component version.
-
-[Tagging](/docs/components/tags) or [snapping](/docs/components/snaps) a component will result in a newly generated package for the Component.
+Component packages are generated during execution of the Component [build pipeline](build-tasks) and persisted as [Artifacts](/docs/dev-services/builder/build-artifacts) 
+upon component versioning.
+[Tagging](/docs/components/tags) or [snapping](/docs/components/snaps) a component will result in a newly generated package for the Component. 
+To simulate packages prior to tag or snap, use `bit build` and inspect [capsules](/).
 
 ```bash
 $ bit tag ui/heading
@@ -22,17 +23,17 @@ my-workspace/ui/heading@0.0.1
       package-tar/company-scope.ui.heading-0.0.1.tgz
 ```
 
-Generating a component package for any purpose is as simple as using the `bit pack` command in the Workspace.
+## Generate packages
 
 Component packages can be manually generated, for any purpose, using [`bit pack`](/docs/reference/cli-reference#pack)
 
-```shell
+```bash
 bit pack ui/heading
 ```
 
-## Excluding sources
+## Excluding sources from packages
 
-To exclude sources from being included in the package, you can set the `files` property either from the env or with component configuraiton.
+To exclude sources from being included in the package, set the `files` property either from the development env or with component configuraiton.
 
 ```json
 {
