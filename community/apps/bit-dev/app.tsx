@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, ReactNode } from 'react';
 import loadable from '@loadable/component';
 import { Switch, Route } from 'react-router-dom';
 import { ReactRouterRoutingProvider } from '@teambit/ui-foundation.ui.navigation.react-router.routing-adapter';
@@ -28,7 +28,45 @@ export function BitDevApp() {
   const [highlighting, setHighlighting] = useState(true);
 
   return (
-    // {/* TODO @Uri - remove the legacy RoutingProvider */}
+    <AppContext showHighlighter={highlighting}>
+      <Header highlighting={highlighting} setHighlighting={setHighlighting} />
+      <Switch>
+        <Route path="/docs">
+          <WideColumn>
+            <CommunityDocs />
+          </WideColumn>
+        </Route>
+
+        <Route path="/guides">
+          <WideColumn>
+            <Guides />
+          </WideColumn>
+        </Route>
+        <Route exact path="/plugins">
+          <Plugins />
+        </Route>
+        <Route exact path="/">
+          <Homepage />
+        </Route>
+        <Route component={NotFound} />
+      </Switch>
+      <WideColumn>
+        <Footer categoryList={footerMock} />
+      </WideColumn>
+      {/* footer component */}
+    </AppContext>
+  );
+}
+
+function AppContext({
+  children,
+  showHighlighter: showHighlighter,
+}: {
+  children?: ReactNode;
+  showHighlighter?: boolean;
+}) {
+  // TODO @Uri - remove the legacy RoutingProvider
+  return (
     <RoutingProvider value={legacyRouting}>
       <SidebarProvider>
         <ReactRouterRoutingProvider useBrowserRouter>
@@ -37,33 +75,9 @@ export function BitDevApp() {
               classes={{ label: styles.label, frame: styles.frame }}
               placement="top"
               style={{ border: 'none' }}
-              disabled={!highlighting}
+              disabled={!showHighlighter}
             >
-              <Header highlighting={highlighting} setHighlighting={setHighlighting} />
-              <Switch>
-                <Route path="/docs">
-                  <WideColumn>
-                    <CommunityDocs />
-                  </WideColumn>
-                </Route>
-
-                <Route path="/guides">
-                  <WideColumn>
-                    <Guides />
-                  </WideColumn>
-                </Route>
-                <Route exact path="/plugins">
-                  <Plugins />
-                </Route>
-                <Route exact path="/">
-                  <Homepage />
-                </Route>
-                <Route component={NotFound} />
-              </Switch>
-              <WideColumn>
-                <Footer categoryList={footerMock} />
-              </WideColumn>
-              {/* footer component */}
+              {children}
             </ComponentHighlighter>
           </ThemeCompositions>
         </ReactRouterRoutingProvider>
