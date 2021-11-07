@@ -1,32 +1,32 @@
-import React from 'react';
-import { Link as BaseLink, NavLink } from 'react-router-dom';
-import type { LinkProps as BaseLinkProps } from '@teambit/base-react.navigation.link';
+import React, { forwardRef, useMemo } from 'react';
+import { Link as BaseLink } from 'react-router-dom';
+import { parsePath } from 'history';
+import type { LinkProps } from '@teambit/base-react.navigation.router-context';
+import { LinkAnchor, useLinkContext } from '@teambit/ui-foundation.ui.navigation.react-router.link-anchor';
 
-export type LinkProps = {} & BaseLinkProps;
+export type { LinkProps };
 
 /**
- *
- * translates base-react props to react-router link
+ * Adapter between React router's Link and our isomorphic link components. Learn more [Here](https://bit.dev/teambit/base-react/navigation/router-context)
  */
-export function Link({
-  href,
-  state,
-  activeStyle,
-  activeClassName,
-  isActive,
-  ...rest
-}: LinkProps) {
-  if (activeStyle || activeClassName) {
-    // TODO - consider separating nav-link from link or pass an extra prop to separate the two. going by class or styles seems unstable
-    return (
-      <NavLink
-        to={{ pathname: href, state }}
-        activeStyle={activeStyle}
-        activeClassName={activeClassName}
-        isActive={isActive ? () => isActive : undefined} // TODO - improve this
-        {...rest}
-      />
-    );
-  }
-  return <BaseLink to={{ pathname: href, state }} {...rest} />;
-}
+export const Link = forwardRef<HTMLAnchorElement, LinkProps>(function Link(
+  {
+    href = '',
+    state,
+
+    // props we should not get, and should not pass to RR link:
+    external,
+    native,
+    ...rest
+  }: LinkProps,
+  ref
+) {
+  const to = useMemo(() => ({ ...parsePath(href), state }), [href, state]);
+
+  // only use anchor when its context is available
+  const { baseUrl } = useLinkContext();
+  const component = baseUrl ? LinkAnchor : undefined;
+
+  // @ts-ignore (https://github.com/teambit/bit/issues/4401)
+  return <BaseLink to={to} {...rest} component={component} ref={ref} />;
+});
