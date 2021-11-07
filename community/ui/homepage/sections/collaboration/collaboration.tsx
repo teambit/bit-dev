@@ -43,7 +43,7 @@ export function Collaboration({}: CollaborationProps) {
         >
           {/* <BubbleGraph nodes={scaleGraph} /> */}
         </LeftRight>
-        <LeftRight title="Collaborate on component updates" text="Drive component changes ">
+        <LeftRight title="Collaborate on component updates" text="Drive component changes across scopes, teams and application">
           
         </LeftRight>
       </SectionGroup>

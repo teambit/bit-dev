@@ -5,6 +5,7 @@ import { LeftRight } from '@teambit/community.ui.sections.left-right';
 import { Terminal } from '@teambit/community.ui.terminal';
 import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 import { BubbleGraph } from '@teambit/community.ui.graph.bubble-graph';
+import { ComponentCard } from '@teambit/explorer.ui.gallery.component-card';
 import { scaleGraph } from './scale-graph';
 import styles from './distribution.module.scss';
 
@@ -23,7 +24,8 @@ export function Distribution({}: DistributionProps) {
           <Terminal animate={false} content={terminalText} className={styles.terminal} />
         </TopDown>
         <LeftRight title="Build independent components" text="Every component is independently developed, versioned and built.">
-          <BubbleGraph nodes={scaleGraph} />
+          {/* <BubbleGraph nodes={scaleGraph} /> */}
+          <ComponentCard id="teambit.design/ui/buttons/button" />
         </LeftRight>
         <LeftRight title="Compose with dependencies" text="Scaling monolithic application in bound to cause inconsistencies and waste of time.">
           <BubbleGraph nodes={scaleGraph} />
