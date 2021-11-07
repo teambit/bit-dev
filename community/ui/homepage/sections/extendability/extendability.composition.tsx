@@ -3,6 +3,6 @@ import { Extendability } from './extendability';
 
 export const BasicExtendability = () => {
   return (
-    <Extendability text="hello from Extendability" />
+    <Extendability />
   );
 }

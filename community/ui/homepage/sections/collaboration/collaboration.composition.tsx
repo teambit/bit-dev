@@ -3,6 +3,6 @@ import { Collaboration } from './collaboration';
 
 export const BasicCollaboration = () => {
   return (
-    <Collaboration text="hello from Collaboration" />
+    <Collaboration />
   );
 }
