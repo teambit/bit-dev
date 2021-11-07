@@ -1,19 +1,14 @@
 ---
-description: 'Link'
-labels: ['label1', 'label2', 'label3']
+description: 'Link component with icon support'
+labels: ['link', 'icon']
 ---
 
 import { Link } from './link';
 import { FigmaEmbed } from '@teambit/design.embeds.figma';
 
-Div with some text
-
-### Renders a div with some text
+Link with icon support and all native props.  
+Modify the text to see it change live:
 
 ```js live
-<Link text="hello" />
+<Link text="Bit" icon="https://static.bit.dev/bit-logo.svg" href="https://bit.dev" external />
 ```
-
-### Design
-
-<FigmaEmbed src="url-to-figma" />

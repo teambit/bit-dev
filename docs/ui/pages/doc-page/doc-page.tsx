@@ -1,10 +1,9 @@
 import React, { useRef, useEffect, ReactNode } from 'react';
 import { MDXLayout } from '@teambit/mdx.ui.mdx-layout';
-import type { MDXProviderComponents } from '@teambit/mdx.ui.mdx-layout';
 import { Page } from '@teambit/base-react.pages.page';
 import { NextPage } from '@teambit/community.ui.cards.next-page';
 import type { Route } from '@teambit/docs.entities.docs-routes';
-import { h1 as H1, h2 as H2, h3 as H3 } from '@teambit/documenter.markdown.heading';
+import { mdxComponents } from './mdx-components';
 import styles from './doc-page.module.scss';
 
 export type DocPageProps = {
@@ -22,22 +21,21 @@ export type DocPageProps = {
    * a text to be rendered in the component.
    */
   children: ReactNode;
+
+  /**
+   * base url to use for docs section.
+   */
+  baseUrl?: string;
 };
 
 const scrollToRef = (ref) => {
   return window.scrollTo(0, -ref.current.offsetTop);
 };
 
-const getTextLink = (element: React.ReactNode) =>
-  typeof element === 'string' ? element.trim().toLowerCase().replace(/ /g, '-') : undefined;
+export function DocPage({ title, nextPage, children, baseUrl = '/docs' }: DocPageProps) {
+  const myRef = useRef(null);
+  const executeScroll = () => scrollToRef(myRef);
 
-const mdxComponents: MDXProviderComponents = {
-  h1: ({ children, ...rest }) => <H1 link={getTextLink(children)} children={children} {...rest} />,
-  h2: ({ children, ...rest }) => <H2 link={getTextLink(children)} children={children} {...rest} />,
-  h3: ({ children, ...rest }) => <H3 link={getTextLink(children)} children={children} {...rest} />,
-};
-
-export function DocPage({ title, nextPage, children }: DocPageProps) {
   useEffect(() => {
     executeScroll();
   }, []);
@@ -52,12 +50,10 @@ export function DocPage({ title, nextPage, children }: DocPageProps) {
     }
   }, [location.hash]);
 
-  const myRef = useRef(null);
-  const executeScroll = () => scrollToRef(myRef);
   return (
     <Page title={title}>
       <div ref={myRef} />
-      <MDXLayout components={mdxComponents}>{children}</MDXLayout>
+      <MDXLayout components={mdxComponents(baseUrl)}>{children}</MDXLayout>
 
       {nextPage && (
         <NextPage

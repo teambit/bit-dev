@@ -13,11 +13,11 @@ export const docsRoutes: DocsRoute[] = [
         title: 'Overview',
         path: 'overview',
       },
-      // {
-      //   title: 'Decoupled codebases',
-      //   path: 'decoupled-codebases',
-      //   component: <DecoupledCodebases />
-      // },
+      {
+        title: 'Decoupled codebases',
+        path: 'decoupled-codebases',
+        // component: <DecoupledCodebases />
+      },
       {
         title: 'Autonomy and Independence',
         path: 'autonomy-and-independence',

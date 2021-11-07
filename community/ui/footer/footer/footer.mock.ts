@@ -5,7 +5,7 @@ export const footerMock: CategoryProps[] = [
     title: 'Follow Us',
     links: [
         { icon: 'https://static.bit.dev/bit-logo.svg', text: 'Bit', href: 'https://bit.dev', external: true },
-        { icon: 'slack', text: 'Slack', href: 'https://bit.dev', external: true },
+        { icon: 'youtube-logo', text: 'YouTube', href: 'https://bit.dev', external: true },
         { icon: 'twitter-logo', text: 'Twitter', href: '#' },
         { icon: 'github-logo', text: 'Github', href: '#' },
       ],
@@ -15,35 +15,32 @@ export const footerMock: CategoryProps[] = [
     links: [
         { text: 'Docs', href: '#' },
         { text: 'Getting Started', href: '#' },
-        { text: 'Contributing docs', href: '/docs/contributing-docs' },
+        { text: 'Contributing', href: '/docs/contributing-docs' },
         { text: 'Discussions', href: '#' },
       ],
   },
     {
     title: 'Bit Cloud',
     links: [
-        { text: 'Features', href: '#' },
-        { text: 'Contact Sales', href: '#' },
-        { text: 'Tutorials', href: '#' },
-        { text: 'Use Cases', href: '#' },
+        { text: 'Platform', href: '#' },
+        { text: 'Enterprise', href: '#' },
+        { text: 'Book a demo', href: '#' }
       ],
   },
     {
     title: 'Community',
     links: [
-        { text: 'Contributing', href: '#' },
+        { text: 'Videos', href: '#' },
         { text: 'Streams', href: '#' },
-        { text: 'Events', href: '#' },
-        { text: 'Security', href: '#' },
+        { text: 'Events', href: '#' }
       ],
   },
     {
-    title: 'Company',
+    title: 'Get help',
     links: [
-        { text: 'About Us', href: '#' },
-        { text: 'Contact Us', href: '#' },
-        { text: 'Blog', href: '#' },
-        { text: 'Careers', href: '#' },
+        { icon: 'slack', text: 'Slack', href: 'https://bit.dev', external: true },
+        { text: 'Issues', href: '#' },
+        { text: 'Support', href: '#' },
       ],
   },
 ];

@@ -1,7 +1,7 @@
 /**
  * this is the main configuration file of your bit workspace.
  * for full documentation, please see: https://harmony-docs.bit.dev/workspace/configurations
- **/ {
+ **/{
   "$schema": "https://static.bit.dev/teambit/schemas/schema.json",
   /**
    * main configuration of the Bit workspace.
@@ -74,6 +74,8 @@
         "@teambit/base-ui.text.paragraph": "1.0.3",
         "@teambit/component-id": "0.0.369",
         "@teambit/component.modules.component-url": "0.0.71",
+        "@teambit/component.ui.graph.component-node-container": "0.0.33",
+        "@teambit/component.ui.graph.dependencies-graph": "0.0.34",
         "@teambit/design.elements.icon": "1.0.6",
         "@teambit/design.embeds.figma": "0.0.6",
         "@teambit/design.ui.cli-snippet": "0.0.349",
@@ -146,7 +148,9 @@
       }
     },
     "packageManagerArgs": [],
-    "devFilePatterns": ["**/*.spec.ts"],
+    "devFilePatterns": [
+      "**/*.spec.ts"
+    ],
     "strictPeerDependencies": true,
     "installFromBitDevRegistry": true,
     "savePrefix": ""
@@ -240,6 +244,9 @@
       "teambit.community/envs/community-react": "-",
       "teambit.react/react": {},
       "defaultScope": "teambit.explorer"
+    },
+    "pkg": {
+      "defaultScope": "teambit.pkg"
     }
   }
 }

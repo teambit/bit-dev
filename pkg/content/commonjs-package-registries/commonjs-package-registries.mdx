@@ -1,0 +1,91 @@
+# Publishing to CommonJS Registries
+
+Component packages are included in the component versions ([snaps](/docs/components/snaps) and [tags](/docs/components/tags)).
+Components hosted on Bit Cloud will have their packages available to be installed by Bit, as well as by standard package managers like npm and Yarn.
+
+However, if you're using self-hosted scopes, packages will not be available for installation \
+
+You can install packages hosted on Bit Cloud, in non-Bit projects, by [configuring your `npmrc` to use Bit Cloud](/docs/packages/npmrc).
+
+Packages can also be published to commonJS package registries like npm. Components that are configured to be published to a commonJS package registry, will be published during their tag process.
+
+```
+bit tag ui/heading
+```
+
+```
+...
+new components
+(first version for components)
+     > ui/heading@0.0.1
+
+
+published the following 1 component(s) successfully
+@my-npm-scope/ui.heading@0.0.1
+```
+
+Use [`bit publish`](/docs/reference/cli-reference#publish) to manually publish components from the workspace (not recommended!):
+
+```bash
+bit publish ui/heading
+```
+
+## Publish your Components to npm
+
+Configure your components to use a different package name by setting the `name` property with a new name.
+This will set them to be published to the npm's registry (no need to configure the `publishConfig` property, as well).
+
+You can use the `{name}` and `{scope}` placeholders to inject each component's [full name](/docs/components/component-id#component-full-name), and [scope name](<(/docs/components/component-id#component-full-name)>), to the corresponding package name.
+The package name should be prefixed with the [npm scope](https://docs.npmjs.com/cli/v7/using-npm/scope) (see the example below).
+
+To make your packages public, configure the `private` and `packageManagerPublishArgs` properties, accordingly (see the example below).
+
+```json
+{
+  "teambit.workspace/variants": {
+    "*": {
+      "teambit.pkg/pkg": {
+        // "packageManagerPublishArgs": ["--access public"],
+        "packageJson": {
+          //   "private": false,
+          "name": "@my-npm-scope/{name}"
+        }
+      }
+    }
+  }
+}
+```
+
+:::tip make sure you're logged in to npm
+
+```bash
+npm login
+```
+
+:::
+
+## Publish your Components to any commonJS package registry
+
+Set the `registry` property to your registry's URL. Set the `scope` value to the specific scope in the registry.
+
+To make your packages public, configure the `private` and `packageManagerPublishArgs` properties, accordingly (see the example below).
+
+```json {11-14} title=workspace.jsonc
+"teambit.workspace/variants": {
+  "*": {
+      "teambit.pkg/pkg": {
+        // "packageManagerPublishArgs": [
+        //   "--access public"
+        // ],
+        "packageJson": {
+          "name": "@my-scope/{name}",
+        //   "private": false,
+          "publishConfig": {
+            "scope": "@my-scope",
+            "registry": "https://registry.something.org/"
+          }
+        }
+      }
+    }
+}
+```

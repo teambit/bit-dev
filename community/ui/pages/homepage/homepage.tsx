@@ -13,8 +13,12 @@ import { LogoShowcase } from '@teambit/community.ui.logo-showcase';
 import { StickyMenu } from '@teambit/community.ui.sticky-menu';
 import { Page } from '@teambit/base-react.pages.page';
 import { Distribution } from '@teambit/community.ui.homepage.sections.distribution';
-import styles from './homepage.module.scss';
+import { Standardization } from '@teambit/community.ui.homepage.sections.standardization';
+import { Autonomy } from '@teambit/community.ui.homepage.sections.autonomy';
+import { Collaboration } from '@teambit/community.ui.homepage.sections.collaboration';
+import { Extendability } from '@teambit/community.ui.homepage.sections.extendability';
 import { WideColumn } from '@teambit/base-ui.layout.page-frame';
+import styles from './homepage.module.scss';
 
 export type HomepageProps = {} & React.HTMLAttributes<HTMLDivElement>;
 
@@ -23,26 +27,15 @@ const logoList = [...clientLogos, ...clientLogos];
 
 export function Homepage({ ...rest }: HomepageProps) {
   return (
-    <Page title='Bit: Component build and collaboration framework' {...rest}>
+    <Page title="Bit: Component build and collaboration framework" {...rest}>
       <section>
         <div className={styles.grid}>
           <ExcludeHighlighter>
             <Hero bubbles={mockBubbleGraph()} />
           </ExcludeHighlighter>
-          <ComponentDistributionSection
-            title='From monoliths to component-driven'
-            components={componentsMock()}
-          />
-          <FeaturesSection
-            features={features}
-            title='Better software is built in components'
-          />
-          <UseCasesSection
-            useCases={useCases}
-            title='Make hard things simple'
-            href='/'
-            linkText='See more use cases'
-          />
+          <ComponentDistributionSection title="From monoliths to component-driven" components={componentsMock()} />
+          <FeaturesSection features={features} title="Better software is built in components" />
+          <UseCasesSection useCases={useCases} title="Make hard things simple" href="/" linkText="See more use cases" />
         </div>
         <div className={styles.imageStripSection}>
           <LogoShowcase className={styles.imgStrip} images={logoList} />
@@ -74,7 +67,12 @@ export function Homepage({ ...rest }: HomepageProps) {
           ]}
         />
       </WideColumn>
+
       <Distribution />
+      <Collaboration />
+      <Standardization />
+      <Autonomy />
+      <Extendability />
     </Page>
   );
 }
