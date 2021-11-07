@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, forwardRef } from 'react';
 import classNames from 'classnames';
 import { compareUrl } from '@teambit/ui-foundation.urls.compare-url';
 import { useLocation } from '@teambit/base-react.navigation.use-location';
@@ -7,23 +7,19 @@ import type { LinkProps, NavLinkProps } from '@teambit/base-react.navigation.rou
 const externalLinkAttributes = { rel: 'noopener', target: '_blank' };
 export const isBrowser = typeof window !== 'undefined';
 
-export function NativeLink({ external, native, state, ...rest }: LinkProps) {
+export const NativeLink = forwardRef<HTMLAnchorElement, LinkProps>(function NativeLink(
+  { external, native, state, ...rest }: LinkProps,
+  ref
+) {
   const externalProps = external ? externalLinkAttributes : {};
 
-  return <a {...rest} {...externalProps} />;
-}
+  return <a {...rest} {...externalProps} ref={ref} />;
+});
 
-export function NativeNavLink({
-  className,
-  style,
-  activeClassName,
-  activeStyle,
-  active,
-  strict,
-  exact,
-  href,
-  ...rest
-}: NavLinkProps) {
+export const NativeNavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(function NativeNavLink(
+  { className, style, activeClassName, activeStyle, active, strict, exact, href, ...rest }: NavLinkProps,
+  ref
+) {
   const location = useLocation();
 
   const isActive = useMemo(() => {
@@ -41,9 +37,10 @@ export function NativeNavLink({
   return (
     <NativeLink
       {...rest}
+      ref={ref}
       href={href}
       className={classNames(className, isActive && activeClassName)}
       style={combinedStyles}
     />
   );
-}
+});

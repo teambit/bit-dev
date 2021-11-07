@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { useRouter, NavLinkProps } from '@teambit/base-react.navigation.router-context';
 import { NativeNavLink } from './native-link';
 
-export { NavLinkProps };
+export type { NavLinkProps };
 
-export function NavLink(props: NavLinkProps) {
+export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(function NavLink(props: NavLinkProps, ref) {
   const router = useRouter();
   const ActualNavLink = router.NavLink || NativeNavLink;
 
   if (props.native || props.external) {
-    return <NativeNavLink {...props} />;
+    return <NativeNavLink {...props} ref={ref} />;
   }
 
-  return <ActualNavLink {...props} />;
-}
+  return <ActualNavLink {...props} ref={ref} />;
+});
