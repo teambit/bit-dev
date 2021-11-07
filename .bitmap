@@ -11,7 +11,7 @@
 {
     "apps/bit-dev": {
         "scope": "teambit.community",
-        "version": "1.9.29",
+        "version": "1.9.30",
         "mainFile": "index.ts",
         "rootDir": "community/apps/bit-dev"
     },
@@ -587,7 +587,7 @@
     },
     "content/packing-components": {
         "scope": "teambit.pkg",
-        "version": "1.9.27",
+        "version": "1.9.28",
         "mainFile": "index.ts",
         "rootDir": "pkg/content/packing-components"
     },
@@ -713,7 +713,7 @@
     },
     "content/workspace-overview": {
         "scope": "teambit.workspace",
-        "version": "1.9.23",
+        "version": "1.9.24",
         "mainFile": "index.ts",
         "rootDir": "workspace/content/workspace-overview"
     },
@@ -881,7 +881,7 @@
     },
     "ui/community-docs": {
         "scope": "teambit.docs",
-        "version": "1.9.27",
+        "version": "1.9.28",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/community-docs"
     },
@@ -941,7 +941,7 @@
     },
     "ui/footer/footer": {
         "scope": "teambit.community",
-        "version": "1.9.22",
+        "version": "1.9.23",
         "mainFile": "index.ts",
         "rootDir": "community/ui/footer/footer"
     },
@@ -1024,32 +1024,32 @@
         "rootDir": "community/ui/hero"
     },
     "ui/homepage/sections/autonomy": {
-        "scope": "",
-        "version": "",
+        "scope": "teambit.community",
+        "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "community/ui/homepage/sections/autonomy"
     },
     "ui/homepage/sections/collaboration": {
-        "scope": "",
-        "version": "",
+        "scope": "teambit.community",
+        "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "community/ui/homepage/sections/collaboration"
     },
     "ui/homepage/sections/distribution": {
         "scope": "teambit.community",
-        "version": "1.9.23",
+        "version": "1.9.24",
         "mainFile": "index.ts",
         "rootDir": "community/ui/homepage/sections/distribution"
     },
     "ui/homepage/sections/extendability": {
-        "scope": "",
-        "version": "",
+        "scope": "teambit.community",
+        "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "community/ui/homepage/sections/extendability"
     },
     "ui/homepage/sections/standardization": {
-        "scope": "",
-        "version": "",
+        "scope": "teambit.community",
+        "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "community/ui/homepage/sections/standardization"
     },
@@ -1121,7 +1121,7 @@
     },
     "ui/pages/homepage": {
         "scope": "teambit.community",
-        "version": "1.9.25",
+        "version": "1.9.26",
         "mainFile": "index.ts",
         "rootDir": "community/ui/pages/homepage"
     },

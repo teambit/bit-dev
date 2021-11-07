@@ -17,7 +17,7 @@ export function Extendability({}: ExtendabilityProps) {
   return (
     <WideColumn>
       <SectionGroup>
-        <TopDown title="Extend anything" subtitle="Designed for extendability">
+        <TopDown title="Infinite extendability" subtitle="Designed for extendability">
           
         </TopDown>
         <LeftRight title="Extend with components" text="Building with Bit is like building in a never ending Monorepo.">

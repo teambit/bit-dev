@@ -30,16 +30,17 @@ export function Autonomy({}: AutonomyProps) {
           
         </LeftRight>
         <LeftRight 
-          title="Components that never break" 
-          text="Never break from component changes made by others"
-        >
-          
-        </LeftRight>
-        <LeftRight 
           title="Independent delivery" 
           text="Empower teams to independently deliver features and APIs"
         >
           {/* <BubbleGraph nodes={scaleGraph} /> */}
+        </LeftRight>
+
+        <LeftRight 
+          title="Components that never break" 
+          text="Never break from component changes made by others"
+        >
+          
         </LeftRight>
       </SectionGroup>
     </WideColumn>

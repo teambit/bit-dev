@@ -19,7 +19,7 @@ export function Distribution({}: DistributionProps) {
   return (
     <WideColumn>
       <SectionGroup>
-        <TopDown title="Limitless Distribution" subtitle="Distribution drives better software. Do more, work less">
+        <TopDown title="Limitless distribution" subtitle="Distribution drives better software. Do more, work less">
           <Terminal animate={false} content={terminalText} className={styles.terminal} />
         </TopDown>
         <LeftRight title="Build independent components" text="Every component is independently developed, versioned and built.">
