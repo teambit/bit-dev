@@ -1,7 +1,7 @@
 export const features = [
   {
     title: 'Scalable',
-    text: 'Component ownership can be distributed across developer teams',
+    text: 'Component ownership is distributed across developer teams',
     image: 'https://static.bit.dev/Community/features/distributed.svg',
     alt: 'distributed'
   },

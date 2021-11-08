@@ -1,4 +1,4 @@
-import urlParse from "url-parse";
+import urlParse from 'url-parse';
 
 export type Options = { exact?: boolean; strict?: boolean };
 
@@ -11,8 +11,8 @@ export function compareUrl(
 
   if (!strict) {
     // remove any trailing slashes, e.g. '.../?query=...', '.../#hash...', '.../'
-    baseUrl = baseUrl.replace(/\/(?=[?#]|$)/, "");
-    toMatchUrl = toMatchUrl.replace(/\/(?=[?#]|$)/, "");
+    baseUrl = baseUrl.replace(/\/(?=[?#]|$)/, '');
+    toMatchUrl = toMatchUrl.replace(/\/(?=[?#]|$)/, '');
   }
 
   const base = urlParse(baseUrl);
@@ -48,7 +48,7 @@ function isExactMatch(base: urlParse, match: urlParse) {
 function isStrictMatch(base: urlParse, match: urlParse) {
   return (
     !match.pathname ||
-    base.pathname.endsWith("/") === match.pathname.endsWith("/")
+    base.pathname.endsWith('/') === match.pathname.endsWith('/')
   );
 }
 

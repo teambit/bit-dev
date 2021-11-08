@@ -19,9 +19,8 @@ export function Footer({ categoryList, className }: FooterProps) {
       </div>
       <div className={styles.bottom}>
         <Logo className={styles.logo} />
-        <span>© 2021 Bit, Inc.</span>
-        <Link text="Terms" href="https://bit.dev/Terms" external />
-        <Link  text="Privacy" href="https://bit.dev/privacy" external />
+        <span>© 2021 Cocycles, Ltd.</span>
+        <Link text="Privacy" href="https://bit.dev/privacy" external />
       </div>
     </div>
   );
