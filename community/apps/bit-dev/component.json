@@ -4,7 +4,7 @@
     "name": "apps/bit-dev",
     "version": "1.9.37"
   },
-  "propagate": false,
+  "propagate": true,
   "extensions": {
     "teambit.dependencies/dependency-resolver": {
       "policy": {
