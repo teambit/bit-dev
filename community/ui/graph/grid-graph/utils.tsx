@@ -1,4 +1,5 @@
-import { GridNode } from '@teambit/community.entity.graph.grid-graph';
+// import { GridNode } from '@teambit/community.entity.graph.grid-graph';
+// import { getSpan } from './make-span';
 
 export const positions = {
   top: {
@@ -39,19 +40,33 @@ export function getValidId(id: string) {
   return id.replace(/[.\/]/g, '-');
 }
 
-export function getCell<T>(node: GridNode<T>, graphSize?: string) {
-  // when specifying col and row to equal to null, it removed the node
-  if (graphSize && node?.sizes?.[graphSize]?.col === null && node?.sizes?.[graphSize]?.row === null) {
-    return { display: 'none' };
-  }
+// export enum GraphSizes {
+//   xs = 'xs',
+//   sm = 'sm',
+//   md = 'md',
+//   l = 'l',
+//   lg = 'lg',
+//   xl = 'xl',
+//   xxl = 'xxl',
+// }
 
-  const col = (graphSize && node?.sizes?.[graphSize]?.col) || node.col;
-  const row = (graphSize && node?.sizes?.[graphSize]?.row) || node.row;
+// export function getCell<T>(node: GridNode<T>, graphSize?: GraphSizes) {
+//   const sizes = node?.sizes;
+//   console.log('node', node.sizes);
+//   // console.log('sizes', getSpan(node.sizes));
+//   // const pos = graphSize && sizesArr.indexOf(graphSize);
+//   // when specifying col and row to equal to null, it removed the node
+//   if (graphSize && sizes?.[graphSize]?.col === null && sizes?.[graphSize]?.row === null) {
+//     return { display: 'none' };
+//   }
 
-  return {
-    gridColumnStart: col,
-    gridColumnEnd: col,
-    gridRowStart: row,
-    gridRowEnd: row,
-  };
-}
+//   const col = (graphSize && sizes?.[graphSize]?.col) || node.col;
+//   const row = (graphSize && sizes?.[graphSize]?.row) || node.row;
+
+//   return {
+//     gridColumnStart: col,
+//     gridColumnEnd: col,
+//     gridRowStart: row,
+//     gridRowEnd: row,
+//   };
+// }

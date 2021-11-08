@@ -31,6 +31,12 @@ export function mockBubbleGraph() {
       },
       row: 3,
       col: 10,
+      sizes: {
+        xxl: {
+          row: 3,
+          col: 10,
+        },
+      },
       position: 'top-left',
     },
     {
@@ -49,6 +55,12 @@ export function mockBubbleGraph() {
       },
       row: 2,
       col: 11,
+      sizes: {
+        xxl: {
+          row: 2,
+          col: 11,
+        },
+      },
       position: 'top-right',
     },
     {
@@ -59,6 +71,12 @@ export function mockBubbleGraph() {
       },
       row: 3,
       col: 11,
+      sizes: {
+        xxl: {
+          row: 3,
+          col: 11,
+        },
+      },
       position: 'bottom-right',
     },
     {
@@ -77,7 +95,11 @@ export function mockBubbleGraph() {
       row: 3,
       col: 1,
       sizes: {
-        md: {
+        xxl: {
+          row: 3,
+          col: 1,
+        },
+        lg: {
           row: 3,
           col: 1,
         },
@@ -100,6 +122,12 @@ export function mockBubbleGraph() {
       },
       row: 5,
       col: 2,
+      sizes: {
+        xxl: {
+          row: 5,
+          col: 2,
+        },
+      },
       position: 'top-left',
     },
     {
@@ -110,6 +138,12 @@ export function mockBubbleGraph() {
       },
       row: 4,
       col: 1,
+      sizes: {
+        xxl: {
+          row: 4,
+          col: 1,
+        },
+      },
       position: 'top-left',
     },
     {
@@ -120,6 +154,12 @@ export function mockBubbleGraph() {
       },
       row: 2,
       col: 9,
+      sizes: {
+        xxl: {
+          row: 2,
+          col: 9,
+        },
+      },
       position: 'top-left',
     },
     /**
@@ -139,7 +179,11 @@ export function mockBubbleGraph() {
       row: 6,
       col: 11,
       sizes: {
-        md: {
+        xxl: {
+          row: 6,
+          col: 11,
+        },
+        lg: {
           row: null,
           col: null,
         },
@@ -159,7 +203,11 @@ export function mockBubbleGraph() {
       row: 5,
       col: 10,
       sizes: {
-        md: {
+        xxl: {
+          row: 5,
+          col: 10,
+        },
+        lg: {
           row: null,
           col: null,
         },
@@ -175,7 +223,11 @@ export function mockBubbleGraph() {
       row: 5,
       col: 11,
       sizes: {
-        md: {
+        xxl: {
+          row: 5,
+          col: 11,
+        },
+        lg: {
           row: null,
           col: null,
         },
@@ -191,7 +243,11 @@ export function mockBubbleGraph() {
       row: 7,
       col: 10,
       sizes: {
-        md: {
+        xxl: {
+          row: 7,
+          col: 10,
+        },
+        lg: {
           row: null,
           col: null,
         },
@@ -207,7 +263,11 @@ export function mockBubbleGraph() {
       row: 6,
       col: 9,
       sizes: {
-        md: {
+        xxl: {
+          row: 6,
+          col: 9,
+        },
+        lg: {
           row: null,
           col: null,
         },
@@ -223,7 +283,11 @@ export function mockBubbleGraph() {
       row: 6,
       col: 7,
       sizes: {
-        md: {
+        xxl: {
+          row: 6,
+          col: 7,
+        },
+        lg: {
           row: null,
           col: null,
         },
@@ -240,7 +304,11 @@ export function mockBubbleGraph() {
       row: 7,
       col: 8,
       sizes: {
-        md: {
+        xxl: {
+          row: 7,
+          col: 8,
+        },
+        lg: {
           row: null,
           col: null,
         },
@@ -256,7 +324,11 @@ export function mockBubbleGraph() {
       row: 7,
       col: 6,
       sizes: {
-        md: {
+        xxl: {
+          row: 7,
+          col: 6,
+        },
+        lg: {
           row: null,
           col: null,
         },
@@ -272,7 +344,11 @@ export function mockBubbleGraph() {
       row: 7,
       col: 7,
       sizes: {
-        md: {
+        xxl: {
+          row: 7,
+          col: 7,
+        },
+        lg: {
           row: null,
           col: null,
         },
@@ -288,7 +364,11 @@ export function mockBubbleGraph() {
       row: 5,
       col: 6,
       sizes: {
-        md: {
+        xxl: {
+          row: 5,
+          col: 6,
+        },
+        lg: {
           row: null,
           col: null,
         },
@@ -304,7 +384,11 @@ export function mockBubbleGraph() {
       row: 6,
       col: 5,
       sizes: {
-        md: {
+        xxl: {
+          row: 6,
+          col: 5,
+        },
+        lg: {
           row: null,
           col: null,
         },
@@ -320,7 +404,11 @@ export function mockBubbleGraph() {
       row: 6,
       col: 4,
       sizes: {
-        md: {
+        xxl: {
+          row: 6,
+          col: 4,
+        },
+        lg: {
           row: null,
           col: null,
         },
@@ -336,7 +424,11 @@ export function mockBubbleGraph() {
       row: 7,
       col: 5,
       sizes: {
-        md: {
+        xxl: {
+          row: 7,
+          col: 5,
+        },
+        lg: {
           row: null,
           col: null,
         },
@@ -359,7 +451,11 @@ export function mockBubbleGraph() {
       row: 1,
       col: 5,
       sizes: {
-        md: {
+        xxl: {
+          row: 1,
+          col: 5,
+        },
+        lg: {
           row: null,
           col: null,
         },
@@ -375,7 +471,11 @@ export function mockBubbleGraph() {
       row: 1,
       col: 4,
       sizes: {
-        md: {
+        xxl: {
+          row: 1,
+          col: 4,
+        },
+        lg: {
           row: null,
           col: null,
         },
@@ -391,7 +491,11 @@ export function mockBubbleGraph() {
       row: 2,
       col: 7,
       sizes: {
-        md: {
+        xxl: {
+          row: 2,
+          col: 7,
+        },
+        lg: {
           row: null,
           col: null,
         },
@@ -407,7 +511,11 @@ export function mockBubbleGraph() {
       row: 1,
       col: 6,
       sizes: {
-        md: {
+        xxl: {
+          row: 1,
+          col: 6,
+        },
+        lg: {
           row: null,
           col: null,
         },
@@ -426,7 +534,11 @@ export function mockBubbleGraph() {
       row: 2,
       col: 1,
       sizes: {
-        md: {
+        xxl: {
+          row: 2,
+          col: 1,
+        },
+        lg: {
           row: null,
           col: null,
         },
@@ -442,7 +554,11 @@ export function mockBubbleGraph() {
       row: 1,
       col: 1,
       sizes: {
-        md: {
+        xxl: {
+          row: 1,
+          col: 1,
+        },
+        lg: {
           row: null,
           col: null,
         },
@@ -458,7 +574,11 @@ export function mockBubbleGraph() {
       row: 1,
       col: 2,
       sizes: {
-        md: {
+        xxl: {
+          row: 5,
+          col: 6,
+        },
+        lg: {
           row: null,
           col: null,
         },
@@ -487,7 +607,11 @@ export function mockBubbleGraph() {
       row: 5,
       col: 2,
       sizes: {
-        md: {
+        xxl: {
+          row: 5,
+          col: 2,
+        },
+        lg: {
           row: null,
           col: null,
         },
@@ -503,7 +627,11 @@ export function mockBubbleGraph() {
       row: 5,
       col: 1,
       sizes: {
-        md: {
+        xxl: {
+          row: 5,
+          col: 1,
+        },
+        lg: {
           row: null,
           col: null,
         },
@@ -519,7 +647,11 @@ export function mockBubbleGraph() {
       row: 7,
       col: 1,
       sizes: {
-        md: {
+        xxl: {
+          row: 7,
+          col: 1,
+        },
+        lg: {
           row: null,
           col: null,
         },
@@ -535,7 +667,11 @@ export function mockBubbleGraph() {
       row: 6,
       col: 2,
       sizes: {
-        md: {
+        xxl: {
+          row: 6,
+          col: 2,
+        },
+        lg: {
           row: null,
           col: null,
         },
@@ -551,7 +687,11 @@ export function mockBubbleGraph() {
       row: 7,
       col: 2,
       sizes: {
-        md: {
+        xxl: {
+          row: 7,
+          col: 2,
+        },
+        lg: {
           row: null,
           col: null,
         },
@@ -567,7 +707,11 @@ export function mockBubbleGraph() {
       row: 7,
       col: 3,
       sizes: {
-        md: {
+        xxl: {
+          row: 7,
+          col: 3,
+        },
+        lg: {
           row: null,
           col: null,
         },

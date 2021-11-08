@@ -1,13 +1,12 @@
-import React, { ComponentType, useState, useEffect } from 'react';
-import useDimensions from 'react-use-dimensions';
-import { useDebounce } from 'use-debounce';
+import React, { ComponentType, useMemo } from 'react';
 import { ComponentID } from '@teambit/component-id';
 import classNames from 'classnames';
 import { GridNode, DependencyEdge } from '@teambit/community.entity.graph.grid-graph';
 import { Edge as DefaultEdge } from '@teambit/community.ui.graph.edge';
 import { DefaultNode } from './default-node';
-import { positions, getCell, getValidId } from './utils';
+import { positions, getValidId } from './utils';
 import styles from './grid-graph.module.scss';
+import { makeSpans } from './make-span';
 
 export type GridItemProps = {
   id?: string;
@@ -32,7 +31,6 @@ export type GridGraphProps<TN = {}, TE = {}> = {
   nodeClassName?: string;
   Node?: ComponentType<GraphNodeProps<TN>>;
   Edge?: ComponentType<GraphEdgeProps<TE>>;
-  graphSize?: 'xs' | 'sm' | 'md' | 'l' | 'lg' | 'xl' | 'xxl';
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export function GridGraph({
@@ -41,48 +39,51 @@ export function GridGraph({
   nodes,
   Node = DefaultNode,
   Edge = DefaultEdge,
-  graphSize,
   className,
   ...rest
 }: GridGraphProps) {
-  const [currentBreakpoint, setBreakpoint] = useState<string | null>('xxl');
-  const [ref, { width }] = useDimensions();
-  const debouncedSize = useDebounce(width, 300, { leading: true });
-  useEffect(() => {
-    if (debouncedSize[0] > 1200) {
-      setBreakpoint('xxl');
-    }
-    if (debouncedSize[0] < 1200) {
-      setBreakpoint('md');
-    }
-    // if (debouncedSize[0] < 768) {
-    //   setBreakpoint('sm');
-    // }
-  }, [debouncedSize]);
-
   return (
-    <div ref={ref} className={classNames(styles.gridGraph, className)} {...rest}>
+    <div className={classNames(styles.gridGraph, className)} {...rest}>
       {nodes.map((node) => {
         const id = getValidId(node.id.toString({ ignoreVersion: true }));
-        const cell = getCell(node, currentBreakpoint);
-        const bubblePosition = node.position && positions[node.position];
-        return (
-          <div key={node.id.toString()} className={nodeClassName} style={{ ...cell, ...bubblePosition }}>
-            <Node id={node.attrId} key={id} node={node} />
-
-            {node.dependencies.map((dependency) => {
-              return (
-                <Edge
-                  key={`${node.attrId}->${dependency.attrId}-${currentBreakpoint}`}
-                  node={node}
-                  dependency={dependency}
-                />
-              );
-            })}
-          </div>
-        );
+        return <GraphNode key={id} Edge={Edge} Node={Node} nodeContent={node} className={nodeClassName} />;
       })}
       {children}
     </div>
   );
 }
+
+export type GridGraphNodeProps<T> = {
+  nodeContent: GridNode<T>;
+} & Omit<GridGraphProps, 'nodes' | 'nodeTypes'>;
+
+function GraphNode<T>({ nodeContent, className, Node = DefaultNode, Edge = DefaultEdge }: GridGraphNodeProps<T>) {
+  const bubblePosition = useMemo(() => nodeContent.position && positions[nodeContent.position], [nodeContent.position]);
+  const cellLayout = useMemo(() => Object.values(makeSpans(nodeContent.sizes)), [nodeContent.sizes]);
+  return (
+    <div
+      key={nodeContent.id.toString()}
+      className={classNames(className, cellLayout)}
+      style={{ /* ...cell, */ ...bubblePosition }}
+    >
+      <Node id={nodeContent.attrId} node={nodeContent} />
+
+      {nodeContent.dependencies.map((dependency) => {
+        return <Edge key={`${nodeContent.attrId}->${dependency.attrId}`} node={nodeContent} dependency={dependency} />;
+      })}
+    </div>
+  );
+}
+
+// function getBreakpoint(size) {
+//   if (!size) return 'xxl';
+//   // const media = window.matchMedia(`(max-width: ${size}px)`);
+//   // console.log("media", media)
+//   if (size > 1920) return 'xxl';
+//   if (size > 1440) return 'xl';
+//   if (size > 1200) return 'lg';
+//   if (size > 920) return 'l';
+//   if (size > 768) return 'md';
+//   if (size > 480) return 'sm';
+//   if (size > 360) return 'xs';
+// }

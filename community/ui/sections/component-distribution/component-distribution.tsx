@@ -30,20 +30,18 @@ export function ComponentDistributionSection({ title, components = [], className
         </Heading>
       </div>
       {/* created a connecting element for edge curve effect */}
-      <div id={top.attrId} />
-      <Edge node={top} dependency={top.dependencies[0]} />
-      <Edge node={top} dependency={top.dependencies[1]} />
-      <div className={styles.content}>
-        <ComponentCardGraph nodes={components} />
-        <div />
-        <Image src={img} className={styles.appImg} id={image.attrId} />
-        <Edge node={image} dependency={image.dependencies[0]} />
-        <Edge node={image} dependency={image.dependencies[1]} />
+      <div id={top.attrId} className={styles.connectingEdgeAnchor}>
+        <Edge node={top} dependency={top.dependencies[0]} />
+        <Edge node={top} dependency={top.dependencies[1]} />
       </div>
+      <ComponentCardGraph nodes={components} className={styles.distributionGraph}>
+        <Image src={img} className={styles.appImg} id={image.attrId} />
+      </ComponentCardGraph>
       {/* created a connecting element for edge curve effect */}
-      <div id={bottom.attrId} />
-      <Edge node={bottom} dependency={bottom.dependencies[0]} />
-      <Edge node={bottom} dependency={bottom.dependencies[1]} />
+      <div id={bottom.attrId} className={styles.connectingEdgeAnchor}>
+        <Edge node={bottom} dependency={bottom.dependencies[0]} />
+        <Edge node={bottom} dependency={bottom.dependencies[1]} />
+      </div>
     </div>
   );
 }
@@ -67,7 +65,7 @@ const image = GridNode.fromPlain({
 });
 
 const top = GridNode.fromPlain({
-  id: 'teambit.shoe-store/home-page-to-store-hero',
+  id: 'teambit.connecter/top',
   dependencies: [
     {
       id: 'teambit.shoe-store/ui/pages/home',
@@ -86,7 +84,7 @@ const top = GridNode.fromPlain({
 });
 
 const bottom = GridNode.fromPlain({
-  id: 'teambit.shoe-store/shoes-card-grid-to-shoes-card',
+  id: 'teambit.connecter/bottom',
   dependencies: [
     {
       id: 'teambit.shoe-store/ui/shoes/shoes-card-grid',

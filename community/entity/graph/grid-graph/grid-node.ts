@@ -52,15 +52,44 @@ export class GridNode<T> {
     return getAttrValidId(this.id.toStringWithoutVersion());
   }
 
-  static fromPlain<T>({ id, dependencies = [], ...rest }: GridNodeType<T>): GridNode<T> {
+  static fromPlain<T>({
+    id,
+    dependencies = [],
+    col,
+    row,
+    sizes,
+    position,
+    payload,
+  }: // ...rest,
+  GridNodeType<T>): GridNode<T> {
+    const allSizes = completeSizes(col, row, sizes);
     return new GridNode(
       ComponentID.fromString(id),
       dependencies.map((dep) => DependencyEdge.fromPlain(dep)),
-      rest.row,
-      rest.col,
-      rest.sizes,
-      rest.position,
-      rest.payload
+      row,
+      col,
+      allSizes,
+      position,
+      payload
     );
   }
+}
+
+const sizesArr = ['xxl', 'xl', 'lg', 'l', 'md', 'sm', 'xs'];
+
+function completeSizes(defaultCol: number, defaultRow: number, nodeSizes?: Sizes) {
+  const obj: Sizes = {};
+  sizesArr.map((res, index) => {
+    if (res === 'xxl') {
+      obj.xxl = {
+        row: defaultRow,
+        col: defaultCol,
+      };
+      return;
+    }
+    obj[res] = (nodeSizes && nodeSizes[res]) || obj[sizesArr[index - 1]];
+    return null;
+  });
+
+  return obj;
 }
