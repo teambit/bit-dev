@@ -1,0 +1,19 @@
+{
+  "componentId": {
+    "scope": "teambit.community",
+    "name": "apps/bit-dev",
+    "version": "1.9.37"
+  },
+  "propagate": false,
+  "extensions": {
+    "teambit.dependencies/dependency-resolver": {
+      "policy": {
+        "dependencies": {
+          "@types/react-router-dom": "5.1.7",
+          "react-router-dom": "5.2.0",
+          "history": "^5.0.1"
+        }
+      }
+    }
+  }
+}
