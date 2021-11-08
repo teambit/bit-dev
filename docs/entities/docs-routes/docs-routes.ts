@@ -39,10 +39,8 @@ export class DocsRoutes {
       icon: docRoute.icon,
       open: docRoute.open,
       title: docRoute.title,
-      path: [
-        this.basePath, 
-        this.accumulatePath(docRoute.path, parentPath)
-      ].join('/')
+      config: docRoute.config && [this.basePath, this.accumulatePath(docRoute.config, parentPath)].join('/'),
+      path: [this.basePath, this.accumulatePath(docRoute.path, parentPath)].join('/'),
     }
   }
 
