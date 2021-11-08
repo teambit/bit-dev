@@ -176,7 +176,8 @@
           },
           "peerDependencies": {
             "@types/react-router-dom": "-",
-            "react-router-dom": "-"
+            "react-router-dom": "-",
+            "history": "^5.0.0"
           }
         }
       }
