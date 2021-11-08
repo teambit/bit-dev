@@ -58,13 +58,7 @@ export function BitDevApp() {
   );
 }
 
-function AppContext({
-  children,
-  showHighlighter: showHighlighter,
-}: {
-  children?: ReactNode;
-  showHighlighter?: boolean;
-}) {
+function AppContext({ children, showHighlighter }: { children?: ReactNode; showHighlighter?: boolean }) {
   // TODO @Uri - remove the legacy RoutingProvider
   return (
     <RoutingProvider value={legacyRouting}>

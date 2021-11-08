@@ -1,7 +1,7 @@
 /**
  * this is the main configuration file of your bit workspace.
  * for full documentation, please see: https://harmony-docs.bit.dev/workspace/configurations
- **/{
+ **/ {
   "$schema": "https://static.bit.dev/teambit/schemas/schema.json",
   /**
    * main configuration of the Bit workspace.
@@ -131,6 +131,8 @@
         "react-helmet": "6.1.0",
         "react-json-view": "1.21.3",
         "react-medium-image-zoom": "4.3.5",
+        // install a specific version of react-router (components should still get ^5.0.0 as peer)
+        "react-router-dom": "5.2.0",
         "react-terminal": "1.2.1",
         "react-xarrows": "2.0.2",
         "typescript": "4.4.2",
