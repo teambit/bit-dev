@@ -1,6 +1,6 @@
 import React from 'react';
 import { TreeNode, TreeNodeComponentProps } from '@teambit/ui-foundation.ui.tree.tree-node';
-import { FolderTreeNode } from '@teambit/ui-foundation.ui.tree.folder-tree-node';
+import { DocsTreeNode } from '@teambit/docs.ui.docs-tree-node';
 
 export type SidebarNodeProps = {
   /**
@@ -34,7 +34,7 @@ export function SidebarNode(props: SidebarNodeProps) {
 
   const isFolderActive = currentPath.includes(`/${props.node.id}/`)
   return (
-    <FolderTreeNode
+    <DocsTreeNode
       node={{
         id: props.node.payload?.title,
         children: props.node.children,
