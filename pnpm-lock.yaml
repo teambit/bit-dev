@@ -178,7 +178,7 @@ importers:
       '@teambit/ui-foundation.ui.tree.tree-node': registry.npmjs.org/@teambit/ui-foundation.ui.tree.tree-node/0.0.453_react-dom@16.13.1+react@16.13.1
       '@testing-library/react': registry.npmjs.org/@testing-library/react/12.0.0_react-dom@16.13.1+react@16.13.1
       '@types/history': registry.npmjs.org/@types/history/4.7.9
-      '@types/url-join': registry.npmjs.org/@types/url-join/4.0.1
+      '@types/react-router-dom': registry.npmjs.org/@types/react-router-dom/5.1.7
       '@typescript-eslint/eslint-plugin': registry.npmjs.org/@typescript-eslint/eslint-plugin/4.30.0_8a8a2d3eaa9257455a03c16dce5f55b3
       '@typescript-eslint/parser': registry.npmjs.org/@typescript-eslint/parser/4.30.0_eslint@7.32.0+typescript@4.4.2
       classnames: registry.npmjs.org/classnames/2.3.1
@@ -215,8 +215,8 @@ importers:
       '@types/react': registry.npmjs.org/@types/react/17.0.34
       '@types/react-dom': registry.npmjs.org/@types/react-dom/17.0.11
       '@types/react-helmet': registry.npmjs.org/@types/react-helmet/6.1.2
-      '@types/react-router-dom': registry.npmjs.org/@types/react-router-dom/5.1.7
       '@types/testing-library__jest-dom': registry.npmjs.org/@types/testing-library__jest-dom/5.9.5
+      '@types/url-join': registry.npmjs.org/@types/url-join/4.0.1
       react-json-view: registry.npmjs.org/react-json-view/1.21.3_47b9952f107f420f6c5ff0865fc773cc
 
   base-react/buttons/button:
@@ -4618,6 +4618,7 @@ packages:
     resolution: {integrity: sha512-MUc6zSmU3tEVnkQ78q0peeEjKWPUADMlC/t++2bI8WnAG2tvYRPIgHG8lWkXwqc8MsUF6Z2MOf+Mh5sazOmhiQ==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/history/-/history-4.7.9.tgz}
     name: '@types/history'
     version: 4.7.9
+    dev: false
 
   registry.npmjs.org/@types/hoist-non-react-statics/3.3.1:
     resolution: {integrity: sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.1.tgz}
@@ -4747,7 +4748,7 @@ packages:
       '@types/history': registry.npmjs.org/@types/history/4.7.9
       '@types/react': registry.npmjs.org/@types/react/17.0.34
       '@types/react-router': registry.npmjs.org/@types/react-router/5.1.17
-    dev: true
+    dev: false
 
   registry.npmjs.org/@types/react-router/5.1.17:
     resolution: {integrity: sha512-RNSXOyb3VyRs/EOGmjBhhGKTbnN6fHWvy5FNLzWfOWOGjgVUKqJZXfpKzLmgoU8h6Hj8mpALj/mbXQASOb92wQ==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/react-router/-/react-router-5.1.17.tgz}
@@ -4756,7 +4757,7 @@ packages:
     dependencies:
       '@types/history': registry.npmjs.org/@types/history/4.7.9
       '@types/react': registry.npmjs.org/@types/react/17.0.34
-    dev: true
+    dev: false
 
   registry.npmjs.org/@types/react-test-renderer/17.0.1:
     resolution: {integrity: sha512-3Fi2O6Zzq/f3QR9dRnlnHso9bMl7weKCviFmfF6B4LS1Uat6Hkm15k0ZAQuDz+UBq6B3+g+NM6IT2nr5QgPzCw==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/react-test-renderer/-/react-test-renderer-17.0.1.tgz}
@@ -4798,7 +4799,7 @@ packages:
     resolution: {integrity: sha512-wDXw9LEEUHyV+7UWy7U315nrJGJ7p1BzaCxDpEoLr789Dk1WDVMMlf3iBfbG2F8NdWnYyFbtTxUn2ZNbm1Q4LQ==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/url-join/-/url-join-4.0.1.tgz}
     name: '@types/url-join'
     version: 4.0.1
-    dev: false
+    dev: true
 
   registry.npmjs.org/@types/yargs-parser/20.2.1:
     resolution: {integrity: sha512-7tFImggNeNBVMsn0vLrpn1H1uPrUBdnARPTpZoitY37ZrdJREzf7I16tMrlK3hen349gr1NYh8CmZQa7CTG6Aw==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/yargs-parser/-/yargs-parser-20.2.1.tgz}
@@ -7342,7 +7343,7 @@ packages:
       '@babel/runtime': registry.npmjs.org/@babel/runtime/7.12.18
       loose-envify: registry.npmjs.org/loose-envify/1.4.0
       resolve-pathname: registry.npmjs.org/resolve-pathname/3.0.0
-      tiny-invariant: registry.npmjs.org/tiny-invariant/1.1.0
+      tiny-invariant: registry.npmjs.org/tiny-invariant/1.2.0
       tiny-warning: registry.npmjs.org/tiny-warning/1.0.3
       value-equal: registry.npmjs.org/value-equal/1.0.1
     dev: false
@@ -9253,7 +9254,7 @@ packages:
       prop-types: registry.npmjs.org/prop-types/15.7.2
       react: registry.npmjs.org/react/16.13.1
       react-router: registry.npmjs.org/react-router/5.2.0_react@16.13.1
-      tiny-invariant: registry.npmjs.org/tiny-invariant/1.1.0
+      tiny-invariant: registry.npmjs.org/tiny-invariant/1.2.0
       tiny-warning: registry.npmjs.org/tiny-warning/1.0.3
     dev: false
 
@@ -9274,7 +9275,7 @@ packages:
       prop-types: registry.npmjs.org/prop-types/15.7.2
       react: registry.npmjs.org/react/16.13.1
       react-is: registry.npmjs.org/react-is/16.13.1
-      tiny-invariant: registry.npmjs.org/tiny-invariant/1.1.0
+      tiny-invariant: registry.npmjs.org/tiny-invariant/1.2.0
       tiny-warning: registry.npmjs.org/tiny-warning/1.0.3
     dev: false
 
@@ -10239,10 +10240,10 @@ packages:
       next-tick: registry.npmjs.org/next-tick/1.1.0
     dev: false
 
-  registry.npmjs.org/tiny-invariant/1.1.0:
-    resolution: {integrity: sha512-ytxQvrb1cPc9WBEI/HSeYYoGD0kWnGEOR8RY6KomWLBVhqz0RgTwVO9dLrGz7dC+nN9llyI7OKAgRq8Vq4ZBSw==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/tiny-invariant/-/tiny-invariant-1.1.0.tgz}
+  registry.npmjs.org/tiny-invariant/1.2.0:
+    resolution: {integrity: sha512-1Uhn/aqw5C6RI4KejVeTg6mIS7IqxnLJ8Mv2tV5rTc0qWobay7pDUz6Wi392Cnc8ak1H0F2cjoRzb2/AW4+Fvg==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/tiny-invariant/-/tiny-invariant-1.2.0.tgz}
     name: tiny-invariant
-    version: 1.1.0
+    version: 1.2.0
     dev: false
 
   registry.npmjs.org/tiny-warning/1.0.3:
