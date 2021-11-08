@@ -4,7 +4,6 @@ import { Switch, Route } from 'react-router-dom';
 import { ReactRouterRoutingProvider } from '@teambit/ui-foundation.ui.navigation.react-router.routing-adapter';
 import { SidebarProvider } from '@teambit/design.ui.sidebar.sidebar-context';
 
-// content:
 import { Guides } from '@teambit/docs.ui.pages.guides';
 import { Header } from '@teambit/community.ui.header.header';
 import { Homepage } from '@teambit/community.ui.pages.homepage';
@@ -58,13 +57,7 @@ export function BitDevApp() {
   );
 }
 
-function AppContext({
-  children,
-  showHighlighter: showHighlighter,
-}: {
-  children?: ReactNode;
-  showHighlighter?: boolean;
-}) {
+function AppContext({ children, showHighlighter }: { children?: ReactNode; showHighlighter?: boolean }) {
   // TODO @Uri - remove the legacy RoutingProvider
   return (
     <RoutingProvider value={legacyRouting}>
