@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image } from '@teambit/base-react.content.image';
+// import { Image } from '@teambit/base-react.content.image';
 import { Button } from './button';
 
 export const BasicButton = () => {
@@ -17,7 +17,7 @@ export const ButtonWithCustomStyles = () => {
 export const ButtonWithIcon = () => {
   return (
     <Button>
-      <Image src="https://static.bit.dev/bit-logo.svg" />
+      {/* <Image src="https://static.bit.dev/bit-logo.svg" /> */}
       click me
     </Button>
   );

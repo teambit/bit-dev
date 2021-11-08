@@ -13,6 +13,10 @@ import { LogoShowcase } from '@teambit/community.ui.logo-showcase';
 import { StickyMenu } from '@teambit/community.ui.sticky-menu';
 import { Page } from '@teambit/base-react.pages.page';
 import { Distribution } from '@teambit/community.ui.homepage.sections.distribution';
+import { Standardization } from '@teambit/community.ui.homepage.sections.standardization';
+import { Autonomy } from '@teambit/community.ui.homepage.sections.autonomy';
+import { Collaboration } from '@teambit/community.ui.homepage.sections.collaboration';
+import { Extendability } from '@teambit/community.ui.homepage.sections.extendability';
 import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 import styles from './homepage.module.scss';
 
@@ -63,7 +67,12 @@ export function Homepage({ ...rest }: HomepageProps) {
           ]}
         />
       </WideColumn>
+
       <Distribution />
+      <Collaboration />
+      <Standardization />
+      <Autonomy />
+      <Extendability />
     </Page>
   );
 }

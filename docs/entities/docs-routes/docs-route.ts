@@ -18,6 +18,11 @@ export interface DocsRoute {
   description?: string;
 
   /**
+   * configuration for the section.
+   */
+  config?: ReactNode,
+
+  /**
    * determines whether to show next page. default is determined by the Docs' component via the `showNext` prop.
    */
   showNext?: boolean;

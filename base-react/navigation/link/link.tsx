@@ -1,17 +1,17 @@
-import React from 'react';
-import {
-  useRouter,
-  LinkProps,
-} from '@teambit/base-react.navigation.router-context';
+import React, { forwardRef } from 'react';
+import { useRouter, LinkProps } from '@teambit/base-react.navigation.router-context';
 import { NativeLink } from './native-link';
 
 export type { LinkProps };
 
-export function Link(props: LinkProps) {
-  const { Link } = useRouter();
-  if (Link && !props.native && !props.external) {
-    return <Link {...props} />;
+/** implementation agnostic Link component, basic on the standard `a` tag */
+export const Link = forwardRef<HTMLAnchorElement, LinkProps>(function Link(props: LinkProps, ref) {
+  const router = useRouter();
+  const ActualLink = router.Link || NativeLink;
+
+  if (props.native || props.external) {
+    return <NativeLink {...props} ref={ref} />;
   }
 
-  return <NativeLink {...props} />;
-}
+  return <ActualLink {...props} ref={ref} />;
+});
