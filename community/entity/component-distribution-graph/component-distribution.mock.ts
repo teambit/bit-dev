@@ -15,6 +15,10 @@ export const componentsMock = () => {
       row: 1,
       col: 1,
       sizes: {
+        xxl: {
+          row: 1,
+          col: 1,
+        },
         lg: {
           row: 2,
           col: 1,
@@ -42,6 +46,10 @@ export const componentsMock = () => {
       row: 1,
       col: 2,
       sizes: {
+        xxl: {
+          row: 1,
+          col: 2,
+        },
         lg: {
           row: 3,
           col: 1,
@@ -59,6 +67,10 @@ export const componentsMock = () => {
       row: 1,
       col: 3,
       sizes: {
+        xxl: {
+          row: 1,
+          col: 3,
+        },
         lg: {
           row: 2,
           col: 4,
@@ -98,6 +110,10 @@ export const componentsMock = () => {
       row: 1,
       col: 4,
       sizes: {
+        xxl: {
+          row: 1,
+          col: 4,
+        },
         lg: {
           row: 2,
           col: 3,
@@ -116,6 +132,10 @@ export const componentsMock = () => {
       row: 2,
       col: 1,
       sizes: {
+        xxl: {
+          row: 2,
+          col: 1,
+        },
         lg: {
           row: 3,
           col: 2,
@@ -144,6 +164,10 @@ export const componentsMock = () => {
       row: 2,
       col: 2,
       sizes: {
+        xxl: {
+          row: 2,
+          col: 2,
+        },
         lg: {
           row: 3,
           col: 3,
@@ -162,6 +186,10 @@ export const componentsMock = () => {
       row: 2,
       col: 3,
       sizes: {
+        xxl: {
+          row: 2,
+          col: 3,
+        },
         lg: {
           row: 3,
           col: 4,
@@ -189,6 +217,10 @@ export const componentsMock = () => {
       row: 2,
       col: 4,
       sizes: {
+        xxl: {
+          row: 2,
+          col: 4,
+        },
         lg: {
           row: 2,
           col: 2,
