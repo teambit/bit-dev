@@ -388,6 +388,7 @@ export const docsRoutes: DocsRoute[] = [
     title: 'Components',
     icon: 'comps',
     open: false,
+    config: <ComponentConfig />, // components/component-config
     children: [
       {
         path: 'component-overview',

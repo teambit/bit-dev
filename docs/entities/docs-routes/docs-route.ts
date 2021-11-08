@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 
 export interface DocsRoute {
-  
   /**
    * title for the docs page
    */
@@ -11,7 +10,7 @@ export interface DocsRoute {
    * path for the doc in the context.
    */
   path: string;
-  
+
   /**
    * description for the docs page
    */
@@ -45,5 +44,10 @@ export interface DocsRoute {
   /**
    * component to use for the docs route.
    */
-  component?: ReactNode
+  component?: ReactNode;
+
+  /**
+   * configuration component of a section.
+   */
+  config?: ReactNode;
 }
