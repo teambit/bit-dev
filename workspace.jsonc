@@ -165,23 +165,6 @@
    * see https://harmony-docs.bit.dev/aspects/variants for more info.
    **/
   "teambit.workspace/variants": {
-    "{apps/bit-dev}": {
-      "teambit.dependencies/dependency-resolver": {
-        "policy": {
-          "dependencies": {
-            // lock a specific version of react-router for production:
-            // (remove once we get rid of the legacy link components)
-            "@types/react-router-dom": "5.1.7",
-            "react-router-dom": "5.2.0"
-          },
-          "peerDependencies": {
-            "@types/react-router-dom": "-",
-            "react-router-dom": "-",
-            "history": "^5.0.0"
-          }
-        }
-      }
-    },
     "{ui/**}": {
       "teambit.community/envs/community-react": {}
     },
