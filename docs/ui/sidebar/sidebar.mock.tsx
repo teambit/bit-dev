@@ -96,7 +96,7 @@ export const sidebarMock = {
             icon: CustomImg,
             title: 'Composing',
             path: '/docs/getting-started/composing/composing',
-            config: 'https://bit.dev',
+            shortcutPath: 'https://bit.dev',
           },
           children: [
             {

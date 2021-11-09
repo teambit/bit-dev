@@ -6,44 +6,45 @@ export type SidebarNodeProps = {
   /**
    * url for entry icon.
    */
-  icon?: string,
+  icon?: string;
 
   /**
    * name of the active item id
    */
-  active?: string,
+  active?: string;
 } & TreeNodeComponentProps<any>;
 
 export function SidebarNode(props: SidebarNodeProps) {
   const currentPath = location?.pathname;
-  
-  if (!props.node.children) {
-    const isNodeActive = currentPath === props.node.payload.path
+  const { node, depth } = props;
+
+  if (!node.children) {
+    const isNodeActive = currentPath === node.payload.path;
     return (
       // TODO: migrate to use the new base-react link with React Router.
-      <TreeNode 
-      node={{ id: props.node.payload.title }}
-      icon={props.node.payload?.icon}
-      depth={props.depth}
-      // TODO - navLink should show up as active by itself
-      isActive={isNodeActive}
-      href={props.node.payload?.path}
+      <TreeNode
+        node={{ id: node.payload.title }}
+        icon={node.payload?.icon}
+        depth={depth}
+        // TODO - navLink should show up as active by itself
+        isActive={isNodeActive}
+        href={node.payload?.path}
       />
-      );
-    }
+    );
+  }
 
-  const isFolderActive = currentPath.includes(`/${props.node.id}/`)
+  const isFolderActive = currentPath.includes(`/${node.id}/`);
   return (
     <DocsTreeNode
       node={{
-        id: props.node.payload?.title,
-        children: props.node.children,
+        id: node.payload?.title,
+        children: node.children,
         payload: {
-          ...props.node.payload,
-          open: isFolderActive || props.node.payload.open,
+          ...node.payload,
+          open: isFolderActive || node.payload.open,
         },
       }}
-      depth={props.depth}
+      depth={depth}
     />
   );
 }

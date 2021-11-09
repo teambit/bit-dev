@@ -12,6 +12,17 @@ const nodeCollapsed = {
   ],
 };
 
+const multiLevelNodes = {
+  id: 'folder-example',
+  payload: {
+    open: true,
+  },
+  children: [
+    { id: 'child1', children: undefined },
+    { id: 'child2', children: [{ id: 'child3' }, { id: 'child4', children: [{ id: 'child5' }, { id: 'child6' }] }] },
+  ],
+};
+
 const nodeWithImg = {
   id: 'folder-example',
   payload: {
@@ -62,11 +73,11 @@ const node = {
   ],
 };
 
-const nodeWithConfigIcon = {
+const nodeWithShortcutPathOption = {
   id: 'folder-example',
   payload: {
     icon: 'workspace',
-    config: 'https://bit.dev',
+    shortcutPath: 'https://bit.dev',
   },
   children: [
     { id: 'child1', children: undefined },
@@ -76,6 +87,8 @@ const nodeWithConfigIcon = {
 
 export const FolderNodeExample = () => <DocsTreeNode node={node} depth={2} />;
 
+export const MultiLevelFolder = () => <DocsTreeNode node={multiLevelNodes} depth={2} />;
+
 export const FolderNodeCollapsed = () => <DocsTreeNode node={nodeCollapsed} depth={2} />;
 
 export const FolderNodeWithImage = () => <DocsTreeNode node={nodeWithImg} depth={2} />;
@@ -84,7 +97,7 @@ export const FolderNodeWithIcon = () => <DocsTreeNode node={nodeWithIcon} depth=
 
 export const FolderNodeWithCustomIcon = () => <DocsTreeNode node={nodeWithCustomIcon} depth={2} />;
 
-export const FolderNodeWithConfigIcon = () => <DocsTreeNode node={nodeWithConfigIcon} depth={2} />;
+export const FolderNodeWithShortcutPath = () => <DocsTreeNode node={nodeWithShortcutPathOption} depth={2} />;
 
 FolderNodeExample.canvas = {
   height: 200,

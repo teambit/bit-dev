@@ -6,6 +6,7 @@ module.exports = {
   rules: {
     'no-console': ['error'],
     'react/jsx-props-no-spreading': 'off',
+    'react/require-default-props': 'off',
     'prettier/prettier': 'error',
     'consistent-return': 'off',
     'arrow-body-style': 'off',

@@ -305,7 +305,7 @@ export const docsRoutes: DocsRoute[] = [
     title: 'Workspace',
     icon: 'workspace',
     open: false,
-    config: 'variants',
+    shortcutPath: 'variants',
     children: [
       {
         path: 'workspace-overview',
@@ -389,7 +389,7 @@ export const docsRoutes: DocsRoute[] = [
     title: 'Components',
     icon: 'comps',
     open: false,
-    config: 'component-config',
+    shortcutPath: 'component-config',
     children: [
       {
         path: 'component-overview',
@@ -463,7 +463,7 @@ export const docsRoutes: DocsRoute[] = [
     title: 'Dependencies',
     open: false,
     icon: 'dependencies-icn',
-    config: 'dependencies-config',
+    shortcutPath: 'dependencies-config',
     children: [
       {
         path: 'dependencies-overview',
