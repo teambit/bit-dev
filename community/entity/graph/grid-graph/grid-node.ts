@@ -1,6 +1,7 @@
 import { ComponentID } from '@teambit/component-id';
 import { getAttrValidId } from './attr-id';
 import { DependencyEdge, Dependency } from './dependency-edge';
+import { fillSizes, Sizes } from './fill-sizes';
 
 export type NodePosition =
   | 'top'
@@ -22,21 +23,6 @@ export type GridNodeType<T = {}> = {
   payload?: T;
 };
 
-export type Breakpoints = {
-  col: number | null;
-  row: number | null;
-};
-
-export type Sizes = {
-  xs?: Breakpoints;
-  sm?: Breakpoints;
-  md?: Breakpoints;
-  l?: Breakpoints;
-  lg?: Breakpoints;
-  xl?: Breakpoints;
-  xxl?: Breakpoints;
-};
-
 export class GridNode<T> {
   constructor(
     readonly id: ComponentID,
@@ -52,17 +38,8 @@ export class GridNode<T> {
     return getAttrValidId(this.id.toStringWithoutVersion());
   }
 
-  static fromPlain<T>({
-    id,
-    dependencies = [],
-    col,
-    row,
-    sizes,
-    position,
-    payload,
-  }: // ...rest,
-  GridNodeType<T>): GridNode<T> {
-    const allSizes = completeSizes(col, row, sizes);
+  static fromPlain<T>({ id, dependencies = [], col, row, sizes, position, ...rest }: GridNodeType<T>): GridNode<T> {
+    const allSizes = fillSizes(col, row, sizes);
     return new GridNode(
       ComponentID.fromString(id),
       dependencies.map((dep) => DependencyEdge.fromPlain(dep)),
@@ -70,26 +47,7 @@ export class GridNode<T> {
       col,
       allSizes,
       position,
-      payload
+      rest.payload
     );
   }
-}
-
-const sizesArr = ['xxl', 'xl', 'lg', 'l', 'md', 'sm', 'xs'];
-
-function completeSizes(defaultCol: number, defaultRow: number, nodeSizes?: Sizes) {
-  const obj: Sizes = {};
-  sizesArr.map((res, index) => {
-    if (res === 'xxl') {
-      obj.xxl = {
-        row: defaultRow,
-        col: defaultCol,
-      };
-      return;
-    }
-    obj[res] = (nodeSizes && nodeSizes[res]) || obj[sizesArr[index - 1]];
-    return null;
-  });
-
-  return obj;
 }

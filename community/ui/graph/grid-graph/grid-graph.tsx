@@ -61,11 +61,7 @@ function GraphNode<T>({ nodeContent, className, Node = DefaultNode, Edge = Defau
   const bubblePosition = useMemo(() => nodeContent.position && positions[nodeContent.position], [nodeContent.position]);
   const cellLayout = useMemo(() => Object.values(makeSpans(nodeContent.sizes)), [nodeContent.sizes]);
   return (
-    <div
-      key={nodeContent.id.toString()}
-      className={classNames(className, cellLayout)}
-      style={{ /* ...cell, */ ...bubblePosition }}
-    >
+    <div key={nodeContent.id.toString()} className={classNames(className, cellLayout)} style={{ ...bubblePosition }}>
       <Node id={nodeContent.attrId} node={nodeContent} />
 
       {nodeContent.dependencies.map((dependency) => {
@@ -74,16 +70,3 @@ function GraphNode<T>({ nodeContent, className, Node = DefaultNode, Edge = Defau
     </div>
   );
 }
-
-// function getBreakpoint(size) {
-//   if (!size) return 'xxl';
-//   // const media = window.matchMedia(`(max-width: ${size}px)`);
-//   // console.log("media", media)
-//   if (size > 1920) return 'xxl';
-//   if (size > 1440) return 'xl';
-//   if (size > 1200) return 'lg';
-//   if (size > 920) return 'l';
-//   if (size > 768) return 'md';
-//   if (size > 480) return 'sm';
-//   if (size > 360) return 'xs';
-// }
