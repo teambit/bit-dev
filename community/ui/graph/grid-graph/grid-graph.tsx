@@ -3,10 +3,10 @@ import { ComponentID } from '@teambit/component-id';
 import classNames from 'classnames';
 import { GridNode, DependencyEdge } from '@teambit/community.entity.graph.grid-graph';
 import { Edge as DefaultEdge } from '@teambit/community.ui.graph.edge';
+import { graphNodeLAyout } from '@teambit/base-react.ui.layout.graph-node';
 import { DefaultNode } from './default-node';
 import { positions, getValidId } from './utils';
 import styles from './grid-graph.module.scss';
-import { makeSpans } from './make-span';
 
 export type GridItemProps = {
   id?: string;
@@ -59,7 +59,7 @@ export type GridGraphNodeProps<T> = {
 
 function GraphNode<T>({ nodeContent, className, Node = DefaultNode, Edge = DefaultEdge }: GridGraphNodeProps<T>) {
   const bubblePosition = useMemo(() => nodeContent.position && positions[nodeContent.position], [nodeContent.position]);
-  const cellLayout = useMemo(() => Object.values(makeSpans(nodeContent.sizes)), [nodeContent.sizes]);
+  const cellLayout = useMemo(() => Object.values(graphNodeLAyout(nodeContent.sizes)), [nodeContent.sizes]);
   return (
     <div key={nodeContent.id.toString()} className={classNames(className, cellLayout)} style={{ ...bubblePosition }}>
       <Node id={nodeContent.attrId} node={nodeContent} />

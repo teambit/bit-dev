@@ -1,0 +1,148 @@
+---
+labels: ['css', 'grid-graph', 'layout']
+---
+
+import { graphNodeLAyout } from './graph-node';
+
+Use this componenet to provide each node in a grid with css classes that help position it in different resolutions.
+
+It uses the breakpoint values from [`@teambit/base-ui.layout.breakpoints`](https://bit.dev/teambit/base-ui/layout/breakpoints)
+
+### Usage
+
+Provide an object with the position of the node in each resolution. This will create a class with the grid positions in each breakpoint.
+
+The `xxl` size will be used as the default size for the class without a specified breakpoint. 
+
+```tsx live
+() => {
+  const sizes = {
+    xxl: {
+      col: 4,
+      row: 3,
+    },
+    xl: {
+      col: 4,
+      row: 3,
+    },
+    lg: {
+      col: 4,
+      row: 3,
+    },
+    l: {
+      col: 1,
+      row: 1,
+    },
+    md: {
+      col: 1,
+      row: 1,
+    },
+    sm: {
+      col: 1,
+      row: 1,
+    },
+    xs: {
+      col: 1,
+      row: 1,
+    },
+  };
+
+  const nodeLayout = graphNodeLAyout(sizes);
+
+  return (
+    <div>
+      {Object.values(nodeLayout).map((i) => {
+          const highlightedDefaultClass = i && i.includes('graph-node_colSpan--4-3') ? 'bold' : 'normal'
+        return <div style={{ fontWeight: highlightedDefaultClass }}>{i}</div>;
+      })}
+    </div>
+  );
+};
+
+```
+<br/>
+
+Not specifying one of the breakpoints will result in the class not being used in the node.
+Passing `undefined` or `null` in one of `row` and `col` will also result in the class not being created.
+
+```tsx live
+() => {
+  const sizes = {
+    xxl: {
+      col: 4,
+      row: 3,
+    },
+    xl: {
+      col: 1,
+      row: undefined,
+    },
+    lg: {
+      col: undefined,
+      row: 3,
+    },
+  };
+
+  const nodeLayout = graphNodeLAyout(sizes);
+
+  return (
+    <div>
+      {Object.values(nodeLayout).map((i) => (
+        <div>{i}</div>
+      ))}
+    </div>
+  );
+};
+
+
+```
+
+<br/>
+
+
+Passing `undefined` or `null` in both `row` and `col` will create a class as can be seen in the example. You can use this behavior to find and target this node.
+
+```tsx live
+() => {
+  const sizes = {
+    xxl: {
+      col: 4,
+      row: 3,
+    },
+    xl: {
+      col: 4,
+      row: 3,
+    },
+    lg: {
+      col: 4,
+      row: 3,
+    },
+    l: {
+      col: 1,
+      row: 1,
+    },
+    md: {
+      col: 1,
+      row: 1,
+    },
+    sm: {
+      col: null,
+      row: null,
+    },
+    xs: {
+      col: undefined,
+      row: undefined,
+    },
+  };
+
+  const nodeLayout = graphNodeLAyout(sizes);
+
+  return (
+     <div>
+      {Object.values(nodeLayout).map((i) => {
+          const highlightedDefaultClass = i && (i.includes('undefined-undefined') || i.includes('null-null')) ? 'bold' : 'normal'
+        return <div style={{ fontWeight: highlightedDefaultClass }}>{i}</div>;
+      })}
+    </div>
+  );
+};
+```
