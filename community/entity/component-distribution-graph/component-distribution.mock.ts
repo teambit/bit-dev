@@ -6,7 +6,6 @@ export const componentsMock = () => {
     {
       id: 'teambit.base-ui/ui/button@1.0.1',
       dependencies: [],
-      // position: 'top',
       payload: {
         preview: 'https://storage.googleapis.com/static.bit.dev/Community/app-components/botton.jpg',
         description: 'A Button component for buttons and elements that look like buttons',
@@ -23,21 +22,15 @@ export const componentsMock = () => {
           row: 2,
           col: 1,
         },
+        md: {
+          row: 3,
+          col: 1,
+        },
       },
     },
     {
       id: 'teambit.ecommerce/ui/store-hero@1.0.0',
-      dependencies: [
-        'teambit.base-ui/ui/button@1.0.1',
-        // {
-        //   id: 'teambit.connecter/top',
-        //   edge: {
-        //     direction: Direction.TAIL,
-        //     start: 'top',
-        //   },
-        // },
-      ],
-      // position: 'bottom',
+      dependencies: ['teambit.base-ui/ui/button@1.0.1'],
       payload: {
         preview: 'https://storage.googleapis.com/static.bit.dev/Community/app-components/hero.jpg',
         description: 'A hero component for the store',
@@ -52,6 +45,10 @@ export const componentsMock = () => {
         },
         lg: {
           row: 3,
+          col: 1,
+        },
+        md: {
+          row: 4,
           col: 1,
         },
       },
@@ -75,6 +72,10 @@ export const componentsMock = () => {
           row: 2,
           col: 4,
         },
+        md: {
+          row: 3,
+          col: 2,
+        },
       },
     },
     {
@@ -88,20 +89,7 @@ export const componentsMock = () => {
             direction: Direction.TAIL,
           },
         },
-        // {
-        //   id: 'teambit.ecommerce/ui/store-hero@1.0.0',
-        //   edge: {
-        //     direction: Direction.TAIL,
-        //   },
-        // },
-        // {
-        //   id: 'teambit.connecter/top',
-        //   edge: {
-        //     direction: Direction.NONE,
-        //   },
-        // },
       ],
-      // position: 'bottom',
       payload: {
         preview: 'https://storage.googleapis.com/static.bit.dev/Community/app-components/homepage.jpg',
         description: 'A page component for rending contents of the home page',
@@ -118,12 +106,15 @@ export const componentsMock = () => {
           row: 2,
           col: 3,
         },
+        md: {
+          row: 2,
+          col: 2,
+        },
       },
     },
     {
       id: 'teambit.ecommerce/ui/product/currency@1.0.0',
       dependencies: [],
-      // position: 'top',
       payload: {
         preview: 'https://storage.googleapis.com/static.bit.dev/Community/app-components/currency.jpg',
         description: 'A currency component',
@@ -138,6 +129,10 @@ export const componentsMock = () => {
         },
         lg: {
           row: 3,
+          col: 2,
+        },
+        md: {
+          row: 5,
           col: 2,
         },
       },
@@ -172,12 +167,15 @@ export const componentsMock = () => {
           row: 3,
           col: 3,
         },
+        md: {
+          row: 4,
+          col: 2,
+        },
       },
     },
     {
       id: 'teambit.shoe-store/entity/shoes@1.3.4',
       dependencies: [],
-      // position: 'top',
       payload: {
         preview: 'https://storage.googleapis.com/static.bit.dev/Community/app-components/nodejs.jpg',
         description: 'A shoes data structure',
@@ -194,6 +192,10 @@ export const componentsMock = () => {
           row: 3,
           col: 4,
         },
+        md: {
+          row: 5,
+          col: 1,
+        },
       },
     },
     {
@@ -203,12 +205,9 @@ export const componentsMock = () => {
           id: 'teambit.image/image',
           edge: {
             direction: Direction.TAIL,
-            // start: 'right',
-            // end: 'left'
           },
         },
       ],
-      // position: 'bottom',
       payload: {
         preview: 'https://storage.googleapis.com/static.bit.dev/Community/app-components/card-grid.jpg',
         description: 'A card grid for the product cards for shoes',
@@ -224,6 +223,10 @@ export const componentsMock = () => {
         lg: {
           row: 2,
           col: 2,
+        },
+        md: {
+          row: 2,
+          col: 1,
         },
       },
     },

@@ -5,7 +5,7 @@ import { Heading, Elements } from '@teambit/community.ui.heading';
 import { Edge } from '@teambit/community.ui.graph.edge';
 import { ComponentCardGraph } from '@teambit/community.ui.graph.component-card-graph';
 import { ComponentCardNode } from '@teambit/community.entity.compnent-distribution-graph';
-import { image, top, bottom } from './component-distribution.mock';
+import { top, bottom } from './component-distribution.mock';
 import styles from './component-distribution.module.scss';
 // @ts-ignore
 import img from './shoe-store.jpg';
@@ -35,7 +35,7 @@ export function ComponentDistributionSection({ title, components = [], className
         <Edge node={top} dependency={top.dependencies[1]} />
       </div>
       <ComponentCardGraph nodes={components} className={styles.distributionGraph}>
-        <Image src={img} className={styles.appImg} id={image.attrId} />
+        <Image src={img} className={styles.appImg} id="teambit-image-image" />
       </ComponentCardGraph>
       {/* created a connecting element for edge curve effect */}
       <div id={bottom.attrId} className={styles.connectingEdgeAnchor}>

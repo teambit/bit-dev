@@ -1,3 +1,5 @@
+@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
+
 .buildSection {
   display: flex;
   flex-direction: column;
@@ -11,40 +13,39 @@
 
 .title {
   margin: 10px 0 80px 0;
+  text-align: center;
 }
 
 .distributionGraph {
-  // grid-template-columns: repeat(8, minmax(150px, 200px));
-  // grid-auto-rows: minmax(340px, auto);
-  // grid-template-rows: unset;
-  // width: unset;
   @media screen and (max-width: 1200px) {
     grid-template-rows: repeat(3, auto);
     grid-template-columns: repeat(4, minmax(150px, 1fr));
   }
+  @media screen and (max-width: 768px) {
+    grid-template-rows: repeat(5, auto);
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+  }
 }
-
-// .content {
-//   display: grid;
-//   grid-template-columns: 65% 5% 30%;
-//   align-items: center;
-// }
-
-// .appImg {
-//   max-width: 500px;
-//   border-radius: 8px;
-// }
 
 .appImg {
   max-width: 600px;
+  min-width: 600px;
   border-radius: 8px;
   grid-column-start: 6;
   grid-column-end: 8;
   grid-row-start: 1;
   grid-row-end: 3;
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: $br-lg) {
     grid-column-start: 1;
     grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 1;
+  }
+  @media screen and (max-width: $br-md) {
+    min-width: 300px;
+    width: 100%;
+    grid-column-start: 1;
+    grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 1;
   }
@@ -52,7 +53,7 @@
 
 .connectingEdgeAnchor {
   transform: translateX(-215px);
-  @media screen and (max-width: 1200px) {
+  @media screen and (max-width: $br-lg) {
     display: none;
   }
 }
