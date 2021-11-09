@@ -909,6 +909,12 @@
         "mainFile": "index.ts",
         "rootDir": "docs/ui/docs"
     },
+    "ui/docs-tree-node": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/ui/docs-tree-node"
+    },
     "ui/features/features-card": {
         "scope": "teambit.community",
         "version": "1.9.23",
