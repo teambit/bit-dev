@@ -11,15 +11,15 @@ type DocsNodeTitleProps = {
   id: string;
   icon?: ReactNode;
   open?: boolean;
-  shortcutPath?: string;
+  configPath?: string;
   setOpen: (value: React.SetStateAction<boolean>) => void;
 };
 
-export function DocsNodeTitle({ id, icon, open, shortcutPath, setOpen }: DocsNodeTitleProps) {
+export function DocsNodeTitle({ id, icon, open, configPath, setOpen }: DocsNodeTitleProps) {
   const displayName = id.replace(/\/$/, '').split('/').pop();
   const CustomIcon = getCustomIcon(icon);
-  const ConfigSectionIcon = shortcutPath && (
-    <Link href={shortcutPath} external={shortcutPath.startsWith('http')} className={styles.configLink}>
+  const ConfigSectionIcon = configPath && (
+    <Link href={configPath} external={configPath.startsWith('http')} className={styles.configLink}>
       <Icon className={styles.configIcon} of="settings" />
     </Link>
   );

@@ -6,7 +6,7 @@ import { DocsNodeTitle } from './docs-node-title';
 export type FolderPayload = {
   icon?: string | ReactNode;
   open?: boolean;
-  shortcutPath?: string;
+  configPath?: string;
 };
 
 export type DocsTreeNodeProps = {} & TreeNodeProps<FolderPayload>;
@@ -24,7 +24,7 @@ export function DocsTreeNode({ node, depth }: DocsTreeNodeProps) {
       id={node.id}
       icon={node.payload?.icon}
       open={open}
-      shortcutPath={node.payload?.shortcutPath}
+      configPath={node.payload?.configPath}
       setOpen={setOpen}
     />
   );

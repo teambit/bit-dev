@@ -47,7 +47,7 @@ export interface DocsRoute {
   component?: ReactNode;
 
   /**
-   * shortcut link option for the section.
+   * config link option for the section.
    */
-  shortcutPath?: string;
+  configPath?: string;
 }

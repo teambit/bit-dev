@@ -73,11 +73,11 @@ const node = {
   ],
 };
 
-const nodeWithShortcutPathOption = {
+const nodeWithConfigPathOption = {
   id: 'folder-example',
   payload: {
     icon: 'workspace',
-    shortcutPath: 'https://bit.dev',
+    configPath: 'https://bit.dev',
   },
   children: [
     { id: 'child1', children: undefined },
@@ -97,7 +97,7 @@ export const FolderNodeWithIcon = () => <DocsTreeNode node={nodeWithIcon} depth=
 
 export const FolderNodeWithCustomIcon = () => <DocsTreeNode node={nodeWithCustomIcon} depth={2} />;
 
-export const FolderNodeWithShortcutPath = () => <DocsTreeNode node={nodeWithShortcutPathOption} depth={2} />;
+export const FolderNodeWithConfigPath = () => <DocsTreeNode node={nodeWithConfigPathOption} depth={2} />;
 
 FolderNodeExample.canvas = {
   height: 200,
