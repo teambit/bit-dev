@@ -1,6 +1,5 @@
 import React from 'react';
 import { createBubbleGraph } from '@teambit/community.entity.graph.bubble-graph';
-// import { BubbleNode } from '@teambit/community.ui.graph.bubble-graph';
 import { GridGraph } from './grid-graph';
 
 const nodes = createBubbleGraph([
@@ -39,11 +38,5 @@ const nodes = createBubbleGraph([
 export const BasicGridGraph = () => (
   <div style={{ width: 500 }}>
     <GridGraph nodes={nodes} data-testid="test-graph" />
-  </div>
-);
-
-export const BubbleNodeGridGraph = () => (
-  <div style={{ width: 500 }}>
-    {/* <GridGraph nodes={nodes} Node={BubbleNode} /> */}
   </div>
 );

@@ -1,7 +1,6 @@
 import { ReactNode } from 'react';
 
 export interface DocsRoute {
-  
   /**
    * title for the docs page
    */
@@ -11,16 +10,11 @@ export interface DocsRoute {
    * path for the doc in the context.
    */
   path: string;
-  
+
   /**
    * description for the docs page
    */
   description?: string;
-
-  /**
-   * configuration for the section.
-   */
-  config?: ReactNode,
 
   /**
    * determines whether to show next page. default is determined by the Docs' component via the `showNext` prop.
@@ -50,5 +44,10 @@ export interface DocsRoute {
   /**
    * component to use for the docs route.
    */
-  component?: ReactNode
+  component?: ReactNode;
+
+  /**
+   * config link option for the section.
+   */
+  configPath?: string;
 }
