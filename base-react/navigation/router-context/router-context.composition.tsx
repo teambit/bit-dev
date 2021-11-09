@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from '@teambit/base-react.navigation.link';
+// import { Link } from '@teambit/base-react.navigation.link';
 import { RouterProvider, RouterContextType } from './router-context';
 
 const routingA: RouterContextType = {
@@ -13,13 +13,13 @@ const routingB: RouterContextType = {
 export const Preview = () => (
   <div>
     <RouterProvider value={routingA}>
-      <span>System 1</span> <Link href="https://bit.dev">Link</Link>
+      {/* <span>System 1</span> <Link href="https://bit.dev">Link</Link> */}
     </RouterProvider>
     <br />
     <RouterProvider value={routingB}>
-      System 2 <Link href="https://bit.dev">Link</Link>
+      {/* System 2 <Link href="https://bit.dev">Link</Link> */}
     </RouterProvider>
     <br />
-    Default <Link href="https://bit.cloud">Link</Link>
+    {/* Default <Link href="https://bit.cloud">Link</Link> */}
   </div>
 );
