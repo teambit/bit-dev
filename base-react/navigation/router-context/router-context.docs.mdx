@@ -4,7 +4,7 @@ labels: ['react', 'routing', 'context']
 ---
 
 import { RouterProvider } from './router-context';
-import { Link } from '@teambit/base-react.navigation.link';
+// import { Link } from '@teambit/base-react.navigation.link';
 
 Defines the structure of our routing system,  
 and provides the underlying implementation of links in the project.
@@ -39,14 +39,11 @@ Try it out!
   return (
     <div>
       <RouterProvider value={routingA}>
-        System 1 <Link href="https://bit.cloud">Link</Link>
       </RouterProvider>
       <br />
       <RouterProvider value={routingB}>
-        System 2 <Link href="https://bit.cloud">Link</Link>
       </RouterProvider>
       <br />
-      Default <Link href="https://bit.cloud">Link</Link>
     </div>
   );
 };

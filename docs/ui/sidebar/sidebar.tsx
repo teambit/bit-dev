@@ -12,6 +12,7 @@ export type SidebarPayload = {
   icon?: string | ReactNode;
   title: string;
   path?: string;
+  configPath?: string;
 };
 
 export type SidebarTreeNode = TreeNode<SidebarPayload>;

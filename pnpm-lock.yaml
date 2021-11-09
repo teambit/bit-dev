@@ -21,6 +21,7 @@ importers:
       '@teambit/base-ui.elements.image': 1.0.0
       '@teambit/base-ui.elements.noop': 1.0.0
       '@teambit/base-ui.elements.separator': 1.1.0
+      '@teambit/base-ui.graph.tree.collapsable-tree-node': 0.0.4
       '@teambit/base-ui.graph.tree.indent': 1.0.0
       '@teambit/base-ui.graph.tree.inflate-paths': 1.0.0
       '@teambit/base-ui.graph.tree.recursive-tree': 1.0.0
@@ -128,6 +129,7 @@ importers:
       '@teambit/base-ui.elements.image': registry.npmjs.org/@teambit/base-ui.elements.image/1.0.0_react-dom@16.13.1+react@16.13.1
       '@teambit/base-ui.elements.noop': registry.npmjs.org/@teambit/base-ui.elements.noop/1.0.0_react-dom@16.13.1+react@16.13.1
       '@teambit/base-ui.elements.separator': registry.npmjs.org/@teambit/base-ui.elements.separator/1.1.0_react-dom@16.13.1+react@16.13.1
+      '@teambit/base-ui.graph.tree.collapsable-tree-node': registry.npmjs.org/@teambit/base-ui.graph.tree.collapsable-tree-node/0.0.4_react-dom@16.13.1+react@16.13.1
       '@teambit/base-ui.graph.tree.indent': registry.npmjs.org/@teambit/base-ui.graph.tree.indent/1.0.0_react-dom@16.13.1+react@16.13.1
       '@teambit/base-ui.graph.tree.inflate-paths': registry.npmjs.org/@teambit/base-ui.graph.tree.inflate-paths/1.0.0_react-dom@16.13.1+react@16.13.1
       '@teambit/base-ui.graph.tree.recursive-tree': registry.npmjs.org/@teambit/base-ui.graph.tree.recursive-tree/1.0.0_react-dom@16.13.1+react@16.13.1
@@ -685,6 +687,9 @@ importers:
     specifiers: {}
 
   docs/ui/docs:
+    specifiers: {}
+
+  docs/ui/docs-tree-node:
     specifiers: {}
 
   docs/ui/pages/doc-page:
@@ -1948,6 +1953,23 @@ packages:
       classnames: registry.npmjs.org/classnames/2.3.1
       core-js: registry.npmjs.org/core-js/3.19.1
       react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    dev: false
+
+  registry.npmjs.org/@teambit/base-ui.graph.tree.collapsable-tree-node/0.0.4_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha512-NfLvVzY4ibAbq/AtlgkzXIIoYp756uDf/SfyOTUKoYbcljht9TXjDnuQSUb5PunQ9YmCE3mqPGisYhORiVsS/w==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/base-ui.graph.tree.collapsable-tree-node/-/base-ui.graph.tree.collapsable-tree-node-0.0.4.tgz}
+    id: registry.npmjs.org/@teambit/base-ui.graph.tree.collapsable-tree-node/0.0.4
+    name: '@teambit/base-ui.graph.tree.collapsable-tree-node'
+    version: 0.0.4
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    dependencies:
+      '@teambit/base-ui.graph.tree.indent': registry.npmjs.org/@teambit/base-ui.graph.tree.indent/1.0.0_react-dom@16.13.1+react@16.13.1
+      '@teambit/base-ui.graph.tree.recursive-tree': registry.npmjs.org/@teambit/base-ui.graph.tree.recursive-tree/1.0.0_react-dom@16.13.1+react@16.13.1
+      core-js: registry.npmjs.org/core-js/3.19.1
+      react: registry.npmjs.org/react/16.13.1
+      react-animate-height: registry.npmjs.org/react-animate-height/2.0.23_react-dom@16.13.1+react@16.13.1
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
     dev: false
 
