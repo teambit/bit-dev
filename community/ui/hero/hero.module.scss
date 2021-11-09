@@ -1,3 +1,5 @@
+@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
+
 .hero {
   display: grid;
   width: 100%;
@@ -7,6 +9,15 @@
   grid-gap: 24px;
   align-items: center;
   justify-items: center;
+}
+
+.heroGraph {
+  @media screen and (max-width: $br-lg) {
+    grid-template-rows: repeat(5, 0.4fr);
+  }
+  @media screen and (max-width: $br-md) {
+    grid-template-rows: repeat(4, 0.4fr);
+  }
 }
 
 .bubble {
@@ -25,6 +36,9 @@
   grid-column-start: 4;
   grid-column-end: 10;
   grid-row-start: 3;
+  @media screen and (max-width: $br-lg) {
+    grid-row-start: 2;
+  }
   text-align: center;
 
   .largeSvg {
@@ -51,6 +65,17 @@
     top: 10px;
     left: 10px;
   }
+  @media screen and (max-width: $br-lg) {
+    grid-row-start: 3;
+  }
+  @media screen and (max-width: $br-md) {
+    grid-column-start: 3;
+    grid-column-end: 11;
+  }
+  @media screen and (max-width: $br-sm) {
+    grid-column-start: 1;
+    grid-column-end: 13;
+  }
 }
 
 .subtitleHighlighter {
@@ -72,6 +97,9 @@
   > div:first-child {
     margin-right: 8px;
   }
+  @media screen and (max-width: $br-lg) {
+    grid-row-start: 4;
+  }
 }
 
 .graphStart {
@@ -86,4 +114,8 @@
   color: #ededed;
   width: 20em;
   height: 48px;
+}
+
+.getStartedAction {
+  width: 280px;
 }

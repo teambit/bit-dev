@@ -42,7 +42,7 @@ export function Hero({ title = defaultTitle, teaser = defaultTeaser, bubbles }: 
 
   return (
     <WideColumn>
-      <BubbleGraph nodes={bubbles}>
+      <BubbleGraph nodes={bubbles} className={styles.heroGraph}>
         <div className={styles.title}>
           <BubbleHighlighter
             showId

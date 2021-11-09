@@ -36,20 +36,24 @@ export function mockBubbleGraph() {
           row: 3,
           col: 10,
         },
+        lg: {
+          row: 2,
+          col: 10,
+        },
+        md: {
+          row: 3,
+          col: 11,
+        },
+        sm: {
+          row: null,
+          col: null,
+        },
       },
       position: 'top-left',
     },
     {
       id: 'teambit.community/ui/homepage/homepage@1.1.2',
-      dependencies: [
-        {
-          id: 'teambit.community/ui/homepage/hero',
-          edge: {
-            start: 'left',
-            end: 'top',
-          },
-        },
-      ],
+      dependencies: ['teambit.community/ui/homepage/hero'],
       payload: {
         icon: 'https://static.bit.dev/brands/logo-react.svg',
       },
@@ -59,6 +63,18 @@ export function mockBubbleGraph() {
         xxl: {
           row: 2,
           col: 11,
+        },
+        lg: {
+          row: 1,
+          col: 10,
+        },
+        md: {
+          row: 1,
+          col: 10,
+        },
+        sm: {
+          row: null,
+          col: null,
         },
       },
       position: 'top-right',
@@ -76,8 +92,20 @@ export function mockBubbleGraph() {
           row: 3,
           col: 11,
         },
+        lg: {
+          row: 1,
+          col: 7,
+        },
+        md: {
+          row: 1,
+          col: 7,
+        },
+        sm: {
+          row: null,
+          col: null,
+        },
       },
-      position: 'bottom-right',
+      position: 'top-left',
     },
     {
       id: 'teambit.design/ui/content/heading@2.2.1',
@@ -100,8 +128,12 @@ export function mockBubbleGraph() {
           col: 1,
         },
         lg: {
-          row: 3,
+          row: 1,
           col: 1,
+        },
+        sm: {
+          row: null,
+          col: null,
         },
       },
       position: 'right',
@@ -127,6 +159,18 @@ export function mockBubbleGraph() {
           row: 5,
           col: 2,
         },
+        lg: {
+          row: 4,
+          col: 2,
+        },
+        md: {
+          row: 5,
+          col: 1,
+        },
+        sm: {
+          row: null,
+          col: null,
+        },
       },
       position: 'top-left',
     },
@@ -143,8 +187,19 @@ export function mockBubbleGraph() {
           row: 4,
           col: 1,
         },
+        lg: {
+          row: 3,
+          col: 1,
+        },
+        md: {
+          row: 5,
+          col: 5,
+        },
+        sm: {
+          row: null,
+          col: null,
+        },
       },
-      position: 'top-left',
     },
     {
       id: 'teambit.community/entities/hero-graph@1.3.1',
@@ -158,6 +213,18 @@ export function mockBubbleGraph() {
         xxl: {
           row: 2,
           col: 9,
+        },
+        lg: {
+          row: 3,
+          col: 11,
+        },
+        md: {
+          row: 5,
+          col: 11,
+        },
+        sm: {
+          row: null,
+          col: null,
         },
       },
       position: 'top-left',
@@ -194,7 +261,6 @@ export function mockBubbleGraph() {
       id: 'teambit.scope/scope@1.3.1',
       dependencies: [
         'teambit.component/component',
-        // 'teambit.ui-foundation/ui/component-tree',
         'teambit.ui-foundation/ui/top-bar',
       ],
       payload: {
