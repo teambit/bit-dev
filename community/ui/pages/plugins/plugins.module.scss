@@ -6,3 +6,9 @@
     width: 70px;
   }
 }
+// this media query targets only safari browsers. it fixes the safari issue that the colored text overflows the h1.
+.highlightSafari {
+  @media not all and (min-resolution: 0.001dpcm) {
+    display: inline-block;
+  }
+}
