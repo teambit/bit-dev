@@ -2,3 +2,13 @@
     margin-top: 40px;
     margin-bottom: 20px;
 }
+
+.mdxLayout {
+    * {
+        max-width: unset;
+    }
+    
+    img {
+        max-width: 100%;
+    }
+}

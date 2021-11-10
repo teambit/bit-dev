@@ -11,7 +11,7 @@
 {
     "apps/bit-dev": {
         "scope": "teambit.community",
-        "version": "1.9.55",
+        "version": "1.9.56",
         "mainFile": "index.ts",
         "rootDir": "community/apps/bit-dev"
     },
@@ -88,8 +88,8 @@
         "rootDir": "pkg/content/commonjs-package-registries"
     },
     "content/compiler-api": {
-        "scope": "",
-        "version": "",
+        "scope": "teambit.compilation",
+        "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "compilation/content/compiler-api"
     },
@@ -257,7 +257,7 @@
     },
     "content/dev-files": {
         "scope": "teambit.component",
-        "version": "1.9.51",
+        "version": "1.9.52",
         "mainFile": "index.ts",
         "rootDir": "component/content/dev-files"
     },
@@ -443,7 +443,7 @@
     },
     "content/implement-compiler": {
         "scope": "teambit.compilation",
-        "version": "1.9.51",
+        "version": "1.9.52",
         "mainFile": "index.ts",
         "rootDir": "compilation/content/implement-compiler"
     },
@@ -893,7 +893,7 @@
     },
     "ui/community-docs": {
         "scope": "teambit.docs",
-        "version": "1.9.55",
+        "version": "1.9.56",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/community-docs"
     },
