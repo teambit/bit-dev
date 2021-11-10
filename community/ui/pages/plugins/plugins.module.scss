@@ -6,3 +6,9 @@
     width: 70px;
   }
 }
+// Safari fix
+.highlightSafari {
+  @media not all and (min-resolution: 0.001dpcm) {
+    display: inline-block;
+  }
+}
