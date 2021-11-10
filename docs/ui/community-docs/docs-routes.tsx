@@ -92,6 +92,7 @@ const CompilingDuringDevelopment = loadable(() => import('@teambit/compilation.c
 const CompilingDuringBuild = loadable(() => import('@teambit/compilation.content.compiling-during-build'));
 const ConfigureEnvWithCompiler = loadable(() => import('@teambit/compilation.content.configure-env-with-compiler'));
 const ImplementCompiler = loadable(() => import('@teambit/compilation.content.implement-compiler'));
+const CompilerAPI = loadable(() => import('@teambit/compilation.content.compiler-api'));
 const MultiCompiler = loadable(() => import('@teambit/compilation.content.multi-compiler'));
 const ConfigureWebpck = loadable(() => import('@teambit/webpack.content.configure-webpack'));
 
@@ -734,6 +735,11 @@ export const docsRoutes: DocsRoute[] = [
             path: 'implement-compiler',
             title: 'Implement a Compiler',
             component: <ImplementCompiler />,
+          },
+          {
+            path: 'compiler-api',
+            title: 'Compiler API',
+            component: <CompilerAPI />,
           },
           {
             path: 'multi-compiler',

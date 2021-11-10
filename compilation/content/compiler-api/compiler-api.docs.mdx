@@ -1,0 +1,25 @@
+---
+description: 'An MDX component.'
+labels: ['content', 'mdx']
+---
+
+import { CompilerApi } from './index';
+
+### Component usage
+```js
+<CompilerApi />
+```
+
+### Render with theme and MDX providers
+
+```js
+import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions'
+import { MDXLayout } from '@teambit/ui.mdx-layout'
+import { CompilerApi } from './index'
+
+<ThemeCompositions>
+  <MDXLayout>
+    <CompilerApi />
+  </MDXLayout>
+</ThemeCompositions>
+```

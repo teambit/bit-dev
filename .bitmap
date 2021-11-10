@@ -87,6 +87,12 @@
         "mainFile": "index.ts",
         "rootDir": "pkg/content/commonjs-package-registries"
     },
+    "content/compiler-api": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "compilation/content/compiler-api"
+    },
     "content/compiler-overview": {
         "scope": "teambit.compilation",
         "version": "1.9.51",
