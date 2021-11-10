@@ -9,3 +9,18 @@ bit move ui/my-component design/my-component
 :::tip
 This will only affect how your components are ordered in your workspace and not in your `.bitmap` file. If you want to move a component to a different namespace you will need to first remove it and then add it again with the correct namespace.
 :::
+
+
+## Moving compoenents between repositories
+
+Components can be migrated between different repositories with ease.
+
+In the origin repository, eject the component to be used as an external dependency.
+```bash
+$ bit eject teambit.design/ui/buttons/button
+```
+
+Then, import the component into the target repository.
+```bash
+$ bit import teambit.design/ui/buttons/button
+```
