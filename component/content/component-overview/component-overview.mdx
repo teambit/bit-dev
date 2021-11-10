@@ -1,7 +1,7 @@
 <!-- This page is WIP -->
-
 import { Image } from '@teambit/docs.ui.zoomable-image';
 import scopeWorkspace from './workspace-scope.png';
+import workspaceScope from './workspaces-scopes'
 import componentImg from './component.png';
 
 # Component Overview
@@ -9,59 +9,136 @@ import componentImg from './component.png';
 `Component` is a decoupled, versioned source-code container designed for the purpose of containing a single module or component. 
 It is the most fundamental building block of Bit and what unlocks component-driven software, where independent components are defined, implmented and composed into systems.
 
-Each Component has a [Component ID](/components/component-id) and contains [Source Code](/components/source-code), [Artifacts](/components/artifact), [Configuration](/components/component-config) and [Metadata](/components/metadata). 
-Components are composed to each other with [Dependencies](/dependencies/overview).
-Common artifacts for a Component usually include a [Package](/packages/package), [Distribution](/compiler/dist), [Preview](/preview/preview).
+Each Component has a [Component ID](/components/component-id) and contains [Source Code](/components/source-code), [Dependencies](/dependencies/overview), [Artifacts](/components/artifact), [Configuration](/components/component-config) and [Metadata](/components/metadata). 
+Common artifacts for a Component could be either a [Package](/packages/package), [Distribution](/compiler/dist) or a component [Preview](/preview/preview).
+Components are developed, edited and versioned from Workspaces, where Scopes act as a component collaboration server.
 
 <Image width="50%" src={componentImg} alt="Bit Components" />
 
-To learn more about how components connect through dependencies, head over to the [Dependencies documentation section](/dependencies/overview).
-
-Components are hosted and managed in [Scope](/scope/overview) and can be maintained, edited and versioned in any [Workspace](/workspace/overview).
-
-Upon every Tag or Snap a new object is persisted to the Scope. Operations like Import <!--TODO [Import](/) --> and Export <!-- [Export](/) --> allows you to transfer components between different Scopes.
-
-A Bit Component
-
 <Image width="50%" src={scopeWorkspace} />
 
-## Component Anatomy
+Component are versioned using [Tag](/component/tag), which sets a SemVer, [Snap](/component/snap) verions component with an hash (similiar to a git commit). [Lanes](/component/lanes) allow diverging
+history and version proposed changes to a set of components.
+Upon every `tag` or `snap` a new object is persisted to the Scope. Operations like [Import](/workspace/import) and [Export](/workspace/export) are used to synchronize changes with a remote
+scope between any number of workspaces.
 
-- [Component ID](/components/component-id)
-- [Tags](/components/tags)
-- [Snaps](/components/snaps)
-- [Dependencies](/dependencies/overview)
-- Configuration <!--TODO [Configuration](/) -->
+```bash
+$ bit import
+```
 
-## Versioning
+```bash
+successfully imported one component
+- up to date teambit.harmony/content/aspects-overview   
+```
 
-### Tags
+importing a component fetchs the latest changes from the remote scope and syncs them with the workspace's local scope. In this case, our component is up to date.
 
-### Snaps
+For viewing the component history log use `bit log`.
+```bash
+$ bit log
+```
 
-### Lanes
+`bit log` shows all versions created for the component across all worksapces. You can check the current version of the component in the Workspace with `bit list`.
 
-Snaps/Lanes
+```bash
+$ bit list
+```
+```
+┌──────────────────────────────────────────┬─────────────────┬───────────────────┐
+│ component ID                             │ latest in scope │ used in workspace │
+├──────────────────────────────────────────┼─────────────────┼───────────────────┤
+│ teambit.harmony/content/aspects-overview │ 0.0.3           │ 0.0.3             │
+└──────────────────────────────────────────┴─────────────────┴───────────────────┘
+```
 
-A component is any group of files that serve a single purpose. In the context of Bit, that can be a JavaScript/Node.JS module, a CSS module, a React component, or any other framework or flavor of JS.
-Each of these can be of different levels of complexity and concreteness.
+Versioning a component usaully happens after applying changes to a component. Check for the component status using `bit status`.
 
-For example, a component can be a full page or a simple UI element.
-It can be a small utility function or a microservice.
+```bash
+$ bit status
+```
 
-Bit components, also known as 'independent components', are components that are independently developed, versioned, and collaborated on.
+```
+modified components
+(use "bit tag --all [version]" to lock a version with all your changes)
+(use "bit diff" to compare changes)
 
-Independent components can play various roles in backend and frontend applications.
-They can play the role of (in-memory) libraries when integrated into a project as standard packages, or that of separately-run apps and services that communicate over the network, when deployed independently using their own CI/CD.
+     > content/aspects-overview ... ok
+```
 
-Each independent component contains the version history of its source code, dependency graph, development setup, and artifacts (including their auto-generated Node package).
+We can see the component got modified, diffing the changes from the previous version is possible `bit diff`.
 
-## The journey from multiple files to a single independent component
+```
+$ bit diff
+```
 
-Every independent component starts its journey as a "regular component". That can be done by pre-configured templates or by creating your own files.
+```
+------------------------------------------------------------------
+showing diff for teambit.harmony/content/aspects-overview
+------------------------------------------------------------------
+--- aspects-overview.mdx (0.0.3 original)
++++ aspects-overview.mdx (0.0.3 modified)
+@@ -56,7 +56,6 @@ export class MyOtherAspect {
+ 
+ ## Composable 
+ 
+-<img src={composability} alt="Composability" />
+ 
+ ## Extensible
+ Aspects are extensible by design. Every aspect can expose an API for other aspects to use in order to extend it using [Integration Slots](/extending-bit/slots).
+```
 
-In order for Bit to source-control and manage the component's files as a single discrete unit (a component), it needs to map them to a single [component ID](/components/component-id).
+After reviewing our changes, we can version the component using either `bit tag` or `bit snap`. The example below, versions all new and modified components with version 1.0.0.
 
-A component tracked by Bit can be built, tagged with a release version, and exported to a remote scope.
+```bash
+$ bit tag --all 1.0.0
+```
 
-The exported independent component will contain the component's source code, dependency graph, development setup, and artifacts (including its auto-generated Node package).
+```
+1 component(s) tagged
+(use "bit export [collection]" to push these components to a remote")
+(use "bit untag" to unstage versions)
+
+changed components
+(components that got a version bump)
+     > teambit.harmony/content/aspects-overview@1.0.0
+```
+
+After versioning a component, syncing changes to the remote scope can be done with `bit export`.
+
+```
+$ bit export
+```
+
+```
+exported the following 1 component(s):
+teambit.harmony/content/aspects-overview
+```
+
+Using `bit import` from a different workspace, which also consists of this component imported, would end up with a new version update.
+
+```bash
+$ bit import
+```
+
+```bash
+- updated teambit.harmony/content/aspects-overview new versions: 1.0.0  
+```
+
+Once the component got updated, you can checkout to either the new version, or any other version of the component. In the below example, I'm checking out all component
+in my workspace to the their head.
+
+```bash
+$ bit checkout latest --all
+```
+
+```
+successfully switched the following components to their latest version
+
+teambit.harmony/content/aspects-overview@1.0.0
+	updated aspect-graph.ts 
+	updated aspects-overview.composition.tsx 
+	updated aspects-overview.docs.mdx 
+	auto-merged aspects-overview.mdx 
+	updated composability.png 
+	updated index.ts 
+```
