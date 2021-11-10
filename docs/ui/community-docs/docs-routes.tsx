@@ -25,6 +25,8 @@ const CiInstall = loadable(() => import('@teambit/docs.content.getting-started.c
 
 /* Harmony */
 const CliReference = loadable(() => import('@teambit/harmony.content.cli-reference'));
+const AspectsOverview = loadable(() => import('@teambit/harmony.content.aspects-overview'));
+const UsingAspects = loadable(() => import('@teambit/harmony.content.using-aspects'));
 
 /* Workspace */
 const WorkspaceOverview = loadable(() => import('@teambit/workspace.content.workspace-overview'));
@@ -305,7 +307,6 @@ export const docsRoutes: DocsRoute[] = [
     title: 'Workspace',
     icon: 'workspace',
     open: false,
-    configPath: 'variants',
     children: [
       {
         path: 'workspace-overview',
@@ -364,7 +365,7 @@ export const docsRoutes: DocsRoute[] = [
       },
       {
         path: 'component-links',
-        title: 'Workspace Component Link',
+        title: 'Workspace component link',
         component: <WorkspaceLink />,
       },
       {
@@ -389,7 +390,6 @@ export const docsRoutes: DocsRoute[] = [
     title: 'Components',
     icon: 'comps',
     open: false,
-    configPath: 'component-config',
     children: [
       {
         path: 'component-overview',
@@ -463,7 +463,11 @@ export const docsRoutes: DocsRoute[] = [
     title: 'Dependencies',
     open: false,
     icon: 'dependencies-icn',
-    configPath: 'dependencies-config',
+    config: {
+      path: 'dependencies-config',
+      title: 'Dependencies Config',
+      component: <DependenciesConfiguration />,
+    },
     children: [
       {
         path: 'dependencies-overview',
@@ -521,11 +525,6 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'inspecting-dependencies',
         title: 'Inspecting dependencies',
-      },
-      {
-        path: 'dependencies-config',
-        title: 'Dependencies Config',
-        component: <DependenciesConfiguration />,
       },
     ],
   },
@@ -1020,7 +1019,44 @@ export const docsRoutes: DocsRoute[] = [
     open: false,
     icon: 'Extension',
     title: 'Extending Bit',
-    children: [],
+    children: [
+      {
+        path: 'aspect-overview',
+        title: 'Aspects overview',
+        component: <AspectsOverview />
+      },
+      {
+        path: 'using-aspects',
+        title: 'Using aspects',
+        component: <UsingAspects />
+      },
+      {
+        path: 'create-aspect',
+        title: 'Creating aspects'
+      },
+      {
+        path: 'config',
+        title: 'Aspect config'
+      },
+      {
+        path: 'slots',
+        title: 'Slots'
+      },
+      {
+        path: 'runtimes',
+        title: 'Runtimes'
+      }
+      // {
+      //   title: 'Guides',
+      //   path: 'guides',
+      //   children: [
+      //     {
+      //       title: 'Adding a tab to the component page',
+      //       path: 'adding-tab'
+      //     }
+      //   ]
+      // }
+    ],
   },
   {
     path: 'reference',

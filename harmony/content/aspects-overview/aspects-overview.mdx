@@ -1,0 +1,56 @@
+# Aspects Overview
+
+Bit is built entirely with Bit. This means that even Bit itself is built in a component-driven architecture. It uses [Harmony](https://bit.cloud/teambit/harmony/harmony) which is a component-based framework for 
+composing extensible features into apps. Harmony most fundemental type is an Aspect, every Aspect is a full stack feature, capable of extending UI, backend and any other defined runtime
+environment. Every Aspect also acts as a service to all others, and its API can be used from any other aspect.
+
+We use Harmony as a way to scale development of dev experiences. We dogfood the API
+
+## API centric
+
+## Extensible
+
+## Component-driven
+
+## Dogfooding
+
+## Composable 
+
+### Apps
+
+### Features
+
+## Multi runtime
+
+## Configurable
+
+
+## Aspect
+Aspect is a way to define 
+
+```ts
+export class MyLoggerFeature {
+  private logs = [];
+
+  log(log: string) {
+    this.logs.push(log);
+    console.log('log something');
+  }
+
+  listLogs() {
+    return this.logs;
+  }
+
+  static async provider() {
+    return MyFeature();
+  }
+}
+```
+
+## Dependencies
+Aspects can use other aspect APIs by defining them as dependnecies. Dependencies are injected to Aspects in inversion of control and maintained by Harmony in a container.
+
+## Config
+Aspect can declare and accept configuration. Configuration is done 
+
+## Slots
