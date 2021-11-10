@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 import { ComponentCardGroup } from '@teambit/explorer.ui.gallery.component-card-group';
 import { ExploreSection } from '@teambit/community.ui.plugins.explore-section';
@@ -6,6 +7,7 @@ import { CreateSection } from '@teambit/community.ui.plugins.create-section';
 import { highlightClass } from '@teambit/community.ui.heading';
 import { Page } from '@teambit/base-react.pages.page';
 import { devEnvsMock, compilingMock, testingMock, lintingFormatingMock, appsMock } from './plugins.mock';
+import styles from './plugins.module.scss';
 
 export type PluginsProps = React.HTMLAttributes<HTMLDivElement>;
 
@@ -15,7 +17,7 @@ export function Plugins({ ...props }: PluginsProps) {
       <ExploreSection
         heading={
           <>
-            Explore <span className={highlightClass}>Endless Aspects of Bit</span>
+            Explore <span className={classNames(highlightClass, styles.highlightSafari)}>Endless Aspects of Bit</span>
           </>
         }
         subtitle="Aspects are component-driven plugins. Enhance and customize your development experience with dozens of official and community Aspects."

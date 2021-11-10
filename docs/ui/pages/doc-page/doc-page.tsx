@@ -40,20 +40,22 @@ export function DocPage({ title, nextPage, children, baseUrl = '/docs' }: DocPag
     executeScroll();
   }, []);
 
-  //@TODO @josh remove when ssr is working
+  // @TODO @josh remove when ssr is working
   useEffect(() => {
-    if (location.hash) {
+    if (window.location.hash) {
       setTimeout(() => {
-        const element = document.getElementById(location.hash.replace('#', ''));
+        const element = document.getElementById(window.location.hash.replace('#', ''));
         element?.scrollIntoView();
       }, 500);
     }
-  }, [location.hash]);
+  }, [window.location.hash]);
 
   return (
     <Page title={title}>
       <div ref={myRef} />
-      <MDXLayout components={mdxComponents(baseUrl)}>{children}</MDXLayout>
+      <MDXLayout components={mdxComponents(baseUrl)}>
+        <div className={styles.mdxLayout}>{children}</div>
+      </MDXLayout>
 
       {nextPage && (
         <NextPage

@@ -410,6 +410,9 @@ importers:
   community/ui/use-cases/use-cases-section:
     specifiers: {}
 
+  compilation/content/compiler-api:
+    specifiers: {}
+
   compilation/content/compiler-overview:
     specifiers: {}
 
@@ -725,7 +728,13 @@ importers:
   explorer/ui/search/search-input:
     specifiers: {}
 
+  harmony/content/aspects-overview:
+    specifiers: {}
+
   harmony/content/cli-reference:
+    specifiers: {}
+
+  harmony/content/using-aspects:
     specifiers: {}
 
   pipelines/content/build-artifacts:
@@ -1461,10 +1470,10 @@ packages:
     dependencies:
       regenerator-runtime: registry.npmjs.org/regenerator-runtime/0.13.9
 
-  registry.npmjs.org/@babel/runtime/7.16.0:
-    resolution: {integrity: sha512-Nht8L0O8YCktmsDV6FqFue7vQLRx3Hb0B37lS5y0jDRqRxlBG4wIJHnf9/bgSE2UyipKFA01YtS+npRdTWBUyw==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@babel/runtime/-/runtime-7.16.0.tgz}
+  registry.npmjs.org/@babel/runtime/7.16.3:
+    resolution: {integrity: sha512-WBwekcqacdY2e9AF/Q7WLFUWmdJGJTkbjqTjoMDgXkVZ3ZRUvOPsLb5KdwISoQVsbP+DQzVZW4Zhci0DvpbNTQ==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@babel/runtime/-/runtime-7.16.3.tgz}
     name: '@babel/runtime'
-    version: 7.16.0
+    version: 7.16.3
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: registry.npmjs.org/regenerator-runtime/0.13.9
@@ -9121,7 +9130,7 @@ packages:
     peerDependencies:
       react: 16 || 17
     dependencies:
-      '@babel/runtime': registry.npmjs.org/@babel/runtime/7.16.0
+      '@babel/runtime': registry.npmjs.org/@babel/runtime/7.16.3
       classcat: registry.npmjs.org/classcat/5.0.3
       d3-selection: registry.npmjs.org/d3-selection/2.0.0
       d3-zoom: registry.npmjs.org/d3-zoom/2.0.0
@@ -9252,7 +9261,7 @@ packages:
       react-native:
         optional: true
     dependencies:
-      '@babel/runtime': registry.npmjs.org/@babel/runtime/7.16.0
+      '@babel/runtime': registry.npmjs.org/@babel/runtime/7.16.3
       '@types/react-redux': registry.npmjs.org/@types/react-redux/7.1.20
       hoist-non-react-statics: registry.npmjs.org/hoist-non-react-statics/3.3.2
       loose-envify: registry.npmjs.org/loose-envify/1.4.0
@@ -9333,7 +9342,7 @@ packages:
     peerDependencies:
       react: '>= 0.14.0'
     dependencies:
-      '@babel/runtime': registry.npmjs.org/@babel/runtime/7.16.0
+      '@babel/runtime': registry.npmjs.org/@babel/runtime/7.16.3
       highlight.js: registry.npmjs.org/highlight.js/10.7.3
       lowlight: registry.npmjs.org/lowlight/1.20.0
       prismjs: registry.npmjs.org/prismjs/1.25.0
@@ -9529,7 +9538,7 @@ packages:
     name: redux
     version: 4.1.2
     dependencies:
-      '@babel/runtime': registry.npmjs.org/@babel/runtime/7.16.0
+      '@babel/runtime': registry.npmjs.org/@babel/runtime/7.16.3
     dev: false
 
   registry.npmjs.org/reflect-metadata/0.1.13:
@@ -9778,7 +9787,7 @@ packages:
     name: rtl-css-js
     version: 1.14.2
     dependencies:
-      '@babel/runtime': registry.npmjs.org/@babel/runtime/7.16.0
+      '@babel/runtime': registry.npmjs.org/@babel/runtime/7.16.3
     dev: false
 
   registry.npmjs.org/run-parallel/1.2.0:

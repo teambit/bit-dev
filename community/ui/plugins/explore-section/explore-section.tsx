@@ -23,6 +23,10 @@ export type ExploreSectionProps = {
   subtitle?: string;
 } & React.HTMLAttributes<HTMLDivElement>;
 
+export function ComponentBubbleNonInteractive({ node, ...rest }: BubbleNodeProps) {
+  return <ComponentBubble {...rest} {...node.payload} nonInteractive />;
+}
+
 export function ExploreSection({ heading, subtitle, className, ...rest }: ExploreSectionProps) {
   const [searchValue, setSearchValue] = useState('');
   const onSearch = () => {
@@ -62,8 +66,4 @@ export function ExploreSection({ heading, subtitle, className, ...rest }: Explor
       <Separator />
     </section>
   );
-}
-
-export function ComponentBubbleNonInteractive({ node, ...rest }: BubbleNodeProps) {
-  return <ComponentBubble {...rest} {...node.payload} nonInteractive />;
 }

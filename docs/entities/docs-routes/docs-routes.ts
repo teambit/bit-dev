@@ -37,7 +37,7 @@ export class DocsRoutes {
       open: docRoute.open,
       title: docRoute.title,
       configPath:
-        docRoute.configPath && [this.basePath, this.accumulatePath(docRoute.configPath, parentPath)].join('/'),
+        docRoute.config?.path && [this.basePath, this.accumulatePath(docRoute.config.path, parentPath)].join('/'),
       path: [this.basePath, this.accumulatePath(docRoute.path, parentPath)].join('/'),
     };
   }
@@ -63,17 +63,34 @@ export class DocsRoutes {
     };
   }
 
+  private computePath(route: DocsRoute, parentPath?: string) {
+    return [this.basePath, this.accumulatePath(route.path, parentPath)].join('/');
+  }
+
   private computeRoutes(currentRoute: DocsRoute, parentPath?: string): Route[] {
     if (currentRoute.children) {
+      const config = currentRoute.config;
+      const configRoutes = config 
+        ? [{ 
+          title: 
+          config.title, 
+          description: '', 
+          absPath: this.computePath(config, currentRoute.path), 
+          component: config.component 
+        }]
+        : [];
+  
       const thisPath = this.accumulatePath(currentRoute.path, parentPath);
-      return currentRoute.children.flatMap((child) => this.computeRoutes(child, thisPath));
+      return currentRoute.children
+        .flatMap((child) => this.computeRoutes(child, thisPath))
+        .concat(configRoutes);
     }
 
     return [
       {
         title: currentRoute.title,
         description: currentRoute.description,
-        absPath: [this.basePath, this.accumulatePath(currentRoute.path, parentPath)].join('/'),
+        absPath: this.computePath(currentRoute, parentPath),
         component: currentRoute.component,
       },
     ];
