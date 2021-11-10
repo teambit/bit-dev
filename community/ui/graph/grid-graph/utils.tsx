@@ -1,4 +1,15 @@
-export const positions = {
+export type PositionsType = {
+  top?: Record<string, string>;
+  'top-right'?: Record<string, string>;
+  right?: Record<string, string>;
+  'bottom-right'?: Record<string, string>;
+  bottom?: Record<string, string>;
+  'bottom-left'?: Record<string, string>;
+  left?: Record<string, string>;
+  'top-left'?: Record<string, string>;
+};
+
+export const positions: PositionsType = {
   top: {
     alignSelf: 'start',
     justifySelf: 'center',

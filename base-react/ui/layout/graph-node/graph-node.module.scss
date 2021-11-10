@@ -1,39 +1,49 @@
-.graphNode{
-
-}@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
+@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
 
 $breakpoints: //name val
   xxl $br-xxl, xl $br-xl, lg $br-lg, l $br-l, md $br-md, sm $br-sm, xs $br-xs;
 
 @each $breakpoint in $breakpoints {
+  $brName: nth($breakpoint, 1);
+  $brVal: nth($breakpoint, 2);
+
   @for $i from 12 through 1 {
-    @for $j from 12 through 1 {
-      $brName: nth($breakpoint, 1);
-      $brVal: nth($breakpoint, 2);
-      @if $brName == 'xxl' {
-        .colSpan {
-          &--#{$i}-#{$j} {
-            grid-column-start: $i;
-            grid-column-end: $i;
-            grid-row-start: $j;
-            grid-row-end: $j;
-          }
+    @if $brName == 'xxl' {
+      .default-col {
+        &-#{$i} {
+          grid-column-start: $i;
+          grid-column-end: $i;
         }
       }
-      @media only screen and (max-width: $brVal) {
-        .colSpan {
-          &--#{$brName}-#{$i}-#{$j} {
-            grid-column-start: $i;
-            grid-column-end: $i;
-            grid-row-start: $j;
-            grid-row-end: $j;
-          }
-          &--#{$brName}-null-null {
-            display: none;
-          }
-          &--#{$brName}-undefined-undefined {
-            display: none;
-          }
+    }
+    @media only screen and (max-width: $brVal) {
+      .colSpan-col {
+        &-#{$brName}-#{$i} {
+          grid-column-start: $i;
+          grid-column-end: $i;
+        }
+      }
+    }
+  }
+  @for $j from 12 through 1 {
+    @if $brName == 'xxl' {
+      .default-row {
+        &-#{$j} {
+          grid-row-start: $j;
+          grid-row-end: $j;
+        }
+      }
+    }
+    @media only screen and (max-width: $brVal) {
+      .hide {
+        &-#{$brName} {
+          display: none;
+        }
+      }
+      .colSpan-row {
+        &-#{$brName}-#{$j} {
+          grid-row-start: $j;
+          grid-row-end: $j;
         }
       }
     }

@@ -259,10 +259,7 @@ export function mockBubbleGraph() {
     },
     {
       id: 'teambit.scope/scope@1.3.1',
-      dependencies: [
-        'teambit.component/component',
-        'teambit.ui-foundation/ui/top-bar',
-      ],
+      dependencies: ['teambit.component/component', 'teambit.ui-foundation/ui/top-bar'],
       payload: {
         icon: 'https://static.bit.dev/Community/icons/collection.svg',
       },
@@ -640,10 +637,6 @@ export function mockBubbleGraph() {
       row: 1,
       col: 2,
       sizes: {
-        xxl: {
-          row: 5,
-          col: 6,
-        },
         lg: {
           row: null,
           col: null,

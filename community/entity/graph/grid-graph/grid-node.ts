@@ -39,7 +39,7 @@ export class GridNode<T> {
   }
 
   static fromPlain<T>({ id, dependencies = [], col, row, sizes, position, ...rest }: GridNodeType<T>): GridNode<T> {
-    const allSizes = fillSizes(col, row, sizes);
+    const allSizes = fillSizes(col, row, sizes); // TODO - remove this. its not needed but removing it causes some double edges in the bubble graph
     return new GridNode(
       ComponentID.fromString(id),
       dependencies.map((dep) => DependencyEdge.fromPlain(dep)),
