@@ -16,21 +16,30 @@ export type DistributionProps = {
   // text: string
 };
 
-export function Distribution({}: DistributionProps) {
+export function Distribution() {
   return (
     <WideColumn>
       <SectionGroup>
         <TopDown title="Limitless distribution" subtitle="Distribution drives better software. Do more, work less">
           <Terminal animate={false} content={terminalText} className={styles.terminal} />
         </TopDown>
-        <LeftRight title="Build independent components" text="Every component is independently developed, versioned and built.">
+        <LeftRight
+          title="Build independent components"
+          text="Every component is independently developed, versioned and built."
+        >
           {/* <BubbleGraph nodes={scaleGraph} /> */}
           <ComponentCard id="teambit.design/ui/buttons/button" />
         </LeftRight>
-        <LeftRight title="Compose with dependencies" text="Scaling monolithic application in bound to cause inconsistencies and waste of time.">
+        <LeftRight
+          title="Compose with dependencies"
+          text="Scaling monolithic application in bound to cause inconsistencies and waste of time."
+        >
           <BubbleGraph nodes={scaleGraph} />
         </LeftRight>
-        <LeftRight title="Drive speed, consistency and scale" text="Scale to infinite apps and features, maintained by autonomous teams">
+        <LeftRight
+          title="Drive speed, consistency and scale"
+          text="Scale to infinite apps and features, maintained by autonomous teams"
+        >
           {/* <BubbleGraph nodes={scaleGraph} /> */}
         </LeftRight>
       </SectionGroup>

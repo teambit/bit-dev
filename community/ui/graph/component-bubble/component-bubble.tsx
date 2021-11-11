@@ -65,7 +65,7 @@ export function ComponentBubble({
   allowHover = true,
   forceActive = false,
   nonInteractive = false,
-  color = '#EDEDED',
+  // color = '#EDEDED',
   ...rest
 }: ComponentBubbleProps) {
   if (nonInteractive) {

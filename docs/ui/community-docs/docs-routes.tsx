@@ -127,12 +127,13 @@ const RemovingDeprecating = loadable(() => import('@teambit/docs.content.guides.
 const MergingComponentVersions = loadable(() => import('@teambit/docs.content.guides.merging-component-versions'));
 const MainFile = loadable(() => import('@teambit/component.content.component-main-file'));
 const ComponentConfig = loadable(() => import('@teambit/component.content.component-config'));
-const ComponentJson = loadable(() => import('@teambit/component.content.component-json'));
+// const ComponentJson = loadable(() => import('@teambit/component.content.component-json'));
 const ComponentObjects = loadable(() => import('@teambit/component.content.component-objects'));
 const DevFiles = loadable(() => import('@teambit/component.content.dev-files'));
 const InspectingComponents = loadable(() => import('@teambit/component.content.inspecting-components'));
 const Tags = loadable(() => import('@teambit/component.content.tags'));
 const Snaps = loadable(() => import('@teambit/component.content.snaps'));
+const ComponentAnatomy = loadable(() => import('@teambit/component.content.component-anatomy'));
 
 /* Envs */
 
@@ -148,7 +149,7 @@ const DependencyPolicies = loadable(() => import('@teambit/dependencies.content.
 const ConfiguringDependencies = loadable(() => import('@teambit/dependencies.content.configuring-dependencies'));
 const DependenciesConfiguration = loadable(() => import('@teambit/dependencies.content.dependencies-configuration'));
 const DependencyInstallation = loadable(() => import('@teambit/dependencies.content.installing-dependencies'));
-const DependencyResolution = loadable(() => import('@teambit/dependencies.content.dependency-resolution'));
+// const DependencyResolution = loadable(() => import('@teambit/dependencies.content.dependency-resolution'));
 const LockFiles = loadable(() => import('@teambit/dependencies.content.lock-files'));
 const Pnpm = loadable(() => import('@teambit/dependencies.content.pnpm'));
 const Yarn = loadable(() => import('@teambit/dependencies.content.yarn'));
@@ -308,6 +309,11 @@ export const docsRoutes: DocsRoute[] = [
     title: 'Workspace',
     icon: 'workspace',
     open: false,
+    config: {
+      path: 'workspace-configuration',
+      component: <WorkspaceConfiguration />,
+      title: 'Workspace configuration',
+    },
     children: [
       {
         path: 'workspace-overview',
@@ -320,44 +326,49 @@ export const docsRoutes: DocsRoute[] = [
         component: <CreatingWorkspaces />,
       },
       {
-        path: 'workspace-configuration',
-        component: <WorkspaceConfiguration />,
-        title: 'Workspace configuration',
-      },
-      {
         path: 'directory-structure',
-        title: 'Directory Structure',
+        title: 'Directory structure',
         component: <DirectoryStructure />,
       },
       {
+        path: 'creating-components',
+        title: 'Creating components',
+        component: <CreatingWorkspaces />,
+      },
+      {
         path: 'component-directory',
-        title: 'Component Directory',
+        title: 'Component directory',
         component: <ComponentDir />,
       },
       {
+        path: 'workspace-status',
+        title: 'Workspace status',
+        component: <WorkspaceStatus />,
+      },
+      {
         path: 'moving-components',
-        title: 'Moving Components',
+        title: 'Moving components',
         component: <MovingComponents />,
       },
       {
         path: 'importing-components',
-        title: 'Importing Components',
+        title: 'Importing components',
         component: <ImportingComponents />,
       },
       {
-        path: 'variants',
-        title: 'Configuration Variants',
-        component: <Variants />,
-      },
-      {
         path: 'exporting-components',
-        title: 'Exporting Components',
+        title: 'Exporting components',
         component: <ExportingComponents />,
       },
       {
-        path: 'workspace-status',
-        title: 'Workspace Status',
-        component: <WorkspaceStatus />,
+        path: 'variants',
+        title: 'Configuration variants',
+        component: <Variants />,
+      },
+      {
+        path: 'removing-components',
+        title: 'Removing components',
+        component: <RemovingDeprecating />,
       },
       {
         path: 'bitmap',
@@ -398,23 +409,43 @@ export const docsRoutes: DocsRoute[] = [
         component: <ComponentOverview />,
       },
       {
+        path: 'component-anatomy',
+        title: 'Component anatomy',
+        component: <ComponentAnatomy />,
+      },
+      {
+        path: 'component-config',
+        title: 'Component configuration',
+        component: <ComponentConfig />,
+      },
+      {
         path: 'tags',
-        title: 'Tags (release versions)',
+        title: 'Tags',
         component: <Tags />,
       },
       {
         path: 'snaps',
-        title: 'Snaps (snapshots)',
+        title: 'Snaps',
         component: <Snaps />,
       },
       {
-        path: 'removing-deprecating-components',
-        title: 'Removing or deprecating components',
-        component: <RemovingDeprecating />,
+        path: 'lanes',
+        title: 'Lanes',
+        component: <Snaps />,
       },
       {
-        path: 'merging-component-versions',
-        title: 'Merging component versions',
+        path: 'component-history',
+        title: 'Component history',
+        component: <Snaps />,
+      },
+      {
+        path: 'navigating-history',
+        title: 'Moving in history',
+        component: <Snaps />,
+      },
+      {
+        title: 'Merge conflicts',
+        path: 'merge-conflicts',
         component: <MergingComponentVersions />,
       },
       {
@@ -427,16 +458,11 @@ export const docsRoutes: DocsRoute[] = [
         title: 'Main file',
         component: <MainFile />,
       },
-      {
-        path: 'component-config',
-        title: 'Component configuration',
-        component: <ComponentConfig />,
-      },
-      {
-        path: 'component-json',
-        title: 'component.json',
-        component: <ComponentJson />,
-      },
+      // {
+      //   path: 'component-json',
+      //   title: 'component.json',
+      //   component: <ComponentJson />,
+      // },
       {
         path: 'dev-files',
         title: 'Dev files',
@@ -570,7 +596,7 @@ export const docsRoutes: DocsRoute[] = [
   {
     path: 'envs',
     title: 'Envs',
-    icon: 'code',
+    icon: 'Internal',
     open: false,
     children: [
       {
@@ -985,12 +1011,14 @@ export const docsRoutes: DocsRoute[] = [
         title: 'Jest',
         path: 'jest',
         icon: 'Jest',
+        open: false,
         children: [],
       },
       {
         path: 'pnpm',
         title: 'pnpm',
         icon: 'pnpm',
+        open: false,
         children: [
           {
             path: 'pnpm',
@@ -1001,6 +1029,7 @@ export const docsRoutes: DocsRoute[] = [
       },
       {
         path: 'yarn',
+        open: false,
         title: 'Yarn',
         icon: 'yarn-logo',
         children: [
@@ -1014,11 +1043,42 @@ export const docsRoutes: DocsRoute[] = [
     ],
   },
   {
-    path: 'platforms',
-    title: 'Platforms',
+    path: 'frameworks',
+    title: 'Frameworks',
     open: false,
-    icon: 'Internal',
-    children: [],
+    icon: 'code',
+    children: [
+      {
+        path: 'react',
+        title: 'React',
+        open: false,
+        children: [],
+      },
+      {
+        path: 'angular',
+        title: 'Angular',
+        open: false,
+        children: [],
+      },
+      {
+        path: 'node',
+        title: 'Node',
+        open: false,
+        children: [],
+      },
+      {
+        path: 'lit-html',
+        title: 'Lit Element',
+        open: false,
+        children: [],
+      },
+      {
+        path: 'harmony',
+        title: 'Harmony',
+        open: false,
+        children: [],
+      },
+    ],
   },
   {
     path: 'extending-bit',
@@ -1029,29 +1089,29 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'aspect-overview',
         title: 'Aspects overview',
-        component: <AspectsOverview />
+        component: <AspectsOverview />,
       },
       {
         path: 'using-aspects',
         title: 'Using aspects',
-        component: <UsingAspects />
+        component: <UsingAspects />,
       },
       {
         path: 'create-aspect',
-        title: 'Creating aspects'
+        title: 'Creating aspects',
       },
       {
         path: 'config',
-        title: 'Aspect config'
+        title: 'Aspect config',
       },
       {
         path: 'slots',
-        title: 'Slots'
+        title: 'Slots',
       },
       {
         path: 'runtimes',
-        title: 'Runtimes'
-      }
+        title: 'Runtimes',
+      },
       // {
       //   title: 'Guides',
       //   path: 'guides',

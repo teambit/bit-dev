@@ -56,7 +56,6 @@ export class MyOtherAspect {
 
 ## Composable 
 
-<img src={composability} alt="Composability" />
 
 ## Extensible
 Aspects are extensible by design. Every aspect can expose an API for other aspects to use in order to extend it using [Integration Slots](/extending-bit/slots).
@@ -97,6 +96,8 @@ Aspects can be composed into other Aspects which act as "features".
 ## Multi runtime
 Aspects can declare and extend different runtime environments. An example could be a Logger Aspect which provides an API, but also extends the UI runtime, adding a logger UI
 and providing various CLI commands to interact with logs.
+
+Learn more about [Runtimes](/extending-bit/runtimes).
 
 ## Configurable
 Every Aspect be declare a configuration it accepts, and use it for various needs. This allows Aspects to be configured with different configuration on the composition level.

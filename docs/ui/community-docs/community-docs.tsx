@@ -1,6 +1,6 @@
 import React from 'react';
 import { Docs, DocsProps } from '@teambit/docs.ui.docs';
-import { ContributingDocs } from '@teambit/docs.content.contributing-docs';
+// import { ContributingDocs } from '@teambit/docs.content.contributing-docs';
 import { docsRoutes } from './docs-routes';
 import { primaryRoutes } from './primary-routes';
 
