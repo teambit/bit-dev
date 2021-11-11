@@ -13,4 +13,10 @@ export const primaryRoutes: DocsRoute[] = [
     description: 'Quick Start',
     component: <QuickStart />,
   },
-]
+  {
+    path: 'thinking-in-components',
+    icon: 'thinking',
+    title: 'Thinking in components',
+    component: <QuickStart />,
+  },
+];

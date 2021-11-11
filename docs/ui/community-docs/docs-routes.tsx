@@ -13,7 +13,7 @@ const UseDependencies = loadable(() => import('@teambit/docs.content.getting-sta
 const CreateWorkspace = loadable(() => import('@teambit/docs.content.getting-started.create-workspace'));
 
 const VersionComponents = loadable(() => import('@teambit/docs.content.getting-started.version-components'));
-const WhatIsScope = loadable(() => import('@teambit/docs.content.getting-started.what-is-scope'));
+// const WhatIsScope = loadable(() => import('@teambit/docs.content.getting-started.what-is-scope'));
 const HostBitCloud = loadable(() => import('@teambit/docs.content.getting-started.host-bit-cloud'));
 const SelfHostScope = loadable(() => import('@teambit/docs.content.getting-started.self-host-scope'));
 const ShareComponents = loadable(() => import('@teambit/docs.content.getting-started.share-components'));
@@ -192,9 +192,9 @@ export const docsRoutes: DocsRoute[] = [
         open: false,
         children: [
           {
-            path: 'create-components',
-            title: 'Create Components',
-            description: 'Create components',
+            path: 'first-components',
+            title: 'Your first components',
+            description: 'Your first components',
             component: <CreateComponents />,
           },
           {
@@ -206,7 +206,7 @@ export const docsRoutes: DocsRoute[] = [
           {
             path: 'use-dependencies',
             title: 'Use dependencies',
-            description: 'Use dependencies',
+            description: 'Using components',
             component: <UseDependencies />,
           },
         ],
@@ -217,6 +217,12 @@ export const docsRoutes: DocsRoute[] = [
         icon: 'collaborate',
         open: false,
         children: [
+          {
+            path: 'snap-component-changes',
+            title: 'Snapshot component changes',
+            description: 'Version Components',
+            component: <VersionComponents />,
+          },
           {
             path: 'version-components',
             title: 'Version Components',
@@ -229,12 +235,6 @@ export const docsRoutes: DocsRoute[] = [
             open: false,
             children: [
               {
-                path: 'scope-overview',
-                title: 'Scope Overview',
-                description: 'Scope Overview',
-                component: <WhatIsScope />,
-              },
-              {
                 path: 'host-on-bit-cloud',
                 title: 'Host on Bit Cloud',
                 description: 'Host on Bit Cloud',
@@ -242,16 +242,22 @@ export const docsRoutes: DocsRoute[] = [
               },
               {
                 path: 'self-host-scope',
-                title: 'Self Host Scope',
+                title: 'Self-hosted scope',
                 description: 'Self Host Scope',
                 component: <SelfHostScope />,
               },
             ],
           },
           {
-            path: 'share-components',
-            title: 'Share Components',
-            description: 'Share Components',
+            path: 'importing-components',
+            title: 'Importing components',
+            description: 'Share components',
+            component: <ShareComponents />,
+          },
+          {
+            path: 'exporting-components',
+            title: 'Exporting components',
+            description: 'Exporting components',
             component: <ShareComponents />,
           },
         ],
@@ -560,6 +566,11 @@ export const docsRoutes: DocsRoute[] = [
     open: false,
     title: 'Scope',
     icon: 'collection',
+    config: {
+      path: 'scope-config',
+      title: 'Scope configuration',
+      component: <div />,
+    },
     children: [
       {
         path: 'scope-overview',
@@ -598,6 +609,11 @@ export const docsRoutes: DocsRoute[] = [
     title: 'Envs',
     icon: 'Internal',
     open: false,
+    config: {
+      path: 'envs-config',
+      title: 'Envs configuration',
+      component: <div />,
+    },
     children: [
       {
         path: 'envs-overview',
@@ -625,7 +641,33 @@ export const docsRoutes: DocsRoute[] = [
     path: 'apps',
     icon: 'app',
     open: false,
-    children: [],
+    children: [
+      {
+        path: 'apps-overview',
+        title: 'Apps overview',
+        component: <div />,
+      },
+      {
+        path: 'create-app',
+        title: 'Creating an app',
+        component: <div />,
+      },
+      {
+        path: 'app-build',
+        title: 'App build',
+        component: <div />,
+      },
+      {
+        path: 'app-deployment',
+        title: 'App deployment',
+        component: <div />,
+      },
+      {
+        path: 'application-types',
+        title: 'Application types',
+        component: <div />,
+      },
+    ],
   },
   {
     path: 'packages',
