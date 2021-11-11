@@ -11,7 +11,7 @@
 {
     "apps/bit-dev": {
         "scope": "teambit.community",
-        "version": "1.9.69",
+        "version": "1.9.71",
         "mainFile": "index.ts",
         "rootDir": "community/apps/bit-dev"
     },
@@ -467,7 +467,7 @@
     },
     "content/hosting-scopes": {
         "scope": "teambit.scope",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "scope/content/hosting-scopes"
     },
@@ -947,7 +947,7 @@
     },
     "ui/community-docs": {
         "scope": "teambit.docs",
-        "version": "1.9.69",
+        "version": "1.9.71",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/community-docs"
     },

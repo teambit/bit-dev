@@ -443,8 +443,6 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'creating-components',
         title: 'Creating components',
-        path: 'component-anatomy',
-        title: 'Component anatomy',
         component: <ComponentAnatomy />,
       },
       {
