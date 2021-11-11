@@ -11,9 +11,12 @@ import styles from './plugins.module.scss';
 
 export type PluginsProps = React.HTMLAttributes<HTMLDivElement>;
 
+const pageDescription =
+  'Enrich and extend your customized developer experience in Bit to develop, build, test and design components and applications with your favorite tools.';
+
 export function Plugins({ ...props }: PluginsProps) {
   return (
-    <Page title="Bit / Plugins" {...props}>
+    <Page title="Plugins | Bit" description={pageDescription} {...props}>
       <ExploreSection
         heading={
           <>
