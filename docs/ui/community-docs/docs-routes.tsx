@@ -1051,26 +1051,31 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'react',
         title: 'React',
+        open: false,
         children: [],
       },
       {
         path: 'angular',
         title: 'Angular',
+        open: false,
         children: [],
       },
       {
         path: 'node',
         title: 'Node',
+        open: false,
         children: [],
       },
       {
         path: 'lit-html',
         title: 'Lit Element',
+        open: false,
         children: [],
       },
       {
         path: 'harmony',
         title: 'Harmony',
+        open: false,
         children: [],
       },
     ],
