@@ -11,7 +11,7 @@
 {
     "apps/bit-dev": {
         "scope": "teambit.community",
-        "version": "1.9.68",
+        "version": "1.9.69",
         "mainFile": "index.ts",
         "rootDir": "community/apps/bit-dev"
     },
@@ -232,8 +232,8 @@
         "rootDir": "docs/content/contributing-docs"
     },
     "content/creating-scopes": {
-        "scope": "",
-        "version": "",
+        "scope": "teambit.scope",
+        "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "scope/content/creating-scopes"
     },
@@ -430,14 +430,14 @@
         "rootDir": "docs/content/getting-started/what-is-scope"
     },
     "content/guides/bit-config": {
-        "scope": "",
-        "version": "",
+        "scope": "teambit.docs",
+        "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "docs/content/guides/bit-config"
     },
     "content/guides/config-files": {
-        "scope": "",
-        "version": "",
+        "scope": "teambit.docs",
+        "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "docs/content/guides/config-files"
     },
@@ -460,14 +460,14 @@
         "rootDir": "docs/content/guides/removing-deprecating-components"
     },
     "content/guides/using-bvm": {
-        "scope": "",
-        "version": "",
+        "scope": "teambit.docs",
+        "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "docs/content/guides/using-bvm"
     },
     "content/hosting-scopes": {
-        "scope": "",
-        "version": "",
+        "scope": "teambit.scope",
+        "version": "0.0.2",
         "mainFile": "index.ts",
         "rootDir": "scope/content/hosting-scopes"
     },
@@ -514,8 +514,8 @@
         "rootDir": "workspace/content/importing-components"
     },
     "content/index-json": {
-        "scope": "",
-        "version": "",
+        "scope": "teambit.scope",
+        "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "scope/content/index-json"
     },
@@ -677,7 +677,7 @@
     },
     "content/quick-start": {
         "scope": "teambit.docs",
-        "version": "1.9.53",
+        "version": "1.9.54",
         "mainFile": "index.ts",
         "rootDir": "docs/content/quick-start"
     },
@@ -700,8 +700,8 @@
         "rootDir": "docs/content/rendering-docs"
     },
     "content/scope-json": {
-        "scope": "",
-        "version": "",
+        "scope": "teambit.scope",
+        "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "scope/content/scope-json"
     },
@@ -748,8 +748,8 @@
         "rootDir": "defender/content/testing-during-development"
     },
     "content/thinking-in-components": {
-        "scope": "",
-        "version": "",
+        "scope": "teambit.docs",
+        "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "docs/content/thinking-in-components"
     },
@@ -803,7 +803,7 @@
     },
     "entities/docs-routes": {
         "scope": "teambit.docs",
-        "version": "1.9.58",
+        "version": "1.9.59",
         "mainFile": "index.ts",
         "rootDir": "docs/entities/docs-routes"
     },
@@ -821,7 +821,7 @@
     },
     "entity/features": {
         "scope": "teambit.community",
-        "version": "1.9.53",
+        "version": "1.9.54",
         "mainFile": "index.ts",
         "rootDir": "community/entity/features"
     },
@@ -941,13 +941,13 @@
     },
     "ui/cards/next-page": {
         "scope": "teambit.community",
-        "version": "1.9.57",
+        "version": "1.9.58",
         "mainFile": "index.ts",
         "rootDir": "community/ui/cards/next-page"
     },
     "ui/community-docs": {
         "scope": "teambit.docs",
-        "version": "1.9.68",
+        "version": "1.9.69",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/community-docs"
     },
@@ -971,13 +971,13 @@
     },
     "ui/content/subtitle": {
         "scope": "teambit.design",
-        "version": "1.9.56",
+        "version": "1.9.57",
         "mainFile": "index.ts",
         "rootDir": "design/ui/content/subtitle"
     },
     "ui/docs": {
         "scope": "teambit.docs",
-        "version": "1.9.59",
+        "version": "1.9.60",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/docs"
     },
@@ -995,13 +995,13 @@
     },
     "ui/features/features-card-grid": {
         "scope": "teambit.community",
-        "version": "1.9.56",
+        "version": "1.9.57",
         "mainFile": "index.ts",
         "rootDir": "community/ui/features/features-card-grid"
     },
     "ui/features/features-section": {
         "scope": "teambit.community",
-        "version": "1.9.57",
+        "version": "1.9.58",
         "mainFile": "index.ts",
         "rootDir": "community/ui/features/features-section"
     },
@@ -1013,7 +1013,7 @@
     },
     "ui/footer/footer": {
         "scope": "teambit.community",
-        "version": "1.9.56",
+        "version": "1.9.57",
         "mainFile": "index.ts",
         "rootDir": "community/ui/footer/footer"
     },
@@ -1091,37 +1091,37 @@
     },
     "ui/hero": {
         "scope": "teambit.community",
-        "version": "1.9.58",
+        "version": "1.9.59",
         "mainFile": "index.ts",
         "rootDir": "community/ui/hero"
     },
     "ui/homepage/sections/autonomy": {
         "scope": "teambit.community",
-        "version": "1.9.58",
+        "version": "1.9.59",
         "mainFile": "index.ts",
         "rootDir": "community/ui/homepage/sections/autonomy"
     },
     "ui/homepage/sections/collaboration": {
         "scope": "teambit.community",
-        "version": "1.9.58",
+        "version": "1.9.59",
         "mainFile": "index.ts",
         "rootDir": "community/ui/homepage/sections/collaboration"
     },
     "ui/homepage/sections/distribution": {
         "scope": "teambit.community",
-        "version": "1.9.58",
+        "version": "1.9.59",
         "mainFile": "index.ts",
         "rootDir": "community/ui/homepage/sections/distribution"
     },
     "ui/homepage/sections/extendability": {
         "scope": "teambit.community",
-        "version": "1.9.58",
+        "version": "1.9.59",
         "mainFile": "index.ts",
         "rootDir": "community/ui/homepage/sections/extendability"
     },
     "ui/homepage/sections/standardization": {
         "scope": "teambit.community",
-        "version": "1.9.58",
+        "version": "1.9.59",
         "mainFile": "index.ts",
         "rootDir": "community/ui/homepage/sections/standardization"
     },
@@ -1181,7 +1181,7 @@
     },
     "ui/pages/doc-page": {
         "scope": "teambit.docs",
-        "version": "1.9.59",
+        "version": "1.9.60",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/pages/doc-page"
     },
@@ -1193,13 +1193,13 @@
     },
     "ui/pages/guides": {
         "scope": "teambit.docs",
-        "version": "1.9.59",
+        "version": "1.9.60",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/pages/guides"
     },
     "ui/pages/homepage": {
         "scope": "teambit.community",
-        "version": "1.9.58",
+        "version": "1.9.59",
         "mainFile": "index.ts",
         "rootDir": "community/ui/pages/homepage"
     },
@@ -1211,19 +1211,19 @@
     },
     "ui/pages/plugins": {
         "scope": "teambit.community",
-        "version": "1.9.58",
+        "version": "1.9.59",
         "mainFile": "index.ts",
         "rootDir": "community/ui/pages/plugins"
     },
     "ui/plugins/create-section": {
         "scope": "teambit.community",
-        "version": "1.9.58",
+        "version": "1.9.59",
         "mainFile": "index.ts",
         "rootDir": "community/ui/plugins/create-section"
     },
     "ui/plugins/explore-section": {
         "scope": "teambit.community",
-        "version": "1.9.58",
+        "version": "1.9.59",
         "mainFile": "index.ts",
         "rootDir": "community/ui/plugins/explore-section"
     },
@@ -1241,13 +1241,13 @@
     },
     "ui/sections/left-right": {
         "scope": "teambit.community",
-        "version": "1.9.57",
+        "version": "1.9.58",
         "mainFile": "index.ts",
         "rootDir": "community/ui/sections/left-right"
     },
     "ui/sections/top-down": {
         "scope": "teambit.community",
-        "version": "1.9.57",
+        "version": "1.9.58",
         "mainFile": "index.ts",
         "rootDir": "community/ui/sections/top-down"
     },
