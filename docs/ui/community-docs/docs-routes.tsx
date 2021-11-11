@@ -24,7 +24,9 @@ const CiExport = loadable(() => import('@teambit/docs.content.getting-started.ci
 const CiInstall = loadable(() => import('@teambit/docs.content.getting-started.ci-install'));
 
 /* Harmony */
+const Troubleshooting = loadable(() => import('@teambit/docs.content.troubleshooting'));
 const CliReference = loadable(() => import('@teambit/harmony.content.cli-reference'));
+const UsageAnalytics = loadable(() => import('@teambit/harmony.content.usage-analytics'));
 const AspectsOverview = loadable(() => import('@teambit/harmony.content.aspects-overview'));
 const UsingAspects = loadable(() => import('@teambit/harmony.content.using-aspects'));
 
@@ -166,6 +168,11 @@ const PackingComponents = loadable(() => import('@teambit/pkg.content.packing-co
 const CommonjsPackageRegistries = loadable(() => import('@teambit/pkg.content.commonjs-package-registries'));
 const PkgBuildTasks = loadable(() => import('@teambit/pkg.content.pkg-build-tasks'));
 const Npmrc = loadable(() => import('@teambit/pkg.content.npmrc'));
+
+/* BVM */
+
+const UsingBvm = loadable(() => import('@teambit/bvm.content.using-bvm'));
+
 
 export const docsRoutes: DocsRoute[] = [
   {
@@ -1136,6 +1143,25 @@ export const docsRoutes: DocsRoute[] = [
         component: <CliReference />,
         icon: 'terminal',
       },
+      {
+        path: 'usage-analytics',
+        title: 'Usage Analytics',
+        component: <UsageAnalytics />,
+        icon: 'terminal',
+      },
+      {
+        path: 'bit-version-manager',
+        title: 'Bit Version Manager',
+        component: <UsingBvm />,
+        icon: 'terminal',
+      }
+      ,
+      {
+        path: 'troubleshooting',
+        title: 'Troubleshooting',
+        component: <Troubleshooting />,
+        icon: 'terminal',
+      }
     ],
   },
 ];

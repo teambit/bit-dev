@@ -1275,5 +1275,24 @@
         "mainFile": "index.ts",
         "rootDir": "ui-foundation/urls/compare-url"
     },
+
+    "content/using-bvm": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "bvm/content/using-bvm"
+    },
+    "content/troubleshooting": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/troubleshooting"
+    },
+    "content/usage-analytics": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "harmony/content/usage-analytics"
+    },
     "$schema-version": "14.9.0"
 }

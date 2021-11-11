@@ -200,6 +200,9 @@
     "docs": {
       "defaultScope": "teambit.docs"
     },
+    "bvm": {
+      "defaultScope": "teambit.bvm"
+    },
     "component": {
       "defaultScope": "teambit.component"
     },
