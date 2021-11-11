@@ -11,7 +11,7 @@
 {
     "apps/bit-dev": {
         "scope": "teambit.community",
-        "version": "1.9.67",
+        "version": "1.9.68",
         "mainFile": "index.ts",
         "rootDir": "community/apps/bit-dev"
     },
@@ -149,7 +149,7 @@
     },
     "content/component-objects": {
         "scope": "teambit.component",
-        "version": "1.9.56",
+        "version": "1.9.57",
         "mainFile": "index.ts",
         "rootDir": "component/content/component-objects"
     },
@@ -185,7 +185,7 @@
     },
     "content/configure-env-with-compiler": {
         "scope": "teambit.compilation",
-        "version": "1.9.53",
+        "version": "1.9.54",
         "mainFile": "index.ts",
         "rootDir": "compilation/content/configure-env-with-compiler"
     },
@@ -479,7 +479,7 @@
     },
     "content/implement-compiler": {
         "scope": "teambit.compilation",
-        "version": "1.9.54",
+        "version": "1.9.55",
         "mainFile": "index.ts",
         "rootDir": "compilation/content/implement-compiler"
     },
@@ -557,7 +557,7 @@
     },
     "content/local-scope": {
         "scope": "teambit.workspace",
-        "version": "1.9.53",
+        "version": "1.9.54",
         "mainFile": "index.ts",
         "rootDir": "workspace/content/local-scope"
     },
@@ -941,7 +941,7 @@
     },
     "ui/community-docs": {
         "scope": "teambit.docs",
-        "version": "1.9.67",
+        "version": "1.9.68",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/community-docs"
     },
