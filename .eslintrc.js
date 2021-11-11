@@ -10,6 +10,7 @@ module.exports = {
     'prettier/prettier': 'error',
     'consistent-return': 'off',
     'arrow-body-style': 'off',
+    'class-methods-use-this': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
   },

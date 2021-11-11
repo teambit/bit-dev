@@ -4,7 +4,7 @@ import { DocsRoute } from '@teambit/docs.entities.docs-routes';
 
 /* Getting Started */
 
-const InstallingBit = loadable(() => import('@teambit/docs.content.getting-started.installing-bit'));
+// const InstallingBit = loadable(() => import('@teambit/docs.content.getting-started.installing-bit'));
 const CreateComponents = loadable(
   () => import('@teambit/community.content.getting-started.composing.create-components')
 );
@@ -24,7 +24,7 @@ const CiExport = loadable(() => import('@teambit/docs.content.getting-started.ci
 const CiInstall = loadable(() => import('@teambit/docs.content.getting-started.ci-install'));
 
 /* Harmony */
-const CliReference = loadable(() => import('@teambit/harmony.content.cli-reference'));
+// const CliReference = loadable(() => import('@teambit/harmony.content.cli-reference'));
 const AspectsOverview = loadable(() => import('@teambit/harmony.content.aspects-overview'));
 const UsingAspects = loadable(() => import('@teambit/harmony.content.using-aspects'));
 
@@ -175,15 +175,25 @@ export const docsRoutes: DocsRoute[] = [
     children: [
       {
         path: 'installing-bit',
-        title: 'Installing Bit',
-        description: 'Installing Bit',
-        component: <InstallingBit />,
-      },
-      {
-        path: 'create-new-workspace',
-        title: 'Create a new Workspace',
-        description: 'Create a new Workspace',
-        component: <CreateWorkspace />,
+        title: 'Installation',
+        // description: 'Installing Bit',
+        icon: 'install',
+        // component: <InstallingBit />,
+        children: [
+          {
+            path: 'start-bit-project',
+            title: 'Start a new Bit workspace',
+            component: <CreateWorkspace />,
+          },
+          {
+            path: 'editor-setup',
+            title: 'Editor setup',
+          },
+          {
+            path: 'add-to-existing-project',
+            title: 'Add on existing project',
+          },
+        ],
       },
       {
         path: 'composing',
@@ -315,17 +325,13 @@ export const docsRoutes: DocsRoute[] = [
     title: 'Workspace',
     icon: 'workspace',
     open: false,
+    component: <WorkspaceOverview />,
     config: {
       path: 'workspace-configuration',
       component: <WorkspaceConfiguration />,
       title: 'Workspace configuration',
     },
     children: [
-      {
-        path: 'workspace-overview',
-        title: 'Workspace overview',
-        component: <WorkspaceOverview />,
-      },
       {
         path: 'creating-workspaces',
         title: 'Creating workspaces',
@@ -440,13 +446,8 @@ export const docsRoutes: DocsRoute[] = [
         component: <Snaps />,
       },
       {
-        path: 'component-history',
-        title: 'Component history',
-        component: <Snaps />,
-      },
-      {
         path: 'navigating-history',
-        title: 'Moving in history',
+        title: 'Navigating history',
         component: <Snaps />,
       },
       {
@@ -633,87 +634,6 @@ export const docsRoutes: DocsRoute[] = [
         path: 'env-troubleshooting',
         title: 'Env Troubleshooting',
         component: <EnvToubleshooting />,
-      },
-    ],
-  },
-  {
-    title: 'Apps',
-    path: 'apps',
-    icon: 'app',
-    open: false,
-    children: [
-      {
-        path: 'apps-overview',
-        title: 'Apps overview',
-        component: <div />,
-      },
-      {
-        path: 'create-app',
-        title: 'Creating an app',
-        component: <div />,
-      },
-      {
-        path: 'app-build',
-        title: 'App build',
-        component: <div />,
-      },
-      {
-        path: 'app-deployment',
-        title: 'App deployment',
-        component: <div />,
-      },
-      {
-        path: 'application-types',
-        title: 'Application types',
-        component: <div />,
-      },
-    ],
-  },
-  {
-    path: 'packages',
-    title: 'Packages',
-    icon: 'dependencies',
-    open: false,
-    children: [
-      {
-        path: 'packages-overview',
-        title: 'Packages Overview',
-        component: <PackagesOverview />,
-      },
-      {
-        path: 'package-json',
-        title: 'package.json',
-        component: <PackageJson />,
-      },
-      {
-        path: 'managing-package-json',
-        title: 'Managing the package.json',
-        component: <ManagingPackageJson />,
-      },
-      {
-        path: 'package-name',
-        title: 'Package Name',
-        component: <PackageName />,
-      },
-      {
-        path: 'packing-components',
-        title: 'Packing Components',
-        component: <PackingComponents />,
-      },
-      {
-        path: 'publishing-components-to-commonjs-registries',
-        title: 'Publishing to CommonJS Registries',
-        component: <CommonjsPackageRegistries />,
-      },
-      {
-        path: 'build-tasks',
-        title: 'Build Tasks',
-        component: <PkgBuildTasks />,
-      },
-      {
-        path: 'npmrc',
-        title: 'Configuring Bit Cloud in NPM config',
-        component: <Npmrc />,
       },
     ],
   },
@@ -1007,6 +927,87 @@ export const docsRoutes: DocsRoute[] = [
     ],
   },
   {
+    title: 'Apps',
+    path: 'apps',
+    icon: 'app',
+    open: false,
+    children: [
+      {
+        path: 'apps-overview',
+        title: 'Apps overview',
+        component: <div />,
+      },
+      {
+        path: 'create-app',
+        title: 'Creating an app',
+        component: <div />,
+      },
+      {
+        path: 'app-build',
+        title: 'App build',
+        component: <div />,
+      },
+      {
+        path: 'app-deployment',
+        title: 'App deployment',
+        component: <div />,
+      },
+      {
+        path: 'application-types',
+        title: 'Application types',
+        component: <div />,
+      },
+    ],
+  },
+  {
+    path: 'packages',
+    title: 'Packages',
+    icon: 'dependencies',
+    open: false,
+    children: [
+      {
+        path: 'packages-overview',
+        title: 'Packages Overview',
+        component: <PackagesOverview />,
+      },
+      {
+        path: 'package-json',
+        title: 'package.json',
+        component: <PackageJson />,
+      },
+      {
+        path: 'managing-package-json',
+        title: 'Managing the package.json',
+        component: <ManagingPackageJson />,
+      },
+      {
+        path: 'package-name',
+        title: 'Package Name',
+        component: <PackageName />,
+      },
+      {
+        path: 'packing-components',
+        title: 'Packing Components',
+        component: <PackingComponents />,
+      },
+      {
+        path: 'publishing-components-to-commonjs-registries',
+        title: 'Publishing to CommonJS Registries',
+        component: <CommonjsPackageRegistries />,
+      },
+      {
+        path: 'build-tasks',
+        title: 'Build Tasks',
+        component: <PkgBuildTasks />,
+      },
+      {
+        path: 'npmrc',
+        title: 'Configuring Bit Cloud in NPM config',
+        component: <Npmrc />,
+      },
+    ],
+  },
+  {
     path: 'tools',
     title: 'Tools',
     open: false,
@@ -1166,18 +1167,18 @@ export const docsRoutes: DocsRoute[] = [
       // }
     ],
   },
-  {
-    path: 'reference',
-    icon: 'Ripple_list',
-    open: false,
-    title: 'Reference',
-    children: [
-      {
-        path: 'cli-reference',
-        title: 'CLI Reference',
-        component: <CliReference />,
-        icon: 'terminal',
-      },
-    ],
-  },
+  // {
+  //   path: 'reference',
+  //   icon: 'Ripple_list',
+  //   open: false,
+  //   title: 'Reference',
+  //   children: [
+  //     {
+  //       path: 'cli-reference',
+  //       title: 'CLI Reference',
+  //       component: <CliReference />,
+  //       icon: 'terminal',
+  //     },
+  //   ],
+  // },
 ];

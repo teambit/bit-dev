@@ -16,15 +16,13 @@ export type FeaturesSectionProps = {
   title: string;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-export function FeaturesSection({
-  title,
-  features,
-  className
-}: FeaturesSectionProps) {
+export function FeaturesSection({ title, features, className }: FeaturesSectionProps) {
   return (
     <div className={classNames(styles.featuresSection, className)}>
       <div className={styles.heading}>
-      <Heading element={Elements.H3} className={styles.title}>{title}</Heading>
+        <Heading element={Elements.H3} className={styles.title}>
+          {title}
+        </Heading>
       </div>
       <FeaturesCardGrid features={features} />
     </div>

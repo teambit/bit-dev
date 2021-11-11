@@ -705,6 +705,12 @@
         "mainFile": "index.ts",
         "rootDir": "defender/content/testing-during-development"
     },
+    "content/thinking-in-components": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/thinking-in-components"
+    },
     "content/using-aspects": {
         "scope": "teambit.harmony",
         "version": "0.0.1",
