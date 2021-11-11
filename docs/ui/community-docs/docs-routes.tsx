@@ -43,10 +43,12 @@ const LocalScope = loadable(() => import('@teambit/workspace.content.local-scope
 const MovingComponents = loadable(() => import('@teambit/workspace.content.moving-components'));
 const Variants = loadable(() => import('@teambit/workspace.content.variants'));
 
-/**
- * Scope
- */
+/* Scope */
 const ScopeOverview = loadable(() => import('@teambit/scope.content.scope-overview'));
+const CreatingScopes = loadable(() => import('@teambit/scope.content.creating-scopes'));
+const ScopeJson = loadable(() => import('@teambit/scope.content.scope-json'));
+const IndexJson = loadable(() => import('@teambit/scope.content.index-json'));
+const HostingScopes = loadable(() => import('@teambit/scope.content.hosting-scopes'));
 
 /* Dev services */
 
@@ -146,7 +148,7 @@ const DependencyPolicies = loadable(() => import('@teambit/dependencies.content.
 const ConfiguringDependencies = loadable(() => import('@teambit/dependencies.content.configuring-dependencies'));
 const DependenciesConfiguration = loadable(() => import('@teambit/dependencies.content.dependencies-configuration'));
 const DependencyInstallation = loadable(() => import('@teambit/dependencies.content.installing-dependencies'));
-const DependencyResolution = loadable(() => import('@teambit/dependencies.content.dependency-resolution'));
+// const DependencyResolution = loadable(() => import('@teambit/dependencies.content.dependency-resolution'));
 const LockFiles = loadable(() => import('@teambit/dependencies.content.lock-files'));
 const Pnpm = loadable(() => import('@teambit/dependencies.content.pnpm'));
 const Yarn = loadable(() => import('@teambit/dependencies.content.yarn'));
@@ -163,6 +165,14 @@ const PackingComponents = loadable(() => import('@teambit/pkg.content.packing-co
 const CommonjsPackageRegistries = loadable(() => import('@teambit/pkg.content.commonjs-package-registries'));
 const PkgBuildTasks = loadable(() => import('@teambit/pkg.content.pkg-build-tasks'));
 const Npmrc = loadable(() => import('@teambit/pkg.content.npmrc'));
+
+/* Reference */
+
+const UsingBVM = loadable(() => import('@teambit/docs.content.guides.using-bvm'));
+
+/* Global Config */
+const BitConfig = loadable(() => import('@teambit/docs.content.guides.bit-config'));
+const ConfigFiles = loadable(() => import('@teambit/docs.content.guides.config-files'));
 
 export const docsRoutes: DocsRoute[] = [
   {
@@ -319,6 +329,11 @@ export const docsRoutes: DocsRoute[] = [
         component: <CreatingWorkspaces />,
       },
       {
+        path: 'creating-components',
+        title: 'Creating components',
+        component: <CreateComponents />,
+      },
+      {
         path: 'workspace-configuration',
         component: <WorkspaceConfiguration />,
         title: 'Workspace configuration',
@@ -396,6 +411,11 @@ export const docsRoutes: DocsRoute[] = [
         path: 'component-overview',
         title: 'Component overview',
         component: <ComponentOverview />,
+      },
+      {
+        path: 'creating-components',
+        title: 'Creating components',
+        component: <CreateComponents />,
       },
       {
         path: 'tags',
@@ -544,22 +564,27 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'creating-scopes',
         title: 'Creating scopes',
-        component: <ScopeOverview />,
+        component: <CreatingScopes />,
       },
       {
         path: 'configuring-scopes',
-        title: 'Configuring scopes',
-        component: <ScopeOverview />,
+        title: 'Configuring scopes (scope.json)',
+        component: <ScopeJson />,
       },
       {
         path: 'running-a-scope-server',
         title: 'Hosting scopes',
-        component: <ScopeOverview />,
+        component: <HostingScopes />,
       },
       {
         path: 'inspecting-objects',
         title: 'Inspecting scope objects',
-        component: <ScopeOverview />,
+        component: <ComponentObjects />,
+      },
+      {
+        path: 'index-json',
+        title: 'index.json',
+        component: <IndexJson />,
       },
       {
         path: 'extending-scopes',
@@ -1029,6 +1054,26 @@ export const docsRoutes: DocsRoute[] = [
     children: [],
   },
   {
+    path: 'global-config',
+    title: 'Global Config',
+    icon: 'configuration',
+    open: false,
+    children: [
+      {
+        path: 'bit-config',
+        title: 'Bit config',
+        open: false,
+        component: <BitConfig />,
+      },
+      {
+        path: 'config-files',
+        title: 'Config Files',
+        open: false,
+        component: <ConfigFiles />,
+      },
+    ],
+  },
+  {
     path: 'reference',
     icon: 'Ripple_list',
     open: false,
@@ -1038,6 +1083,12 @@ export const docsRoutes: DocsRoute[] = [
         path: 'cli-reference',
         title: 'CLI Reference',
         component: <CliReference />,
+        icon: 'terminal',
+      },
+      {
+        path: 'using-bvm',
+        title: 'Using BVM',
+        component: <UsingBVM />,
         icon: 'terminal',
       },
     ],

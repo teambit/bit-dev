@@ -219,6 +219,12 @@
         "mainFile": "index.ts",
         "rootDir": "docs/content/contributing-docs"
     },
+    "content/creating-scopes": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "scope/content/creating-scopes"
+    },
     "content/creating-workspaces": {
         "scope": "teambit.workspace",
         "version": "1.9.51",
@@ -411,6 +417,18 @@
         "mainFile": "index.ts",
         "rootDir": "docs/content/getting-started/what-is-scope"
     },
+    "content/guides/bit-config": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/guides/bit-config"
+    },
+    "content/guides/config-files": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/guides/config-files"
+    },
     "content/guides/inspecting-components": {
         "scope": "teambit.docs",
         "version": "1.9.51",
@@ -428,6 +446,18 @@
         "version": "1.9.51",
         "mainFile": "index.ts",
         "rootDir": "docs/content/guides/removing-deprecating-components"
+    },
+    "content/guides/using-bvm": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/guides/using-bvm"
+    },
+    "content/hosting-scopes": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "scope/content/hosting-scopes"
     },
     "content/image": {
         "scope": "teambit.base-react",
@@ -470,6 +500,12 @@
         "version": "1.9.51",
         "mainFile": "index.ts",
         "rootDir": "workspace/content/importing-components"
+    },
+    "content/index-json": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "scope/content/index-json"
     },
     "content/inspecting-components": {
         "scope": "teambit.component",
@@ -650,6 +686,12 @@
         "version": "1.9.51",
         "mainFile": "index.ts",
         "rootDir": "docs/content/rendering-docs"
+    },
+    "content/scope-json": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "scope/content/scope-json"
     },
     "content/scope-overview": {
         "scope": "teambit.scope",

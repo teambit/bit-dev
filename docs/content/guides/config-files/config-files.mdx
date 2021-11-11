@@ -1,0 +1,45 @@
+# Config Files
+
+## Global Files
+
+To get a list of all global files used by Bit:
+
+```bash
+bit globals
+```
+
+```bash
+Global Dir        ~/Library/Caches/Bit
+Log file          ~/Library/Caches/Bit/logs/debug.log
+Global Scope Dir  ~/Library/Caches/Bit/scope
+Config Dir        ~/Library/Caches/Bit/config
+```
+
+To change the global directory, set the `BIT_GLOBALS_DIR` env variable with a new path.
+
+```
+export BIT_GLOBALS_DIR=new-path/to/global-variable
+```
+
+Alternatively, you can temporarily use a different value for a command:
+
+```
+BIT_GLOBALS_DIR=new-path/to/global-variable bit init
+```
+
+## Bit Config
+
+Bit's (global) configuration is registered in the `~/Library/Caches/Bit/config/config.json` file.
+
+Learn more about it [here](bit-config)
+
+## npm config`.npmrc`
+
+npm's configuration (read by most package managers, as well).
+
+- per-project config file `/path/to/my/project/.npmrc`
+- per-user config file `~/.npmrc`
+- global config file `$PREFIX/etc/npmrc`
+- npm builtin config file `/path/to/npm/npmrc`
+
+[See here](/docs/packages/npmrc) to learn how to configure scoped registries.
