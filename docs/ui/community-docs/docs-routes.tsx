@@ -45,10 +45,12 @@ const LocalScope = loadable(() => import('@teambit/workspace.content.local-scope
 const MovingComponents = loadable(() => import('@teambit/workspace.content.moving-components'));
 const Variants = loadable(() => import('@teambit/workspace.content.variants'));
 
-/**
- * Scope
- */
+/* Scope */
 const ScopeOverview = loadable(() => import('@teambit/scope.content.scope-overview'));
+const CreatingScopes = loadable(() => import('@teambit/scope.content.creating-scopes'));
+const ScopeJson = loadable(() => import('@teambit/scope.content.scope-json'));
+const IndexJson = loadable(() => import('@teambit/scope.content.index-json'));
+const HostingScopes = loadable(() => import('@teambit/scope.content.hosting-scopes'));
 
 /* Dev services */
 
@@ -166,6 +168,14 @@ const PackingComponents = loadable(() => import('@teambit/pkg.content.packing-co
 const CommonjsPackageRegistries = loadable(() => import('@teambit/pkg.content.commonjs-package-registries'));
 const PkgBuildTasks = loadable(() => import('@teambit/pkg.content.pkg-build-tasks'));
 const Npmrc = loadable(() => import('@teambit/pkg.content.npmrc'));
+
+/* Reference */
+
+const UsingBVM = loadable(() => import('@teambit/docs.content.guides.using-bvm'));
+
+/* Global Config */
+const BitConfig = loadable(() => import('@teambit/docs.content.guides.bit-config'));
+const ConfigFiles = loadable(() => import('@teambit/docs.content.guides.config-files'));
 
 export const docsRoutes: DocsRoute[] = [
   {
@@ -338,6 +348,16 @@ export const docsRoutes: DocsRoute[] = [
         component: <CreatingWorkspaces />,
       },
       {
+        path: 'creating-components',
+        title: 'Creating components',
+        component: <CreateComponents />,
+      },
+      {
+        path: 'workspace-configuration',
+        component: <WorkspaceConfiguration />,
+        title: 'Workspace configuration',
+      },
+      {
         path: 'directory-structure',
         title: 'Directory structure',
         component: <DirectoryStructure />,
@@ -421,8 +441,8 @@ export const docsRoutes: DocsRoute[] = [
         component: <ComponentOverview />,
       },
       {
-        path: 'component-anatomy',
-        title: 'Component anatomy',
+        path: 'creating-components',
+        title: 'Creating components',
         component: <ComponentAnatomy />,
       },
       {
@@ -581,22 +601,27 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'creating-scopes',
         title: 'Creating scopes',
-        component: <ScopeOverview />,
+        component: <CreatingScopes />,
       },
       {
         path: 'configuring-scopes',
-        title: 'Configuring scopes',
-        component: <ScopeOverview />,
+        title: 'Configuring scopes (scope.json)',
+        component: <ScopeJson />,
       },
       {
         path: 'running-a-scope-server',
         title: 'Hosting scopes',
-        component: <ScopeOverview />,
+        component: <HostingScopes />,
       },
       {
         path: 'inspecting-objects',
         title: 'Inspecting scope objects',
-        component: <ScopeOverview />,
+        component: <ComponentObjects />,
+      },
+      {
+        path: 'index-json',
+        title: 'index.json',
+        component: <IndexJson />,
       },
       {
         path: 'extending-scopes',

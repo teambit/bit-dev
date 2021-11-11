@@ -1,0 +1,25 @@
+---
+description: 'An MDX component.'
+labels: ['content', 'mdx']
+---
+
+import { ScopeJson } from './index';
+
+### Component usage
+```js
+<ScopeJson />
+```
+
+### Render with theme and MDX providers
+
+```js
+import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions'
+import { MDXLayout } from '@teambit/ui.mdx-layout'
+import { ScopeJson } from './index'
+
+<ThemeCompositions>
+  <MDXLayout>
+    <ScopeJson />
+  </MDXLayout>
+</ThemeCompositions>
+```
