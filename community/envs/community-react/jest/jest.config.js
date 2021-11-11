@@ -1,4 +1,4 @@
-const reactJestConfig = require('@teambit/react/jest/jest.config');
+const reactJestConfig = require('@teambit/react/dist/jest/jest.config');
 
 module.exports = {
   ...reactJestConfig,
