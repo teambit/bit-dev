@@ -11,9 +11,14 @@ import { PrimaryLinks } from './primary-links';
 
 export type DocsProps = {
   /**
-   * a routes to be rendered in the sidebar.
+   * getting started routes to be rendered in the sidebar.
    */
-  routes: DocsRoute[];
+  gettingStartedRoutes: DocsRoute[];
+
+  /**
+   * learn routes to be rendered in the sidebar.
+   */
+  learndRoutes: DocsRoute[];
 
   /**
    * base URL for the docs route.
@@ -37,7 +42,8 @@ export type DocsProps = {
 } & React.HtmlHTMLAttributes<HTMLDivElement>;
 
 export function Docs({
-  routes,
+  gettingStartedRoutes,
+  learndRoutes,
   primaryLinks = [],
   showNext = true,
   baseUrl = '/',
@@ -47,19 +53,22 @@ export function Docs({
 }: DocsProps) {
   const { path } = useRouteMatch();
   const sidebar = useSidebar();
-  const docRoutes = DocsRoutes.from(routes, baseUrl || path);
   const primaryRoutes = DocsRoutes.from(primaryLinks, baseUrl || path);
 
+  const gettingStartedDocRoutes = DocsRoutes.from(gettingStartedRoutes, baseUrl || path);
+  const learndDocRoutes = DocsRoutes.from(learndRoutes, baseUrl || path);
+
   const routeArray = useMemo(
-    () => [...primaryRoutes.getRoutes(), ...docRoutes.getRoutes()],
-    [primaryRoutes, docRoutes]
+    () => [...primaryRoutes.getRoutes(), ...gettingStartedDocRoutes.getRoutes(), ...learndDocRoutes.getRoutes()],
+    [primaryRoutes, gettingStartedDocRoutes, learndDocRoutes]
   );
 
   return (
     <div {...rest} className={classNames(styles.main, className)}>
       <Sidebar isOpen={sidebar.isOpen} toggle={sidebar.setIsOpen}>
         <PrimaryLinks tree={primaryRoutes.toSideBarTree()} />
-        <Tree tree={docRoutes.toSideBarTree()} linkPrefix={baseUrl} />
+        <Tree displayTitle="GETTING STARTED" tree={gettingStartedDocRoutes.toSideBarTree()} linkPrefix={baseUrl} />
+        <Tree displayTitle="LEARN" tree={learndDocRoutes.toSideBarTree()} linkPrefix={baseUrl} />
       </Sidebar>
       <div className={styles.content}>
         <Switch>
