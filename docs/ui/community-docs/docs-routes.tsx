@@ -193,7 +193,8 @@ export const docsRoutes: DocsRoute[] = [
           {
             path: 'start-bit-project',
             title: 'Start a new Bit Workspace',
-            description: 'A Bit Workspace is where components are built and composed. Workspaces can be generated with the bit new command or initialized on an existing project.',
+            description:
+              'A Bit Workspace is where components are built and composed. Workspaces can be generated with the bit new command or initialized on an existing project.',
             component: <CreateWorkspace />,
           },
           {
@@ -215,13 +216,15 @@ export const docsRoutes: DocsRoute[] = [
           {
             path: 'first-components',
             title: 'Your First Components',
-            description: 'Bit makes it simple to build each Component independently, and compose it to others with Dependencies.',
+            description:
+              'Bit makes it simple to build each Component independently, and compose it to others with Dependencies.',
             component: <CreateComponents />,
           },
           {
             path: 'dev-environments',
             title: 'Development Environments',
-            description: 'Component development is simplified and standardized using Component Development Environments (or envs in short). An env is a compositions of several Services.',
+            description:
+              'Component development is simplified and standardized using Component Development Environments (or envs in short). An env is a compositions of several Services.',
             component: <DevEnvs />,
           },
           {
@@ -246,7 +249,8 @@ export const docsRoutes: DocsRoute[] = [
           {
             path: 'version-components',
             title: 'Version Components',
-            description: "By setting a version for a component you build a history of changes to a component's implementation. This version history can be shared through a remote Bit server.",
+            description:
+              "By setting a version for a component you build a history of changes to a component's implementation. This version history can be shared through a remote Bit server.",
             component: <VersionComponents />,
           },
           {
@@ -263,7 +267,8 @@ export const docsRoutes: DocsRoute[] = [
               {
                 path: 'self-host-scope',
                 title: 'Self-hosted Scope',
-                description: 'When self-hosting Bit on your own infrastructure you will also need to publish components to an external registry so components will be available to install with package managers.',
+                description:
+                  'When self-hosting Bit on your own infrastructure you will also need to publish components to an external registry so components will be available to install with package managers.',
                 component: <SelfHostScope />,
               },
             ],
@@ -289,7 +294,8 @@ export const docsRoutes: DocsRoute[] = [
           {
             path: 'install-components',
             title: 'Install Components',
-            description: 'Components once exported to a remote scope can be consumed in any other project/app with the package manager of your choice.',
+            description:
+              'Components once exported to a remote scope can be consumed in any other project/app with the package manager of your choice.',
             component: <InstallComponents />,
           },
           {
@@ -314,7 +320,8 @@ export const docsRoutes: DocsRoute[] = [
           {
             path: 'automate-export',
             title: 'Automate Component Export',
-            description: 'To ensure a component is built and published in a consistent manner its recommended to use CI.',
+            description:
+              'To ensure a component is built and published in a consistent manner its recommended to use CI.',
             component: <CiExport />,
           },
           {
@@ -347,6 +354,8 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'creating-components',
         title: 'Creating Components',
+        description:
+          'Bit makes it simple to build each Component independently, and compose it to others with Dependencies. Components can be created in different types such as Node Modules, React Components, Angular Modules and more.',
         component: <CreateComponents />,
       },
       {
@@ -357,19 +366,22 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'directory-structure',
         title: 'Directory Structure',
-        description: 'The Bit Workspace is flexible in directory structure to preserve a seamless dev experience for building distributed apps.',
+        description:
+          'The Bit Workspace is flexible in directory structure to preserve a seamless dev experience for building distributed apps.',
         component: <DirectoryStructure />,
       },
       {
         path: 'component-directory',
         title: 'Component Directory',
-        description: 'A Component Directory is a directory in the developer Workspace. Directories are mapped as Components using the .bitmap rootDir property which exist for every Component entry.',
+        description:
+          'A Component Directory is a directory in the developer Workspace. Directories are mapped as Components using the .bitmap rootDir property which exist for every Component entry.',
         component: <ComponentDir />,
       },
       {
         path: 'workspace-status',
         title: 'Workspace Status',
-        description: "Bit' workspace track changes done to components, and shows the state of each in your project's workspace.",
+        description:
+          "Bit' workspace track changes done to components, and shows the state of each in your project's workspace.",
         component: <WorkspaceStatus />,
       },
       {
@@ -381,13 +393,15 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'importing-components',
         title: 'Importing Components',
-        description: 'Importing is the process of copying Components from their Scope to the Local Scope, to use and maintain them in the Workspace.',
+        description:
+          'Importing is the process of copying Components from their Scope to the Local Scope, to use and maintain them in the Workspace.',
         component: <ImportingComponents />,
       },
       {
         path: 'exporting-components',
         title: 'Exporting Components',
-        description: 'Exporting is the process of copying Component versions from the Local Scope to remote Scopes, to make them available to other projects.',
+        description:
+          'Exporting is the process of copying Component versions from the Local Scope to remote Scopes, to make them available to other projects.',
         component: <ExportingComponents />,
       },
       {
@@ -399,13 +413,15 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'removing-components',
         title: 'Removing Components',
-        description: 'Refactoring code often causes components to become obsolete or irrelevant. This is where removing and deprecating components becomes useful and necessary.',
+        description:
+          'Refactoring code often causes components to become obsolete or irrelevant. This is where removing and deprecating components becomes useful and necessary.',
         component: <RemovingDeprecating />,
       },
       {
         path: 'bitmap',
         title: 'bitmap',
-        description: ".bitmap is a file auto-generated and managed by Bit in the Workspace for mapping component to their corresponding directory in the project's file system.",
+        description:
+          ".bitmap is a file auto-generated and managed by Bit in the Workspace for mapping component to their corresponding directory in the project's file system.",
         component: <Bitmap />,
       },
       {
@@ -421,7 +437,8 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'local-scope',
         title: 'Local Scope',
-        description: 'The Local Scope is located in the .bit or .git/bit directory at the root of the Workspace. It is where component versions (snapshots) are stored.',
+        description:
+          'The Local Scope is located in the .bit or .git/bit directory at the root of the Workspace. It is where component versions (snapshots) are stored.',
         component: <LocalScope />,
       },
       {
@@ -440,7 +457,8 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'component-overview',
         title: 'Component Overview',
-        description: 'Component is a decoupled, versioned source-code container designed for the purpose of containing a single module or component.',
+        description:
+          'Component is a decoupled, versioned source-code container designed for the purpose of containing a single module or component.',
         component: <ComponentOverview />,
       },
       {
@@ -456,13 +474,15 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'tags',
         title: 'Tags',
-        description: 'Tags are immutable component snapshots that are marked with release versions (1.0.0, 1.0.1). They are used for consumption, as well as for collaboration.',
+        description:
+          'Tags are immutable component snapshots that are marked with release versions (1.0.0, 1.0.1). They are used for consumption, as well as for collaboration.',
         component: <Tags />,
       },
       {
         path: 'snaps',
         title: 'Snaps',
-        description: 'Snaps allow the recoding of component changes without creating or publishing a new sematic version for them.',
+        description:
+          'Snaps allow the recoding of component changes without creating or publishing a new sematic version for them.',
         component: <Snaps />,
       },
       {
@@ -483,13 +503,15 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'component-id',
         title: 'Component ID',
-        description: 'The Component ID is designed to be a unique, human-readable name that simplifies and help organize components while empowering team autonomy by avoiding cross-team naming conflicts.',
+        description:
+          'The Component ID is designed to be a unique, human-readable name that simplifies and help organize components while empowering team autonomy by avoiding cross-team naming conflicts.',
         component: <ComponentId />,
       },
       {
         path: 'component-main-file',
         title: 'Main File',
-        description: 'The main file of a Component is the file resolved upon a require of the Component Directory. Main file is usually expected to expose the Component API.',
+        description:
+          'The main file of a Component is the file resolved upon a require of the Component Directory. Main file is usually expected to expose the Component API.',
         component: <MainFile />,
       },
       // {
@@ -500,7 +522,8 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'dev-files',
         title: 'Dev Files',
-        description: 'Dev files are component files used for development and not for production. Dev files are determined as such by the Dev Files Aspect.',
+        description:
+          'Dev files are component files used for development and not for production. Dev files are determined as such by the Dev Files Aspect.',
         component: <DevFiles />,
       },
       {
@@ -511,13 +534,15 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'component-capsules',
         title: 'Component Capsules',
-        description: 'A capsule is an isolated component environment. It is mainly implemented as a directory that hosts a component outside its workspace directory.',
+        description:
+          'A capsule is an isolated component environment. It is mainly implemented as a directory that hosts a component outside its workspace directory.',
         component: <Capsule />,
       },
       {
         path: 'component-objects',
         title: 'Component Objects',
-        description: 'When tagging or snapping a component, bit persists the versioned data (the component source files, config, metadata, and artifacts) in git-like objects',
+        description:
+          'When tagging or snapping a component, bit persists the versioned data (the component source files, config, metadata, and artifacts) in git-like objects',
         component: <ComponentObjects />,
       },
     ],
@@ -536,21 +561,29 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'dependencies-overview',
         title: 'Dependencies Overview',
+        description:
+          'Dependency management is a major concern for developers looking to build and deliver components independently.',
         component: <DependenciesOverview />,
       },
       {
         path: 'dependency-installation',
         title: 'Dependency Installation',
+        description:
+          "Bit's dependency resolver ensures Workspace Components and External Dependencies are resolved and kept up to date.",
         component: <DependencyInstallation />,
       },
       {
         path: 'dependency-policies',
         title: 'Dependency Policies',
+        description:
+          'Component dependnecies are defined in Bit through dependency policies. A dependency policy is definition of a set of dependencies, with a SemVer range, allowed to use from components in your development workspace.',
         component: <DependencyPolicies />,
       },
       {
         path: 'configuring-dependencies',
         title: 'Configuring Dependencies',
+        description:
+          'Even though dependencies are usally set automatically by using dependency policies. Components in the Workspace can be configured with a specific set of dependencies.',
         component: <ConfiguringDependencies />,
       },
       {
@@ -560,16 +593,22 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'package-managers',
         title: 'Package Managers',
+        description:
+          "Bit's Package Manager Aspect encapsulates Yarn, pnpm, NPM or any other supported CommonJS package manager using the bit install command.",
         component: <PackageManagers />,
       },
       {
         path: 'external-dependencies',
-        title: 'External dependencies',
+        title: 'External Dependencies',
+        description:
+          "External dependencies are Components or packages, defined in your Workspace's Dependency Policy, and installed and resolved from the node_modules directory.",
         component: <ExternalDependencies />,
       },
       {
         path: 'node-modules',
         title: 'node_modules',
+        description:
+          'The node_modules directory is a standard directory in which modules are resolved from initially by the NodeJS Module Resolution and as a result by other tools across the JS ecosystem such as Webpack, Rollup, TypeScript and others.',
         component: <NodeModules />,
       },
       // {
@@ -579,16 +618,18 @@ export const docsRoutes: DocsRoute[] = [
       // },
       {
         path: 'cyclic-dependencies',
-        title: 'Cyclic dependencies',
+        title: 'Cyclic Dependencies',
       },
       {
         path: 'lock-files',
-        title: 'Lock files',
+        title: 'Lock Files',
+        description:
+          'A lock file is a representation of the node_modules directory, written in a YAML format. It is automatically generated and updated, whenever the node_modules directory structure is modified by the package manager (when packages are either installed or removed).',
         component: <LockFiles />,
       },
       {
         path: 'inspecting-dependencies',
-        title: 'Inspecting dependencies',
+        title: 'Inspecting Dependencies',
       },
     ],
   },
@@ -605,37 +646,45 @@ export const docsRoutes: DocsRoute[] = [
     children: [
       {
         path: 'scope-overview',
-        title: 'Scope overview',
+        title: 'Scope Overview',
+        description:
+          'Scope is a distributed component collaboration host. You can think of it as a micro service, which helps set team and ownership boundaries and allows others to use components as APIs and collaborate on them.',
         component: <ScopeOverview />,
       },
       {
         path: 'creating-scopes',
-        title: 'Creating scopes',
+        title: 'Creating Scopes',
+        description:
+          'Components can be collaborated on using Scopes hosted on Bit Cloud. This can be done quite easily as Bit offers built-in support for Bit Cloud.',
         component: <CreatingScopes />,
       },
       {
         path: 'configuring-scopes',
-        title: 'Configuring scopes (scope.json)',
+        title: 'Configuring Scopes (scope.json)',
         component: <ScopeJson />,
       },
       {
         path: 'running-a-scope-server',
-        title: 'Hosting scopes',
+        title: 'Hosting Scopes',
         component: <HostingScopes />,
       },
       {
         path: 'inspecting-objects',
-        title: 'Inspecting scope objects',
+        title: 'Inspecting Scope Objects',
+        description:
+          'Component objects are stored in Scopes (Local Scopes and Remote Scopes), using the content-addressable storage method. They are either copied to or from remote scopes, when exported or imported (respectively).',
         component: <ComponentObjects />,
       },
       {
         path: 'index-json',
         title: 'index.json',
+        description:
+          "The index.json file maps components (scope ID and component full name) to their objects' hash. This mapping is used, among other things, by the workspace, to reference a Version Object using a component ID and Tag or Snap version.",
         component: <IndexJson />,
       },
       {
         path: 'extending-scopes',
-        title: 'Extending scopes',
+        title: 'Extending Scopes',
         component: <ScopeOverview />,
       },
     ],
@@ -653,16 +702,20 @@ export const docsRoutes: DocsRoute[] = [
     children: [
       {
         path: 'envs-overview',
-        title: 'Envs overview',
+        title: 'Envs Overview',
       },
       {
         path: 'inspecting-env',
         title: 'Inspecting an Env',
+        description:
+          "Understanding your Env's config can be crucial for predicable and bug-free outcomes. Getting the right the information, however, can be quite tricky as there could be multiple sources for a single config.",
         component: <InspectingEnv />,
       },
       {
         path: 'extending-env',
         title: 'Extending an Env',
+        description:
+          'Envs can be customized and extended by creating a Env Extension. An Env Extension is an Aspect component that depends on another Env and uses it to compose a new customized Env.',
         component: <ExtendingEnv />,
       },
       {
@@ -681,6 +734,8 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'dev-services-overview',
         title: 'Dev Services Overview',
+        description:
+          "Dev Services simplify and standardize component development processes, like testing, linting and documenting. They are applied on components, and used by components, via the components' Envs.",
         component: <DevServicesOverview />,
       },
       {
@@ -692,26 +747,35 @@ export const docsRoutes: DocsRoute[] = [
           {
             path: 'builder-overview',
             title: 'Overview',
+            description: `The Builder Aspect manages the component build pipelines. It executes build tasks in sequence, according to their dependency on other tasks, as well as the tasks' own "requests".`,
             component: <BuilderOverview />,
           },
           {
             path: 'build-pipelines',
             title: 'Build Pipelines',
+            description:
+              'The Builder runs three separate build pipelines, the basic build pipeline, the snap pipeline and the tag pipeline.',
             component: <BuildPipelines />,
           },
           {
             path: 'build-tasks',
             title: 'Build Tasks',
+            description:
+              'Build tasks are component development operations that are executed in sequence, in one or more build pipelines.',
             component: <BuildTasks />,
           },
           {
             path: 'build-artifacts',
             title: 'Build Artifacts',
+            description:
+              'Artifacts are files that are generated by a build task, and persisted in the component objects (the component version).',
             component: <BuildArtifacts />,
           },
           {
             path: 'capsule',
             title: 'Caspule',
+            description:
+              'A capsule is an isolated component environment. It is mainly implemented as a directory that hosts a component outside its workspace directory.',
             component: <Capsule />,
           },
         ],
@@ -724,7 +788,7 @@ export const docsRoutes: DocsRoute[] = [
         children: [
           {
             path: 'generator-overview',
-            title: 'Generator overview',
+            title: 'Generator Overview',
           },
         ],
       },
@@ -736,7 +800,8 @@ export const docsRoutes: DocsRoute[] = [
         children: [
           {
             path: 'compiler-overview',
-            title: 'Overview',
+            title: 'Compiler Overview',
+            description: 'The Compiler aspect simplifies and standardizes the process of the compiling components.',
             component: <CompilerOverview />,
           },
           {
@@ -757,6 +822,8 @@ export const docsRoutes: DocsRoute[] = [
           {
             path: 'implement-compiler',
             title: 'Implement a Compiler',
+            description:
+              'Standard compilers are integrated into Bit using a Bit Aspect. For example, Babel is integrated using the Babel Aspect and TypeScript is integrated using the TypeScript Aspect. These Aspects implement the Compiler interface. A compiler implementation should be able to provide compilation in the workspace as well as compilation during build.',
             component: <ImplementCompiler />,
           },
           {
@@ -767,6 +834,8 @@ export const docsRoutes: DocsRoute[] = [
           {
             path: 'multi-compiler',
             title: 'Multi-Compiler',
+            description:
+              'The multi-compiler aspect allows the configuration of multiple compilers on a component. This determines which compiler to apply on a component file using the isFileSupported() compiler API.',
             component: <MultiCompiler />,
           },
         ],
@@ -779,17 +848,21 @@ export const docsRoutes: DocsRoute[] = [
         children: [
           {
             path: 'tester-overview',
-            title: 'Overview',
+            title: 'Tester Overview',
+            description: 'The Tester aspect simplifies and standardizes the process of component testing.',
             component: <TesterOverview />,
           },
           {
             path: 'testing-during-development',
             title: 'Testing during Development',
+            description:
+              'During development, the Tester optimizes for dev experience and performance. It tests modified components, in isolation, to help tackle issues quickly during development.',
             component: <TestingDuringDevelopment />,
           },
           {
             path: 'testing-during-build',
             title: 'Testing during Build',
+            description: 'Testing components for distribution is done during build by the Bit Builder.',
             component: <TestingDuringBuild />,
           },
           {
@@ -812,22 +885,30 @@ export const docsRoutes: DocsRoute[] = [
         children: [
           {
             path: 'docs-overview',
-            title: 'Overview',
+            title: 'Docs Overview',
+            description:
+              'The docs service simplifies the documentation process and provides components with visually rich, custom-made, documentation. It utilizes doc templates to present component docs using the technology and layout that best fits their type.',
             component: <DocsOverview />,
           },
           {
             path: 'mdx',
             title: 'MDX',
+            description:
+              "The MDX format is perfect for writing documentation for components, as it joins together the ease-of-use and readability of the Markdown syntax with the great flexibility that's enabled by JSX.",
             component: <MDX />,
           },
           {
             path: 'docs-templates',
             title: 'Doc Templates',
+            description:
+              'Doc templates display doc files content using a specific layout. This layout may also be enriched with additional data provided by the template. Templates are set by Envs to provide doc layout that best fits the Envs components.',
             component: <DocTemplates />,
           },
           {
             path: 'rendering-docs',
             title: 'Rendering Docs',
+            description:
+              'The Docs aspect uses the Preview aspect to register its docs file and templates for bundling and for rendering in the browser.',
             component: <RenderingDocs />,
           },
         ],
@@ -840,17 +921,23 @@ export const docsRoutes: DocsRoute[] = [
         children: [
           {
             path: 'compositions-overview',
-            title: 'Overview',
+            title: 'Compositions Overview',
+            description:
+              "The Compositions Aspect loads and displays component 'compositions' in an isolated preview environment.",
             component: <CompositionsOverview />,
           },
           {
             path: 'composition-format',
             title: 'Composition Format',
+            description:
+              'Compositions use the Component Story Format (CSF), an open standard for component examples based on JavaScript ES6 modules.',
             component: <CompositionFormat />,
           },
           {
             path: 'composition-context',
             title: 'Setting a Composition Context',
+            description:
+              'Compositions often use the same context. One example of that is a common theme. Instead of manually wrapping each composition with providers, set your Env to inject a pre-configured set of provider components.',
             component: <CompositionContext />,
           },
           {
