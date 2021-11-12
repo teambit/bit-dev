@@ -1,4 +1,4 @@
-import { Category, CategoryProps } from '@teambit/community.ui.footer.category';
+import type { CategoryProps } from '@teambit/community.ui.footer.category';
 
 export const footerMock: CategoryProps[] = [
   {

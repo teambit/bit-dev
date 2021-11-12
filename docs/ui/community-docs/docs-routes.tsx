@@ -4,7 +4,7 @@ import { DocsRoute } from '@teambit/docs.entities.docs-routes';
 
 /* Getting Started */
 
-const InstallingBit = loadable(() => import('@teambit/docs.content.getting-started.installing-bit'));
+// const InstallingBit = loadable(() => import('@teambit/docs.content.getting-started.installing-bit'));
 const CreateComponents = loadable(
   () => import('@teambit/community.content.getting-started.composing.create-components')
 );
@@ -13,7 +13,7 @@ const UseDependencies = loadable(() => import('@teambit/docs.content.getting-sta
 const CreateWorkspace = loadable(() => import('@teambit/docs.content.getting-started.create-workspace'));
 
 const VersionComponents = loadable(() => import('@teambit/docs.content.getting-started.version-components'));
-const WhatIsScope = loadable(() => import('@teambit/docs.content.getting-started.what-is-scope'));
+// const WhatIsScope = loadable(() => import('@teambit/docs.content.getting-started.what-is-scope'));
 const HostBitCloud = loadable(() => import('@teambit/docs.content.getting-started.host-bit-cloud'));
 const SelfHostScope = loadable(() => import('@teambit/docs.content.getting-started.self-host-scope'));
 const ShareComponents = loadable(() => import('@teambit/docs.content.getting-started.share-components'));
@@ -24,7 +24,7 @@ const CiExport = loadable(() => import('@teambit/docs.content.getting-started.ci
 const CiInstall = loadable(() => import('@teambit/docs.content.getting-started.ci-install'));
 
 /* Harmony */
-const CliReference = loadable(() => import('@teambit/harmony.content.cli-reference'));
+// const CliReference = loadable(() => import('@teambit/harmony.content.cli-reference'));
 const AspectsOverview = loadable(() => import('@teambit/harmony.content.aspects-overview'));
 const UsingAspects = loadable(() => import('@teambit/harmony.content.using-aspects'));
 
@@ -45,10 +45,12 @@ const LocalScope = loadable(() => import('@teambit/workspace.content.local-scope
 const MovingComponents = loadable(() => import('@teambit/workspace.content.moving-components'));
 const Variants = loadable(() => import('@teambit/workspace.content.variants'));
 
-/**
- * Scope
- */
+/* Scope */
 const ScopeOverview = loadable(() => import('@teambit/scope.content.scope-overview'));
+const CreatingScopes = loadable(() => import('@teambit/scope.content.creating-scopes'));
+const ScopeJson = loadable(() => import('@teambit/scope.content.scope-json'));
+const IndexJson = loadable(() => import('@teambit/scope.content.index-json'));
+const HostingScopes = loadable(() => import('@teambit/scope.content.hosting-scopes'));
 
 /* Dev services */
 
@@ -167,6 +169,14 @@ const CommonjsPackageRegistries = loadable(() => import('@teambit/pkg.content.co
 const PkgBuildTasks = loadable(() => import('@teambit/pkg.content.pkg-build-tasks'));
 const Npmrc = loadable(() => import('@teambit/pkg.content.npmrc'));
 
+/* Reference */
+
+const UsingBVM = loadable(() => import('@teambit/docs.content.guides.using-bvm'));
+
+/* Global Config */
+const BitConfig = loadable(() => import('@teambit/docs.content.guides.bit-config'));
+const ConfigFiles = loadable(() => import('@teambit/docs.content.guides.config-files'));
+
 export const docsRoutes: DocsRoute[] = [
   {
     path: 'getting-started',
@@ -175,15 +185,26 @@ export const docsRoutes: DocsRoute[] = [
     children: [
       {
         path: 'installing-bit',
-        title: 'Installing Bit',
-        description: "Installing Bit using BVM, Bit's version manager.",
-        component: <InstallingBit />,
-      },
-      {
-        path: 'create-new-workspace',
-        title: 'Create a new Workspace',
-        description: 'A Bit Workspace is where components are built and composed. Workspaces can be generated with the bit new command or initialized on an existing project.',
-        component: <CreateWorkspace />,
+        title: 'Installation',
+        // description: 'Installing Bit',
+        icon: 'install',
+        // component: <InstallingBit />,
+        children: [
+          {
+            path: 'start-bit-project',
+            title: 'Start a new Bit Workspace',
+            description: 'A Bit Workspace is where components are built and composed. Workspaces can be generated with the bit new command or initialized on an existing project.',
+            component: <CreateWorkspace />,
+          },
+          {
+            path: 'editor-setup',
+            title: 'Editor Setup',
+          },
+          {
+            path: 'add-to-existing-project',
+            title: 'Add on Existing Project',
+          },
+        ],
       },
       {
         path: 'composing',
@@ -192,9 +213,9 @@ export const docsRoutes: DocsRoute[] = [
         open: false,
         children: [
           {
-            path: 'create-components',
-            title: 'Creating Components',
-            description: 'Bit makes it simple to build each Component independently, and compose it to others with Dependencies. Components can be created in different types such as Node Modules, React Components, Angular Modules and more.',
+            path: 'first-components',
+            title: 'Your First Components',
+            description: 'Bit makes it simple to build each Component independently, and compose it to others with Dependencies.',
             component: <CreateComponents />,
           },
           {
@@ -205,8 +226,8 @@ export const docsRoutes: DocsRoute[] = [
           },
           {
             path: 'use-dependencies',
-            title: 'Using Dependencies',
-            description: 'Dependencies allow us to compose components out of other components. Dependencies for a component can be either External Dependencies or Workspace Components and are resolved from the import or the require statements added in your components.',
+            title: 'Use Dependencies',
+            description: 'Dependencies allow us to compose components out of other components.',
             component: <UseDependencies />,
           },
         ],
@@ -217,6 +238,11 @@ export const docsRoutes: DocsRoute[] = [
         icon: 'collaborate',
         open: false,
         children: [
+          {
+            path: 'snap-component-changes',
+            title: 'Snapshot Component Changes',
+            component: <VersionComponents />,
+          },
           {
             path: 'version-components',
             title: 'Version Components',
@@ -229,12 +255,6 @@ export const docsRoutes: DocsRoute[] = [
             open: false,
             children: [
               {
-                path: 'scope-overview',
-                title: 'Scope Overview',
-                description: 'Scope is a virtual storage for components. Bit uses Scopes to save versions of components for developers to access them as needed.',
-                component: <WhatIsScope />,
-              },
-              {
                 path: 'host-on-bit-cloud',
                 title: 'Host on Bit Cloud',
                 description: 'Bit is connected to bit.cloud as its default hosting provider.',
@@ -242,16 +262,20 @@ export const docsRoutes: DocsRoute[] = [
               },
               {
                 path: 'self-host-scope',
-                title: 'Self Host Scope',
+                title: 'Self-hosted Scope',
                 description: 'When self-hosting Bit on your own infrastructure you will also need to publish components to an external registry so components will be available to install with package managers.',
                 component: <SelfHostScope />,
               },
             ],
           },
           {
-            path: 'share-components',
-            title: 'Share Components',
-            description: 'Exporting components to remote Bit scopes makes them available for other developers to use. On a remote Bit scope components are discoverable with documentation, examples, and other information. Moreover, components hosted on a remote scope are available to be used in other projects.',
+            path: 'importing-components',
+            title: 'Importing Components',
+            component: <ShareComponents />,
+          },
+          {
+            path: 'exporting-components',
+            title: 'Exporting components',
             component: <ShareComponents />,
           },
         ],
@@ -277,7 +301,6 @@ export const docsRoutes: DocsRoute[] = [
           {
             path: 'update-components',
             title: 'Update Components',
-            description: '',
             component: <UpdateComponents />,
           },
         ],
@@ -309,6 +332,7 @@ export const docsRoutes: DocsRoute[] = [
     title: 'Workspace',
     icon: 'workspace',
     open: false,
+    component: <WorkspaceOverview />,
     config: {
       path: 'workspace-configuration',
       component: <WorkspaceConfiguration />,
@@ -316,15 +340,19 @@ export const docsRoutes: DocsRoute[] = [
     },
     children: [
       {
-        path: 'workspace-overview',
-        title: 'Workspace Overview',
-        description: 'The Bit Workspace is a component-driven development workspace, allowing to implement and compose loosley-coupled, independent components into systems.',
-        component: <WorkspaceOverview />,
-      },
-      {
         path: 'creating-workspaces',
         title: 'Creating Workspaces',
         component: <CreatingWorkspaces />,
+      },
+      {
+        path: 'creating-components',
+        title: 'Creating Components',
+        component: <CreateComponents />,
+      },
+      {
+        path: 'workspace-configuration',
+        component: <WorkspaceConfiguration />,
+        title: 'Workspace Configuration',
       },
       {
         path: 'directory-structure',
@@ -421,8 +449,8 @@ export const docsRoutes: DocsRoute[] = [
         component: <ComponentOverview />,
       },
       {
-        path: 'component-anatomy',
-        title: 'Component Anatomy',
+        path: 'creating-components',
+        title: 'Creating components',
         component: <ComponentAnatomy />,
       },
       {
@@ -448,13 +476,8 @@ export const docsRoutes: DocsRoute[] = [
         component: <Snaps />,
       },
       {
-        path: 'component-history',
-        title: 'Component History',
-        component: <Snaps />,
-      },
-      {
         path: 'navigating-history',
-        title: 'Moving in History',
+        title: 'Navigating history',
         component: <Snaps />,
       },
       {
@@ -579,6 +602,11 @@ export const docsRoutes: DocsRoute[] = [
     open: false,
     title: 'Scope',
     icon: 'collection',
+    config: {
+      path: 'scope-config',
+      title: 'Scope configuration',
+      component: <div />,
+    },
     children: [
       {
         path: 'scope-overview',
@@ -588,22 +616,27 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'creating-scopes',
         title: 'Creating scopes',
-        component: <ScopeOverview />,
+        component: <CreatingScopes />,
       },
       {
         path: 'configuring-scopes',
-        title: 'Configuring scopes',
-        component: <ScopeOverview />,
+        title: 'Configuring scopes (scope.json)',
+        component: <ScopeJson />,
       },
       {
         path: 'running-a-scope-server',
         title: 'Hosting scopes',
-        component: <ScopeOverview />,
+        component: <HostingScopes />,
       },
       {
         path: 'inspecting-objects',
         title: 'Inspecting scope objects',
-        component: <ScopeOverview />,
+        component: <ComponentObjects />,
+      },
+      {
+        path: 'index-json',
+        title: 'index.json',
+        component: <IndexJson />,
       },
       {
         path: 'extending-scopes',
@@ -617,6 +650,11 @@ export const docsRoutes: DocsRoute[] = [
     title: 'Envs',
     icon: 'Internal',
     open: false,
+    config: {
+      path: 'envs-config',
+      title: 'Envs configuration',
+      component: <div />,
+    },
     children: [
       {
         path: 'envs-overview',
@@ -636,61 +674,6 @@ export const docsRoutes: DocsRoute[] = [
         path: 'env-troubleshooting',
         title: 'Env Troubleshooting',
         component: <EnvToubleshooting />,
-      },
-    ],
-  },
-  {
-    title: 'Apps',
-    path: 'apps',
-    icon: 'app',
-    open: false,
-    children: [],
-  },
-  {
-    path: 'packages',
-    title: 'Packages',
-    icon: 'dependencies',
-    open: false,
-    children: [
-      {
-        path: 'packages-overview',
-        title: 'Packages Overview',
-        component: <PackagesOverview />,
-      },
-      {
-        path: 'package-json',
-        title: 'package.json',
-        component: <PackageJson />,
-      },
-      {
-        path: 'managing-package-json',
-        title: 'Managing the package.json',
-        component: <ManagingPackageJson />,
-      },
-      {
-        path: 'package-name',
-        title: 'Package Name',
-        component: <PackageName />,
-      },
-      {
-        path: 'packing-components',
-        title: 'Packing Components',
-        component: <PackingComponents />,
-      },
-      {
-        path: 'publishing-components-to-commonjs-registries',
-        title: 'Publishing to CommonJS Registries',
-        component: <CommonjsPackageRegistries />,
-      },
-      {
-        path: 'build-tasks',
-        title: 'Build Tasks',
-        component: <PkgBuildTasks />,
-      },
-      {
-        path: 'npmrc',
-        title: 'Configuring Bit Cloud in NPM config',
-        component: <Npmrc />,
       },
     ],
   },
@@ -984,6 +967,87 @@ export const docsRoutes: DocsRoute[] = [
     ],
   },
   {
+    title: 'Apps',
+    path: 'apps',
+    icon: 'app',
+    open: false,
+    children: [
+      {
+        path: 'apps-overview',
+        title: 'Apps overview',
+        component: <div />,
+      },
+      {
+        path: 'create-app',
+        title: 'Creating an app',
+        component: <div />,
+      },
+      {
+        path: 'app-build',
+        title: 'App build',
+        component: <div />,
+      },
+      {
+        path: 'app-deployment',
+        title: 'App deployment',
+        component: <div />,
+      },
+      {
+        path: 'application-types',
+        title: 'Application types',
+        component: <div />,
+      },
+    ],
+  },
+  {
+    path: 'packages',
+    title: 'Packages',
+    icon: 'dependencies',
+    open: false,
+    children: [
+      {
+        path: 'packages-overview',
+        title: 'Packages Overview',
+        component: <PackagesOverview />,
+      },
+      {
+        path: 'package-json',
+        title: 'package.json',
+        component: <PackageJson />,
+      },
+      {
+        path: 'managing-package-json',
+        title: 'Managing the package.json',
+        component: <ManagingPackageJson />,
+      },
+      {
+        path: 'package-name',
+        title: 'Package Name',
+        component: <PackageName />,
+      },
+      {
+        path: 'packing-components',
+        title: 'Packing Components',
+        component: <PackingComponents />,
+      },
+      {
+        path: 'publishing-components-to-commonjs-registries',
+        title: 'Publishing to CommonJS Registries',
+        component: <CommonjsPackageRegistries />,
+      },
+      {
+        path: 'build-tasks',
+        title: 'Build Tasks',
+        component: <PkgBuildTasks />,
+      },
+      {
+        path: 'npmrc',
+        title: 'Configuring Bit Cloud in NPM config',
+        component: <Npmrc />,
+      },
+    ],
+  },
+  {
     path: 'tools',
     title: 'Tools',
     open: false,
@@ -1143,18 +1207,18 @@ export const docsRoutes: DocsRoute[] = [
       // }
     ],
   },
-  {
-    path: 'reference',
-    icon: 'Ripple_list',
-    open: false,
-    title: 'Reference',
-    children: [
-      {
-        path: 'cli-reference',
-        title: 'CLI Reference',
-        component: <CliReference />,
-        icon: 'terminal',
-      },
-    ],
-  },
+  // {
+  //   path: 'reference',
+  //   icon: 'Ripple_list',
+  //   open: false,
+  //   title: 'Reference',
+  //   children: [
+  //     {
+  //       path: 'cli-reference',
+  //       title: 'CLI Reference',
+  //       component: <CliReference />,
+  //       icon: 'terminal',
+  //     },
+  //   ],
+  // },
 ];
