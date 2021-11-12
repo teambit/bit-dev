@@ -40,7 +40,7 @@ export function NavLinks({links}: NavLinksProps) {
   return (
     <div className={styles.navLinks}>
       {links.map((link, key) => {
-        const isExternal = link.href?.startsWith('http://') || undefined;
+        const isExternal = link.href?.startsWith('https://') || undefined;
         return <NavLink key={key} external={isExternal} className={styles.link} activeClassName={styles.active} href={link.href}>{link.title}</NavLink>})}
     </div>
   )

@@ -1,0 +1,35 @@
+# index.json
+
+The `index.json` file maps components ([scope ID](/components/component-id#scope-id) and [component full name](/components/component-id#scope-id)) to their [objects'](/components/component-objects) hash.
+This mapping is used, among other things, by the workspace, to reference a [Version Object](/components/component-objects#version/snap) using a [component ID](/components/component-id) and [Tag](/components/tags) or [Snap](/components/snaps) version.
+
+```json
+{
+  "components": [
+    {
+      "id": {
+        "scope": "teambit.community",
+        "name": "apps/bit-dev"
+      },
+      "isSymlink": false,
+      "hash": "fbb14f61945ad2f3752a0b4eabd761795508d01f"
+    },
+    {
+      "id": {
+        "scope": "teambit.base-react",
+        "name": "navigation/router-context"
+      },
+      "isSymlink": false,
+      "hash": "1fde2a72edece118ad0f49171dfd0968bccf0c5d"
+    },
+    {
+      "id": {
+        "scope": "teambit.community",
+        "name": "envs/community-react"
+      },
+      "isSymlink": false,
+      "hash": "d26f3086230a764944315d3c1bc1de9ea8e45a9d"
+    }
+  ]
+}
+```

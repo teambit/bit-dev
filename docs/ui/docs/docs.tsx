@@ -68,7 +68,12 @@ export function Docs({
             const next = routeArray[key + 1] ? routeArray[key + 1] : undefined;
             return (
               <Route key={route.title} path={route.absPath}>
-                <DocPage nextPage={showNext ? next : undefined} title={route.title} baseUrl={baseUrl}>
+                <DocPage
+                  nextPage={showNext ? next : undefined}
+                  title={route.title}
+                  description={route.description}
+                  baseUrl={baseUrl}
+                >
                   {route.component}
                 </DocPage>
               </Route>
