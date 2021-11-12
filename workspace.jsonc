@@ -104,7 +104,7 @@
         "@teambit/mdx.ui.mdx-layout": "0.0.451",
         "@teambit/react.eslint-config-bit-react": "0.0.451",
         "@teambit/react.templates.themes.theme": "0.0.3",
-        "@teambit/react.ui.component-highlighter": "0.0.461",
+        "@teambit/react.ui.component-highlighter": "0.0.477",
         "@teambit/ui-foundation.ui.buttons.collapser": "0.0.144",
         "@teambit/ui-foundation.ui.react-router.link": "0.0.441",
         "@teambit/ui-foundation.ui.react-router.nav-link": "0.0.441",
