@@ -361,11 +361,6 @@ export const docsRoutes: DocsRoute[] = [
         component: <DirectoryStructure />,
       },
       {
-        path: 'creating-components',
-        title: 'Creating Components',
-        component: <CreatingWorkspaces />,
-      },
-      {
         path: 'component-directory',
         title: 'Component Directory',
         description: 'A Component Directory is a directory in the developer Workspace. Directories are mapped as Components using the .bitmap rootDir property which exist for every Component entry.',
