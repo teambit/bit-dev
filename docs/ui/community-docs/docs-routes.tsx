@@ -376,6 +376,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'removing-components',
         title: 'Removing Components',
+        description: 'Refactoring code often causes components to become obsolete or irrelevant. This is where removing and deprecating components becomes useful and necessary.',
         component: <RemovingDeprecating />,
       },
       {
@@ -386,17 +387,18 @@ export const docsRoutes: DocsRoute[] = [
       },
       {
         path: 'component-links',
-        title: 'Workspace component link',
+        title: 'Workspace Component Link',
         component: <WorkspaceLink />,
       },
       {
         path: 'configuring-remote-scopes',
-        title: 'Configuring remote scopes',
+        title: 'Configuring Remote Scopes',
         component: <ConfiguringRemoteScopes />,
       },
       {
         path: 'local-scope',
-        title: 'Local scope',
+        title: 'Local Scope',
+        description: 'The Local Scope is located in the .bit or .git/bit directory at the root of the Workspace. It is where component versions (snapshots) are stored.',
         component: <LocalScope />,
       },
       {
@@ -414,27 +416,30 @@ export const docsRoutes: DocsRoute[] = [
     children: [
       {
         path: 'component-overview',
-        title: 'Component overview',
+        title: 'Component Overview',
+        description: 'Component is a decoupled, versioned source-code container designed for the purpose of containing a single module or component.',
         component: <ComponentOverview />,
       },
       {
         path: 'component-anatomy',
-        title: 'Component anatomy',
+        title: 'Component Anatomy',
         component: <ComponentAnatomy />,
       },
       {
         path: 'component-config',
-        title: 'Component configuration',
+        title: 'Component Configuration',
         component: <ComponentConfig />,
       },
       {
         path: 'tags',
         title: 'Tags',
+        description: 'Tags are immutable component snapshots that are marked with release versions (1.0.0, 1.0.1). They are used for consumption, as well as for collaboration.',
         component: <Tags />,
       },
       {
         path: 'snaps',
         title: 'Snaps',
+        description: 'Snaps allow the recoding of component changes without creating or publishing a new sematic version for them.',
         component: <Snaps />,
       },
       {
@@ -444,12 +449,12 @@ export const docsRoutes: DocsRoute[] = [
       },
       {
         path: 'component-history',
-        title: 'Component history',
+        title: 'Component History',
         component: <Snaps />,
       },
       {
         path: 'navigating-history',
-        title: 'Moving in history',
+        title: 'Moving in History',
         component: <Snaps />,
       },
       {
@@ -460,11 +465,13 @@ export const docsRoutes: DocsRoute[] = [
       {
         path: 'component-id',
         title: 'Component ID',
+        description: 'The Component ID is designed to be a unique, human-readable name that simplifies and help organize components while empowering team autonomy by avoiding cross-team naming conflicts.',
         component: <ComponentId />,
       },
       {
         path: 'component-main-file',
-        title: 'Main file',
+        title: 'Main File',
+        description: 'The main file of a Component is the file resolved upon a require of the Component Directory. Main file is usually expected to expose the Component API.',
         component: <MainFile />,
       },
       // {
@@ -474,22 +481,25 @@ export const docsRoutes: DocsRoute[] = [
       // },
       {
         path: 'dev-files',
-        title: 'Dev files',
+        title: 'Dev Files',
+        description: 'Dev files are component files used for development and not for production. Dev files are determined as such by the Dev Files Aspect.',
         component: <DevFiles />,
       },
       {
         path: 'inspecting-components',
-        title: 'Inspecting components',
+        title: 'Inspecting Components',
         component: <InspectingComponents />,
       },
       {
         path: 'component-capsules',
-        title: 'Component capsules',
+        title: 'Component Capsules',
+        description: 'A capsule is an isolated component environment. It is mainly implemented as a directory that hosts a component outside its workspace directory.',
         component: <Capsule />,
       },
       {
         path: 'component-objects',
-        title: 'Component objects',
+        title: 'Component Objects',
+        description: 'When tagging or snapping a component, bit persists the versioned data (the component source files, config, metadata, and artifacts) in git-like objects',
         component: <ComponentObjects />,
       },
     ],
@@ -507,31 +517,31 @@ export const docsRoutes: DocsRoute[] = [
     children: [
       {
         path: 'dependencies-overview',
-        title: 'Dependencies overview',
+        title: 'Dependencies Overview',
         component: <DependenciesOverview />,
       },
       {
         path: 'dependency-installation',
-        title: 'Dependency installation',
+        title: 'Dependency Installation',
         component: <DependencyInstallation />,
       },
       {
         path: 'dependency-policies',
-        title: 'Dependency policies',
+        title: 'Dependency Policies',
         component: <DependencyPolicies />,
       },
       {
         path: 'configuring-dependencies',
-        title: 'Configuring dependencies',
+        title: 'Configuring Dependencies',
         component: <ConfiguringDependencies />,
       },
       {
         path: 'updates',
-        title: 'Dependency updates',
+        title: 'Dependency Updates',
       },
       {
         path: 'package-managers',
-        title: 'Package managers',
+        title: 'Package Managers',
         component: <PackageManagers />,
       },
       {
