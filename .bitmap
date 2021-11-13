@@ -1125,6 +1125,12 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/homepage/sections/standardization"
     },
+    "ui/hooks/use-local-storage": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/hooks/use-local-storage"
+    },
     "ui/hooks/use-stars": {
         "scope": "teambit.community",
         "version": "1.9.56",
