@@ -1,0 +1,25 @@
+---
+description: 'Inspecting the dependencies of a component.'
+labels: ['Component', 'dependencies']
+---
+
+import { InspectingDependencies } from './index';
+
+### Component usage
+```js
+<InspectingDependencies />
+```
+
+### Render with theme and MDX providers
+
+```js
+import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions'
+import { MDXLayout } from '@teambit/ui.mdx-layout'
+import { InspectingDependencies } from './index'
+
+<ThemeCompositions>
+  <MDXLayout>
+    <InspectingDependencies />
+  </MDXLayout>
+</ThemeCompositions>
+```
