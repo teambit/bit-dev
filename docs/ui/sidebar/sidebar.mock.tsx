@@ -126,3 +126,63 @@ export const sidebarMock = {
     },
   ],
 };
+
+export const sidebarCategoryMock = {
+  id: '',
+  children: [
+    {
+      id: 'installing-bit',
+      payload: {
+        open: false,
+        icon: 'workspace',
+        title: 'Installing Bit',
+        path: '/docs/getting-started/installing-bit',
+      },
+      children: [
+        {
+          id: 'installing-bit',
+          payload: {
+            title: 'Installing Bit',
+            path: '/docs/getting-started/installing-bit',
+          },
+        },
+      ],
+    },
+    {
+      id: 'composing',
+      payload: {
+        open: false,
+        icon: 'compose',
+        title: 'Composing',
+        path: '/docs/getting-started/composing/composing',
+      },
+      children: [
+        {
+          id: 'creating-components',
+          payload: {
+            title: 'Creating Components',
+            path: '/docs/getting-started/composing/creating-components',
+          },
+        },
+      ],
+    },
+    {
+      id: 'collaborate',
+      payload: {
+        open: false,
+        icon: 'collaborate',
+        title: 'Collaborate',
+        path: '/docs/getting-started/collaborate/snap-component-changes',
+      },
+      children: [
+        {
+          id: 'snap-component-changes',
+          payload: {
+            title: 'Creating Components',
+            path: '/docs/getting-started/collaborate/snap-component-changes',
+          },
+        },
+      ],
+    },
+  ],
+};

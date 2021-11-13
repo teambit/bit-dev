@@ -1,0 +1,11 @@
+.sidebar {
+  padding: 16px 0px;
+}
+.sidebarTitle {
+  color: var(--bit-text-inactive-heavy, #878c9a);
+  font-size: var(--bit-p-xxs, 12px);
+  height: 32px;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+}

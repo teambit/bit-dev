@@ -9,11 +9,28 @@ import { Sidebar } from '@teambit/design.ui.sidebar.sidebar';
 import styles from './docs.module.scss';
 import { PrimaryLinks } from './primary-links';
 
-export type DocsProps = {
+export type CategoryRoutes = {
+  /**
+   * a title for the category.
+   */
+  title: string;
+
   /**
    * a routes to be rendered in the sidebar.
    */
   routes: DocsRoute[];
+};
+
+export type DocsProps = {
+  /**
+   * a routes to be rendered in the sidebar.
+   */
+  routes?: DocsRoute[];
+
+  /**
+   * an array of routes category.
+   */
+  routesCategories?: CategoryRoutes[];
 
   /**
    * base URL for the docs route.
@@ -37,7 +54,8 @@ export type DocsProps = {
 } & React.HtmlHTMLAttributes<HTMLDivElement>;
 
 export function Docs({
-  routes,
+  routes = [],
+  routesCategories,
   primaryLinks = [],
   showNext = true,
   baseUrl = '/',
@@ -47,19 +65,31 @@ export function Docs({
 }: DocsProps) {
   const { path } = useRouteMatch();
   const sidebar = useSidebar();
-  const docRoutes = DocsRoutes.from(routes, baseUrl || path);
   const primaryRoutes = DocsRoutes.from(primaryLinks, baseUrl || path);
+  const docRoutes = DocsRoutes.from(routes, baseUrl || path);
+  const docsRoutesCategories = routesCategories?.map((category) => {
+    return {
+      title: category.title,
+      routes: DocsRoutes.from(category.routes || [], baseUrl || path),
+    };
+  });
 
-  const routeArray = useMemo(
-    () => [...primaryRoutes.getRoutes(), ...docRoutes.getRoutes()],
-    [primaryRoutes, docRoutes]
-  );
+  const routeArray = useMemo(() => {
+    const memoArray = [...primaryRoutes.getRoutes(), ...docRoutes.getRoutes()];
+    if (docsRoutesCategories) {
+      docsRoutesCategories.forEach((category) => memoArray.push(...category.routes.getRoutes()));
+    }
+    return memoArray;
+  }, [primaryRoutes, docRoutes, docsRoutesCategories]);
 
   return (
     <div {...rest} className={classNames(styles.main, className)}>
       <Sidebar isOpen={sidebar.isOpen} toggle={sidebar.setIsOpen}>
         <PrimaryLinks tree={primaryRoutes.toSideBarTree()} />
         <Tree tree={docRoutes.toSideBarTree()} linkPrefix={baseUrl} />
+        {docsRoutesCategories?.map((category, key) => (
+          <Tree key={key} displayTitle={category.title} tree={category.routes.toSideBarTree()} linkPrefix={baseUrl} />
+        ))}
       </Sidebar>
       <div className={styles.content}>
         <Switch>
