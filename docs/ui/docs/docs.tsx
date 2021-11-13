@@ -19,6 +19,11 @@ export type CategoryRoutes = {
    * a routes to be rendered in the sidebar.
    */
   routes: DocsRoute[];
+
+  /**
+   * a className to pass styling to the sidebar.
+   */
+  className?: string;
 };
 
 export type DocsProps = {
@@ -71,6 +76,7 @@ export function Docs({
     return {
       title: category.title,
       routes: DocsRoutes.from(category.routes || [], baseUrl || path),
+      className: category.className,
     };
   });
 
@@ -87,8 +93,14 @@ export function Docs({
       <Sidebar isOpen={sidebar.isOpen} toggle={sidebar.setIsOpen}>
         <PrimaryLinks tree={primaryRoutes.toSideBarTree()} />
         <Tree tree={docRoutes.toSideBarTree()} linkPrefix={baseUrl} />
-        {docsRoutesCategories?.map((category, key) => (
-          <Tree key={key} displayTitle={category.title} tree={category.routes.toSideBarTree()} linkPrefix={baseUrl} />
+        {docsRoutesCategories?.map((category) => (
+          <Tree
+            key={category.title}
+            displayTitle={category.title}
+            tree={category.routes.toSideBarTree()}
+            linkPrefix={baseUrl}
+            className={category.className}
+          />
         ))}
       </Sidebar>
       <div className={styles.content}>

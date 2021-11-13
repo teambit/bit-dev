@@ -36,6 +36,8 @@ export type SidebarProps = {
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export function Sidebar({ displayTitle, tree, linkPrefix, className, ...rest }: SidebarProps) {
+  const links = tree.children;
+  if (!links || links.length === 0) return null;
   const [active, setToActive] = useState(tree.id);
 
   return (
