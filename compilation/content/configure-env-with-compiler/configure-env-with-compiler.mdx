@@ -1,32 +1,81 @@
 # Configure an Env with a Compiler
 
-The `getCompiler` method sets the Env to use a Compiler implementation (for example, the [TypeScript Aspect](https://bit.dev/teambit/typescript/typescript)).
+If you're using a custom compiler implementation, make sure to compile it first, before using it:
 
-```ts
-getCompiler(): Compiler
+```bash
+bit compile
 ```
 
-For example:
+To use the new compiler, create an Env extension or use an existing one.
+
+For example, the following will create a React Env extension.
+
+```
+bit create react-env extensions/my-react
+```
+
+The compiler can be configured using the `overrideCompiler` and `overrideBuildPipe` APIs, however, these may not exist in all Envs.
+
+To make this tutorial Env-agnostic, we'll directly override the Envs Build Pipeline and Compiler.
+
+Add an Env implementation file to your newly created Env extension.
+
+```
+cd my-scope/extensions/my-env
+touch my-env.env.ts
+```
+
+Implement the following:
 
 ```ts
-// my-env.env.ts
+import { CompilerEnv, BuilderEnv } from '@teambit/envs';
+import { MyCompilerNoSmMain } from '@my-org/compilation.examples.extensions.my-compiler-no-sm';
 
-// ...
-import { CompilerEnv } from '@teambit/envs';
-import { TypescriptMain } from '@teambit/typescript';
+// The Env class should only implement the services it overrides as it will be merged with the base Env
+export class MyEnv implements CompilerEnv, BuilderEnv {
+  constructor(private myCompiler: MyCompiler) {}
 
-export class MyEnv implements CompilerEnv {
-  constructor(
-    // ...
+  myCompiler = this.myCompiler.createCompiler();
 
-    private tsAspect: TypescriptMain
-  ) {}
-
-  // ...
-
+  // Use the 'getCompiler' service handler to use a compiler
   getCompiler() {
-    const tsConfig = require.resolve('./typescript/tsconfig.json');
-    return this.tsAspect.createCompiler(tsConfig);
+    return this.myCompiler;
+  }
+
+  // Use the 'getBuildPipe' service handler to register a build task
+  getBuildPipe() {
+    return [this.myCompiler.createTask()];
   }
 }
+
+MyReactAspect.addRuntime(MyReactMain);
+```
+
+In the Env's main runtime file (`my-env.main.runtime.ts`), implement the following:
+
+```ts
+import { MainRuntime } from '@teambit/cli';
+import { ReactAspect, ReactMain } from '@teambit/react';
+import { EnvsAspect, EnvsMain } from '@teambit/envs';
+import { MyCompilerMain, MyCompilerAspect } from '@my-org/my-scope.extensions.my-compiler';
+import { MyReactAspect } from './my-react-no-sm.aspect';
+import { MyReact } from './my-react-no-sm.env';
+
+export class MyReactNoSmMain {
+  constructor(readonly myReactEnv: MyReactNoSm) {}
+
+  static dependencies = [ReactAspect, EnvsAspect, myCompiler];
+
+  static runtime = MainRuntime;
+
+  static async provider([react, envs, myCompiler]: [ReactMain, EnvsMain, MyCompilerNoSmMain]) {
+    // Merge the customized and base Env instances
+    const myReactEnv = envs.merge<MyReact>(react.reactEnv, new MyReact(myCompiler));
+
+    envs.registerEnv(myReactEnv);
+    return new MyReactMain(myReactEnv);
+  }
+}
+
+MyReactAspect.addRuntime(MyReactMain);
 ```
