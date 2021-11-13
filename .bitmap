@@ -315,6 +315,12 @@
         "mainFile": "index.ts",
         "rootDir": "envs/content/extending-env"
     },
+    "content/extending-react": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "react/content/extending-react"
+    },
     "content/external-dependencies": {
         "scope": "teambit.dependencies",
         "version": "1.9.53",
@@ -680,6 +686,12 @@
         "version": "1.9.53",
         "mainFile": "index.ts",
         "rootDir": "docs/content/quick-start"
+    },
+    "content/react-overview": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "react/content/react-overview"
     },
     "content/react-router": {
         "scope": "teambit.react",

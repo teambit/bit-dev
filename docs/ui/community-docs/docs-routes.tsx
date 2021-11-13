@@ -172,6 +172,7 @@ const Npmrc = loadable(() => import('@teambit/pkg.content.npmrc'));
 /* Reference */
 
 const UsingBVM = loadable(() => import('@teambit/docs.content.guides.using-bvm'));
+const CliReference = loadable(() => import('@teambit/harmony.content.cli-reference'));
 
 /* Global Config */
 const BitConfig = loadable(() => import('@teambit/docs.content.guides.bit-config'));
