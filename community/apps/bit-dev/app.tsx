@@ -14,6 +14,7 @@ import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 import { ComponentHighlighter } from '@teambit/react.ui.component-highlighter';
 import { RoutingProvider } from '@teambit/base-ui.routing.routing-provider';
 import { Footer, footerMock } from '@teambit/community.ui.footer.footer';
+import { useLocalStorage } from '@teambit/community.ui.hooks.use-local-storage';
 
 import { legacyRouting } from './legacy-routing';
 import styles from './app.module.scss';
@@ -24,7 +25,7 @@ import styles from './app.module.scss';
 const Plugins = loadable(() => import('@teambit/community.ui.pages.plugins'));
 
 export function BitDevApp() {
-  const [highlighting, setHighlighting] = useState(true);
+  const [highlighting, setHighlighting] = useLocalStorage('highlighting', true);
 
   return (
     <AppContext showHighlighter={highlighting}>
