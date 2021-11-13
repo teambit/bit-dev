@@ -10,7 +10,7 @@ export type CommunityDocsProps = {
    * base url to use for docs section.
    */
   baseUrl?: string;
-} & Omit<DocsProps, 'gettingStartedRoutes' | 'learndRoutes'>;
+} & DocsProps;
 
 export function CommunityDocs({ baseUrl = '/docs', ...rest }: CommunityDocsProps) {
   return (
