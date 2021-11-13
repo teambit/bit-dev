@@ -1,10 +1,5 @@
 @import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
 
-.docs {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-}
-
 .content {
   padding: 0 36px;
   box-sizing: border-box;
