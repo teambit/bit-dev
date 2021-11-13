@@ -30,7 +30,7 @@ const headerContent = [
   },
   {
     title: 'Guides',
-    href: '/guides'
+    href: '/guides/micro-frontends/overview'
   },
   {
     title: 'Plugins',

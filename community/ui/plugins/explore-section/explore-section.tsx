@@ -48,11 +48,11 @@ export function ExploreSection({ heading, subtitle, className, ...rest }: Explor
             className={styles.searchInput}
           />
           <div>
-            <Link href="https://bit.dev/components?env=aspect" external className={styles.link}>
+            <Link href="https://bit.cloud/components?env=aspect" external className={styles.link}>
               Browse plugins
               <Icon of="right-arrow" className={styles.icon} />
             </Link>
-            <Link href="/docs/extending-bit/create-a-plugin" className={styles.link}>
+            <Link href="/docs/extending-bit/aspect-overview" className={styles.link}>
               Create a new plugin <Icon of="right-arrow" className={styles.icon} />
             </Link>
           </div>

@@ -47,6 +47,33 @@ export class MyEnv implements CompilerEnv, BuilderEnv {
     return [this.myCompiler.createTask()];
   }
 }
+```
+
+In the Env's main runtime file (`my-env.main.runtime.ts`), implement the following:
+
+```ts
+import { MainRuntime } from '@teambit/cli';
+import { ReactAspect, ReactMain } from '@teambit/react';
+import { EnvsAspect, EnvsMain } from '@teambit/envs';
+import { MyCompilerMain, MyCompilerAspect } from '@my-org/my-scope.extensions.my-compiler';
+import { MyReactAspect } from './my-react-no-sm.aspect';
+import { MyReact } from './my-react-no-sm.env';
+
+export class MyReactNoSmMain {
+  constructor(readonly myReactEnv: MyReactNoSm) {}
+
+  static dependencies = [ReactAspect, EnvsAspect, myCompiler];
+
+  static runtime = MainRuntime;
+
+  static async provider([react, envs, myCompiler]: [ReactMain, EnvsMain, MyCompilerNoSmMain]) {
+    // Merge the customized and base Env instances
+    const myReactEnv = envs.merge<MyReact>(react.reactEnv, new MyReact(myCompiler));
+
+    envs.registerEnv(myReactEnv);
+    return new MyReactMain(myReactEnv);
+  }
+}
 
 MyReactAspect.addRuntime(MyReactMain);
 ```

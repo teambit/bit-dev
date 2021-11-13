@@ -92,6 +92,13 @@ export const testingMock: ComponentCardProps[] = [
     envIcon: `${staticEnvBaseUrl}default.svg`,
     preview: <ComponentCardPreview src={`${staticBrandsBaseUrl}logo-mocha.svg`} />,
   },
+  {
+    id: 'teambit.defender/cypress',
+    description: 'Coming Soon',
+    envIcon: `${staticEnvBaseUrl}default.svg`,
+    preview: <ComponentCardPreview src={`${staticBrandsBaseUrl}logo-cypress.svg`} />,
+    className: styles.disableCard,
+  },
 ];
 
 export const lintingFormatingMock: ComponentCardProps[] = [
@@ -112,26 +119,29 @@ export const lintingFormatingMock: ComponentCardProps[] = [
 export const appsMock: ComponentCardProps[] = [
   {
     id: 'teambit.application/netlify',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum fdfd',
+    description: 'Deploy App components to Netlify.',
     envIcon: `${staticEnvBaseUrl}default.svg`,
     preview: <ComponentCardPreview src={`${staticBrandsBaseUrl}netlify.svg`} />,
   },
   {
-    id: 'teambit.apps/nextjs',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum fdfd',
+    id: 'teambit.application/nextjs',
+    description: 'Coming Soon',
     envIcon: `${staticEnvBaseUrl}default.svg`,
     preview: <ComponentCardPreview src={`${staticBrandsBaseUrl}logo-next.svg`} />,
+    className: styles.disableCard,
   },
   {
-    id: 'teambit.apps/gatsby',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum fdfd',
+    id: 'teambit.application/gatsby',
+    description: 'Coming Soon',
     envIcon: `${staticEnvBaseUrl}default.svg`,
     preview: <ComponentCardPreview src={`${staticBrandsBaseUrl}logo-gatsby.svg`} />,
+    className: styles.disableCard,
   },
   {
-    id: 'teambit.apps/docusaurus',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum fdfd',
+    id: 'teambit.application/docusaurus',
+    description: 'Coming Soon',
     envIcon: `${staticEnvBaseUrl}default.svg`,
     preview: <ComponentCardPreview src={`${staticBrandsBaseUrl}logo-docusaurus.svg`} />,
+    className: styles.disableCard,
   },
 ];
