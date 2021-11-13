@@ -9,7 +9,7 @@ import { Sidebar } from '@teambit/design.ui.sidebar.sidebar';
 import styles from './docs.module.scss';
 import { PrimaryLinks } from './primary-links';
 
-export type RoutesCategory = {
+export type CategoryRoutes = {
   /**
    * a title for the category.
    */
@@ -30,7 +30,7 @@ export type DocsProps = {
   /**
    * an array of routes category.
    */
-  routesCategories?: RoutesCategory[];
+  routesCategories?: CategoryRoutes[];
 
   /**
    * base URL for the docs route.
