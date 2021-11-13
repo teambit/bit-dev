@@ -163,7 +163,7 @@ const Npmrc = loadable(() => import('@teambit/pkg.content.npmrc'));
 // const BitConfig = loadable(() => import('@teambit/docs.content.guides.bit-config'));
 // const ConfigFiles = loadable(() => import('@teambit/docs.content.guides.config-files'));
 
-export const learndDocsRoutes: DocsRoute[] = [
+export const learnDocsRoutes: DocsRoute[] = [
   {
     path: 'workspace',
     title: 'Workspace',

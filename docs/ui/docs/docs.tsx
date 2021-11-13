@@ -87,8 +87,13 @@ export function Docs({
       <Sidebar isOpen={sidebar.isOpen} toggle={sidebar.setIsOpen}>
         <PrimaryLinks tree={primaryRoutes.toSideBarTree()} />
         <Tree tree={docRoutes.toSideBarTree()} linkPrefix={baseUrl} />
-        {docsRoutesCategories?.map((category, key) => (
-          <Tree key={key} displayTitle={category.title} tree={category.routes.toSideBarTree()} linkPrefix={baseUrl} />
+        {docsRoutesCategories?.map((category) => (
+          <Tree
+            key={category.title}
+            displayTitle={category.title}
+            tree={category.routes.toSideBarTree()}
+            linkPrefix={baseUrl}
+          />
         ))}
       </Sidebar>
       <div className={styles.content}>
