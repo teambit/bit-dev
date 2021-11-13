@@ -69,21 +69,33 @@ export class DocsRoutes {
 
   private computeRoutes(currentRoute: DocsRoute, parentPath?: string): Route[] {
     if (currentRoute.children) {
-      const config = currentRoute.config;
-      const configRoutes = config 
-        ? [{ 
-          title: 
-          config.title, 
-          description: '', 
-          absPath: this.computePath(config, currentRoute.path), 
-          component: config.component 
-        }]
+      const { config } = currentRoute;
+      const categoryRoute = currentRoute.component
+        ? [
+            {
+              title: currentRoute.title,
+              path: currentRoute.path,
+              component: currentRoute.component,
+              absPath: this.computePath(currentRoute, parentPath),
+              description: currentRoute.description,
+            },
+          ]
         : [];
-  
+      const configRoutes = config
+        ? [
+            {
+              title: config.title,
+              description: '',
+              absPath: this.computePath(config, currentRoute.path),
+              component: config.component,
+            },
+          ]
+        : [];
       const thisPath = this.accumulatePath(currentRoute.path, parentPath);
       return currentRoute.children
         .flatMap((child) => this.computeRoutes(child, thisPath))
-        .concat(configRoutes);
+        .concat(configRoutes)
+        .concat(categoryRoute);
     }
 
     return [

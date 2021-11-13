@@ -6,12 +6,12 @@ export type SubtitleProps = {
   /**
    * a text to be rendered in the component.
    */
-  children: ReactNode,
+  children: ReactNode;
 
   /**
    * class names to apply.
    */
-  className?: string
+  className?: string;
 } & React.HTMLAttributes<HTMLParagraphElement>;
 
 export function Subtitle({ children, className, ...rest }: SubtitleProps) {
