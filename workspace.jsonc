@@ -49,7 +49,7 @@
         "@learn-bit-react/ecommerce.entity.product": "1.0.2",
         "@learn-bit-react/ecommerce.ui.header": "1.0.9",
         "@learn-bit-react/ecommerce.ui.product.price": "1.0.6",
-        "@learn-bit-react/ecommerce.ui.product.product-card": "1.0.9",
+        "@learn-bit-react/ecommerce.ui.product.product-card": "1.0.14",
         "@learn-bit-react/ecommerce.ui.product.product-card-grid": "1.0.9",
         "@learn-bit-react/ecommerce.ui.store-hero": "0.0.9",
         "@loadable/component": "5.15.0",
@@ -198,6 +198,9 @@
     },
     "docs": {
       "defaultScope": "teambit.docs"
+    },
+    "ecommerce/ui/product/product-card": {
+      "teambit.community/envs/community-react": "-"
     },
     "component": {
       "defaultScope": "teambit.component"
