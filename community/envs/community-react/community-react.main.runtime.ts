@@ -53,6 +53,8 @@ export class CommunityReactMain {
             config.setRule('react/require-default-props', 'off');
             config.setRule('consistent-return', 'off');
             config.setRule('arrow-body-style', 'off');
+            config.setRule('react/destructuring-assignment', 'off');
+            config.setRule('class-methods-use-this', 'off');
             config.setRule('jsx-a11y/click-events-have-key-events', 'off');
             config.setRule('jsx-a11y/no-static-element-interactions', 'off');
 
