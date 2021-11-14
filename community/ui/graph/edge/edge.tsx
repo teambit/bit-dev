@@ -1,6 +1,7 @@
 import React from 'react';
+import XArrow from 'react-xarrows';
 import { GridNode, DependencyEdge } from '@teambit/community.entity.graph.grid-graph';
-import XArrow, { xarrowPropsType as XArrowProps } from 'react-xarrows';
+import { getDirection } from './get-direction';
 
 export type EdgeProps = {
   node: GridNode<unknown>;
@@ -9,9 +10,10 @@ export type EdgeProps = {
 
 export function Edge({ node, dependency, ...rest }: EdgeProps) {
   const anchors: any = {};
+  const direction = getDirection(dependency.edge?.direction) || {}; // not sure if we should memoize this
+
   if (dependency.edge?.start) anchors.startAnchor = dependency.edge.start;
   if (dependency.edge?.end) anchors.endAnchor = dependency.edge.end;
-  if (dependency.edge?.showHead !== undefined) anchors.showHead = dependency.edge.showHead;
 
   return (
     <div {...rest}>
@@ -22,6 +24,7 @@ export function Edge({ node, dependency, ...rest }: EdgeProps) {
         strokeWidth={dependency.edge?.strokeWidth || 2}
         color={dependency.edge?.color || '#ECEAFF'}
         {...anchors}
+        {...direction}
       />
     </div>
   );
