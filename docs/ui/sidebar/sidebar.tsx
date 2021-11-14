@@ -45,7 +45,7 @@ export function Sidebar({ displayTitle, tree, linkPrefix, className, ...rest }: 
       {displayTitle && <span className={styles.sidebarTitle}>{displayTitle}</span>}
       <TreeNodeContext.Provider value={SidebarNode}>
         <TreeContextProvider onSelect={(id) => setToActive(id)} selected={active}>
-          <RootNode node={tree} depth={1} />
+          <RootNode node={tree} depth={2} />
         </TreeContextProvider>
       </TreeNodeContext.Provider>
     </div>
