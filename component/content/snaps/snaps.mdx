@@ -196,7 +196,6 @@ New snapshot for `ui/heading` depends on the second snapshot of `ui/text`.
 
 :::
 
-
 ##  Snapshot in the Workspace
 
 Bit understands the internal dependency graph of your workspace, and how your components are connected. SO while you can use the `snap` command per component, it accepts several features that simplify the flow when working with many components.
@@ -218,3 +217,28 @@ If you need to set different log message according to component namespaces, use 
 bit snap ui/* --message "one message for my ui components"
 bit snap pages/* --message "another message for my pages"
 ```
+
+### Auto-Snap Dependents
+
+When you run `bit snap`, Bit can automatically snap all dependents of the component you are working on. Snap will propagate through all the dependents, and create a new snapshot for each of them.
+
+```bash
+bit snap ui/heading --message "my heading" --auto-snap-dependents
+```
+
+## Undoing Snapshots
+
+We can `reset` staged components, i.e., components that were snapped by not yet exported to a remote scope.  
+Bit `reset` reverts the component to its previous state, i.e., `new`, `modified` or `exported`.
+
+:::info reset does not revert code changes made in the component.
+:::
+
+```bash
+bit reset ui/text # Use bit reset to remote all staged snapshots from a component
+bit reset foo/bar 1.0.0 # reset specific local version
+bit reset --all 0.11.4 # reset a version from all components
+bit reset --all # reset all versions from all components
+```
+
+This will remove all un-exported snapshots from the local component history.

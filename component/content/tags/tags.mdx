@@ -89,6 +89,22 @@ bit tag "ui/*" --patch --message "my version message" # Version components match
 bit tag ui/text --message "my version message"        # Version a specific component with default increment (patch).
 ```
 
+### Undoing a Tag
+
+We can untag staged components, i.e., components that were tagged by not yet exported to a remote scope.  
+Bit untag reverts the component to its previous state, i.e., `new`, `modified` or `exported`.
+
+:::info Untag does not revert code changes made in the component.
+:::
+
+```bash
+bit untag ui/text # Use bit untag to untag a component
+bit untag foo/bar 1.0.0 # untag specific local version
+bit untag --all 0.11.4 # untag a version from all components
+bit untag --all # untag all versions from all components
+```
+
+
 ## Exporting Tags
 
 To allow consumers to use a version of a component we first must tag is with a version. They we can export tag using `export` command:
@@ -158,4 +174,15 @@ In each component's **changelog** tag you can see all past versions and choose t
 
 ## Automated Dependent Versioning
 
-When a component is tagged, Bit automatically version all the components that depend on it. Auto-tagged components will have their patch number incremented `0.0.1 -> 0.0.2`).
+When a component is tagged, Bit automatically version all the components that depend on it. Auto-tag has two basic rules:
+
+- Components are always auto tagged with a patch version, regardless of the bump type applied on the dependency.
+- Tagging is propagated to the dependency chain of the component.
+
+### Skip Auto-tag
+
+You may skip the auto-tag behavior for a component by using the `--skip-auto-tag` flag:
+
+```bash
+bit tag ui/heading --message "my version message" --skip-auto-tag
+```
