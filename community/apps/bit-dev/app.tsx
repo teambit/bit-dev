@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import loadable from '@loadable/component';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { ReactRouterRoutingProvider } from '@teambit/ui-foundation.ui.navigation.react-router.routing-adapter';
 import { SidebarProvider } from '@teambit/design.ui.sidebar.sidebar-context';
 
@@ -31,12 +31,14 @@ export function BitDevApp() {
     <AppContext showHighlighter={highlighting}>
       <Header highlighting={highlighting} setHighlighting={setHighlighting} />
       <Switch>
+        <Redirect exact from="/docs" to="/docs/quick-start" />
         <Route path="/docs">
           <WideColumn>
             <CommunityDocs />
           </WideColumn>
         </Route>
 
+        <Redirect exact from="/guides" to="/guides/micro-frontends/overview" />
         <Route path="/guides">
           <WideColumn>
             <Guides />

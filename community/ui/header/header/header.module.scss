@@ -2,9 +2,15 @@
 
 .header {
   width: 100%;
-  padding: 8px 0;
+  height: 40px; // lets use css var here for this
+  display: flex;
   font-size: 14px;
-  border-bottom: 1px solid #EDEDED;
+  border-bottom: 1px solid var(--bit-border-color-lightest, #ededed);
+  @media screen and (max-width: $br-md) {
+    flex-direction: column;
+    height: 100%;
+    padding-top: 8px;
+  }
 }
 
 .headerContent {
@@ -17,8 +23,19 @@
     display: none;
     border: none;
     margin-right: 8px;
+    width: 24px;
+    height: 24px;
     @media screen and (max-width: $br-md) {
-      display: unset;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .linkList {
+    @media screen and (max-width: $br-md) {
+      > a {
+        display: none;
+      }
     }
   }
 }
@@ -28,5 +45,24 @@
 }
 
 .inspect {
+  display: flex;
+  align-items: center;
+  > span {
+    margin-right: 4px;
+  }
   padding-left: 24px;
+}
+
+.mobileLinkList {
+  display: none;
+  justify-content: space-evenly;
+  padding-top: 24px;
+  text-align: center;
+  > a {
+    margin: 0;
+    padding-bottom: 8px;
+  }
+  @media screen and (max-width: $br-md) {
+    display: flex;
+  }
 }
