@@ -13,6 +13,11 @@ export type DocPageProps = {
   title: string;
 
   /**
+   * description of the docs page.
+   */
+  description?: string;
+
+  /**
    * next page to show.
    */
   nextPage?: Route;
@@ -32,9 +37,10 @@ const scrollToRef = (ref) => {
   return window.scrollTo(0, -ref.current.offsetTop);
 };
 
-export function DocPage({ title, nextPage, children, baseUrl = '/docs' }: DocPageProps) {
+export function DocPage({ title, description, nextPage, children, baseUrl = '/docs' }: DocPageProps) {
   const myRef = useRef(null);
   const executeScroll = () => scrollToRef(myRef);
+  const pageDescription = description || `Documentation page for ${title} - Bit.`;
 
   useEffect(() => {
     executeScroll();
@@ -51,7 +57,7 @@ export function DocPage({ title, nextPage, children, baseUrl = '/docs' }: DocPag
   }, [window.location.hash]);
 
   return (
-    <Page title={title}>
+    <Page title={`${title} | Bit`} description={pageDescription}>
       <div ref={myRef} />
       <MDXLayout components={mdxComponents(baseUrl)}>
         <div className={styles.mdxLayout}>{children}</div>

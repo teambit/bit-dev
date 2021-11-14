@@ -1,0 +1,72 @@
+import { Subtitle } from '@teambit/docs.ui.subtitle';
+import { ProductCard } from '@learn-bit-react/ecommerce.ui.product.product-card';
+import styles from './thinking-in-components.module.scss';
+
+
+# Thinking in components
+
+<Subtitle>
+  Component-driven software changes the way you think about software architecture and collaboration. Where once you might have seen a forest, after working with Bit, 
+  you will see independent trees and people owning them. Bit makes it simple to build in components, helping you drive better seperation of concerns, shaping every independent component as a
+  valuable product for others. 
+</Subtitle>
+
+## Components
+Components is the core concept of component-driven software. They are the bulding block of every component-based framework we have seen, from React to 
+<!-- Component-based software are transforming how we think about software architecture and development. [React](https://reactjs.org), [Angular](https://angular.io), [Vue](https://vuejs.org) and Web components 
+has transformed how we think about composing UI interfaces and applications. Harmony which Bit is based on, is also a component-driven framework intended for feature development. Component-driven  -->
+
+## Start with a product specification
+Sometimes we confuse components to be just UI components, after working with Bit, you understand components could could be React hooks, React contexts, plain modules, entities, 
+Angular Modules or about anything else you can imagine! Breaking down the spec to components starts 
+by defining which components are required and searching for existing ones. Not always we get it perfect from the get go but no worries! You can always iterate and change as you evolve
+your feature. Try and define the following:
+
+- Components to use.
+- Components to change.
+- New components to build.
+
+<!-- TODO: force nav blue highlithing on all components in the below. -->
+
+<ProductCard
+  title="Nike Air"
+  text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quos quidem sequi illum facere recusandae voluptatibus"
+  alt="Nike Air"
+  src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDV8fHNuZWFrZXJ8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+  price={190}
+  className={styles.productCard}
+  buttonText="add to cart"
+/>
+
+This example is composed of different components, which might exist or not and might be owned by different teams and people. Breaking down the product specification to components
+together helps align to naming and drive better collaboration of future products! Deciding on component names is a focal for the successful collaboration. When deciding on 
+product specs, we should think of take few things under consideration: 
+
+- Name the component.
+- Search for similar components (Using bit.cloud or the self hosted scope search).
+- Determine which components needs to be changed.
+
+- Define the component resposibility.
+- Understand who should own this.
+- Understand who should own this.
+- Understand who should own this.
+- Understand who should own this.
+
+:::tip
+Breaking down product specification in collaboration with stake-holders like backend developers, designers or product managers, help surface issues early on the development process, 
+and helps everyone understand each other and build better products together.
+:::
+
+## Step 1: Start bottom up
+Starting bottoms up means
+
+```bash
+bit create react ui/product-card --scope 
+```
+
+
+## Step 2: Dogfood
+
+## Step 3: Scale
+
+

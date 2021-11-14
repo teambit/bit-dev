@@ -6,11 +6,9 @@ export type GuidesProps = {
   /**
    * base url to use for docs section.
    */
-  baseUrl?: string
-} & Omit<DocsProps, 'routes'>;
+  baseUrl?: string;
+} & DocsProps;
 
 export function Guides({ baseUrl = '/guides', ...rest }: GuidesProps) {
-  return (
-    <Docs {...rest} routes={docsRoutes} baseUrl={baseUrl} />
-  );
+  return <Docs {...rest} routes={docsRoutes} baseUrl={baseUrl} />;
 }
