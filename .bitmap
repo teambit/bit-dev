@@ -11,7 +11,7 @@
 {
     "apps/bit-dev": {
         "scope": "teambit.community",
-        "version": "1.9.73",
+        "version": "1.9.74",
         "mainFile": "index.ts",
         "rootDir": "community/apps/bit-dev"
     },
@@ -185,7 +185,7 @@
     },
     "content/configure-env-with-compiler": {
         "scope": "teambit.compilation",
-        "version": "1.9.54",
+        "version": "1.9.55",
         "mainFile": "index.ts",
         "rootDir": "compilation/content/configure-env-with-compiler"
     },
@@ -677,7 +677,7 @@
     },
     "content/quick-start": {
         "scope": "teambit.docs",
-        "version": "1.9.54",
+        "version": "1.9.55",
         "mainFile": "index.ts",
         "rootDir": "docs/content/quick-start"
     },
@@ -749,7 +749,7 @@
     },
     "content/thinking-in-components": {
         "scope": "teambit.docs",
-        "version": "0.0.1",
+        "version": "0.0.2",
         "mainFile": "index.ts",
         "rootDir": "docs/content/thinking-in-components"
     },
@@ -803,7 +803,7 @@
     },
     "entities/docs-routes": {
         "scope": "teambit.docs",
-        "version": "1.9.59",
+        "version": "1.9.60",
         "mainFile": "index.ts",
         "rootDir": "docs/entities/docs-routes"
     },
@@ -947,13 +947,13 @@
     },
     "ui/community-docs": {
         "scope": "teambit.docs",
-        "version": "1.9.72",
+        "version": "1.9.73",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/community-docs"
     },
     "ui/component-card-grid": {
         "scope": "teambit.community",
-        "version": "1.9.56",
+        "version": "1.9.57",
         "mainFile": "index.ts",
         "rootDir": "community/ui/component-card-grid"
     },
@@ -977,7 +977,7 @@
     },
     "ui/docs": {
         "scope": "teambit.docs",
-        "version": "1.9.61",
+        "version": "1.9.62",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/docs"
     },
@@ -1126,8 +1126,8 @@
         "rootDir": "community/ui/homepage/sections/standardization"
     },
     "ui/hooks/use-local-storage": {
-        "scope": "",
-        "version": "",
+        "scope": "teambit.community",
+        "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "community/ui/hooks/use-local-storage"
     },
@@ -1187,7 +1187,7 @@
     },
     "ui/pages/doc-page": {
         "scope": "teambit.docs",
-        "version": "1.9.61",
+        "version": "1.9.62",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/pages/doc-page"
     },
@@ -1199,7 +1199,7 @@
     },
     "ui/pages/guides": {
         "scope": "teambit.docs",
-        "version": "1.9.61",
+        "version": "1.9.62",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/pages/guides"
     },
@@ -1259,7 +1259,7 @@
     },
     "ui/sidebar": {
         "scope": "teambit.docs",
-        "version": "1.9.57",
+        "version": "1.9.58",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/sidebar"
     },
@@ -1280,6 +1280,12 @@
         "version": "1.9.56",
         "mainFile": "index.ts",
         "rootDir": "community/ui/sticky-menu"
+    },
+    "ui/subtitle": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/ui/subtitle"
     },
     "ui/terminal": {
         "scope": "teambit.community",
