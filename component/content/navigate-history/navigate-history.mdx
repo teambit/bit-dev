@@ -1,3 +1,212 @@
+import scopeChangelog from './scope-changelog.png';
+import versionDropdown from './version-dropdown.png';
+
 # Navigate Component History
 
+When you have created several component snapshots or versions, or you imported a component with an existing history, you may want to navigate the history of the component and see how it evolved.  
+Bit offers several tools for both viewing the history, understanding differences and even take your component back in time to a past version.
 
+Bit keeps the component history as an attribute of each component. This provides some unique capabilities when using Bit in your codebase:
+
+- Independent view of the history of each component.
+- Bring the complete history of a component to other workspaces (when using `bit import`).
+- Checkout past versions of a component in a workspace.
+- Track new changes to the component history in any worksapce.
+
+This de-centralized approach to component history is a key feature of Bit and allows for more autonomy for developers.
+
+## Viewing the History for Remote Components
+
+The scope-server allows complete autonomy for a viewer to explore past versions of a component. You may use the [component **changelog** tab](https://bit.dev/teambit/community/ui/graph/bubble-graph/~changelog).
+
+<img src={scopeChangelog} />
+
+This tab shows you the complete history of a component with all log messages. Clicking on each version takes you back in time to that version. You can see the component's implementation, documentation, tests, configuration and rendering.  
+Another option is to use the version selector drop down:
+
+<img src={versionDropdown} />
+
+You may also use your CLI to view the history of a remote component:
+
+```bash
+bit log teambit.community/ui/graph/bubble-graph --remote
+```
+
+```bash
+...
+
+tag 1.9.56 (02a9b0f888b63fab5fc317e6509ec70043cfaffe)
+author: Acme Gene <you@domain.com>
+date: 11/11/2021, 3:39:45 PM
+
+      fix jest 2 (bump dependencies versions)
+
+tag 1.9.57 (78048ebd380c7fc764a6a2e9e78e08ec22860fe3)
+author: Acme Gene <you@domain.com>
+date: 11/11/2021, 4:41:45 PM
+
+      re tag all
+
+tag 1.9.58 (81b84f42d10c17ae4b29293a8ca60dbf7fcfc11b)
+author: Acme Gene <you@domain.com>
+```
+
+## Viewing the History for Local Components
+
+:::info follow along
+
+To follow this section start a new project and import the [bubble graph](https://bit.dev/teambit/community/ui/graph/bubble-graph) component.  
+All commands and examples will use it as a reference. If you have your own component with history, you may use it.
+
+```bash
+mkdir navigate-history && cd navigate-history
+bit init
+bit import teambit.community/ui/graph/bubble-graph
+```
+
+:::
+
+Any component you import or create in the workspace will have all its history information available in the local dev server:
+
+```bash
+bit start
+```
+
+You can run `log` to view the history as well:
+
+```bash
+bit log teambit.community/ui/graph/bubble-graph
+```
+
+## Get Diff Between Versions
+
+For your local components, you may use `diff` command to see how component versions evolved:
+
+```bash
+bit diff teambit.community/ui/graph/bubble-graph 1.8.15
+```
+
+The diff output contains implementation change, dependency updates and configuration between versions.
+
+```bash
+-----------------------------------------------------------------
+showing diff for teambit.community/ui/graph/bubble-graph
+-----------------------------------------------------------------
+--- bubble-graph.composition.tsx (1.8.15)
++++ bubble-graph.composition.tsx (1.9.58)
+@@ -5,27 +5,23 @@ import { BubbleGraph } from './bubble-graph';
+ const bubbles = createBubbleGraph([
+   {
+     id: 'teambit.mdx/mdx@3.1.2',
+-    dependencies: [
+-      'teambit.mdx/modules/mdx-compiler',
+-    ],
++    dependencies: ['teambit.mdx/modules/mdx-compiler'],
+     payload: {
+       icon: 'https://static.bit.dev/extensions-icons/mdx-icon-small.svg',
+     },
+-    row: 2,
++    row: 5,
+     col: 1,
+-    position: 'bottom-left'
++    position: 'bottom-left',
+   },
+   {
+     id: 'teambit.mdx/babel/mdx-loader@3.1.2',
+-    dependencies: [
+-      'teambit.mdx/modules/mdx-compiler'
+-    ],
++    dependencies: ['teambit.mdx/modules/mdx-compiler'],
+     payload: {
+       icon: 'https://static.bit.dev/brands/logo-nodejs.svg',
+     },
+     row: 1,
+     col: 1,
+-    position: 'bottom-right'
++    position: 'bottom-right',
+   },
+   {
+     id: 'teambit.mdx/modules/mdx-compiler@1.0.12',
+@@ -35,10 +31,8 @@ const bubbles = createBubbleGraph([
+     },
+     row: 1,
+     col: 2,
+-    position: 'bottom-right'
+-  }
++    position: 'bottom-right',
++  },
+ ]);
+ 
+-export const BasicBubbleGraph = () => (
+-  <BubbleGraph nodes={bubbles} />
+-);
++export const BasicBubbleGraph = () => <BubbleGraph nodes={bubbles} />;
+
+--- devPackageDependencies 1.8.15
++++ devPackageDependencies 1.9.58
+@testing-library/react
++ @testing-library/react@12.0.0
+
+--- peerPackageDependencies 1.8.15
++++ peerPackageDependencies 1.9.58
+@testing-library/react
+- @testing-library/react@12.0.0
+
+--- dependencies 1.8.15
++++ dependencies 1.9.58
+teambit.community/entity/graph/grid-graph
+- teambit.community/entity/graph/grid-graph@1.8.15
++ teambit.community/entity/graph/grid-graph@1.9.53
+
+--- devDependencies 1.8.15
++++ devDependencies 1.9.58
+teambit.community/entity/graph/bubble-graph
+- teambit.community/entity/graph/bubble-graph@1.8.15
++ teambit.community/entity/graph/bubble-graph@1.9.54
+```
+
+## Checkout to a Specific Version
+
+You can have Bit revert a component to a past history state with the `checkout` command:
+
+```bash
+bit checkout 1.8.15 teambit.community/ui/graph/bubble-graph
+```
+
+The contents of the component directory will be updated to the version you specified and Bit will install the dependencies of the component according to the past version.
+
+```bash
+...
+Progress: resolved 123, reused 121, downloaded 1, added 0
+  -------------------------
+✔ installing dependencies using pnpm
+Progress: resolved 123, reused 122, downloaded 1, added 3, doneaded 1, added 3, done
+✔ linking components
+successfully switched teambit.community/ui/graph/bubble-graph to version 1.8.15
+ 
+auto-merged bubble-graph.composition.tsx 
+auto-merged bubble-graph.docs.mdx 
+updated bubble-graph.module.scss 
+updated bubble-graph.spec.tsx 
+updated bubble-graph.tsx 
+updated bubble-node.tsx 
+updated index.ts 
+```
+
+To move back to the latest version, use the `checkout latest` command:
+
+```bash
+bit checkout latest teambit.community/ui/graph/bubble-graph
+```
+
+### Checkout Many Components
+
+The `checkout` command supports multiple components at once, so you can revert trees of components.
+
+```bash
+bit checkout <version> [ids...] # checkout the specified ids (or all components when --all is used) to the specified version
+bit checkout latest [ids...]    # checkout the specified ids (or all components when --all is used) to their latest versions
+bit checkout [ids...] --reset   # remove local modifications from the specified ids (or all components when --all is used)
+```
+
+you can use a pattern for multiple ids, such as bit checkout 0.0.1 "utils/*". (wrap the pattern with quotes to avoid collision with shell commands)
