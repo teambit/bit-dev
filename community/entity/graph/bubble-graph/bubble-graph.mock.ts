@@ -32,10 +32,6 @@ export function mockBubbleGraph() {
       row: 3,
       col: 10,
       sizes: {
-        xxl: {
-          row: 3,
-          col: 10,
-        },
         lg: {
           row: 2,
           col: 10,
@@ -49,7 +45,7 @@ export function mockBubbleGraph() {
           col: null,
         },
       },
-      position: 'top-left',
+      position: 'top-right',
     },
     {
       id: 'teambit.community/ui/homepage/homepage@1.1.2',
@@ -60,10 +56,6 @@ export function mockBubbleGraph() {
       row: 2,
       col: 11,
       sizes: {
-        xxl: {
-          row: 2,
-          col: 11,
-        },
         lg: {
           row: 1,
           col: 10,
@@ -88,10 +80,6 @@ export function mockBubbleGraph() {
       row: 3,
       col: 11,
       sizes: {
-        xxl: {
-          row: 3,
-          col: 11,
-        },
         lg: {
           row: 1,
           col: 7,
@@ -105,7 +93,7 @@ export function mockBubbleGraph() {
           col: null,
         },
       },
-      position: 'top-left',
+      position: 'top-right',
     },
     {
       id: 'teambit.design/ui/content/heading@2.2.1',
@@ -123,10 +111,6 @@ export function mockBubbleGraph() {
       row: 3,
       col: 1,
       sizes: {
-        xxl: {
-          row: 3,
-          col: 1,
-        },
         lg: {
           row: 1,
           col: 1,
@@ -155,10 +139,6 @@ export function mockBubbleGraph() {
       row: 5,
       col: 2,
       sizes: {
-        xxl: {
-          row: 5,
-          col: 2,
-        },
         lg: {
           row: 4,
           col: 2,
@@ -172,7 +152,7 @@ export function mockBubbleGraph() {
           col: null,
         },
       },
-      position: 'top-left',
+      position: 'top-right',
     },
     {
       id: 'teambit.react-base/navigation/link@1.2.9',
@@ -183,10 +163,6 @@ export function mockBubbleGraph() {
       row: 4,
       col: 1,
       sizes: {
-        xxl: {
-          row: 4,
-          col: 1,
-        },
         lg: {
           row: 3,
           col: 1,
@@ -210,10 +186,6 @@ export function mockBubbleGraph() {
       row: 2,
       col: 9,
       sizes: {
-        xxl: {
-          row: 2,
-          col: 9,
-        },
         lg: {
           row: 3,
           col: 11,
@@ -227,7 +199,7 @@ export function mockBubbleGraph() {
           col: null,
         },
       },
-      position: 'top-left',
+      position: 'top-right',
     },
     /**
      * Aspect graph
@@ -246,16 +218,12 @@ export function mockBubbleGraph() {
       row: 6,
       col: 11,
       sizes: {
-        xxl: {
-          row: 6,
-          col: 11,
-        },
         lg: {
           row: null,
           col: null,
         },
       },
-      position: 'bottom-left',
+      position: 'bottom-right',
     },
     {
       id: 'teambit.scope/scope@1.3.1',
@@ -266,16 +234,12 @@ export function mockBubbleGraph() {
       row: 5,
       col: 10,
       sizes: {
-        xxl: {
-          row: 5,
-          col: 10,
-        },
         lg: {
           row: null,
           col: null,
         },
       },
-      position: 'bottom-left',
+      position: 'bottom',
     },
     {
       id: 'teambit.component/component@1.3.1',
@@ -286,10 +250,6 @@ export function mockBubbleGraph() {
       row: 5,
       col: 11,
       sizes: {
-        xxl: {
-          row: 5,
-          col: 11,
-        },
         lg: {
           row: null,
           col: null,
@@ -306,16 +266,12 @@ export function mockBubbleGraph() {
       row: 7,
       col: 10,
       sizes: {
-        xxl: {
-          row: 7,
-          col: 10,
-        },
         lg: {
           row: null,
           col: null,
         },
       },
-      position: 'bottom-right',
+      position: 'bottom',
     },
     {
       id: 'teambit.ui-foundation/ui/top-bar@1.0.1',
@@ -326,10 +282,6 @@ export function mockBubbleGraph() {
       row: 6,
       col: 9,
       sizes: {
-        xxl: {
-          row: 6,
-          col: 9,
-        },
         lg: {
           row: null,
           col: null,
@@ -346,16 +298,12 @@ export function mockBubbleGraph() {
       row: 6,
       col: 7,
       sizes: {
-        xxl: {
-          row: 6,
-          col: 7,
-        },
         lg: {
           row: null,
           col: null,
         },
       },
-      position: 'top-left',
+      // position: 'top-right',
     },
     {
       id: 'teambit.compilation/babel@1.1.0',
@@ -367,16 +315,12 @@ export function mockBubbleGraph() {
       row: 7,
       col: 8,
       sizes: {
-        xxl: {
-          row: 7,
-          col: 8,
-        },
         lg: {
           row: null,
           col: null,
         },
       },
-      position: 'top-left',
+      position: 'top-right',
     },
     {
       id: 'teambit.typescript/typescript@1.3.1',
@@ -387,16 +331,12 @@ export function mockBubbleGraph() {
       row: 7,
       col: 6,
       sizes: {
-        xxl: {
-          row: 7,
-          col: 6,
-        },
         lg: {
           row: null,
           col: null,
         },
       },
-      position: 'top-left',
+      position: 'top-right',
     },
     {
       id: 'teambit.tester/tester@1.2.1',
@@ -407,10 +347,6 @@ export function mockBubbleGraph() {
       row: 7,
       col: 7,
       sizes: {
-        xxl: {
-          row: 7,
-          col: 7,
-        },
         lg: {
           row: null,
           col: null,
@@ -427,10 +363,6 @@ export function mockBubbleGraph() {
       row: 5,
       col: 6,
       sizes: {
-        xxl: {
-          row: 5,
-          col: 6,
-        },
         lg: {
           row: null,
           col: null,
@@ -447,10 +379,6 @@ export function mockBubbleGraph() {
       row: 6,
       col: 5,
       sizes: {
-        xxl: {
-          row: 6,
-          col: 5,
-        },
         lg: {
           row: null,
           col: null,
@@ -467,10 +395,6 @@ export function mockBubbleGraph() {
       row: 6,
       col: 4,
       sizes: {
-        xxl: {
-          row: 6,
-          col: 4,
-        },
         lg: {
           row: null,
           col: null,
@@ -487,10 +411,6 @@ export function mockBubbleGraph() {
       row: 7,
       col: 5,
       sizes: {
-        xxl: {
-          row: 7,
-          col: 5,
-        },
         lg: {
           row: null,
           col: null,
@@ -514,16 +434,12 @@ export function mockBubbleGraph() {
       row: 1,
       col: 5,
       sizes: {
-        xxl: {
-          row: 1,
-          col: 5,
-        },
         lg: {
           row: null,
           col: null,
         },
       },
-      position: 'bottom-left',
+      position: 'bottom-right',
     },
     {
       id: 'learn-bit-angular.ecommerce/cart@1.3.1',
@@ -534,16 +450,12 @@ export function mockBubbleGraph() {
       row: 1,
       col: 4,
       sizes: {
-        xxl: {
-          row: 1,
-          col: 4,
-        },
         lg: {
           row: null,
           col: null,
         },
       },
-      position: 'top-left',
+      position: 'top-right',
     },
     {
       id: 'learn-bit-angular.ecommerce/hero@1.1.5',
@@ -554,16 +466,12 @@ export function mockBubbleGraph() {
       row: 2,
       col: 7,
       sizes: {
-        xxl: {
-          row: 2,
-          col: 7,
-        },
         lg: {
           row: null,
           col: null,
         },
       },
-      position: 'top-left',
+      position: 'top-right',
     },
     {
       id: 'learn-bit-angular.ecommerce/product@1.3.1',
@@ -574,16 +482,12 @@ export function mockBubbleGraph() {
       row: 1,
       col: 6,
       sizes: {
-        xxl: {
-          row: 1,
-          col: 6,
-        },
         lg: {
           row: null,
           col: null,
         },
       },
-      position: 'top-left',
+      position: 'top-right',
     },
     /**
      * NodeJS graph
@@ -597,16 +501,12 @@ export function mockBubbleGraph() {
       row: 2,
       col: 1,
       sizes: {
-        xxl: {
-          row: 2,
-          col: 1,
-        },
         lg: {
           row: null,
           col: null,
         },
       },
-      position: 'bottom-left',
+      position: 'bottom-right',
     },
     {
       id: 'teambit.mdx/babel/mdx-loader@3.1.2',
@@ -617,10 +517,6 @@ export function mockBubbleGraph() {
       row: 1,
       col: 1,
       sizes: {
-        xxl: {
-          row: 1,
-          col: 1,
-        },
         lg: {
           row: null,
           col: null,
@@ -666,10 +562,6 @@ export function mockBubbleGraph() {
       row: 5,
       col: 2,
       sizes: {
-        xxl: {
-          row: 5,
-          col: 2,
-        },
         lg: {
           row: null,
           col: null,
@@ -686,10 +578,6 @@ export function mockBubbleGraph() {
       row: 5,
       col: 1,
       sizes: {
-        xxl: {
-          row: 5,
-          col: 1,
-        },
         lg: {
           row: null,
           col: null,
@@ -706,16 +594,12 @@ export function mockBubbleGraph() {
       row: 7,
       col: 1,
       sizes: {
-        xxl: {
-          row: 7,
-          col: 1,
-        },
         lg: {
           row: null,
           col: null,
         },
       },
-      position: 'top-left',
+      position: 'top-right',
     },
     {
       id: 'teambit.mdx/ui/book-list@0.0.2',
@@ -726,10 +610,6 @@ export function mockBubbleGraph() {
       row: 6,
       col: 2,
       sizes: {
-        xxl: {
-          row: 6,
-          col: 2,
-        },
         lg: {
           row: null,
           col: null,
@@ -746,10 +626,6 @@ export function mockBubbleGraph() {
       row: 7,
       col: 2,
       sizes: {
-        xxl: {
-          row: 7,
-          col: 2,
-        },
         lg: {
           row: null,
           col: null,
@@ -766,10 +642,6 @@ export function mockBubbleGraph() {
       row: 7,
       col: 3,
       sizes: {
-        xxl: {
-          row: 7,
-          col: 3,
-        },
         lg: {
           row: null,
           col: null,

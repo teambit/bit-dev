@@ -5,7 +5,7 @@ import { GridNode, DependencyEdge } from '@teambit/community.entity.graph.grid-g
 import { Edge as DefaultEdge } from '@teambit/community.ui.graph.edge';
 import { graphNodeLayout, Sizes } from '@teambit/base-react.ui.layout.graph-node';
 import { DefaultNode } from './default-node';
-import { positions, getValidId } from './utils';
+import { getValidId } from './utils';
 import type { PositionsType } from './utils';
 import styles from './grid-graph.module.scss';
 
@@ -28,11 +28,26 @@ export type GraphEdgeProps<T> = {
 };
 
 export type GridGraphProps<TN = {}, TE = {}> = {
+  /**
+   * elements passed to the graph
+   */
   nodes: GridNode<TN>[];
+  /**
+   * override node styles
+   */
   nodeClassName?: string;
+  /**
+   * the node element to be rendered in the graph
+   */
   Node?: ComponentType<GraphNodeProps<TN>>;
+  /**
+   * the edge element that creates the arrows between nodes
+   */
   Edge?: ComponentType<GraphEdgeProps<TE>>;
-  nodeLayout?: (breakpoints?: Sizes) => string[];
+  /**
+   * a function that calculates the positions for each node in the graph and outputs the correct css and classes to be used in each node
+   */
+  nodeLayout?: (breakpoints?: Sizes, row?: number, col?: number) => string[];
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export function GridGraph({
@@ -76,17 +91,21 @@ function GraphNode<T>({
   Edge = DefaultEdge,
   nodeLayout = graphNodeLayout,
 }: GridGraphNodeProps<T>) {
-  const position = useMemo(() => nodeContent.position && positions[nodeContent.position], [nodeContent.position]);
+  const { id, attrId, dependencies, position = '', sizes, col, row } = nodeContent || {};
   const cellLayout = useMemo(() => {
-    return nodeLayout(nodeContent.sizes);
-  }, [nodeContent.sizes]);
+    return nodeLayout(sizes, row, col);
+  }, [sizes]);
 
   return (
-    <div key={nodeContent.id.toString()} className={classNames(className, cellLayout)} style={{ ...position }}>
-      <Node id={nodeContent.attrId} node={nodeContent} />
+    <div
+      key={id.toString()}
+      data-position={position}
+      className={classNames(className, cellLayout, styles.displacement)}
+    >
+      <Node id={attrId} node={nodeContent} />
 
-      {nodeContent.dependencies.map((dependency) => {
-        return <Edge key={`${nodeContent.attrId}->${dependency.attrId}`} node={nodeContent} dependency={dependency} />;
+      {dependencies.map((dependency) => {
+        return <Edge key={`${attrId}->${dependency.attrId}`} node={nodeContent} dependency={dependency} />;
       })}
     </div>
   );

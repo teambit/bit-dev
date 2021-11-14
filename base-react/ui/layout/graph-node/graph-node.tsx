@@ -20,27 +20,21 @@ export type Sizes = {
  * A function that gets an object and returns the appropriate layout classes for the node. To be used in the grid-graph
  */
 
-export function graphNodeLayout(breakPoints?: Sizes | undefined): string[] {
-  if (!breakPoints) return [];
-  const stylesArr: string[] = [];
+export function graphNodeLayout(breakPoints?: Sizes | undefined, defaultRow?: number, defaultCol?: number): string[] {
+  const stylesArr: string[] = [styles[`default-row-${defaultRow}`], styles[`default-col-${defaultCol}`]];
+
   const sizes = breakPoints ? Object.keys(breakPoints) : [];
-  sizes.map((br) => {
+  sizes.forEach((br) => {
     if (!br) return;
     const brSize = breakPoints?.[br];
 
-    if (!brSize?.row && !brSize?.col) {
+    if (brSize?.row === null && brSize?.col === null) {
       stylesArr.push(styles[`hide-${br}`]);
       return;
     }
 
-    // this creates a base position class to be used by the default `col` and `row`
-    if (br === 'xxl') {
-      stylesArr.push(styles[`default-row-${brSize?.row}`]);
-      stylesArr.push(styles[`default-col-${brSize?.col}`]);
-    }
     stylesArr.push(styles[`colSpan-row-${br}-${brSize?.row}`]);
     stylesArr.push(styles[`colSpan-col-${br}-${brSize?.col}`]);
-    return;
   });
 
   return stylesArr;

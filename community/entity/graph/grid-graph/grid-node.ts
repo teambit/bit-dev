@@ -1,7 +1,6 @@
 import { ComponentID } from '@teambit/component-id';
 import { getAttrValidId } from './attr-id';
 import { DependencyEdge, Dependency } from './dependency-edge';
-import { fillSizes, Sizes } from './fill-sizes';
 
 export type NodePosition =
   | 'top'
@@ -23,6 +22,21 @@ export type GridNodeType<T = {}> = {
   payload?: T;
 };
 
+export type Breakpoints = {
+  col: number | null;
+  row: number | null;
+};
+
+export type Sizes = {
+  xs?: Breakpoints;
+  sm?: Breakpoints;
+  md?: Breakpoints;
+  l?: Breakpoints;
+  lg?: Breakpoints;
+  xl?: Breakpoints;
+  xxl?: Breakpoints;
+};
+
 export class GridNode<T> {
   constructor(
     readonly id: ComponentID,
@@ -39,13 +53,12 @@ export class GridNode<T> {
   }
 
   static fromPlain<T>({ id, dependencies = [], col, row, sizes, position, ...rest }: GridNodeType<T>): GridNode<T> {
-    const allSizes = fillSizes(col, row, sizes); // TODO - remove this. its not needed but removing it causes some double edges in the bubble graph
     return new GridNode(
       ComponentID.fromString(id),
       dependencies.map((dep) => DependencyEdge.fromPlain(dep)),
       row,
       col,
-      allSizes,
+      sizes,
       position,
       rest.payload
     );
