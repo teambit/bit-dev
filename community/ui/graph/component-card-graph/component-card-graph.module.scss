@@ -1,7 +1,9 @@
 .componentGrid {
-  grid-template-columns: repeat(4, minmax(150px, 200px));
+  grid-template-columns: repeat(8, minmax(150px, 200px));
   grid-auto-rows: minmax(340px, auto);
+  grid-template-rows: repeat(2, 1fr);
   grid-template-rows: unset;
+  width: unset;
 
   > div:last-child {
     transform: translateY(-20px);
