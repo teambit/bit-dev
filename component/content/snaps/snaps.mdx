@@ -30,7 +30,8 @@ All components in this project are new, so none of them has any snapshots. To re
 bit snap ui/text --message "a demo snapshot"
 ```
 
-We can see the new revision in the component's **change** log tab in the workspace-ui:
+During the `snap` process, Bit runs the full component [build pipeline](/docs/dev-services/builder/build-pipelines#build-pipelines), as defined in its environment.  
+When done, can see the new revision in the component's **changelog** tab in the workspace-ui:
 
 <img src={firstSnapHistory} />
 
@@ -88,6 +89,17 @@ staged components
      > ui/text. versions: 2ec9427e94b56bd3ed886b7eea42e84563001f5d ... ok
 ```
 
+## Exporting Snaps
+
+To share a state of a component with others we must first log it to the component history using `snap`. This makes a component to be staged for export.  
+Export snaps using `export` command:
+
+```bash
+bit export
+```
+
+Read more [here](docs/workspace/exporting-components).
+
 ## Tracking New Changes
 
 As components are not only built from source code, there are various things that Bit considers as "changes" for a component:
@@ -120,7 +132,7 @@ date: 11/14/2021, 12:25:52 PM
       a demo snapshot
 ```
 
-:::info Version History
+:::info Revision History
 
 Bit creates a new snapshot for the component with the new changes and builds the revision history:
 
