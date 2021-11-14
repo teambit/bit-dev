@@ -1,0 +1,26 @@
+.tabLink {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  transition: color 300ms ease-in-out;
+  &:hover {
+    text-decoration: none;
+    color: var(--bit-accent-color, #6c5ce7);
+    
+  }
+}
+.active {
+  color: var(--bit-accent-color, #6c5ce7);
+  position: relative;
+  &:after {
+    position: absolute;
+    content: '';
+    border-bottom: 3px solid var(--bit-accent-color, #6c5ce7);
+    width: 100%;
+    bottom: 0;
+  }
+}
