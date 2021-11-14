@@ -1,14 +1,18 @@
 .next {
-    margin-top: 40px;
-    margin-bottom: 20px;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
 .mdxLayout {
-    * {
-        max-width: unset;
-    }
-    
-    img {
-        max-width: 100%;
-    }
+  --bit-p-md: 18px;
+  li {
+    font-size: var(--bit-p-md, 18px);
+  }
+  * {
+    max-width: unset;
+  }
+
+  img {
+    max-width: 100%;
+  }
 }
