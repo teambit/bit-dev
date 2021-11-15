@@ -222,31 +222,10 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <MovingComponents />,
       },
       {
-        path: 'importing-components',
-        title: 'Importing Components',
-        description:
-          'Importing is the process of copying Components from their Scope to the Local Scope, to use and maintain them in the Workspace.',
-        component: <ImportingComponents />,
-      },
-      {
-        path: 'exporting-components',
-        title: 'Exporting Components',
-        description:
-          'Exporting is the process of copying Component versions from the Local Scope to remote Scopes, to make them available to other projects.',
-        component: <ExportingComponents />,
-      },
-      {
         path: 'variants',
         title: 'Configuration Variants',
         description: 'Variants enables you to configure group of components with Component configuration.',
         component: <Variants />,
-      },
-      {
-        path: 'removing-components',
-        title: 'Removing Components',
-        description:
-          'Refactoring code often causes components to become obsolete or irrelevant. This is where removing and deprecating components becomes useful and necessary.',
-        component: <RemovingDeprecating />,
       },
       {
         path: 'bitmap',
@@ -310,6 +289,13 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <Tags />,
       },
       {
+        path: 'removing-components',
+        title: 'Removing Components',
+        description:
+          'Refactoring code often causes components to become obsolete or irrelevant. This is where removing and deprecating components becomes useful and necessary.',
+        component: <RemovingDeprecating />,
+      },
+      {
         path: 'snaps',
         title: 'Snaps',
         description:
@@ -325,6 +311,20 @@ export const learnDocsRoutes: DocsRoute[] = [
         path: 'navigating-history',
         title: 'Navigating history',
         component: <NavigateHistory />,
+      },
+      {
+        path: 'importing-components',
+        title: 'Importing Components',
+        description:
+          'Importing is the process of copying Components from their Scope to the Local Scope, to use and maintain them in the Workspace.',
+        component: <ImportingComponents />,
+      },
+      {
+        path: 'exporting-components',
+        title: 'Exporting Components',
+        description:
+          'Exporting is the process of copying Component versions from the Local Scope to remote Scopes, to make them available to other projects.',
+        component: <ExportingComponents />,
       },
       {
         title: 'Merge conflicts',
