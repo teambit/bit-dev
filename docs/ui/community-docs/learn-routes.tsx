@@ -169,11 +169,15 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Workspace',
     icon: 'workspace',
     open: false,
-    component: <WorkspaceOverview />,
     config: {
       path: 'workspace-configuration',
       component: <WorkspaceConfiguration />,
-      title: 'Workspace configuration',
+      title: 'Workspace Configuration',
+    },
+    overview: {
+      path: 'workspace-overview',
+      title: 'Workspace Overview',
+      component: <WorkspaceOverview />,
     },
     children: [
       {
@@ -187,11 +191,6 @@ export const learnDocsRoutes: DocsRoute[] = [
         description:
           'Bit makes it simple to build each Component independently, and compose it to others with Dependencies. Components can be created in different types such as Node Modules, React Components, Angular Modules and more.',
         component: <CreateComponents />,
-      },
-      {
-        path: 'workspace-configuration',
-        component: <WorkspaceConfiguration />,
-        title: 'Workspace Configuration',
       },
       {
         path: 'directory-structure',
@@ -283,14 +282,14 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Components',
     icon: 'comps',
     open: false,
+    overview: {
+      path: 'component-overview',
+      title: 'Component Overview',
+      description:
+        'Component is a decoupled, versioned source-code container designed for the purpose of containing a single module or component.',
+      component: <ComponentOverview />,
+    },
     children: [
-      {
-        path: 'component-overview',
-        title: 'Component Overview',
-        description:
-          'Component is a decoupled, versioned source-code container designed for the purpose of containing a single module or component.',
-        component: <ComponentOverview />,
-      },
       {
         path: 'creating-components',
         title: 'Creating components',
@@ -384,17 +383,24 @@ export const learnDocsRoutes: DocsRoute[] = [
     icon: 'dependencies-icn',
     config: {
       path: 'dependencies-config',
-      title: 'Dependencies Config',
+      title: 'Dependencies Configuration',
       component: <DependenciesConfiguration />,
     },
+    overview: {
+      path: 'dependencies-overview',
+      title: 'Dependencies Overview',
+      description:
+        'Dependency management is a major concern for developers looking to build and deliver components independently.',
+      component: <DependenciesOverview />,
+    },
     children: [
-      {
-        path: 'dependencies-overview',
-        title: 'Dependencies Overview',
-        description:
-          'Dependency management is a major concern for developers looking to build and deliver components independently.',
-        component: <DependenciesOverview />,
-      },
+      // {
+      //   path: 'dependencies-overview',
+      //   title: 'Dependencies Overview',
+      //   description:
+      //     'Dependency management is a major concern for developers looking to build and deliver components independently.',
+      //   component: <DependenciesOverview />,
+      // },
       {
         path: 'dependency-installation',
         title: 'Dependency Installation',

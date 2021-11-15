@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { SidebarTreeNode, SidebarPayload } from '@teambit/docs.ui.sidebar';
+import type { SidebarTreeNode, SidebarPayload } from '@teambit/docs.ui.sidebar';
 import { DocsRoute } from './docs-route';
 
 export type Route = {
@@ -38,6 +38,8 @@ export class DocsRoutes {
       title: docRoute.title,
       configPath:
         docRoute.config?.path && [this.basePath, this.accumulatePath(docRoute.config.path, parentPath)].join('/'),
+      overviewPath:
+        docRoute.overview?.path && [this.basePath, this.accumulatePath(docRoute.overview.path, parentPath)].join('/'),
       path: [this.basePath, this.accumulatePath(docRoute.path, parentPath)].join('/'),
     };
   }
@@ -69,7 +71,7 @@ export class DocsRoutes {
 
   private computeRoutes(currentRoute: DocsRoute, parentPath?: string): Route[] {
     if (currentRoute.children) {
-      const { config } = currentRoute;
+      const { config, overview } = currentRoute;
       const categoryRoute = currentRoute.component
         ? [
             {
@@ -85,9 +87,19 @@ export class DocsRoutes {
         ? [
             {
               title: config.title,
-              description: '',
+              description: config.description,
               absPath: this.computePath(config, currentRoute.path),
               component: config.component,
+            },
+          ]
+        : [];
+      const overviewRoutes = overview
+        ? [
+            {
+              title: overview.title,
+              description: overview.description,
+              absPath: this.computePath(overview, currentRoute.path),
+              component: overview.component,
             },
           ]
         : [];
@@ -95,6 +107,7 @@ export class DocsRoutes {
       return currentRoute.children
         .flatMap((child) => this.computeRoutes(child, thisPath))
         .concat(configRoutes)
+        .concat(overviewRoutes)
         .concat(categoryRoute);
     }
 

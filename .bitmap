@@ -1005,6 +1005,12 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/features/features-section"
     },
+    "ui/folder-tree-node": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/ui/folder-tree-node"
+    },
     "ui/footer/category": {
         "scope": "teambit.community",
         "version": "1.9.56",
