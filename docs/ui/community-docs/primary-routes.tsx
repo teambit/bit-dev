@@ -20,7 +20,7 @@ export const primaryRoutes: DocsRoute[] = [
     icon: 'Lightbulb-thinking',
     title: 'Thinking in Components',
     description:
-      'Bit can change how think about software design and the apps you build. Where you used in thinking in applications, you will appriciate component trees and dependency graphs. Bit makes it easier to implment independent components and compose them into systems.',
+      'Bit can change how think about software design and the apps you build. Where you used in thinking in applications, you will appreciate component trees and dependency graphs. Bit makes it easier to implement independent components and compose them into systems.',
     component: <ThinkingInComponents />,
   },
 ];
