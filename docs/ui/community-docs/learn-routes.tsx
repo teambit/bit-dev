@@ -132,6 +132,7 @@ const EnvToubleshooting = loadable(() => import('@teambit/envs.content.env-troub
 
 /* Dependencies */
 
+const InspectingDependencies = loadable(() => import('@teambit/dependencies.content.inspecting-dependencies'));
 const DependenciesOverview = loadable(() => import('@teambit/dependencies.content.dependencies-overview'));
 const ExternalDependencies = loadable(() => import('@teambit/dependencies.content.external-dependencies'));
 const DependencyPolicies = loadable(() => import('@teambit/dependencies.content.dependency-policies'));
@@ -414,8 +415,15 @@ export const learnDocsRoutes: DocsRoute[] = [
         path: 'configuring-dependencies',
         title: 'Configuring Dependencies',
         description:
-          'Even though dependencies are usally set automatically by using dependency policies. Components in the Workspace can be configured with a specific set of dependencies.',
+          'Control component dependency policies.',
         component: <ConfiguringDependencies />,
+      },
+      {
+        path: 'inspecting-dependencies',
+        title: 'Inspecting Dependencies',
+        description:
+          'See your component dependencies',
+        component: <InspectingDependencies />,
       },
       {
         path: 'updates',
