@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, ReactNode } from 'react';
+import React, { useRef, useState, useEffect, ReactNode } from 'react';
 import { MDXLayout } from '@teambit/mdx.ui.mdx-layout';
 import { Page } from '@teambit/base-react.pages.page';
 import { NextPage } from '@teambit/community.ui.cards.next-page';
@@ -39,6 +39,7 @@ const scrollToRef = (ref) => {
 
 export function DocPage({ title, description, nextPage, children, baseUrl = '/docs' }: DocPageProps) {
   const myRef = useRef(null);
+  const [showNextPage, setNextPage] = useState(false);
   const executeScroll = () => scrollToRef(myRef);
   const pageDescription = description || `Documentation page for ${title} - Bit.`;
 
@@ -52,6 +53,8 @@ export function DocPage({ title, description, nextPage, children, baseUrl = '/do
       setTimeout(() => {
         const element = document.getElementById(window.location.hash.replace('#', ''));
         element?.scrollIntoView();
+
+        setNextPage(true); // hides next page component until mdx data loads. should also be fixed by ssr
       }, 500);
     }
   }, [window.location.hash]);
@@ -63,7 +66,7 @@ export function DocPage({ title, description, nextPage, children, baseUrl = '/do
         <div className={styles.mdxLayout}>{children}</div>
       </MDXLayout>
 
-      {nextPage && (
+      {nextPage && showNextPage && (
         <NextPage
           className={styles.next}
           title={nextPage.title}

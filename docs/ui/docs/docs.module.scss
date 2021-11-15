@@ -5,6 +5,9 @@
   box-sizing: border-box;
   width: 100%;
   min-width: 0; // prevents content from overflowing
+  @media screen and (max-width: $br-md) {
+    padding: 0;
+  }
 }
 
 .main {

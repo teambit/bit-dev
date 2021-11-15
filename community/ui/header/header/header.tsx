@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { Link, Route } from 'react-router-dom';
 import { Logo } from '@teambit/design.ui.brand.logo';
-import { Nav } from '@teambit/community.ui.header.nav';
+import { Nav, NavLinks } from '@teambit/community.ui.header.nav';
 import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 import { Toggle } from '@teambit/design.ui.input.toggle';
 import { useSidebar } from '@teambit/design.ui.sidebar.sidebar-context';
@@ -24,17 +24,42 @@ export function Header({ highlighting, setHighlighting, className, ...rest }: He
   return (
     <header className={classNames(styles.header, className)} {...rest}>
       <WideColumn className={styles.headerContent}>
-        <Route path="/docs">
-          <IconButton icon="more" onClick={sidebar.setIsOpen} className={styles.hamburgerButton} />
+        <Route path={['/docs', '/guides']}>
+          <IconButton icon="hamburger" onClick={sidebar.setIsOpen} size={null} className={styles.hamburgerButton} />
         </Route>
         <Link to="/">
           <Logo className={styles.logo} alt="bit-logo" />
         </Link>
         <Nav className={styles.nav}>
-          <span className={styles.inspect}>Inspect</span>
-          <Toggle onInputChanged={onToggleClick} checked={highlighting} />
+          {/* desktop link view - consider using css grid to handle NavLinks position change in all res */}
+          <NavLinks links={headerContent} className={styles.linkList} />
         </Nav>
+        <div className={styles.inspect}>
+          <span>Inspect</span>
+          <Toggle onInputChanged={onToggleClick} checked={highlighting} />
+        </div>
       </WideColumn>
+      {/* small res link view */}
+      <NavLinks links={headerContent} className={styles.mobileLinkList} />
     </header>
   );
 }
+
+const headerContent = [
+  {
+    title: 'Docs',
+    href: '/docs',
+  },
+  {
+    title: 'Guides',
+    href: '/guides',
+  },
+  {
+    title: 'Plugins',
+    href: '/plugins',
+  },
+  {
+    title: 'bit.cloud',
+    href: 'https://bit.cloud',
+  },
+];
