@@ -6,7 +6,7 @@ export enum Direction {
   NONE = 'none',
   BI = 'bi',
   HEAD = 'head',
-  TAIL = 'tail'
+  TAIL = 'tail',
 }
 
 /**
