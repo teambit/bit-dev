@@ -1,7 +1,7 @@
 import React from 'react';
-import { FeaturesSection } from './features-section';
 import { features } from '@teambit/community.entity.features';
+import { FeaturesSection } from './features-section';
 
-export const BasicFeaturesSection = () => (
-  <FeaturesSection features={features} title="Build better. Build scalable." />
-);
+export const BasicFeaturesSection = () => {
+  return <FeaturesSection features={features} title="Build better. Build scalable." />;
+};
