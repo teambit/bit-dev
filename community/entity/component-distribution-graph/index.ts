@@ -1,3 +1,4 @@
+export type { Direction } from '@teambit/community.entity.graph.grid-graph';
 export { Component } from './component';
 export type { ComponentProps, Edge } from './component';
 

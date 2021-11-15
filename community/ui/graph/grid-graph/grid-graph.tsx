@@ -1,9 +1,12 @@
-import React, { ComponentType } from 'react';
+import React, { ComponentType, useMemo } from 'react';
 import { ComponentID } from '@teambit/component-id';
 import classNames from 'classnames';
 import { GridNode, DependencyEdge } from '@teambit/community.entity.graph.grid-graph';
 import { Edge as DefaultEdge } from '@teambit/community.ui.graph.edge';
+import { graphNodeLayout, Sizes } from '@teambit/base-react.ui.layout.graph-node';
 import { DefaultNode } from './default-node';
+import { getValidId } from './utils';
+import type { PositionsType } from './utils';
 import styles from './grid-graph.module.scss';
 
 export type GridItemProps = {
@@ -12,7 +15,7 @@ export type GridItemProps = {
   icon?: string;
   row?: number;
   col?: number;
-  position?: 'top' | 'top-right' | 'right' | 'bottom-right' | 'bottom' | 'bottom-left' | 'left' | 'top-left';
+  position?: PositionsType;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export type GraphNodeProps<T> = {
@@ -25,10 +28,26 @@ export type GraphEdgeProps<T> = {
 };
 
 export type GridGraphProps<TN = {}, TE = {}> = {
+  /**
+   * elements passed to the graph
+   */
   nodes: GridNode<TN>[];
+  /**
+   * override node styles
+   */
   nodeClassName?: string;
+  /**
+   * the node element to be rendered in the graph
+   */
   Node?: ComponentType<GraphNodeProps<TN>>;
+  /**
+   * the edge element that creates the arrows between nodes
+   */
   Edge?: ComponentType<GraphEdgeProps<TE>>;
+  /**
+   * a function that calculates the positions for each node in the graph and outputs the correct css and classes to be used in each node
+   */
+  nodeLayout?: (breakpoints?: Sizes, row?: number, col?: number) => string[];
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export function GridGraph({
@@ -37,6 +56,7 @@ export function GridGraph({
   nodes,
   Node = DefaultNode,
   Edge = DefaultEdge,
+  nodeLayout,
   className,
   ...rest
 }: GridGraphProps) {
@@ -44,16 +64,15 @@ export function GridGraph({
     <div className={classNames(styles.gridGraph, className)} {...rest}>
       {nodes.map((node) => {
         const id = getValidId(node.id.toString({ ignoreVersion: true }));
-        const cell = getCell(node.row, node.col);
-        const bubblePosition = node.position && positions[node.position];
         return (
-          <div key={node.id.toString()} className={nodeClassName} style={{ ...cell, ...bubblePosition }}>
-            <Node id={node.attrId} key={id} node={node} />
-
-            {node.dependencies.map((dependency) => {
-              return <Edge key={`${node.attrId}->${dependency.attrId}`} node={node} dependency={dependency} />;
-            })}
-          </div>
+          <GraphNode
+            key={id}
+            Edge={Edge}
+            Node={Node}
+            nodeContent={node}
+            className={nodeClassName}
+            nodeLayout={nodeLayout}
+          />
         );
       })}
       {children}
@@ -61,50 +80,33 @@ export function GridGraph({
   );
 }
 
-export const positions = {
-  top: {
-    alignSelf: 'start',
-    justifySelf: 'center',
-  },
-  'top-right': {
-    alignSelf: 'start',
-    justifySelf: 'end',
-  },
-  right: {
-    alignSelf: 'center',
-    justifySelf: 'end',
-  },
-  'bottom-right': {
-    alignSelf: 'end',
-    justifySelf: 'end',
-  },
-  bottom: {
-    alignSelf: 'end',
-    justifySelf: 'center',
-  },
-  'bottom-left': {
-    alignSelf: 'end',
-    justifySelf: 'end',
-  },
-  left: {
-    alignSelf: 'center',
-    justifySelf: 'end',
-  },
-  'top-left': {
-    alignSelf: 'start',
-    justifySelf: 'end',
-  },
-};
+export type GridGraphNodeProps<T> = {
+  nodeContent: GridNode<T>;
+} & Omit<GridGraphProps, 'nodes' | 'nodeTypes'>;
 
-export function getValidId(id: string) {
-  return id.replace(/[.\/]/g, '-');
-}
+function GraphNode<T>({
+  nodeContent,
+  className,
+  Node = DefaultNode,
+  Edge = DefaultEdge,
+  nodeLayout = graphNodeLayout,
+}: GridGraphNodeProps<T>) {
+  const { id, attrId, dependencies, position = '', sizes, col, row } = nodeContent || {};
+  const cellLayout = useMemo(() => {
+    return nodeLayout(sizes, row, col);
+  }, [sizes]);
 
-export function getCell(row?: number, col?: number) {
-  return {
-    gridColumnStart: col,
-    gridColumnEnd: col,
-    gridRowStart: row,
-    gridRowEnd: row,
-  };
+  return (
+    <div
+      key={id.toString()}
+      data-position={position}
+      className={classNames(className, cellLayout, styles.displacement)}
+    >
+      <Node id={attrId} node={nodeContent} />
+
+      {dependencies.map((dependency) => {
+        return <Edge key={`${attrId}->${dependency.attrId}`} node={nodeContent} dependency={dependency} />;
+      })}
+    </div>
+  );
 }
