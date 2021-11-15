@@ -525,6 +525,12 @@
         "mainFile": "index.ts",
         "rootDir": "component/content/inspecting-components"
     },
+    "content/inspecting-dependencies": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "dependencies/content/inspecting-dependencies"
+    },
     "content/inspecting-env": {
         "scope": "teambit.envs",
         "version": "1.9.53",
