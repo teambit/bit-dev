@@ -31,7 +31,7 @@ export function Header({ highlighting, setHighlighting, className, ...rest }: He
           <Logo className={styles.logo} alt="bit-logo" />
         </Link>
         <Nav className={styles.nav}>
-          {/* desktop link view - TODO @oded - use css grid to handle position change in all res */}
+          {/* desktop link view - consider using css grid to handle NavLinks position change in all res */}
           <NavLinks links={headerContent} className={styles.linkList} />
         </Nav>
         <div className={styles.inspect}>

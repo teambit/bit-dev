@@ -40,19 +40,6 @@
   }
 }
 
-.logo {
-  margin-right: 32px;
-}
-
-.inspect {
-  display: flex;
-  align-items: center;
-  > span {
-    margin-right: 4px;
-  }
-  padding-left: 24px;
-}
-
 .mobileLinkList {
   display: none;
   justify-content: space-evenly;
@@ -66,3 +53,17 @@
     display: flex;
   }
 }
+
+.logo {
+  margin-right: 32px;
+}
+
+.inspect {
+  display: flex;
+  align-items: center;
+  > span {
+    margin-right: 4px;
+  }
+  padding-left: 24px;
+}
+

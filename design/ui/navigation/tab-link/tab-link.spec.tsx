@@ -1,6 +1,12 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { BasicTabLink, ActiveTabLink } from './tab-link.composition';
+import {
+  BasicTabLink,
+  ActiveTabLink,
+  TopActiveTabLink,
+  LeftActiveTabLink,
+  RightActiveTabLink,
+} from './tab-link.composition';
 
 it('should render with the correct text', () => {
   const { getByText } = render(<BasicTabLink />);
@@ -9,7 +15,30 @@ it('should render with the correct text', () => {
 });
 
 it('should show as active', () => {
-  const { getByText } = render(<ActiveTabLink />);
-  const rendered = getByText('active link');
-  expect(rendered).toHaveClass('active');
+  const { container } = render(<ActiveTabLink />);
+  expect(container.getElementsByClassName('active').length).toBe(1);
+});
+
+it('should show bottom border by default, if position isnt specified', () => {
+  const { getByTestId } = render(<ActiveTabLink />);
+  const rendered = getByTestId('active-link');
+  expect(rendered).toHaveAttribute('data-position', 'bottom');
+});
+
+it('should show top border, if position is set to top', () => {
+  const { getByTestId } = render(<TopActiveTabLink />);
+  const rendered = getByTestId('top-link');
+  expect(rendered).toHaveAttribute('data-position', 'top');
+});
+
+it('should show right border, if position is set to right', () => {
+  const { getByTestId } = render(<RightActiveTabLink />);
+  const rendered = getByTestId('right-link');
+  expect(rendered).toHaveAttribute('data-position', 'right');
+});
+
+it('should show left border, if position is set to left', () => {
+  const { getByTestId } = render(<LeftActiveTabLink />);
+  const rendered = getByTestId('left-link');
+  expect(rendered).toHaveAttribute('data-position', 'left');
 });

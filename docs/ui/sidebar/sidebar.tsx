@@ -41,11 +41,11 @@ export function Sidebar({ displayTitle, tree, linkPrefix, className, ...rest }: 
   const [active, setToActive] = useState(tree.id);
 
   return (
-    <div style={{ ...indentStyle(1), ...rest.style }} className={classNames(styles.sidebar, className)} {...rest}>
+    <div style={{ ...indentStyle(0), ...rest.style }} className={classNames(styles.sidebar, className)} {...rest}>
       {displayTitle && <span className={styles.sidebarTitle}>{displayTitle}</span>}
       <TreeNodeContext.Provider value={SidebarNode}>
         <TreeContextProvider onSelect={(id) => setToActive(id)} selected={active}>
-          <RootNode node={tree} depth={2} />
+          <RootNode node={tree} depth={1} />
         </TreeContextProvider>
       </TreeNodeContext.Provider>
     </div>
