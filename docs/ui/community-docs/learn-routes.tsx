@@ -305,15 +305,13 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'tags',
         title: 'Tags',
-        description:
-          'Version components with semantic version tagging',
+        description: 'Version components with semantic version tagging',
         component: <Tags />,
       },
       {
         path: 'snaps',
         title: 'Snaps',
-        description:
-          'Record component history with snapshots',
+        description: 'Record component history with snapshots',
         component: <Snaps />,
       },
       {
@@ -413,15 +411,13 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'configuring-dependencies',
         title: 'Configuring Dependencies',
-        description:
-          'Control component dependency policies.',
+        description: 'Control component dependency policies.',
         component: <ConfiguringDependencies />,
       },
       {
         path: 'inspecting-dependencies',
         title: 'Inspecting Dependencies',
-        description:
-          'See your component dependencies',
+        description: 'See your component dependencies',
         component: <InspectingDependencies />,
       },
       {
