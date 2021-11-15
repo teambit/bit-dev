@@ -11,7 +11,7 @@
 {
     "apps/bit-dev": {
         "scope": "teambit.community",
-        "version": "1.9.77",
+        "version": "1.9.79",
         "mainFile": "index.ts",
         "rootDir": "community/apps/bit-dev"
     },
@@ -761,7 +761,7 @@
     },
     "content/thinking-in-components": {
         "scope": "teambit.docs",
-        "version": "0.0.4",
+        "version": "0.0.5",
         "mainFile": "index.ts",
         "rootDir": "docs/content/thinking-in-components"
     },
@@ -815,7 +815,7 @@
     },
     "entities/docs-routes": {
         "scope": "teambit.docs",
-        "version": "1.9.61",
+        "version": "1.9.62",
         "mainFile": "index.ts",
         "rootDir": "docs/entities/docs-routes"
     },
@@ -959,7 +959,7 @@
     },
     "ui/community-docs": {
         "scope": "teambit.docs",
-        "version": "1.9.76",
+        "version": "1.9.78",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/community-docs"
     },
@@ -989,7 +989,7 @@
     },
     "ui/docs": {
         "scope": "teambit.docs",
-        "version": "1.9.65",
+        "version": "1.9.67",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/docs"
     },
@@ -1085,13 +1085,13 @@
     },
     "ui/header/header": {
         "scope": "teambit.community",
-        "version": "1.9.59",
+        "version": "1.9.60",
         "mainFile": "index.ts",
         "rootDir": "community/ui/header/header"
     },
     "ui/header/nav": {
         "scope": "teambit.community",
-        "version": "1.9.59",
+        "version": "1.9.60",
         "mainFile": "index.ts",
         "rootDir": "community/ui/header/nav"
     },
@@ -1204,14 +1204,14 @@
         "rootDir": "ui-foundation/ui/navigation/react-router/routing-adapter"
     },
     "ui/navigation/tab-link": {
-        "scope": "",
-        "version": "",
+        "scope": "teambit.design",
+        "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "design/ui/navigation/tab-link"
     },
     "ui/pages/doc-page": {
         "scope": "teambit.docs",
-        "version": "1.9.65",
+        "version": "1.9.66",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/pages/doc-page"
     },
@@ -1223,7 +1223,7 @@
     },
     "ui/pages/guides": {
         "scope": "teambit.docs",
-        "version": "1.9.65",
+        "version": "1.9.67",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/pages/guides"
     },
@@ -1283,7 +1283,7 @@
     },
     "ui/sidebar": {
         "scope": "teambit.docs",
-        "version": "1.9.59",
+        "version": "1.9.60",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/sidebar"
     },
