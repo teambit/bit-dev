@@ -603,6 +603,12 @@
         "mainFile": "index.ts",
         "rootDir": "component/content/naming"
     },
+    "content/navigate-history": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "component/content/navigate-history"
+    },
     "content/node-modules": {
         "scope": "teambit.dependencies",
         "version": "1.9.53",
