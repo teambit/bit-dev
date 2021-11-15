@@ -1,0 +1,189 @@
+# Inspecting Dependencies
+
+In Bit dependency management is automated. Bit reads your code to find all `import` statements and builds a dependency graph.  
+You can use various tools to inspect the generated dependency graph to learn how your components are composed, assisting you in making architectural decisions. Moreover, as you can take control and define dependency policy for each components, by inspecting dependencies, you may see the result dependency graph and decide if this fits your desired outcome.
+
+:::info Follow the examples
+
+To follow these examples run `bit new react demo-project`.
+
+:::
+
+The first and most simple way to see component dependencies is using the local dev server.
+
+```bash title="start dev server"
+bit start
+```
+
+In each component page you can explore dependencies through the **Dependencies** tab. Here you see all components composed into your code.
+
+import devServerDepsGraph from './dev-server-deps-graph.png';
+
+<img src={devServerDepsGraph} />
+
+Additional information, like package dependencies can be found in the **Code** tab.
+
+import devServerDepsCode from './dev-server-deps-code.png';
+
+<img src={devServerDepsCode} />
+
+## Dependency Graph in the CLI
+
+You can use the CLI to see all dependencies when running the `bit show` command.
+
+```bash title="show all dependencies"
+bit show ui/card
+```
+
+This outputs provides all information on the component, including:
+
+```bash
+┌───────────────────┬──────────────────────────────────────────────────────────┐
+│ dependencies      │ @company/scope.ui.heading@0.0.1---------- (component)    │
+│                   │ @company/scope.ui.text@0.0.1------------- (component)    │
+│                   │ @teambit/design.ui.external-link@0.0.344- (component)    │
+│                   │ @teambit/documenter.ui.copy-box@4.1.1---- (component)    │
+│                   │ core-js@^3.0.0--------------------------- (package)      │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ dev dependencies  │ @company/scope.envs.my-react@0.0.1----- (component)      │
+│                   │ @types/testing-library__jest-dom@5.9.5- (package)        │
+│                   │ @babel/runtime@7.12.18----------------- (package)        │
+│                   │ @types/jest@^26.0.0-------------------- (package)        │
+│                   │ @types/react-dom@^17.0.5--------------- (package)        │
+│                   │ @types/react@^17.0.8------------------- (package)        │
+│                   │ @types/node@12.20.4-------------------- (package)        │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ peer dependencies │ @testing-library/react@12.0.0- (package)                 │
+│                   │ react-dom@^16.8.0 || ^17.0.0-- (package)                 │
+│                   │ react@^16.8.0 || ^17.0.0------ (package)                 │
+└───────────────────┴──────────────────────────────────────────────────────────┘
+```
+
+:::info Bit marks which dependency is a package and which is a component.
+
+To print the complete graph representation of the component in the CLI run `bit dependencies`:
+
+```bash
+bit dependencies ui/card
+```
+
+Here you see two lists:
+
+- Component dependencies that are available in your workspace.
+- Component dependencies that are not in your workspace (remote).
+
+```bash
+Dependents originated from workspace
+
+Dependencies Details
+╔═══════════════════════════════════════════════════╤═══════╤════════════════════════════════════════════╤═════════════════╗
+║ Dependency ID                                     │ Depth │ Immediate Dependent                        │ Dependency type ║
+╟───────────────────────────────────────────────────┼───────┼────────────────────────────────────────────┼─────────────────╢
+║ envs/my-react@0.0.1                               │ 1     │ ui/card@0.0.1                              │                 ║
+╟───────────────────────────────────────────────────┼───────┼────────────────────────────────────────────┼─────────────────╢
+║ ui/heading@0.0.1                                  │ 1     │ ui/card@0.0.1                              │ prod            ║
+╟───────────────────────────────────────────────────┼───────┼────────────────────────────────────────────┼─────────────────╢
+║ ui/text@0.0.1                                     │ 1     │ ui/card@0.0.1                              │ prod            ║
+╟───────────────────────────────────────────────────┼───────┼────────────────────────────────────────────┼─────────────────╢
+║ teambit.design/ui/external-link@0.0.344           │ 1     │ ui/card@0.0.1                              │ prod            ║
+╟───────────────────────────────────────────────────┼───────┼────────────────────────────────────────────┼─────────────────╢
+║ teambit.documenter/ui/copy-box@4.1.1              │ 1     │ ui/card@0.0.1                              │ prod            ║
+╟───────────────────────────────────────────────────┼───────┼────────────────────────────────────────────┼─────────────────╢
+║ teambit.documenter/theme/theme-compositions@4.1.1 │ 2     │ envs/my-react@0.0.1                        │ prod            ║
+╟───────────────────────────────────────────────────┼───────┼────────────────────────────────────────────┼─────────────────╢
+║ teambit.react/templates/themes/theme@0.0.4        │ 2     │ envs/my-react@0.0.1                        │ prod            ║
+╟───────────────────────────────────────────────────┼───────┼────────────────────────────────────────────┼─────────────────╢
+║ teambit.react/templates/styles/colors@0.0.3       │ 3     │ teambit.react/templates/themes/theme@0.0.4 │ prod            ║
+╚═══════════════════════════════════════════════════╧═══════╧════════════════════════════════════════════╧═════════════════╝
+
+
+Dependents originated from scope
+
+Dependencies Details
+╔═══════════════════════════════════════════════════════╤═══════╤═══════════════════════════════════════════════════╤═════════════════╗
+║ Dependency ID                                         │ Depth │ Immediate Dependent                               │ Dependency type ║
+╟───────────────────────────────────────────────────────┼───────┼───────────────────────────────────────────────────┼─────────────────╢
+║ teambit.documenter/ui/copy-box@4.1.1                  │ 1     │ ui/card@0.0.1                                     │ prod            ║
+╟───────────────────────────────────────────────────────┼───────┼───────────────────────────────────────────────────┼─────────────────╢
+║ teambit.design/ui/external-link@0.0.344               │ 1     │ ui/card@0.0.1                                     │ prod            ║
+╟───────────────────────────────────────────────────────┼───────┼───────────────────────────────────────────────────┼─────────────────╢
+║ ui/heading@0.0.1                                      │ 1     │ ui/card@0.0.1                                     │ prod            ║
+╟───────────────────────────────────────────────────────┼───────┼───────────────────────────────────────────────────┼─────────────────╢
+║ envs/my-react@0.0.1                                   │ 1     │ ui/card@0.0.1                                     │                 ║
+╟───────────────────────────────────────────────────────┼───────┼───────────────────────────────────────────────────┼─────────────────╢
+║ ui/text@0.0.1                                         │ 1     │ ui/card@0.0.1                                     │ prod            ║
+╟───────────────────────────────────────────────────────┼───────┼───────────────────────────────────────────────────┼─────────────────╢
+║ teambit.react/templates/themes/theme@0.0.4            │ 2     │ envs/my-react@0.0.1                               │ prod            ║
+╟───────────────────────────────────────────────────────┼───────┼───────────────────────────────────────────────────┼─────────────────╢
+║ teambit.documenter/theme/theme-compositions@2.0.3     │ 2     │ teambit.design/ui/external-link@0.0.344           │ dev             ║
+╟───────────────────────────────────────────────────────┼───────┼───────────────────────────────────────────────────┼─────────────────╢
+║ teambit.documenter/theme/theme-compositions@4.1.1     │ 2     │ envs/my-react@0.0.1                               │ prod            ║
+╟───────────────────────────────────────────────────────┼───────┼───────────────────────────────────────────────────┼─────────────────╢
+║ teambit.base-ui/layout/grid-component@1.0.0           │ 2     │ teambit.documenter/ui/copy-box@4.1.1              │ prod            ║
+╟───────────────────────────────────────────────────────┼───────┼───────────────────────────────────────────────────┼─────────────────╢
+║ teambit.evangelist/elements/icon@1.0.2                │ 2     │ teambit.documenter/ui/copy-box@4.1.1              │ prod            ║
+╟───────────────────────────────────────────────────────┼───────┼───────────────────────────────────────────────────┼─────────────────╢
+║ teambit.documenter/theme/theme-compositions@2.0.1     │ 4     │ teambit.evangelist/elements/icon@0.5.20           │ dev             ║
+╟───────────────────────────────────────────────────────┼───────┼───────────────────────────────────────────────────┼─────────────────╢
+║ teambit.base-ui/theme/fonts/roboto@0.6.2              │ 4     │ teambit.documenter/theme/theme-context@2.0.4      │ prod            ║
+╟───────────────────────────────────────────────────────┼───────┼───────────────────────────────────────────────────┼─────────────────╢
+║ teambit.base-ui/theme/theme-provider@0.5.9            │ 4     │ teambit.documenter/theme/theme-context@2.0.4      │ prod            ║
+╟───────────────────────────────────────────────────────┼───────┼───────────────────────────────────────────────────┼─────────────────╢
+║ teambit.documenter/ui/label@2.0.4                     │ 4     │ teambit.documenter/theme/theme-context@2.0.4      │ dev             ║
+╟───────────────────────────────────────────────────────┼───────┼───────────────────────────────────────────────────┼─────────────────╢
+║ teambit.documenter/ui/paragraph@2.0.4                 │ 4     │ teambit.documenter/theme/theme-context@2.0.4      │ dev             ║
+╟───────────────────────────────────────────────────────┼───────┼───────────────────────────────────────────────────┼─────────────────╢
+║ teambit.base-ui/theme/fonts/roboto@1.0.0              │ 4     │ teambit.documenter/theme/theme-context@4.0.3      │ prod            ║
+╟───────────────────────────────────────────────────────┼───────┼───────────────────────────────────────────────────┼─────────────────╢
+║ teambit.base-ui/theme/theme-provider@1.0.1            │ 4     │ teambit.documenter/theme/theme-context@4.0.3      │ prod            ║
+╟───────────────────────────────────────────────────────┼───────┼───────────────────────────────────────────────────┼─────────────────╢
+║ teambit.documenter/ui/label@4.0.3                     │ 4     │ teambit.documenter/theme/theme-context@4.0.3      │ dev             ║
+╟───────────────────────────────────────────────────────┼───────┼───────────────────────────────────────────────────┼─────────────────╢
+║ teambit.documenter/ui/paragraph@4.1.1                 │ 4     │ teambit.documenter/theme/theme-context@4.0.3      │ dev             ║
+╟───────────────────────────────────────────────────────┼───────┼───────────────────────────────────────────────────┼─────────────────╢
+║ teambit.base-ui/theme/heading-margin-definition@1.0.0 │ 4     │ teambit.evangelist/theme/evangelist-theme@1.0.2   │ prod            ║
+╟───────────────────────────────────────────────────────┼───────┼───────────────────────────────────────────────────┼─────────────────╢
+║ teambit.base-ui/theme/size-definition@1.0.0           │ 4     │ teambit.evangelist/theme/evangelist-theme@1.0.2   │ prod            ║
+╟───────────────────────────────────────────────────────┼───────┼───────────────────────────────────────────────────┼─────────────────╢
+║ teambit.base-ui/text/heading@1.0.1                    │ 4     │ teambit.documenter/ui/heading@4.1.1               │ prod            ║
+╟───────────────────────────────────────────────────────┼───────┼───────────────────────────────────────────────────┼─────────────────╢
+║ teambit.base-ui/elements/icon@0.6.3                   │ 4     │ teambit.evangelist/elements/icon@0.5.20           │ prod            ║
+╚═══════════════════════════════════════════════════════╧═══════╧═══════════════════════════════════════════════════╧═════════════════╝
+
+```
+
+## Component Dependents
+
+Bit keeps track of the entire dependent graph in your workspace, so you can understand how a change in a component affets the rest of the codebase. 
+use the `bit dependents` command:
+
+```bash
+bit dependents ui/card
+```
+
+This graph is used when you modify a component as Bit will rebuild only the affected components.
+
+```bash
+Dependents originated from workspace
+
+Dependents Details
+╔════════════════════════════════════════════════════════════╤═══════╤════════════════════════════════════════════════════════════╤════════════════╗
+║ Dependent ID                                               │ Depth │ Immediate Dependency                                       │ Dependent type ║
+╟────────────────────────────────────────────────────────────┼───────┼────────────────────────────────────────────────────────────┼────────────────╢
+║ learn-bit-react.shoe-store/ui/shoes/shoes-card@1.0.15      │ 1     │ learn-bit-react.base-ui/ui/card@1.0.11                     │ prod           ║
+╟────────────────────────────────────────────────────────────┼───────┼────────────────────────────────────────────────────────────┼────────────────╢
+║ learn-bit-react.shoe-store/ui/shoes/shoes-card-grid@1.0.16 │ 2     │ learn-bit-react.shoe-store/ui/shoes/shoes-card@1.0.15      │ prod           ║
+╟────────────────────────────────────────────────────────────┼───────┼────────────────────────────────────────────────────────────┼────────────────╢
+║ learn-bit-react.shoe-store/ui/pages/children@0.0.2         │ 3     │ learn-bit-react.shoe-store/ui/shoes/shoes-card-grid@1.0.16 │ prod           ║
+╟────────────────────────────────────────────────────────────┼───────┼────────────────────────────────────────────────────────────┼────────────────╢
+║ learn-bit-react.shoe-store/ui/pages/home@0.0.3             │ 3     │ learn-bit-react.shoe-store/ui/shoes/shoes-card-grid@1.0.16 │ prod           ║
+╟────────────────────────────────────────────────────────────┼───────┼────────────────────────────────────────────────────────────┼────────────────╢
+║ learn-bit-react.shoe-store/ui/pages/men@0.0.2              │ 3     │ learn-bit-react.shoe-store/ui/shoes/shoes-card-grid@1.0.16 │ prod           ║
+╟────────────────────────────────────────────────────────────┼───────┼────────────────────────────────────────────────────────────┼────────────────╢
+║ learn-bit-react.shoe-store/ui/pages/women@0.0.2            │ 3     │ learn-bit-react.shoe-store/ui/shoes/shoes-card-grid@1.0.16 │ prod           ║
+╟────────────────────────────────────────────────────────────┼───────┼────────────────────────────────────────────────────────────┼────────────────╢
+║ learn-bit-react.shoe-store/ui/pages/home-shoes@1.0.18      │ 3     │ learn-bit-react.shoe-store/ui/shoes/shoes-card-grid@1.0.16 │ prod           ║
+╟────────────────────────────────────────────────────────────┼───────┼────────────────────────────────────────────────────────────┼────────────────╢
+║ learn-bit-react.shoe-store/apps/shoe-store@1.0.23          │ 4     │ learn-bit-react.shoe-store/ui/pages/women@0.0.2            │ prod           ║
+╚════════════════════════════════════════════════════════════╧═══════╧════════════════════════════════════════════════════════════╧════════════════╝
+```
