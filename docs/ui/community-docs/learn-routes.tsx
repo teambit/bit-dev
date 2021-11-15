@@ -394,13 +394,6 @@ export const learnDocsRoutes: DocsRoute[] = [
       component: <DependenciesOverview />,
     },
     children: [
-      // {
-      //   path: 'dependencies-overview',
-      //   title: 'Dependencies Overview',
-      //   description:
-      //     'Dependency management is a major concern for developers looking to build and deliver components independently.',
-      //   component: <DependenciesOverview />,
-      // },
       {
         path: 'dependency-installation',
         title: 'Dependency Installation',
