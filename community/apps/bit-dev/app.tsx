@@ -66,7 +66,7 @@ function AppContext({ children, showHighlighter }: { children?: ReactNode; showH
     <RoutingProvider value={legacyRouting}>
       <SidebarProvider>
         <ReactRouterRoutingProvider useBrowserRouter>
-          <ThemeCompositions>
+          <ThemeCompositions className={styles.app}>
             <ComponentHighlighter
               classes={{ label: styles.label, frame: styles.frame }}
               placement="top"
