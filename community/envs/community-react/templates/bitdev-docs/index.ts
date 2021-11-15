@@ -2,12 +2,11 @@ import { ComponentContext, ComponentTemplate } from '@teambit/generator';
 import { implementationFile } from './files/implementation-file';
 import { compositionFile } from './files/composition-file';
 import { docsFile } from './files/docs-file';
-import { testFile } from './files/test-file';
 import { indexFile } from './files/index-file';
 
-export const mdxCommunity: ComponentTemplate = {
-  name: 'mdx-community',
-  description: 'An MDX component for community content',
+export const bitDevDocs: ComponentTemplate = {
+  name: 'bitdev-docs',
+  description: 'An MDX component for bit-dev docs',
   hidden: false,
   generateFiles: (context: ComponentContext) => {
     return [
@@ -27,10 +26,6 @@ export const mdxCommunity: ComponentTemplate = {
       {
         relativePath: `${context.name}.docs.mdx`,
         content: docsFile(context),
-      },
-      {
-        relativePath: `${context.name}.spec.tsx`,
-        content: testFile(context),
       },
     ];
   },

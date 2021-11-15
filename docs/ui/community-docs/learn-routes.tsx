@@ -164,7 +164,11 @@ const CliReference = loadable(() => import('@teambit/harmony.content.cli-referen
 const BitConfig = loadable(() => import('@teambit/docs.content.guides.bit-config'));
 const ConfigFiles = loadable(() => import('@teambit/docs.content.guides.config-files'));
 
-export const docsRoutes: DocsRoute[] = [
+/* React */
+const ReactOverview = loadable(() => import('@teambit/react.content.react-overview'));
+const ExtendingReact = loadable(() => import('@teambit/react.content.extending-react'));
+
+export const learnDocsRoutes: DocsRoute[] = [
   {
     path: 'getting-started',
     title: 'Getting Started',
@@ -180,7 +184,7 @@ export const docsRoutes: DocsRoute[] = [
           {
             path: 'start-bit-project',
             title: 'Start a new Bit workspace',
-            component: <CreateWorkspace />,
+            // component: <CreateWorkspace />,
           },
           {
             path: 'editor-setup',
@@ -208,13 +212,13 @@ export const docsRoutes: DocsRoute[] = [
             path: 'dev-environments',
             title: 'Dev environments',
             description: 'Dev environments',
-            component: <DevEnvs />,
+            // component: <DevEnvs />,
           },
           {
             path: 'use-dependencies',
             title: 'Use dependencies',
             description: 'Using components',
-            component: <UseDependencies />,
+            // component: <UseDependencies />,
           },
         ],
       },
@@ -228,13 +232,13 @@ export const docsRoutes: DocsRoute[] = [
             path: 'snap-component-changes',
             title: 'Snapshot component changes',
             description: 'Version Components',
-            component: <VersionComponents />,
+            // component: <VersionComponents />,
           },
           {
             path: 'version-components',
             title: 'Version Components',
             description: 'Version Components',
-            component: <VersionComponents />,
+            // component: <VersionComponents />,
           },
           {
             path: 'remote-scope',
@@ -245,13 +249,13 @@ export const docsRoutes: DocsRoute[] = [
                 path: 'host-on-bit-cloud',
                 title: 'Host on Bit Cloud',
                 description: 'Host on Bit Cloud',
-                component: <HostBitCloud />,
+                // component: <HostBitCloud />,
               },
               {
                 path: 'self-host-scope',
                 title: 'Self-hosted scope',
                 description: 'Self Host Scope',
-                component: <SelfHostScope />,
+                // component: <SelfHostScope />,
               },
             ],
           },
@@ -259,13 +263,13 @@ export const docsRoutes: DocsRoute[] = [
             path: 'importing-components',
             title: 'Importing components',
             description: 'Share components',
-            component: <ShareComponents />,
+            // component: <ShareComponents />,
           },
           {
             path: 'exporting-components',
             title: 'Exporting components',
             description: 'Exporting components',
-            component: <ShareComponents />,
+            // component: <ShareComponents />,
           },
         ],
       },
@@ -279,19 +283,19 @@ export const docsRoutes: DocsRoute[] = [
             path: 'install-components',
             title: 'Install Components',
             description: 'Install Components',
-            component: <InstallComponents />,
+            // component: <InstallComponents />,
           },
           {
             path: 'import-components',
             title: 'Import Components',
             description: 'Import Components',
-            component: <ImportComponents />,
+            // component: <ImportComponents />,
           },
           {
             path: 'update-components',
             title: 'Update Components',
             description: 'Update Components',
-            component: <UpdateComponents />,
+            // component: <UpdateComponents />,
           },
         ],
       },
@@ -305,13 +309,13 @@ export const docsRoutes: DocsRoute[] = [
             path: 'automate-export',
             title: 'Automate Component Export',
             description: 'Automate Component Export',
-            component: <CiExport />,
+            // component: <CiExport />,
           },
           {
             path: 'package-consumers',
             title: 'Package Consumers',
             description: 'Package Consumers',
-            component: <CiInstall />,
+            // component: <CiInstall />,
           },
         ],
       },
@@ -1243,7 +1247,18 @@ export const docsRoutes: DocsRoute[] = [
         path: 'react',
         title: 'React',
         open: false,
-        children: [],
+        children: [
+          {
+            path: 'react-overview',
+            title: 'React Overview',
+            component: <ReactOverview />,
+          },
+          {
+            path: 'extending-react',
+            title: 'Extending React',
+            component: <ExtendingReact />,
+          },
+        ],
       },
       {
         path: 'angular',

@@ -1,1 +1,1 @@
-export { default as ExtendingReact, default } from './extending-react.mdx
+export { default as ExtendingReact, default } from './extending-react.mdx';

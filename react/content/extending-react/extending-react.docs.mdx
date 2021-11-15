@@ -1,11 +1,12 @@
 ---
 description: 'A community doc.'
-labels: ['content', 'mdx',]
+labels: ['content', 'mdx']
 ---
 
-import { ExtendingReact } from './extending-react.docs';
+import { ExtendingReact } from './index';
 
 ### Component usage
+
 ```js
 <ExtendingReact />
 ```
@@ -13,13 +14,13 @@ import { ExtendingReact } from './extending-react.docs';
 ### Render with theme and MDX providers
 
 ```js
-import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions'
-import { MDXLayout } from '@teambit/mdx.ui.mdx-layout'
-import { ExtendingReact } from './index'
+import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions';
+import { MDXLayout } from '@teambit/mdx.ui.mdx-layout';
+import ExtendingReact from './extending-react';
 
 <ThemeCompositions>
   <MDXLayout>
     <ExtendingReact />
   </MDXLayout>
-</ThemeCompositions>
+</ThemeCompositions>;
 ```

@@ -6,7 +6,7 @@ description: 'A community doc.'
 labels: ['content', 'mdx',]
 ---
 
-import { ${namePascalCase} } from './${name}.docs';
+import ${namePascalCase} from './index';
 
 ### Component usage
 \`\`\`js
