@@ -1203,6 +1203,12 @@
         "mainFile": "index.ts",
         "rootDir": "ui-foundation/ui/navigation/react-router/routing-adapter"
     },
+    "ui/navigation/tab-link": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "design/ui/navigation/tab-link"
+    },
     "ui/pages/doc-page": {
         "scope": "teambit.docs",
         "version": "1.9.65",

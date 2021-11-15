@@ -1,6 +1,6 @@
 import React from 'react';
 import loadable from '@loadable/component';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import { Guides } from '@teambit/docs.ui.pages.guides';
 import { Header } from '@teambit/community.ui.header.header';
 import { Homepage } from '@teambit/community.ui.pages.homepage';
@@ -23,12 +23,14 @@ export function BitDevApp() {
     <AppContext showHighlighter={highlighting}>
       <Header highlighting={highlighting} setHighlighting={setHighlighting} />
       <Switch>
+        <Redirect exact from="/docs" to="/docs/quick-start" />
         <Route path="/docs">
           <WideColumn>
             <CommunityDocs />
           </WideColumn>
         </Route>
 
+        <Redirect exact from="/guides" to="/guides/micro-frontends/overview" />
         <Route path="/guides">
           <WideColumn>
             <Guides />
