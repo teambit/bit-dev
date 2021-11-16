@@ -11,6 +11,7 @@ export type ComponentCardPayload = {
   preview?: string;
   description?: string;
   envIcon?: string;
+  href?: string;
 };
 
 export type ComponentCardGraphProps = {

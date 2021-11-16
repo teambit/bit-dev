@@ -9,10 +9,11 @@ export type ComponentCardPayload = {
   envIcon?: string;
   version?: string;
   preview?: string;
+  href?: string;
 };
 
 export function ComponentCardNode({ node }: GraphNodeProps<ComponentCardPayload>) {
-  const { preview, ...rest } = node.payload || {};
+  const { preview, href, ...rest } = node.payload || {};
   const Img = (
     <div className={styles.preview}>
       <img src={preview} />
@@ -20,7 +21,7 @@ export function ComponentCardNode({ node }: GraphNodeProps<ComponentCardPayload>
   );
   return (
     <div id={node.attrId}>
-      <ComponentCard preview={preview && Img} id={node.id.fullName} version={node.id.version} {...rest} />
+      <ComponentCard preview={preview && Img} id={node.id.fullName} version={node.id.version} href={href} {...rest} />
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import { Image } from '@teambit/base-react.content.image';
+import { Link } from '@teambit/design.ui.navigation.link';
 import { Heading, Elements } from '@teambit/community.ui.heading';
 import { Edge } from '@teambit/community.ui.graph.edge';
 import { ComponentCardGraph } from '@teambit/community.ui.graph.component-card-graph';
@@ -35,7 +36,9 @@ export function ComponentDistributionSection({ title, components = [], className
         <Edge node={top} dependency={top.dependencies[1]} />
       </div>
       <ComponentCardGraph nodes={components} className={styles.distributionGraph}>
-        <Image src={img} className={styles.appImg} id="teambit-image-image" />
+        <Link href="https://bit.dev/learn-bit-react/shoe-store/apps/shoe-store" external className={styles.linkImg}>
+          <Image src={img} className={styles.appImg} id="learn-bit-react-image-image" />
+        </Link>
       </ComponentCardGraph>
       {/* created a connecting element for edge curve effect */}
       <div id={bottom.attrId} className={styles.connectingEdgeAnchor}>

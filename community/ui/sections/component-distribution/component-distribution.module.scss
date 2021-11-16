@@ -27,10 +27,7 @@
   }
 }
 
-.appImg {
-  max-width: 600px;
-  min-width: 600px;
-  border-radius: 8px;
+.linkImg {
   grid-column-start: 6;
   grid-column-end: 8;
   grid-row-start: 1;
@@ -48,6 +45,16 @@
     grid-column-end: 3;
     grid-row-start: 1;
     grid-row-end: 1;
+  }
+}
+
+.appImg {
+  max-width: 600px;
+  min-width: 600px;
+  border-radius: 8px;
+  @media screen and (max-width: $br-md) {
+    min-width: unset;
+    width: 100%;
   }
 }
 
