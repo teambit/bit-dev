@@ -49,9 +49,10 @@ export class CommunityReactMain {
         transformers: [
           (config) => {
             config.setRule('no-console', ['error']);
+            config.setRule('no-use-before-define', 'off'); // provided by ts-eslin/no-use-before
+            config.setRule('@typescript-eslint/no-use-before-define', ['error', { typedefs: false, functions: false }]);
             config.setRule('react/jsx-props-no-spreading', 'off');
             config.setRule('react/require-default-props', 'off');
-            config.setRule('consistent-return', 'off');
             config.setRule('arrow-body-style', 'off');
             config.setRule('react/destructuring-assignment', 'off');
             config.setRule('class-methods-use-this', 'off');
