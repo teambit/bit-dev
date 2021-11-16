@@ -47,7 +47,9 @@
 }
 .configIcon {
   display: none;
-  &:hover {
-    color: var(--bit-text-color-heavy, #2b2b2b);
+  &:hover,
+  &.active {
+    display: inline-block;
+    color: var(--bit-accent-color, #6c5ce7);
   }
 }

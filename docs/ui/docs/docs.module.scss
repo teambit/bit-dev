@@ -1,15 +1,13 @@
 @import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
 
-.docs {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-}
-
 .content {
   padding: 0 36px;
   box-sizing: border-box;
   width: 100%;
   min-width: 0; // prevents content from overflowing
+  @media screen and (max-width: $br-md) {
+    padding: 0;
+  }
 }
 
 .main {

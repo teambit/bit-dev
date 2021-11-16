@@ -1,10 +1,63 @@
-# Quick Start
+import { Subtitle } from '@teambit/docs.ui.subtitle';
 
-Bit is a component build and collaboration framework. It helps teams build components together, and compose them into various 
-features and apps. This allows to build anything in a component-driven architecture, from UI applications, backend services
-and even CLI tools.
+# Quick start
+<Subtitle>
+Welcome to the Bit documantation! Here is an overview of what you will be able to learn here.
+</Subtitle>
 
-## Installing Bit
+## Introduction
+This is a simple app, built with Bit.
+
+### What is Bit?
+Bit is a toolchain for component-driven software. 
+
+<!-- Every independent component built, compounds in value and becomes an asset
+for the developer, the team and the entire organization and can be used for the definition and development of new products.  -->
+
+Bit stands at the intersection between product and architecture. **It helps you take complex product requirements, and break them down into independent, 
+and reusable pieces called ["components"](/components) that fit well together**. Components can be anything, independent by nature from a React component, 
+Node module, React hook, Microservice, Angular module, serverless function and to anything else you might imagine. Using Bit could also remind you of composing an 
+house out of lego bricks, in collaboration with few more people. 
+
+As a developer, imagine having a single repository for each of your components, and a dev experience that makes the development of them seamless together. 
+As an arhictect, imagine having your entire software architecture built from service-oriented components, sorted and controlled on a single architectural graph, it is like scaling
+Microservices for everything. As a designer, think of composing a design out of layers, each layer is indepednent and reusable. 
+
+Bit does not prescribe how you build your entire application. It helps you define and compose components and allows for every component to adopt the dev tools that best fit its nature. 
+A React component might be compiled, tested and sometimes even deployed with a different composition of tools than a Microservice component, or a generic function. 
+Bit comes with native support in various dev tools like [TypeScript](/tools/typescript), [Babel](/tools/babel), [Jest](/tools/jest), [Webpack](/tools/webpack), [ESLint](/tools/eslint) and 
+ready made development environments for [React](/frameworks/react), [NodeJS](/frameworks/node), [Angular](/envs/angular) and more. New tools can be easily integrated by creating 
+adding one more component into Bit!
+
+### What you can do with Bit?
+Almost anything is possible with Bit! We built [Bit](https://bit.dev) and [bit.cloud](https://bit.cloud) entirely using Bit, and it is quite complex which includes dozens of
+components, built across over 50 Scopes of responsibilities. From component hosting, search, serverless, complex UI and multi environment user interface, two websites and more, 
+all using a single graph of components (well just almost, after all we have legacy monolith too!).
+
+People use Bit to create all kind of applications, from user interfaces with component-driven frameworks like React, Vue and Angular, to complex 
+micro-service architectures, serverless functions, CLI utlities, desktop applications, native mobile applications and even IoT. You can do with Bit about anything you can do with JS 
+any even beyond.
+
+Building in components promotes good software design practices like single resposibility principle, seperation of concerns and encapsulation. It helps drive symmetery between 
+product requirements, architecture and the organization structure allowing development to scale to more teams owning specific product responsibilities.
+
+### Bit uses TypeScript and JavaScript
+Bit was built with TypeScript and supports it natively. It was designed to be language-agnostic, and can support other software languages in the future! 
+For now, our development environments use offcial TypeScript by default, to compile both JS and TS components and you can easily change to use Babel as a compiler or anything else
+in your custom environment, Bit has no optinion regarding your tech stack.
+
+### Learning Bit
+
+There are few ways to get started with Bit. 
+
+- If you feel like **quickly learning what Bit is about**, head over to the [Thinking in Components](/thinking-in-components). This tutorial won't get you to understand
+all the technical details of Bit, but will get you a good feeling of what it is like building component-driven software with Bit.
+- If you are **familiar with Bit and its concepts**, and want to dive deep into a specific topic, head over to the different chapters on the Learn section.
+
+The rest of this page, will guide you step by step through the different concepts of Bit and will help navigate through the docs and decide
+which concepts to dive deeper into.
+
+## Installation
 
 ```bash
 npx @teambit/bvm install

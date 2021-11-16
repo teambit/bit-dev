@@ -47,7 +47,22 @@ export interface DocsRoute {
   component?: ReactNode;
 
   /**
-   * config link option for the section.
+   * config entry for the section.
    */
-  configPath?: string;
+  config?: {
+    /**
+     * title for the path.
+     */
+    path: string,
+
+    /**
+     * title for the page.
+     */
+    title: string,
+
+    /**
+     * config component to render
+     */
+    component: ReactNode
+  },
 }

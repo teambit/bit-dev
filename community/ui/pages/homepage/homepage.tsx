@@ -25,9 +25,12 @@ export type HomepageProps = {} & React.HTMLAttributes<HTMLDivElement>;
 // we need more logos to get the effect of an endless animation. duplicated the list for now
 const logoList = [...clientLogos, ...clientLogos];
 
+const pageDescription =
+  'Bit is the leading toolchain for component-driven development. Forget monolithic apps and distribute to component-driven software. Build like the world’s best teams.';
+
 export function Homepage({ ...rest }: HomepageProps) {
   return (
-    <Page title="Bit: Component build and collaboration framework" {...rest}>
+    <Page title="Component driven development - Bit" description={pageDescription} {...rest}>
       <section>
         <div className={styles.grid}>
           <ExcludeHighlighter>
@@ -35,7 +38,12 @@ export function Homepage({ ...rest }: HomepageProps) {
           </ExcludeHighlighter>
           <ComponentDistributionSection title="From monoliths to component-driven" components={componentsMock()} />
           <FeaturesSection features={features} title="Better software is built in components" />
-          <UseCasesSection useCases={useCases} title="Make hard things simple" href="/" linkText="See more use cases" />
+          <UseCasesSection
+            useCases={useCases}
+            title="Make hard things simple"
+            href="/guides/micro-frontends/overview"
+            linkText="See more use cases"
+          />
         </div>
         <div className={styles.imageStripSection}>
           <LogoShowcase className={styles.imgStrip} images={logoList} />

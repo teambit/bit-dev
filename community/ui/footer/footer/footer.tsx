@@ -20,7 +20,7 @@ export function Footer({ categoryList, className }: FooterProps) {
       <div className={styles.bottom}>
         <Logo className={styles.logo} />
         <span>© 2021 Cocycles, Ltd.</span>
-        <Link text="Privacy" href="https://bit.dev/privacy" external />
+        <Link text="Privacy" href="https://bit.cloud/resources/privacy" external />
       </div>
     </div>
   );

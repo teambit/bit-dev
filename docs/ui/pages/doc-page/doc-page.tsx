@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, ReactNode } from 'react';
+import React, { useRef, useState, useEffect, ReactNode } from 'react';
 import { MDXLayout } from '@teambit/mdx.ui.mdx-layout';
 import { Page } from '@teambit/base-react.pages.page';
 import { NextPage } from '@teambit/community.ui.cards.next-page';
@@ -11,6 +11,11 @@ export type DocPageProps = {
    * title of the docs page.
    */
   title: string;
+
+  /**
+   * description of the docs page.
+   */
+  description?: string;
 
   /**
    * next page to show.
@@ -32,30 +37,36 @@ const scrollToRef = (ref) => {
   return window.scrollTo(0, -ref.current.offsetTop);
 };
 
-export function DocPage({ title, nextPage, children, baseUrl = '/docs' }: DocPageProps) {
+export function DocPage({ title, description, nextPage, children, baseUrl = '/docs' }: DocPageProps) {
   const myRef = useRef(null);
+  const [showNextPage, setNextPage] = useState(false);
   const executeScroll = () => scrollToRef(myRef);
+  const pageDescription = description || `Documentation page for ${title} - Bit.`;
 
   useEffect(() => {
     executeScroll();
   }, []);
 
-  //@TODO @josh remove when ssr is working
+  // @TODO @josh remove when ssr is working
   useEffect(() => {
-    if (location.hash) {
+    if (window.location.hash) {
       setTimeout(() => {
-        const element = document.getElementById(location.hash.replace('#', ''));
+        const element = document.getElementById(window.location.hash.replace('#', ''));
         element?.scrollIntoView();
+
+        setNextPage(true); // hides next page component until mdx data loads. should also be fixed by ssr
       }, 500);
     }
-  }, [location.hash]);
+  }, [window.location.hash]);
 
   return (
-    <Page title={title}>
+    <Page title={`${title} | Bit`} description={pageDescription}>
       <div ref={myRef} />
-      <MDXLayout components={mdxComponents(baseUrl)}>{children}</MDXLayout>
+      <MDXLayout components={mdxComponents(baseUrl)}>
+        <div className={styles.mdxLayout}>{children}</div>
+      </MDXLayout>
 
-      {nextPage && (
+      {nextPage && showNextPage && (
         <NextPage
           className={styles.next}
           title={nextPage.title}

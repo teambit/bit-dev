@@ -19,10 +19,20 @@ export function DocsNodeTitle({ id, icon, open, configPath, setOpen }: DocsNodeT
   const displayName = id.replace(/\/$/, '').split('/').pop();
   const CustomIcon = getCustomIcon(icon);
   const ConfigSectionIcon = configPath && (
-    <Link href={configPath} external={configPath.startsWith('http')} className={styles.configLink}>
-      <Icon className={styles.configIcon} of="settings" />
+    <Link
+      href={configPath}
+      external={configPath.startsWith('http')}
+      className={styles.configLink}
+      // This prevent open/close when clicking on the icon.
+      onClick={(e) => e.stopPropagation()}
+    >
+      <Icon
+        className={classNames(styles.configIcon, configPath === location.pathname && styles.active)}
+        of="settings"
+      />
     </Link>
   );
+
   return (
     <div className={classNames(indentClass, styles.folder)} onClick={() => setOpen(!open)}>
       <div className={styles.left}>

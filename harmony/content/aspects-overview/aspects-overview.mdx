@@ -1,0 +1,113 @@
+import { BubbleGraph } from '@teambit/community.ui.graph.bubble-graph';
+import composability from './composability.png';
+import { aspectGraph } from './aspect-graph';
+
+# Aspects Overview
+
+Bit is built entirely with Bit. This means that even Bit itself is built in a component-driven architecture. It uses [Harmony](https://bit.cloud/teambit/harmony/harmony) which is a 
+component-based framework for composing extensible features into apps. Harmony most fundemental type is an Aspect, every Aspect is a full stack feature, capable of extending UI, backend 
+and any other defined runtime environment. Every Aspect also acts as a service to all others, and its API can be used from any other aspect.
+
+We use Harmony as a way to scale development of dev experiences. We dogfood the API
+
+## Component-driven
+Harmony is a [component-based](https://en.wikipedia.org/wiki/Component-based_software_engineering) framework for composing extensible applications. 
+Bit uses Harmony to compose itself from components. Every Aspect is a component in Bit, implementing a "feature" that provides an API, and every Aspect can depend on other Aspects and 
+compose them into a new feature.
+
+<BubbleGraph nodes={aspectGraph} />
+
+## API first
+API is the most primitive interface for a Feature. Therefore, every feature built into Bit is API first and the most fundemental interface for interacting with a Bit Aspect is the 
+programmatic API. Programmatic APIs can be used to compose CLI commands, UI interfaces, GraphQL APIs and RESTful APIs and more, possibilities are endless. Aspect consumers
+can use the API to extend existing features and build new ones on top of them.
+
+Here is an example to a simple Logger aspect, exposing an API for logging messages and persisting them in memory.
+```ts
+export class MyLoggerFeature {
+  private logs = [];
+
+  public log(log: string) {
+    this.logs.push(log);
+    console.log('log something');
+  }
+
+  public listLogs() {
+    return this.logs;
+  }
+
+  static async provider() {
+    return MyLoggerFeature();
+  }
+}
+```
+
+Other aspects can add this aspect as a dependency and use to log messages.
+
+```ts
+export class MyOtherAspect {
+  static dependencies = [MyLoggerFeature];
+  static async provider([logger]: [MyLoggerFeature]) {
+    logger.log('my cool log message');
+    return new MyOtherAspect();
+  }
+}
+```
+
+## Composable 
+
+
+## Extensible
+Aspects are extensible by design. Every aspect can expose an API for other aspects to use in order to extend it using [Integration Slots](/extending-bit/slots).
+Slot allow other Aspects to "register" a new object that can be later used by them.
+
+An example is the Bit CLI aspects, which other aspects use to add commands. CLI aspect exposes an API for registering new commands, `cli.registerCommand()` which
+allows other Aspects to register a new command to Bit.
+
+```ts
+import { CLIAspect, CLIMain } from '@teambit/cli';
+
+export class MyOtherAspect {
+  static dependencies = [CLIAspect];
+  static async provider([cli]: [CLIMain]) {
+    cli.registerCommand(new MyCommand());
+    return new MyOtherAspect();
+  }
+}
+```
+
+This allows every aspect to extend the CLI aspect by registering a new command to it. Learn more about [Slots](/extending-bit/slots).
+
+## Aspect discovery
+Aspects can be searched and found across [bit.cloud](https://bit.dev/components?env=aspect).
+
+## Dogfooding
+Dogfooding is a core princple of component-driven design, and dev tools development in general. It leans on the philosophy that in order to achieve dev expereinces other can enjoy,
+you must be able to enjoy this yourself.
+API and feature dogfooding is the key towards generating great dev experiences. Since every Aspect is using itself first, composing its API to various user interfaces, it is
+been dogfooded by its maintainer. 
+
+### Apps
+An Harmony app is an array of configured Aspects. Every aspect included 
+
+### Features
+Aspects can be composed into other Aspects which act as "features".
+
+## Multi runtime
+Aspects can declare and extend different runtime environments. An example could be a Logger Aspect which provides an API, but also extends the UI runtime, adding a logger UI
+and providing various CLI commands to interact with logs.
+
+Learn more about [Runtimes](/extending-bit/runtimes).
+
+## Configurable
+Every Aspect be declare a configuration it accepts, and use it for various needs. This allows Aspects to be configured with different configuration on the composition level.
+
+```json
+{
+  "myorg.aspects/logger": {
+    "verbose": true
+  }
+}
+```
+
+Learn more about [Aspect configuration](/extending-bit/aspect-config).

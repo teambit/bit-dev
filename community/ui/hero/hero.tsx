@@ -38,23 +38,11 @@ const defaultTeaser =
 
 export function Hero({ title = defaultTitle, teaser = defaultTeaser, bubbles }: HeroProps) {
   const { heroState, setStateFromTime } = useHeroState();
-  const headingClass = heroState === HeroState.HEADING_UPDATED ? styles.highlight : '';
-
-  const button = GridNode.fromPlain({
-    id: 'teambit.design/ui/buttons/button',
-    dependencies: ['teambit.react-base/buttons/button'],
-  });
-
-  const heading = GridNode.fromPlain({
-    id: 'teambit.community/ui/content/heading',
-    dependencies: ['teambit.design/ui/content/heading'],
-  });
+  // const headingClass = heroState === HeroState.HEADING_UPDATED ? styles.highlight : '';
 
   return (
     <WideColumn>
-      <BubbleGraph nodes={bubbles}>
-        <Edge node={button} dependency={button.dependencies[0]} />
-        <Edge node={heading} dependency={heading.dependencies[0]} />
+      <BubbleGraph nodes={bubbles} className={styles.heroGraph}>
         <div className={styles.title}>
           <BubbleHighlighter
             showId
