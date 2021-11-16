@@ -5,6 +5,7 @@ import type { DocsProps, CategoryRoutes } from '@teambit/docs.ui.docs';
 import { primaryRoutes } from './primary-routes';
 import { gettingStartedDocsRoutes } from './getting-started-routes';
 import { learnDocsRoutes } from './learn-routes';
+import styles from './community-docs.module.scss';
 
 export type CommunityDocsProps = {
   /**
@@ -15,7 +16,7 @@ export type CommunityDocsProps = {
 
 export function CommunityDocs({ baseUrl = '/docs', ...rest }: CommunityDocsProps) {
   const routesCategories: CategoryRoutes[] = [
-    { title: 'GETTING STARTED', routes: gettingStartedDocsRoutes },
+    { title: 'GETTING STARTED', routes: gettingStartedDocsRoutes, className: styles.gettingStarted },
     { title: 'LEARN', routes: learnDocsRoutes },
   ];
   return (

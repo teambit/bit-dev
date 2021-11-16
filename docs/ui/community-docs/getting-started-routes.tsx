@@ -26,6 +26,7 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
     title: 'Installation',
     // description: 'Installing Bit',
     icon: 'install',
+    open: false,
     // component: <InstallingBit />,
     children: [
       {

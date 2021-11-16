@@ -109,6 +109,7 @@ const CompositionsAndStories = loadable(() => import('@teambit/compositions.cont
 
 /* Components */
 
+const NavigateHistory = loadable(() => import('@teambit/component.content.navigate-history'));
 const ComponentId = loadable(() => import('@teambit/component.content.component-id'));
 const ComponentOverview = loadable(() => import('@teambit/component.content.component-overview'));
 const RemovingDeprecating = loadable(() => import('@teambit/docs.content.guides.removing-deprecating-components'));
@@ -131,6 +132,7 @@ const EnvToubleshooting = loadable(() => import('@teambit/envs.content.env-troub
 
 /* Dependencies */
 
+const InspectingDependencies = loadable(() => import('@teambit/dependencies.content.inspecting-dependencies'));
 const DependenciesOverview = loadable(() => import('@teambit/dependencies.content.dependencies-overview'));
 const ExternalDependencies = loadable(() => import('@teambit/dependencies.content.external-dependencies'));
 const DependencyPolicies = loadable(() => import('@teambit/dependencies.content.dependency-policies'));
@@ -470,15 +472,13 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'tags',
         title: 'Tags',
-        description:
-          'Tags are immutable component snapshots that are marked with release versions (1.0.0, 1.0.1). They are used for consumption, as well as for collaboration.',
+        description: 'Version components with semantic version tagging',
         component: <Tags />,
       },
       {
         path: 'snaps',
         title: 'Snaps',
-        description:
-          'Snaps allow the recoding of component changes without creating or publishing a new sematic version for them.',
+        description: 'Record component history with snapshots',
         component: <Snaps />,
       },
       {
@@ -489,7 +489,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'navigating-history',
         title: 'Navigating history',
-        component: <Snaps />,
+        component: <NavigateHistory />,
       },
       {
         title: 'Merge conflicts',
@@ -500,7 +500,7 @@ export const learnDocsRoutes: DocsRoute[] = [
         path: 'component-id',
         title: 'Component ID',
         description:
-          'The Component ID is designed to be a unique, human-readable name that simplifies and help organize components while empowering team autonomy by avoiding cross-team naming conflicts.',
+          'The Component ID is designed to be a unique, human-readable name that simplifies and help organize components.',
         component: <ComponentId />,
       },
       {
@@ -578,9 +578,14 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'configuring-dependencies',
         title: 'Configuring Dependencies',
-        description:
-          'Even though dependencies are usally set automatically by using dependency policies. Components in the Workspace can be configured with a specific set of dependencies.',
+        description: 'Control component dependency policies.',
         component: <ConfiguringDependencies />,
+      },
+      {
+        path: 'inspecting-dependencies',
+        title: 'Inspecting Dependencies',
+        description: 'See your component dependencies',
+        component: <InspectingDependencies />,
       },
       {
         path: 'updates',

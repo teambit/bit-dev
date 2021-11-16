@@ -182,10 +182,7 @@ importers:
       '@teambit/ui-foundation.ui.tree.tree-node': registry.npmjs.org/@teambit/ui-foundation.ui.tree.tree-node/0.0.453_react-dom@16.13.1+react@16.13.1
       '@testing-library/react': registry.npmjs.org/@testing-library/react/12.0.0_react-dom@16.13.1+react@16.13.1
       '@types/history': registry.npmjs.org/@types/history/4.7.9
-      '@types/loadable__component': registry.npmjs.org/@types/loadable__component/5.13.4
-      '@types/react-helmet': registry.npmjs.org/@types/react-helmet/6.1.2
       '@types/react-router-dom': registry.npmjs.org/@types/react-router-dom/5.1.7
-      '@types/url-join': registry.npmjs.org/@types/url-join/4.0.1
       '@typescript-eslint/eslint-plugin': registry.npmjs.org/@typescript-eslint/eslint-plugin/4.30.0_8a8a2d3eaa9257455a03c16dce5f55b3
       '@typescript-eslint/parser': registry.npmjs.org/@typescript-eslint/parser/4.30.0_eslint@7.32.0+typescript@4.4.2
       classnames: registry.npmjs.org/classnames/2.3.1
@@ -217,10 +214,13 @@ importers:
       '@teambit/design.embeds.figma': registry.npmjs.org/@teambit/design.embeds.figma/0.0.6_react-dom@16.13.1+react@16.13.1
       '@testing-library/react-hooks': registry.npmjs.org/@testing-library/react-hooks/7.0.1_react-dom@16.13.1+react@16.13.1
       '@types/jest': registry.npmjs.org/@types/jest/26.0.20
+      '@types/loadable__component': registry.npmjs.org/@types/loadable__component/5.13.4
       '@types/node': registry.npmjs.org/@types/node/12.20.4
       '@types/react': registry.npmjs.org/@types/react/17.0.34
       '@types/react-dom': registry.npmjs.org/@types/react-dom/17.0.11
+      '@types/react-helmet': registry.npmjs.org/@types/react-helmet/6.1.2
       '@types/testing-library__jest-dom': registry.npmjs.org/@types/testing-library__jest-dom/5.9.5
+      '@types/url-join': registry.npmjs.org/@types/url-join/4.0.1
       react-json-view: registry.npmjs.org/react-json-view/1.21.3_47b9952f107f420f6c5ff0865fc773cc
 
   base-react/buttons/button:
@@ -248,6 +248,9 @@ importers:
     specifiers: {}
 
   base-react/theme/create-theme:
+    specifiers: {}
+
+  base-react/ui/layout/graph-node:
     specifiers: {}
 
   community/apps/bit-dev:
@@ -364,6 +367,9 @@ importers:
   community/ui/homepage/sections/standardization:
     specifiers: {}
 
+  community/ui/hooks/use-local-storage:
+    specifiers: {}
+
   community/ui/hooks/use-stars:
     specifiers: {}
 
@@ -463,6 +469,9 @@ importers:
   component/content/naming:
     specifiers: {}
 
+  component/content/navigate-history:
+    specifiers: {}
+
   component/content/snaps:
     specifiers: {}
 
@@ -547,6 +556,9 @@ importers:
   dependencies/content/external-dependencies:
     specifiers: {}
 
+  dependencies/content/inspecting-dependencies:
+    specifiers: {}
+
   dependencies/content/installing-dependencies:
     specifiers: {}
 
@@ -596,6 +608,9 @@ importers:
     specifiers: {}
 
   design/ui/navigation/link:
+    specifiers: {}
+
+  design/ui/navigation/tab-link:
     specifiers: {}
 
   design/ui/sidebar/sidebar:
@@ -713,6 +728,9 @@ importers:
     specifiers: {}
 
   docs/ui/sidebar:
+    specifiers: {}
+
+  docs/ui/subtitle:
     specifiers: {}
 
   docs/ui/zoomable-image:
@@ -1943,7 +1961,7 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1
     dependencies:
-      '@babel/runtime': registry.npmjs.org/@babel/runtime/7.16.3
+      '@babel/runtime': registry.npmjs.org/@babel/runtime/7.12.18
       react: registry.npmjs.org/react/16.13.1
     dev: false
 
@@ -1986,7 +2004,7 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1
     dependencies:
-      '@babel/runtime': registry.npmjs.org/@babel/runtime/7.16.3
+      '@babel/runtime': registry.npmjs.org/@babel/runtime/7.12.18
       react: registry.npmjs.org/react/16.13.1
     dev: false
 
@@ -4949,7 +4967,7 @@ packages:
     version: 5.13.4
     dependencies:
       '@types/react': registry.npmjs.org/@types/react/17.0.34
-    dev: false
+    dev: true
 
   registry.npmjs.org/@types/mdast/3.0.10:
     resolution: {integrity: sha512-W864tg/Osz1+9f4lrGTZpCSO5/z4608eUp19tbozkq2HJK6i3z1kT0H9tlADXuYIb1YYOBByU4Jsqkk75q48qA==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/mdast/-/mdast-3.0.10.tgz}
@@ -5001,7 +5019,7 @@ packages:
     version: 6.1.2
     dependencies:
       '@types/react': registry.npmjs.org/@types/react/17.0.34
-    dev: false
+    dev: true
 
   registry.npmjs.org/@types/react-redux/7.1.20:
     resolution: {integrity: sha512-q42es4c8iIeTgcnB+yJgRTTzftv3eYYvCZOh1Ckn2eX/3o5TdsQYKUWpLoLuGlcY/p+VAhV9IOEZJcWk/vfkXw==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/react-redux/-/react-redux-7.1.20.tgz}
@@ -5048,7 +5066,7 @@ packages:
     dependencies:
       '@types/prop-types': registry.npmjs.org/@types/prop-types/15.7.4
       '@types/scheduler': registry.npmjs.org/@types/scheduler/0.16.2
-      csstype: registry.npmjs.org/csstype/3.0.9
+      csstype: registry.npmjs.org/csstype/3.0.10
 
   registry.npmjs.org/@types/scheduler/0.16.2:
     resolution: {integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/scheduler/-/scheduler-0.16.2.tgz}
@@ -5073,7 +5091,7 @@ packages:
     resolution: {integrity: sha512-wDXw9LEEUHyV+7UWy7U315nrJGJ7p1BzaCxDpEoLr789Dk1WDVMMlf3iBfbG2F8NdWnYyFbtTxUn2ZNbm1Q4LQ==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/url-join/-/url-join-4.0.1.tgz}
     name: '@types/url-join'
     version: 4.0.1
-    dev: false
+    dev: true
 
   registry.npmjs.org/@types/yargs-parser/20.2.1:
     resolution: {integrity: sha512-7tFImggNeNBVMsn0vLrpn1H1uPrUBdnARPTpZoitY37ZrdJREzf7I16tMrlK3hen349gr1NYh8CmZQa7CTG6Aw==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/yargs-parser/-/yargs-parser-20.2.1.tgz}
@@ -6366,10 +6384,10 @@ packages:
       source-map: registry.npmjs.org/source-map/0.6.1
     dev: false
 
-  registry.npmjs.org/csstype/3.0.9:
-    resolution: {integrity: sha512-rpw6JPxK6Rfg1zLOYCSwle2GFOOsnjmDYDaBwEcwoOg4qlsIVCN789VkBZDJAGi4T07gI4YSutR43t9Zz4Lzuw==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/csstype/-/csstype-3.0.9.tgz}
+  registry.npmjs.org/csstype/3.0.10:
+    resolution: {integrity: sha512-2u44ZG2OcNUO9HDp/Jl8C07x6pU/eTR3ncV91SiK3dhG9TWvRVsCoJw14Ckx5DgWkzGA3waZWO3d7pgqpUI/XA==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/csstype/-/csstype-3.0.10.tgz}
     name: csstype
-    version: 3.0.9
+    version: 3.0.10
 
   registry.npmjs.org/currently-unhandled/0.4.1:
     resolution: {integrity: sha1-mI3zP+qxke95mmE2nddsF635V+o=, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/currently-unhandled/-/currently-unhandled-0.4.1.tgz}
@@ -8995,7 +9013,7 @@ packages:
       prop-types: ^15.0.0
       react: ^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
     dependencies:
-      '@babel/runtime': registry.npmjs.org/@babel/runtime/7.16.3
+      '@babel/runtime': registry.npmjs.org/@babel/runtime/7.12.18
       prop-types: registry.npmjs.org/prop-types/15.7.2
       react: registry.npmjs.org/react/16.13.1
       tiny-warning: registry.npmjs.org/tiny-warning/1.0.3
@@ -9054,7 +9072,7 @@ packages:
       react-dom: '*'
     dependencies:
       css-tree: registry.npmjs.org/css-tree/1.1.3
-      csstype: registry.npmjs.org/csstype/3.0.9
+      csstype: registry.npmjs.org/csstype/3.0.10
       fastest-stable-stringify: registry.npmjs.org/fastest-stable-stringify/2.0.2
       inline-style-prefixer: registry.npmjs.org/inline-style-prefixer/6.0.1
       react: registry.npmjs.org/react/16.13.1
