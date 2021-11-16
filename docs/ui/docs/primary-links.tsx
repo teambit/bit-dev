@@ -1,5 +1,5 @@
 import React from 'react';
-import type { SidebarTreeNode } from '@teambit/docs.ui.sidebar';
+import type { SidebarTreeNode } from '@teambit/docs.ui.sidebar.sidebar';
 import { MenuLinkItem } from '@teambit/design.ui.surfaces.menu.link-item';
 import styles from './docs.module.scss';
 

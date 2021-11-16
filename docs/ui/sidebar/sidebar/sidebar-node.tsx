@@ -1,6 +1,6 @@
 import React from 'react';
 import { TreeNode, TreeNodeComponentProps } from '@teambit/ui-foundation.ui.tree.tree-node';
-import { DocsTreeNode } from '@teambit/docs.ui.docs-tree-node';
+import { DocsTreeNode } from '@teambit/docs.ui.sidebar.docs-tree-node';
 
 export type SidebarNodeProps = {
   /**
