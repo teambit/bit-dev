@@ -1,0 +1,26 @@
+---
+description: Automatic highlighter for all child components
+labels: ['ui', 'react', 'popperjs', 'highligher', 'components']
+---
+
+An automatic highligher component that goes over all child elements, look for bit components, and highlight them.
+Simply wrap your code like so, and see the highlighting in action:
+
+```tsx
+<MultiHighligher>
+  <App />
+</MultiHighligher>
+```
+
+## Customization
+
+Use these CSS variables to edit the highlighter color. Text color is the usual font color.
+
+```css
+--bit-highlighter-color: #eebcc9;
+--bit-highlighter-color-hover: #f6dae2;
+--bit-highlighter-color-active: #e79db1;
+```
+
+You can also pass colors with these convinience props: `bgColor`, `bgColorHover`, `bgColorActive`.  
+You can further customize the highlighter using the `highlighterOptions` prop.

@@ -963,6 +963,12 @@
         "mainFile": "index.ts",
         "rootDir": "docs/ui/community-docs"
     },
+    "ui/highlighter/multi-highlighter": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "react/ui/highlighter/multi-highlighter"
+    },
     "ui/component-card-grid": {
         "scope": "teambit.community",
         "version": "1.9.58",
