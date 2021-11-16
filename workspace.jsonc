@@ -1,8 +1,7 @@
 /**
  * this is the main configuration file of your bit workspace.
  * for full documentation, please see: https://harmony-docs.bit.dev/workspace/configurations
- **/
- {
+ **/{
   "$schema": "https://static.bit.dev/teambit/schemas/schema.json",
   /**
    * main configuration of the Bit workspace.
@@ -98,7 +97,7 @@
         "@teambit/documenter.ui.label": "4.0.4",
         "@teambit/documenter.ui.sub-title": "4.1.1",
         "@teambit/evangelist.surfaces.tooltip": "1.0.1",
-        "@teambit/explorer.ui.gallery.component-card": "0.0.438",
+        "@teambit/explorer.ui.gallery.component-card": "0.0.470",
         "@teambit/explorer.ui.gallery.component-grid": "0.0.435",
         "@teambit/harmony": "0.2.11",
         "@teambit/mdx.modules.mdx-loader": "0.0.466",
