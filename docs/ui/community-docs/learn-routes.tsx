@@ -166,7 +166,8 @@ const ConfigFiles = loadable(() => import('@teambit/docs.content.guides.config-f
 
 /* React */
 const ReactOverview = loadable(() => import('@teambit/react.content.react-overview'));
-const ExtendingReact = loadable(() => import('@teambit/react.content.extending-react'));
+const ReplacingReactTools = loadable(() => import('@teambit/react.content.replace-react-tools'));
+const ConfigReactTools = loadable(() => import('@teambit/react.content.config-react-tools'));
 
 export const learnDocsRoutes: DocsRoute[] = [
   {
@@ -1254,9 +1255,14 @@ export const learnDocsRoutes: DocsRoute[] = [
             component: <ReactOverview />,
           },
           {
-            path: 'extending-react',
-            title: 'Extending React',
-            component: <ExtendingReact />,
+            path: 'config-react-tools',
+            title: 'Configuring React Tools',
+            component: <ConfigReactTools />,
+          },
+          {
+            path: 'replace-react-tools',
+            title: 'Replacing React Tools',
+            component: <ReplacingReactTools />,
           },
         ],
       },

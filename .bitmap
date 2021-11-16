@@ -21,6 +21,12 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/buttons/button"
     },
+    "content/adding-composition-providers": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "react/content/adding-composition-providers"
+    },
     "content/aspects-overview": {
         "scope": "teambit.harmony",
         "version": "1.0.6",
@@ -183,6 +189,12 @@
         "mainFile": "index.ts",
         "rootDir": "compositions/content/compositions-overview"
     },
+    "content/config-react-tools": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "react/content/config-react-tools"
+    },
     "content/configure-env-with-compiler": {
         "scope": "teambit.compilation",
         "version": "1.9.54",
@@ -314,12 +326,6 @@
         "version": "1.9.53",
         "mainFile": "index.ts",
         "rootDir": "envs/content/extending-env"
-    },
-    "content/extending-react": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "react/content/extending-react"
     },
     "content/external-dependencies": {
         "scope": "teambit.dependencies",
@@ -710,6 +716,12 @@
         "version": "1.9.53",
         "mainFile": "index.ts",
         "rootDir": "docs/content/rendering-docs"
+    },
+    "content/replace-react-tools": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "react/content/replace-react-tools"
     },
     "content/scope-json": {
         "scope": "teambit.scope",
@@ -1138,8 +1150,8 @@
         "rootDir": "community/ui/homepage/sections/standardization"
     },
     "ui/hooks/use-local-storage": {
-        "scope": "",
-        "version": "",
+        "scope": "teambit.community",
+        "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "community/ui/hooks/use-local-storage"
     },
@@ -1172,6 +1184,12 @@
         "version": "1.9.56",
         "mainFile": "index.ts",
         "rootDir": "community/ui/logo-showcase"
+    },
+    "ui/mocks/bit-dev": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/mocks/bit-dev"
     },
     "ui/navigation/link": {
         "scope": "teambit.design",
