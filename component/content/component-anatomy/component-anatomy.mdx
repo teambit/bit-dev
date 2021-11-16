@@ -1,19 +1,184 @@
-# Component Anatomy
+import ComponentMainFile from '@teambit/component.content.component-main-file';
 
-Component anatomy 
+# Component Structure
+
+A Bit component is a mini-repository. For each component Bit stores several elements:
+
+- Source code.
+- Configuration.
+- Dependencies.
+- Configuration.
+
+To see how Bit structures your component, use the `show` command:
+
+```
+bit show teambit.community/ui/graph/bubble-graph --remote
+```
+
+```
+┌───────────────────┬──────────────────────────────────────────────────────────────────┐
+│ id                │ teambit.community/ui/graph/bubble-graph@1.8.15                   │
+├───────────────────┼──────────────────────────────────────────────────────────────────┤
+│ scope             │ teambit.community                                                │
+├───────────────────┼──────────────────────────────────────────────────────────────────┤
+│ name              │ ui/graph/bubble-graph                                            │
+├───────────────────┼──────────────────────────────────────────────────────────────────┤
+│ env               │ teambit.community/envs/community-react@1.8.15                    │
+├───────────────────┼──────────────────────────────────────────────────────────────────┤
+│ package name      │ @teambit/community.ui.graph.bubble-graph                         │
+├───────────────────┼──────────────────────────────────────────────────────────────────┤
+│ main file         │ index.ts                                                         │
+├───────────────────┼──────────────────────────────────────────────────────────────────┤
+│ files             │ ...                                                              │
+├───────────────────┼──────────────────────────────────────────────────────────────────┤
+│ dev files         │ ...                                                              │
+├───────────────────┼──────────────────────────────────────────────────────────────────┤
+│ extensions        │ ...                                                              │
+├───────────────────┼──────────────────────────────────────────────────────────────────┤
+│ dependencies      │ ...                                                              │
+├───────────────────┼──────────────────────────────────────────────────────────────────┤
+│ dev dependencies  │ ...                                                              │
+├───────────────────┼──────────────────────────────────────────────────────────────────┤
+│ peer dependencies │ ...                                                              │
+└───────────────────┴──────────────────────────────────────────────────────────────────┘
+```
 
 ## Source code
-Source code 
+
+Typically, the component’s content is not just the source code itself and can include additional files that are related, such as the styling files, assets (images, fonts), test code, documentation.
+
+```bash
+├───────────────────┼──────────────────────────────────────────────────────────────────┤
+│ main file         │ index.ts                                                         │
+├───────────────────┼──────────────────────────────────────────────────────────────────┤
+│ files             │ bubble-graph.composition.tsx                                     │
+│                   │ bubble-graph.docs.mdx                                            │
+│                   │ bubble-graph.module.scss                                         │
+│                   │ bubble-graph.spec.tsx                                            │
+│                   │ bubble-graph.tsx                                                 │
+│                   │ bubble-node.tsx                                                  │
+│                   │ index.ts                                                         │
+├───────────────────┼──────────────────────────────────────────────────────────────────┤
+│ dev files         │ bubble-graph.spec.tsx (teambit.defender/tester)                  │
+│                   │ bubble-graph.composition.tsx (teambit.compositions/compositions) │
+│                   │ bubble-graph.docs.mdx (teambit.docs/docs)                        │
+├───────────────────┼──────────────────────────────────────────────────────────────────┤
+```
 
 ### Main file
 
+<ComponentMainFile />
 
+### Implementation files
+
+Components can have any number of files. Files can be sorted into sub-directories for readability. Files can be TypeScript files implementing functionality, design assets like `scss` and even binary files like `png`.
+
+### Dev Files
+
+Component dev-files are files we use for non-production purposes like testing, documentation, etc. Categorizing dev-files helps Bit with marking which dependencies should be considered as `devDependencies`, thus help with managing a component dependency tree.  
+
+Bit marks which configuration set each of the files as a dev-file. [read more](docs/components/dev-files) on how to manage component dev-files.
 
 ## Dependencies
 
-## Artifacts
+Component dependencies are managed by the [dependency resolver](https://bit.dev/docs/dependencies/dependencies-overview). This tool reads through all `import` and `require` statement in the component source code, and maps them to components or installed packages.
+
+Bit then creates a model of all the dependencies of the component. The dependency graph makes a component self-contained and allows for moving the component around projects without losing any references.
+The dependencies include the following:
+
+- NPM packages installed as `node_modules`
+- Bit components installed as `node_modules`
+- Bit components in the workspace.
+
+Bit then split dependencies according to their source.
+
+- Package dependencies - All dependencies that packages from any node module registry (like npmjs.org)
+- Bit components - Dependencies that are also components, regardless if they are in the same workpsace or installed to `node_modules`.
+
+```bash
+├───────────────────┼──────────────────────────────────────────────────────────────────┤
+│ dependencies      │ @teambit/community.entity.graph.grid-graph@1.9.53--- (component) │
+│                   │ @teambit/community.ui.graph.grid-graph@1.9.58------- (component) │
+│                   │ @teambit/community.ui.graph.component-bubble@1.9.58- (component) │
+│                   │ core-js@^3.0.0-------------------------------------- (package)   │
+├───────────────────┼──────────────────────────────────────────────────────────────────┤
+│ dev dependencies  │ @teambit/community.entity.graph.bubble-graph@1.9.54- (component) │
+│                   │ @teambit/community.envs.community-react@1.8.15------ (component) │
+│                   │ @testing-library/react@12.0.0----------------------- (package)   │
+│                   │ @types/testing-library__jest-dom@5.9.5-------------- (package)   │
+│                   │ @babel/runtime@7.12.18------------------------------ (package)   │
+│                   │ @types/jest@^26.0.0--------------------------------- (package)   │
+│                   │ @types/react-dom@^17.0.5---------------------------- (package)   │
+│                   │ @types/react@^17.0.8-------------------------------- (package)   │
+│                   │ @types/node@12.20.4--------------------------------- (package)   │
+├───────────────────┼──────────────────────────────────────────────────────────────────┤
+│ peer dependencies │ react-dom@^16.8.0 || ^17.0.0- (package)                          │
+│                   │ react@^16.8.0 || ^17.0.0----- (package)                          │
+└───────────────────┴──────────────────────────────────────────────────────────────────┘
+```
+
+### Dependency types
+
+`dependencies` and `devDependencies` are contextual to the component. While one component may use a dependency for its documentation, anohter component may use it for its implementation. This is why the dependency resolver is managing depenency type on a per-component basis. More specifically, by understanding in which file type the dependency is used.
+
+- Dependency used in a dev-file: `devDependencies`.
+- Dependency used in an implementation file: `dependencies`.
+- Dependency used in both dev-file and implementation file: `dependencies`.
+
+If a dependency is marked as a `peerDependency`, Bit marks that dependency as a `peerDependency`, regardless of where it is used.
 
 ## Configuration
 
-## Metadata
+Configuration is the different aspects loaded for each component. Each aspect is responsible for a specific part of the component's lifecycle and holds a configuration for itself.
 
+```bash
+├───────────────────┼──────────────────────────────────────────────────────────────────┤
+│ extensions        │ teambit.community/envs/community-react@1.8.15                    │
+│                   │ teambit.component/dev-files                                      │
+│                   │ teambit.compositions/compositions                                │
+│                   │ teambit.pkg/pkg                                                  │
+│                   │ teambit.docs/docs                                                │
+│                   │ teambit.envs/envs                                                │
+│                   │ teambit.dependencies/dependency-resolver                         │
+│                   │ teambit.pipelines/builder                                        │
+├───────────────────┼──────────────────────────────────────────────────────────────────┤
+```
+
+## Artifacts
+
+During the component build pipeline Bit creates several artifacts and saves them as part of the model. See all artifacts with the `artifacts` command:
+
+```bash
+bit artifacts teambit.community/ui/graph/bubble-graph
+```
+
+Each version or snap of a component holds a list of generated artifacts. Each aspect creates can create various artifacts, according to its task.
+
+```bash
+teambit.community/ui/graph/bubble-graph@1.9.58
+  teambit.compilation/compiler
+    TSCompiler
+      dist/bubble-graph.composition.d.ts
+      dist/bubble-graph.composition.js
+      dist/bubble-graph.composition.js.map
+      dist/index.d.ts
+      dist/index.js
+      dist/index.js.map
+
+  teambit.defender/tester
+    TestComponents
+      __bit_junit.xml
+
+  teambit.preview/preview
+    GeneratePreview
+      public/asset-manifest.json
+      public/index.html
+      public/service-worker.js
+      public/workbox-84762412.js
+      public/static/css/3279.8ff516da.css
+      public/static/js/runtime-main.efb35c69.js
+
+  teambit.pkg/pkg
+    PackComponents
+      package-tar/teambit-community.ui.graph.bubble-graph-1.9.58.tgz
+```

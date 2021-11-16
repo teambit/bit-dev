@@ -2,6 +2,7 @@ import firstSnap from './first-snap.png';
 import firstSnapHistory from './first-snap-history.png';
 import secondSnap from './second-snap.png';
 import snapDependency from './snap-dependency.png';
+import snapOverview from './snap-overview.png';
 
 # Component Snapshots
 
@@ -12,19 +13,16 @@ This feature is still under development.
 
 :::
 
-Snaps allow recoding of changes on components. They record the state of a component, alongside a message describing the change, to build a component revision history.  
-A snapshot contains source code, config, dependencies and metadata information on the component. Each snapshot has a unique hash, so you can later revisit. Snaps are similar to commits in Git. Snapshots are immutable, when they are saved to Bit and published, you can't change them.
+Snaps allow recoding of changes on components alongside a message describing the change. Use snaps to share changes of a component to collaborate with your team on components. Snapshots are immutable, when they are saved to Bit and published, you can't change them, similar to a commit in Git.
 
-## Snapshoting a Component
+In Bit you manage changes across connected components, this guide follows how snaping changes work for components that have dependencies on each other.  
+The guide follows sharing changes for `ui/text` and `ui/heading` in a worksapce with 4 connected components.
 
-To showcase how snaps work, create a new workspace and add your first component. For this demo we'll use a basic demo project, as it has a few components to start with.
+<img src={snapOverview} style={{ maxHeight:'250px' }}/>
 
-```bash
-bit new react snapshot-demo
-cd snapshot-demo
-```
+## Snap a Single Component
 
-All components in this project are new, so none of them has any snapshots. To record our first snapshot we use the `snap` command
+To record our first snapshot we use the `snap` command
 
 ```bash
 bit snap ui/text --message "a demo snapshot"
@@ -34,19 +32,6 @@ During the `snap` process, Bit runs the full component [build pipeline](/docs/de
 When done, can see the new revision in the component's **changelog** tab in the workspace-ui:
 
 <img src={firstSnapHistory} />
-
-:::info Snapshot contents
-
-When a snap of a component is created, Bit creates a new object for it, and points to it from the component.
-
-<img src={firstSnap} style={{ maxHeight:'300px' }} />
-
-- Source code
-- Dependencies (`package.json`)
-- Metadata (log message, author, date, etc)
-- Various generated artifacts (docs, test results, npm package, etc).
-
-:::
 
 Use the CLI with the `log` command:
 
@@ -89,7 +74,7 @@ staged components
      > ui/text. versions: 2ec9427e94b56bd3ed886b7eea42e84563001f5d ... ok
 ```
 
-## Exporting Snaps
+### Exporting Snaps
 
 To share a state of a component with others we must first log it to the component history using `snap`. This makes a component to be staged for export.  
 Export snaps using `export` command:
@@ -100,7 +85,7 @@ bit export
 
 Read more [here](docs/workspace/exporting-components).
 
-## Tracking New Changes
+### Tracking New Changes
 
 As components are not only built from source code, there are various things that Bit considers as "changes" for a component:
 
@@ -132,69 +117,29 @@ date: 11/14/2021, 12:25:52 PM
       a demo snapshot
 ```
 
-:::info Revision History
+## Snapshots with Linked Components
 
-Bit creates a new snapshot for the component with the new changes and builds the revision history:
-
-1. Sets current snapshot as the predecessor of the new snapshot.
-1. Updates the component to point to it as the latest snapshot.
-
-<img src={secondSnap}  style={{ maxHeight:'200px' }} />
-
-:::
-
-### Visualize Past Snapshots
-
-Each snapshot in the component history contains the built artifacts for the component, including rendering and docs. This means you can use Workspace UI to get a view on how a component looked like in past.
-
-```
-bit start
-```
-
-Each component has a version-drop-down menu you can use to see the past revisions of the component. Or you can use the **changelog** tab to jump to past snaps.
-
-## Dependencies Between Snapshots
-
-Components may depend on each other. When this happens, Bit logs this relationship as part of the snapshot using a pointer.  
-To get started, let's create a dependency relationship between `ui/heading` and `ui/text`. To do that edit the file `demo/ui/heading/heading.js` and add the following line:
-
-```js
-import Text from '@company/scope.ui.text'
-```
-
-Let's see the dependencies for `ui/heading`
-
-```bash
-bit show ui/heading
-```
-
-See that it depends on a snapshot of `ui/text`:
-
-```bash
-...
-├───────────────────┼──────────────────────────────────────────────────────────────────────────────┤
-│ dependencies      │ @company/scope.ui.text@5a88dda49403d8becbb33736de33836bd6ca9fbc- (component) │
-│                   │ classnames@2.3.1------------------------------------------------ (package)   │
-│                   │ core-js@^3.0.0-------------------------------------------------- (package)   │
-├───────────────────┼──────────────────────────────────────────────────────────────────────────────┤
-...
-```
-
-Now we can run `bit snap`, but this time run it for `ui/heading`:
+Components may depend on each other. When this happens, Bit logs this relationship as part of the snapshot.  
+In this example, `ui/heading` depends on `ui/text`, so when we snap `ui/heading`, we link it to the snap made for `ui/text`.
 
 ```bash
 bit snap ui/heading --message "see my dependency"
 ```
 
-As each snapshot is immutable, the dependency graph for each snaphot does not change. When you update a dependency and create a new snapshot, you also need to create a new snapshot for dependents.
+The snap for `ui/heading` now depends on `ui/text`'s snap.
 
-:::info Dependencies in Snapshots
+## Undoing Snapshots
 
-New snapshot for `ui/heading` depends on the second snapshot of `ui/text`.
+We can `reset` staged components, i.e., components that were snapped by not yet exported to a remote scope.  
+Bit `reset` reverts the component to its previous state, i.e., `new`, `modified` or `exported`.
 
-<img src={snapDependency}  style={{ maxHeight:'200px' }} />
 
-:::
+```bash
+bit reset ui/text # Use bit reset to remote all staged snapshots from a component
+bit reset --all # reset all versions from all components
+```
+
+This will remove all un-exported snapshots from the local component history. `reset` does not revert code changes made in the component.
 
 ##  Snapshot in the Workspace
 
@@ -226,19 +171,30 @@ When you run `bit snap`, Bit can automatically snap all dependents of the compon
 bit snap ui/heading --message "my heading" --auto-snap-dependents
 ```
 
-## Undoing Snapshots
+## How Bit Stores Snapshots
 
-We can `reset` staged components, i.e., components that were snapped by not yet exported to a remote scope.  
-Bit `reset` reverts the component to its previous state, i.e., `new`, `modified` or `exported`.
+### Contents of a Snapshot
 
-:::info reset does not revert code changes made in the component.
-:::
+When a snap of a component is created, Bit creates a new object for it, and points to it from the component.
 
-```bash
-bit reset ui/text # Use bit reset to remote all staged snapshots from a component
-bit reset foo/bar 1.0.0 # reset specific local version
-bit reset --all 0.11.4 # reset a version from all components
-bit reset --all # reset all versions from all components
-```
+<img src={firstSnap} style={{ maxHeight:'300px' }} />
 
-This will remove all un-exported snapshots from the local component history.
+- Source code.
+- Dependencies.
+- Metadata (log message, author, date, etc).
+- Various generated artifacts (docs, test results, npm package, etc).
+
+### Snap Revision History
+
+When a new snap is created, Bit creates a new snapshot all changes and builds the revision history:
+
+1. Sets current snapshot as the predecessor of the new snapshot.
+1. Updates the component to point to it as the latest snapshot.
+
+<img src={secondSnap}  style={{ maxHeight:'200px' }} />
+
+### Dependencies in Snapshots
+
+Dependencies between snapshots of different components are managed as a graph, meaning that if a snapshot of `ui/heading` depends on a specific snapshot of `ui/text`, Bit links them.
+
+<img src={snapDependency}  style={{ maxHeight:'200px' }} />

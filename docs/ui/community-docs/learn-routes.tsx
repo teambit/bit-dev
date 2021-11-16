@@ -114,7 +114,7 @@ const ComponentId = loadable(() => import('@teambit/component.content.component-
 const ComponentOverview = loadable(() => import('@teambit/component.content.component-overview'));
 const RemovingDeprecating = loadable(() => import('@teambit/docs.content.guides.removing-deprecating-components'));
 const MergingComponentVersions = loadable(() => import('@teambit/docs.content.guides.merging-component-versions'));
-const MainFile = loadable(() => import('@teambit/component.content.component-main-file'));
+// const MainFile = loadable(() => import('@teambit/component.content.component-main-file'));
 const ComponentConfig = loadable(() => import('@teambit/component.content.component-config'));
 // const ComponentJson = loadable(() => import('@teambit/component.content.component-json'));
 const ComponentObjects = loadable(() => import('@teambit/component.content.component-objects'));
@@ -273,8 +273,9 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <ComponentOverview />,
       },
       {
-        path: 'creating-components',
-        title: 'Creating components',
+        path: 'component-structure',
+        title: 'Component Structure',
+        description: 'How Bit manages a component as a mini-repository.',
         component: <ComponentAnatomy />,
       },
       {
@@ -284,34 +285,34 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'tags',
-        title: 'Tags',
+        title: 'Versioning',
         description:
-          'Version components with semantic version tagging',
+          'Manage component releases with semantic version.',
         component: <Tags />,
       },
       {
-        path: 'removing-components',
-        title: 'Removing Components',
-        description:
-          'Refactoring code often causes components to become obsolete or irrelevant. This is where removing and deprecating components becomes useful and necessary.',
-        component: <RemovingDeprecating />,
-      },
-      {
         path: 'snaps',
-        title: 'Snaps',
+        title: 'Snapshot Changes',
         description:
-          'Record component history with snapshots',
-        component: <Snaps />,
-      },
-      {
-        path: 'lanes',
-        title: 'Lanes',
+          'Record component history with snapshots.',
         component: <Snaps />,
       },
       {
         path: 'navigating-history',
         title: 'Navigating history',
         component: <NavigateHistory />,
+      },
+      /*{
+        path: 'lanes',
+        title: 'Change Management',
+        component: <Snaps />,
+      },*/
+      {
+        path: 'exporting-components',
+        title: 'Exporting Components',
+        description:
+          'Exporting is the process of copying Component versions from the Local Scope to remote Scopes, to make them available to other projects.',
+        component: <ExportingComponents />,
       },
       {
         path: 'importing-components',
@@ -321,47 +322,47 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <ImportingComponents />,
       },
       {
-        path: 'exporting-components',
-        title: 'Exporting Components',
-        description:
-          'Exporting is the process of copying Component versions from the Local Scope to remote Scopes, to make them available to other projects.',
-        component: <ExportingComponents />,
-      },
-      {
         title: 'Merge conflicts',
         path: 'merge-conflicts',
         component: <MergingComponentVersions />,
       },
       {
+        path: 'removing-components',
+        title: 'Deprecating and Removing',
+        description:
+          'Mark components as irrelevant or obsolete..',
+        component: <RemovingDeprecating />,
+      },
+      {
         path: 'component-id',
-        title: 'Component ID',
+        title: 'Naming Components',
         description:
           'The Component ID is designed to be a unique, human-readable name that simplifies and help organize components.',
         component: <ComponentId />,
       },
-      {
+      /*{
         path: 'component-main-file',
         title: 'Main File',
         description:
           'The main file of a Component is the file resolved upon a require of the Component Directory. Main file is usually expected to expose the Component API.',
         component: <MainFile />,
-      },
+      },*/
       // {
       //   path: 'component-json',
       //   title: 'component.json',
       //   component: <ComponentJson />,
       // },
       {
+        path: 'inspecting-components',
+        title: 'Inspecting Components',
+        component: <InspectingComponents />,
+      },
+      {
         path: 'dev-files',
         title: 'Dev Files',
         description:
           'Dev files are component files used for development and not for production. Dev files are determined as such by the Dev Files Aspect.',
         component: <DevFiles />,
-      },
-      {
-        path: 'inspecting-components',
-        title: 'Inspecting Components',
-        component: <InspectingComponents />,
       },
       {
         path: 'component-capsules',
