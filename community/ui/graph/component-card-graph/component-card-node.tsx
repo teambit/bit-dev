@@ -9,11 +9,14 @@ export type ComponentCardPayload = {
   envIcon?: string;
   version?: string;
   preview?: string;
-  href?: string;
 };
 
+const baseUrl = 'https://bit.dev';
+
 export function ComponentCardNode({ node }: GraphNodeProps<ComponentCardPayload>) {
-  const { preview, href, ...rest } = node.payload || {};
+  const { preview, ...rest } = node.payload || {};
+  const id = node.id.toString({ ignoreVersion: true }).replace(/[.]/g, '/');
+  const href = `${baseUrl}/${id}`;
   const Img = (
     <div className={styles.preview}>
       <img src={preview} />
