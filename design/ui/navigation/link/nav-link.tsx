@@ -5,11 +5,9 @@ import styles from './link.module.scss';
 
 export type { NavLinkProps };
 
-export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(function NavLink(
-  { className, activeClassName, ...rest }: NavLinkProps,
-  ref
-) {
-  return (
-    <BaseNavLink className={classNames(styles.link, className)} activeClassName={activeClassName} {...rest} ref={ref} />
-  );
-});
+export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>((
+  ({ className, activeClassName, ...rest }: NavLinkProps, ref) => {
+    return (
+      <BaseNavLink className={classNames(styles.link, className)} activeClassName={activeClassName} {...rest} ref={ref} />
+    );
+  });
