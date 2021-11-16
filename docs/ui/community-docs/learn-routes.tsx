@@ -311,8 +311,15 @@ export const learnDocsRoutes: DocsRoute[] = [
         path: 'exporting-components',
         title: 'Exporting Components',
         description:
-          'Exporting is the process of copying Component versions from the Local Scope to remote Scopes, to make them available to other projects.',
+          'Share component snaps and versions for consumers and collaborators.',
         component: <ExportingComponents />,
+      },
+      {
+        path: 'removing-components',
+        title: 'Deprecating and Removing',
+        description:
+          'Mark components as irrelevant or obsolete..',
+        component: <RemovingDeprecating />,
       },
       {
         path: 'importing-components',
@@ -325,13 +332,6 @@ export const learnDocsRoutes: DocsRoute[] = [
         title: 'Merge conflicts',
         path: 'merge-conflicts',
         component: <MergingComponentVersions />,
-      },
-      {
-        path: 'removing-components',
-        title: 'Deprecating and Removing',
-        description:
-          'Mark components as irrelevant or obsolete..',
-        component: <RemovingDeprecating />,
       },
       {
         path: 'component-id',
