@@ -36,7 +36,7 @@ export function ComponentDistributionSection({ title, components = [], className
         <Edge node={top} dependency={top.dependencies[1]} />
       </div>
       <ComponentCardGraph nodes={components} className={styles.distributionGraph}>
-        <Link href="https://bit.dev/learn-bit-react/shoe-store/apps/shoe-store" external className={styles.linkImg}>
+        <Link href="https://bit.dev/learn-bit-react/shoe-store/apps/shoe-store" external className={styles.appLink}>
           <Image src={img} className={styles.appImg} id="learn-bit-react-image-image" />
         </Link>
       </ComponentCardGraph>
