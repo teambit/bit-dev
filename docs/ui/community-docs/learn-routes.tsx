@@ -353,16 +353,6 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'directory-structure',
-        title: 'Directory structure',
-        component: <DirectoryStructure />,
-      },
-      {
-        path: 'workspace-configuration',
-        component: <WorkspaceConfiguration />,
-        title: 'Workspace Configuration',
-      },
-      {
-        path: 'directory-structure',
         title: 'Directory Structure',
         description:
           'The Bit Workspace is flexible in directory structure to preserve a seamless dev experience for building distributed apps.',
