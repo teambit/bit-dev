@@ -1,1 +1,1 @@
-export { AppContext, BitDevApp } from './app';
+export { BitDevApp } from './app';
