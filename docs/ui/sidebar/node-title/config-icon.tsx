@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { Icon } from '@teambit/design.elements.icon';
 import { Link } from '@teambit/design.ui.navigation.link';
-import styles from './folder-tree-node.module.scss';
+import styles from './node-title.module.scss';
 
 export function ConfigIcon({ configPath }: { configPath: string | undefined }) {
   if (!configPath) return null;

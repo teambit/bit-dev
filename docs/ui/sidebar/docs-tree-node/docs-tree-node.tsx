@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 import { CollapsableTreeNode } from '@teambit/base-ui.graph.tree.collapsable-tree-node';
 import type { TreeNodeProps } from '@teambit/base-ui.graph.tree.recursive-tree';
-import { FolderTreeNode } from '@teambit/docs.ui.folder-tree-node';
+import { NodeTitle } from '@teambit/docs.ui.sidebar.node-title';
 
 export type FolderPayload = {
   icon?: string | ReactNode;
@@ -21,7 +21,7 @@ export function DocsTreeNode({ node, depth }: DocsTreeNodeProps) {
   }, [node?.payload?.open]);
 
   const Title = node.id && (
-    <FolderTreeNode
+    <NodeTitle
       id={node.id}
       icon={node.payload?.icon}
       open={open}

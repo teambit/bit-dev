@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { Icon } from '@teambit/design.elements.icon';
-import styles from './folder-tree-node.module.scss';
+import styles from './node-title.module.scss';
 
 export function getCustomIcon(icon: string | ReactNode) {
   if (!icon) return null;

@@ -1,17 +1,17 @@
 ---
-description: 'A folder tree node for docs'
-labels: ['docs', 'folder', 'tree', 'node', 'ui']
+description: 'A node title for docs tree'
+labels: ['docs', 'folder', 'tree', 'node', 'ui', 'title']
 ---
 
-import { FolderTreeNode } from './folder-tree-node';
+import { NodeTitle } from './node-title';
 
-A folder component that is used as the beginning of a collapsable tree node.  
+A node component that is used as the title of a collapsable folder in the docs tree node.  
 Besides controlling the opening of a tree node, this component is responsible for the navigation to configuration and overview sections of a docs section.
 
 ### Component usage
 
 ```js live
-<FolderTreeNode
+<NodeTitle
   id="My Folder"
   icon="dependencies-icn"
   configPath="config-path"

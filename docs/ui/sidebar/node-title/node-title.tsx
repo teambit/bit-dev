@@ -6,21 +6,21 @@ import { Link } from '@teambit/design.ui.navigation.link';
 import { ellipsis } from '@teambit/design.ui.styles.ellipsis';
 import { getCustomIcon } from './get-custom-icon';
 import { ConfigIcon } from './config-icon';
-import styles from './folder-tree-node.module.scss';
+import styles from './node-title.module.scss';
 
-export type FolderTreeNodeProps = {
+export type NodeTitleProps = {
   /**
    * folder path.
    */
   id: string;
 
   /**
-   * left icon of the folder.
+   * left icon of the title.
    */
   icon?: ReactNode;
 
   /**
-   * open or close folder.
+   * open or close the node.
    */
   open?: boolean;
 
@@ -40,7 +40,7 @@ export type FolderTreeNodeProps = {
   setOpen: (value: React.SetStateAction<boolean>) => void;
 };
 
-export function FolderTreeNode({ id, icon, open, configPath, overviewPath, setOpen }: FolderTreeNodeProps) {
+export function NodeTitle({ id, icon, open, configPath, overviewPath, setOpen }: NodeTitleProps) {
   const displayName = id.replace(/\/$/, '').split('/').pop();
   const CustomIcon = getCustomIcon(icon);
   const handleOnFolderClick = () => {
@@ -48,7 +48,7 @@ export function FolderTreeNode({ id, icon, open, configPath, overviewPath, setOp
     if (overviewPath !== location.pathname && !open) setOpen(!open);
   };
 
-  const DocsFolder = (
+  const Title = (
     <div className={classNames(indentClass, styles.folder)} onClick={handleOnFolderClick}>
       <div className={styles.left}>
         <Icon className={classNames(styles.icon, !open && styles.collapsed)} of="fat-arrow-down" />
@@ -65,9 +65,9 @@ export function FolderTreeNode({ id, icon, open, configPath, overviewPath, setOp
         href={overviewPath}
         className={classNames(styles.folderLink, overviewPath === location.pathname && styles.active)}
       >
-        {DocsFolder}
+        {Title}
       </Link>
     );
   }
-  return DocsFolder;
+  return Title;
 }

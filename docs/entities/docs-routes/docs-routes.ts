@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import type { SidebarTreeNode, SidebarPayload } from '@teambit/docs.ui.sidebar';
+import type { SidebarTreeNode, SidebarPayload } from '@teambit/docs.ui.sidebar.sidebar';
 import { DocsRoute } from './docs-route';
 
 export type Route = {
