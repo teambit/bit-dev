@@ -21,7 +21,7 @@
   width: 350px;
   height: 120px;
   z-index: -1;
-  background: #f2f9fe;
+  background: #f4f4f4;
 
   border-radius: 100px;
   border-radius: 100px;
@@ -30,15 +30,15 @@
   left: 0;
   position: absolute;
   margin: 120px auto 20px;
-//   transform: scale3d(3, 2.5, 2) translate3d(-35px, 15px, 0);
-  transform: scale3d(3, 2.5, 2) translate3d(-15px, 15px, 0) rotate(86deg)
+  //   transform: scale3d(3, 2.5, 2) translate3d(-35px, 15px, 0);
+  transform: scale3d(3, 2.5, 2) translate3d(-15px, 15px, 0) rotate(86deg);
 }
 
 .cloud:after,
 .cloud:before {
   content: '';
   position: absolute;
-  background: #f2f9fe;
+  background: #f4f4f4;
   z-index: -1;
 }
 
@@ -71,7 +71,7 @@
   width: 350px;
   height: 120px;
   z-index: -1;
-  background: #f2f9fe;
+  background: #F9F9F9;
 
   border-radius: 100px;
   border-radius: 100px;
@@ -84,7 +84,7 @@
 .topCloud:before {
   content: '';
   position: absolute;
-  background: #f2f9fe;
+  background: #F9F9F9;
   z-index: -1;
 }
 
