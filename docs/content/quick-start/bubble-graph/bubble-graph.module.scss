@@ -6,6 +6,7 @@
   height: 540px;
   min-width: 580px;
   max-width: 780px;
+  border-left: 2px solid white;
 }
 
 .bubbleWrapper {
@@ -64,7 +65,8 @@
 }
 
 .topCloud {
-  transform: rotate(180deg) translate3d(-150px, 200px, 0) scale3d(1.5, 1.5, 1.5);
+//   transform: rotate(180deg) translate3d(-150px, 200px, 0) scale3d(1.5, 1.5, 1.5);
+  transform: rotate(153deg) translate3d(-225px, 165px, 0) scale3d(1.5, 1.5, 1.5);
 
   top: 0;
   right: 0;
