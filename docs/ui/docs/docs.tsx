@@ -2,7 +2,7 @@ import React, { useMemo, ReactNode } from 'react';
 import classNames from 'classnames';
 import { DocsRoute, DocsRoutes } from '@teambit/docs.entities.docs-routes';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
-import { Sidebar as Tree } from '@teambit/docs.ui.sidebar';
+import { Sidebar as Tree } from '@teambit/docs.ui.sidebar.sidebar';
 import { DocPage } from '@teambit/docs.ui.pages.doc-page';
 import { useSidebar } from '@teambit/design.ui.sidebar.sidebar-context';
 import { Sidebar } from '@teambit/design.ui.sidebar.sidebar';

@@ -1,3 +1,12 @@
+.folderLink {
+  color: var(--bit-text-color, #414141);
+  &:hover {
+    text-decoration: none;
+  }
+  &.active .folder {
+    background: var(--bit-accent-bg, #eceaff);
+  }
+}
 .folder {
   position: relative;
   height: 32px;

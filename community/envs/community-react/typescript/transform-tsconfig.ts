@@ -1,4 +1,3 @@
-
 export function transformTsConfig(config) {
   config.setTarget('ES2017');
   config.raw.tsconfig.compilerOptions.module = 'es2020';
