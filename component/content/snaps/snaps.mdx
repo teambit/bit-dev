@@ -1,7 +1,4 @@
-import firstSnap from './first-snap.png';
 import firstSnapHistory from './first-snap-history.png';
-import secondSnap from './second-snap.png';
-import snapDependency from './snap-dependency.png';
 import snapOverview from './snap-overview.png';
 
 # Component Snapshots
@@ -170,31 +167,3 @@ When you run `bit snap`, Bit can automatically snap all dependents of the compon
 ```bash
 bit snap ui/heading --message "my heading" --auto-snap-dependents
 ```
-
-## How Bit Stores Snapshots
-
-### Contents of a Snapshot
-
-When a snap of a component is created, Bit creates a new object for it, and points to it from the component.
-
-<img src={firstSnap} style={{ maxHeight:'300px' }} />
-
-- Source code.
-- Dependencies.
-- Metadata (log message, author, date, etc).
-- Various generated artifacts (docs, test results, npm package, etc).
-
-### Snap Revision History
-
-When a new snap is created, Bit creates a new snapshot all changes and builds the revision history:
-
-1. Sets current snapshot as the predecessor of the new snapshot.
-1. Updates the component to point to it as the latest snapshot.
-
-<img src={secondSnap}  style={{ maxHeight:'200px' }} />
-
-### Dependencies in Snapshots
-
-Dependencies between snapshots of different components are managed as a graph, meaning that if a snapshot of `ui/heading` depends on a specific snapshot of `ui/text`, Bit links them.
-
-<img src={snapDependency}  style={{ maxHeight:'200px' }} />

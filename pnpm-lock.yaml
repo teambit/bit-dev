@@ -2314,7 +2314,7 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1
     dependencies:
-      '@babel/runtime': registry.npmjs.org/@babel/runtime/7.16.3
+      '@babel/runtime': registry.npmjs.org/@babel/runtime/7.12.18
       react: registry.npmjs.org/react/16.13.1
     dev: false
 
@@ -2357,7 +2357,7 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1
     dependencies:
-      '@babel/runtime': registry.npmjs.org/@babel/runtime/7.16.3
+      '@babel/runtime': registry.npmjs.org/@babel/runtime/7.12.18
       react: registry.npmjs.org/react/16.13.1
     dev: false
 
@@ -9366,7 +9366,7 @@ packages:
       prop-types: ^15.0.0
       react: ^0.14.0 || ^15.0.0 || ^16.0.0 || ^17.0.0
     dependencies:
-      '@babel/runtime': registry.npmjs.org/@babel/runtime/7.16.3
+      '@babel/runtime': registry.npmjs.org/@babel/runtime/7.12.18
       prop-types: registry.npmjs.org/prop-types/15.7.2
       react: registry.npmjs.org/react/16.13.1
       tiny-warning: registry.npmjs.org/tiny-warning/1.0.3

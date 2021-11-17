@@ -1,6 +1,11 @@
 import { Image } from '@teambit/docs.ui.zoomable-image';
 import componentObjectsDemoImg from './component-objects-demo.png';
 import objectsImag from './objects.png';
+import secondSnap from './second-snap.png';
+import snapDependency from './snap-dependency.png';
+import firstSnap from './first-snap.png';
+import tagSnap from './tag-snap.png';
+import twoTags from './two-tags.png';
 
 # Component Objects
 
@@ -62,6 +67,58 @@ bit cat-scope
 
 Just like git objects, Bit objects are named with a [SHA-1](https://en.wikipedia.org/wiki/SHA-1) hash.
 The above output table shows the mapping between each component ID and its component-object hash.
+
+
+## Storing Snapshots
+
+### Contents of a Snapshot
+
+When a snap of a component is created, Bit creates a new object for it, and points to it from the component.
+
+<img src={firstSnap} style={{ maxHeight:'300px' }} />
+
+- Source code.
+- Dependencies.
+- Metadata (log message, author, date, etc).
+- Various generated artifacts (docs, test results, npm package, etc).
+
+### Snap Revision History
+
+When a new snap is created, Bit creates a new snapshot all changes and builds the revision history:
+
+1. Sets current snapshot as the predecessor of the new snapshot.
+1. Updates the component to point to it as the latest snapshot.
+
+<img src={secondSnap}  style={{ maxHeight:'200px' }} />
+
+### Dependencies in Snapshots
+
+Dependencies between snapshots of different components are managed as a graph, meaning that if a snapshot of `ui/heading` depends on a specific snapshot of `ui/text`, Bit links them.
+
+<img src={snapDependency}  style={{ maxHeight:'200px' }} />
+
+## Storing Versions
+
+Each component has a list of versions, where a version is a specific revision of a component, similar to a snapshot, but has a semantic version attached.
+
+Versioning components uses much of the same internal mechanism as `snap` in regards to how they are stored. This doc may be similar to `snap`'s documentation.
+
+Bit uses snapshots to record the state of a component and creates a unique type of pointer using the semantiv version selected to mark a snapshot as a release.  
+The result of this is a similar structure to how Bit stores snapshots.  
+
+<img src={tagSnap} />
+
+As this is an automated flow where you don't need to run `snap` before you `tag`, for the remainder of this doc, we'll only show `tag` in the graphs.  
+Read more on snapshots [here](/docs/components/snaps).
+
+### Version History
+
+Bit creates a new tag for the component with the new changes and adds a new pointer with the new semantic version:
+
+<img src={twoTags}  style={{ maxHeight:'200px' }} />
+
+Version history and presedence is determined by semantic verion, not when a tag was created.
+
 
 ## Object types
 
