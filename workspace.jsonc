@@ -52,6 +52,7 @@
         "@learn-bit-react/ecommerce.ui.product.product-card": "1.0.14",
         "@learn-bit-react/ecommerce.ui.product.product-card-grid": "1.0.9",
         "@learn-bit-react/ecommerce.ui.store-hero": "0.0.9",
+        "@learn-bit/innovators.composites.demo": "0.0.2",
         "@learn-bit/innovators.ui.innovator-list": "0.0.6",
         "@loadable/component": "5.15.0",
         "@react-aria/button": "3.3.3",

@@ -15,7 +15,7 @@ export type SidebarNodeProps = {
 } & TreeNodeComponentProps<any>;
 
 export function SidebarNode(props: SidebarNodeProps) {
-  const currentPath = location?.pathname;
+  const currentPath = window.location?.pathname;
   const { node, depth } = props;
 
   if (!node.children) {
