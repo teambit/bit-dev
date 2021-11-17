@@ -306,15 +306,13 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'tags',
         title: 'Tags',
-        description:
-          'Version components with semantic version tagging',
+        description: 'Version components with semantic version tagging',
         component: <Tags />,
       },
       {
         path: 'snaps',
         title: 'Snaps',
-        description:
-          'Record component history with snapshots',
+        description: 'Record component history with snapshots',
         component: <Snaps />,
       },
       {
@@ -414,15 +412,13 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'configuring-dependencies',
         title: 'Configuring Dependencies',
-        description:
-          'Control component dependency policies.',
+        description: 'Control component dependency policies.',
         component: <ConfiguringDependencies />,
       },
       {
         path: 'inspecting-dependencies',
         title: 'Inspecting Dependencies',
-        description:
-          'See your component dependencies',
+        description: 'See your component dependencies',
         component: <InspectingDependencies />,
       },
       {
@@ -465,10 +461,6 @@ export const learnDocsRoutes: DocsRoute[] = [
         description:
           'A lock file is a representation of the node_modules directory, written in a YAML format. It is automatically generated and updated, whenever the node_modules directory structure is modified by the package manager (when packages are either installed or removed).',
         component: <LockFiles />,
-      },
-      {
-        path: 'inspecting-dependencies',
-        title: 'Inspecting Dependencies',
       },
     ],
   },
