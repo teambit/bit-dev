@@ -1,24 +1,70 @@
 ---
-description: 'A Docs component.'
-labels: ['docs', 'page']
+description: 'Main docs component.'
+labels: ['docs', 'page', 'routes']
 ---
 
 import { Docs } from './docs';
 
-## React Component for rendering text
-
-A basic div that renders some text
+Docs component that renders the docs page with the Sidebar on the left side and the Content on the right.  
+This component renders all the Routes and makes them available in ReactRouter.
 
 ### Component usage
 
-```js
-<Docs />
-```
-
-### Using props to customize the text
-
-Modify the text to see it change live:
-
 ```js live
-<Docs />
+() => {
+  const primaryRoutes = [
+    {
+      path: 'quick-start',
+      icon: 'lightning',
+      title: 'Quick Start',
+      description: 'Quick Start',
+      component: <div />,
+    },
+    {
+      path: 'thinking-in-components',
+      icon: 'Lightbulb-thinking',
+      title: 'Thinking in components',
+      component: <div />,
+    },
+  ];
+
+  const routes = [
+    {
+      path: 'installation',
+      title: 'Installation',
+      component: <div />,
+      children: [
+        {
+          path: 'start-bit-project',
+          title: 'Start a new Bit Workspace',
+          component: <div />,
+        },
+      ],
+    },
+    {
+      path: 'components',
+      title: 'Components',
+      component: <div />,
+      children: [
+        {
+          path: 'creating-components',
+          title: 'Creating components',
+          component: <div />,
+        },
+        {
+          path: 'component-config',
+          title: 'Component Configuration',
+          component: <div />,
+        },
+      ],
+    },
+  ];
+  return (
+    <Docs
+      baseUrl="https://teambit-community-apps-bit-dev.netlify.app/docs"
+      routes={routes}
+      primaryLinks={primaryRoutes}
+    />
+  );
+};
 ```
