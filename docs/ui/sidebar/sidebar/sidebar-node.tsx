@@ -1,6 +1,6 @@
 import React from 'react';
 import { TreeNode, TreeNodeComponentProps } from '@teambit/ui-foundation.ui.tree.tree-node';
-import { DocsTreeNode } from '@teambit/docs.ui.docs-tree-node';
+import { DocsTreeNode } from '@teambit/docs.ui.sidebar.docs-tree-node';
 
 export type SidebarNodeProps = {
   /**
@@ -15,7 +15,7 @@ export type SidebarNodeProps = {
 } & TreeNodeComponentProps<any>;
 
 export function SidebarNode(props: SidebarNodeProps) {
-  const currentPath = location?.pathname;
+  const currentPath = window.location?.pathname;
   const { node, depth } = props;
 
   if (!node.children) {
