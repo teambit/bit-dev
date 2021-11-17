@@ -3,15 +3,17 @@
   overflow: hidden;
   grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(6, 0.4fr);
-  height: 600px;
-  min-width: 640px;
+  height: 540px;
+  min-width: 580px;
   max-width: 780px;
 }
 
 .bubbleWrapper {
-  height: 15px;
+  height: 40px;
+  width: 85px;
   > div {
     opacity: 1;
+    max-width: 180px;
   }
 }
 
@@ -28,7 +30,8 @@
   left: 0;
   position: absolute;
   margin: 120px auto 20px;
-  transform: scale3d(3, 2.5, 2);
+//   transform: scale3d(3, 2.5, 2) translate3d(-35px, 15px, 0);
+  transform: scale3d(3, 2.5, 2) translate3d(-15px, 15px, 0) rotate(86deg)
 }
 
 .cloud:after,
@@ -61,7 +64,7 @@
 }
 
 .topCloud {
-  transform: rotate(180deg) translate3d(-182px, 140px, 0) scale3d(1.5, 1.5, 1.5);
+  transform: rotate(180deg) translate3d(-150px, 200px, 0) scale3d(1.5, 1.5, 1.5);
 
   top: 0;
   right: 0;
