@@ -526,7 +526,7 @@ export const learnDocsRoutes: DocsRoute[] = [
   {
     path: 'envs',
     title: 'Envs',
-    icon: 'Internal',
+    icon: 'env',
     open: false,
     config: {
       path: 'envs-config',
