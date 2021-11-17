@@ -7,9 +7,8 @@ import { ComponentDistributionSection } from '@teambit/community.ui.sections.com
 import { componentsMock } from '@teambit/community.entity.compnent-distribution-graph';
 import { useCases } from '@teambit/community.entity.use-cases';
 import { features } from '@teambit/community.entity.features';
-import { mockBubbleGraph, innovaorsBubbleGraph } from '@teambit/community.entity.graph.bubble-graph';
+import { mockBubbleGraph } from '@teambit/community.entity.graph.bubble-graph';
 import { ExcludeHighlighter } from '@teambit/react.ui.component-highlighter';
-import { BubbleGraph } from '@teambit/community.ui.graph.bubble-graph';
 import { LogoShowcase } from '@teambit/community.ui.logo-showcase';
 import { StickyMenu } from '@teambit/community.ui.sticky-menu';
 import { Page } from '@teambit/base-react.pages.page';
@@ -76,24 +75,12 @@ export function Homepage({ ...rest }: HomepageProps) {
           ]}
         />
       </WideColumn>
-      <Bla />
-      {/* 
+
       <Distribution />
       <Collaboration />
       <Standardization />
       <Autonomy />
-      <Extendability /> */}
+      <Extendability />
     </Page>
-  );
-}
-
-function Bla() {
-  return (
-    <div>
-      <BubbleGraph className={styles.innovatorGrid} nodeClassName={styles.bubbleWrapper} nodes={innovaorsBubbleGraph()}>
-        <div className={styles.cloud} />
-        <div className={styles.topCloud} />
-      </BubbleGraph>
-    </div>
   );
 }
