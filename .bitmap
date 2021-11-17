@@ -1281,17 +1281,17 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/sections/top-down"
     },
-    "ui/sidebar": {
+    "ui/sidebar/docs-tree-node": {
         "scope": "teambit.docs",
         "version": "1.9.62",
         "mainFile": "index.ts",
-        "rootDir": "docs/ui/sidebar"
+        "rootDir": "docs/ui/sidebar/node-title"
     },
     "ui/sidebar/sidebar": {
         "scope": "teambit.design",
         "version": "1.9.58",
         "mainFile": "index.ts",
-        "rootDir": "design/ui/sidebar/sidebar"
+        "rootDir": "docs/ui/sidebar/sidebar"
     },
     "ui/sidebar/sidebar-context": {
         "scope": "teambit.design",

@@ -50,6 +50,8 @@ importers:
       '@teambit/design.ui.input.icon-text': 0.0.7
       '@teambit/design.ui.input.toggle': 1.0.7
       '@teambit/design.ui.message-card': 1.0.6
+      '@teambit/design.ui.navigation.link': 1.9.57
+      '@teambit/design.ui.sidebar.sidebar': 1.9.57
       '@teambit/design.ui.styles.ellipsis': 0.0.346
       '@teambit/design.ui.surfaces.menu.link-item': 0.0.374
       '@teambit/docs.ui.sidebar.sidebar': 0.0.1
@@ -160,6 +162,8 @@ importers:
       '@teambit/design.ui.input.icon-text': registry.npmjs.org/@teambit/design.ui.input.icon-text/0.0.7_react-dom@16.13.1+react@16.13.1
       '@teambit/design.ui.input.toggle': registry.npmjs.org/@teambit/design.ui.input.toggle/1.0.7_react-dom@16.13.1+react@16.13.1
       '@teambit/design.ui.message-card': registry.npmjs.org/@teambit/design.ui.message-card/1.0.6_react-dom@16.13.1+react@16.13.1
+      '@teambit/design.ui.navigation.link': 1.9.57_8bea2159e6cd5f1e2e43db9fc3829767
+      '@teambit/design.ui.sidebar.sidebar': 1.9.57_react-dom@16.13.1+react@16.13.1
       '@teambit/design.ui.styles.ellipsis': registry.npmjs.org/@teambit/design.ui.styles.ellipsis/0.0.346_react-dom@16.13.1+react@16.13.1
       '@teambit/design.ui.surfaces.menu.link-item': registry.npmjs.org/@teambit/design.ui.surfaces.menu.link-item/0.0.374_react-dom@16.13.1+react@16.13.1
       '@teambit/docs.ui.sidebar.sidebar': 0.0.1_8bea2159e6cd5f1e2e43db9fc3829767
@@ -732,6 +736,15 @@ importers:
     specifiers: {}
 
   docs/ui/sidebar:
+    specifiers: {}
+
+  docs/ui/sidebar/docs-tree-node:
+    specifiers: {}
+
+  docs/ui/sidebar/node-title:
+    specifiers: {}
+
+  docs/ui/sidebar/sidebar:
     specifiers: {}
 
   docs/ui/subtitle:

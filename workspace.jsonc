@@ -89,6 +89,7 @@
         "@teambit/design.ui.input.icon-text": "0.0.7",
         "@teambit/design.ui.input.toggle": "1.0.7",
         "@teambit/design.ui.message-card": "1.0.6",
+        "@teambit/design.ui.sidebar.sidebar": "1.9.57",
         "@teambit/design.ui.styles.ellipsis": "0.0.346",
         "@teambit/design.ui.surfaces.menu.link-item": "0.0.374",
         "@teambit/documenter.markdown.heading": "0.1.4",
