@@ -1283,7 +1283,7 @@
     },
     "ui/sidebar/docs-tree-node": {
         "scope": "teambit.docs",
-        "version": "1.9.62",
+        "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/sidebar/node-title"
     },
