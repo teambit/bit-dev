@@ -64,7 +64,6 @@ export const demoGraph = createBubbleGraph([
     id: 'learn-bit.innovators/blocks/top-innovators@1.0.0',
     dependencies: [
       'learn-bit.innovators/ui/innovator-grid@1.0.2',
-
       {
         id: 'teambit.bubble-graph/ui/connecter',
         edge: {
