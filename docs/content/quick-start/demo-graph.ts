@@ -23,17 +23,7 @@ export const demoGraph = createBubbleGraph([
     col: 5,
     position: 'left',
   },
-  // {
-  //   id: 'learn-bit.innovators/apps/innovators@1.0.0',
-  //   dependencies: ['learn-bit.innovators/ui/innovator-list@1.0.0'],
-  //   payload: {
-  //     icon: 'https://static.bit.dev/brands/logo-react.svg',
-  //     forceActive: true,
-  //     showScope: false,
-  //   },
-  //   row: 3,
-  //   col: 1,
-  // },
+
   {
     id: 'learn-bit.innovators/ui/innovator-card@1.0.0',
     dependencies: [
@@ -46,54 +36,35 @@ export const demoGraph = createBubbleGraph([
       forceActive: true,
       showScope: false,
     },
-    row: 3,
+    row: 5,
     col: 3,
+    position: 'top-right',
   },
   {
     id: 'learn-bit.innovators/ui/innovator-grid@1.0.2',
     dependencies: [
+      'learn-bit.innovators/ui/innovator-card@1.0.2',
       {
-        id: 'learn-bit.innovators/ui/innovator-card@1.0.2',
+        id: 'learn-bit.innovators/entities/innovator@1.0.0',
         edge: {
-          start: 'right',
-          end: {
-            position: 'bottom',
-            offset: {
-              x: 50,
-            },
-          },
+          start: 'bottom',
         },
       },
-      'learn-bit.innovators/entities/innovator@1.0.0',
     ],
     payload: {
       icon: 'https://static.bit.dev/brands/logo-react.svg',
       forceActive: true,
       showScope: false,
     },
-    row: 4,
-    col: 2,
-
-    position: 'right',
+    row: 5,
+    col: 1,
   },
-  // {
-  //   id: 'learn-bit.innovators/services/innovators@1.0.0',
-  //   dependencies: [],
-  //   payload: {
-  //     icon: 'https://static.bit.dev/brands/logo-react.svg',
-  //     forceActive: true,
-  //     showScope: false,
-  //   },
-  //   row: 5,
-  //   col: 3,
-  //   position: 'right',
-  // },
+
   {
     id: 'learn-bit.innovators/blocks/top-innovators@1.0.0',
     dependencies: [
-      // 'learn-bit.innovators/entities/innovator@1.0.0',
       'learn-bit.innovators/ui/innovator-grid@1.0.2',
-      // 'learn-bit.innovators/services/innovators@1.0.0',
+
       {
         id: 'teambit.bubble-graph/ui/connecter',
         edge: {
@@ -107,8 +78,9 @@ export const demoGraph = createBubbleGraph([
       forceActive: true,
       showScope: false,
     },
-    row: 3,
+    row: 4,
     col: 1,
+    position: 'top',
   },
   {
     id: 'learn-bit.innovators/entities/innovator@1.0.0',
@@ -118,7 +90,7 @@ export const demoGraph = createBubbleGraph([
       forceActive: true,
       showScope: false,
     },
-    row: 5,
+    row: 6,
     col: 3,
     position: 'top',
   },
