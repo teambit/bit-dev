@@ -1,25 +1,25 @@
 ---
-description: 'Component entry point file.'
+description: 'Adding a component to Bit.'
 labels: ['docs', 'mdx']
 ---
 
-import { ComponentMainFile } from './index';
+import { AddingComponents } from './index';
 
 ### Component usage
 ```js
-<ComponentMainFile />
+<AddingComponents />
 ```
 
 ### Render with theme and MDX providers
 
 ```js
 import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions'
-import { MDXLayout } from '@teambit/mdx.ui.mdx-layout'
-import { ComponentMainFile } from './index'
+import { MDXLayout } from '@teambit/ui.mdx-layout'
+import { AddingComponents } from './index'
 
 <ThemeCompositions>
   <MDXLayout>
-    <ComponentMainFile />
+    <AddingComponents />
   </MDXLayout>
 </ThemeCompositions>
 ```

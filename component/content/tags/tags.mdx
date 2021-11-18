@@ -1,19 +1,9 @@
 import firstTag from './first-tag.png';
-import tagSnap from './tag-snap.png';
-import twoTags from './two-tags.png';
 
-# Component Tags
+# Versioning Components
 
 You can tag a specific state of a component as being a release. Bit calls these annotations **Tags**, and use semantic versioning for marking these releases. A tag is immutable, making it safe for consumers to depend on.  
 There are additional attributes that make Tags work best for consumers, we'll go over them in this section.
-
-:::info Similarities with `snap`
-
-Versioning components uses much of the same internal mechanism as `snap` in regards to how they are stored. This doc may be similar to `snap`'s documentation.
-
-:::
-
-## Versioning a Component
 
 To showcase how tagging work, create a new workspace and add your first component.  
 For this demo we'll use a basic demo project, as it has a few components to start with.
@@ -65,19 +55,7 @@ staged components
      > ui/text. versions: 1.0.0 ... ok
 ```
 
-:::info Tags and Snapshots
-
-Bit uses snapshots to record the state of a component and creates a unique type of pointer using the semantiv version selected to mark a snapshot as a release.  
-The result of this is a similar structure to how Bit stores snapshots.  
-
-<img src={tagSnap} />
-
-As this is an automated flow where you don't need to run `snap` before you `tag`, for the remainder of this doc, we'll only show `tag` in the graphs.  
-Read more on snapshots [here](/docs/components/snaps).
-
-:::
-
-### Semantic Versioning
+## Semantic Versioning
 
 Bit adheres to Semantic Versioning as defined by [SemVer](https://semver.org/) when versioning components. This way any package manager like npm, yarn or pnpm can consume the comopnent as a dependency to a project.  
 The `tag` command has several features you can use for versioning:
@@ -89,21 +67,19 @@ bit tag "ui/*" --patch --message "my version message" # Version components match
 bit tag ui/text --message "my version message"        # Version a specific component with default increment (patch).
 ```
 
-### Undoing a Tag
+## Undoing a Tag
 
 We can untag staged components, i.e., components that were tagged by not yet exported to a remote scope.  
 Bit untag reverts the component to its previous state, i.e., `new`, `modified` or `exported`.
 
-:::info Untag does not revert code changes made in the component.
-:::
-
 ```bash
 bit untag ui/text # Use bit untag to untag a component
-bit untag foo/bar 1.0.0 # untag specific local version
+bit untag ui/heading 1.0.0 # untag specific local version
 bit untag --all 0.11.4 # untag a version from all components
 bit untag --all # untag all versions from all components
 ```
 
+Untag does not revert code changes made in the component.
 
 ## Exporting Tags
 
@@ -151,16 +127,6 @@ date: 10/27/2021, 5:41:00 AM
 
       my first version
 ```
-
-:::info Version History
-
-Bit creates a new tag for the component with the new changes and adds a new pointer with the new semantic version:
-
-<img src={twoTags}  style={{ maxHeight:'200px' }} />
-
-Version history and presedence is determined by semantic verion, not when a tag was created.
-
-:::
 
 ### Explore the Version History
 

@@ -1,38 +1,17 @@
-<!-- This page is WIP -->
+Component's `main` file is a a way to rollup exports from the component in a single convenient method. It exposes selected exports of from the component, similar to a [barrel file](https://basarat.gitbook.io/typescript/main-1/barrel).  
+This practice simplifies the component's code and allows for easier maintenance, as it is a single point of entry for the component.
 
-# Main File
-
-The main file of a Component is the file resolved upon a `require` of the Component Directory. Main file is usually expected to expose the Component API.
-It is set upon tacking or creation of a Component using and defined in the `.bitmap` file.
-
-## index files
-
-By default, an `index.ts` or an `index.js` file is considered to be the main file of a [Component](/components/overview).
-It is recommended to expose all APIs expected to be used by the [Component](/components/overview) consumers from the Component main file. Here is an example for a simple `index.ts` file of a `Button` component.
+A `main` file will typically look like this, but may contain additional exports as needed:
 
 ```ts
 export { Button } from './button';
 export type { ButtonProps } from './button';
 ```
 
-### Requiring internal files of components
+There are several rules Bit follows when setting a `main` file (list is orered by importance):
 
-Requiring internal files of components is highly not recommended and might cause inconsistencies due to compiling of the Component. If requiring an internal file makes sure to only `require` files which are not compiled by the [Component](/components/overview) defined [Compiler](/compiler/overview) like `scss`, `less` or `png` files.
+1. Manually set `main` file when running `bit add` command with the `--main` option.
+1. `index.ts` or `index.js`.
+1. File with the same name as the component's foldername.
 
-```ts
-import { Button } from '@teambit/base-ui.button'; // good!
-import { Button } from '@teambit/base-ui.button/button'; // bad! requires internal file of the component.
-import styles from '@teambit/base-ui.button/button.modules.scss'; // resources like `scss` and `png` since they are not compiled and handles by the consuming app.
-```
-
-## Main file resolution
-
-By default, Bit resolves `index.ts` or `index.js` to be the main file of the Component if one of them exists. Otherwise, Bit looks for a file corresponding to the [Component Name](/components/component-id#component-name). In a case a main file is defined through the `--main` flag, Bit will look for this file alone.
-
-## Changing a Component main file
-
-Changing a main file can be achieved by the `bit add` command. Use `bit add` on the desired [Component ID](/components/id) and use the `--main` flag to define the new main file.
-
-```bash
-bit add ui/button --main button.ts
-```
+Bit logs the `main` file in the `.bitmap` file, and uses it when generating the component's `package.json` file to be [main entry point](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#main).
