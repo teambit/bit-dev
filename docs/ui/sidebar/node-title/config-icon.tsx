@@ -14,7 +14,7 @@ export function ConfigIcon({ configPath }: { configPath: string | undefined }) {
       onClick={(e) => e.stopPropagation()}
     >
       <Icon
-        className={classNames(styles.configIcon, configPath === location.pathname && styles.active)}
+        className={classNames(styles.configIcon, configPath === window?.location.pathname && styles.active)}
         of="settings"
       />
     </Link>
