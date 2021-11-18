@@ -1311,6 +1311,12 @@
         "mainFile": "index.ts",
         "rootDir": "docs/ui/subtitle"
     },
+    "ui/surfaces/cloud": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "design/ui/surfaces/cloud"
+    },
     "ui/terminal": {
         "scope": "teambit.community",
         "version": "1.10.0",
