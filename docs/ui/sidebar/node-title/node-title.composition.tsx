@@ -24,7 +24,7 @@ export const NodeTitleWithOverviewActive = () => {
       id="My Folder"
       icon="dependencies-icn"
       configPath="config-path"
-      overviewPath={location.pathname}
+      overviewPath={window?.location.pathname}
       open={false}
       setOpen={() => {}}
     />
