@@ -2,17 +2,17 @@ import { GridNode } from '@teambit/community.ui.graph.component-card-graph';
 import { Direction } from '@teambit/community.entity.graph.grid-graph';
 
 export const top = GridNode.fromPlain({
-  id: 'teambit.connecter/top',
+  id: 'learn-bit-react.connecter/top',
   dependencies: [
     {
-      id: 'teambit.shoe-store/ui/pages/home',
+      id: 'learn-bit-react.shoe-store/ui/pages/home',
       edge: {
         end: 'top',
         direction: Direction.NONE,
       },
     },
     {
-      id: 'teambit.ecommerce/ui/store-hero',
+      id: 'learn-bit-react.ecommerce/ui/store-hero',
       edge: {
         end: 'top',
       },
@@ -21,17 +21,17 @@ export const top = GridNode.fromPlain({
 });
 
 export const bottom = GridNode.fromPlain({
-  id: 'teambit.connecter/bottom',
+  id: 'learn-bit-react.connecter/bottom',
   dependencies: [
     {
-      id: 'teambit.shoe-store/ui/shoes/shoes-card-grid',
+      id: 'learn-bit-react.shoe-store/ui/shoes/shoes-card-grid',
       edge: {
         end: 'bottom',
         direction: Direction.NONE,
       },
     },
     {
-      id: 'teambit.shoe-store/ui/shoes/shoes-card',
+      id: 'learn-bit-react.shoe-store/ui/shoes/shoes-card',
       edge: {
         end: 'bottom',
       },
