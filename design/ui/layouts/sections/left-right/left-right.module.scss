@@ -2,8 +2,6 @@
 .leftRight {
   display: flex;
   flex-direction: row;
-
-  > div:first-child {
-    margin-right: 100px;
-  }
+  justify-content: space-between
 }
+
