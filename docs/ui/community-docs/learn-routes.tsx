@@ -287,8 +287,8 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <ComponentId />,
       },
       {
-        path: 'component-structure',
-        title: 'Component Structure',
+        path: 'component-anatomy',
+        title: 'Component Anatomy',
         description: 'How Bit manages a component as a mini-repository.',
         component: <ComponentAnatomy />,
       },
