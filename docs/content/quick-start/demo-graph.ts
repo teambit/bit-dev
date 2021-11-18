@@ -1,4 +1,5 @@
 import { createBubbleGraph } from '@teambit/community.entity.graph.bubble-graph';
+import { Direction } from '@teambit/community.entity.graph.grid-graph';
 
 export const demoGraph = createBubbleGraph([
   {
@@ -61,7 +62,7 @@ export const demoGraph = createBubbleGraph([
   },
 
   {
-    id: 'learn-bit.innovators/blocks/top-innovators@1.0.0',
+    id: 'learn-bit.innovators/mfe/top-innovators@1.0.0',
     dependencies: [
       'learn-bit.innovators/ui/innovator-grid@1.0.2',
       {
@@ -69,6 +70,7 @@ export const demoGraph = createBubbleGraph([
         edge: {
           start: 'top',
           end: 'left',
+          direction: Direction.TAIL,
         },
       },
     ],
