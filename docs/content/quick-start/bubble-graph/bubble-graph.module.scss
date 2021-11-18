@@ -10,7 +10,7 @@
 }
 
 .bubbleWrapper {
-  height: 40px;
+  height: 30px;
   width: 85px;
   > div {
     opacity: 1;
@@ -19,83 +19,35 @@
 }
 
 .cloud {
-  width: 350px;
-  height: 120px;
   z-index: -1;
-  background: #f4f4f4;
-
-  border-radius: 100px;
-  border-radius: 100px;
+  background-color: #f4f4f4;
+  color: #f4f4f4;
 
   bottom: 0;
   left: 0;
   position: absolute;
-  margin: 120px auto 20px;
-  //   transform: scale3d(3, 2.5, 2) translate3d(-35px, 15px, 0);
   transform: scale3d(3, 2.5, 2) translate3d(-15px, 15px, 0) rotate(86deg);
 }
 
-.cloud:after,
-.cloud:before {
-  content: '';
-  position: absolute;
-  background: #f4f4f4;
-  z-index: -1;
-}
-
-.cloud:after {
-  width: 100px;
-  height: 100px;
-  top: -50px;
-  left: 50px;
-
-  border-radius: 100px;
-  -webkit-border-radius: 100px;
-  -moz-border-radius: 100px;
-}
-
-.cloud:before {
-  width: 180px;
-  height: 180px;
-  top: -90px;
-  right: 50px;
-  border-radius: 200px;
-  -webkit-border-radius: 200px;
-  -moz-border-radius: 200px;
-}
-
 .topCloud {
-//   transform: rotate(180deg) translate3d(-150px, 200px, 0) scale3d(1.5, 1.5, 1.5);
   transform: rotate(153deg) translate3d(-225px, 165px, 0) scale3d(1.5, 1.5, 1.5);
 
   top: 0;
   right: 0;
-  width: 350px;
-  height: 120px;
   z-index: -1;
-  background: #F9F9F9;
-
-  border-radius: 100px;
-  border-radius: 100px;
+  background-color: #f9f9f9;
+  color: #f9f9f9;
 
   position: absolute;
-  margin: 120px auto 20px;
 }
 
-.topCloud:after,
-.topCloud:before {
-  content: '';
+.innovatorsLabel {
+  bottom: 8px;
+  left: 8px;
   position: absolute;
-  background: #F9F9F9;
-  z-index: -1;
 }
-
-.topCloud:before {
-  width: 180px;
-  height: 180px;
-  top: -90px;
-  right: 50px;
-  border-radius: 200px;
-  -webkit-border-radius: 200px;
-  -moz-border-radius: 200px;
+.designLabel {
+  top: 4px;
+  right: 4px;
+  position: absolute;
 }
