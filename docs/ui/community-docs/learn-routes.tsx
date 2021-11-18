@@ -272,6 +272,13 @@ export const learnDocsRoutes: DocsRoute[] = [
     },
     children: [
       {
+        path: 'component-id',
+        title: 'Naming Components',
+        description:
+          'The Component ID is designed to be a unique, human-readable name that simplifies and help organize components.',
+        component: <ComponentId />,
+      },
+      {
         path: 'adding-components',
         title: 'Adding Components',
         description: 'Add a new component to be tracked by Bit.',
@@ -337,13 +344,6 @@ export const learnDocsRoutes: DocsRoute[] = [
         title: 'Merge conflicts',
         path: 'merge-conflicts',
         component: <MergingComponentVersions />,
-      },
-      {
-        path: 'component-id',
-        title: 'Naming Components',
-        description:
-          'The Component ID is designed to be a unique, human-readable name that simplifies and help organize components.',
-        component: <ComponentId />,
       },
       /*{
         path: 'component-main-file',
