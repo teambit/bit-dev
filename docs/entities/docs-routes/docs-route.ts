@@ -49,20 +49,32 @@ export interface DocsRoute {
   /**
    * config entry for the section.
    */
-  config?: {
-    /**
-     * title for the path.
-     */
-    path: string,
+  config?: SpecialRoute;
 
-    /**
-     * title for the page.
-     */
-    title: string,
-
-    /**
-     * config component to render
-     */
-    component: ReactNode
-  },
+  /**
+   * overview entry for the section.
+   */
+  overview?: SpecialRoute;
 }
+
+type SpecialRoute = {
+  /**
+   * route path.
+   */
+  path: string;
+
+  /**
+   * title for the page.
+   */
+  title: string;
+
+  /**
+   * description for the docs page
+   */
+  description?: string;
+
+  /**
+   * component to render
+   */
+  component: ReactNode;
+};

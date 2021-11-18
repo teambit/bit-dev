@@ -12,7 +12,7 @@ import { transformTsConfig } from './typescript/transform-tsconfig';
 /**
  * Uncomment to include config files for overrides of Typescript or Webpack
  */
-const tsconfig = require('./typescript/tsconfig');
+// const tsconfig = require('./typescript/tsconfig');
 
 export class CommunityReactMain {
   static slots = [];

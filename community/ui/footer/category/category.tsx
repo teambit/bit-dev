@@ -18,9 +18,7 @@ export function Category({ title, links, ...rest }: CategoryProps) {
     <div {...rest}>
       <div className={styles.title}>{title}</div>
       {links.map((link) => {
-        return (
-          <Link className={styles.categoryLink} {...link} key={link.text} />
-        );
+        return <Link className={styles.categoryLink} {...link} key={link.text} />;
       })}
     </div>
   );
