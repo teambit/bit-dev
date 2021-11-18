@@ -1,7 +1,8 @@
 import { Subtitle } from '@teambit/docs.ui.subtitle';
-// import { Demo } from '@learn-bit/innovators.composites.demo';
+import { TopInnovators } from '@learnbit/innovators.blocks.top-innovators';
 import { InnovatorGraph } from './bubble-graph';
 import { LeftRight } from '@teambit/design.ui.layouts.sections.left-right';
+import { MultiHighlighter, ComponentHighligther, ExcludeHighlighter } from '@teambit/react.ui.component-highlighter';
 import { demoGraph } from './demo-graph';
 import styles from './quick-start.module.scss';
 
@@ -15,7 +16,7 @@ This is a simple app, built with Bit.
 
 <LeftRight 
   className={styles.demo}
-  // left={<Demo />} 
+  left={<MultiHighlighter bgColorHover="#C9C3F6" bgColor="#ECEAFF" watchMotion={true} highlighterOptions={{style:{ fontSize: 8 }}}><TopInnovators /></MultiHighlighter>} 
   right={<InnovatorGraph nodes={demoGraph} />} 
 />
 
