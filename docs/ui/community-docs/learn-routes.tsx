@@ -461,10 +461,6 @@ export const learnDocsRoutes: DocsRoute[] = [
           'A lock file is a representation of the node_modules directory, written in a YAML format. It is automatically generated and updated, whenever the node_modules directory structure is modified by the package manager (when packages are either installed or removed).',
         component: <LockFiles />,
       },
-      {
-        path: 'inspecting-dependencies',
-        title: 'Inspecting Dependencies',
-      },
     ],
   },
   {
