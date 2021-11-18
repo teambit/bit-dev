@@ -1,4 +1,9 @@
 import { Subtitle } from '@teambit/docs.ui.subtitle';
+import { Demo } from '@learn-bit/innovators.composites.demo';
+import { InnovatorGraph } from './bubble-graph';
+import { LeftRight } from '@teambit/design.ui.layouts.sections.left-right';
+import { demoGraph } from './demo-graph';
+import styles from './quick-start.module.scss';
 
 # Quick start
 <Subtitle>
@@ -7,6 +12,12 @@ Welcome to the Bit documantation! Here is an overview of what you will be able t
 
 ## Introduction
 This is a simple app, built with Bit.
+
+<LeftRight 
+  className={styles.demo}
+  left={<Demo />} 
+  right={<InnovatorGraph nodes={demoGraph} />} 
+/>
 
 ### What is Bit?
 Bit is a toolchain for component-driven software. 
