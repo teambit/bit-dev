@@ -652,6 +652,7 @@ export const learnDocsRoutes: DocsRoute[] = [
           {
             path: 'configure-env-with-compiler',
             title: 'Configure an Env with a Compiler',
+            description: 'Learn how to configure an Env to use a different compiler.',
             component: <ConfigureEnvWithCompiler />,
           },
           {
