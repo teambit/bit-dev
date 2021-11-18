@@ -380,9 +380,9 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'component-objects',
-        title: 'Component Objects',
+        title: 'Component Store',
         description:
-          'When tagging or snapping a component, bit persists the versioned data (the component source files, config, metadata, and artifacts) in git-like objects',
+          'How Bit saves revision history for components',
         component: <ComponentObjects />,
       },
     ],
