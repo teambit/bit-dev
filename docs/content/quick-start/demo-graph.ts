@@ -83,6 +83,13 @@ export const demoGraph = createBubbleGraph([
       'learn-bit.innovators/entities/innovator@1.0.0',
       'learn-bit.innovators/ui/innovator-list@1.0.0',
       'learn-bit.innovators/services/innovators@1.0.0',
+      {
+        id: 'teambit.bubble-graph/ui/connecter',
+        edge: {
+          start: 'top',
+          end: 'left',
+        },
+      },
     ],
     payload: {
       icon: 'https://static.bit.dev/brands/logo-nodejs.svg',

@@ -13,6 +13,7 @@ export function InnovatorGraph() {
           Design
         </Label>
         <Label className={styles.innovatorsLabel}>Innovators</Label>
+        <div id="teambit-bubble-graph-ui-connecter" className={styles.connecter} />
         <Cloud className={styles.cloud} />
         <Cloud className={styles.topCloud} />
       </BubbleGraph>
