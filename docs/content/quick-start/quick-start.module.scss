@@ -1,6 +1,10 @@
 
-// .demo {
-//   > div {
-//     width: 50%;
-//   }
-// }
+.demo {
+  margin-top: 20px;
+  // gap: 50px;
+  
+  > div {
+    margin: 10px;
+    gap: 50px;
+  }
+}
