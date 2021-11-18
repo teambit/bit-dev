@@ -42,11 +42,14 @@
 }
 
 .innovatorsLabel {
+  font-size: var(--bit-p-xs, 14px);
   bottom: 8px;
   left: 8px;
+  padding: 0 18px;
   position: absolute;
 }
 .designLabel {
+  font-size: var(--bit-p-xs, 14px);
   top: 4px;
   right: 4px;
   position: absolute;
