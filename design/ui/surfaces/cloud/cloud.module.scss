@@ -1,0 +1,37 @@
+.cloud {
+  width: 350px;
+  height: 120px;
+
+  color: #f4f4f4;
+  background-color: #f4f4f4;
+
+  border-radius: 100px;
+  border-radius: 100px;
+
+  position: relative;
+  margin: 120px auto 20px;
+}
+
+.cloud:after,
+.cloud:before {
+  content: '';
+  position: absolute;
+  background-color: currentColor;
+}
+
+.cloud:after {
+  width: 100px;
+  height: 100px;
+  top: -50px;
+  left: 50px;
+
+  border-radius: 100px;
+}
+
+.cloud:before {
+  width: 180px;
+  height: 180px;
+  top: -90px;
+  right: 50px;
+  border-radius: 200px;
+}

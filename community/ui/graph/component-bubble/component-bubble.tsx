@@ -50,6 +50,8 @@ export type ComponentBubbleProps = {
    */
   className?: string;
 
+  showScope?: boolean;
+
   /**
    * color of the bubble
    */
@@ -61,6 +63,7 @@ export function ComponentBubble({
   componentId,
   showOwner = false,
   icon,
+  showScope = true,
   showVersion = true,
   allowHover = true,
   forceActive = false,
@@ -86,7 +89,9 @@ export function ComponentBubble({
       {componentId && (
         <div className={classNames(styles.id)}>
           <Caption className={ellipsis}>
-            {getScopeName(componentId.scope, showOwner)}/{componentId.namespace}
+            {showScope
+              ? `${getScopeName(componentId.scope, showOwner)}/${componentId.namespace}`
+              : componentId.namespace}
           </Caption>
           <Ellipsis className={styles.name}>{componentId.name}</Ellipsis>
         </div>
