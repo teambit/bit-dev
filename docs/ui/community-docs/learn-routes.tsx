@@ -123,6 +123,8 @@ const InspectingComponents = loadable(() => import('@teambit/component.content.i
 const Tags = loadable(() => import('@teambit/component.content.tags'));
 const Snaps = loadable(() => import('@teambit/component.content.snaps'));
 const ComponentAnatomy = loadable(() => import('@teambit/component.content.component-anatomy'));
+const AddingComponents = loadable(() => import('@teambit/component.content.adding-components'));
+
 
 /* Envs */
 
@@ -272,17 +274,17 @@ export const learnDocsRoutes: DocsRoute[] = [
     },
     children: [
       {
+        path: 'adding-components',
+        title: 'Adding Components',
+        description: 'Add a new component to be managed by Bit.',
+        component: <AddingComponents />,
+      },
+      {
         path: 'component-id',
         title: 'Naming Components',
         description:
           'The Component ID is designed to be a unique, human-readable name that simplifies and help organize components.',
         component: <ComponentId />,
-      },
-      {
-        path: 'adding-components',
-        title: 'Adding Components',
-        description: 'Add a new component to be tracked by Bit.',
-        component: <ComponentAnatomy />,
       },
       {
         path: 'component-structure',
@@ -340,11 +342,11 @@ export const learnDocsRoutes: DocsRoute[] = [
           'Importing is the process of copying Components from their Scope to the Local Scope, to use and maintain them in the Workspace.',
         component: <ImportingComponents />,
       },
-      {
-        title: 'Merge conflicts',
+      /*{
+        title: 'Merge Conflicts',
         path: 'merge-conflicts',
         component: <MergingComponentVersions />,
-      },
+      },*/
       /*{
         path: 'component-main-file',
         title: 'Main File',
