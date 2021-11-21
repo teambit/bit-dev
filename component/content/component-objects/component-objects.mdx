@@ -1,40 +1,111 @@
 import { Image } from '@teambit/docs.ui.zoomable-image';
 import componentObjectsDemoImg from './component-objects-demo.png';
 import objectsImag from './objects.png';
+import secondSnap from './second-snap.png';
+import snapDependency from './snap-dependency.png';
+import componentPointer from './component-pointer.png';
+import componentState from './component-state.png';
 
-# Component Objects
+import firstSnap from './first-snap.png';
+import tagSnap from './tag-snap.png';
+import twoTags from './two-tags.png';
 
-When [tagging](tags) or [snapping](snaps) a component, bit persists the versioned data (the component source files, config, metadata, and artifacts) in git-like objects.
+# Component Store
 
-Component objects are stored in [Scopes](/docs/workspace/local-scope) ([Local Scopes](/workspace/local-scope) and [Remote Scopes](/scope/creating-scopes)), using the [content-addressable storage](https://en.wikipedia.org/wiki/Content-addressable_storage) method.
-They are either copied to or from remote scopes, when exported or imported (respectively).
+Each component is stored in its own "mini" repository containing all information about a component.  
+When you add a new component, Bit adds it to the local workspace store found in `.git/bit`.
+
+<img src={componentPointer}  style={{ maxHeight:'70px' }} />
+
+## Immutable Component State
+
+Alongside components, the worskapce store holds states for components. These states are immutable and contains all information about a component at a specific point in time.
+
+- Source code - as seen in your workspace.
+- Configuration - as calculated from `workspace.jsonc`.
+- Dependencies - as calculated from all `import` statements in the source code.
+- Metadata - like the version message, author, date of change, etc.
+- Artifacts - as generated when running the component's build pipeline.
+
+<img src={componentState}  style={{ maxHeight:'250px' }} />
+
+## Revision History with Snapshots
+
+Each time you [snapshot a change](/docs/components/snaps), Bit saves the state of the component, and points to it from the component.
+
+<img src={firstSnap} style={{ maxHeight:'300px' }} />
+
+As you keep on maintaining components and creating more snapshots, Bit builds and maintains the revision history of the component.
+
+<img src={secondSnap}  style={{ maxHeight:'200px' }} />
+
+- Latest snap will always be pointed by the component.
+- A snap points to its predecessor.
+
+## Storing Versions
+
+Versions are essentially very unique snapshots that has a semantic version attached to them, when you [create a new version](/docs/components/tags) for a component.
+
+<img src={tagSnap} style={{ maxHeight:'200px' }}/>
+
+Components directly refer to all their available semantic versions. Version history and presedence is determined by semantic verion, not when a tag was created.
+
+<img src={twoTags}  style={{ maxHeight:'200px' }} />
+
+## Checkout Past States
+
+Besides using `snap` and `tag` to write new versions for components, you can use `checkout` to pull a past (or future) state of a specific component from the store, keeping the rest of your workspace unchanged.
 
 ```bash
-// persist component config, source files, artifacts and metadata as objects
-// update the 'component' object with reference to the new version
-$ bit tag teambit.base-react/buttons/button
+bit checkout 1.0.0 teambit.harmony/content/aspects-overview
 ```
+
+Bit will switch the component to a past state from the component history.
+
+```
+successfully switched the following components to their latest version
+
+teambit.harmony/content/aspects-overview@1.0.0
+	updated aspect-graph.ts 
+	updated aspects-overview.composition.tsx 
+	updated aspects-overview.docs.mdx 
+	auto-merged aspects-overview.mdx 
+	updated composability.png 
+	updated index.ts 
+```
+
+## Collaborating on Components
+
+The process of `import` and `export` for components is all about sharing changes in component history with other developers. Each remote Bit scope is a storage server for components and their history, similar to the local component store.
+
+## Stored Dependencies
+
+Dependencies between versions or snaps are logged as part of the component's state.
+
+<img src={snapDependency}  style={{ maxHeight:'200px' }} />
+
+This allows a safer workflow when working in a distributed environment, as when you export components all dependencies are ported over alongside the component.  
+For example, if you build a component in the **billing** system, and depending on components from the **design system** and when exporting the component to your scope, the scope will fetch all dependencies from **design system** and store them in it's storage.  
+Stored Dependencies are not visible through the UI, they are there for cases where you may not have access to the remote scope as it was taken down or removed.
+
+When other developer then `import` the component from **billing** scope, the dependencies from **design system** will be fetched from the **billing** scope, and stored locally for the consumer's workspace.
+
+## Explore Component Store
+
+Follow these steps to explore how components are stored and managed for your workspace.  
+Start by importing a component with a history of changes:
 
 ```bash
-// copy component objects of 'buttons/button' from the local scope to remote scope 'teambit.base-react'
-$ bit export teambit.base-react/buttons/button
+$ bit import teambit.base-ui/inputs/button
 ```
 
-```bash
-// copy component objects of 'buttons/button' from remote scope 'teambit.base-react' to the local scope (and checkout latest version)
-$ bit import teambit.base-react/buttons/button
-```
-
-```bash
-// copy component objects of 'buttons/button' from remote scope 'teambit.base-react' to the local scope (and install the component's package)
-$ bit install @teambit/base-react.buttons.button
-```
-
-To see all objects in your Local Scope:
+After the `import` process is complete, we can start exploring the component store:
 
 ```bash
 bit cat-scope
 ```
+
+During the `import` command, Bit fetched the `button` component and it's history. Moreover, see that all `button`'s dependencies are fetched as well component-dependencies.
 
 ```bash
 ┌──────────────────────────────────────────────────┬───────────────────────────────────────────────┐
@@ -60,24 +131,16 @@ bit cat-scope
 └──────────────────────────────────────────────────┴───────────────────────────────────────────────┘
 ```
 
-Just like git objects, Bit objects are named with a [SHA-1](https://en.wikipedia.org/wiki/SHA-1) hash.
 The above output table shows the mapping between each component ID and its component-object hash.
 
-## Object types
 
-<Image src={objectsImag} />
-
-### Component
-
-A component object stores general information about a component. That includes its component id, scope name, references to its version objects, and more.
-The component’s hash is not based on its content since it is not immutable. It is updated whenever a component gets tagged with a new release version.
-Run `bit cat-object -p <component-hash>` to see the component object content.
-
-For example, to examine `teambit.base-react/buttons/button`:
+Let's explore `teambit.base-ui/inputs/button`:
 
 ```
 bit cat-object -p e603d90cf7c889b7ab9a9726a17123a27a167b8f
 ```
+
+Here we see all the data we have for the component.
 
 ```bash
 {
@@ -107,26 +170,13 @@ bit cat-object -p e603d90cf7c889b7ab9a9726a17123a27a167b8f
 }
 ```
 
-### Version/Snap
-
-The Version/Snap object contains the following information:
-
-- The component file structure, with references to snapshots of the component’s source files (this section resembles Git’s ‘tree’ objects).
-- References to snapshots of the component’s artifacts (compiler's output code, package, etc.)
-- Component configuration (data regarding different Aspects used by the component and their config)
-- Component metadata
-
-:::note
-A version object (a “commit”) can be created without creating a (SemVer) reference to it. This is done by using Snap.
-:::
-
-For example, use the hash for the latest version (`1.8.26`) of `teambit.base-react/buttons/button` to examine it:
+Using `cat-object` we can explore the contents of a specific object.
 
 ```bash
 bit cat-object -p 79362d1cc55c0ea17524b0bdcfe5e35e91f2fb43
 ```
 
-```bash
+```javascript
 {
   "files": [
     {
@@ -135,30 +185,7 @@ bit cat-object -p 79362d1cc55c0ea17524b0bdcfe5e35e91f2fb43
       "name": "button.composition.tsx",
       "test": false
     },
-    {
-      "file": "13f81e271a8f2e8bd9cd2f6f72422ecc7bb006cb",
-      "relativePath": "button.docs.md",
-      "name": "button.docs.md",
-      "test": false
-    },
-    {
-      "file": "ac7269e1188aafd59b676a717966880434d7bb81",
-      "relativePath": "button.spec.tsx",
-      "name": "button.spec.tsx",
-      "test": false
-    },
-    {
-      "file": "fcfaa6101ab4b555dd88b4c95e5f16cc70b735f6",
-      "relativePath": "button.tsx",
-      "name": "button.tsx",
-      "test": false
-    },
-    {
-      "file": "0d7dd06c20926499b60d528152302e4fdd1e81fb",
-      "relativePath": "index.ts",
-      "name": "index.ts",
-      "test": false
-    }
+    //...
   ],
   "mainFile": "index.ts",
   "bindingPrefix": "@teambit",
@@ -187,12 +214,7 @@ bit cat-object -p 79362d1cc55c0ea17524b0bdcfe5e35e91f2fb43
 }
 ```
 
-### Source
-
-Source objects are snapshots of the component’s source code, compiled code, and other generated artifacts.
-Let’s have a look at the content of the following file:
-
-To examine the content of the `button.compositions.ts` file, referenced from version `1.8.26` of `teambit.base-react/buttons/button`:
+To examine the content of the `button.compositions.ts` file run:
 
 ```bash
 bit cat-object -p 1e46108fa156694935ef2581b5fc0fba40596660
@@ -214,11 +236,5 @@ export const ButtonWithAlert = () => (
 ## Putting it all together
 
 The below diagram shows the `.bitmap` file referencing to specific component versions to be used by the working directory.
-
-:::note
-Not all components are registered in the `.bitmap` file.
-Some components are only imported to augment the information the workspace has regarding installed components (and not to be maintained by the workspace).
-These components will be mapped in the Local Scope's `index.json` file.
-:::
 
 <Image src={componentObjectsDemoImg} />

@@ -44,6 +44,7 @@ export function NodeTitle({ id, icon, open, configPath, overviewPath, setOpen }:
   const displayName = id.replace(/\/$/, '').split('/').pop();
   const CustomIcon = getCustomIcon(icon);
   const handleOnFolderClick = () => {
+    if (!overviewPath) setOpen(!open);
     // This prevent the folder to be closed when is open and the folder is active.
     if (overviewPath !== window?.location.pathname && !open) setOpen(!open);
   };
