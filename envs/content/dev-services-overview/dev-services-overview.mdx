@@ -2,14 +2,17 @@ import { Image } from '@teambit/docs.ui.zoomable-image';
 import devServiceDiagram from './dev-services-diagram.png';
 import devServiceAPIImg from './dev-service-api.png';
 
-# Env Services Overview
+# Development Services
 
-Dev Services simplify and standardize component development processes, like testing, linting and documenting. They are applied on components, and used by components, via the components' [Envs](/envs/overview).
+A number of Bit commands and workflows run processes on your components, such as compilation, testing and linting. These workflows are implemented in a set of internal tools called **Development Services**, which may use other tools to accomplish the wanted task.
 
-Standardized development means you can use the same commands and APIs to operate different services of the same category. These services will produce outputs that have a standardized format, and that generate similar effects in the workspace or capsule.
+Dev Services are primarily composed by [Environments](/docs/environments/envs-overview) to manage the tools, configuration and features available to the developer and components.
 
-For instance, `bit compile` will compile all components in your workspace, regardless of the specific [compiler implementation](http://localhost:3001/compiler/implement-compiler) used by each component.
-The output to the CLI will have the same format, and the generated dist files will all be available in the components' corresponding `node_modules` directory.
+Use Dev Services to customize workflows in Bit by adding or modifying workflows and extending support for new tools. For example, you could add extend the builder to perform an entirely new task, or to change which third-party tool is used by an existing command.
+
+This document explains how dev-services integrate with Bit and shows how you can use them to integrate or customize your tooling.
+
+## Tooling and Workflows for Environments
 
 The below diagram and code, show an Env using three Dev Services: Compiler, Tester and Docs.
 

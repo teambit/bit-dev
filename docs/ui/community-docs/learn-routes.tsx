@@ -568,17 +568,17 @@ export const learnDocsRoutes: DocsRoute[] = [
   },
   {
     path: 'dev-services',
-    title: 'Dev Services',
+    title: 'Development Services',
     icon: 'compCI',
     open: false,
+    overview: {
+      path: 'dev-services-overview',
+      title: 'Dev Services Overview',
+      description:
+        "Dev Services simplify and standardize component development processes, like testing, linting and documenting. They are applied on components, and used by components, via the components' Envs.",
+      component: <DevServicesOverview />,
+    },
     children: [
-      {
-        path: 'dev-services-overview',
-        title: 'Dev Services Overview',
-        description:
-          "Dev Services simplify and standardize component development processes, like testing, linting and documenting. They are applied on components, and used by components, via the components' Envs.",
-        component: <DevServicesOverview />,
-      },
       {
         path: 'builder',
         title: 'Builder',
