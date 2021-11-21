@@ -465,6 +465,12 @@
         "mainFile": "index.ts",
         "rootDir": "docs/content/guides/using-bvm"
     },
+    "content/guides/ws-config-vs-comp-config": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/guides/ws-config-vs-comp-config"
+    },
     "content/hosting-scopes": {
         "scope": "teambit.scope",
         "version": "1.10.0",
