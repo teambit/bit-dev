@@ -10,7 +10,7 @@ import styles from './node-title.module.scss';
 
 export type NodeTitleProps = {
   /**
-   * folder path.
+   * folder path
    */
   id: string;
 

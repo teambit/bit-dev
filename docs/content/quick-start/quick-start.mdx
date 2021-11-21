@@ -4,6 +4,7 @@ import { InnovatorGraph } from './bubble-graph';
 import { LeftRight } from '@teambit/design.ui.layouts.sections.left-right';
 import { Heading, Elements } from '@teambit/community.ui.heading';
 import { MultiHighlighter, ExcludeHighlighter } from '@teambit/react.ui.component-highlighter';
+import { HighlightComponent } from '@teambit/docs.ui.highlighter.highlight-component';
 import { demoGraph } from './demo-graph';
 import styles from './quick-start.module.scss';
 
@@ -18,19 +19,9 @@ This is a simple app, built with Bit.
 <LeftRight
   className={styles.demo}
   left={
-    <MultiHighlighter
-      bgColorHover="#C9C3F6"
-      bgColor="#ECEAFF"
-      watchMotion={true}
-      highlighterOptions={{ style: { fontSize: 8 } }}
-    >
-      <ExcludeHighlighter>
-        <Heading excludeHighlighterAtt element={Elements.H6} className={styles.heading}>
-          UI breakdown
-        </Heading>
-      </ExcludeHighlighter>
+    <HighlightComponent title="UI breakdown">
       <TopInnovators className={styles.topInnovators} />
-    </MultiHighlighter>
+    </HighlightComponent>
   }
   right={
     <>
@@ -48,9 +39,9 @@ Bit is a toolchain for component-driven software.
 for the developer, the team and the entire organization and can be used for the definition and development of new products.  -->
 
 Bit stands at the intersection between product and engineering. **It helps you take complex product requirements, and break them down into independent,
-and reusable pieces called ["components"](/components) that fit well together**. Components can be anything, independent by nature from a React component,
-Node module, React hook, Microservice, Angular module, serverless function and to anything else you might imagine. Using Bit could also remind you of composing an
-house out of lego bricks, in collaboration with few more people.
+and reusable pieces called ["components"](/components) that fit well together**. Components can be anything independent by nature from a general purpose module, UI components,
+UI applications, pages, blocks, backend services, content and to anything else you might imagine. Using Bit could also remind you of composing a house out of lego bricks, in collaboration with 
+few more people.
 
 **As a developer, imagine having a single mini-repository for each of your components, and a dev experience that makes the development of them seamless together.**
 As an arhictect, imagine having your entire software architecture built from service-oriented components, sorted and controlled on a single architectural graph, it is like scaling
@@ -62,10 +53,10 @@ Bit comes with native support in various dev tools like [TypeScript](/tools/type
 ready made development environments for [React](/frameworks/react), [NodeJS](/frameworks/node), [Angular](/envs/angular) and more. New tools can be easily integrated by
 adding one more component into Bit!
 
-### What you can do with Bit?
+### What can you do with Bit?
 
 Anything is possible with Bit! We built [Bit](https://bit.dev) and [bit.cloud](https://bit.cloud) entirely using Bit, and it is quite complex which includes thousands of
-components, built across over 50 Scopes of responsibilities. From component hosting, search, serverless, complex UI and multi environment user interface, two websites and more,
+components, distributed across over 50 Scopes of responsibilities. Including component hosting, search, discovery, dev tools like compilers and testers, in complex UIs.
 all using a single graph of components (well just almost, after all we have legacy monolith too!).
 
 People use Bit to create all kind of applications, from user interfaces with component-driven frameworks like React, Vue and Angular, to complex
@@ -94,32 +85,67 @@ which concepts to dive deeper into.
 
 ## Installation
 
-```bash
-npx @teambit/bvm install
-```
-
-Learn more about upgrading and installing Bit on the [BVM (Bit Version Manager) documantation](/bvm/installing-bit).
-
-### Creating a Workspace
-
-A [Workspace](/workspace/overview) is where you build and compose components. Creating a new [Workspace](/workspace/overview) can be done with the `bit new` command.
-[Workspace Templates](/workspace/workspace-templates). For more Workspace Templates search [Bit.dev](https://bit.dev/templates).
+To get started, we would first have to make sure the `bit` binary is installed on your machine and configured to your `PATH`. 
 
 ```bash
-bit new basic my-workspace
+$ npx @teambit/bvm install
 ```
 
-Workspaces can also be on existing projects. Learn about how to [initlize Bit on an existing project here](/).
+// NodeJS installation is required.
+
+### Creating the workspace
+
+The first step in the Bit journey is to create a [component development workspace](/workspaces).
+Workspaces allow the creation and maintanance of isolated and independent pieces called ["components"](/components). Since every component is isolated, the workspace is tech agnostic and allows
+for components, with a different tech stack to co-exist. A single workspace might include React components, general purpose node modules, Angular modules 
+and even backend services. 
+
+To create a new workspace, run:
+```bash
+bit new great-inventions
+```
 
 ```bash
 cd my-workspace
 ```
 
+Start the Workspace UI console:
 ```bash
 bit start
 ```
 
-Learn more about [Workspaces](/workspace/overview).
+:::tip
+It is recommended to open an editor like VSCode on the workspace to start editing the components source code. To learn more on [editor setup head here](/editor-setup).
+:::
+
+The workspace was designed for gradual adoption and has a minimal footprint. Since components are isolated, it can easily co-exist next to other development tools, 
+across different projects. This tutorial demonstrates creating a new workspace, to [start from an existing project head here](/add-to-existing-project).
+
+In depth: Learn more about [Workspaces](/workspace/overview).
+
+## Create components
+Components can be anything as simple as a module or as large as an entire app. Different types of components might require different 
+They might have different characteristics applied on them based on the Env they are
+configured with. That helps to differentiate different types of components that require different build. 
+
+- What is a component? What can a component be?
+- Naming
+- Which component to start with? and why?
+
+Components may have different characteristics applied by their [Env](/envs). 
+This way, a React component can get a specific build and development environment, with different set  
+
+A Bit component is an isolated container of versioned source code, metadata and configuration identified by a unique ID 
+called ["Component ID"](/components/component-id). Components can as simple as a module, a UI component, page, an application or even a backend service.  
+
+```bash
+bit create blocks/amazing-inventions
+```
+
+Alternatively, you can `fork` the component from the demo above in to your project and start from there! 
+```bash
+bit fork learnbit.inventions/blocks/amazing-inventions
+```
 
 ### Create Components
 

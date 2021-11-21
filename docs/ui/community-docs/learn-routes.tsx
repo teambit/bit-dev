@@ -35,7 +35,6 @@ const Variants = loadable(() => import('@teambit/workspace.content.variants'));
 const ScopeOverview = loadable(() => import('@teambit/scope.content.scope-overview'));
 const CreatingScopes = loadable(() => import('@teambit/scope.content.creating-scopes'));
 const ScopeJson = loadable(() => import('@teambit/scope.content.scope-json'));
-const IndexJson = loadable(() => import('@teambit/scope.content.index-json'));
 const HostingScopes = loadable(() => import('@teambit/scope.content.hosting-scopes'));
 
 /* Dev services */
@@ -498,20 +497,18 @@ export const learnDocsRoutes: DocsRoute[] = [
         title: 'Hosting Scopes',
         component: <HostingScopes />,
       },
-      {
-        path: 'inspecting-objects',
-        title: 'Inspecting Scope Objects',
-        description:
-          'Component objects are stored in Scopes (Local Scopes and Remote Scopes), using the content-addressable storage method. They are either copied to or from remote scopes, when exported or imported (respectively).',
-        component: <ComponentObjects />,
-      },
-      {
-        path: 'index-json',
-        title: 'index.json',
-        description:
-          "The index.json file maps components (scope ID and component full name) to their objects' hash. This mapping is used, among other things, by the workspace, to reference a Version Object using a component ID and Tag or Snap version.",
-        component: <IndexJson />,
-      },
+      // {
+      //   path: 'running-a-scope-server',
+      //   title: 'Scope API',
+      //   component: <HostingScopes />,
+      // },
+      // {
+      //   path: 'inspecting-scopes',
+      //   title: 'Inspecting Scopes',
+      //   description:
+      //     'Component objects are stored in Scopes (Local Scopes and Remote Scopes), using the content-addressable storage method. They are either copied to or from remote scopes, when exported or imported (respectively).',
+      //   component: <ComponentObjects />,
+      // },
       {
         path: 'extending-scopes',
         title: 'Extending Scopes',
