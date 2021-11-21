@@ -21,6 +21,12 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/buttons/button"
     },
+    "content/adding-components": {
+        "scope": "teambit.component",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "component/content/adding-components"
+    },
     "content/aspects-overview": {
         "scope": "teambit.harmony",
         "version": "1.10.0",

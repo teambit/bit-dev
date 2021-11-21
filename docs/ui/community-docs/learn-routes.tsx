@@ -298,15 +298,13 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'tags',
         title: 'Versioning',
-        description:
-          'Manage component releases with semantic version.',
+        description: 'Manage component releases with semantic version.',
         component: <Tags />,
       },
       {
         path: 'snaps',
         title: 'Snapshot Changes',
-        description:
-          'Record component history with snapshots.',
+        description: 'Record component history with snapshots.',
         component: <Snaps />,
       },
       {
@@ -314,23 +312,21 @@ export const learnDocsRoutes: DocsRoute[] = [
         title: 'Navigating history',
         component: <NavigateHistory />,
       },
-      /*{
+      /* {
         path: 'lanes',
         title: 'Change Management',
         component: <Snaps />,
-      },*/
+      }, */
       {
         path: 'exporting-components',
         title: 'Exporting Components',
-        description:
-          'Share component snaps and versions for consumers and collaborators.',
+        description: 'Share component snaps and versions for consumers and collaborators.',
         component: <ExportingComponents />,
       },
       {
         path: 'removing-components',
         title: 'Deprecating and Removing',
-        description:
-          'Mark components as irrelevant or obsolete..',
+        description: 'Mark components as irrelevant or obsolete..',
         component: <RemovingDeprecating />,
       },
       {
@@ -340,18 +336,18 @@ export const learnDocsRoutes: DocsRoute[] = [
           'Importing is the process of copying Components from their Scope to the Local Scope, to use and maintain them in the Workspace.',
         component: <ImportingComponents />,
       },
-      /*{
+      /* {
         title: 'Merge Conflicts',
         path: 'merge-conflicts',
         component: <MergingComponentVersions />,
-      },*/
-      /*{
+      }, */
+      /* {
         path: 'component-main-file',
         title: 'Main File',
         description:
           'The main file of a Component is the file resolved upon a require of the Component Directory. Main file is usually expected to expose the Component API.',
         component: <MainFile />,
-      },*/
+      }, */
       // {
       //   path: 'component-json',
       //   title: 'component.json',
@@ -379,8 +375,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'component-objects',
         title: 'Component Store',
-        description:
-          'How Bit saves revision history for components',
+        description: 'How Bit saves revision history for components',
         component: <ComponentObjects />,
       },
     ],

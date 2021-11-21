@@ -444,6 +444,9 @@ importers:
   compilation/content/multi-compiler:
     specifiers: {}
 
+  component/content/adding-components:
+    specifiers: {}
+
   component/content/capsule:
     specifiers: {}
 
