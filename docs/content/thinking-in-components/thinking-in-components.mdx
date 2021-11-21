@@ -1,5 +1,6 @@
 import { Subtitle } from '@teambit/docs.ui.subtitle';
 import { ProductCard } from '@learn-bit-react/ecommerce.ui.product.product-card';
+import { HighlightComponent } from '@teambit/docs.ui.highlighter.highlight-component';
 import styles from './thinking-in-components.module.scss';
 
 # Thinking in components
@@ -27,15 +28,17 @@ your feature. Try and define the following:
 
 <!-- TODO: force nav blue highlithing on all components in the below. -->
 
-<ProductCard
-  title="Nike Air"
-  text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quos quidem sequi illum facere recusandae voluptatibus"
-  alt="Nike Air"
-  src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDV8fHNuZWFrZXJ8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
-  price={190}
-  className={styles.productCard}
-  buttonText="add to cart"
-/>
+<HighlightComponent>
+  <ProductCard
+    title="Nike Air"
+    text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quos quidem sequi illum facere recusandae voluptatibus"
+    alt="Nike Air"
+    src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDV8fHNuZWFrZXJ8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+    price={190}
+    className={styles.productCard}
+    buttonText="add to cart"
+  />
+</HighlightComponent>
 
 This example is composed of different components, which might exist or not and might be owned by different teams and people. Breaking down the product specification to components
 together helps align to naming and drive better collaboration of future products! Deciding on component names is a focal for the successful collaboration. When deciding on 
@@ -56,8 +59,8 @@ Breaking down product specification in collaboration with stake-holders like bac
 and helps everyone understand each other and build better products together.
 :::
 
-## Step 1: Start bottom up
-Starting bottoms up means
+## Step 1: Bottom up
+Starting bottom up is confused a lot.
 
 ```bash
 bit create react ui/product-card --scope 

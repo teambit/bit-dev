@@ -1107,6 +1107,12 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/hero"
     },
+    "ui/highlighter/highlight-component": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/ui/highlighter/highlight-component"
+    },
     "ui/homepage/sections/autonomy": {
         "scope": "teambit.community",
         "version": "1.10.0",

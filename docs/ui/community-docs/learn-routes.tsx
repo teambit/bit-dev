@@ -35,7 +35,6 @@ const Variants = loadable(() => import('@teambit/workspace.content.variants'));
 const ScopeOverview = loadable(() => import('@teambit/scope.content.scope-overview'));
 const CreatingScopes = loadable(() => import('@teambit/scope.content.creating-scopes'));
 const ScopeJson = loadable(() => import('@teambit/scope.content.scope-json'));
-const IndexJson = loadable(() => import('@teambit/scope.content.index-json'));
 const HostingScopes = loadable(() => import('@teambit/scope.content.hosting-scopes'));
 
 /* Dev services */
@@ -113,7 +112,7 @@ const NavigateHistory = loadable(() => import('@teambit/component.content.naviga
 const ComponentId = loadable(() => import('@teambit/component.content.component-id'));
 const ComponentOverview = loadable(() => import('@teambit/component.content.component-overview'));
 const RemovingDeprecating = loadable(() => import('@teambit/docs.content.guides.removing-deprecating-components'));
-const MergingComponentVersions = loadable(() => import('@teambit/docs.content.guides.merging-component-versions'));
+// const MergingComponentVersions = loadable(() => import('@teambit/docs.content.guides.merging-component-versions'));
 // const MainFile = loadable(() => import('@teambit/component.content.component-main-file'));
 const ComponentConfig = loadable(() => import('@teambit/component.content.component-config'));
 // const ComponentJson = loadable(() => import('@teambit/component.content.component-json'));
@@ -124,7 +123,6 @@ const Tags = loadable(() => import('@teambit/component.content.tags'));
 const Snaps = loadable(() => import('@teambit/component.content.snaps'));
 const ComponentAnatomy = loadable(() => import('@teambit/component.content.component-anatomy'));
 const AddingComponents = loadable(() => import('@teambit/component.content.adding-components'));
-
 
 /* Envs */
 
@@ -300,15 +298,13 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'tags',
         title: 'Versioning',
-        description:
-          'Manage component releases with semantic version.',
+        description: 'Manage component releases with semantic version.',
         component: <Tags />,
       },
       {
         path: 'snaps',
         title: 'Snapshot Changes',
-        description:
-          'Record component history with snapshots.',
+        description: 'Record component history with snapshots.',
         component: <Snaps />,
       },
       {
@@ -316,23 +312,21 @@ export const learnDocsRoutes: DocsRoute[] = [
         title: 'Navigating history',
         component: <NavigateHistory />,
       },
-      /*{
+      /* {
         path: 'lanes',
         title: 'Change Management',
         component: <Snaps />,
-      },*/
+      }, */
       {
         path: 'exporting-components',
         title: 'Exporting Components',
-        description:
-          'Share component snaps and versions for consumers and collaborators.',
+        description: 'Share component snaps and versions for consumers and collaborators.',
         component: <ExportingComponents />,
       },
       {
         path: 'removing-components',
         title: 'Deprecating and Removing',
-        description:
-          'Mark components as irrelevant or obsolete..',
+        description: 'Mark components as irrelevant or obsolete..',
         component: <RemovingDeprecating />,
       },
       {
@@ -342,18 +336,18 @@ export const learnDocsRoutes: DocsRoute[] = [
           'Importing is the process of copying Components from their Scope to the Local Scope, to use and maintain them in the Workspace.',
         component: <ImportingComponents />,
       },
-      /*{
+      /* {
         title: 'Merge Conflicts',
         path: 'merge-conflicts',
         component: <MergingComponentVersions />,
-      },*/
-      /*{
+      }, */
+      /* {
         path: 'component-main-file',
         title: 'Main File',
         description:
           'The main file of a Component is the file resolved upon a require of the Component Directory. Main file is usually expected to expose the Component API.',
         component: <MainFile />,
-      },*/
+      }, */
       // {
       //   path: 'component-json',
       //   title: 'component.json',
@@ -381,8 +375,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'component-objects',
         title: 'Component Store',
-        description:
-          'How Bit saves revision history for components',
+        description: 'How Bit saves revision history for components',
         component: <ComponentObjects />,
       },
     ],
@@ -509,20 +502,18 @@ export const learnDocsRoutes: DocsRoute[] = [
         title: 'Hosting Scopes',
         component: <HostingScopes />,
       },
-      {
-        path: 'inspecting-objects',
-        title: 'Inspecting Scope Objects',
-        description:
-          'Component objects are stored in Scopes (Local Scopes and Remote Scopes), using the content-addressable storage method. They are either copied to or from remote scopes, when exported or imported (respectively).',
-        component: <ComponentObjects />,
-      },
-      {
-        path: 'index-json',
-        title: 'index.json',
-        description:
-          "The index.json file maps components (scope ID and component full name) to their objects' hash. This mapping is used, among other things, by the workspace, to reference a Version Object using a component ID and Tag or Snap version.",
-        component: <IndexJson />,
-      },
+      // {
+      //   path: 'running-a-scope-server',
+      //   title: 'Scope API',
+      //   component: <HostingScopes />,
+      // },
+      // {
+      //   path: 'inspecting-scopes',
+      //   title: 'Inspecting Scopes',
+      //   description:
+      //     'Component objects are stored in Scopes (Local Scopes and Remote Scopes), using the content-addressable storage method. They are either copied to or from remote scopes, when exported or imported (respectively).',
+      //   component: <ComponentObjects />,
+      // },
       {
         path: 'extending-scopes',
         title: 'Extending Scopes',
