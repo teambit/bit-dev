@@ -15,8 +15,7 @@ import styles from './quick-start.module.scss';
 ## Introduction
 
 This is a simple app, built with Bit.
-<!-- 
-{/* <LeftRight
+<LeftRight
   className={styles.demo}
   left={
     <HighlightComponent title="UI breakdown">
@@ -29,7 +28,7 @@ This is a simple app, built with Bit.
       <InnovatorGraph nodes={demoGraph} />
     </>
   }
-/> */} -->
+/>
 
 ### What is Bit?
 
@@ -124,13 +123,12 @@ across different projects. This tutorial demonstrates creating a new workspace, 
 In depth: Learn more about [Workspaces](/workspace/overview).
 
 ## Create components
-Components can be anything as simple as a module or as large as an entire app. Different types of components might require different 
-They might have different characteristics applied on them based on the Env they are
-configured with. That helps to differentiate different types of components that require different build. 
+With Bit, applications are built from isolated and independent pieces of source-code called ["components"](/components). A Bit component is a subset of files in a workspace' directory, 
+tracked for changes and isolated using a [development environment](/envs). A development environment can be built to fit any type of component. It is
+is a set of dev tools, composed together to fit the build of a specific type of component. This way, a React component can use the React environment, Node modules could use
+the Node environment, and other environments can be easily created to fit any type of component!
 
-- What is a component? What can a component be?
-- Naming
-- Which component to start with? and why?
+Components can be anything as simple as a module or as large as an entire app. 
 
 Components may have different characteristics applied by their [Env](/envs). 
 This way, a React component can get a specific build and development environment, with different set  
