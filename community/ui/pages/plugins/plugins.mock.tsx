@@ -134,28 +134,28 @@ export const lintingFormatingMock: ComponentCardProps[] = [
 
 export const appsMock: ComponentCardProps[] = [
   {
-    id: 'teambit/application/netlify',
-    href: `${baseAspectsUrl}teambit/application/netlify`,
+    id: 'teambit/apps/netlify',
+    href: `${baseAspectsUrl}teambit/apps/netlify`,
     description: 'Deploy App components to Netlify.',
     envIcon: `${staticEnvBaseUrl}default.svg`,
     preview: <ComponentCardPreview src={`${staticBrandsBaseUrl}netlify.svg`} />,
   },
   {
-    id: 'teambit/application/nextjs',
+    id: 'teambit/apps/nextjs',
     description: 'Coming Soon.',
     envIcon: `${staticEnvBaseUrl}default.svg`,
     preview: <ComponentCardPreview src={`${staticBrandsBaseUrl}logo-next.svg`} />,
     className: styles.disableCard,
   },
   {
-    id: 'teambit/application/gatsby',
+    id: 'teambit/apps/gatsby',
     description: 'Coming Soon.',
     envIcon: `${staticEnvBaseUrl}default.svg`,
     preview: <ComponentCardPreview src={`${staticBrandsBaseUrl}logo-gatsby.svg`} />,
     className: styles.disableCard,
   },
   {
-    id: 'teambit/application/docusaurus',
+    id: 'teambit/apps/docusaurus',
     description: 'Coming Soon.',
     envIcon: `${staticEnvBaseUrl}default.svg`,
     preview: <ComponentCardPreview src={`${staticBrandsBaseUrl}logo-docusaurus.svg`} />,
