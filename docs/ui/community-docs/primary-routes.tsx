@@ -3,8 +3,8 @@ import loadable from '@loadable/component';
 import { DocsRoute } from '@teambit/docs.entities.docs-routes';
 
 /* Quick Start */
-const QuickStart = loadable(() => import('@teambit/docs.content.quick-start'));
-const ThinkingInComponents = loadable(() => import('@teambit/docs.content.thinking-in-components'));
+const QuickStart = React.lazy(() => import('@teambit/docs.content.quick-start'));
+const ThinkingInComponents = React.lazy(() => import('@teambit/docs.content.thinking-in-components'));
 
 export const primaryRoutes: DocsRoute[] = [
   {

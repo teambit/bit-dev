@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import loadable from '@loadable/component';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { Guides } from '@teambit/docs.ui.pages.guides';
@@ -14,7 +14,14 @@ import { AppContext } from './app-context';
 /**
  * Load pages dynamically to enable code splitting.
  */
-const Plugins = loadable(() => import('@teambit/community.ui.pages.plugins'));
+// const Plugins = React.lazy(() => import('@teambit/community.ui.pages.plugins'));
+
+// Plugins.load().then((res) => {
+//   console.log('loaded!!!');
+//   return res;
+// });
+
+const Plugins = React.lazy(() => import('@teambit/community.ui.pages.plugins'));
 
 export function BitDevApp() {
   const [highlighting, setHighlighting] = useLocalStorage('highlighting', true);
@@ -26,7 +33,9 @@ export function BitDevApp() {
         <Redirect exact from="/docs" to="/docs/quick-start" />
         <Route path="/docs">
           <WideColumn>
-            <CommunityDocs />
+            <Suspense fallback={<div>loading...</div>}>
+              <CommunityDocs />
+            </Suspense>
           </WideColumn>
         </Route>
 
@@ -37,7 +46,9 @@ export function BitDevApp() {
           </WideColumn>
         </Route>
         <Route exact path="/plugins">
-          <Plugins />
+          <Suspense fallback={<div>loading...</div>}>
+            <Plugins />
+          </Suspense>
         </Route>
         <Route exact path="/">
           <Homepage />
