@@ -14,7 +14,48 @@ The same env-service can be used in several environments, as the environment pro
 
 ## Implementing an Environment Service
 
+<<<<<<< HEAD
 Env-services are [Bit Aspect](/docs/extending-bit/aspect-overview) that among other things, implements the `EnvService` interface.
+=======
+```ts title="Example: An Env uses Dev Services"
+// ...
+
+export class MyReactEnv implements DevEnv, CompilerEnv, TesterEnv {
+  //...
+
+  // 'getCompiler' is the Compiler Service Handler.
+  // This method will be invoked by Compiler to compile components that use that Env.
+  getCompiler() {
+    return this.babel.createCompiler(config);
+  }
+
+  getTester(jestConfigPath: string, jestModulePath?: string): Tester {
+    return this.jestAspect.createTester(config);
+  }
+
+  getDocsTemplate() {
+    return require.resolve('@teambit/react.ui.docs-app');
+  }
+}
+```
+
+## Service Handlers
+
+Service Handlers are the link that binds an Env to a Dev Service. These are methods that are implemented the in Env class, and invoked by their corresponding Env Service.
+
+For example, the 'MyReactEnv' Env, shown above, uses the Service Handler `getCompiler()` which returns the specific tool to use for compilation (in that case, the Babel ASpect).
+The `getCompiler()` method will be invoked by Compiler Aspect (the compiler dev service).
+
+Environment services run on various events. Whenever a service runs, it executes its corresponding service handler which consequently runs the configured Dev service implementation (in that example, that would be the Babel Aspect).
+
+Different components in a Bit workspace may use different environments. That means environment services need to execute their corresponding service handlers in the specific environment applied on the component currently being processed.
+
+For example, if _component A_ uses the Node environment then the Compiler service processing that component files, will execute the Service Handler (in that case, `getCompiler`) found in the Node environment.
+
+## Implementing a Dev Service
+
+Dev Services provide an API for Aspects to use, so they can serve as a development service of a specific type.
+>>>>>>> master
 
 <Image src={devServiceAPIImg} width="70%" />
 

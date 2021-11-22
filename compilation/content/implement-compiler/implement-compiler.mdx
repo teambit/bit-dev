@@ -9,75 +9,59 @@ The easiest way to start implementing a [Compiler](/compiler/overview) is by usi
 bit create compiler extensions/my-compiler
 ```
 
-[See here](https://github.com/teambit/examples/tree/master/compilation/examples/extensions/my-compiler-no-sm) for an example of a compiler implementation.
+Alternatively, you can import an example compiler component (and edit it in your own workspace):
+
+```bash
+bit import teambit.compilation/examples/extensions/babel-compiler
+```
 
 ## Implement Compilation in the Workspace
 
-Workspace compilations is implemented by the [`transpileFile`](compiler-api#transpilefile) API (or, alternatively, by [`transpileComponent`](compiler-api#transpilecomponent)).
-It receives the content of the component source files, one at a time, and returns the compiled output (content) to be handled by the Compiler aspect.
+For component compilation in the workspace, implement the [`transpileFile`](/dev-services/compiler/compiler-api#transpilefilei) API.
+
+[`transpileFile`](/dev-services/compiler/compiler-api#transpilefilei) receives from the Compiler service, the content (`fileContent`) and relative paths (`options`), of each of the component's files (one at a time).
+To prevent the Compiler service from passing unsupported files (files that cannot be compiled by your compiler), implement the [`isFileSupported`](/dev-services/compiler/compiler-api#isfilesupported) API.
+
+[`transpileFile`](/dev-services/compiler/compiler-api#transpilefilei) should return an array of objects that contain the compiled content and relative paths (with their new filename extensions).
+The output returned from `transpileFile` is written by the Compiler service into the `dist` directory of the component's corresponding package (in the workspace `node_modules` directory).
+
+To instruct the Compiler service to copy unsupported files to the `dist` directory, implement the [`shouldCopyNonSupportedFiles`](</dev-services/compiler/compiler-api#shouldcopynonsupportedfiles-(optional)>) field and set it to `true`.
 
 ```ts
-import babel from '@babel/core';
-import { TranspileFileParams, TranspileFileOutput } from '@teambit/compiler';
-// ...
-export class MyCompilerNoSm implements Compiler {
+transpileFile( fileContent: string, options: TranspileFileParams ): TranspileFileOutput {
   // ...
-  transpileFile(fileContent: string, options: TranspileFileParams): TranspileFileOutput {
-    const supportedExtensions = ['.ts', '.tsx', '.js', '.jsx'];
-    const fileExtension = path.extname(options.filePath);
-    if (!supportedExtensions.includes(fileExtension)) {
-      return null; // file is not supported
-    }
-    if (!this.isFileSupported(options.filePath)) {
-      return null; // file is not supported
-    }
-    const result = babel.transformSync(fileContent, { sourceMaps: true });
-    if (!result) {
-      return null;
-    }
-    const compiledCode = result.code || '';
-    const outputPath = this.replaceFileExtToJs(options.filePath);
-    const outputFiles = [{ outputText: compiledCode, outputPath }];
-
-    return outputFiles; // output is used by the Compiler aspect
-  }
+  return return [{ outputText: compiledContent, outputPath: compiledRelPath }];
 }
+
+isFileSupported(filePath: string): boolean {
+   // ..
+  return isFileExtSupported
+}
+
+shouldCopyNonSupportedFiles = true;
 ```
 
 ## Implement Compilation during Build
 
-Compilation during build is implemented by the [`build`](compiler-api#build) API. The `build` method is invoked (indirectly) by the Builder aspect, which passes to it the entire [Capsule Network](/docs/components/component-capsules#network) (`BuildContext`).
-This data includes only the paths for the component source files, and not their content (unlike build in the workspace).
+For component compilation during build, implement the [`build`](/dev-services/compiler/compiler-api#transpilefilei) API.
+
+[`build`](/dev-services/compiler/compiler-api#transpilefilei) receives (from the [Builder service](/dev-services/builder/builder-overview)) the entire [Build Context](</dev-services/builder/build-tasks#build-context-(buildcontext)>).
+However, our compiler only needs the [`seedersCapsules`](/dev-services/builder/build-tasks#capsulenetwork) as they are [Component Capsules](/components/component-capsules) that are intended to be built, while the rest are dependencies that do not need to go through the compilation process.
+
+The [`build`](/dev-services/compiler/compiler-api#build) implementation should compile all the relevant files by iterating over each [Capsule](/components/component-capsules), and again over each supported file in these Capsules (note that Capsules contain the filepaths, not their content). Use the [`isFileSupported`](/dev-services/compiler/compiler-api#isfilesupported) method, implemented in the ['Compilation in the Workspace'](#implement-compilation-in-the-workspace) section, to filter out unsupported files.
+
+The returned [`artifacts`](/dev-services/builder/build-artifacts) array selects the artifacts (in this case, the compiled code and copied unsupported files) to persist in the component snapshot. It does so by selecting all files under its `dist` directory (in the the compiled component's [Capsule](/components/component-capsules)).
+This is supplemented with the artifacts description (`generatedBy` and `name`).
 
 ```ts
-import babel from '@babel/core';
-import { BuildContext, BuiltTaskResult, ComponentResult } from '@teambit/builder';
-import { Capsule } from '@teambit/isolator';
-// ...
-export class MyCompilerNoSm implements Compiler {
-  // ...
   async build(context: BuildContext): Promise<BuiltTaskResult> {
-    /* 'Seeder Capsules' are Component Capsules that are being built,
-     * not their dependencies.
-     * There could be cases where the component dependencies should affect its compilation,
-     * but not in this case.
-     */
     const capsules = context.capsuleNetwork.seedersCapsules;
-    const componentsResults: ComponentResult[] = [];
-    await Promise.all(
-      capsules.map(async (capsule) => {
-        const currentComponentResult: ComponentResult = {
-          errors: [],
-          component: capsule.component,
-        };
-        await this.buildOneCapsule(capsule, currentComponentResult);
-        componentsResults.push({ ...currentComponentResult });
+    const componentsResults = await Promise.all(capsules.map(async (capsule) => {
+      // ...
+      return { component: capsule.component, errors } as ComponentResult;
       })
     );
-
     return {
-      /* Sets the files to persist as the Component's artifacts,
-       and describes them. */
       artifacts: [
         {
           generatedBy: this.id,
@@ -88,97 +72,43 @@ export class MyCompilerNoSm implements Compiler {
       componentsResults,
     };
   }
-
-  private async buildOneCapsule(capsule: Capsule, componentResult: ComponentResult) {
-    const sourceFiles = capsule.component.filesystem.files.map((file) => file.relative);
-    await fs.ensureDir(path.join(capsule.path, this.distDir));
-    await Promise.all(
-      sourceFiles.map(async (filePath) => {
-        const absoluteFilePath = path.join(capsule.path, filePath);
-        try {
-          // here we use the transpileFilePathAsync API and not the transformSync because we don't have the file content
-          // only the file paths in the capsules.
-          const result = await this.transpileFilePathAsync(absoluteFilePath, babel);
-          if (!result || !result.length) {
-            // component files might be ignored by Babel, e.g. scss component.
-            return;
-          }
-          const distPath = this.replaceFileExtToJs(filePath);
-          await fs.outputFile(path.join(capsule.path, this.distDir, distPath), result[0].outputText);
-        } catch (err: any) {
-          componentResult.errors?.push(err);
-        }
-      })
-    );
-  }
-}
 ```
 
-It is recommended to expose an API that returns you compiler's build task, for Envs to use. Without it, Envs will be forced to use the Compiler aspect directly.
+It is recommended to expose an API that returns you compiler's build task, [for Envs to use](/dev-services/compiler/configure-env-with-compiler). Without it, Envs will be forced to use the Compiler aspect directly.
 
 ```ts
-import { CompilerMain } from '@teambit/compiler';
-// ...
-export class MyCompilerNoSm implements Compiler {
-  constructor(private compiler: CompilerMain) {}
-  createTask() {
-    return this.compiler.createTask('MyCompiler', this);
-  }
-}
-```
-
-## Expose which Files are Supported by your Compiler
-
-Implement the [`isFileSupported`](compiler-api#isfilesupported) API to share with other aspects the file types supported by you compiler.
-For example, the Compiler aspect uses this API to copy to the `dist` directory, files that will not be compiled (unsupported files).
-
-```ts
-export class MyCompilerNoSm implements Compiler {
-  // ...
-  isFileSupported(filePath: string): boolean {
-    return (
-      filePath.endsWith('.ts') || filePath.endsWith('.tsx') || filePath.endsWith('.js') || filePath.endsWith('.jsx')
-    );
-  }
+createTask() {
+  return this.compiler.createTask('MyCompiler', this);
 }
 ```
 
 ## Expose your Compiler's Output Paths
 
-Implement the [`getDistPathBySrcPath`](compiler-api#getdistpathbysrcpath) API to share with other aspects the dist paths.
+Implement the [`getDistPathBySrcPath`](compiler-api#getdistpathbysrcpath) API to share with other aspects (e.g, the [Tester aspect](/dev-services/tester/testing-during-build)) the dist paths.
 
 ```ts
-export class MyCompilerNoSm implements Compiler {
+distDir = 'dist';
+
+getDistPathBySrcPath(srcPath: string) {
   // ...
-  distDir = 'dist';
-
-  getDistPathBySrcPath(srcPath: string) {
-    const fileWithJSExtIfNeeded = this.replaceFileExtToJs(srcPath);
-    return path.join(this.distDir, fileWithJSExtIfNeeded);
+  const absoluteDistPath = path.join(distDir, distPath)
+  return absoluteDistPath;
   }
-
-  private replaceFileExtToJs(filePath: string): string {
-    // see 'isFileSupported' in previous section
-    if (!this.isFileSupported(filePath)) return filePath;
-    const fileExtension = path.extname(filePath);
-    return filePath.replace(new RegExp(`${fileExtension}$`), '.js');
-  }
-}
 ```
 
 ## Expose a 'CreateCompiler' API for Envs to Use
 
 Update the compiler's main runtime file (`my-compiler.main.runtime.ts`) to do the following:
 
-1. Expose the `createCompiler` API for Envs to use.
+1. Expose the [`createCompiler`]() API for Envs to use.
 
-2. Update the main file property of the component's `package.json`, via the `getPackageJsonProps` service handler.
+2. Update the main file property of the component's [`package.json`](/packages/package-json), via the [`getPackageJsonProps`](/packages/managing-package-json#set-configuration-from-an-env) service handler.
 
 ```ts
 import { MainRuntime } from '@teambit/cli';
 import { CompilerAspect, CompilerMain } from '@teambit/compiler';
-import { MyCompilerNoSm } from './my-compiler.compiler';
-import { MyCompilerNoSmAspect } from './my-compiler.aspect';
+import { MyCompiler } from './my-compiler.compiler';
+import { MyCompilerAspect } from './my-compiler.aspect';
 
 export class MyCompilerMain {
   constructor(private compiler: CompilerMain) {}
@@ -187,7 +117,7 @@ export class MyCompilerMain {
 
   static runtime = MainRuntime;
 
-  createCompiler(): MyCompilerNoSm {
+  createCompiler(): MyCompiler {
     return new MyCompiler(MyCompilerAspect.id, this.compiler);
   }
 
@@ -202,10 +132,9 @@ export class MyCompilerMain {
   }
 }
 
-MyCompilerNoSmAspect.addRuntime(MyCompilerMain);
-
+MyCompilerAspect.addRuntime(MyCompilerMain);
 ```
 
 ## Using the Compiler Implementation in an Env
 
-[See here](configure-env-with-compiler) to learn how to configure you Env to use your compiler implementation.
+[See here](/dev-services/compiler/configure-env-with-compiler) to learn how to configure you Env to use your compiler implementation.

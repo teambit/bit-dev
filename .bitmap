@@ -189,6 +189,12 @@
         "mainFile": "index.ts",
         "rootDir": "compositions/content/compositions-overview"
     },
+    "content/config-react-tools": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "react/content/config-react-tools"
+    },
     "content/configure-env-with-compiler": {
         "scope": "teambit.compilation",
         "version": "1.10.0",
@@ -471,6 +477,12 @@
         "mainFile": "index.ts",
         "rootDir": "docs/content/guides/using-bvm"
     },
+    "content/guides/ws-config-vs-comp-config": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/guides/ws-config-vs-comp-config"
+    },
     "content/hosting-scopes": {
         "scope": "teambit.scope",
         "version": "1.10.0",
@@ -699,6 +711,12 @@
         "mainFile": "index.ts",
         "rootDir": "docs/content/quick-start"
     },
+    "content/react-overview": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "react/content/react-overview"
+    },
     "content/react-router": {
         "scope": "teambit.react",
         "version": "1.10.0",
@@ -716,6 +734,12 @@
         "version": "1.10.0",
         "mainFile": "index.ts",
         "rootDir": "docs/content/rendering-docs"
+    },
+    "content/replace-react-tools": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "react/content/replace-react-tools"
     },
     "content/scope-json": {
         "scope": "teambit.scope",
@@ -1184,6 +1208,12 @@
         "version": "1.10.0",
         "mainFile": "index.ts",
         "rootDir": "community/ui/logo-showcase"
+    },
+    "ui/mocks/bit-dev": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/mocks/bit-dev"
     },
     "ui/navigation/link": {
         "scope": "teambit.design",
