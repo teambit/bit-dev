@@ -49,7 +49,7 @@ export function DocPage({ title, description, nextPage, children, baseUrl = '/do
 
   // @TODO @josh remove when ssr is working
   useEffect(() => {
-    if (window.location.hash) {
+    if (window?.location.hash) {
       setTimeout(() => {
         const element = document.getElementById(window.location.hash.replace('#', ''));
         element?.scrollIntoView();
@@ -57,7 +57,7 @@ export function DocPage({ title, description, nextPage, children, baseUrl = '/do
         setNextPage(true); // hides next page component until mdx data loads. should also be fixed by ssr
       }, 500);
     }
-  }, [window.location.hash]);
+  }, [window?.location.hash]);
 
   return (
     <Page title={`${title} | Bit`} description={pageDescription}>

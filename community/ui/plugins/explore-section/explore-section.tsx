@@ -47,7 +47,7 @@ export function ExploreSection({ heading, subtitle, className, ...rest }: Explor
             onChange={onSearchChange}
             className={styles.searchInput}
           />
-          <div>
+          <div className={styles.linkHolder}>
             <Link href="https://bit.cloud/components?env=aspect" external className={styles.link}>
               Browse plugins
               <Icon of="right-arrow" className={styles.icon} />

@@ -1,7 +1,7 @@
 /**
  * this is the main configuration file of your bit workspace.
  * for full documentation, please see: https://harmony-docs.bit.dev/workspace/configurations
- **/{
+ **/ {
   "$schema": "https://static.bit.dev/teambit/schemas/schema.json",
   /**
    * main configuration of the Bit workspace.
@@ -107,7 +107,7 @@
         "@teambit/mdx.ui.mdx-layout": "0.0.451",
         "@teambit/react.eslint-config-bit-react": "0.0.451",
         "@teambit/react.templates.themes.theme": "0.0.3",
-        "@teambit/react.ui.component-highlighter": "0.0.480",
+        "@teambit/react.ui.component-highlighter": "0.0.482",
         "@teambit/ui-foundation.ui.buttons.collapser": "0.0.144",
         "@teambit/ui-foundation.ui.react-router.link": "0.0.441",
         "@teambit/ui-foundation.ui.react-router.nav-link": "0.0.441",
@@ -141,20 +141,18 @@
         "react-xarrows": "2.0.2",
         "typescript": "4.4.2",
         "url-join": "4.0.1",
+        "@types/history": "^4.0.0",
+        "history": "^5.0.0",
         "url-parse": "1.5.3"
       },
       "peerDependencies": {
         "@testing-library/react": "12.0.0",
-        "@types/history": "^4.0.0",
-        "history": "^5.0.0",
         "react": "16.13.1",
         "react-dom": "16.13.1"
       }
     },
     "packageManagerArgs": [],
-    "devFilePatterns": [
-      "**/*.spec.ts"
-    ],
+    "devFilePatterns": ["**/*.spec.ts"],
     "strictPeerDependencies": true,
     "installFromBitDevRegistry": true,
     "savePrefix": ""
@@ -168,8 +166,11 @@
    * see https://harmony-docs.bit.dev/aspects/variants for more info.
    **/
   "teambit.workspace/variants": {
-    "{ui/**}": {
+    "{ui/**}, !{ui/mocks/**}": {
       "teambit.community/envs/community-react": {}
+    },
+    "{ui/mocks/**}": {
+      "teambit.react/react": {}
     },
     "base-react": {
       "defaultScope": "teambit.base-react",

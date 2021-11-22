@@ -35,7 +35,6 @@ const Variants = loadable(() => import('@teambit/workspace.content.variants'));
 const ScopeOverview = loadable(() => import('@teambit/scope.content.scope-overview'));
 const CreatingScopes = loadable(() => import('@teambit/scope.content.creating-scopes'));
 const ScopeJson = loadable(() => import('@teambit/scope.content.scope-json'));
-const IndexJson = loadable(() => import('@teambit/scope.content.index-json'));
 const HostingScopes = loadable(() => import('@teambit/scope.content.hosting-scopes'));
 
 /* Dev services */
@@ -116,13 +115,14 @@ const RemovingDeprecating = loadable(() => import('@teambit/docs.content.guides.
 const MergingComponentVersions = loadable(() => import('@teambit/docs.content.guides.merging-component-versions'));
 const MainFile = loadable(() => import('@teambit/component.content.component-main-file'));
 const ComponentConfig = loadable(() => import('@teambit/component.content.component-config'));
-// const ComponentJson = loadable(() => import('@teambit/component.content.component-json'));
+const ComponentJson = loadable(() => import('@teambit/component.content.component-json'));
 const ComponentObjects = loadable(() => import('@teambit/component.content.component-objects'));
 const DevFiles = loadable(() => import('@teambit/component.content.dev-files'));
 const InspectingComponents = loadable(() => import('@teambit/component.content.inspecting-components'));
 const Tags = loadable(() => import('@teambit/component.content.tags'));
 const Snaps = loadable(() => import('@teambit/component.content.snaps'));
 const ComponentAnatomy = loadable(() => import('@teambit/component.content.component-anatomy'));
+const AddingComponents = loadable(() => import('@teambit/component.content.adding-components'));
 
 /* Envs */
 
@@ -159,13 +159,171 @@ const Npmrc = loadable(() => import('@teambit/pkg.content.npmrc'));
 
 /* Reference */
 
-// const UsingBVM = loadable(() => import('@teambit/docs.content.guides.using-bvm'));
+const UsingBVM = loadable(() => import('@teambit/docs.content.guides.using-bvm'));
+const CliReference = loadable(() => import('@teambit/harmony.content.cli-reference'));
 
 /* Global Config */
-// const BitConfig = loadable(() => import('@teambit/docs.content.guides.bit-config'));
-// const ConfigFiles = loadable(() => import('@teambit/docs.content.guides.config-files'));
+const BitConfig = loadable(() => import('@teambit/docs.content.guides.bit-config'));
+const ConfigFiles = loadable(() => import('@teambit/docs.content.guides.config-files'));
+
+/* React */
+const ReactOverview = loadable(() => import('@teambit/react.content.react-overview'));
+const ReplacingReactTools = loadable(() => import('@teambit/react.content.replace-react-tools'));
+const ConfigReactTools = loadable(() => import('@teambit/react.content.config-react-tools'));
 
 export const learnDocsRoutes: DocsRoute[] = [
+  {
+    path: 'getting-started',
+    title: 'Getting Started',
+    icon: 'Ripple_play',
+    children: [
+      {
+        path: 'installing-bit',
+        title: 'Installation',
+        // description: 'Installing Bit',
+        icon: 'install',
+        // component: <InstallingBit />,
+        children: [
+          {
+            path: 'start-bit-project',
+            title: 'Start a new Bit workspace',
+            // component: <CreateWorkspace />,
+          },
+          {
+            path: 'editor-setup',
+            title: 'Editor setup',
+          },
+          {
+            path: 'add-to-existing-project',
+            title: 'Add on existing project',
+          },
+        ],
+      },
+      {
+        path: 'composing',
+        title: 'Compose',
+        icon: 'compose',
+        open: false,
+        children: [
+          {
+            path: 'first-components',
+            title: 'Your first components',
+            description: 'Your first components',
+            component: <CreateComponents />,
+          },
+          {
+            path: 'dev-environments',
+            title: 'Dev environments',
+            description: 'Dev environments',
+            // component: <DevEnvs />,
+          },
+          {
+            path: 'use-dependencies',
+            title: 'Use dependencies',
+            description: 'Using components',
+            // component: <UseDependencies />,
+          },
+        ],
+      },
+      {
+        path: 'collaborate',
+        title: 'Collaborate',
+        icon: 'collaborate',
+        open: false,
+        children: [
+          {
+            path: 'snap-component-changes',
+            title: 'Snapshot component changes',
+            description: 'Version Components',
+            // component: <VersionComponents />,
+          },
+          {
+            path: 'version-components',
+            title: 'Version Components',
+            description: 'Version Components',
+            // component: <VersionComponents />,
+          },
+          {
+            path: 'remote-scope',
+            title: 'Create a Remote Scope',
+            open: false,
+            children: [
+              {
+                path: 'host-on-bit-cloud',
+                title: 'Host on Bit Cloud',
+                description: 'Host on Bit Cloud',
+                // component: <HostBitCloud />,
+              },
+              {
+                path: 'self-host-scope',
+                title: 'Self-hosted scope',
+                description: 'Self Host Scope',
+                // component: <SelfHostScope />,
+              },
+            ],
+          },
+          {
+            path: 'importing-components',
+            title: 'Importing components',
+            description: 'Share components',
+            // component: <ShareComponents />,
+          },
+          {
+            path: 'exporting-components',
+            title: 'Exporting components',
+            description: 'Exporting components',
+            // component: <ShareComponents />,
+          },
+        ],
+      },
+      {
+        path: 'use',
+        title: 'Use',
+        icon: 'use',
+        open: false,
+        children: [
+          {
+            path: 'install-components',
+            title: 'Install Components',
+            description: 'Install Components',
+            // component: <InstallComponents />,
+          },
+          {
+            path: 'import-components',
+            title: 'Import Components',
+            description: 'Import Components',
+            // component: <ImportComponents />,
+          },
+          {
+            path: 'update-components',
+            title: 'Update Components',
+            description: 'Update Components',
+            // component: <UpdateComponents />,
+          },
+        ],
+      },
+      {
+        path: 'setup-ci',
+        title: 'Setup CI',
+        icon: 'terminal',
+        open: false,
+        children: [
+          {
+            path: 'automate-export',
+            title: 'Automate Component Export',
+            description: 'Automate Component Export',
+            // component: <CiExport />,
+          },
+          {
+            path: 'package-consumers',
+            title: 'Package Consumers',
+            description: 'Package Consumers',
+            // component: <CiInstall />,
+          },
+        ],
+      },
+    ],
+  },
   {
     path: 'workspace',
     title: 'Workspace',
@@ -189,10 +347,13 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'creating-components',
-        title: 'Creating Components',
-        description:
-          'Bit makes it simple to build each Component independently, and compose it to others with Dependencies. Components can be created in different types such as Node Modules, React Components, Angular Modules and more.',
+        title: 'Creating components',
         component: <CreateComponents />,
+      },
+      {
+        path: 'workspace-configuration',
+        component: <WorkspaceConfiguration />,
+        title: 'Workspace configuration',
       },
       {
         path: 'directory-structure',
@@ -222,31 +383,10 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <MovingComponents />,
       },
       {
-        path: 'importing-components',
-        title: 'Importing Components',
-        description:
-          'Importing is the process of copying Components from their Scope to the Local Scope, to use and maintain them in the Workspace.',
-        component: <ImportingComponents />,
-      },
-      {
-        path: 'exporting-components',
-        title: 'Exporting Components',
-        description:
-          'Exporting is the process of copying Component versions from the Local Scope to remote Scopes, to make them available to other projects.',
-        component: <ExportingComponents />,
-      },
-      {
         path: 'variants',
         title: 'Configuration Variants',
         description: 'Variants enables you to configure group of components with Component configuration.',
         component: <Variants />,
-      },
-      {
-        path: 'removing-components',
-        title: 'Removing Components',
-        description:
-          'Refactoring code often causes components to become obsolete or irrelevant. This is where removing and deprecating components becomes useful and necessary.',
-        component: <RemovingDeprecating />,
       },
       {
         path: 'bitmap',
@@ -293,8 +433,22 @@ export const learnDocsRoutes: DocsRoute[] = [
     },
     children: [
       {
-        path: 'creating-components',
-        title: 'Creating components',
+        path: 'adding-components',
+        title: 'Adding Components',
+        description: 'Add a new component to be managed by Bit.',
+        component: <AddingComponents />,
+      },
+      {
+        path: 'component-id',
+        title: 'Naming Components',
+        description:
+          'The Component ID is designed to be a unique, human-readable name that simplifies and help organize components.',
+        component: <ComponentId />,
+      },
+      {
+        path: 'component-anatomy',
+        title: 'Component Anatomy',
+        description: 'How Bit manages a component as a mini-repository.',
         component: <ComponentAnatomy />,
       },
       {
@@ -304,19 +458,14 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'tags',
-        title: 'Tags',
-        description: 'Version components with semantic version tagging',
+        title: 'Versioning',
+        description: 'Manage component releases with semantic version.',
         component: <Tags />,
       },
       {
         path: 'snaps',
-        title: 'Snaps',
-        description: 'Record component history with snapshots',
-        component: <Snaps />,
-      },
-      {
-        path: 'lanes',
-        title: 'Lanes',
+        title: 'Snapshot Changes',
+        description: 'Record component history with snapshots.',
         component: <Snaps />,
       },
       {
@@ -325,16 +474,33 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <NavigateHistory />,
       },
       {
-        title: 'Merge conflicts',
-        path: 'merge-conflicts',
-        component: <MergingComponentVersions />,
+        path: 'lanes',
+        title: 'Change Management',
+        component: <Snaps />,
       },
       {
-        path: 'component-id',
-        title: 'Component ID',
+        path: 'exporting-components',
+        title: 'Exporting Components',
+        description: 'Share component snaps and versions for consumers and collaborators.',
+        component: <ExportingComponents />,
+      },
+      {
+        path: 'removing-components',
+        title: 'Deprecating and Removing',
+        description: 'Mark components as irrelevant or obsolete..',
+        component: <RemovingDeprecating />,
+      },
+      {
+        path: 'importing-components',
+        title: 'Importing Components',
         description:
-          'The Component ID is designed to be a unique, human-readable name that simplifies and help organize components.',
-        component: <ComponentId />,
+          'Importing is the process of copying Components from their Scope to the Local Scope, to use and maintain them in the Workspace.',
+        component: <ImportingComponents />,
+      },
+      {
+        title: 'Merge Conflicts',
+        path: 'merge-conflicts',
+        component: <MergingComponentVersions />,
       },
       {
         path: 'component-main-file',
@@ -343,22 +509,22 @@ export const learnDocsRoutes: DocsRoute[] = [
           'The main file of a Component is the file resolved upon a require of the Component Directory. Main file is usually expected to expose the Component API.',
         component: <MainFile />,
       },
-      // {
-      //   path: 'component-json',
-      //   title: 'component.json',
-      //   component: <ComponentJson />,
-      // },
+      {
+        path: 'component-json',
+        title: 'component.json',
+        component: <ComponentJson />,
+      },
+      {
+        path: 'inspecting-components',
+        title: 'Inspecting Components',
+        component: <InspectingComponents />,
+      },
       {
         path: 'dev-files',
         title: 'Dev Files',
         description:
           'Dev files are component files used for development and not for production. Dev files are determined as such by the Dev Files Aspect.',
         component: <DevFiles />,
-      },
-      {
-        path: 'inspecting-components',
-        title: 'Inspecting Components',
-        component: <InspectingComponents />,
       },
       {
         path: 'component-capsules',
@@ -369,9 +535,8 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'component-objects',
-        title: 'Component Objects',
-        description:
-          'When tagging or snapping a component, bit persists the versioned data (the component source files, config, metadata, and artifacts) in git-like objects',
+        title: 'Component Store',
+        description: 'How Bit saves revision history for components',
         component: <ComponentObjects />,
       },
     ],
@@ -490,27 +655,25 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'configuring-scopes',
-        title: 'Configuring Scopes (scope.json)',
+        title: 'Configuring scopes (scope.json)',
         component: <ScopeJson />,
       },
       {
         path: 'running-a-scope-server',
-        title: 'Hosting Scopes',
+        title: 'Hosting scopes',
         component: <HostingScopes />,
       },
       {
-        path: 'inspecting-objects',
-        title: 'Inspecting Scope Objects',
+        path: 'running-a-scope-server',
+        title: 'Scope API',
+        component: <HostingScopes />,
+      },
+      {
+        path: 'inspecting-scopes',
+        title: 'Inspecting Scopes',
         description:
           'Component objects are stored in Scopes (Local Scopes and Remote Scopes), using the content-addressable storage method. They are either copied to or from remote scopes, when exported or imported (respectively).',
         component: <ComponentObjects />,
-      },
-      {
-        path: 'index-json',
-        title: 'index.json',
-        description:
-          "The index.json file maps components (scope ID and component full name) to their objects' hash. This mapping is used, among other things, by the workspace, to reference a Version Object using a component ID and Tag or Snap version.",
-        component: <IndexJson />,
       },
       {
         path: 'extending-scopes',
@@ -1083,7 +1246,23 @@ export const learnDocsRoutes: DocsRoute[] = [
         path: 'react',
         title: 'React',
         open: false,
-        children: [],
+        children: [
+          {
+            path: 'react-overview',
+            title: 'React Overview',
+            component: <ReactOverview />,
+          },
+          {
+            path: 'config-react-tools',
+            title: 'Configuring React Tools',
+            component: <ConfigReactTools />,
+          },
+          {
+            path: 'replace-react-tools',
+            title: 'Replacing React Tools',
+            component: <ReplacingReactTools />,
+          },
+        ],
       },
       {
         path: 'angular',
@@ -1159,18 +1338,44 @@ export const learnDocsRoutes: DocsRoute[] = [
       // }
     ],
   },
-  // {
-  //   path: 'reference',
-  //   icon: 'Ripple_list',
-  //   open: false,
-  //   title: 'Reference',
-  //   children: [
-  //     {
-  //       path: 'cli-reference',
-  //       title: 'CLI Reference',
-  //       component: <CliReference />,
-  //       icon: 'terminal',
-  //     },
-  //   ],
-  // },
+  {
+    path: 'global-config',
+    title: 'Global Config',
+    icon: 'configuration',
+    open: false,
+    children: [
+      {
+        path: 'bit-config',
+        title: 'Bit config',
+        open: false,
+        component: <BitConfig />,
+      },
+      {
+        path: 'config-files',
+        title: 'Config Files',
+        open: false,
+        component: <ConfigFiles />,
+      },
+    ],
+  },
+  {
+    path: 'reference',
+    icon: 'Ripple_list',
+    open: false,
+    title: 'Reference',
+    children: [
+      {
+        path: 'cli-reference',
+        title: 'CLI Reference',
+        component: <CliReference />,
+        icon: 'terminal',
+      },
+      {
+        path: 'using-bvm',
+        title: 'Using BVM',
+        component: <UsingBVM />,
+        icon: 'terminal',
+      },
+    ],
+  },
 ];
