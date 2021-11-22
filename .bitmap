@@ -1215,6 +1215,12 @@
         "mainFile": "index.ts",
         "rootDir": "design/ui/navigation/tab-link"
     },
+    "ui/navigation/table-of-content": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/ui/navigation/table-of-content"
+    },
     "ui/pages/doc-page": {
         "scope": "teambit.docs",
         "version": "1.10.4",

@@ -1,0 +1,10 @@
+.tableOfContent {
+  min-width: 264px;
+  position: sticky;
+
+  top: 24px;
+
+  max-height: calc(100vh - 40px);
+  overflow: auto;
+  font-size: 14px;
+}
