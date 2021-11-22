@@ -4,7 +4,7 @@ import { docsRoutes } from './guides-routes';
 
 export type GuidesProps = {
   /**
-   * base url to use for docs section.
+   * base url to use for guides section.
    */
   baseUrl?: string;
 } & DocsProps;
