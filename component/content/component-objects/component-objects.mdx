@@ -5,7 +5,6 @@ import secondSnap from './second-snap.png';
 import snapDependency from './snap-dependency.png';
 import componentPointer from './component-pointer.png';
 import componentState from './component-state.png';
-
 import firstSnap from './first-snap.png';
 import tagSnap from './tag-snap.png';
 import twoTags from './two-tags.png';
@@ -15,7 +14,7 @@ import twoTags from './two-tags.png';
 Each component is stored in its own "mini" repository containing all information about a component.  
 When you add a new component, Bit adds it to the local workspace store found in `.git/bit`.
 
-<img src={componentPointer}  style={{ maxHeight:'70px' }} />
+<img src={componentPointer} style={{ maxHeight: '70px' }} />
 
 ## Immutable Component State
 
@@ -27,17 +26,17 @@ Alongside components, the worskapce store holds states for components. These sta
 - Metadata - like the version message, author, date of change, etc.
 - Artifacts - as generated when running the component's build pipeline.
 
-<img src={componentState}  style={{ maxHeight:'250px' }} />
+<img src={componentState} style={{ maxHeight: '250px' }} />
 
 ## Revision History with Snapshots
 
 Each time you [snapshot a change](/docs/components/snaps), Bit saves the state of the component, and points to it from the component.
 
-<img src={firstSnap} style={{ maxHeight:'300px' }} />
+<img src={firstSnap} style={{ maxHeight: '300px' }} />
 
 As you keep on maintaining components and creating more snapshots, Bit builds and maintains the revision history of the component.
 
-<img src={secondSnap}  style={{ maxHeight:'200px' }} />
+<img src={secondSnap} style={{ maxHeight: '200px' }} />
 
 - Latest snap will always be pointed by the component.
 - A snap points to its predecessor.
@@ -46,11 +45,11 @@ As you keep on maintaining components and creating more snapshots, Bit builds an
 
 Versions are essentially very unique snapshots that has a semantic version attached to them, when you [create a new version](/docs/components/tags) for a component.
 
-<img src={tagSnap} style={{ maxHeight:'200px' }}/>
+<img src={tagSnap} style={{ maxHeight: '200px' }} />
 
 Components directly refer to all their available semantic versions. Version history and presedence is determined by semantic verion, not when a tag was created.
 
-<img src={twoTags}  style={{ maxHeight:'200px' }} />
+<img src={twoTags} style={{ maxHeight: '200px' }} />
 
 ## Checkout Past States
 
@@ -66,12 +65,12 @@ Bit will switch the component to a past state from the component history.
 successfully switched the following components to their latest version
 
 teambit.harmony/content/aspects-overview@1.0.0
-	updated aspect-graph.ts 
-	updated aspects-overview.composition.tsx 
-	updated aspects-overview.docs.mdx 
-	auto-merged aspects-overview.mdx 
-	updated composability.png 
-	updated index.ts 
+	updated aspect-graph.ts
+	updated aspects-overview.composition.tsx
+	updated aspects-overview.docs.mdx
+	auto-merged aspects-overview.mdx
+	updated composability.png
+	updated index.ts
 ```
 
 ## Collaborating on Components
@@ -82,7 +81,7 @@ The process of `import` and `export` for components is all about sharing changes
 
 Dependencies between versions or snaps are logged as part of the component's state.
 
-<img src={snapDependency}  style={{ maxHeight:'200px' }} />
+<img src={snapDependency} style={{ maxHeight: '200px' }} />
 
 This allows a safer workflow when working in a distributed environment, as when you export components all dependencies are ported over alongside the component.  
 For example, if you build a component in the **billing** system, and depending on components from the **design system** and when exporting the component to your scope, the scope will fetch all dependencies from **design system** and store them in it's storage.  
@@ -132,7 +131,6 @@ During the `import` command, Bit fetched the `button` component and it's history
 ```
 
 The above output table shows the mapping between each component ID and its component-object hash.
-
 
 Let's explore `teambit.base-ui/inputs/button`:
 
