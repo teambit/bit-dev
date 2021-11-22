@@ -1,0 +1,64 @@
+import { Image } from '@teambit/docs.ui.zoomable-image';
+import mfeGraph from './microfrontends.png';
+import msGraph from './microservices.png';
+import monoToPolyGraph from './monotopoly.png';
+import scopesGraph from './demo-scopes.png';
+
+# Microfrontends - Overview
+
+Micro front-ends are not only the future anymore. They are the present, and it seems they will evolve a lot in the next few years.
+
+What are Micro front-ends? Well, that is precisely the question that keeps the whole world busy - What exactly is the definition of Micro front-ends?
+
+## A bit of history
+
+To understand that, let's begin with a bit of history.
+At first, there was front-end and backend coupled together on the same repo. That was not scaleable, and some intelligent people had decided to separate the front and backend into two separate repositories.
+
+But that is not the end of the story. The backend people decided that putting all logic into a single codebase (AKA Monorepo) is inefficient. Why not split each service into a separate repository? By doing so, we achieve a decoupled application easy to maintain. We can also break our teams into small autonomous groups that are excellent at what they do.
+
+Meanwhile, the front-end people continued working on Monorepos. At some point, it started to get painful. With substantial codebases, it was hard to navigate around the code. Moreover, the build times for an app were extraordinarily long, and it became a hassle to update the app. Just imagine how frustrating it is to edit the button's color and then wait for 20 hours of build time.
+
+The front-end people decided to move on to the microarchitecture approach. If it works for the backend, they said, then it should also work for us! There were some challenges to overcome, though.
+
+<Image src={monoToPolyGraph} alt="Monorepo evolved to micro services and frontends" />
+
+Dividing the backend into Micro-Services, was not such a challenging job. The reason for that is that the services in the backend server are loosely coupled from the first place.
+
+Let's imagine we have three backend services in our application - the signup service, the login service, and the order service. It is not unusual that those services would not have to interact with each other at all. Each service works independently and regardless of the others. Therefore, decoupling and deploying them as individuals is not such a complex task.
+
+<Image src={msGraph} alt="Backend monolith splitting to various micro services" />
+
+## The arising of Micro-frontends
+
+The situation on the front-end looks different. Even if we divide our front-end into separate domains, they will eventually have to run together as a single process on the user's browser.
+
+Most, if not all, of the mental capacity was invested in solving this problem - How do we run various micro-frontend domains in a single environment?
+
+We have diverse solutions for this problem. Up until recently, the most common answer was to render the micro-frontend using iframes.
+
+A recent and more elegant solution is using a Webpack 5 plugin called module federation. This plugin allows you to split your bundle and host it on numerous CDNs. When you dynamically import the micro-frontends, Webpack makes a composition of the modules on runtime.
+
+<Image src={mfeGraph} alt="Microfrontends run in a single runtime" />
+
+But while everyone is trying to solve the runtime barrier, it seems like a significant aspect was almost totally neglected - How do we collaborate on Micro-frontends?
+
+There are a lot of factors we have to take into consideration when collaborating on micro-frontends. How do we separate codebases from each other? What is the best way to view and test each micro-frontend independently? How to keep track of versions efficiently?
+
+In this guide, we will answer all of these questions and more. We are also going to see some exceptional solutions for the mentioned runtime enigma. First, let’s have a look at how this MFE project will be structured.
+
+## The Project
+
+The organization of Goodies-4-U is planning to expand its business and open several eCommerce sites throughout the year. Each eCommerce site will be deployed on a different domain. In order to speed the development, the VP R&D has decided to use the Component-Based Architecture (CBA) to enable the reusability of components throughout the various applications. The frontend framework that will be used is React.
+
+As we will see in more detail further on, when building with components we start bottom-up starting with the most basic components and composing them together into more complex compositions. This is also true when designing the structure of our organization. Our goal is, to divide our teams into autonomous groups starting from teams that have a more general purpose and ending with specialized teams that are best suited for their specific needs.
+
+In Bit, we provide each team with its own scope. The scope is where we store and collaborate on components with related commitments. Let’s have a look at the scope dependency graph of our organization:
+
+<Image src={scopesGraph} alt="Our project scopes graph" />
+
+At the top, you can see the most fundamental scope called base-ui. This scope holds the most elementary components such as buttons, heading, and themes. Please note that by classifying our components as elementary we do not mean that they have to be simple. We also have complex components that define our standardization rules for our company such as the development environment and a component generator. We will have a further look at them in the standardization section.
+
+Next, we have the eCommerce scope. This scope has a more concrete definition. It stores components that are directly related to building eCommerce websites such as a currency component to display the price and a store-hero component.
+
+Finally, at the bottom, we have the four stores we have built using components from the base-ui scope and the eCommerce scope. In these scopes, we form our components to suit better the specific need of each store (by using the right pictures, colors, etc.). We will then compose them together into more extensive components like pages until we compose our whole application (the application is one significant component in its essence).

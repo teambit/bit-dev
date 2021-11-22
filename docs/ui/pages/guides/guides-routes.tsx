@@ -2,6 +2,7 @@ import React from 'react';
 import { DocsRoute } from '@teambit/docs.entities.docs-routes';
 import loadable from '@loadable/component';
 // import DecoupledCodebases from '@teambit/docs.content.mfe.decoupled-codebases';
+const MfeOverview = loadable(() => import('@teambit/docs.content.mfe.mfe-overview'));
 
 export const docsRoutes: DocsRoute[] = [
   {
@@ -12,6 +13,7 @@ export const docsRoutes: DocsRoute[] = [
       {
         title: 'Overview',
         path: 'overview',
+        component: <MfeOverview />,
       },
       {
         title: 'Decoupled codebases',
@@ -134,9 +136,9 @@ export const docsRoutes: DocsRoute[] = [
     children: [
       {
         path: 'sharing-code-challenges',
-        title: 'Challenges of sharing code'
-      }
-    ]
+        title: 'Challenges of sharing code',
+      },
+    ],
   },
   {
     title: 'Component driven development',
@@ -144,8 +146,8 @@ export const docsRoutes: DocsRoute[] = [
     children: [
       {
         title: 'Bottom up',
-        path: 'bottom-up'
-      }
-    ]
-  }
+        path: 'bottom-up',
+      },
+    ],
+  },
 ];

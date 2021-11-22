@@ -603,6 +603,12 @@
         "mainFile": "index.ts",
         "rootDir": "docs/content/mdx"
     },
+    "content/mfe/mfe-overview": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/mfe/mfe-overview"
+    },
     "content/mounting-compositions-to-dom": {
         "scope": "teambit.compositions",
         "version": "1.10.0",
