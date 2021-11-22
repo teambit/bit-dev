@@ -39,9 +39,10 @@ export class MyReactEnv implements DevEnv, CompilerEnv, TesterEnv {
 
 ## Service Handlers
 
-Service Handlers are the link that binds an Env to a Dev Service. These are methods that are implemented the Env class, and invoked by their corresponding Env Service.
+Service Handlers are the link that binds an Env to a Dev Service. These are methods that are implemented the in Env class, and invoked by their corresponding Env Service.
 
-For example, the 'MyReactEnv' Env, shown above, uses the Service Handler `getCompiler()` to configure the Compiler Env Service to run the Babel aspect. The `getCompiler()` method is expected to be found by the Compiler, which will invoke it
+For example, the 'MyReactEnv' Env, shown above, uses the Service Handler `getCompiler()` which returns the specific tool to use for compilation (in that case, the Babel ASpect).
+The `getCompiler()` method will be invoked by Compiler Aspect (the compiler dev service).
 
 Environment services run on various events. Whenever a service runs, it executes its corresponding service handler which consequently runs the configured Dev service implementation (in that example, that would be the Babel Aspect).
 

@@ -32,6 +32,7 @@ export function HighlightComponent({ children, title }: HighlightComponentProps)
       bgColorHover="#C9C3F6"
       bgColor="#ECEAFF"
       watchMotion
+      // @ts-ignore @Kutner - fix
       highlighterOptions={{ style: { fontSize: 8 } }}
     >
       <ExcludeHighlighter>
