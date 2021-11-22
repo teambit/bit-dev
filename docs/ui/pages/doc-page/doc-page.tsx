@@ -5,7 +5,7 @@ import { NextPage } from '@teambit/community.ui.cards.next-page';
 import type { Route } from '@teambit/docs.entities.docs-routes';
 import { mdxComponents } from './mdx-components';
 import styles from './doc-page.module.scss';
- 
+
 export type DocPageProps = {
   /**
    * title of the docs page.
