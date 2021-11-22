@@ -2,59 +2,19 @@ import { Image } from '@teambit/docs.ui.zoomable-image';
 import devServiceDiagram from './dev-services-diagram.png';
 import devServiceAPIImg from './dev-service-api.png';
 
-# Development Services
+# Environment Services
 
-A number of Bit commands and workflows run processes on your components, such as compilation, testing and linting. These workflows are implemented in a set of internal tools called **Development Services**, which may use other tools to accomplish the wanted task.
+[Environments](/docs/environments/envs-overview) run various commands and workflows on components, such as compilation, testing and linting. These workflows are implemented in a set of internal tools called **Environment Services**, which may use other tools to accomplish a wanted task.
 
-Dev Services are primarily composed by [Environments](/docs/environments/envs-overview) to manage the tools, configuration and features available to the developer and components.
+Use Dev Services to customize workflows by adding or modifying support for tools. For example, could supply an env-service to extend your current workflow or add an entirely new command.
 
-Use Dev Services to customize workflows in Bit by adding or modifying workflows and extending support for new tools. For example, you could add extend the builder to perform an entirely new task, or to change which third-party tool is used by an existing command.
+<img src={devServiceDiagram} style={{ maxHeight:'240px' }} />
 
-This document explains how dev-services integrate with Bit and shows how you can use them to integrate or customize your tooling.
+The same env-service can be used in several environments, as the environment provides it with the necessary context and configuration to run the command of workflow.
 
-## Tooling and Workflows for Environments
+## Implementing an Environment Service
 
-The below diagram and code, show an Env using three Dev Services: Compiler, Tester and Docs.
-
-<Image src={devServiceDiagram} width="70%" />
-
-```ts title="Example: An Env uses Dev Services"
-// ...
-
-export class MyReactEnv implements DevEnv, CompilerEnv, TesterEnv {
-  //...
-
-  // 'getCompiler' is the Compiler Service Handler.
-  // This method will be invoked by Compiler to compile components that use that Env.
-  getCompiler() {
-    return this.babel.createCompiler(config);
-  }
-
-  getTester(jestConfigPath: string, jestModulePath?: string): Tester {
-    return this.jestAspect.createTester(config);
-  }
-
-  getDocsTemplate() {
-    return require.resolve('@teambit/react.ui.docs-app');
-  }
-}
-```
-
-## Service Handlers
-
-Service Handlers are the link that binds an Env to a Dev Service. These are methods that are implemented the Env class, and invoked by their corresponding Env Service.
-
-For example, the 'MyReactEnv' Env, shown above, uses the Service Handler `getCompiler()` to configure the Compiler Env Service to run the Babel aspect. The `getCompiler()` method is expected to be found by the Compiler, which will invoke it
-
-Environment services run on various events. Whenever a service runs, it executes its corresponding service handler which consequently runs the configured Dev service implementation (in that example, that would be the Babel Aspect).
-
-Different components in a Bit workspace may use different environments. That means environment services need to execute their corresponding service handlers in the specific environment applied on the component currently being processed.
-
-For example, if _component A_ uses the Node environment then the Compiler service processing that component files, will execute the Service Handler (in that case, `getCompiler`) found in the Node environment.
-
-## Implementing a Dev Service
-
-Dev Services provide an API for Aspects to use, so they can serve as a development service of a specific type.
+Env-services are [Bit Aspect](/docs/extending-bit/aspect-overview) that among other things, implements the `EnvService` interface.
 
 <Image src={devServiceAPIImg} width="70%" />
 
@@ -82,6 +42,34 @@ export class BabelCompiler implements Compiler {
   }
 }
 ```
+
+
+
+## Abstract Away your Tooling
+
+
+While the landscape of tooling is ever-changing, however they generally manage and provide specific **services** to the developer. For example, while you can choose which tool(s) you want to use for writing and running tests, all tools in the testing eco-system provide a common set of services for validating code and providing insights on it.
+
+## Service
+
+service is an aspect that implements a `envs/envs/service.ts`
+
+The internal
+
+## Service Handlers
+
+Service Handler is an API the Env Service implements for any Environment that wants to use it. The API may support passing configuration, tools, or anything needed by the env-service.
+
+Service Handlers are the link that binds an Env to a Dev Service. These are methods that are implemented the Env class, and invoked by their corresponding Env Service.
+
+For example, the 'MyReactEnv' Env, shown above, uses the Service Handler `getCompiler()` to configure the Compiler Env Service to run the Babel aspect. The `getCompiler()` method is expected to be found by the Compiler, which will invoke it
+
+Environment services run on various events. Whenever a service runs, it executes its corresponding service handler which consequently runs the configured Dev service implementation (in that example, that would be the Babel Aspect).
+
+Different components in a Bit workspace may use different environments. That means environment services need to execute their corresponding service handlers in the specific environment applied on the component currently being processed.
+
+For example, if _component A_ uses the Node environment then the Compiler service processing that component files, will execute the Service Handler (in that case, `getCompiler`) found in the Node environment.
+
 
 ## Execution in the workspace VS Execution during build
 

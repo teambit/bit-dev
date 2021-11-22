@@ -526,15 +526,16 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Envs',
     icon: 'env',
     open: false,
-    config: {
-      path: 'envs-config',
-      title: 'Envs configuration',
-      component: <div />,
+    overview: {
+      path: 'envs-overview',
+      title: 'Envs Overview',
+      component: <InspectingEnv />,
     },
     children: [
       {
-        path: 'envs-overview',
-        title: 'Envs Overview',
+        path: 'envs-config',
+        title: 'Configure Components',
+        component: <div />,
       },
       {
         path: 'inspecting-env',
@@ -545,10 +546,17 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'extending-env',
-        title: 'Extending an Env',
+        title: 'Creating an Env',
         description:
           'Envs can be customized and extended by creating a Env Extension. An Env Extension is an Aspect component that depends on another Env and uses it to compose a new customized Env.',
         component: <ExtendingEnv />,
+      },
+      {
+        path: 'dev-services-overview',
+        title: 'Environment Services',
+        description:
+          "Environment Services control various workflows and commands for components.",
+        component: <DevServicesOverview />,
       },
       {
         path: 'env-troubleshooting',
@@ -562,13 +570,6 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Development Services',
     icon: 'compCI',
     open: false,
-    overview: {
-      path: 'dev-services-overview',
-      title: 'Dev Services Overview',
-      description:
-        "Dev Services simplify and standardize component development processes, like testing, linting and documenting. They are applied on components, and used by components, via the components' Envs.",
-      component: <DevServicesOverview />,
-    },
     children: [
       {
         path: 'builder',
