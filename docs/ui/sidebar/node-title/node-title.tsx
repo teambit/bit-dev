@@ -10,7 +10,7 @@ import styles from './node-title.module.scss';
 
 export type NodeTitleProps = {
   /**
-   * folder path.
+   * folder path
    */
   id: string;
 
@@ -44,8 +44,9 @@ export function NodeTitle({ id, icon, open, configPath, overviewPath, setOpen }:
   const displayName = id.replace(/\/$/, '').split('/').pop();
   const CustomIcon = getCustomIcon(icon);
   const handleOnFolderClick = () => {
+    if (!overviewPath) setOpen(!open);
     // This prevent the folder to be closed when is open and the folder is active.
-    if (overviewPath !== window.location.pathname && !open) setOpen(!open);
+    if (overviewPath !== window?.location.pathname && !open) setOpen(!open);
   };
 
   const Title = (
@@ -63,7 +64,7 @@ export function NodeTitle({ id, icon, open, configPath, overviewPath, setOpen }:
     return (
       <Link
         href={overviewPath}
-        className={classNames(styles.folderLink, overviewPath === location.pathname && styles.active)}
+        className={classNames(styles.folderLink, overviewPath === window?.location.pathname && styles.active)}
       >
         {Title}
       </Link>

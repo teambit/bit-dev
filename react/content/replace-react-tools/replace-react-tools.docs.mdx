@@ -1,0 +1,25 @@
+---
+description: 'A community doc.'
+labels: ['content', 'mdx',]
+---
+
+import ReplaceReactTools from './index';
+
+### Component usage
+```js
+<ReplaceReactTools />
+```
+
+### Render with theme and MDX providers
+
+```js
+import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions'
+import { MDXLayout } from '@teambit/mdx.ui.mdx-layout'
+import { ReplaceReactTools } from './index'
+
+<ThemeCompositions>
+  <MDXLayout>
+    <ReplaceReactTools />
+  </MDXLayout>
+</ThemeCompositions>
+```

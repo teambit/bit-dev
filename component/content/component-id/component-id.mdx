@@ -2,48 +2,57 @@
 
 import { Image } from '@teambit/docs.ui.zoomable-image';
 import nestedNamespaces from './namespaces_nested.png';
-import componentDiagram from './component-id.png';
+import componentID from './component-id.png';
 
-The Component ID is designed to be a unique, human-readable name that simplifies and help organize components while empowering team autonomy by avoiding cross-team naming conflicts. Every [Component](/components/overview) in Bit is identified and referenced by a Component ID.
+Component's name describes the component's business concern in a descriptive form, improving discoverability and understanding the component's purpose. Bit uses four tools to define the component ID:
 
-Simple example for a Component ID is:
+* Owner - the organization or individual that owns the component. **Required**.
+* Scope - grouping related components together, representing the main business concern of a component. **Required**.
+* Namespaces - an array of virtual directories to sort components. **Optional**.
+* Name - the name of the component. **Required**.
+ 
+<img src={componentID} style={{ maxHeight:'200px' }} />
 
+
+## Set Component ID
+
+You decide the component ID when creating it with `create` or `add` commands. If not stated otherwise, the component will get the `defaultScope` value from `workspace.jsonc` and will not have any namespaces.
+
+```bash
+bit create react button
 ```
-teambit.base-ui/input/button
+
+Generates the following component ID:
+
+```bash
+company.scope/button
 ```
 
-Every ID starts with the Scope Name (`teambit.base-ui`) and continuous to the Component Full Name, which includes the Namespace (`ui`) and its Name (`button`).
+## Sub-categories with namespaces
 
-A reference to a specific component version can be achieved by following with the `@` sign referencing the Component version, which might be either a [Semantic Version](/components/tag) or a [Snap Hash](/components/snap).
+Sort components in different sub-categories in the same scope using namespaces. You can have either none or many nested namespaces.
 
+When generating components use `/` to add namespaces:
+
+```sh
+bit create react-component inputs/button
 ```
-teambit.base-ui/ui/button@1.0.0
+
+The component ID will be:
+
+```sh
+company.scope/inputs/button
 ```
 
-<Image src={componentDiagram} width="70%" />
+### Scoping Component
 
-## Scope ID
+A scope describes an overarching business concern in your product, system of company. Good scope names are descriptive:
 
-### Owner
+* `base-ui` - all basic UI elements and components for building web-ui.
+* `inventory` - set of components relevant for inventory management in an e-commerce app.
+* `authentication` - components for managing user authentication and tokens.
 
-The name of the organization or user that owns that scope.
-
-### Scope name
-
-Scope names define the common responsibility for a set of Components and help through defining team boundaries and ownership. To learn more on Scopes head over to the [Scope documentation](/scope/overview).
-
-Common example to Scope names might be:
-
-- `design` - Basic and atomic UI components to help drive a consistent UI across all features and apps owned by the Design team.
-- `inventory` - e-commerce inventory management feature owned by the Inventory team.
-- `people` - User authentication and management feature owned by the People team.
-
-:::note Scope names in the Bit Cloud
-Scopes names in the Bit Cloud include the Scope owner and Scope name as a convention for referencing Scopes.
-In the example above, `teambit` refers to the [teambit organization](https://bit.dev/acme) which own the [`base-ui`](https://bit.dev/teambit/base-ui) scope.
-:::
-
-Setting the scope name for components can be done by configuring the `defaultScope` property on the Component configuration.
+Set scope name for components by configuring `workspace.jsonc`:
 
 ```jsonc {0} title="workspace.jsonc"
 {
@@ -59,69 +68,104 @@ Setting the scope name for components can be done by configuring the `defaultSco
 }
 ```
 
-Head over to [Configuring Scopes](/workspace/configuring-scopes) to learn more.
-
-## Component full name
-
-A component's full name serves as a unique identifier of a [Component](/components/overview) in the Workspace.
-Throughout various Bit commands, components can be referenced with their full name instead of using the full Component ID.
-A component's full name is composed of its namespaces (if there are any), and name.
-
-In the below example, we are inspecting the `ui/button` component in the Workspace. Since the `ui/button` name in unique in the Workspace there is no need to mention the Scope.
-
-```bash
-bit show ui/welcome
-```
-
-Components can also be referenced with their Scope Name after they are first exported.
-
-```bash
-bit show teambit.design/ui/button
-```
-
-Component full names are defined when [Creating Components](/) and [Adding Components](/) in the Workspace and matched to directories via [.bitmap](/workspace/bitmap).
-
-### Namespaces
-
-Namespaces are used to organize components into taxonomy and help avoid conflicts on component names in Workspaces and Scopes.
-Namespaces in Bit are separated by `/` from the [Component Full Name](/components/component-id#component-full-name), where the last element represents the [Component Name](/components/component-id#component-name)
-
-In this simple example, the namespace for the Component is just `ui`.
-
-```
-teambit.base-ui/ui/button
-```
-
-In the below example, there are two hierarchical namespaces for the Component where `ui` is the top-level one, followed by `inputs` to define a more specific responsibility for certain UI components.
+If not mentioned otherwise, components will be created in the `defaultScope` config in `teambit.workspace/workspace`. Use `--scope` option to create a component in a different scope:
 
 ```sh
-teambit.base-ui/ui/inputs/button
+bit create react-component forms/login --scope authentication
 ```
 
-Now your components are also easier to find in the Workspace and Scope UIs, like so:
+Bit then creates the component in a directory according to the scope passed as an argument.
 
-<Image src={nestedNamespaces} />
+:::tip Pre-fix scopes with the `.` separator
 
-The hierarchal order formed by namespacing, allows us to select sets of components using semantic structures rather than our concrete (and prone to change) workspace directory structure.
+Bit supports pre-fixing for scopes with an organization name for creating ownership on scopes. Use this to have better control over naming with distributing components across large organizations.
 
-Using [Variants](/workspace/variants) for example, Components can be selected using their namespace which allows to easily configure all UI components in a Workspace with the [React env](/), regardless or their physical filesystem location inside the Workspace.
+:::
 
-```json title="workspace.jsonc" {3}
-{
-  "teambit.workspace/variants": {
-    "{ui/**}": {
-      "teambit.react/react": {}
-    }
-  }
-}
+## Get Component ID
+
+There are several options to ensure component ID is set correctly:
+
+1. Run `bit start` and explore the component tree. It is logically structured according to component IDs.
+1. `bit show <component>` to see all information on a component.
+1. `bit env` shows a table of all components and their applied environment config, including scope name.
+
+The above flows will also print the component module name for using your component as a module by apps or other components.
+
+## Workspace Component Layout
+
+Bit's default behavior for structuring a components in a workspace is sort them in directories by destructuring the component ID and creating a directory tree. This is to make the workspace easier to navigate by creating symmetry between the logical structure of components and their physical location.
+
+When creating new components you can define the component's scope with the following syntax:
+
+```sh
+bit create react-component forms/add-product
 ```
 
-### Component name
+Bit will create the component in the following directory:
 
-The component name is the last part of the ID, coming right after the namespace, starting from the last `/`. It usually describes the specific responsibility of a component.
-
-In the below example, `button` represents the component name.
-
+```sh
+.
+└── inventory
+    └── forms
+        └── add-product
 ```
-teambit.base-ui/ui/button
+
+## Component Module Name
+
+All components in a workspace are available for consumption as node modules. Bit does it by creating a module for each component in `node_modules` according to it's component ID. However, as Bit heavily utilizes scoping and namespaces, it needs to transform component IDs to module names Node can resolve.
+
+Let's take the following component ID as an example:
+
+```sh title="Component ID with an organization pre-fix"
+company.scope/forms/add-product
 ```
+
+Bit will generate:
+
+```sh title="Organization prefix transforms to npm scope, name is separated by ."
+@company/scope.forms.add-product
+```
+
+Use the result module name in all your `import * from ...` statements.
+
+:::tip Generate module links
+
+Bit generates module links in `node_module` dir for all components when creating them and during `bit install`. To trigger this action run `bit link`.
+
+:::
+
+## Rename Components
+
+:::info Sugar syntax is coming
+
+Renaming components is a manual task. A `rename` functionality is coming.
+
+:::
+
+Update a component ID is a two step process. The first step is to create a new component and ensure it hsa the right ID defined:
+
+```sh
+bit create react-component new/component/name --scope company.scope
+```
+
+When you have the right ID:
+
+* Copy the implementation.
+* Run `bit dependents <old-component-id>` to get a list of dependent components.
+* Refactor all `import {...} from <old-module-name>` to `import {...} from <new-module-name>` for dependent components.
+
+Now your components all use the right component. You can either `deprecate` or `remove` the previous component.
+
+## Component Name Limitations
+
+Bit Components must be require-able by node module resolution. The component ID must fit the same naming constraints for modules in `node_modules` directory:
+
+* Component name length should be greater than zero.
+* All the characters in the component name must be lowercase.
+* Component name can consist of hyphens.
+* Component name must contain only url-safe characters.
+* Component name should not contain any leading or trailing spaces.
+* Component name should not contain any of the following characters: `~)('!*` .
+* Component name cannot be the same as a node.js/io.js core module nor a reserved/blacklisted name.
+* Component name length cannot exceed 214.

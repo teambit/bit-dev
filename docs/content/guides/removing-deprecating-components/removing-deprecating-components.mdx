@@ -1,4 +1,4 @@
-# Removing/Deprecating Components
+# Removing and Deprecating Components
 
 Refactoring code often causes components to become obsolete or irrelevant. This is where removing and deprecating components becomes useful and necessary.
 
@@ -7,12 +7,12 @@ Refactoring code often causes components to become obsolete or irrelevant. This 
 Removing a local component has no ripple effects. This is only relevant to the consuming project. To do so specify the component ID to remove.
 
 ```bash
-bit remove foo/bar
+bit remove ui/text
 ```
 
 ```shell
 successfully removed components:
-foo/bar
+ui/text
 ```
 
 Bit triggers a warning when trying to remove modified components. Use the `--force` flag to force it.

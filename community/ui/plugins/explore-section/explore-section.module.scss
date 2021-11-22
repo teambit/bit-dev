@@ -43,7 +43,18 @@
     width: unset;
   }
 }
+.linkHolder {
+  display: flex;
+  @media screen and (max-width: $br-xs) {
+    flex-direction: column;
+    a:first-child {
+      margin-bottom: 8px;
+    }
+  }
+}
 .link {
+  display: flex;
+  align-items: center;
   margin-right: 24px;
   .icon {
     margin-left: 8px;
