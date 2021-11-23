@@ -1,0 +1,96 @@
+Since Bit is composed of Aspects, configurations can only be set by applying an Aspect.
+
+Aspects configured in the [workspace config](/workspace/workspace-configuration) are applied on the workspace whereas, aspects configured in the [component config](/components/component-config) are applied on the component.
+They both may have a similar effect on the workspace components, but only in the context of that specific workspace.
+
+Components [exported](/workspace/exporting-components) from one workspace and [imported](/workspace/importing-components) into another, will lose their configuration, since the new workspace does not have the same Aspects applied on it. This is not the case for aspects that are applied on components (i.e, via the component config).
+
+The examples below show the `my-org.my-scope/snapshots` aspect being applied in either of the two ways. This Aspect uses the Dev Files API to set a certain set of component files (`**/snapshot.*`) as development files.
+One of this workspace's components is `ui/button`. As you can see, in both cases `button.snapshot.png` is successfully defined as a development file. This will be persisted when the component is [tagged](/components/tags) or [snapped](/components/snaps).
+
+However, once the `ui/button` component is imported into a different workspace, one that does not have the `my-org.my-scope/snapshots` aspect in its [workspace] configuration, it will no longer be affected by that Aspect.
+This will result in redefining the `button.snapshot.png` file as a standard file, instead of a dev file. This change will be persisted the next time this component is versioned.
+
+#### `my-org.my-scope/snapshots` applied via the workspace config:
+
+```json
+//
+{
+  "teambit.component/examples/extensions/my-dev-files": {
+    "useDevFiles": true
+  }
+}
+```
+
+```bash
+$ bit show ui/button
+
+┌───────────────────┬───────────────────────────────────────────────────────────────────────────┐
+│ id                │ my-org.my-scope/ui/button                                                 │
+├───────────────────┼───────────────────────────────────────────────────────────────────────────┤
+│ ...               │ ...                                                                       │
+├───────────────────┼───────────────────────────────────────────────────────────────────────────┤
+│ files             │ index.ts                                                                  │
+│                   │ button.tsx                                                                │
+│                   │ button.scss                                                               │
+│                   │ button.snapshot.png                                                       │
+├───────────────────┼───────────────────────────────────────────────────────────────────────────┤
+│ dev files         │ button.snapshot.png (my-org.my-scope/snapshots)                           │
+├───────────────────┼───────────────────────────────────────────────────────────────────────────┤
+│ extensions        │ teambit.react/react                                                       │
+│                   │ teambit.component/dev-files                                               │
+│                   │ teambit.compositions/compositions                                         │
+│                   │ teambit.pkg/pkg                                                           │
+│                   │ teambit.docs/docs                                                         │
+│                   │ teambit.envs/envs                                                         │
+│                   │ teambit.dependencies/dependency-resolver                                  │
+├───────────────────┼───────────────────────────────────────────────────────────────────────────┤
+│ ...               │ ...                                                                       │
+└───────────────────┴───────────────────────────────────────────────────────────────────────────┘
+```
+
+Notice how the above output does not list the `my-org.my-scope/snapshots` aspect as one of the `extensions` used by that component.
+
+#### `my-org.my-scope/snapshots` applied via the component config:
+
+```json
+{
+  "teambit.workspace/variants": {
+    "{ui/**}": {
+      "my-org.my-scope/snapshots": {
+        "useDevFiles": true
+      }
+    }
+  }
+}
+```
+
+```bash
+$ bit show ui/button
+
+┌───────────────────┬───────────────────────────────────────────────────────────────────────────┐
+│ id                │ my-org.my-scope/ui/button                                                 │
+├───────────────────┼───────────────────────────────────────────────────────────────────────────┤
+│ ...               │ ...                                                                       │
+├───────────────────┼───────────────────────────────────────────────────────────────────────────┤
+│ files             │ index.ts                                                                  │
+│                   │ button.tsx                                                                │
+│                   │ button.scss                                                               │
+│                   │ button.snapshot.png                                                       │
+├───────────────────┼───────────────────────────────────────────────────────────────────────────┤
+│ dev files         │ button.snapshot.png (my-org.my-scope/snapshots)                           │
+├───────────────────┼───────────────────────────────────────────────────────────────────────────┤
+│ extensions        │ my-org.my-scope/snapshots                                                 │
+│                   │ teambit.react/react                                                       │
+│                   │ teambit.component/dev-files                                               │
+│                   │ teambit.compositions/compositions                                         │
+│                   │ teambit.pkg/pkg                                                           │
+│                   │ teambit.docs/docs                                                         │
+│                   │ teambit.envs/envs                                                         │
+│                   │ teambit.dependencies/dependency-resolver                                  │
+├───────────────────┼───────────────────────────────────────────────────────────────────────────┤
+│ ...               │ ...                                                                       │
+└───────────────────┴───────────────────────────────────────────────────────────────────────────┘
+```
+
+Notice how the above output _does_ list the `my-org.my-scope/snapshots` aspect as one of the `extensions` used by that component.

@@ -3,6 +3,7 @@
 To move a component you can use the `bit move` command. This command will move the component from the current directory to the new directory.
 
 ## Move a component to a different directory
+
 ```bash
 bit move ui/my-component design/my-component
 ```
@@ -12,24 +13,26 @@ This will only affect how your components are ordered in your workspace and not 
 :::
 
 ## Renaming a component
-Renaming a component 
+
+Renaming a component
 
 ### Renaming a new component
-<-- TODO: david to add rename command -->
+
 Renaming a new component can be done by untracking the original component and tracking it again with a new ID.
 
 Untracking a button component can be done with `bit untrack`.
+
 ```bash
 bit untrack teambit.design/ui/buttons/button
 ```
 
-Then, track back the component 
+Then, track back the component
+
 ```
 bit add design/ui/buttons/button --id ui/button
 ```
 
 ### Renaming a used component
-
 
 ```bash
 bit deprecate teambit.design/ui/buttons/button
@@ -48,11 +51,13 @@ bit add ui/buttons/button
 Components can be migrated between different repositories with ease.
 
 In the origin repository, eject the component to be used as an external dependency.
+
 ```bash
 $ bit eject teambit.design/ui/buttons/button
 ```
 
 Then, import the component into the target repository.
+
 ```bash
 $ bit import teambit.design/ui/buttons/button
 ```

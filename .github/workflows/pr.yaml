@@ -21,7 +21,9 @@ jobs:
       - name: Bit compile
         run: bit compile
       - name: Bit build
-        run: bit build
+        run: bit check-types --all
+      - name: Bit build
+        run: bit build --all
       - uses: actions/upload-artifact@v2
         with:
           name: debug-log

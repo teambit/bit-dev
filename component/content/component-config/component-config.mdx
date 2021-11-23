@@ -1,9 +1,10 @@
-# Component Configuration
-
+import { WsConfigVsCompConfig } from '@teambit/docs.content.guides.ws-config-vs-comp-config';
 import { Image } from '@teambit/docs.ui.zoomable-image';
 import componentConfig from './comp-config.png';
 
-Components in Bit can be configured components and used for variety of purposes such as setting dependencies, envs, remote scopes and controlling the generated package.json and anything else you might imagine.
+# Component Configuration
+
+Components in Bit can be configured and used for a variety of purposes such as setting dependencies, envs, remote scopes and controlling the generated package.json and anything else you might imagine.
 
 Components are configured with [Aspects](/extending-bit/aspect), each can accept user configurations and do useful operations accordingly. Components configuration are commonly controlled by a [component.json](./component-json), or through [Variants](/variants/overview) and possibly through any Aspect offering this kind of functionality. Component configuration can be viewed in different methods including the `bit show` command and the UI.
 
@@ -114,3 +115,7 @@ In the example above, all highlighted extensions are the configured [Aspects](/e
 Configuration can also be seen from the Component UI.
 
 <Image src={componentConfig} />
+
+## Component Config vs Workspace Config
+
+<WsConfigVsCompConfig />

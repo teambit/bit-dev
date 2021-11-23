@@ -1,3 +1,5 @@
+import { WsConfigVsCompConfig } from '@teambit/docs.content.guides.ws-config-vs-comp-config';
+
 # Configuring the Workspace (workspace.jsonc)
 
 The `workspace.jsonc` serves as the main configuration file for the workspace and its components.
@@ -88,8 +90,8 @@ For example:
 
 Adding an Aspect to the workspace configuration will apply that Aspect, by default, on all components in the workspace.
 
-For example, the custom Aspect `company.scope/extensions/my-dev-files` defines files that match the glob pattern '**/*.my-dev.*' as [dev files](/docs/components/dev-files). 
-Adding that Aspect to the workspace configuration will apply it on all components in the workspace (which will set every component's `*.my-dev.*` file as a dev file).
+For example, the custom Aspect `company.scope/extensions/my-dev-files` defines files that match the glob pattern '\*_/_.my-dev._' as [dev files](/docs/components/dev-files).
+Adding that Aspect to the workspace configuration will apply it on all components in the workspace (which will set every component's `_.my-dev.\*` file as a dev file).
 
 ```json
 {
@@ -100,4 +102,6 @@ Adding that Aspect to the workspace configuration will apply it on all component
 }
 ```
 
+## Workspace Config vs Component Config
 
+<WsConfigVsCompConfig />
