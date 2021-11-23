@@ -1,8 +1,5 @@
 .tableOfContent {
-  min-width: 264px;
-  position: sticky;
-
-  top: 24px;
+  width: var(--bit-table-of-content-width, 264px);
 
   max-height: calc(100vh - 40px);
   overflow: auto;

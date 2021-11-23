@@ -1,20 +1,21 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, ReactNode } from 'react';
 import classNames from 'classnames';
 import { MenuLinkItem } from '@teambit/design.ui.surfaces.menu.link-item';
 import styles from './table-of-content.module.scss';
 
 export type TableOfContentProps = {
   links: any[];
-  activeLink: string;
+  activeLink?: string;
+  title: ReactNode;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-export function TableOfContent({ className, children, links, activeLink, ...rest }: TableOfContentProps) {
+export function TableOfContent({ className, children, links, activeLink, title, ...rest }: TableOfContentProps) {
   if (!links) return null;
   const headings = useMemo(() => getLinks(links), [links]);
 
   return (
     <div {...rest} className={classNames(styles.tableOfContent, className)}>
-      <div className={styles.title}>on this page</div>
+      {title && <div className={styles.title}>{title}</div>}
       {headings.map((link) => {
         return (
           <MenuLinkItem
