@@ -173,158 +173,6 @@ const ConfigReactTools = loadable(() => import('@teambit/react.content.config-re
 
 export const learnDocsRoutes: DocsRoute[] = [
   {
-    path: 'getting-started',
-    title: 'Getting Started',
-    icon: 'Ripple_play',
-    children: [
-      {
-        path: 'installing-bit',
-        title: 'Installation',
-        // description: 'Installing Bit',
-        icon: 'install',
-        // component: <InstallingBit />,
-        children: [
-          {
-            path: 'start-bit-project',
-            title: 'Start a new Bit workspace',
-            // component: <CreateWorkspace />,
-          },
-          {
-            path: 'editor-setup',
-            title: 'Editor setup',
-          },
-          {
-            path: 'add-to-existing-project',
-            title: 'Add on existing project',
-          },
-        ],
-      },
-      {
-        path: 'composing',
-        title: 'Compose',
-        icon: 'compose',
-        open: false,
-        children: [
-          {
-            path: 'first-components',
-            title: 'Your first components',
-            description: 'Your first components',
-            component: <CreateComponents />,
-          },
-          {
-            path: 'dev-environments',
-            title: 'Dev environments',
-            description: 'Dev environments',
-            // component: <DevEnvs />,
-          },
-          {
-            path: 'use-dependencies',
-            title: 'Use dependencies',
-            description: 'Using components',
-            // component: <UseDependencies />,
-          },
-        ],
-      },
-      {
-        path: 'collaborate',
-        title: 'Collaborate',
-        icon: 'collaborate',
-        open: false,
-        children: [
-          {
-            path: 'snap-component-changes',
-            title: 'Snapshot component changes',
-            description: 'Version Components',
-            // component: <VersionComponents />,
-          },
-          {
-            path: 'version-components',
-            title: 'Version Components',
-            description: 'Version Components',
-            // component: <VersionComponents />,
-          },
-          {
-            path: 'remote-scope',
-            title: 'Create a Remote Scope',
-            open: false,
-            children: [
-              {
-                path: 'host-on-bit-cloud',
-                title: 'Host on Bit Cloud',
-                description: 'Host on Bit Cloud',
-                // component: <HostBitCloud />,
-              },
-              {
-                path: 'self-host-scope',
-                title: 'Self-hosted scope',
-                description: 'Self Host Scope',
-                // component: <SelfHostScope />,
-              },
-            ],
-          },
-          {
-            path: 'importing-components',
-            title: 'Importing components',
-            description: 'Share components',
-            // component: <ShareComponents />,
-          },
-          {
-            path: 'exporting-components',
-            title: 'Exporting components',
-            description: 'Exporting components',
-            // component: <ShareComponents />,
-          },
-        ],
-      },
-      {
-        path: 'use',
-        title: 'Use',
-        icon: 'use',
-        open: false,
-        children: [
-          {
-            path: 'install-components',
-            title: 'Install Components',
-            description: 'Install Components',
-            // component: <InstallComponents />,
-          },
-          {
-            path: 'import-components',
-            title: 'Import Components',
-            description: 'Import Components',
-            // component: <ImportComponents />,
-          },
-          {
-            path: 'update-components',
-            title: 'Update Components',
-            description: 'Update Components',
-            // component: <UpdateComponents />,
-          },
-        ],
-      },
-      {
-        path: 'setup-ci',
-        title: 'Setup CI',
-        icon: 'terminal',
-        open: false,
-        children: [
-          {
-            path: 'automate-export',
-            title: 'Automate Component Export',
-            description: 'Automate Component Export',
-            // component: <CiExport />,
-          },
-          {
-            path: 'package-consumers',
-            title: 'Package Consumers',
-            description: 'Package Consumers',
-            // component: <CiInstall />,
-          },
-        ],
-      },
-    ],
-  },
-  {
     path: 'workspace',
     title: 'Workspace',
     icon: 'workspace',
@@ -334,12 +182,12 @@ export const learnDocsRoutes: DocsRoute[] = [
       component: <WorkspaceConfiguration />,
       title: 'Workspace Configuration',
     },
-    overview: {
-      path: 'workspace-overview',
-      title: 'Workspace Overview',
-      component: <WorkspaceOverview />,
-    },
     children: [
+      {
+        path: 'workspace-overview',
+        title: 'Workspace Overview',
+        component: <WorkspaceOverview />,
+      },
       {
         path: 'creating-workspaces',
         title: 'Creating Workspaces',
@@ -424,14 +272,14 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Components',
     icon: 'comps',
     open: false,
-    overview: {
-      path: 'component-overview',
-      title: 'Component Overview',
-      description:
-        'Component is a decoupled, versioned source-code container designed for the purpose of containing a single module or component.',
-      component: <ComponentOverview />,
-    },
     children: [
+      {
+        path: 'component-overview',
+        title: 'Component Overview',
+        description:
+          'Component is a decoupled, versioned source-code container designed for the purpose of containing a single module or component.',
+        component: <ComponentOverview />,
+      },
       {
         path: 'adding-components',
         title: 'Adding Components',
@@ -551,14 +399,14 @@ export const learnDocsRoutes: DocsRoute[] = [
       title: 'Dependencies Configuration',
       component: <DependenciesConfiguration />,
     },
-    overview: {
-      path: 'dependencies-overview',
-      title: 'Dependencies Overview',
-      description:
-        'Dependency management is a major concern for developers looking to build and deliver components independently.',
-      component: <DependenciesOverview />,
-    },
     children: [
+      {
+        path: 'dependencies-overview',
+        title: 'Dependencies Overview',
+        description:
+          'Dependency management is a major concern for developers looking to build and deliver components independently.',
+        component: <DependenciesOverview />,
+      },
       {
         path: 'dependency-installation',
         title: 'Dependency Installation',
