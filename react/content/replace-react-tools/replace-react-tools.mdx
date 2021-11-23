@@ -1,0 +1,90 @@
+# Replacing React Tools
+
+## Create a React Extension with 'env' file
+
+Use React's template to create a new React Env that includes the `.env.ts` implementation file.
+
+```
+bit create react-full-env extensions/my-react
+```
+
+Make sure the Aspect Env (a special Env for Bit Aspects) is applied on your Env (much like other component types, a Env needs an Env for its development):
+
+```json
+{
+  "teambit.workspace/variants": {
+    "{extensions/**}": {
+      "teambit.harmony/aspect": {}
+    }
+  }
+}
+```
+
+Compile your new Env:
+
+```
+bit compile extensions/my-react
+```
+
+Apply your Env on the relevant components (make sure to use its full [component ID](/docs/components/component-id)):
+
+```json
+{
+  "teambit.workspace/variants": {
+    "{ui/**}": {
+      "my-org.my-scope/extensions/my-react": {}
+    }
+  }
+}
+```
+
+Validate your Env is successfully applied on your components:
+
+```bash
+$ bit show ui/heading
+
+┌───────────────────┬─────────────────────────────────────────────────────────────────┐
+│ id                │ company.examples/ui/heading                                     │
+├───────────────────┼─────────────────────────────────────────────────────────────────┤
+│ env               │ teambit.react/examples/extensions/my-react                      │
+├───────────────────┼─────────────────────────────────────────────────────────────────┤
+│ package name      │ @company/examples.ui.heading                                    │
+└───────────────────┴─────────────────────────────────────────────────────────────────┘
+```
+
+## Use Service Handlers to Replace Tools or Configs
+
+Implement the relevant Service Handlers (`getCompiler`, `getDocs`) to override Reacts implementation.
+
+For example:
+
+```ts
+import { CompilerEnv, BuilderEnv } from '@teambit/envs';
+import { MyCompiler } from '@my-org/my-scope.extensions.my-compiler';
+
+// The Env class should only implement the services it overrides
+export class MyReactM implements CompilerEnv, BuilderEnv {
+  constructor(private myCompilerNoSm: MyCompilerNoSmMain) {}
+
+  myCompiler = this.myCompilerNoSm.createCompiler();
+
+  getCompiler() {
+    return this.myCompiler;
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  getBuildPipe() {
+    return [this.myCompiler.createTask()];
+  }
+}
+```
+
+- [Compiler](/dev-services/compiler/configure-env-with-compiler)
+- [Tester](//dev-services/tester/configure-env-with-tester)
+- [Linter](/dev-services/linter/implement-linter)
+- [Formatter](/dev-services/formatter/configure-env-with-formatter)
+- [Compositions Mounter](/dev-services/compositions/mounting-compositions-to-dom) (to add providers to wrap each composition, [see here](/docs/dev-services/compositions/composition-context))
+- [Package](/packages/managing-package-json#set-configuration-from-an-env)
+- [Env Dependencies](/dependencies/configuring-dependencies#configuring-dependencies-from-an-env)
+- [Build Pipelines](/dev-services/builder/build-pipelines)
+- [Doc Template](/dev-services/docs/docs-templates#setting-a-doc-template)

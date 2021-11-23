@@ -25,7 +25,9 @@ cd my-scope/extensions/my-env
 touch my-env.env.ts
 ```
 
-Implement the following:
+Implement the `getCompiler` [Service Handler](/dev-services/dev-services-overview#service-handlers) to use a compiler for compilation in the workspace (in development).
+
+Implement the [`getBuildPipe`](dev-services/builder/build-pipelines#add-a-build-task-from-an-env) [Service Handler](/dev-services/dev-services-overview#service-handlers) to use a compiler during build.
 
 ```ts
 import { CompilerEnv, BuilderEnv } from '@teambit/envs';
@@ -56,48 +58,19 @@ import { MainRuntime } from '@teambit/cli';
 import { ReactAspect, ReactMain } from '@teambit/react';
 import { EnvsAspect, EnvsMain } from '@teambit/envs';
 import { MyCompilerMain, MyCompilerAspect } from '@my-org/my-scope.extensions.my-compiler';
-import { MyReactAspect } from './my-react-no-sm.aspect';
-import { MyReact } from './my-react-no-sm.env';
+import { MyReactAspect } from './my-react.aspect';
+import { MyReact } from './my-react.env';
 
 export class MyReactNoSmMain {
   constructor(readonly myReactEnv: MyReactNoSm) {}
 
-  static dependencies = [ReactAspect, EnvsAspect, myCompiler];
+  static dependencies = [ReactAspect, EnvsAspect, MyCompilerAspect];
 
   static runtime = MainRuntime;
 
-  static async provider([react, envs, myCompiler]: [ReactMain, EnvsMain, MyCompilerNoSmMain]) {
+  static async provider([react, envs, myCompiler]: [ReactMain, EnvsMain, MyCompilerMain]) {
     // Merge the customized and base Env instances
-    const myReactEnv = envs.merge<MyReact>(react.reactEnv, new MyReact(myCompiler));
-
-    envs.registerEnv(myReactEnv);
-    return new MyReactMain(myReactEnv);
-  }
-}
-
-MyReactAspect.addRuntime(MyReactMain);
-```
-
-In the Env's main runtime file (`my-env.main.runtime.ts`), implement the following:
-
-```ts
-import { MainRuntime } from '@teambit/cli';
-import { ReactAspect, ReactMain } from '@teambit/react';
-import { EnvsAspect, EnvsMain } from '@teambit/envs';
-import { MyCompilerMain, MyCompilerAspect } from '@my-org/my-scope.extensions.my-compiler';
-import { MyReactAspect } from './my-react-no-sm.aspect';
-import { MyReact } from './my-react-no-sm.env';
-
-export class MyReactNoSmMain {
-  constructor(readonly myReactEnv: MyReactNoSm) {}
-
-  static dependencies = [ReactAspect, EnvsAspect, myCompiler];
-
-  static runtime = MainRuntime;
-
-  static async provider([react, envs, myCompiler]: [ReactMain, EnvsMain, MyCompilerNoSmMain]) {
-    // Merge the customized and base Env instances
-    const myReactEnv = envs.merge<MyReact>(react.reactEnv, new MyReact(myCompiler));
+    const myReactEnv = envs.merge<MyReact>(new MyReact(myCompiler), react.reactEnv);
 
     envs.registerEnv(myReactEnv);
     return new MyReactMain(myReactEnv);

@@ -1,11 +1,11 @@
 import React from 'react';
-import loadable from '@loadable/component';
+// import loadable from '@loadable/component';
 import { DocsRoute } from '@teambit/docs.entities.docs-routes';
 
 /* Getting Started */
 
 // const InstallingBit = React.lazy(() => import('@teambit/docs.content.getting-started.installing-bit'));
-const CreateComponents = loadable(
+const CreateComponents = React.lazy(
   () => import('@teambit/community.content.getting-started.composing.create-components')
 );
 
@@ -75,7 +75,9 @@ const ImplementFormatter = React.lazy(() => import('@teambit/defender.content.im
 /* Compiler  */
 
 const CompilerOverview = React.lazy(() => import('@teambit/compilation.content.compiler-overview'));
-const CompilingDuringDevelopment = React.lazy(() => import('@teambit/compilation.content.compiling-during-development'));
+const CompilingDuringDevelopment = React.lazy(
+  () => import('@teambit/compilation.content.compiling-during-development')
+);
 const CompilingDuringBuild = React.lazy(() => import('@teambit/compilation.content.compiling-during-build'));
 const ConfigureEnvWithCompiler = React.lazy(() => import('@teambit/compilation.content.configure-env-with-compiler'));
 const ImplementCompiler = React.lazy(() => import('@teambit/compilation.content.implement-compiler'));
@@ -103,7 +105,9 @@ const RenderingDocs = React.lazy(() => import('@teambit/docs.content.rendering-d
 const CompositionsOverview = React.lazy(() => import('@teambit/compositions.content.compositions-overview'));
 const CompositionFormat = React.lazy(() => import('@teambit/compositions.content.composition-format'));
 const CompositionContext = React.lazy(() => import('@teambit/compositions.content.composition-context'));
-const MountingCompositionsToDom = React.lazy(() => import('@teambit/compositions.content.mounting-compositions-to-dom'));
+const MountingCompositionsToDom = React.lazy(
+  () => import('@teambit/compositions.content.mounting-compositions-to-dom')
+);
 const CompositionsAndStories = React.lazy(() => import('@teambit/compositions.content.compositions-and-stories'));
 
 /* Components */
@@ -112,10 +116,10 @@ const NavigateHistory = React.lazy(() => import('@teambit/component.content.navi
 const ComponentId = React.lazy(() => import('@teambit/component.content.component-id'));
 const ComponentOverview = React.lazy(() => import('@teambit/component.content.component-overview'));
 const RemovingDeprecating = React.lazy(() => import('@teambit/docs.content.guides.removing-deprecating-components'));
-// const MergingComponentVersions = React.lazy(() => import('@teambit/docs.content.guides.merging-component-versions'));
-// const MainFile = React.lazy(() => import('@teambit/component.content.component-main-file'));
+const MergingComponentVersions = React.lazy(() => import('@teambit/docs.content.guides.merging-component-versions'));
+const MainFile = React.lazy(() => import('@teambit/component.content.component-main-file'));
 const ComponentConfig = React.lazy(() => import('@teambit/component.content.component-config'));
-// const ComponentJson = React.lazy(() => import('@teambit/component.content.component-json'));
+const ComponentJson = React.lazy(() => import('@teambit/component.content.component-json'));
 const ComponentObjects = React.lazy(() => import('@teambit/component.content.component-objects'));
 const DevFiles = React.lazy(() => import('@teambit/component.content.dev-files'));
 const InspectingComponents = React.lazy(() => import('@teambit/component.content.inspecting-components'));
@@ -159,13 +163,171 @@ const Npmrc = React.lazy(() => import('@teambit/pkg.content.npmrc'));
 
 /* Reference */
 
-// const UsingBVM = React.lazy(() => import('@teambit/docs.content.guides.using-bvm'));
+const UsingBVM = React.lazy(() => import('@teambit/docs.content.guides.using-bvm'));
+const CliReference = React.lazy(() => import('@teambit/harmony.content.cli-reference'));
 
 /* Global Config */
-// const BitConfig = React.lazy(() => import('@teambit/docs.content.guides.bit-config'));
-// const ConfigFiles = React.lazy(() => import('@teambit/docs.content.guides.config-files'));
+const BitConfig = React.lazy(() => import('@teambit/docs.content.guides.bit-config'));
+const ConfigFiles = React.lazy(() => import('@teambit/docs.content.guides.config-files'));
+
+/* React */
+const ReactOverview = React.lazy(() => import('@teambit/react.content.react-overview'));
+const ReplacingReactTools = React.lazy(() => import('@teambit/react.content.replace-react-tools'));
+const ConfigReactTools = React.lazy(() => import('@teambit/react.content.config-react-tools'));
 
 export const learnDocsRoutes: DocsRoute[] = [
+  {
+    path: 'getting-started',
+    title: 'Getting Started',
+    icon: 'Ripple_play',
+    children: [
+      {
+        path: 'installing-bit',
+        title: 'Installation',
+        // description: 'Installing Bit',
+        icon: 'install',
+        // component: <InstallingBit />,
+        children: [
+          {
+            path: 'start-bit-project',
+            title: 'Start a new Bit workspace',
+            // component: <CreateWorkspace />,
+          },
+          {
+            path: 'editor-setup',
+            title: 'Editor setup',
+          },
+          {
+            path: 'add-to-existing-project',
+            title: 'Add on existing project',
+          },
+        ],
+      },
+      {
+        path: 'composing',
+        title: 'Compose',
+        icon: 'compose',
+        open: false,
+        children: [
+          {
+            path: 'first-components',
+            title: 'Your first components',
+            description: 'Your first components',
+            component: <CreateComponents />,
+          },
+          {
+            path: 'dev-environments',
+            title: 'Dev environments',
+            description: 'Dev environments',
+            // component: <DevEnvs />,
+          },
+          {
+            path: 'use-dependencies',
+            title: 'Use dependencies',
+            description: 'Using components',
+            // component: <UseDependencies />,
+          },
+        ],
+      },
+      {
+        path: 'collaborate',
+        title: 'Collaborate',
+        icon: 'collaborate',
+        open: false,
+        children: [
+          {
+            path: 'snap-component-changes',
+            title: 'Snapshot component changes',
+            description: 'Version Components',
+            // component: <VersionComponents />,
+          },
+          {
+            path: 'version-components',
+            title: 'Version Components',
+            description: 'Version Components',
+            // component: <VersionComponents />,
+          },
+          {
+            path: 'remote-scope',
+            title: 'Create a Remote Scope',
+            open: false,
+            children: [
+              {
+                path: 'host-on-bit-cloud',
+                title: 'Host on Bit Cloud',
+                description: 'Host on Bit Cloud',
+                // component: <HostBitCloud />,
+              },
+              {
+                path: 'self-host-scope',
+                title: 'Self-hosted scope',
+                description: 'Self Host Scope',
+                // component: <SelfHostScope />,
+              },
+            ],
+          },
+          {
+            path: 'importing-components',
+            title: 'Importing components',
+            description: 'Share components',
+            // component: <ShareComponents />,
+          },
+          {
+            path: 'exporting-components',
+            title: 'Exporting components',
+            description: 'Exporting components',
+            // component: <ShareComponents />,
+          },
+        ],
+      },
+      {
+        path: 'use',
+        title: 'Use',
+        icon: 'use',
+        open: false,
+        children: [
+          {
+            path: 'install-components',
+            title: 'Install Components',
+            description: 'Install Components',
+            // component: <InstallComponents />,
+          },
+          {
+            path: 'import-components',
+            title: 'Import Components',
+            description: 'Import Components',
+            // component: <ImportComponents />,
+          },
+          {
+            path: 'update-components',
+            title: 'Update Components',
+            description: 'Update Components',
+            // component: <UpdateComponents />,
+          },
+        ],
+      },
+      {
+        path: 'setup-ci',
+        title: 'Setup CI',
+        icon: 'terminal',
+        open: false,
+        children: [
+          {
+            path: 'automate-export',
+            title: 'Automate Component Export',
+            description: 'Automate Component Export',
+            // component: <CiExport />,
+          },
+          {
+            path: 'package-consumers',
+            title: 'Package Consumers',
+            description: 'Package Consumers',
+            // component: <CiInstall />,
+          },
+        ],
+      },
+    ],
+  },
   {
     path: 'workspace',
     title: 'Workspace',
@@ -189,10 +351,13 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'creating-components',
-        title: 'Creating Components',
-        description:
-          'Bit makes it simple to build each Component independently, and compose it to others with Dependencies. Components can be created in different types such as Node Modules, React Components, Angular Modules and more.',
+        title: 'Creating components',
         component: <CreateComponents />,
+      },
+      {
+        path: 'workspace-configuration',
+        component: <WorkspaceConfiguration />,
+        title: 'Workspace configuration',
       },
       {
         path: 'directory-structure',
@@ -312,11 +477,11 @@ export const learnDocsRoutes: DocsRoute[] = [
         title: 'Navigating history',
         component: <NavigateHistory />,
       },
-      /* {
+      {
         path: 'lanes',
         title: 'Change Management',
         component: <Snaps />,
-      }, */
+      },
       {
         path: 'exporting-components',
         title: 'Exporting Components',
@@ -336,23 +501,23 @@ export const learnDocsRoutes: DocsRoute[] = [
           'Importing is the process of copying Components from their Scope to the Local Scope, to use and maintain them in the Workspace.',
         component: <ImportingComponents />,
       },
-      /* {
+      {
         title: 'Merge Conflicts',
         path: 'merge-conflicts',
         component: <MergingComponentVersions />,
-      }, */
-      /* {
+      },
+      {
         path: 'component-main-file',
         title: 'Main File',
         description:
           'The main file of a Component is the file resolved upon a require of the Component Directory. Main file is usually expected to expose the Component API.',
         component: <MainFile />,
-      }, */
-      // {
-      //   path: 'component-json',
-      //   title: 'component.json',
-      //   component: <ComponentJson />,
-      // },
+      },
+      {
+        path: 'component-json',
+        title: 'component.json',
+        component: <ComponentJson />,
+      },
       {
         path: 'inspecting-components',
         title: 'Inspecting Components',
@@ -494,26 +659,26 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'configuring-scopes',
-        title: 'Configuring Scopes (scope.json)',
+        title: 'Configuring scopes (scope.json)',
         component: <ScopeJson />,
       },
       {
         path: 'running-a-scope-server',
-        title: 'Hosting Scopes',
+        title: 'Hosting scopes',
         component: <HostingScopes />,
       },
-      // {
-      //   path: 'running-a-scope-server',
-      //   title: 'Scope API',
-      //   component: <HostingScopes />,
-      // },
-      // {
-      //   path: 'inspecting-scopes',
-      //   title: 'Inspecting Scopes',
-      //   description:
-      //     'Component objects are stored in Scopes (Local Scopes and Remote Scopes), using the content-addressable storage method. They are either copied to or from remote scopes, when exported or imported (respectively).',
-      //   component: <ComponentObjects />,
-      // },
+      {
+        path: 'running-a-scope-server',
+        title: 'Scope API',
+        component: <HostingScopes />,
+      },
+      {
+        path: 'inspecting-scopes',
+        title: 'Inspecting Scopes',
+        description:
+          'Component objects are stored in Scopes (Local Scopes and Remote Scopes), using the content-addressable storage method. They are either copied to or from remote scopes, when exported or imported (respectively).',
+        component: <ComponentObjects />,
+      },
       {
         path: 'extending-scopes',
         title: 'Extending Scopes',
@@ -649,6 +814,7 @@ export const learnDocsRoutes: DocsRoute[] = [
           {
             path: 'configure-env-with-compiler',
             title: 'Configure an Env with a Compiler',
+            description: 'Learn how to configure an Env to use a different compiler.',
             component: <ConfigureEnvWithCompiler />,
           },
           {
@@ -1084,7 +1250,23 @@ export const learnDocsRoutes: DocsRoute[] = [
         path: 'react',
         title: 'React',
         open: false,
-        children: [],
+        children: [
+          {
+            path: 'react-overview',
+            title: 'React Overview',
+            component: <ReactOverview />,
+          },
+          {
+            path: 'config-react-tools',
+            title: 'Configuring React Tools',
+            component: <ConfigReactTools />,
+          },
+          {
+            path: 'replace-react-tools',
+            title: 'Replacing React Tools',
+            component: <ReplacingReactTools />,
+          },
+        ],
       },
       {
         path: 'angular',
@@ -1160,18 +1342,44 @@ export const learnDocsRoutes: DocsRoute[] = [
       // }
     ],
   },
-  // {
-  //   path: 'reference',
-  //   icon: 'Ripple_list',
-  //   open: false,
-  //   title: 'Reference',
-  //   children: [
-  //     {
-  //       path: 'cli-reference',
-  //       title: 'CLI Reference',
-  //       component: <CliReference />,
-  //       icon: 'terminal',
-  //     },
-  //   ],
-  // },
+  {
+    path: 'global-config',
+    title: 'Global Config',
+    icon: 'configuration',
+    open: false,
+    children: [
+      {
+        path: 'bit-config',
+        title: 'Bit config',
+        open: false,
+        component: <BitConfig />,
+      },
+      {
+        path: 'config-files',
+        title: 'Config Files',
+        open: false,
+        component: <ConfigFiles />,
+      },
+    ],
+  },
+  {
+    path: 'reference',
+    icon: 'Ripple_list',
+    open: false,
+    title: 'Reference',
+    children: [
+      {
+        path: 'cli-reference',
+        title: 'CLI Reference',
+        component: <CliReference />,
+        icon: 'terminal',
+      },
+      {
+        path: 'using-bvm',
+        title: 'Using BVM',
+        component: <UsingBVM />,
+        icon: 'terminal',
+      },
+    ],
+  },
 ];
