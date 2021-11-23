@@ -7,7 +7,7 @@ export type GetElements = {
   selectors?: string;
 };
 
-export function getElements({ ref, selectors = defaultSelectors }): Element[] {
+export function getElements({ ref, selectors = defaultSelectors }): HTMLElement[] {
   const elements = ref?.current ? ref?.current?.querySelectorAll(selectors) : document.querySelectorAll(selectors);
   return Array.from(elements);
 }

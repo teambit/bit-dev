@@ -34,9 +34,7 @@ export type DocPageProps = {
   baseUrl?: string;
 };
 
-const scrollToRef = (ref) => {
-  return window.scrollTo(0, -ref.current.offsetTop);
-};
+const docSelectors = '.docs-heading h1, .docs-heading h2, .docs-heading h3';
 
 const components = mdxComponents('/docs');
 
@@ -85,7 +83,7 @@ export function DocPage({ title, description, nextPage, children, baseUrl = '/do
         title="on this page"
         className={styles.tableOfContent}
         rootRef={contentRef}
-        selectors=".docs-heading h1, .docs-heading h2, .docs-heading h3"
+        selectors={docSelectors}
       />
     </Page>
   );

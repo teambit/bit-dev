@@ -13,18 +13,24 @@ export type TableOfContentProps = {
 
 export function TableOfContent({ className, children, title, rootRef, selectors, ...rest }: TableOfContentProps) {
   const [activeHeading, setActiveHeading] = useState<string | undefined>(undefined);
-  const [pageHeadings, setHeadings] = useState<Element[]>([]);
+  const [pageHeadings, setHeadings] = useState<HTMLElement[]>([]);
 
   const headings = useMemo(() => getLinks(pageHeadings), [pageHeadings]);
 
   useEffect(() => {
-    setTimeout(() => {
-      const titlesArray: Element[] = getElements({ ref: rootRef, selectors });
+    let cleanup: (() => void) | undefined;
+    const timeoutId = setTimeout(() => {
+      const titlesArray: HTMLElement[] = getElements({ ref: rootRef, selectors });
 
-      useIntersectionObserver(titlesArray, setActiveHeading);
-
+      const observer = useIntersectionObserver(titlesArray, setActiveHeading);
+      cleanup = observer?.disconnect;
       setHeadings(titlesArray);
     }, 300);
+    return () => {
+      // clear observer and timeout
+      cleanup?.();
+      clearTimeout(timeoutId);
+    };
   }, [window.location.pathname]);
   if (!headings) return null;
 
@@ -48,7 +54,7 @@ export function TableOfContent({ className, children, title, rootRef, selectors,
   );
 }
 
-function getLinks(links) {
+function getLinks(links: HTMLElement[]) {
   if (!links) return;
   return Object.values(links).map((link) => {
     const linkText = link?.textContent;

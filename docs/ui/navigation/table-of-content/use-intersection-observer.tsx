@@ -1,6 +1,4 @@
-import { useEffect } from 'react';
-
-export const useIntersectionObserver = (ElementsList: Element[], cb) => {
+export const useIntersectionObserver = (elementsList: HTMLElement[], cb) => {
   const handleIntersection = (entries: IntersectionObserverEntry[]) => {
     // Get all headings that are currently visible on the page
     const visibleHeadings: IntersectionObserverEntry[] = [];
@@ -13,14 +11,18 @@ export const useIntersectionObserver = (ElementsList: Element[], cb) => {
 
     // If there is only one visible heading, this is our "active" heading
     if (visibleHeadings.length === 1) {
-      cb(visibleHeadings[0]?.target?.innerText);
+      if (visibleHeadings[0]?.target instanceof HTMLElement) {
+        cb(visibleHeadings[0]?.target?.innerText);
+      }
       // If there is more than one visible heading,
       // choose the one that is closest to the top of the page
     } else if (visibleHeadings.length > 1) {
       const sortedVisibleHeadings = visibleHeadings.sort((a, b) =>
         sortElementsById(getIndexFromId(a.target.id), getIndexFromId(b.target.id))
       );
-      cb(sortedVisibleHeadings[0]?.innerText);
+      if (sortedVisibleHeadings[0] instanceof HTMLElement) {
+        cb(sortedVisibleHeadings[0]?.innerText);
+      }
     }
   };
   const observer = new IntersectionObserver(handleIntersection, {
@@ -28,12 +30,11 @@ export const useIntersectionObserver = (ElementsList: Element[], cb) => {
     // threshold: [1],
     rootMargin: '0px 0px -90% 0px',
   });
-  ElementsList.forEach((element) => {
+  elementsList.forEach((element) => {
     observer.observe(element);
   });
 
-  // TODO - this should happen on unmount!!!
-  return () => observer.disconnect();
+  return observer;
 };
 
 function sortElementsById(a, b) {
