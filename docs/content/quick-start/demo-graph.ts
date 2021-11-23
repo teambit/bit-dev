@@ -61,7 +61,7 @@ export const demoGraph = createBubbleGraph([
     col: 1,
   },
   {
-    id: 'learn-bit.inventions/blocks/top-invention@1.0.0',
+    id: 'learn-bit.inventions/blocks/top-inventions@1.0.0',
     dependencies: [
       'learn-bit.inventions/ui/invention-grid@1.0.2',
       {

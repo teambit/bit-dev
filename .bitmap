@@ -11,7 +11,7 @@
 {
     "apps/bit-dev": {
         "scope": "teambit.community",
-        "version": "1.11.0",
+        "version": "1.11.1",
         "mainFile": "index.ts",
         "rootDir": "community/apps/bit-dev"
     },
@@ -191,7 +191,7 @@
     },
     "content/config-react-tools": {
         "scope": "teambit.react",
-        "version": "1.11.0",
+        "version": "1.11.1",
         "mainFile": "index.ts",
         "rootDir": "react/content/config-react-tools"
     },
@@ -707,13 +707,13 @@
     },
     "content/quick-start": {
         "scope": "teambit.docs",
-        "version": "1.11.0",
+        "version": "1.11.1",
         "mainFile": "index.ts",
         "rootDir": "docs/content/quick-start"
     },
     "content/react-overview": {
         "scope": "teambit.react",
-        "version": "1.11.0",
+        "version": "1.11.1",
         "mainFile": "index.ts",
         "rootDir": "react/content/react-overview"
     },
@@ -737,7 +737,7 @@
     },
     "content/replace-react-tools": {
         "scope": "teambit.react",
-        "version": "1.11.0",
+        "version": "1.11.1",
         "mainFile": "index.ts",
         "rootDir": "react/content/replace-react-tools"
     },
@@ -791,7 +791,7 @@
     },
     "content/thinking-in-components": {
         "scope": "teambit.docs",
-        "version": "1.11.0",
+        "version": "1.11.1",
         "mainFile": "index.ts",
         "rootDir": "docs/content/thinking-in-components"
     },
@@ -989,7 +989,7 @@
     },
     "ui/community-docs": {
         "scope": "teambit.docs",
-        "version": "1.11.0",
+        "version": "1.11.1",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/community-docs"
     },
@@ -1019,7 +1019,7 @@
     },
     "ui/docs": {
         "scope": "teambit.docs",
-        "version": "1.11.0",
+        "version": "1.11.1",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/docs"
     },
@@ -1211,7 +1211,7 @@
     },
     "ui/mocks/bit-dev": {
         "scope": "teambit.community",
-        "version": "1.11.0",
+        "version": "1.11.1",
         "mainFile": "index.ts",
         "rootDir": "community/ui/mocks/bit-dev"
     },
@@ -1247,7 +1247,7 @@
     },
     "ui/pages/doc-page": {
         "scope": "teambit.docs",
-        "version": "1.11.0",
+        "version": "1.11.1",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/pages/doc-page"
     },
@@ -1259,7 +1259,7 @@
     },
     "ui/pages/guides": {
         "scope": "teambit.docs",
-        "version": "1.11.0",
+        "version": "1.11.1",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/pages/guides"
     },
