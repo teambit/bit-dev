@@ -90,7 +90,7 @@ export function Docs({
 
   return (
     <div {...rest} className={classNames(styles.main, className)}>
-      <Sidebar isOpen={sidebar.isOpen} toggle={sidebar.setIsOpen}>
+      <Sidebar isOpen={sidebar.isOpen} toggle={sidebar.setIsOpen} className={styles.collapsableSidebar}>
         <PrimaryLinks tree={primaryRoutes.toSideBarTree()} />
         <Tree tree={docRoutes.toSideBarTree()} linkPrefix={baseUrl} />
         {docsRoutesCategories?.map((category) => (

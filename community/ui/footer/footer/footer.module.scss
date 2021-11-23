@@ -1,16 +1,25 @@
+@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
+
 .footer {
     padding: 40px 0 20px 0;
     font-size: 14px;
+    margin: 0 250px;
+    @media screen and (max-width: $br-lg) {
+        margin-right: 0;
+    }
+    @media screen and (max-width: $br-md) {
+        margin: 0;
+    }
 }
 .footerLinks {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 50px;
   margin-bottom: 40px;
-  @media screen and (max-width: 1080px) {
+  @media screen and (max-width: $br-l) {
     grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: $br-md) {
       // this will make the first column into a row above the other columns
       > div:first-child {
         grid-column: 1 / -1;

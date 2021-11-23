@@ -1,3 +1,5 @@
+@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
+
 .next {
   margin-top: 40px;
   margin-bottom: 20px;
@@ -14,5 +16,23 @@
 
   img {
     max-width: 100%;
+  }
+}
+
+.content {
+  position: relative;
+  margin-right: 250px;
+  @media screen and (max-width: $br-lg) {
+    margin-right: unset;
+  }
+}
+
+.tableOfContent {
+  position: fixed;
+  top: var(--bit-header-height, 40px);
+  bottom: 0;
+  right: 8px;
+  @media screen and (max-width: $br-lg) {
+    display: none;
   }
 }

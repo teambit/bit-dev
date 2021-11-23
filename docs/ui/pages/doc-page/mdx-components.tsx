@@ -9,17 +9,17 @@ const getTextLink = (element: ReactNode) =>
 export const mdxComponents = (baseUrl: string): MDXProviderComponents => {
   return {
     h1: ({ children, ...rest }: HTMLAttributes<HTMLHeadingElement>) => (
-      <H1 link={getTextLink(children)} {...rest}>
+      <H1 className="docs-heading" id="docsHeading" link={getTextLink(children)} {...rest}>
         {children}
       </H1>
     ),
     h2: ({ children, ...rest }: HTMLAttributes<HTMLHeadingElement>) => (
-      <H2 link={getTextLink(children)} {...rest}>
+      <H2 className="docs-heading" id="docsHeading" link={getTextLink(children)} {...rest}>
         {children}
       </H2>
     ),
     h3: ({ children, ...rest }: HTMLAttributes<HTMLHeadingElement>) => (
-      <H3 link={getTextLink(children)} {...rest}>
+      <H3 className="docs-heading" id="docsHeading" link={getTextLink(children)} {...rest}>
         {children}
       </H3>
     ),
