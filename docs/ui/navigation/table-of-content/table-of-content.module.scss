@@ -1,7 +1,7 @@
 .tableOfContent {
   width: var(--bit-table-of-content-width, 264px);
 
-  max-height: calc(100vh - 40px);
+  height: 100%;
   overflow: auto;
   font-size: 14px;
 }
