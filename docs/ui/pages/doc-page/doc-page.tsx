@@ -3,7 +3,7 @@ import { MDXLayout } from '@teambit/mdx.ui.mdx-layout';
 import { Page } from '@teambit/base-react.pages.page';
 import { NextPage } from '@teambit/community.ui.cards.next-page';
 import type { Route } from '@teambit/docs.entities.docs-routes';
-import { TableOfContent, useIntersectionObserver } from '@teambit/docs.ui.navigation.table-of-content';
+import { TableOfContent, useIntersectionObserver, getElements } from '@teambit/docs.ui.navigation.table-of-content';
 import { mdxComponents } from './mdx-components';
 import { useTableContent, TableContent } from './use-table-content';
 import styles from './doc-page.module.scss';
@@ -41,23 +41,8 @@ const scrollToRef = (ref) => {
 
 const components = mdxComponents('/docs');
 
-function compare(a, b) {
-  if (a < b) {
-    return -1;
-  }
-  if (a > b) {
-    return 1;
-  }
-  return 0;
-}
-
-// on this page - table of content
-//  - accept reference and what elements to collect from it
-//  - title to present
-
 export function DocPage({ title, description, nextPage, children, baseUrl = '/docs' }: DocPageProps) {
   const myRef = useRef(null);
-  // const contentRef = useRef<React.LegacyRef<HTMLDivElement> | undefined>(null);
   const contentRef = useRef() as React.MutableRefObject<HTMLDivElement>;
   const [showNextPage, setNextPage] = useState(false);
   const [activeHeading, setActiveHeading] = useState<string | undefined>(undefined);
@@ -67,23 +52,18 @@ export function DocPage({ title, description, nextPage, children, baseUrl = '/do
   const pageDescription = description || `Documentation page for ${title} - Bit.`;
 
   const startObserver = useCallback(() => {
-    // const a = useTableContent('h1, h2, h3');
-    const titles = contentRef?.current?.querySelectorAll('h1, h2, h3');
-    const titlesArray = Array.from(titles).filter((heading) =>
-      heading.parentElement?.className.includes('docs-heading')
-    );
+    const titlesArray = getElements(contentRef, '.docs-heading h1, .docs-heading h2, .docs-heading h3');
+
     useIntersectionObserver(titlesArray, setActiveHeading);
-    // console.log('titles', titlesArray);
+
     setHeadings(titlesArray);
   }, [window.location.pathname]);
 
   useEffect(() => {
     setTimeout(() => {
-      // executeScroll();
       startObserver();
-      // handle2();
       setNextPage(true); // hides next page component until mdx data loads. should also be fixed by ssr
-    }, 1000);
+    }, 300);
   }, [window.location.pathname]);
 
   // @TODO @josh remove when ssr is working
@@ -92,8 +72,6 @@ export function DocPage({ title, description, nextPage, children, baseUrl = '/do
       setTimeout(() => {
         const element = document.getElementById(window.location.hash.replace('#', ''));
         element?.scrollIntoView();
-        // const a = useTableContent()
-        // setHeadings(a);
       }, 500);
     }
   }, [window?.location.hash]);

@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 
 export const useIntersectionObserver = (ElementsList: Element[], cb) => {
-  //   useEffect(() => {
   const handleIntersection = (entries: IntersectionObserverEntry[]) => {
     // Get all headings that are currently visible on the page
     const visibleHeadings: IntersectionObserverEntry[] = [];
@@ -29,18 +28,12 @@ export const useIntersectionObserver = (ElementsList: Element[], cb) => {
     // threshold: [1],
     rootMargin: '0px 0px -90% 0px',
   });
-
-  // const headingElements = Array.from(document.querySelectorAll('h2, h3'));
-  // console.log("headingElements", headingElements)
   ElementsList.forEach((element) => {
-    // console.log('ele', element);
-    // console.log('ele2', element, element.getBoundingClientRect());
     observer.observe(element);
   });
 
   // TODO - this should happen on unmount!!!
   return () => observer.disconnect();
-  //   }, [cb, ElementsList]);
 };
 
 function sortElementsById(a, b) {
