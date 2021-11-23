@@ -537,24 +537,32 @@ export const learnDocsRoutes: DocsRoute[] = [
         title: 'Envs Overview',
       },
       {
-        path: 'inspecting-env',
-        title: 'Inspecting an Env',
-        description:
-          "Understanding your Env's config can be crucial for predicable and bug-free outcomes. Getting the right the information, however, can be quite tricky as there could be multiple sources for a single config.",
-        component: <InspectingEnv />,
+        path: 'using-env',
+        title: 'Using envs',
       },
       {
-        path: 'extending-env',
-        title: 'Extending an Env',
-        description:
-          'Envs can be customized and extended by creating a Env Extension. An Env Extension is an Aspect component that depends on another Env and uses it to compose a new customized Env.',
+        path: 'composing-env',
+        title: 'Composing an Env',
+        description: '',
         component: <ExtendingEnv />,
       },
       {
-        path: 'env-troubleshooting',
-        title: 'Env Troubleshooting',
-        component: <EnvToubleshooting />,
+        path: 'inspecting-env',
+        title: 'Inspecting an Env',
+        description: '',
+        component: <InspectingEnv />,
       },
+      {
+        path: 'env-service',
+        title: 'Env service',
+        description: '',
+        component: <div />,
+      },
+      // {
+      //   path: 'env-troubleshooting',
+      //   title: 'Env Troubleshooting',
+      //   component: <EnvToubleshooting />,
+      // },
     ],
   },
   {
@@ -563,13 +571,13 @@ export const learnDocsRoutes: DocsRoute[] = [
     icon: 'compCI',
     open: false,
     children: [
-      {
-        path: 'dev-services-overview',
-        title: 'Dev Services Overview',
-        description:
-          "Dev Services simplify and standardize component development processes, like testing, linting and documenting. They are applied on components, and used by components, via the components' Envs.",
-        component: <DevServicesOverview />,
-      },
+      // {
+      //   path: 'dev-services-overview',
+      //   title: 'Dev Services Overview',
+      //   description:
+      //     "Dev Services simplify and standardize component development processes, like testing, linting and documenting. They are applied on components, and used by components, via the components' Envs.",
+      //   component: <DevServicesOverview />,
+      // },
       {
         path: 'builder',
         title: 'Builder',
@@ -588,6 +596,11 @@ export const learnDocsRoutes: DocsRoute[] = [
             description:
               'The Builder runs three separate build pipelines, the basic build pipeline, the snap pipeline and the tag pipeline.',
             component: <BuildPipelines />,
+          },
+          {
+            path: 'implement-build-task',
+            title: 'Implement a build task',
+            component: <div />,
           },
           {
             path: 'build-tasks',

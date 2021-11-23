@@ -1,5 +1,5 @@
 import { Subtitle } from '@teambit/docs.ui.subtitle';
-import { TopInnovators } from '@learnbit/innovators.blocks.top-innovators';
+import { TopInventions } from '@learnbit/inventions.blocks.top-inventions';
 import { InnovatorGraph } from './bubble-graph';
 import { LeftRight } from '@teambit/design.ui.layouts.sections.left-right';
 import { Heading, Elements } from '@teambit/community.ui.heading';
@@ -19,7 +19,7 @@ This is a simple app, built with Bit.
   className={styles.demo}
   left={
     <HighlightComponent title="UI breakdown">
-      <TopInnovators className={styles.topInnovators} />
+      <TopInventions className={styles.topInnovators} />
     </HighlightComponent>
   }
   right={
@@ -123,18 +123,28 @@ across different projects. This tutorial demonstrates creating a new workspace, 
 In depth: Learn more about [Workspaces](/workspace/overview).
 
 ## Create components
-With Bit, applications are built from isolated and independent pieces of source-code called ["components"](/components). A Bit component is a subset of files in a workspace' directory, 
-tracked for changes and isolated using a [development environment](/envs). A development environment can be built to fit any type of component. It is
-is a set of dev tools, composed together to fit the build of a specific type of component. This way, a React component can use the React environment, Node modules could use
-the Node environment, and other environments can be easily created to fit any type of component!
+With Bit, applications are built from isolated and independent pieces of source-code called ["components"](/components). A Bit component is a group of files in a workspace' directory, 
+tracked for changes and isolated using a [development environment](/envs). A development environment is
+a set of dev tools, composed together to fit the build of a specific type of component. This way, a React component can use the [React environment](/envs/node), Node modules could use
+the [Node environment](/envs/node), and new environments can be easily created to fit any type of component! Envs are centrelizing the entire lifecycle of a component, from 
+compiling, testing, building, previewing, deploying, and anything else you might imagine or come up with. 
+
+<!-- 
+Components have metadata and configuration as well and they are identified by a unique ID called ["Component ID"](/components/component-id). 
 
 Components can be anything as simple as a module or as large as an entire app. 
+Building components starts bottom up. That means, you should only create the component you actually need to use now and implement the things required for your most
+burning need. If you have a target application for the component, start with the component you would actually consume. -->
 
-Components may have different characteristics applied by their [Env](/envs). 
-This way, a React component can get a specific build and development environment, with different set  
+Naming the component is the first challenge for building any component, and the most important one. When naming your component you are actually defining its 
+goal.
 
-A Bit component is an isolated container of versioned source code, metadata and configuration identified by a unique ID 
-called ["Component ID"](/components/component-id). Components can as simple as a module, a UI component, page, an application or even a backend service.  
+- Who will own the component?
+- What is the goal of the component?
+- Which type of a component is that?
+- 
+
+Components are identified and named using a unique identifier called ["Component ID"](/components/component-id).
 
 ```bash
 bit create blocks/amazing-inventions
@@ -142,7 +152,7 @@ bit create blocks/amazing-inventions
 
 Alternatively, you can `fork` the component from the demo above in to your project and start from there! 
 ```bash
-bit fork learnbit.inventions/blocks/amazing-inventions
+bit import learnbit.inventions/blocks/amazing-inventions
 ```
 
 ### Create Components
