@@ -1,11 +1,10 @@
-import React, { useRef, useMemo, useCallback, useState, useEffect, ReactNode } from 'react';
+import React, { useRef, useState, useEffect, ReactNode } from 'react';
 import { MDXLayout } from '@teambit/mdx.ui.mdx-layout';
 import { Page } from '@teambit/base-react.pages.page';
 import { NextPage } from '@teambit/community.ui.cards.next-page';
 import type { Route } from '@teambit/docs.entities.docs-routes';
-import { TableOfContent, useIntersectionObserver, getElements } from '@teambit/docs.ui.navigation.table-of-content';
+import { TableOfContent } from '@teambit/docs.ui.navigation.table-of-content';
 import { mdxComponents } from './mdx-components';
-import { useTableContent, TableContent } from './use-table-content';
 import styles from './doc-page.module.scss';
 
 export type DocPageProps = {
@@ -45,23 +44,12 @@ export function DocPage({ title, description, nextPage, children, baseUrl = '/do
   const myRef = useRef(null);
   const contentRef = useRef() as React.MutableRefObject<HTMLDivElement>;
   const [showNextPage, setNextPage] = useState(false);
-  const [activeHeading, setActiveHeading] = useState<string | undefined>(undefined);
 
-  const [headings, setHeadings] = useState<Element[]>([]);
   // const executeScroll = () => scrollToRef(myRef);
   const pageDescription = description || `Documentation page for ${title} - Bit.`;
 
-  const startObserver = useCallback(() => {
-    const titlesArray = getElements(contentRef, '.docs-heading h1, .docs-heading h2, .docs-heading h3');
-
-    useIntersectionObserver(titlesArray, setActiveHeading);
-
-    setHeadings(titlesArray);
-  }, [window.location.pathname]);
-
   useEffect(() => {
     setTimeout(() => {
-      startObserver();
       setNextPage(true); // hides next page component until mdx data loads. should also be fixed by ssr
     }, 300);
   }, [window.location.pathname]);
@@ -96,8 +84,8 @@ export function DocPage({ title, description, nextPage, children, baseUrl = '/do
       <TableOfContent
         title="on this page"
         className={styles.tableOfContent}
-        links={headings}
-        activeLink={activeHeading}
+        rootRef={contentRef}
+        selectors=".docs-heading h1, .docs-heading h2, .docs-heading h3"
       />
     </Page>
   );
