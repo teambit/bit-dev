@@ -315,6 +315,12 @@
         "mainFile": "index.ts",
         "rootDir": "envs/content/env-troubleshooting"
     },
+    "content/envs-overview": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "envs/content/envs-overview"
+    },
     "content/exporting-components": {
         "scope": "teambit.workspace",
         "version": "1.10.1",
