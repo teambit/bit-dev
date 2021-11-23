@@ -1,11 +1,10 @@
 import React from 'react';
-import loadable from '@loadable/component';
 import { DocsRoute } from '@teambit/docs.entities.docs-routes';
 
 const DevEnvs = React.lazy(() => import('@teambit/docs.content.getting-started.dev-envs'));
 const UseDependencies = React.lazy(() => import('@teambit/docs.content.getting-started.use-dependencies'));
 const CreateWorkspace = React.lazy(() => import('@teambit/docs.content.getting-started.create-workspace'));
-const CreateComponents = loadable(
+const CreateComponents = React.lazy(
   () => import('@teambit/community.content.getting-started.composing.create-components')
 );
 

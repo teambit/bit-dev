@@ -1,5 +1,4 @@
 import React from 'react';
-import loadable from '@loadable/component';
 import { DocsRoute } from '@teambit/docs.entities.docs-routes';
 
 /* Quick Start */

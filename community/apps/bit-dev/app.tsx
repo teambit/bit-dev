@@ -1,5 +1,4 @@
 import React, { Suspense } from 'react';
-import loadable from '@loadable/component';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { Guides } from '@teambit/docs.ui.pages.guides';
 import { Header } from '@teambit/community.ui.header.header';
@@ -14,13 +13,6 @@ import { AppContext } from './app-context';
 /**
  * Load pages dynamically to enable code splitting.
  */
-// const Plugins = React.lazy(() => import('@teambit/community.ui.pages.plugins'));
-
-// Plugins.load().then((res) => {
-//   console.log('loaded!!!');
-//   return res;
-// });
-
 const Plugins = React.lazy(() => import('@teambit/community.ui.pages.plugins'));
 
 export function BitDevApp() {
