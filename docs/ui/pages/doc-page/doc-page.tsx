@@ -40,11 +40,11 @@ const scrollToRef = (ref) => {
 export function DocPage({ title, description, nextPage, children, baseUrl = '/docs' }: DocPageProps) {
   const myRef = useRef(null);
   const [showNextPage, setNextPage] = useState(false);
-  const executeScroll = () => scrollToRef(myRef);
+  // const executeScroll = () => scrollToRef(myRef);
   const pageDescription = description || `Documentation page for ${title} - Bit.`;
 
   useEffect(() => {
-    executeScroll();
+    // executeScroll();
   }, []);
 
   // @TODO @josh remove when ssr is working
