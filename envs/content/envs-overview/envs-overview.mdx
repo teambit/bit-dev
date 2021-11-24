@@ -1,9 +1,16 @@
-# Title - EnvsOverview
+import envOverview from './env-overview.png';
 
-This is markdown.
+# Component Development Environment
 
-<p>This is HTML</p>
+Component Development Environments (envs) contains and manages development tools, configs and workflows (linter, compiler, tester, etc) and their configs.
 
-# Import a React Component or use HTML
+<img src={envOverview} style={{ maxHeight:'200px' }} />
 
-<button>Button 👋 </button>
+Envs provides various services for developers to control component life-cycle and development, starting from generating components with templates, through compilation, all the way to deployment. It has several benefits:
+
+- Single, versioned place that defines and controls workflows, configs and tools for one "type" of components.
+- Envs provide APIs for others to customized and use as a baseline when defining more concrete setups.
+- The same workspace may have components using different envs, meaning you can work on Angular and React components in the same workspace.
+- No configuration files polluting your codebase, no matter how complex your setup is, and how many components you have.
+
+
