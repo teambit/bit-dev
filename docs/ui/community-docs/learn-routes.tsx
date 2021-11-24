@@ -312,7 +312,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'snaps',
-        title: 'Snapshot Changes',
+        title: 'Snapshot changes',
         description: 'Record component history with snapshots.',
         component: <Snaps />,
       },
@@ -322,37 +322,32 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <NavigateHistory />,
       },
       {
-        path: 'lanes',
-        title: 'Change Management',
-        component: <Snaps />,
-      },
-      {
         path: 'exporting-components',
-        title: 'Exporting Components',
+        title: 'Exporting components',
         description: 'Share component snaps and versions for consumers and collaborators.',
         component: <ExportingComponents />,
       },
       {
         path: 'removing-components',
-        title: 'Deprecating and Removing',
+        title: 'Deprecating and removing',
         description: 'Mark components as irrelevant or obsolete..',
         component: <RemovingDeprecating />,
       },
       {
         path: 'importing-components',
-        title: 'Importing Components',
+        title: 'Importing components',
         description:
           'Importing is the process of copying Components from their Scope to the Local Scope, to use and maintain them in the Workspace.',
         component: <ImportingComponents />,
       },
       {
-        title: 'Merge Conflicts',
+        title: 'Merge conflicts',
         path: 'merge-conflicts',
         component: <MergingComponentVersions />,
       },
       {
         path: 'component-main-file',
-        title: 'Main File',
+        title: 'Main file',
         description:
           'The main file of a Component is the file resolved upon a require of the Component Directory. Main file is usually expected to expose the Component API.',
         component: <MainFile />,
@@ -364,26 +359,26 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'inspecting-components',
-        title: 'Inspecting Components',
+        title: 'Inspecting components',
         component: <InspectingComponents />,
       },
       {
         path: 'dev-files',
-        title: 'Dev Files',
+        title: 'Dev files',
         description:
           'Dev files are component files used for development and not for production. Dev files are determined as such by the Dev Files Aspect.',
         component: <DevFiles />,
       },
       {
         path: 'component-capsules',
-        title: 'Component Capsules',
+        title: 'Component capsules',
         description:
           'A capsule is an isolated component environment. It is mainly implemented as a directory that hosts a component outside its workspace directory.',
         component: <Capsule />,
       },
       {
         path: 'component-objects',
-        title: 'Component Store',
+        title: 'Component Objects',
         description: 'How Bit saves revision history for components',
         component: <ComponentObjects />,
       },
@@ -580,13 +575,13 @@ export const learnDocsRoutes: DocsRoute[] = [
     icon: 'compCI',
     open: false,
     children: [
-      // {
-      //   path: 'dev-services-overview',
-      //   title: 'Dev Services Overview',
-      //   description:
-      //     "Dev Services simplify and standardize component development processes, like testing, linting and documenting. They are applied on components, and used by components, via the components' Envs.",
-      //   component: <DevServicesOverview />,
-      // },
+      {
+        path: 'dev-services-overview',
+        title: 'Dev Services Overview',
+        description:
+          "Dev Services simplify and standardize component development processes, like testing, linting and documenting. They are applied on components, and used by components, via the components' Envs.",
+        component: <DevServicesOverview />,
+      },
       {
         path: 'builder',
         title: 'Builder',

@@ -1,6 +1,10 @@
+import { Heading, Elements } from '@teambit/community.ui.heading';
+import { LeftRight } from '@teambit/design.ui.layouts.sections.left-right';
 import { Subtitle } from '@teambit/docs.ui.subtitle';
 import { ProductCard } from '@learn-bit-react/ecommerce.ui.product.product-card';
+import { ArchitectureBreakdown } from '@teambit/docs.blocks.component.architecture-breakdown';
 import { HighlightComponent } from '@teambit/docs.ui.highlighter.highlight-component';
+import { TopInventions } from '@learnbit/inventions.blocks.top-inventions';
 import styles from './thinking-in-components.module.scss';
 
 # Thinking in components
@@ -39,20 +43,22 @@ When starting the planning of new components, it is most important to understand
 The more concerte usages you have for a component, the better it will be! It is good to start using the component sooner than later. Using components earliar in the process
 help tackle real-life constraints early on the development process and results in producing better components.
 
-- Define the top component.
-- Understand how and where the component would be used. The more the merrier!
+<TopInventions />
+
    
 ## Collaborate on breaking the product specification to components
 A product specification is a blueprint that outlines the product you will be building, what it is going to look like, and specific requirements and behaviours. Usually
 a product spec comes in the shape of a design sketch using tools like Figma or Sketch and a set rules defining the product expected behavior.
 
-Start by taking the product spec, together with a designer and a product manager and define the components that play role. Easiest is to start with the UI
+Start by taking the product spec, together with a designer and a product manager and define the components that play role. Start with the first component you need to use
+and slowly propogate to define more components including UI and behaviour as you need them, from the ground up.
+
+Easiest is to start with the UI
 components and slowly propogate up the tree to behaviour, and decide on the assets of value, you are creating for your team. 
 
 - **Product.** Bring the product specification and requirements. Shape the product  
 - **Engineering.** Your role is to bring up the technical constraints, help shape functionality into components that work in reality. Use the same techniques used
 to decide if to create a function or class. Disribute things that get bigger into smaller components.
-
 - **Design.** - Bring the design constraints.
 - **Business.** Think of the business responsbility of the component. Drive balanced decision making.
 
@@ -71,17 +77,7 @@ Try and define the following:
 Not always we get it perfect from the get go but no worries! You can always iterate and change as you evolve your feature.
 <!-- TODO: force nav blue highlithing on all components in the below. -->
 
-<HighlightComponent>
-  <ProductCard
-    title="Nike Air"
-    text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quos quidem sequi illum facere recusandae voluptatibus"
-    alt="Nike Air"
-    src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDV8fHNuZWFrZXJ8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
-    price={190}
-    className={styles.productCard}
-    buttonText="add to cart"
-  />
-</HighlightComponent>
+<ArchitectureBreakdown />
 
 1. Break down the product spec into components.
 2. Name each of the components.

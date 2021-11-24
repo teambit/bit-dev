@@ -168,7 +168,7 @@
    * see https://harmony-docs.bit.dev/aspects/variants for more info.
    **/
   "teambit.workspace/variants": {
-    "{ui/**}, !{ui/mocks/**}": {
+    "{ui/**}, !{ui/mocks/**}, {blocks/**}": {
       "teambit.community/envs/community-react": {}
     },
     "{ui/mocks/**}": {
