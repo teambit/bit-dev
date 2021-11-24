@@ -26,11 +26,11 @@ export const demoGraph = createBubbleGraph([
   },
 
   {
-    id: 'learn-bit.innovators/ui/innovator-card@1.0.0',
+    id: 'learn-bit.inventions/ui/invention-card@1.0.0',
     dependencies: [
       'teambit.design/ui/cards/card@1.0.0',
       'teambit.design/ui/content/heading@1.0.0',
-      'learn-bit.innovators/entities/innovator@1.0.0',
+      'learn-bit.inventions/entities/invention@1.0.0',
     ],
     payload: {
       icon: 'https://static.bit.dev/brands/logo-react.svg',
@@ -42,11 +42,11 @@ export const demoGraph = createBubbleGraph([
     position: 'top-right',
   },
   {
-    id: 'learn-bit.innovators/ui/innovator-grid@1.0.2',
+    id: 'learn-bit.inventions/ui/invention-grid@1.0.2',
     dependencies: [
-      'learn-bit.innovators/ui/innovator-card@1.0.2',
+      'learn-bit.inventions/ui/invention-card@1.0.2',
       {
-        id: 'learn-bit.innovators/entities/innovator@1.0.0',
+        id: 'learn-bit.inventions/entities/invention@1.0.0',
         edge: {
           start: 'bottom',
         },
@@ -57,19 +57,18 @@ export const demoGraph = createBubbleGraph([
       forceActive: true,
       showScope: false,
     },
-    row: 5,
+    row: 4,
     col: 1,
   },
-
   {
-    id: 'learn-bit.innovators/blocks/top-innovators@1.0.0',
+    id: 'learn-bit.inventions/blocks/top-inventions@1.0.0',
     dependencies: [
-      'learn-bit.innovators/ui/innovator-grid@1.0.2',
+      'learn-bit.inventions/ui/invention-grid@1.0.2',
       {
         id: 'teambit.bubble-graph/ui/connecter',
         edge: {
-          start: 'top',
-          end: 'left',
+          start: 'left',
+          end: 'bottom',
           direction: Direction.TAIL,
         },
       },
@@ -79,12 +78,12 @@ export const demoGraph = createBubbleGraph([
       forceActive: true,
       showScope: false,
     },
-    row: 4,
+    row: 5,
     col: 1,
-    position: 'top',
+    position: 'bottom',
   },
   {
-    id: 'learn-bit.innovators/entities/innovator@1.0.0',
+    id: 'learn-bit.inventions/entities/invention@1.0.0',
     dependencies: [],
     payload: {
       icon: 'https://static.bit.dev/brands/logo-nodejs.svg',

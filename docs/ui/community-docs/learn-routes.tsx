@@ -176,158 +176,6 @@ const ConfigReactTools = loadable(() => import('@teambit/react.content.config-re
 
 export const learnDocsRoutes: DocsRoute[] = [
   {
-    path: 'getting-started',
-    title: 'Getting Started',
-    icon: 'Ripple_play',
-    children: [
-      {
-        path: 'installing-bit',
-        title: 'Installation',
-        // description: 'Installing Bit',
-        icon: 'install',
-        // component: <InstallingBit />,
-        children: [
-          {
-            path: 'start-bit-project',
-            title: 'Start a new Bit workspace',
-            // component: <CreateWorkspace />,
-          },
-          {
-            path: 'editor-setup',
-            title: 'Editor setup',
-          },
-          {
-            path: 'add-to-existing-project',
-            title: 'Add on existing project',
-          },
-        ],
-      },
-      {
-        path: 'composing',
-        title: 'Compose',
-        icon: 'compose',
-        open: false,
-        children: [
-          {
-            path: 'first-components',
-            title: 'Your first components',
-            description: 'Your first components',
-            component: <CreateComponents />,
-          },
-          {
-            path: 'dev-environments',
-            title: 'Dev environments',
-            description: 'Dev environments',
-            // component: <DevEnvs />,
-          },
-          {
-            path: 'use-dependencies',
-            title: 'Use dependencies',
-            description: 'Using components',
-            // component: <UseDependencies />,
-          },
-        ],
-      },
-      {
-        path: 'collaborate',
-        title: 'Collaborate',
-        icon: 'collaborate',
-        open: false,
-        children: [
-          {
-            path: 'snap-component-changes',
-            title: 'Snapshot component changes',
-            description: 'Version Components',
-            // component: <VersionComponents />,
-          },
-          {
-            path: 'version-components',
-            title: 'Version Components',
-            description: 'Version Components',
-            // component: <VersionComponents />,
-          },
-          {
-            path: 'remote-scope',
-            title: 'Create a Remote Scope',
-            open: false,
-            children: [
-              {
-                path: 'host-on-bit-cloud',
-                title: 'Host on Bit Cloud',
-                description: 'Host on Bit Cloud',
-                // component: <HostBitCloud />,
-              },
-              {
-                path: 'self-host-scope',
-                title: 'Self-hosted scope',
-                description: 'Self Host Scope',
-                // component: <SelfHostScope />,
-              },
-            ],
-          },
-          {
-            path: 'importing-components',
-            title: 'Importing components',
-            description: 'Share components',
-            // component: <ShareComponents />,
-          },
-          {
-            path: 'exporting-components',
-            title: 'Exporting components',
-            description: 'Exporting components',
-            // component: <ShareComponents />,
-          },
-        ],
-      },
-      {
-        path: 'use',
-        title: 'Use',
-        icon: 'use',
-        open: false,
-        children: [
-          {
-            path: 'install-components',
-            title: 'Install Components',
-            description: 'Install Components',
-            // component: <InstallComponents />,
-          },
-          {
-            path: 'import-components',
-            title: 'Import Components',
-            description: 'Import Components',
-            // component: <ImportComponents />,
-          },
-          {
-            path: 'update-components',
-            title: 'Update Components',
-            description: 'Update Components',
-            // component: <UpdateComponents />,
-          },
-        ],
-      },
-      {
-        path: 'setup-ci',
-        title: 'Setup CI',
-        icon: 'terminal',
-        open: false,
-        children: [
-          {
-            path: 'automate-export',
-            title: 'Automate Component Export',
-            description: 'Automate Component Export',
-            // component: <CiExport />,
-          },
-          {
-            path: 'package-consumers',
-            title: 'Package Consumers',
-            description: 'Package Consumers',
-            // component: <CiInstall />,
-          },
-        ],
-      },
-    ],
-  },
-  {
     path: 'workspace',
     title: 'Workspace',
     icon: 'workspace',
@@ -337,12 +185,12 @@ export const learnDocsRoutes: DocsRoute[] = [
       component: <WorkspaceConfiguration />,
       title: 'Workspace Configuration',
     },
-    overview: {
-      path: 'workspace-overview',
-      title: 'Workspace Overview',
-      component: <WorkspaceOverview />,
-    },
     children: [
+      {
+        path: 'workspace-overview',
+        title: 'Workspace Overview',
+        component: <WorkspaceOverview />,
+      },
       {
         path: 'creating-workspaces',
         title: 'Creating Workspaces',
@@ -427,14 +275,14 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Components',
     icon: 'comps',
     open: false,
-    overview: {
-      path: 'component-overview',
-      title: 'Component Overview',
-      description:
-        'Component is a decoupled, versioned source-code container designed for the purpose of containing a single module or component.',
-      component: <ComponentOverview />,
-    },
     children: [
+      {
+        path: 'component-overview',
+        title: 'Component Overview',
+        description:
+          'Component is a decoupled, versioned source-code container designed for the purpose of containing a single module or component.',
+        component: <ComponentOverview />,
+      },
       {
         path: 'adding-components',
         title: 'Adding Components',
@@ -467,7 +315,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'snaps',
-        title: 'Snapshot Changes',
+        title: 'Snapshot changes',
         description: 'Record component history with snapshots.',
         component: <Snaps />,
       },
@@ -477,37 +325,32 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <NavigateHistory />,
       },
       {
-        path: 'lanes',
-        title: 'Change Management',
-        component: <Snaps />,
-      },
-      {
         path: 'exporting-components',
-        title: 'Exporting Components',
+        title: 'Exporting components',
         description: 'Share component snaps and versions for consumers and collaborators.',
         component: <ExportingComponents />,
       },
       {
         path: 'removing-components',
-        title: 'Deprecating and Removing',
+        title: 'Deprecating and removing',
         description: 'Mark components as irrelevant or obsolete..',
         component: <RemovingDeprecating />,
       },
       {
         path: 'importing-components',
-        title: 'Importing Components',
+        title: 'Importing components',
         description:
           'Importing is the process of copying Components from their Scope to the Local Scope, to use and maintain them in the Workspace.',
         component: <ImportingComponents />,
       },
       {
-        title: 'Merge Conflicts',
+        title: 'Merge conflicts',
         path: 'merge-conflicts',
         component: <MergingComponentVersions />,
       },
       {
         path: 'component-main-file',
-        title: 'Main File',
+        title: 'Main file',
         description:
           'The main file of a Component is the file resolved upon a require of the Component Directory. Main file is usually expected to expose the Component API.',
         component: <MainFile />,
@@ -519,26 +362,26 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'inspecting-components',
-        title: 'Inspecting Components',
+        title: 'Inspecting components',
         component: <InspectingComponents />,
       },
       {
         path: 'dev-files',
-        title: 'Dev Files',
+        title: 'Dev files',
         description:
           'Dev files are component files used for development and not for production. Dev files are determined as such by the Dev Files Aspect.',
         component: <DevFiles />,
       },
       {
         path: 'component-capsules',
-        title: 'Component Capsules',
+        title: 'Component capsules',
         description:
           'A capsule is an isolated component environment. It is mainly implemented as a directory that hosts a component outside its workspace directory.',
         component: <Capsule />,
       },
       {
         path: 'component-objects',
-        title: 'Component Store',
+        title: 'Component Objects',
         description: 'How Bit saves revision history for components',
         component: <ComponentObjects />,
       },
@@ -554,14 +397,14 @@ export const learnDocsRoutes: DocsRoute[] = [
       title: 'Dependencies Configuration',
       component: <DependenciesConfiguration />,
     },
-    overview: {
-      path: 'dependencies-overview',
-      title: 'Dependencies Overview',
-      description:
-        'Dependency management is a major concern for developers looking to build and deliver components independently.',
-      component: <DependenciesOverview />,
-    },
     children: [
+      {
+        path: 'dependencies-overview',
+        title: 'Dependencies Overview',
+        description:
+          'Dependency management is a major concern for developers looking to build and deliver components independently.',
+        component: <DependenciesOverview />,
+      },
       {
         path: 'dependency-installation',
         title: 'Dependency Installation',
@@ -701,24 +544,32 @@ export const learnDocsRoutes: DocsRoute[] = [
         title: 'Envs Overview',
       },
       {
-        path: 'inspecting-env',
-        title: 'Inspecting an Env',
-        description:
-          "Understanding your Env's config can be crucial for predicable and bug-free outcomes. Getting the right the information, however, can be quite tricky as there could be multiple sources for a single config.",
-        component: <InspectingEnv />,
+        path: 'using-env',
+        title: 'Using envs',
       },
       {
-        path: 'extending-env',
-        title: 'Extending an Env',
-        description:
-          'Envs can be customized and extended by creating a Env Extension. An Env Extension is an Aspect component that depends on another Env and uses it to compose a new customized Env.',
+        path: 'composing-env',
+        title: 'Composing an Env',
+        description: '',
         component: <ExtendingEnv />,
       },
       {
-        path: 'env-troubleshooting',
-        title: 'Env Troubleshooting',
-        component: <EnvToubleshooting />,
+        path: 'inspecting-env',
+        title: 'Inspecting an Env',
+        description: '',
+        component: <InspectingEnv />,
       },
+      {
+        path: 'env-service',
+        title: 'Env service',
+        description: '',
+        component: <div />,
+      },
+      // {
+      //   path: 'env-troubleshooting',
+      //   title: 'Env Troubleshooting',
+      //   component: <EnvToubleshooting />,
+      // },
     ],
   },
   {
@@ -752,6 +603,11 @@ export const learnDocsRoutes: DocsRoute[] = [
             description:
               'The Builder runs three separate build pipelines, the basic build pipeline, the snap pipeline and the tag pipeline.',
             component: <BuildPipelines />,
+          },
+          {
+            path: 'implement-build-task',
+            title: 'Implement a build task',
+            component: <div />,
           },
           {
             path: 'build-tasks',
