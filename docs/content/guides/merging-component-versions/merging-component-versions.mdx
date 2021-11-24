@@ -43,3 +43,46 @@ Tag and export again, after solving the conflict.
 bit tag teambit.base-ui/input/button --message "my message" 
 bit export
 ```
+
+## Merge with local changes
+
+Bit behaves slightly differently when importing changes for a component that was modified locally.  
+When you run `bit status` and a modified component has an incoming change it is listed in both **modified** and has **pending updates**.
+
+```bash
+pending updates
+(use "bit checkout [version] [component_id]" to merge changes)
+(use "bit log [component_id]" to list all available versions)
+
+    > teambit.base-ui/input/button current: 1.0.0 latest: 1.0.1
+
+modified components
+(use "bit tag --all [version]" to lock a version with all your changes)
+
+    > teambit.base-ui/input/button ... ok
+```
+
+Here use the same `checkout` command. Bit will use Git in an attempt to automatically merge changes between local changes the incoming version.  
+Merge conflicts may occur:
+
+```bash
+successfully switched teambit.base-ui/input/button to version 1.0.5
+updated base-ui/input/button.spec.ts
+updated base-ui/input/index.ts
+CONFLICT base-ui/input/button.ts automatic merge failed. please fix conflicts manually and then tag the results.
+```
+
+You can use the several options when `checkout` to resolve conflicts.
+
+- `--theirs` - the remote version overrides the local modifications.
+- `--ours` - the local implementation overrides the remote changes.
+- `--manual` - resolve the conflict manually.
+
+Once merge is resolved, run `bit status` and see the result.
+
+```status
+modified components
+(use "bit tag --all [version]" to lock a version with all your changes)
+
+     > teambit.base-ui/input/button ... ok
+```

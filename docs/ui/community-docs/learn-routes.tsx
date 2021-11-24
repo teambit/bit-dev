@@ -272,7 +272,7 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Components',
     icon: 'comps',
     open: false,
-    children: [
+    overview:
       {
         path: 'component-overview',
         title: 'Component Overview',
@@ -280,6 +280,7 @@ export const learnDocsRoutes: DocsRoute[] = [
           'Component is a decoupled, versioned source-code container designed for the purpose of containing a single module or component.',
         component: <ComponentOverview />,
       },
+    children: [
       {
         path: 'adding-components',
         title: 'Adding Components',
@@ -287,8 +288,13 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <AddingComponents />,
       },
       {
+        path: 'component-config',
+        title: 'Component Configuration',
+        component: <ComponentConfig />,
+      },
+      {
         path: 'component-id',
-        title: 'Naming Components',
+        title: 'Component ID',
         description:
           'The Component ID is designed to be a unique, human-readable name that simplifies and help organize components.',
         component: <ComponentId />,
@@ -296,25 +302,39 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'component-anatomy',
         title: 'Component Anatomy',
-        description: 'How Bit manages a component as a mini-repository.',
+        description: 'How Bit manages all data on a component.',
         component: <ComponentAnatomy />,
       },
+      /*{
+        path: 'inspecting-components',
+        title: 'Inspecting components',
+        component: <InspectingComponents />,
+      },*/
       {
-        path: 'component-config',
-        title: 'Component Configuration',
-        component: <ComponentConfig />,
+        path: 'component-main-file',
+        title: 'Main file',
+        description:
+          'Main file exposes the Component API.',
+        component: <MainFile />,
       },
       {
-        path: 'tags',
-        title: 'Versioning',
-        description: 'Manage component releases with semantic version.',
-        component: <Tags />,
+        path: 'dev-files',
+        title: 'Dev files',
+        description:
+          'Dev files are component files used for development and not for production. Dev files are determined as such by the Dev Files Aspect.',
+        component: <DevFiles />,
       },
       {
         path: 'snaps',
         title: 'Snapshot changes',
         description: 'Record component history with snapshots.',
         component: <Snaps />,
+      },
+      {
+        path: 'tags',
+        title: 'Versioning',
+        description: 'Manage component releases with semantic version.',
+        component: <Tags />,
       },
       {
         path: 'navigating-history',
@@ -345,30 +365,11 @@ export const learnDocsRoutes: DocsRoute[] = [
         path: 'merge-conflicts',
         component: <MergingComponentVersions />,
       },
-      {
-        path: 'component-main-file',
-        title: 'Main file',
-        description:
-          'The main file of a Component is the file resolved upon a require of the Component Directory. Main file is usually expected to expose the Component API.',
-        component: <MainFile />,
-      },
-      {
+      /*{
         path: 'component-json',
         title: 'component.json',
         component: <ComponentJson />,
-      },
-      {
-        path: 'inspecting-components',
-        title: 'Inspecting components',
-        component: <InspectingComponents />,
-      },
-      {
-        path: 'dev-files',
-        title: 'Dev files',
-        description:
-          'Dev files are component files used for development and not for production. Dev files are determined as such by the Dev Files Aspect.',
-        component: <DevFiles />,
-      },
+      },*/
       {
         path: 'component-capsules',
         title: 'Component capsules',
