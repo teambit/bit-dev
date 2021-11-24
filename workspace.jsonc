@@ -52,7 +52,7 @@
         "@learn-bit-react/ecommerce.ui.product.product-card": "1.0.14",
         "@learn-bit-react/ecommerce.ui.product.product-card-grid": "1.0.9",
         "@learn-bit-react/ecommerce.ui.store-hero": "0.0.9",
-        "@learnbit/innovators.blocks.top-innovators": "1.0.2",
+        "@learnbit/inventions.blocks.top-inventions": "1.0.0",
         "@react-aria/button": "3.3.3",
         "@react-types/button": "3.4.1",
         "@teambit/apps.netlify": "0.0.1",
@@ -166,7 +166,7 @@
    * see https://harmony-docs.bit.dev/aspects/variants for more info.
    **/
   "teambit.workspace/variants": {
-    "{ui/**}, !{ui/mocks/**}": {
+    "{ui/**}, !{ui/mocks/**}, {blocks/**}": {
       "teambit.community/envs/community-react": {}
     },
     "{ui/mocks/**}": {

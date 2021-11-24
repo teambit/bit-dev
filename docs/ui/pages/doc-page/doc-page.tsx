@@ -42,7 +42,6 @@ export function DocPage({ title, description, nextPage, children, baseUrl = '/do
   const myRef = useRef(null);
   const contentRef = useRef() as React.MutableRefObject<HTMLDivElement>;
   const [showNextPage, setNextPage] = useState(false);
-
   // const executeScroll = () => scrollToRef(myRef);
   const pageDescription = description || `Documentation page for ${title} - Bit.`;
 
