@@ -6,8 +6,17 @@ import { useIntersectionObserver } from './use-intersection-observer';
 import styles from './table-of-content.module.scss';
 
 export type TableOfContentProps = {
+  /**
+   * title of the table.
+   */
   title?: ReactNode;
+  /**
+   * the ref of the parent element. fallback is document.
+   */
   rootRef?: React.MutableRefObject<HTMLElement>;
+  /**
+   * the selectors to identify the elements to be collected. fallback is h1-h8.
+   */
   selectors?: string;
 } & React.HTMLAttributes<HTMLDivElement>;
 
@@ -18,17 +27,16 @@ export function TableOfContent({ className, children, title, rootRef, selectors,
   const headings = useMemo(() => getLinks(pageHeadings), [pageHeadings]);
 
   useEffect(() => {
-    let cleanup: (() => void) | undefined;
+    let observer: IntersectionObserver | undefined;
     const timeoutId = setTimeout(() => {
       const titlesArray: HTMLElement[] = getElements({ ref: rootRef, selectors });
 
-      const observer = useIntersectionObserver(titlesArray, setActiveHeading);
-      cleanup = observer?.disconnect;
+      observer = useIntersectionObserver(titlesArray, setActiveHeading);
       setHeadings(titlesArray);
     }, 300);
     return () => {
       // clear observer and timeout
-      cleanup?.();
+      observer?.disconnect();
       clearTimeout(timeoutId);
     };
   }, [window.location.pathname]);
