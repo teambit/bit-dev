@@ -45,11 +45,23 @@
         "mainFile": "index.ts",
         "rootDir": "pipelines/content/build-artifacts"
     },
+    "content/build-artifacts-api": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "pipelines/content/build-artifacts-api"
+    },
     "content/build-pipelines": {
         "scope": "teambit.pipelines",
         "version": "1.11.0",
         "mainFile": "index.ts",
         "rootDir": "pipelines/content/build-pipelines"
+    },
+    "content/build-task-api": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "pipelines/content/build-task-api"
     },
     "content/build-tasks": {
         "scope": "teambit.pipelines",
@@ -800,6 +812,12 @@
         "version": "1.11.0",
         "mainFile": "index.ts",
         "rootDir": "harmony/content/using-aspects"
+    },
+    "content/using-build-task": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "pipelines/content/using-build-task"
     },
     "content/variants": {
         "scope": "teambit.workspace",
