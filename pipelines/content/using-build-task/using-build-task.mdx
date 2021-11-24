@@ -73,3 +73,11 @@ export class MyAspectMain {
 
 MyAspectAspect.addRuntime(MyAspectMain);
 ```
+
+To use the build task, set the Aspect that registers it in the workspace config or component config:
+
+```json
+{
+  "my-org.my-scope/aspects/my-aspect": {}
+}
+```
