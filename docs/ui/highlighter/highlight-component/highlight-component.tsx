@@ -1,8 +1,14 @@
 import { Heading, Elements } from '@teambit/community.ui.heading';
-import { MultiHighlighter, ExcludeHighlighter } from '@teambit/react.ui.component-highlighter';
+import {
+  ComponentHighlighter,
+  ExcludeHighlighter,
+  excludeHighlighterAtt,
+} from '@teambit/react.ui.component-highlighter';
 import { ComponentID } from '@teambit/component-id';
 import React, { ReactNode } from 'react';
 import styles from './highlight-component.module.scss';
+
+export { ExcludeHighlighter, excludeHighlighterAtt };
 
 export type HighlightComponentProps = {
   /**
@@ -28,23 +34,20 @@ export type HighlightComponentProps = {
 
 export function HighlightComponent({ children, title }: HighlightComponentProps) {
   return (
-    <MultiHighlighter
+    <ComponentHighlighter
+      mode="allChildren"
       bgColorHover="#C9C3F6"
       bgColor="#ECEAFF"
+      highlightStyle={{ fontSize: 8 }}
       watchMotion
-      // @ts-ignore @Kutner - fix
-      highlighterOptions={{ style: { fontSize: 8 } }}
+      {...excludeHighlighterAtt} // prevent external highlighters from applying inside this one
     >
-      <ExcludeHighlighter>
-        {title ? (
-          <Heading element={Elements.H6} className={styles.heading}>
-            {title}
-          </Heading>
-        ) : (
-          ''
-        )}
-      </ExcludeHighlighter>
+      {title && (
+        <Heading element={Elements.H6} className={styles.heading} {...excludeHighlighterAtt}>
+          {title}
+        </Heading>
+      )}
       {children}
-    </MultiHighlighter>
+    </ComponentHighlighter>
   );
 }
