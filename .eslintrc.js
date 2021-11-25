@@ -11,6 +11,7 @@ module.exports = {
     'react/require-default-props': 'off',
     'prettier/prettier': 'error',
     'arrow-body-style': 'off',
+    'prefer-arrow-callback': ['warn', { allowNamedFunctions: true }],
     'react/destructuring-assignment': 'off',
     'class-methods-use-this': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
