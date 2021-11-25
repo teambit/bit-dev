@@ -52,13 +52,14 @@
         "@learn-bit-react/ecommerce.ui.product.product-card": "1.0.14",
         "@learn-bit-react/ecommerce.ui.product.product-card-grid": "1.0.9",
         "@learn-bit-react/ecommerce.ui.store-hero": "0.0.9",
-        "@learn-bit/innovators.composites.demo": "0.0.4",
+        "@learnbit/inventions.blocks.top-inventions": "1.0.0",
         "@loadable/component": "5.15.0",
         "@react-aria/button": "3.3.3",
         "@react-types/button": "3.4.1",
         "@teambit/apps.netlify": "0.0.1",
         "@teambit/base-ui.constants.storage": "1.0.0",
         "@teambit/base-ui.elements.image": "1.0.0",
+        "@teambit/base-ui.elements.label": "1.0.0",
         "@teambit/base-ui.elements.noop": "1.0.0",
         "@teambit/base-ui.elements.separator": "1.1.0",
         "@teambit/base-ui.graph.tree.collapsable-tree-node": "0.0.4",
@@ -92,7 +93,7 @@
         "@teambit/design.ui.sidebar.sidebar": "1.9.57",
         "@teambit/design.ui.styles.ellipsis": "0.0.346",
         "@teambit/design.ui.surfaces.menu.link-item": "0.0.374",
-        "@teambit/documenter.markdown.heading": "0.1.4",
+        "@teambit/documenter.markdown.heading": "0.1.5",
         "@teambit/documenter.theme.theme-compositions": "4.1.1",
         "@teambit/documenter.theme.theme-context": "4.0.3",
         "@teambit/documenter.ui.copy-box": "4.1.1",
@@ -103,16 +104,17 @@
         "@teambit/explorer.ui.gallery.component-grid": "0.0.435",
         "@teambit/harmony": "0.2.11",
         "@teambit/mdx.modules.mdx-loader": "0.0.466",
-        "@teambit/mdx.ui.mdx-layout": "0.0.451",
+        "@teambit/mdx.ui.mdx-layout": "0.0.475",
         "@teambit/react.eslint-config-bit-react": "0.0.451",
         "@teambit/react.templates.themes.theme": "0.0.3",
-        "@teambit/react.ui.component-highlighter": "0.0.477",
+        "@teambit/react.ui.component-highlighter": "0.0.482",
         "@teambit/ui-foundation.ui.buttons.collapser": "0.0.144",
         "@teambit/ui-foundation.ui.react-router.link": "0.0.441",
         "@teambit/ui-foundation.ui.react-router.nav-link": "0.0.441",
         "@teambit/ui-foundation.ui.tree.folder-tree-node": "0.0.453",
         "@teambit/ui-foundation.ui.tree.tree-node": "0.0.453",
         "@testing-library/react-hooks": "7.0.1",
+        "@types/history": "^4.0.0",
         "@types/loadable__component": "5.13.4",
         "@types/react-helmet": "6.1.2",
         "@types/react-router-dom": "^5.0.0",
@@ -130,6 +132,7 @@
         "eslint-plugin-prettier": "4.0.0",
         "eslint-plugin-react": "7.22.0",
         "eslint-plugin-react-hooks": "4.2.0",
+        "history": "^5.0.0",
         "millify": "4.0.0",
         "prettier": "2.4.1",
         "react-helmet": "6.1.0",
@@ -144,8 +147,6 @@
       },
       "peerDependencies": {
         "@testing-library/react": "12.0.0",
-        "@types/history": "^4.0.0",
-        "history": "^5.0.0",
         "react": "16.13.1",
         "react-dom": "16.13.1"
       }
@@ -167,8 +168,11 @@
    * see https://harmony-docs.bit.dev/aspects/variants for more info.
    **/
   "teambit.workspace/variants": {
-    "{ui/**}": {
+    "{ui/**}, !{ui/mocks/**}, {blocks/**}": {
       "teambit.community/envs/community-react": {}
+    },
+    "{ui/mocks/**}": {
+      "teambit.react/react": {}
     },
     "base-react": {
       "defaultScope": "teambit.base-react",

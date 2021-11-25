@@ -5,6 +5,7 @@ import { EnvsAspect, EnvsMain } from '@teambit/envs';
 import { CommunityReactAspect } from './community-react.aspect';
 import { myReactTemplate } from './templates/my-react-template';
 import { myEntityTemplate } from './templates/my-entity-template';
+import { bitDevDocs } from './templates/bitdev-docs';
 import { transformTsConfig } from './typescript/transform-tsconfig';
 
 // import { previewConfigTransformer, devServerConfigTransformer } from './webpack/webpack-transformers';
@@ -95,7 +96,7 @@ export class CommunityReactMain {
     ]);
     envs.registerEnv(templatesReactEnv);
 
-    generator.registerComponentTemplate([myReactTemplate, myEntityTemplate]);
+    generator.registerComponentTemplate([myReactTemplate, myEntityTemplate, bitDevDocs]);
 
     return new CommunityReactMain();
   }

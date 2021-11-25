@@ -1,72 +1,199 @@
 import { Image } from '@teambit/docs.ui.zoomable-image';
 import importDepsImg from './import-deps.png';
+import importDropDown from './import-dropdown.png';
+import importVisual from './import-visual.png';
 
 # Importing Components
 
-Importing is the process of copying Components from their Scope to the Local Scope, to use and maintain them in the Workspace.
+You can import a component from a remote scope to a workspace and maintain it as if it was implemented there. Imported components can be modified, compiled, tested and used as dependencies for other components and apps in the workspace. You may also snap and version imported components.
 
-When a component gets imported into a workspace, it becomes maintainable in that Workspace. Its source code can be modified, as well as its configurations.
-Modified components can be versioned, along with their built artifacts and metadata, and exported back to their Scope.
+<img src={importVisual} style={{ maxHeight:'200px' }} />
 
-:::note component version immutability
-A component can be modified and tagged with a new version. Previous versions, however, are completely immutable.
+To use the `import` command you need have a Bit-workspace in your repository. If you already have a Bit-workspace, you can simply import the component. If you don't - create a new directly, initialize Bit, and import the component:
+
+```bash
+bit import teambit.base-ui/input/button
+```
+```bash
+✔ installing dependencies using pnpm
+✔ running post install subscribers
+✔ linking components
+successfully imported one component
+- added teambit.base-ui/input/button new versions: 0.5.9, 0.5.10, 0.6.0, 0.6.2, 0.6.3, 0.6.4, 0.6.5, 0.6.6, 0.6.7, 0.6.8, 0.6.9, 0.6.10, 0.6.11, 0.6.12, 0.7.0, 0.7.1, 0.7.2, 1.0.0, 1.0.1, 1.0.2, 1.0.3, currently used version 1.0.3 
+```
+
+:::tip where do i get the import syntax?
+
+When browsing components in remote Scopes, open the green drop-down labeled "use", and copy the `bit import` command.
+
+<img src={importDropDown} style={{ maxHeight:'120px' }} />
+
 :::
 
-## Import a Component
+The import process fetch the component's revision history, install its dependencies.
 
-A component is imported using its [Component ID](/docs/components/components-overview):
 
-```bash
-bit import <component-id>
-```
-
-To import a component version different than the latest:
+Bit creates a directory where is "checkout" the implementation of the imported component.
 
 ```bash
-bit import <component-id>@<version>
+base-ui
+└── input
+    └── button
+        ├── button.composition.tsx
+        ├── button.docs.mdx
+        ├── button.module.scss
+        ├── button.spec.tsx
+        ├── button.tsx
+        └── index.ts
 ```
 
-## Import All Components Listed in the Workspace `.bitmap`
+:::tip change target directory
 
-To import all workspace components (listed in the `.bitmap` file):
+Component directory structure is set according to the `defaultDirectory` setting in your `workspace.jsonc` file. You can override this by passing the `--path` flag.
+
+```bash
+bit import teambit.base-ui/input/button --path random/directory
+```
+
+:::
+
+## Just like using any component
+
+Like all components in the workspace, imported components are linked in `node_modules`. You can use this `import` call to add a dependency on the imported component.
+
+```javascript
+import { Button } from '@teambit/base-ui.input.button';
+```
+
+This makes the dev-experience of maintaining imported components to be 100% similar to using components you authored in your workspace.  
+Imported components appear when you run `bit start`, compiled during `bit compile` and tested during `bit test`. Change and use them as you would work on your own components. You may also commit imported components to your Git repository.
+
+## Travel in version history
+
+You can navigate the component history, for any 
+Bit manages the complete revision history of a component. You can checkout a specific version of an imported component to your workspace.
+
+```bash
+bit checkout 0.0.5 teambit.base-ui/input/button # checkout version 0.0.5
+bit checkout latest teambit.base-ui/input/button # checkout latest version
+bit checkout latest # checkout latest version for all components
+```
+
+Learn more about navigating in [component history here](/components/navigating-history).
+
+## Eject Imported Components
+
+When you no longer need a component in a workspace you can eject it and replace with a dependency.
+
+```bash
+bit eject teambit.base-ui/input/button
+```
+
+## Fetching updates
+
+If a new version is available for a component, you can import it. This flow happens automatically when you run `install` or `import` with now arguments.
 
 ```bash
 bit import
 ```
 
-:::tip
-Use the `bit install` command to install all packages _and_ import all components.
-:::
-
-## Using an Imported Components
-
-Imported Components are symlinked from their corresponding module directories, in the workspace `node_modules`. Their compiled code is output to the `dist` of these directories. To consume an imported component, use its (absolute) module name, and not its relative path.
-That makes the `import` statements valid even when the Component is used in other projects, with different directory structures.
-
-```ts
-import { Card } from '@teambit/design.ui.input.color-picker';
-```
-
-To learn how Bit enables this way of consumption, [see here]('#the-import-process-for-initial-imports').
-
-## Check Out a Component Version into the Working Directory
-
-When importing a component that does not exist in the workspace, Bit will checkout and use the imported version (Bit defaults to the latest version).
-
-If a previous version already exists, Bit will fetch newer versions but will not check them out to the working directory.
-To check out a fetched version, into the working directory:
+When new version is available, Bit prints a message on new version available.
 
 ```bash
-bit checkout <version-to-checkout> <component-id>
+successfully imported 1 component
+- updated teambit.base-ui/input/button new versions: 1.0.1
 ```
 
-:::note merge conflicts
-You may encounter merge conflicts when trying to checkout a different version. This happens when the local component version is modified in a way that does not enable Bit to merge by itself.
+Running `status` also shows pending new versions, once imported.
 
-To solve that, see ['Merging Component Versions'](/mergin-component-versions)
-:::
+```bash
+bit status
+```
 
-## The Import Process for Initial Imports
+`status` tells you which version you currently have in the workspace, and what is the latest available version to checkout.
+
+```bash
+pending updates
+(use "bit checkout [version] [component_id]" to merge changes)
+(use "bit log [component_id]" to list all available versions)
+
+    > teambit.base-ui/input/button current: 1.0.0 latest: 1.0.1
+```
+
+Use the `checkout` command to update your workspace to the latest version.
+
+```bash
+bit checkout latest teambit.base-ui/input/button
+```
+
+If they are any dependency changes, your `node_modules` will be updated. All source files of the component will be updates as well.
+
+```bash
+successfully switched teambit.base-ui/input/button to version 1.0.1
+
+updated base-ui/input/button.spec.ts
+updated base-ui/input/index.ts
+auto-merged base-ui/input/button.ts
+```
+
+The component is now on the version that was checked out with the local changes on top of it.
+
+## Importing for Modified Components
+
+Bit behaves slightly differently when importing changes for a component that was modified locally.  
+When you run `bit status` and a modified component has an incoming change it is listed in both **modified** and has **pending updates**.
+
+```bash
+pending updates
+(use "bit checkout [version] [component_id]" to merge changes)
+(use "bit log [component_id]" to list all available versions)
+
+    > teambit.base-ui/input/button current: 1.0.0 latest: 1.0.1
+
+modified components
+(use "bit tag --all [version]" to lock a version with all your changes)
+
+    > teambit.base-ui/input/button ... ok
+```
+
+Here use the same `checkout` command. Bit will use Git in an attempt to automatically merge changes between local changes the incoming version.  
+Merge conflicts may occur:
+
+```bash
+successfully switched teambit.base-ui/input/button to version 1.0.5
+updated base-ui/input/button.spec.ts
+updated base-ui/input/index.ts
+CONFLICT base-ui/input/button.ts automatic merge failed. please fix conflicts manually and then tag the results.
+```
+
+You can use the several options when `checkout` to resolve conflicts.
+
+- `--theirs` - the remote version overrides the local modifications.
+- `--ours` - the local implementation overrides the remote changes.
+- `--manual` - resolve the conflict manually.
+
+Once merge is resolved, run `bit status` and see the result.
+
+```status
+modified components
+(use "bit tag --all [version]" to lock a version with all your changes)
+
+     > teambit.base-ui/input/button ... ok
+```
+
+## Export Changes
+
+You can snap and version imported components the same way you can do for your own components. This way you can collaborate with the original author of the component.  
+When you have a modification you want to share, version is with `tag` and export.
+
+```bash
+bit tag teambit.base-ui/input/button --message "my message"
+bit export
+```
+
+## what to do with this?
+
+### The Import Process for Initial Imports
 
 1. Bit fetches the Component from its Scope
 1. Bit stores the fetched Component in the Local Scope
@@ -78,7 +205,7 @@ To solve that, see ['Merging Component Versions'](/mergin-component-versions)
 1. Bit writes the `package.json` to the component’s corresponding module directory (nested in the workspace `node_modules` directory)
 1. Bit compiles the component
 
-## Installing the Dependencies of Imported Components
+### Installing the Dependencies of Imported Components
 
 Let's say we import 'Component A'.
 

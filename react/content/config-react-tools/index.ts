@@ -1,0 +1,1 @@
+export { default as ConfigReactTools, default } from './config-react-tools.mdx'
