@@ -49,39 +49,3 @@ Use the scope API to get a component from the scope, using its component id.
 ```ts
 getArtifacts(component: Component): ArtifactObject[] | undefined
 ```
-
-### getArtifactsVinylByExtension
-
-```ts
-getArtifactsVinylByExtension(component: Component, aspectName: string): Promise<ArtifactVinyl[]>
-```
-
-### getArtifactsVinylByExtensionAndName
-
-```ts
-getArtifactsVinylByExtensionAndName(component: Component, aspectName: string, name: string): Promise<ArtifactVinyl[]>
-```
-
-### getArtifactsByName
-
-```ts
-getArtifactsByName(component: Component, name: string): ArtifactObject[] | undefined
-```
-
-### getArtifactsByExtension
-
-```ts
-getArtifactsByExtension(component: Component, aspectName: string): ArtifactObject[] | undefined
-```
-
-### getArtifactsByExtensionAndName
-
-```ts
-getArtifactsByExtensionAndName(component: Component, aspectName: string, name: string): ArtifactObject[] | undefined
-```
-
-### getDataByAspect
-
-```ts
-getDataByAspect(component: Component, aspectName: string): Serializable | undefined
-```

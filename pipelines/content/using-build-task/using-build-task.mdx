@@ -1,0 +1,83 @@
+# Using Build Tasks
+
+## Register a Build Task via an Env
+
+To use a build task implement the `BuilderEnv` in your Env's class (located in your Env's `*.env.ts` file). To create a new Env, use one of Bit's Env templates.
+
+Use the appropriate Builder service handler to provide the Builder service with an array of build tasks to run.
+
+- `getBuildPipe`: To add a task to the Build Pipeline
+- `getTagPipe`: To add a task to the Tag Pipeline
+- `getSnapPipe`: To add a task to the Snap pipeline
+
+```ts
+import { BuilderEnv } from '@teambit/envs';
+import { MyBuildTask } from '@my-org/modules.my-build-task';
+import { MyEnvAspect } from './my-env.aspect';
+
+// The Env class should only implement the services it overrides
+export class MyEnv implements BuilderEnv {
+  getBuildPipe() {
+    return [new MyBuildTask(MyEnvAspect.id)];
+  }
+}
+```
+
+If your Env extends another Env, it is preferable, in most cases, to add the base Env tasks as well (instead of overriding them, altogether).
+
+Pass the base Env instance through the constructor and use its `getBuildPipe` method to retrieve its build tasks array.
+
+```ts
+import { ReactEnv } from '@teambit/react';
+// ...
+
+export class ReactLocStats implements BuilderEnv {
+  constructor(private reactEnv: ReactEnv) {}
+
+  getBuildPipe() {
+    return [...this.reactEnv.getBuildPipe(), new MyBuildTask(MyEnvAspect.id)];
+  }
+}
+```
+
+## Register a Build Task via an Aspect
+
+Use the Builder registration API in an existing Aspect, or create a new one.
+
+```bash
+bit create aspect aspects/my-aspect -s my-scope
+```
+
+To use the Builder API, import its 'Aspect' module and set it as a dependency of your Aspect (this will be used by Bit to inject an instance of builder upon execution).
+
+Use the appropriate API to register the task to the right build pipeline:
+
+- `registerBuildTasks(tasks: BuildTask[])`: To add a task to the Build Pipeline
+- `registerTagTasks(tasks: BuildTask[])`: To add a task to the Tag Pipeline
+- `registerSnapTasks(tasks: BuildTask[])`: To add a task to the Snap pipeline
+
+```ts
+import { MainRuntime } from '@teambit/cli';
+import { BuilderMain, BuilderAspect } from '@teambit/builder';
+import { MyBuildTask } from '@my-org/modules.my-build-task';
+import { MyAspectAspect } from './my-aspect.aspect';
+
+export class MyAspectMain {
+  static dependencies = [BuilderAspect];
+  static runtime = MainRuntime;
+  static async provider([builder]: [BuilderMain]) {
+    builder.registerBuildTasks([new MyBuildTask(MyAspectAspect.id)]);
+    return new MyAspectMain();
+  }
+}
+
+MyAspectAspect.addRuntime(MyAspectMain);
+```
+
+To use the build task, set the Aspect that registers it in the workspace config or component config:
+
+```json
+{
+  "my-org.my-scope/aspects/my-aspect": {}
+}
+```
