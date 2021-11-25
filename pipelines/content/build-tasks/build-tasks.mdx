@@ -1,249 +1,95 @@
 # Build Tasks
 
-Build tasks are component development operations that are executed in sequence, in one or more build pipelines.
+Build tasks are component development operations that are executed in sequence, in one or more build pipelines (build pipeline, snap pipeline, or tag pipeline).
 
-Build tasks are register to build pipelines, either by Envs using the [Builder service handlers](build-pipelines#add-a-build-task-from-an-env), or by Aspects (in general), using the [Builder registration API](build-pipelines#add-a-build-task-from-any-aspect).
+Build tasks are registered to the build pipelines, either by Envs using the [Builder service handlers](build-pipelines#add-a-build-task-from-an-env), or by Aspects (in general), using the [Builder registration API](build-pipelines#add-a-build-task-from-any-aspect).
 
-## Sequencing the build tasks
+The easiest way to start implementing a Build Task is by using the 'build-task' template:
 
-The Builder Aspect takes into consideration the following factors when deciding the order of which to execute each task:
+```bash
+bit create build-task modules/my-task
+```
 
-- **Location**: A task can be executed either at the start or end of the build pipeline. This can be explicitly configured by the task itself.
-- **Dependencies**: A task can depend on other tasks. That means, the dependencies must be completed successfully for all envs before this task starts. The dependencies are applicable inside a location and not across locations. This is configured by the task itself.
-- **An environment's list of build tasks**: This is the array of tasks as it is defined by an environment
+Alternatively, you can import an example build task component (and edit it in your own workspace):
 
-## Create a custom task
+```bash
+bit import teambit.pipelines/examples/modules/loc-stats
+```
 
-```ts title="print-cmp-name.task.ts"
-import {
-  BuildTask,
-  BuildContext,
-  BuiltTaskResult,
-  ComponentResult,
-} from '@teambit/builder';
+## Provide the Build Task with Identification
 
-// A task is an implementation of 'BuildTask' provided by the 'builder' aspect
-export class PrintCmpNameTask implements BuildTask {
-  // The constructor leaves these properties up to the hands of the environment using this task
-  constructor(readonly aspectId: string, readonly name: string) {}
+To identify your build task in various outputs and logs, provide it with a task name (`name`) and with the Aspect ID (`aspectId`) of the aspect that registered it.
 
-  // Place the task at the end of the build pipeline
-  // This will not affect tasks registered via the service handler!
-  readonly location = 'end';
+Since the Aspect ID may change (based on the aspect registering the build task), it is best to set it only when the build task is instantiated.
 
-  // This is where the task logic is placed. It will be executed by the build pipeline
-  async execute(context: BuildContext): Promise<BuiltTaskResult> {
-    const componentsResults: ComponentResult[] = [];
-
-    // Go through every isolated component instance
-    context.capsuleNetwork.seedersCapsules.forEach((capsule) => {
-      console.log(
-        `The current component name is: ${capsule.component.id.name}`
-      );
-
-      componentsResults.push({
-        component: capsule.component,
-        metadata: { customProp: capsule.component.id.name },
-      });
-    });
-    return {
-      // An array of component objects, enriched with additional data produced by the task
-      componentsResults,
-    };
-  }
+```ts
+export class MyTask implements BuildTask {
+  constructor(readonly aspectId: string) {}
+  readonly name = 'MyBuildTask';
 }
 ```
 
-## Build task properties
+## Process the Relevant Components
 
-### aspectId
+The build task receives the Build context (`context`) from the Builder aspect. It provides data regarding all the Capsules that were generated in this build process.
 
-```ts
-aspectId: string;
-```
+In most cases, the Capsules you should care about are the 'Seeder Capsules' (`seedersCapsules`).
+These are the Capsules that are intentionally being built (in contrast to those that are only needed by the build process as dependencies of the components intentionally being built).
 
-The component ID of the environment using this task.
+Build tasks run on sets of components which are grouped by their Env. That means a different set of 'Seeder Capsules' will be available for different instances of the build task, depending on the Env (for example, when the task runs over React Env's components, the seeders capsules will only be component using the React Env)
 
-### name
-
-```ts
-name: string;
-```
-
-A name for this task. Only alphanumerical characters are allowed. PascalCase should be used as a convention.
-
-### location
+Iterate over each Component Capsule to process its files.
 
 ```ts
-location?: 'start' | 'end'
+  async execute(context: BuildContext): Promise<BuiltTaskResult> {
+    const capsules = context.capsuleNetwork.seedersCapsules;
+    capsules.forEach((capsule) => {
+      console.log(`This component's name is: ${capsule.component.id.name}`);
+    }
+    return {
+      // ...
+    }
+  }
 ```
 
-The section of the build-pipeline to which to append this task.
+## Save New Data in the Component Metadata
 
-### dependencies
+Build tasks must return data regarding the components they processed (`componentsResults`). The 'component results' can also be used to include data regarding the build execution such as errors, start and end timestamps, etc.
+When tasks are executed as part of the snap or tag processes, this data gets persisted in the component version (as component metadata).
 
 ```ts
-dependencies?: string[]
+  async execute(context: BuildContext): Promise<BuiltTaskResult> {
+    // ...
+    const componentsResults: ComponentResult[];
+    const capsules = context.capsuleNetwork.seedersCapsules;
+    capsules.forEach((capsule) => {
+      componentsResults.push(capsule.component)
+    }
+    return {
+      componentsResults,
+    };
+  }
 ```
 
-An list of tasks that must be completed before this task gets executed.
-For example `dependencies = ['@teambit/preview']`.
+## Save New Artifacts in the Component Artifacts
 
-### execute
+Artifacts generated (in each component's capsule) can be persisted in the component version (when the task is executed as part of the tag or snap processes).
+This is done by selecting the relevant artifacts using a glob pattern, and providing them with a description (artifacts that are not selected will not be persisted).
+
+Note that a single task may return more than a single set of artifacts. In that case, the name (`name`) given for them should distinguish one set of artifacts from another (for example, a single compilation task that generates code transpiled to 'ES2015' and 'ES2020' standards)
 
 ```ts
-execute(context: BuildContext): Promise<BuiltTaskResult>
+  async execute(context: BuildContext): Promise<BuiltTaskResult> {
+  // ...
+    return {
+      artifacts: [
+        {
+          generatedBy: this.aspectId,
+          name: `component snapshots`,
+          globPatterns: [`snapshots/**`],
+        },
+      ],
+      componentsResults,
+    };
+  }
 ```
-
-The execute method is where all the task logic is placed.
-
-#### context
-
-```ts
-context: BuildContext;
-```
-
-The context of the build pipeline. Use this object (provided by Builder) to get information regarding all components handled by the build pipeline.
-For example, `context.capsuleNetwork.seedersCapsules` are models representing isolated instances of components handled by the build pipeline. These isolated instances are independent projects, generated in your local filesystem (by the build pipeline).
-
-Learn more about `BuildContext` [here](#build-context-buildcontext).
-
-#### return (BuiltTaskResult)
-
-```ts
-Promise<BuiltTaskResult>
-```
-
-Returns an object with data regarding the build task process, additional data regarding the components handled by the task and, if available, data regarding the different artifacts generated by this task.<br />
-The returned object `BuiltTaskResult` has the following attributes:
-
-- **componentsResults**  
-  `componentsResults: ComponentResult[]`
-  An array of objects, each containing an instance of an object handled the task and additional information regarding the process and the component itself.
-- **component**  
-  `component: Component`  
-  An instance of the component handled by the task (see the above task example).
-
-- **metadata**  
-  `metadata?: { [key: string]: Serializable }`  
-  Component metadata generated during the build task.
-
-- **errors**  
-  `errors?: Array<Error | string>`  
-  Build task errors. A task returning errors will abort the build pipeline and log the returned errors.
-
-- **warnings**  
-  `warnings?: string[]`  
-  warnings generated throughout the build task.
-
-- **startTime**  
-  `startTime?: number`  
-  A timestamp (in milliseconds) of when the task started
-
-- **endTime**  
-  `endTime?: number`  
-  A timestamp (in milliseconds) of when the task ended
-- **artifacts**  
-  `artifacts?: ArtifactDefinition[]`  
-  Use this to provide the builder with artifacts to persist in the component version (component objects).  
-  For example:
-
-  ```ts
-   [{
-        name: 'my-img-artifacts'
-        globPatterns: 'generated_images/*.jpg'
-      },
-    ];
-  }]
-  ```
-
-  Learn more about Artifact Definition [here.](https://bit.dev/teambit/pipelines/builder/~code/artifact/artifact-definition.ts)
-
-- **name**  
-  `name: string`  
-  The name of the artifact.  
-  For example, a project might utilize two different artifacts for the same typescript compiler, one that generates ES5 files and another for ES6. This prop helps to distinguish between the two.
-- **generatedBy**  
-  `generatedBy?: string;`  
-  Id of the component that generated this artifact.
-
-- **description**  
-  `description?: string`  
-  A description of the artifact.
-
-- **globPatterns**  
-  `globPatterns: string[]`  
-  Glob patterns of files to include upon artifact creation. Minimatch is used to match the patterns.  
-  For example, `['*.ts', '!foo.ts']` matches all ts files but ignores `foo.ts`.
-
-- **rootDir**  
-  `rootDir?: string`  
-  Defines the root directory of the artifacts in the capsule file system. The rootDir must be unique for every artifact, otherwise data might be overridden.
-
-- **dirPrefix**  
-  `dirPrefix?: string`  
-  Adds a directory prefix for all artifact files.
-
-- **context**  
-  `context?: 'component' | 'env'`  
-  Determine the context of the artifact. The default artifact context is `component`. `env` is useful when the same file is generated for all components, for example, a "preview" task may create the same webpack file for all components of that env.
-
-- **storageResolver**  
-  `storageResolver?: string`  
-  Used to replace the location of the stored artifacts. The default resolver persists artifacts on scope (that's not recommended for large files).
-
-- **preBuild**  
-  `preBuild?(context: BuildContext): Promise<void>`  
-  Runs before the build pipeline has started. This method should only be used when preparations are needed to be done on all environments before the build starts.
-
-- **postBuild**  
-  `postBuild?(context: BuildContext, tasksResults: TaskResultsList): Promise<void>`  
-  Runs after the dependencies were completed for all environments.
-
-## Build context (BuildContext)
-
-### components
-
-```ts
-components: Component[]
-```
-
-All components about to be built/tagged.
-
-### capsuleNetwork
-
-```ts
-capsuleNetwork: Network;
-```
-
-The network of capsules ready to be built. This includes:
-
-- 'Seeders': Components that where explicitly built (e.g, `bit build <components>`).
-
-- 'Graph capsules' Seeders and their dependencies (dependencies that are also handled by the workspace)
-
-Learn more about `Network` [here](https://bit.dev/teambit/component/isolator/~code/network.ts).
-
-#### seedersCapsules
-
-```ts
-seedersCapsules: CapsuleList;
-```
-
-The seeders' capsules.
-
-#### graphCapsules
-
-```ts
-graphCapsules: CapsuleList;
-```
-
-All capsules, including the dependencies of the seeders (even when they belong to another env).
-
-#### capsulesRootDir
-
-```ts
-capsulesRootDir: string;
-```
-
-The absolute path to the capsules' [root directory](capsule#capsule-directory-structure).

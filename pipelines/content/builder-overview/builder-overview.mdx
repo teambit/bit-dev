@@ -1,7 +1,6 @@
 # Builder Overview
 
-The Builder Aspect manages the component build pipelines. It executes build tasks in sequence, according to their dependency on other tasks, as well as the tasks' own "requests".
-
+The Builder Aspect manages the component build pipelines. It executes build tasks in sequence, according to their dependency on other tasks.
 The build process is an essential part of making a component independent. It includes re-generating the component in an isolated environment, testing, compiling, generating previews, packaging and more.
 
 When the build process runs in the context of a snap or tag operations, the generated metadata and artifacts are persisted in the component objects (the component version).
