@@ -5,11 +5,13 @@ module.exports = {
   },
   rules: {
     'no-console': ['error'],
+    'no-use-before-define': 'off', // provided by ts-eslin/no-use-before
+    '@typescript-eslint/no-use-before-define': ['warn', { typedefs: false, functions: false }],
     'react/jsx-props-no-spreading': 'off',
     'react/require-default-props': 'off',
     'prettier/prettier': 'error',
-    'consistent-return': 'off',
     'arrow-body-style': 'off',
+    'prefer-arrow-callback': ['warn', { allowNamedFunctions: true }],
     'react/destructuring-assignment': 'off',
     'class-methods-use-this': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',

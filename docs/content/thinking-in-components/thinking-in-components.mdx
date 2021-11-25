@@ -1,6 +1,10 @@
+import { Heading, Elements } from '@teambit/community.ui.heading';
+import { LeftRight } from '@teambit/design.ui.layouts.sections.left-right';
 import { Subtitle } from '@teambit/docs.ui.subtitle';
 import { ProductCard } from '@learn-bit-react/ecommerce.ui.product.product-card';
+import { ArchitectureBreakdown } from '@teambit/docs.blocks.component.architecture-breakdown';
 import { HighlightComponent } from '@teambit/docs.ui.highlighter.highlight-component';
+import { TopInventions } from '@learnbit/inventions.blocks.top-inventions';
 import styles from './thinking-in-components.module.scss';
 
 # Thinking in components
@@ -12,61 +16,97 @@ import styles from './thinking-in-components.module.scss';
 </Subtitle>
 
 ## Components
-Components is the core concept of component-driven software. They are the bulding block of every component-based architecture, and considered the starting platform for 
-service oritentation. Components can be anything from a plain module, UI component, apps, hooks, backend services and even content! You can think of anything in components, even outside
-of software.
+Components are the core concept and the building block of component-driven software. Components can be anything from a general purpose modules, UI components, frontend applications, 
+backend services and even content! You can think of anything in components, even outside the world of software.
+Components sometime mean different things to different stakeholders of a modern product team.
 
-## Start with a product specification
-Sometimes we confuse components to be just UI components, after working with Bit, you understand components could could be React hooks, React contexts, plain modules, entities, 
-Angular Modules or about anything else you can imagine! Breaking down the spec to components starts 
-by defining which components are required and searching for existing ones. Not always we get it perfect from the get go but no worries! You can always iterate and change as you evolve
-your feature. Try and define the following:
+As a product manager, using components means building reusable pieces of value which cut down future development time, improve user experience and leads to shipping more value faster.
+For a product designer, using components means less time spent arduously repeating the same pattern over and over again in Sketch or Figma files.
+For a developer, using components means building reusable, independent pieces of code.
+
+Thinking in components has a lot of benefits.
+
+- **Speed.** There might be a steep curve in the short term, but over the long run, well established components will likely to help speed up development
+of future releases. 
+
+- **User experience.** User experience tends to become inconsistent over time and you start facing problems like a settings page with variaty of different drop downs
+or buttons that look differently across different product sections. Inconsistent designs and behaviours consfuse users and is the opposite from crafting a 
+delightful product experience.
+
+- **Adaptability.** Every component built, is a component you iterate on and improve over time. Using components helps to adapt to product changes and business requirements quickly. 
+Every change drives more value. 
+
+Successful component thinking is done in collaboration with others in a top down process. Implementation is bottom up.
+
+## Start with an end
+When starting the planning of new components, it is most important to understand **where and how the component would be used**.
+The more concerte usages you have for a component, the better it will be! It is good to start using the component sooner than later. Using components earliar in the process
+help tackle real-life constraints early on the development process and results in producing better components.
+
+<TopInventions />
+
+   
+## Collaborate on breaking the product specification to components
+A product specification is a blueprint that outlines the product you will be building, what it is going to look like, and specific requirements and behaviours. Usually
+a product spec comes in the shape of a design sketch using tools like Figma or Sketch and a set rules defining the product expected behavior.
+
+Start by taking the product spec, together with a designer and a product manager and define the components that play role. Start with the first component you need to use
+and slowly propogate to define more components including UI and behaviour as you need them, from the ground up.
+
+Easiest is to start with the UI
+components and slowly propogate up the tree to behaviour, and decide on the assets of value, you are creating for your team. 
+
+- **Product.** Bring the product specification and requirements. Shape the product  
+- **Engineering.** Your role is to bring up the technical constraints, help shape functionality into components that work in reality. Use the same techniques used
+to decide if to create a function or class. Disribute things that get bigger into smaller components.
+- **Design.** - Bring the design constraints.
+- **Business.** Think of the business responsbility of the component. Drive balanced decision making.
+
+The process of breaking down a product spec to components starts by defining which components are required and searching for existing ones that might fit our requirements. We might need 
+to adjust some of our existing components to support new capabilities.
+
+Lets take the example below and start breaking it to component together. Every breakdown starts with the most concerete component. In this case we are building a
+Product Card. The first question should be: where would I use the card? If there is no usage for the card it is probably not a good idea to start building it.
+
+Try and define the following:
 
 - Components to use.
 - Components to change.
 - New components to build.
 
+Not always we get it perfect from the get go but no worries! You can always iterate and change as you evolve your feature.
 <!-- TODO: force nav blue highlithing on all components in the below. -->
 
-<HighlightComponent>
-  <ProductCard
-    title="Nike Air"
-    text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quos quidem sequi illum facere recusandae voluptatibus"
-    alt="Nike Air"
-    src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDV8fHNuZWFrZXJ8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
-    price={190}
-    className={styles.productCard}
-    buttonText="add to cart"
-  />
-</HighlightComponent>
+<ArchitectureBreakdown />
 
-This example is composed of different components, which might exist or not and might be owned by different teams and people. Breaking down the product specification to components
-together helps align to naming and drive better collaboration of future products! Deciding on component names is a focal for the successful collaboration. When deciding on 
-product specs, we should think of take few things under consideration: 
-
-- Name the component.
-- Search for similar components (Using bit.cloud or the self hosted scope search).
-- Determine which components needs to be changed.
-
-- Define the component resposibility.
-- Understand who should own this.
-- Understand who should own this.
-- Understand who should own this.
-- Understand who should own this.
+1. Break down the product spec into components.
+2. Name each of the components.
+3. Search for components that fill these requirements.
+4. Use the component, or create a new one if you couldn't find any fit.
+5. Distribtue ownership.
+6. dsadsasadsa
 
 :::tip
 Breaking down product specification in collaboration with stake-holders like backend developers, designers or product managers, help surface issues early on the development process, 
 and helps everyone understand each other and build better products together.
 :::
 
-## Step 1: Bottom up
-Starting bottom up is confused a lot.
+## Balance long term and short term
+
+
+
+## Build bottom up
+People tend to confuse starting bottoms up. Intuition is to start with a small component like a `Button` and then compose it all the way
+up to an application. Actually, it is quite the opposite. You should start with the first component you are going to actually **use**, and build the components you need
+to achieve your goal.
 
 ```bash
 bit create react ui/product-card --scope 
 ```
 
 
-## Step 2: Dogfood
+### Use as early as possible
 
-## Step 3: Scale
+### Iterate
+
+

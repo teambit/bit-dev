@@ -52,7 +52,7 @@
         "@learn-bit-react/ecommerce.ui.product.product-card": "1.0.14",
         "@learn-bit-react/ecommerce.ui.product.product-card-grid": "1.0.9",
         "@learn-bit-react/ecommerce.ui.store-hero": "0.0.9",
-        "@learnbit/innovators.blocks.top-innovators": "1.0.2",
+        "@learnbit/inventions.blocks.top-inventions": "1.0.0",
         "@loadable/component": "5.15.0",
         "@react-aria/button": "3.3.3",
         "@react-types/button": "3.4.1",
@@ -71,6 +71,7 @@
         "@teambit/base-ui.layout.breakpoints": "1.0.0",
         "@teambit/base-ui.layout.grid-component": "1.0.1",
         "@teambit/base-ui.layout.page-frame": "1.0.1",
+        "@teambit/base-ui.loaders.skeleton": "1.0.1",
         "@teambit/base-ui.routing.native-nav-link": "1.0.0",
         "@teambit/base-ui.routing.routing-provider": "1.0.0",
         "@teambit/base-ui.surfaces.card": "1.0.1",
@@ -107,7 +108,7 @@
         "@teambit/mdx.ui.mdx-layout": "0.0.475",
         "@teambit/react.eslint-config-bit-react": "0.0.451",
         "@teambit/react.templates.themes.theme": "0.0.3",
-        "@teambit/react.ui.component-highlighter": "0.0.482",
+        "@teambit/react.ui.component-highlighter": "0.0.486",
         "@teambit/ui-foundation.ui.buttons.collapser": "0.0.144",
         "@teambit/ui-foundation.ui.react-router.link": "0.0.441",
         "@teambit/ui-foundation.ui.react-router.nav-link": "0.0.441",
@@ -168,7 +169,7 @@
    * see https://harmony-docs.bit.dev/aspects/variants for more info.
    **/
   "teambit.workspace/variants": {
-    "{ui/**}, !{ui/mocks/**}": {
+    "{ui/**}, !{ui/mocks/**}, {blocks/**}": {
       "teambit.community/envs/community-react": {}
     },
     "{ui/mocks/**}": {
