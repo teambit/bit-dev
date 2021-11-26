@@ -8,9 +8,8 @@ import componentImg from './component.png';
 **Bit Component** is a container designed for single module or component, it allow you to decouple and version independent components.  
 It is the most fundamental building block of Bit and what enables component-driven software. Create, maintain and compose components to apps and systems.
 
-Each component has a unique [ID](/components/component-id) and contains [Source Code](/components/source-code), [Dependencies](/dependencies/overview), [Artifacts](/components/artifact), [Configuration](/components/component-config) and [Metadata](/components/metadata). Component generates and manages its own artifacts, like [Package](/packages/package), [Distribution](/compiler/dist), and even a [Preview](/preview/preview).
-
-Components are connected through dependencies have their own unique version history.
+Each component has a unique [ID](/components/component-id) and contains [Source Code](/components/source-code), [Dependencies](/dependencies/overview), [Artifacts](/components/artifact), [Configuration](/components/component-config) and [Metadata](/components/metadata). Component generate and manage its own artifacts, like [Package](/packages/package), [Distribution](/compiler/dist), and even a [Preview](/preview/preview).  
+Components are connected together through dependencies, as Bit forms a complete dependency graph of your codebase.
 
 <Image width="30%" src={componentImg} alt="Bit Components" />
 
