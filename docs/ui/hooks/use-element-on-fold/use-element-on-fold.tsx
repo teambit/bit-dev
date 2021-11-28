@@ -1,7 +1,7 @@
 import { useEffect, useState, useMemo } from 'react';
 import { getElements } from './get-elements';
 
-export const useIntersectionObserver = (ref, selectors) => {
+export const useElementOnFold = (ref, selectors) => {
   const elements = useMemo(() => getElements({ ref, selectors }), [ref?.current]);
 
   const [activeElement, setActive] = useState<HTMLElement | undefined>(undefined);

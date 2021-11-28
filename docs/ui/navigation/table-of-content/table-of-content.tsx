@@ -1,7 +1,7 @@
 import React, { useMemo, ReactNode } from 'react';
 import classNames from 'classnames';
 import { MenuLinkItem } from '@teambit/design.ui.surfaces.menu.link-item';
-import { useIntersectionObserver } from './use-intersection-observer';
+import { useElementOnFold } from '@teambit/docs.ui.hooks.use-element-on-fold';
 import styles from './table-of-content.module.scss';
 
 export type TableOfContentProps = {
@@ -20,7 +20,7 @@ export type TableOfContentProps = {
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export function TableOfContent({ className, children, title, rootRef, selectors, ...rest }: TableOfContentProps) {
-  const { activeElement, elements } = useIntersectionObserver(rootRef, selectors);
+  const { activeElement, elements } = useElementOnFold(rootRef, selectors);
   const anchors = useMemo(() => getLinks(elements), [elements]);
 
   if (!anchors) return null;

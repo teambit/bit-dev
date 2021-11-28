@@ -1203,6 +1203,12 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/homepage/sections/standardization"
     },
+    "ui/hooks/use-element-on-fold": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/ui/hooks/use-element-on-fold"
+    },
     "ui/hooks/use-local-storage": {
         "scope": "teambit.community",
         "version": "1.11.1",
