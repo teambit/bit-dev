@@ -22,30 +22,16 @@ export type TableOfContentProps = {
 
 export function TableOfContent({ className, children, title, rootRef, selectors, ...rest }: TableOfContentProps) {
   const [activeHeading, setActiveHeading] = useState<string | undefined>(undefined);
-  const [pageHeadings, setHeadings] = useState<HTMLElement[]>([]);
 
-  const headings = useMemo(() => getLinks(pageHeadings), [pageHeadings]);
-
-  useEffect(() => {
-    let observer: IntersectionObserver | undefined;
-    const timeoutId = setTimeout(() => {
-      const titlesArray: HTMLElement[] = getElements({ ref: rootRef, selectors });
-
-      observer = useIntersectionObserver(titlesArray, setActiveHeading);
-      setHeadings(titlesArray);
-    }, 300);
-    return () => {
-      // clear observer and timeout
-      observer?.disconnect();
-      clearTimeout(timeoutId);
-    };
-  }, [window.location.pathname]);
-  if (!headings) return null;
-
+  const titlesArray = getElements({ ref: rootRef, selectors });
+  const anchors = useMemo(() => getLinks(titlesArray), [titlesArray]);
+  const active = useIntersectionObserver(titlesArray, setActiveHeading);
+  console.log('activeHeading', active);
+  if (!anchors) return null;
   return (
     <div {...rest} className={classNames(styles.tableOfContent, className)}>
       {title && <div className={styles.title}>{title}</div>}
-      {headings.map((link) => {
+      {anchors.map((link) => {
         return (
           <MenuLinkItem
             key={link?.id}
@@ -63,10 +49,10 @@ export function TableOfContent({ className, children, title, rootRef, selectors,
 }
 
 function getLinks(links: HTMLElement[]) {
-  if (!links) return;
+  if (!links) return undefined;
   return Object.values(links).map((link) => {
     const linkText = link?.textContent;
-    if (!linkText) return;
+    if (!linkText) return undefined;
     return {
       id: linkText.toLowerCase().replace(/ /g, '-'),
       displayName: linkText,

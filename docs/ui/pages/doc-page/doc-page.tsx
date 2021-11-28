@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, ReactNode } from 'react';
+import React, { useRef, useState, useEffect, ReactNode, Suspense } from 'react';
 import { MDXLayout } from '@teambit/mdx.ui.mdx-layout';
 import { Page } from '@teambit/base-react.pages.page';
 import { NextPage } from '@teambit/community.ui.cards.next-page';
@@ -36,7 +36,7 @@ export type DocPageProps = {
 
 const docSelectors = '.docs-heading h1, .docs-heading h2, .docs-heading h3';
 
-const components = mdxComponents('/docs');
+const components = mdxComponents('/docs', 'docs-heading');
 
 export function DocPage({ title, description, nextPage, children, baseUrl = '/docs' }: DocPageProps) {
   const myRef = useRef(null);
@@ -62,28 +62,32 @@ export function DocPage({ title, description, nextPage, children, baseUrl = '/do
   }, [window?.location.hash]);
 
   return (
-    <Page title={`${title} | Bit`} description={pageDescription} className={styles.docsPage}>
-      <div ref={myRef} id="content" className={styles.content}>
-        <MDXLayout components={components}>
-          <div className={styles.mdxLayout} ref={contentRef}>
-            {children}
-          </div>
-        </MDXLayout>
-        {nextPage && showNextPage && (
-          <NextPage
-            className={styles.next}
-            title={nextPage.title}
-            description={nextPage.description}
-            href={nextPage.absPath}
+    <Suspense fallback={<div>loading!!!</div>}>
+      <Page title={`${title} | Bit`} description={pageDescription} className={styles.docsPage}>
+        <div ref={myRef} id="content" className={styles.content}>
+          <MDXLayout components={components}>
+            <div className={styles.mdxLayout} ref={contentRef}>
+              {children}
+            </div>
+          </MDXLayout>
+          {nextPage && showNextPage && (
+            <NextPage
+              className={styles.next}
+              title={nextPage.title}
+              description={nextPage.description}
+              href={nextPage.absPath}
+            />
+          )}
+        </div>
+        {showTableOfContent && (
+          <TableOfContent
+            title="on this page"
+            className={styles.tableOfContent}
+            rootRef={contentRef}
+            selectors={docSelectors}
           />
         )}
-      </div>
-      <TableOfContent
-        title="on this page"
-        className={styles.tableOfContent}
-        rootRef={contentRef}
-        selectors={docSelectors}
-      />
-    </Page>
+      </Page>
+    </Suspense>
   );
 }

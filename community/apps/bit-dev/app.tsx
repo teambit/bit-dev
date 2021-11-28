@@ -26,9 +26,7 @@ export function BitDevApp() {
         <Redirect exact from="/docs" to="/docs/quick-start" />
         <Route path="/docs">
           <WideColumn>
-            <Suspense fallback={<div>loading...</div>}>
-              <CommunityDocs />
-            </Suspense>
+            <CommunityDocs />
           </WideColumn>
         </Route>
 
