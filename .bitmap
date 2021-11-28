@@ -11,7 +11,7 @@
 {
     "apps/bit-dev": {
         "scope": "teambit.community",
-        "version": "1.11.8",
+        "version": "1.11.9",
         "mainFile": "index.ts",
         "rootDir": "community/apps/bit-dev"
     },
@@ -47,7 +47,7 @@
     },
     "content/build-artifacts": {
         "scope": "teambit.pipelines",
-        "version": "1.11.2",
+        "version": "1.11.3",
         "mainFile": "index.ts",
         "rootDir": "pipelines/content/build-artifacts"
     },
@@ -1013,7 +1013,7 @@
     },
     "ui/community-docs": {
         "scope": "teambit.docs",
-        "version": "1.11.8",
+        "version": "1.11.9",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/community-docs"
     },
