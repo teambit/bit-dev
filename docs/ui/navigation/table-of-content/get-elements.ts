@@ -8,6 +8,6 @@ export type GetElements = {
 };
 
 export function getElements({ ref, selectors = defaultSelectors }): HTMLElement[] {
-  const elements = ref?.current ? ref?.current?.querySelectorAll(selectors) : document.querySelectorAll(selectors);
-  return Array.from(elements);
+  const elements = ref ? ref?.current?.querySelectorAll(selectors) : document.querySelectorAll(selectors);
+  return elements ? Array.from(elements) : [];
 }

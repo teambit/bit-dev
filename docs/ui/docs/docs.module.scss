@@ -6,7 +6,6 @@
   box-sizing: border-box;
   width: 100%;
   min-width: 0; // prevents content from overflowing
-  // margin-left: 250px;
   @media screen and (max-width: $br-md) {
     padding: 0;
     margin-left: 0;
@@ -20,7 +19,6 @@
 
 
 .collapsableSidebar {
-  // position: fixed;
   background-color: var(--bit-bg-modal, #ffffff);
   height: 100%;
   z-index: 1;

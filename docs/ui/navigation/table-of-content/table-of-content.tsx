@@ -1,7 +1,6 @@
-import React, { useMemo, ReactNode, useState, useEffect } from 'react';
+import React, { useMemo, ReactNode } from 'react';
 import classNames from 'classnames';
 import { MenuLinkItem } from '@teambit/design.ui.surfaces.menu.link-item';
-import { getElements } from './get-elements';
 import { useIntersectionObserver } from './use-intersection-observer';
 import styles from './table-of-content.module.scss';
 
@@ -21,12 +20,9 @@ export type TableOfContentProps = {
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export function TableOfContent({ className, children, title, rootRef, selectors, ...rest }: TableOfContentProps) {
-  const [activeHeading, setActiveHeading] = useState<string | undefined>(undefined);
+  const { activeElement, elements } = useIntersectionObserver(rootRef, selectors);
+  const anchors = useMemo(() => getLinks(elements), [elements]);
 
-  const titlesArray = getElements({ ref: rootRef, selectors });
-  const anchors = useMemo(() => getLinks(titlesArray), [titlesArray]);
-  const active = useIntersectionObserver(titlesArray, setActiveHeading);
-  console.log('activeHeading', active);
   if (!anchors) return null;
   return (
     <div {...rest} className={classNames(styles.tableOfContent, className)}>
@@ -36,7 +32,7 @@ export function TableOfContent({ className, children, title, rootRef, selectors,
           <MenuLinkItem
             key={link?.id}
             className={styles.item}
-            isActive={() => activeHeading === link?.displayName}
+            isActive={() => activeElement?.innerText === link?.displayName}
             href={`#${link?.id}`}
           >
             {link?.displayName}
