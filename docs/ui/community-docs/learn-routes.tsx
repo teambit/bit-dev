@@ -510,11 +510,6 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <HostingScopes />,
       },
       {
-        path: 'running-a-scope-server',
-        title: 'Scope API',
-        component: <HostingScopes />,
-      },
-      {
         path: 'inspecting-scopes',
         title: 'Inspecting Scopes',
         description:
