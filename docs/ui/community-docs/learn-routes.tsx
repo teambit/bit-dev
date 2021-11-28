@@ -538,13 +538,15 @@ export const learnDocsRoutes: DocsRoute[] = [
     },
     children: [
       {
-        path: 'envs-config',
-        title: 'Configure Components',
+        path: 'using-envs',
+        title: 'Using Envs',
         component: <div />,
       },
       {
-        path: 'using-env',
-        title: 'Using envs',
+        path: 'inspecting-env',
+        title: 'Inspecting an Env',
+        description: '',
+        component: <InspectingEnv />,
       },
       {
         path: 'composing-env',
@@ -555,7 +557,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'dev-services-overview',
-        title: 'Environment Services',
+        title: 'Env Services',
         description:
           "Environment Services control various workflows and commands for components.",
         component: <DevServicesOverview />,
@@ -565,24 +567,6 @@ export const learnDocsRoutes: DocsRoute[] = [
         title: 'Env Troubleshooting',
         component: <EnvToubleshooting />,
       },
-      {
-        path: 'inspecting-env',
-        title: 'Inspecting an Env',
-        description: '',
-        component: <InspectingEnv />,
-
-      },
-      {
-        path: 'env-service',
-        title: 'Env service',
-        description: '',
-        component: <div />,
-      },
-      // {
-      //   path: 'env-troubleshooting',
-      //   title: 'Env Troubleshooting',
-      //   component: <EnvToubleshooting />,
-      // },
     ],
   },
   {

@@ -1,16 +1,165 @@
+import { Image } from '@teambit/docs.ui.zoomable-image';
 import envOverview from './env-overview.png';
+import envComposition from './env-composition.png';
 
 # Component Development Environment
 
-Component Development Environments (envs) contains and manages development tools, configs and workflows (linter, compiler, tester, etc) and their configs.
+Component Development Environments (envs) contains simple and standard dev-workflows, like **compilation**. You may set different envs on different "types" of components. It means that a single command runs the same flow for all components in the workspace, regardless of specific tools or configs used.
 
-<img src={envOverview} style={{ maxHeight:'200px' }} />
+<Image src={envOverview} width="60%" />
 
-Envs provides various services for developers to control component life-cycle and development, starting from generating components with templates, through compilation, all the way to deployment. It has several benefits:
+An env contain the definition for how a component is build and maintained. By setting a specific env on a component you define the component "type": React, Angular or Node, as each requires a different setup.  
+You can build envs to contain more granular configurations for having various flavors of components of the same "type". For example, keeping a different env just for React Hooks, which extends your base React configuration.
 
-- Single, versioned place that defines and controls workflows, configs and tools for one "type" of components.
-- Envs provide APIs for others to customized and use as a baseline when defining more concrete setups.
-- The same workspace may have components using different envs, meaning you can work on Angular and React components in the same workspace.
-- No configuration files polluting your codebase, no matter how complex your setup is, and how many components you have.
+A component may only have a single env defined. Use the `env` command to see how components are configured:
 
+```bash
+bit env
+```
 
+```bash
+┌──────────────────────────────────┬─────────────────────────────────┐
+│ component                        │ env                             │
+├──────────────────────────────────┼─────────────────────────────────┤
+│ teambit.demo/pages/welcome@0.0.1 │ teambit.react/react             │
+├──────────────────────────────────┼─────────────────────────────────┤
+│ teambit.demo/ui/card@0.0.1       │ teambit.react/react             │
+├──────────────────────────────────┼─────────────────────────────────┤
+│ teambit.demo/ui/heading@0.0.1    │ teambit.react/react             │
+├──────────────────────────────────┼─────────────────────────────────┤
+│ teambit.demo/ui/text@0.0.1       │ teambit.react/react             │
+└──────────────────────────────────┴─────────────────────────────────┘
+```
+
+## Env is a component
+
+Envs are implemented as [Bit Components](/docs/components/component-overview) that compose together different workflows ([env services](/docs/envs/env-service-overview)) and configs for testing, linting, formatting, previewing and others.  
+Different envs may use the same flows but with different configuration. For example, **formatter** is used by both React and Angular, but each of them applies a different set of rules. Envs can provide APIs to be extended and composed to more concrete flows.
+
+<Image src={envComposition} width="80%" />
+
+:::info Bit applies [component thinking](/docs/thinking-in-components) to managing your dev-workflow.
+:::
+
+## Envs in your workspace
+
+A Bit workspace helps you focus on components and removes all other noise such as configuration files. This is critical when working with many components, as this can quickly pollute your workspace with many config files.
+
+An env encapsulates all the "noise" to single component. You then apply the env on a component for all flows and configs to apply for that specific component. In the same sense, you may also set vastly different envs on components in the same workspace.
+
+```javascript
+"teambit.workspace/variants": {
+    "{utility-functions/**}": {    // Match any component name starts with utility-functions
+        "teambit.harmony/node": {} // Set "node" workflow and configs for components
+    },
+    "{pages/**}": {                // Match any component name starts with pages
+        "teambit.react/react": {}  // Set "react" workflow and configs for components
+    },
+}
+```
+
+:::tip Learn more about [workspace variants](/docs/workspace/variants).
+:::
+
+When you run different commands like `start`, `compile`, `test`, `lint`, `format` or `build`, the operation will run per-component, according to how it is set in the env applied to it.
+
+## Different services in an env
+
+Envs may be composed from various services. However, there are set services which are important for a basic component-workflow.
+
+### Component preview
+
+To preview all components in the workspace use the `start` command. It gets the preview for a per-component dev-server tooling and configuration from the env applied to the component.
+
+```bash
+bit start
+```
+
+```bash
+ENVIRONMENT NAME                    URL                                          STATUS
+teambit.react/react                 http://localhost:3300                        RUNNING
+teambit.harmony/node                http://localhost:3301                        RUNNING
+
+You can now view 'my workspace' components in the browser.
+Bit server is running on http://localhost:3000
+```
+
+### Compilation
+
+Compiling a component to a specific target format allows other components to `import` and depend on that component as a node module.
+
+```bash
+bit compile
+```
+
+```bash
+  STATUS  COMPONENT ID
+✔ SUCCESS templates/envs/my-react # Using the Aspect env which is set to use the `Babel` Compiler.
+✔ SUCCESS templates/pages/welcome # Using the React env which is set to use the `TypeScript` Compiler.
+✔ SUCCESS templates/ui/card       # Using the React env which is set to use the `TypeScript` Compiler.
+✔ SUCCESS templates/ui/heading    # Using the React env which is set to use the `TypeScript` Compiler.
+✔ SUCCESS templates/ui/text       # Using the React env which is set to use the `TypeScript` Compiler.
+✔ SUCCESS ui/my-welcome           # Using the React env which is set to use the `TypeScript` Compiler.
+
+✔ 6/6 components compiled successfully.
+Finished. (3s)
+```
+
+Compile can run in watch mode as well:
+
+```bash
+bit watch
+```
+
+### Testing
+
+Each component tests run in isolation from each other. All testing results are available through the CLI as well as part of the workspace UI.
+
+```bash
+bit test
+```
+
+```bash
+testing total of 6 components in workspace 'my-workspace'
+testing 5 components with environment company.scope/templates/envs/my-react
+
+ PASS  ui/my-welcome/my-welcome.spec.tsx
+ PASS  templates/pages/welcome/welcome.spec.tsx
+ PASS  templates/ui/text/text.spec.tsx
+ PASS  templates/ui/card/card.spec.tsx
+ PASS  templates/ui/heading/heading.spec.tsx
+
+Test Suites: 5 passed, 5 total
+Tests:       18 passed, 18 total
+Snapshots:   0 total
+Time:        2.815 s, estimated 3 s
+Ran all test suites.
+tested 6 components in 4.194 seconds.
+```
+
+### Linting
+
+Depending on the environment configured on components, components in the same workspace may have different linting rules. Still, the operation itself is the same as all other services.
+
+```bash
+bit lint
+```
+
+:::note `list` is still a work-in-progress and suffers from performance issues.
+:::
+
+### Formatting
+
+Depending on the environment configured on components, components in the same workspace may have different formatting rules. Still, the operation itself is the same as all other services.
+
+```bash
+bit format
+```
+
+### Build pipeline
+
+Each component has its own build pipeline composed from various tasks.
+
+```bash
+bit build
+```
