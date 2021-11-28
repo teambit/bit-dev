@@ -39,6 +39,7 @@ const HostingScopes = loadable(() => import('@teambit/scope.content.hosting-scop
 
 /* Dev services */
 
+const AvailableServices = loadable(() => import('@teambit/envs.content.available-services'));
 const DevServicesOverview = loadable(() => import('@teambit/envs.content.dev-services-overview'));
 
 /* Preview */
@@ -132,7 +133,7 @@ const AddingComponents = loadable(() => import('@teambit/component.content.addin
 const EnvsOverview = loadable(() => import('@teambit/envs.content.envs-overview'));
 const InspectingEnv = loadable(() => import('@teambit/envs.content.inspecting-env'));
 const ExtendingEnv = loadable(() => import('@teambit/envs.content.extending-env'));
-const EnvToubleshooting = loadable(() => import('@teambit/envs.content.env-troubleshooting'));
+const UsingEnvs = loadable(() => import('@teambit/envs.content.using-envs'));
 
 /* Dependencies */
 
@@ -543,9 +544,9 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'using-envs',
         title: 'Using Envs',
-        component: <div />,
+        component: <UsingEnvs />,
       },
-      {
+     {
         path: 'inspecting-env',
         title: 'Inspecting an Env',
         description: '',
@@ -555,7 +556,7 @@ export const learnDocsRoutes: DocsRoute[] = [
         path: 'composing-env',
         title: 'Composing an Env',
         description:
-          'Envs can be customized and extended by creating a Env Extension. An Env Extension is an Aspect component that depends on another Env and uses it to compose a new customized Env.',
+          'Extend existing envs to create your unique workflow.',
         component: <ExtendingEnv />,
       },
       {
@@ -564,12 +565,7 @@ export const learnDocsRoutes: DocsRoute[] = [
         description:
           "Environment Services control various workflows and commands for components.",
         component: <DevServicesOverview />,
-      },
-      {
-        path: 'env-troubleshooting',
-        title: 'Env Troubleshooting',
-        component: <EnvToubleshooting />,
-      },
+      }
     ],
   },
   {
@@ -577,6 +573,11 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Development Services',
     icon: 'compCI',
     open: false,
+    overview: {
+      path: 'available-services',
+      title: 'available services',
+      component: <AvailableServices />,
+    },
     children: [
       {
         path: 'builder',

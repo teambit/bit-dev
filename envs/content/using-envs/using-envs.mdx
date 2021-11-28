@@ -1,0 +1,115 @@
+# Using Envs
+
+You can have many components configured with different envs in the same workspace.  
+Use `variants` configuration in `workspace.jsonc` file to define the policy of how components should be configured:
+
+```javascript
+"teambit.workspace/variants": {
+    "{utility-functions/**}": {    // Match any component name starts with utility-functions
+        "teambit.harmony/node": {} // Set "node" workflow and configs for components
+    },
+    "{pages/**}": {                // Match any component name starts with pages
+        "teambit.react/react": {}  // Set "react" workflow and configs for components
+    },
+}
+```
+
+:::info Default component environment
+
+If no policy is defined, Bit sets the component's env to be [node](https://bit.dev/teambit/harmony/node).
+
+:::
+
+There are several ways for you to understand which env is set for a component:
+
+```bash
+bit env # shows all envs set for components in the workspace
+```
+
+```bash
+┌──────────────────────────────────┬─────────────────────────────────┐
+│ component                        │ env                             │
+├──────────────────────────────────┼─────────────────────────────────┤
+│ teambit.demo/pages/welcome@0.0.1 │ teambit.react/react             │
+├──────────────────────────────────┼─────────────────────────────────┤
+│ teambit.demo/ui/card@0.0.1       │ teambit.react/react             │
+├──────────────────────────────────┼─────────────────────────────────┤
+│ teambit.demo/ui/heading@0.0.1    │ teambit.react/react             │
+├──────────────────────────────────┼─────────────────────────────────┤
+│ teambit.demo/ui/text@0.0.1       │ teambit.react/react             │
+└──────────────────────────────────┴─────────────────────────────────┘
+```
+
+Or using `show` for a specific component:
+
+```bash
+bit show teambit.base-ui/button
+```
+
+```bash
+┌───────────────────┬──────────────────────────────────────────────────────────┐
+│ id                │ company.scope/button                                     │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ ...               │ ...                                                      │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ env               │ company.scope/button                                     │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ ...               │ ...                                                      │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ ...               │ ...                                                      │
+└───────────────────┴──────────────────────────────────────────────────────────┘
+```
+
+## The component's development environment
+
+Get the actual setup for a component by running the `env` command:
+
+```bash
+bit env teambit.base-ui/button
+```
+
+The result output describes all applied services and their configs.
+
+## Component must have a single env
+
+In case your policy applied more than one env for a component, Bit will throw an error when running `status`:
+
+```bash
+bit status
+```
+
+```bash
+     > pages/welcome ...  issues found
+       multiple envs:
+          company.scope/envs/my-react, teambit.react/react
+```
+
+This is a result of a mis-placed configuration policy in `workspace.jsonc`. There are several reasons this may occur, and depending on the reason, you should pick the right fix fitting your use case.
+
+```javascript
+{
+"teambit.workspace/variants": {
+  "*, !{pages/**}": {            // use "!" to exclude a group of components with env defined somewhere else
+    "teambit.react/react": {}
+  },
+  "{pages/**}": {
+    "company.scope/envs/my-react": {}
+  },
+}
+```
+
+```javascript
+{
+"teambit.workspace/variants": {
+  "*": {
+    "teambit.react/react": {}
+  },
+  "{pages/**}": {
+    "company.scope/envs/my-react": {},
+    "teambit.envs/envs": {                   // explicitly add the "env" aspect config on a specific rule
+      "env": "company.scope/envs/my-react"
+    }
+    "teambit.react/react": "-",             // explicitly remove the env set in "*" policy
+  },
+}
+```

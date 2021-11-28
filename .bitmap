@@ -39,6 +39,12 @@
         "mainFile": "index.ts",
         "rootDir": "harmony/content/aspects-overview"
     },
+    "content/available-services": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "envs/content/available-services"
+    },
     "content/bitmap": {
         "scope": "teambit.workspace",
         "version": "1.11.0",
@@ -830,6 +836,12 @@
         "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "pipelines/content/using-build-task"
+    },
+    "content/using-envs": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "envs/content/using-envs"
     },
     "content/variants": {
         "scope": "teambit.workspace",
