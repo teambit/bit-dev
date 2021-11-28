@@ -25,6 +25,7 @@ export function CommunityDocs({ baseUrl = '/docs', ...rest }: CommunityDocsProps
       primaryLinks={primaryRoutes}
       routesCategories={routesCategories}
       baseUrl={baseUrl}
+      // plugins={[new TableOfContentsPlugin(), new NextPagePlugin()]}
       // contribution={<ContributingDocs/>}
     />
   );

@@ -49,7 +49,7 @@ export function Homepage({ ...rest }: HomepageProps) {
           <LogoShowcase className={styles.imgStrip} images={logoList} />
         </div>
       </section>
-      <WideColumn>
+      {/* <WideColumn>
         <StickyMenu
           links={[
             {
@@ -74,13 +74,13 @@ export function Homepage({ ...rest }: HomepageProps) {
             },
           ]}
         />
-      </WideColumn>
-
+      </WideColumn> */}
+      {/* 
       <Distribution />
       <Collaboration />
       <Standardization />
       <Autonomy />
-      <Extendability />
+      <Extendability /> */}
     </Page>
   );
 }

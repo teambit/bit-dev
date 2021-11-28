@@ -8,6 +8,7 @@ import { useSidebar } from '@teambit/design.ui.sidebar.sidebar-context';
 import { Sidebar } from '@teambit/design.ui.sidebar.sidebar';
 import styles from './docs.module.scss';
 import { PrimaryLinks } from './primary-links';
+import { DocsPlugin } from './docs-plugin';
 
 export type CategoryRoutes = {
   /**
@@ -51,6 +52,11 @@ export type DocsProps = {
    * Component to render for doc contribution instructions.
    */
   contribution?: ReactNode;
+
+  /**
+   * array doc plugins to compose.
+   */
+  plugins?: DocsPlugin[];
 
   /**
    * shows a next page box after every page unless specifically set otherwise by the route using the `showNext` property on DocsRoute.

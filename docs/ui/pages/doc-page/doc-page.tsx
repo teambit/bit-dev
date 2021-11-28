@@ -2,9 +2,11 @@ import React, { useRef, useState, useEffect, ReactNode } from 'react';
 import { MDXLayout } from '@teambit/mdx.ui.mdx-layout';
 import { Page } from '@teambit/base-react.pages.page';
 import { NextPage } from '@teambit/community.ui.cards.next-page';
+import { Panel } from '@teambit/base-react.layout.panel';
 import type { Route } from '@teambit/docs.entities.docs-routes';
 import { mdxComponents } from './mdx-components';
 import styles from './doc-page.module.scss';
+import { DocPlugin } from './doc-plugin';
 
 export type DocPageProps = {
   /**
@@ -28,16 +30,21 @@ export type DocPageProps = {
   children: ReactNode;
 
   /**
+   * plugins to render in the doc page.
+   */
+  plugins?: DocPlugin[];
+
+  /**
    * base url to use for docs section.
    */
   baseUrl?: string;
 };
 
-const scrollToRef = (ref) => {
-  return window.scrollTo(0, -ref.current.offsetTop);
-};
+// const scrollToRef = (ref) => {
+//   return window.scrollTo(0, -ref.current.offsetTop);
+// };
 
-export function DocPage({ title, description, nextPage, children, baseUrl = '/docs' }: DocPageProps) {
+export function DocPage({ title, description, nextPage, children, baseUrl = '/docs', plugins }: DocPageProps) {
   const myRef = useRef(null);
   const [showNextPage, setNextPage] = useState(false);
   // const executeScroll = () => scrollToRef(myRef);
@@ -66,6 +73,8 @@ export function DocPage({ title, description, nextPage, children, baseUrl = '/do
         <div className={styles.mdxLayout}>{children}</div>
       </MDXLayout>
 
+      <Panel className={styles.rightPanel} plugins={plugins?.flatMap((plugin) => plugin.right)} />
+      <Panel className={styles.bottomPanel} plugins={plugins?.flatMap((plugin) => plugin.bottom)} />
       {nextPage && showNextPage && (
         <NextPage
           className={styles.next}
