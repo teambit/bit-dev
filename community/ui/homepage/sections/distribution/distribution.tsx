@@ -28,7 +28,7 @@ export function Distribution() {
           text="Every component is independently developed, versioned and built."
         >
           {/* <BubbleGraph nodes={scaleGraph} /> */}
-          <ComponentCard id="teambit.design/ui/buttons/button" />
+          <ComponentCard id="teambit.community/ui/docs" />
         </LeftRight>
         <LeftRight
           title="Compose with dependencies"

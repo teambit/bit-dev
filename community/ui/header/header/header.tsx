@@ -51,10 +51,6 @@ const headerContent = [
     href: '/docs',
   },
   {
-    title: 'Guides',
-    href: '/guides',
-  },
-  {
     title: 'Plugins',
     href: '/plugins',
   },

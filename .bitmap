@@ -837,6 +837,12 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/content/video"
     },
+    "content/what-is-bit": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "bit/content/what-is-bit"
+    },
     "content/workspace-configuration": {
         "scope": "teambit.workspace",
         "version": "1.11.1",
@@ -932,6 +938,12 @@
         "version": "1.11.1",
         "mainFile": "index.ts",
         "rootDir": "base-react/layout/grid"
+    },
+    "layout/panel": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "base-react/layout/panel"
     },
     "modules/paths": {
         "scope": "teambit.docs",
