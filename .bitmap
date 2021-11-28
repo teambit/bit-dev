@@ -1089,12 +1089,6 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/footer/footer"
     },
-    "ui/footer/link": {
-        "scope": "teambit.community",
-        "version": "1.13.0",
-        "mainFile": "index.ts",
-        "rootDir": "community/ui/footer/link"
-    },
     "ui/gallery/component-card-group": {
         "scope": "teambit.explorer",
         "version": "1.13.0",
