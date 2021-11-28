@@ -1239,6 +1239,12 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/mocks/bit-dev"
     },
+    "ui/navigation/icon-link": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "design/ui/navigation/icon-link"
+    },
     "ui/navigation/link": {
         "scope": "teambit.design",
         "version": "1.11.1",

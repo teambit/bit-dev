@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, LinkProps } from '@teambit/community.ui.footer.link';
+import { IconLink, IconLinkProps } from '@teambit/design.ui.navigation.icon-link';
 import styles from './category.module.scss';
 
 export type CategoryProps = {
@@ -10,7 +10,7 @@ export type CategoryProps = {
   /**
    * a list of links to show in the category
    */
-  links: LinkProps[];
+  links: IconLinkProps[];
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export function Category({ title, links, ...rest }: CategoryProps) {
@@ -18,7 +18,7 @@ export function Category({ title, links, ...rest }: CategoryProps) {
     <div {...rest}>
       <div className={styles.title}>{title}</div>
       {links.map((link) => {
-        return <Link className={styles.categoryLink} {...link} key={link.text} />;
+        return <IconLink className={styles.categoryLink} {...link} key={link.text} />;
       })}
     </div>
   );
