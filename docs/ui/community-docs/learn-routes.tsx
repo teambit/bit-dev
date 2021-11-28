@@ -527,7 +527,7 @@ export const learnDocsRoutes: DocsRoute[] = [
   },
   {
     path: 'envs',
-    title: 'Development Environment',
+    title: 'Envs',
     icon: 'env',
     open: false,
     overview: {
@@ -565,7 +565,7 @@ export const learnDocsRoutes: DocsRoute[] = [
   },
   {
     path: 'dev-services',
-    title: 'Development Services',
+    title: 'Base Env Services',
     icon: 'compCI',
     open: false,
     overview: {
