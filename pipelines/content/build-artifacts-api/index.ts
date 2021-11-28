@@ -1,0 +1,1 @@
+export { default as BuildArtifactsApi, default } from './build-artifacts-api.mdx'
