@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect, ReactNode, Suspense } from 'react';
 import { MDXLayout } from '@teambit/mdx.ui.mdx-layout';
 import { Page } from '@teambit/base-react.pages.page';
 import { NextPage } from '@teambit/community.ui.cards.next-page';
-import { Panel } from '@teambit/base-react.layout.panel';
+// import { Panel } from '@teambit/base-react.layout.panel';
 import type { Route } from '@teambit/docs.entities.docs-routes';
 import { TableOfContent } from '@teambit/docs.ui.navigation.table-of-content';
 import { mdxComponents } from './mdx-components';
