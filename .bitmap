@@ -11,13 +11,13 @@
 {
     "apps/bit-dev": {
         "scope": "teambit.community",
-        "version": "1.11.3",
+        "version": "1.11.6",
         "mainFile": "index.ts",
         "rootDir": "community/apps/bit-dev"
     },
     "blocks/component/architecture-breakdown": {
         "scope": "teambit.docs",
-        "version": "0.0.1",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "docs/blocks/component/architecture-breakdown"
     },
@@ -713,7 +713,7 @@
     },
     "content/quick-start": {
         "scope": "teambit.docs",
-        "version": "1.11.3",
+        "version": "1.11.5",
         "mainFile": "index.ts",
         "rootDir": "docs/content/quick-start"
     },
@@ -797,7 +797,7 @@
     },
     "content/thinking-in-components": {
         "scope": "teambit.docs",
-        "version": "1.11.2",
+        "version": "1.11.5",
         "mainFile": "index.ts",
         "rootDir": "docs/content/thinking-in-components"
     },
@@ -818,6 +818,12 @@
         "version": "1.11.0",
         "mainFile": "index.ts",
         "rootDir": "base-react/content/video"
+    },
+    "content/what-is-bit": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "bit/content/what-is-bit"
     },
     "content/workspace-configuration": {
         "scope": "teambit.workspace",
@@ -915,6 +921,12 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/layout/grid"
     },
+    "layout/panel": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "base-react/layout/panel"
+    },
     "modules/paths": {
         "scope": "teambit.docs",
         "version": "1.11.0",
@@ -995,7 +1007,7 @@
     },
     "ui/community-docs": {
         "scope": "teambit.docs",
-        "version": "1.11.3",
+        "version": "1.11.6",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/community-docs"
     },

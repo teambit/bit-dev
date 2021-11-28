@@ -250,6 +250,9 @@
     "dependencies": {
       "defaultScope": "teambit.dependencies"
     },
+    "bit": {
+      "defaultScope": "teambit.bit"
+    },
     "explorer/ui": {
       "teambit.community/envs/community-react": "-",
       "teambit.react/react": {},
