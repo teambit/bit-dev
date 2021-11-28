@@ -10,14 +10,14 @@ import styles from './docs.module.scss';
 import { PrimaryLinks } from './primary-links';
 import { DocsPlugin } from './docs-plugin';
 
-export type CategoryRoutes = {
+export type ContentCategory = {
   /**
-   * a title for the category.
+   * a title for the content category.
    */
-  title: string;
+  title?: string;
 
   /**
-   * a routes to be rendered in the sidebar.
+   * a routes to be rendered in the content sidebar.
    */
   routes: DocsRoute[];
 
@@ -29,14 +29,9 @@ export type CategoryRoutes = {
 
 export type DocsProps = {
   /**
-   * a routes to be rendered in the sidebar.
-   */
-  routes?: DocsRoute[];
-
-  /**
    * an array of routes category.
    */
-  routesCategories?: CategoryRoutes[];
+  contents?: ContentCategory[];
 
   /**
    * base URL for the docs route.
@@ -56,7 +51,7 @@ export type DocsProps = {
   /**
    * array doc plugins to compose.
    */
-  plugins?: DocsPlugin[];
+  plugins?: DocsPlugin<unknown>[];
 
   /**
    * shows a next page box after every page unless specifically set otherwise by the route using the `showNext` property on DocsRoute.
@@ -65,20 +60,19 @@ export type DocsProps = {
 } & React.HtmlHTMLAttributes<HTMLDivElement>;
 
 export function Docs({
-  routes = [],
-  routesCategories,
+  contents,
   primaryLinks = [],
   showNext = true,
   baseUrl = '/',
   contribution,
+  plugins = [],
   className,
   ...rest
 }: DocsProps) {
   const { path } = useRouteMatch();
   const sidebar = useSidebar();
   const primaryRoutes = DocsRoutes.from(primaryLinks, baseUrl || path);
-  const docRoutes = DocsRoutes.from(routes, baseUrl || path);
-  const docsRoutesCategories = routesCategories?.map((category) => {
+  const contentRoutes = contents?.map((category) => {
     return {
       title: category.title,
       routes: DocsRoutes.from(category.routes || [], baseUrl || path),
@@ -87,19 +81,18 @@ export function Docs({
   });
 
   const routeArray = useMemo(() => {
-    const memoArray = [...primaryRoutes.getRoutes(), ...docRoutes.getRoutes()];
-    if (docsRoutesCategories) {
-      docsRoutesCategories.forEach((category) => memoArray.push(...category.routes.getRoutes()));
+    const memoArray = [...primaryRoutes.getRoutes()];
+    if (contentRoutes) {
+      contentRoutes.forEach((category) => memoArray.push(...category.routes.getRoutes()));
     }
     return memoArray;
-  }, [primaryRoutes, docRoutes, docsRoutesCategories]);
+  }, [primaryRoutes, contentRoutes]);
 
   return (
     <div {...rest} className={classNames(styles.main, className)}>
       <Sidebar isOpen={sidebar.isOpen} toggle={sidebar.setIsOpen}>
         <PrimaryLinks tree={primaryRoutes.toSideBarTree()} />
-        <Tree tree={docRoutes.toSideBarTree()} linkPrefix={baseUrl} />
-        {docsRoutesCategories?.map((category) => (
+        {contentRoutes?.map((category) => (
           <Tree
             key={category.title}
             displayTitle={category.title}
@@ -114,6 +107,15 @@ export function Docs({
           {contribution ? <Route>{contribution}</Route> : ''}
           {routeArray.map((route, key) => {
             const next = routeArray[key + 1] ? routeArray[key + 1] : undefined;
+            // const dataArray = plugins.map((plugin) => plugin.enrichContent(route, routeArray, key));
+            // const data = dataArray.reduce((acc, current) => {
+            //   const currentKeys = Object.keys(current);
+            //   currentKeys.forEach((currentKey) => {
+            //     acc[currentKey] = current[currentKey];
+            //   });
+            //   return acc;
+            // }, {});
+
             return (
               <Route key={route.title} path={route.absPath}>
                 <DocPage

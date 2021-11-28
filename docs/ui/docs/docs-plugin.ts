@@ -1,6 +1,7 @@
-import { PanelPlugin } from '@teambit/base-react.layout.panel';
+import { ComponentType } from 'react';
+import { Route } from '@teambit/docs.entities.docs-routes';
 
-export interface DocsPlugin {
+export interface DocsPlugin<T> {
   /**
    * add plugins to the doc page.
    */
@@ -8,11 +9,16 @@ export interface DocsPlugin {
     /**
      * add plugin to the bottom section of the doc page.
      */
-    bottom: PanelPlugin[];
+    bottom?: ComponentType<T>[];
 
     /**
      * add plugin to the right section of the doc page.
      */
-    right: PanelPlugin[];
+    right?: ComponentType<T>[];
   };
+
+  /**
+   * allows to process content provided to the docs section.
+   */
+  enrichContent(currentRoute: Route, routes: Route[], key: number): T;
 }
