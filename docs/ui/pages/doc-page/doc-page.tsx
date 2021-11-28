@@ -2,10 +2,12 @@ import React, { useRef, useState, useEffect, ReactNode, Suspense } from 'react';
 import { MDXLayout } from '@teambit/mdx.ui.mdx-layout';
 import { Page } from '@teambit/base-react.pages.page';
 import { NextPage } from '@teambit/community.ui.cards.next-page';
+import { Panel } from '@teambit/base-react.layout.panel';
 import type { Route } from '@teambit/docs.entities.docs-routes';
 import { TableOfContent } from '@teambit/docs.ui.navigation.table-of-content';
 import { mdxComponents } from './mdx-components';
 import styles from './doc-page.module.scss';
+import { DocPlugin } from './doc-plugin';
 
 export type DocPageProps = {
   /**
@@ -29,6 +31,11 @@ export type DocPageProps = {
   children: ReactNode;
 
   /**
+   * plugins to render in the doc page.
+   */
+  plugins?: DocPlugin[];
+
+  /**
    * base url to use for docs section.
    */
   baseUrl?: string;
@@ -37,8 +44,11 @@ export type DocPageProps = {
 const docSelectors = '.docs-heading h1, .docs-heading h2, .docs-heading h3';
 
 const components = mdxComponents('/docs', 'docs-heading');
+// const scrollToRef = (ref) => {
+//   return window.scrollTo(0, -ref.current.offsetTop);
+// };
 
-export function DocPage({ title, description, nextPage, children, baseUrl = '/docs' }: DocPageProps) {
+export function DocPage({ title, description, nextPage, children, baseUrl = '/docs', plugins }: DocPageProps) {
   const myRef = useRef(null);
   const contentRef = useRef() as React.MutableRefObject<HTMLDivElement>;
   const [showNextPage, setNextPage] = useState(false);
@@ -70,6 +80,8 @@ export function DocPage({ title, description, nextPage, children, baseUrl = '/do
               {children}
             </div>
           </MDXLayout>
+          {/* <Panel className={styles.rightPanel} plugins={plugins?.flatMap((plugin) => plugin.right)} />
+          <Panel className={styles.bottomPanel} plugins={plugins?.flatMap((plugin) => plugin.bottom)} /> */}
           {nextPage && showNextPage && (
             <NextPage
               className={styles.next}
@@ -79,14 +91,13 @@ export function DocPage({ title, description, nextPage, children, baseUrl = '/do
             />
           )}
         </div>
-        {showTableOfContent && (
-          <TableOfContent
-            title="on this page"
-            className={styles.tableOfContent}
-            rootRef={contentRef}
-            selectors={docSelectors}
-          />
-        )}
+
+        <TableOfContent
+          title="on this page"
+          className={styles.tableOfContent}
+          rootRef={contentRef}
+          selectors={docSelectors}
+        />
       </Page>
     </Suspense>
   );

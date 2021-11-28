@@ -131,7 +131,7 @@ const AddingComponents = loadable(() => import('@teambit/component.content.addin
 
 const InspectingEnv = loadable(() => import('@teambit/envs.content.inspecting-env'));
 const ExtendingEnv = loadable(() => import('@teambit/envs.content.extending-env'));
-const EnvToubleshooting = loadable(() => import('@teambit/envs.content.env-troubleshooting'));
+// const EnvToubleshooting = loadable(() => import('@teambit/envs.content.env-troubleshooting'));
 
 /* Dependencies */
 
@@ -510,11 +510,6 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <HostingScopes />,
       },
       {
-        path: 'running-a-scope-server',
-        title: 'Scope API',
-        component: <HostingScopes />,
-      },
-      {
         path: 'inspecting-scopes',
         title: 'Inspecting Scopes',
         description:
@@ -607,7 +602,7 @@ export const learnDocsRoutes: DocsRoute[] = [
           {
             path: 'implement-build-task',
             title: 'Implement a build task',
-            component: <div />,
+            component: <BuildTasks />,
           },
           {
             path: 'build-tasks',
@@ -1213,8 +1208,8 @@ export const learnDocsRoutes: DocsRoute[] = [
     ],
   },
   {
-    path: 'global-config',
-    title: 'Global Config',
+    path: 'config',
+    title: 'Config',
     icon: 'configuration',
     open: false,
     children: [
