@@ -23,7 +23,7 @@ export function TableOfContent({ className, children, title, rootRef, selectors,
   const { activeElement, elements } = useIntersectionObserver(rootRef, selectors);
   const anchors = useMemo(() => getLinks(elements), [elements]);
 
-  if (!anchors || anchors.length === 0) return null;
+  if (!anchors) return null;
   return (
     <div {...rest} className={classNames(styles.tableOfContent, className)}>
       {title && <div className={styles.title}>{title}</div>}
