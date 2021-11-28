@@ -10,15 +10,16 @@ const CreateComponents = loadable(
 );
 
 const VersionComponents = loadable(() => import('@teambit/docs.content.getting-started.version-components'));
+// const NamingComponents = loadable(() => import('@teambit/docs.content.getting-started.version-components'));
 // const WhatIsScope = loadable(() => import('@teambit/docs.content.getting-started.what-is-scope'));
-const HostBitCloud = loadable(() => import('@teambit/docs.content.getting-started.host-bit-cloud'));
-const SelfHostScope = loadable(() => import('@teambit/docs.content.getting-started.self-host-scope'));
+// const HostBitCloud = loadable(() => import('@teambit/docs.content.getting-started.host-bit-cloud'));
+// const SelfHostScope = loadable(() => import('@teambit/docs.content.getting-started.self-host-scope'));
 const ShareComponents = loadable(() => import('@teambit/docs.content.getting-started.share-components'));
 const InstallComponents = loadable(() => import('@teambit/docs.content.getting-started.install-components'));
 const ImportComponents = loadable(() => import('@teambit/docs.content.getting-started.import-components'));
 const UpdateComponents = loadable(() => import('@teambit/docs.content.getting-started.update-components'));
 const CiExport = loadable(() => import('@teambit/docs.content.getting-started.ci-export'));
-const CiInstall = loadable(() => import('@teambit/docs.content.getting-started.ci-install'));
+// const CiInstall = loadable(() => import('@teambit/docs.content.getting-started.ci-install'));
 
 export const gettingStartedDocsRoutes: DocsRoute[] = [
   {
@@ -44,6 +45,27 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
         path: 'editor-setup',
         title: 'Editor Setup',
       },
+      {
+        path: 'getting-started/setup-ci',
+        title: 'Setup CI',
+        component: <CiExport />,
+        // icon: 'terminal',
+        // open: false,
+        // children: [
+        //   {
+        //     path: 'automate-export',
+        //     title: 'Automate Component Export',
+        //     description: 'To ensure a component is built and published in a consistent manner its recommended to use CI.',
+        //     component: <CiExport />,
+        //   },
+        //   {
+        //     path: 'package-consumers',
+        //     title: 'Package Consumers',
+        //     description: 'Package managers use the .npmrc file to know where they should install dependencies from.',
+        //     component: <CiInstall />,
+        //   },
+        // ],
+      },
     ],
   },
   {
@@ -53,27 +75,40 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
     open: false,
     children: [
       {
-        path: 'first-components',
-        title: 'Your First Components',
+        path: 'spec-breakdown',
+        title: 'Creating components',
         description:
           'Bit makes it simple to build each Component independently, and compose it to others with Dependencies.',
         component: <CreateComponents />,
       },
       {
+        path: 'naming-components',
+        title: 'Naming components',
+      },
+      {
+        path: 'design-api',
+        title: 'Design the component API',
+      },
+      {
         path: 'dev-environments',
-        title: 'Development Environments',
+        title: 'Development environments',
         description:
           'Component development is simplified and standardized using Component Development Environments (or envs in short). An env is a compositions of several Services.',
         component: <DevEnvs />,
       },
       {
         path: 'use-dependencies',
-        title: 'Use Dependencies',
+        title: 'Use dependencies',
         description: 'Dependencies allow us to compose components out of other components.',
         component: <UseDependencies />,
       },
     ],
   },
+  // {
+  //   path: 'getting-started/implementing',
+  //   title: 'Building components',
+  //   children: [],
+  // },
   {
     path: 'getting-started/collaborate',
     title: 'Collaborate',
@@ -82,39 +117,32 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
     children: [
       {
         path: 'snap-component-changes',
-        title: 'Snapshot Component Changes',
-        component: <VersionComponents />,
-      },
-      {
-        path: 'version-components',
-        title: 'Version Components',
-        description:
-          "By setting a version for a component you build a history of changes to a component's implementation. This version history can be shared through a remote Bit server.",
+        title: 'Versioning components',
         component: <VersionComponents />,
       },
       {
         path: 'remote-scope',
-        title: 'Create a Remote Scope',
-        open: false,
-        children: [
-          {
-            path: 'host-on-bit-cloud',
-            title: 'Host on Bit Cloud',
-            description: 'Bit is connected to bit.cloud as its default hosting provider.',
-            component: <HostBitCloud />,
-          },
-          {
-            path: 'self-host-scope',
-            title: 'Self-hosted Scope',
-            description:
-              'When self-hosting Bit on your own infrastructure you will also need to publish components to an external registry so components will be available to install with package managers.',
-            component: <SelfHostScope />,
-          },
-        ],
+        title: 'Create a remote scope',
+        // open: false,
+        // children: [
+        //   {
+        //     path: 'host-on-bit-cloud',
+        //     title: 'Host on Bit Cloud',
+        //     description: 'Bit is connected to bit.cloud as its default hosting provider.',
+        //     component: <HostBitCloud />,
+        //   },
+        //   {
+        //     path: 'self-host-scope',
+        //     title: 'Self-hosted Scope',
+        //     description:
+        //       'When self-hosting Bit on your own infrastructure you will also need to publish components to an external registry so components will be available to install with package managers.',
+        //     component: <SelfHostScope />,
+        //   },
+        // ],
       },
       {
         path: 'importing-components',
-        title: 'Importing Components',
+        title: 'Importing components',
         component: <ShareComponents />,
       },
       {
@@ -147,26 +175,6 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
         path: 'update-components',
         title: 'Update Components',
         component: <UpdateComponents />,
-      },
-    ],
-  },
-  {
-    path: 'getting-started/setup-ci',
-    title: 'Setup CI',
-    icon: 'terminal',
-    open: false,
-    children: [
-      {
-        path: 'automate-export',
-        title: 'Automate Component Export',
-        description: 'To ensure a component is built and published in a consistent manner its recommended to use CI.',
-        component: <CiExport />,
-      },
-      {
-        path: 'package-consumers',
-        title: 'Package Consumers',
-        description: 'Package managers use the .npmrc file to know where they should install dependencies from.',
-        component: <CiInstall />,
       },
     ],
   },
