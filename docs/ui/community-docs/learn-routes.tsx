@@ -607,7 +607,7 @@ export const learnDocsRoutes: DocsRoute[] = [
           {
             path: 'implement-build-task',
             title: 'Implement a build task',
-            component: <div />,
+            component: <BuildTasks />,
           },
           {
             path: 'build-tasks',
