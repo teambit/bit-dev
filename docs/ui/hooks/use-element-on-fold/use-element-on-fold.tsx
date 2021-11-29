@@ -7,7 +7,7 @@ export const useElementOnFold = (ref, selectors) => {
 
   useEffect(() => {
     // IntersectionObserver will only run if browser has support
-    if ('IntersectionObserver' in window && !('IntersectionObserverEntry' in window)) {
+    if ('IntersectionObserver' in window && 'IntersectionObserverEntry' in window) {
       const handleIntersection = (entries: IntersectionObserverEntry[]) => {
         // Get all headings that are currently visible on the page
         const visibleHeadings: IntersectionObserverEntry[] = [];
