@@ -23,7 +23,7 @@ export function CommunityDocs({ baseUrl = '/docs', ...rest }: CommunityDocsProps
     <Docs
       {...rest}
       primaryLinks={primaryRoutes}
-      routesCategories={routesCategories}
+      contents={routesCategories}
       baseUrl={baseUrl}
       // plugins={[new TableOfContentsPlugin(), new NextPagePlugin()]}
       // contribution={<ContributingDocs/>}

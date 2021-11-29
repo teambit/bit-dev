@@ -1,13 +1,13 @@
 import { ComponentType } from 'react';
 
-export interface PanelPlugin {
+export interface PanelPlugin<T> {
   /**
    * component to inject.
    */
-  component: ComponentType;
+  component: ComponentType<T>;
 
   /**
    * order of the component in the panel.
    */
-  weight: number;
+  weight?: number;
 }
