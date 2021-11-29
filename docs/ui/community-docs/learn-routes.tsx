@@ -174,7 +174,16 @@ const ReactOverview = loadable(() => import('@teambit/react.content.react-overvi
 const ReplacingReactTools = loadable(() => import('@teambit/react.content.replace-react-tools'));
 const ConfigReactTools = loadable(() => import('@teambit/react.content.config-react-tools'));
 
+/* Misc */
+const UsageAnalytics = loadable(() => import('@teambit/docs.content.guides.usage-analytics'));
+
 export const learnDocsRoutes: DocsRoute[] = [
+  {
+    path: 'usage-analytics',
+    title: 'Usage Analytics',
+    displayInSidebar: false,
+    component: <UsageAnalytics />,
+  },
   {
     path: 'workspace',
     title: 'Workspace',
@@ -572,14 +581,14 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Dev Services',
     icon: 'compCI',
     open: false,
+    overview: {
+      path: 'dev-services-overview',
+      title: 'Dev Services Overview',
+      description:
+        "Dev Services simplify and standardize component development processes, like testing, linting and documenting. They are applied on components, and used by components, via the components' Envs.",
+      component: <DevServicesOverview />,
+    },
     children: [
-      {
-        path: 'dev-services-overview',
-        title: 'Dev Services Overview',
-        description:
-          "Dev Services simplify and standardize component development processes, like testing, linting and documenting. They are applied on components, and used by components, via the components' Envs.",
-        component: <DevServicesOverview />,
-      },
       {
         path: 'builder',
         title: 'Builder',
