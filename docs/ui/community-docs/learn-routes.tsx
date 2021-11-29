@@ -479,19 +479,19 @@ export const learnDocsRoutes: DocsRoute[] = [
     open: false,
     title: 'Scope',
     icon: 'collection',
+    overview: {
+      path: 'scope-overview',
+      title: 'Scope Overview',
+      description:
+        'Scope is a distributed component collaboration host. You can think of it as a micro service, which helps set team and ownership boundaries and allows others to use components as APIs and collaborate on them.',
+      component: <ScopeOverview />,
+    },
     config: {
       path: 'scope-config',
       title: 'Scope configuration',
       component: <div />,
     },
     children: [
-      {
-        path: 'scope-overview',
-        title: 'Scope Overview',
-        description:
-          'Scope is a distributed component collaboration host. You can think of it as a micro service, which helps set team and ownership boundaries and allows others to use components as APIs and collaborate on them.',
-        component: <ScopeOverview />,
-      },
       {
         path: 'creating-scopes',
         title: 'Creating Scopes',
