@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react';
-import compact from 'lodash.compact';
 import classNames from 'classnames';
 import { DocsRoute, DocsRoutes } from '@teambit/docs.entities.docs-routes';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
@@ -48,7 +47,7 @@ export type DocsProps = {
   /**
    * array doc plugins to compose.
    */
-  plugins?: DocsPlugin[];
+  plugins?: DocsPlugin<any, any>[];
 } & React.HtmlHTMLAttributes<HTMLDivElement>;
 
 export function Docs({ contents, primaryLinks = [], baseUrl = '/', plugins = [], className, ...rest }: DocsProps) {
@@ -98,12 +97,7 @@ export function Docs({ contents, primaryLinks = [], baseUrl = '/', plugins = [],
             {routeArray.map((route, key) => {
               return (
                 <Route key={route.title} path={route.absPath}>
-                  <DocPage
-                    index={key}
-                    route={route}
-                    baseUrl={baseUrl}
-                    plugins={plugins}
-                  >
+                  <DocPage index={key} route={route} baseUrl={baseUrl} plugins={plugins}>
                     {route.component}
                   </DocPage>
                 </Route>
