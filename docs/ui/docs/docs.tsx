@@ -1,4 +1,5 @@
-import React, { useMemo, ReactNode } from 'react';
+import React, { useMemo } from 'react';
+import compact from 'lodash.compact';
 import classNames from 'classnames';
 import { DocsRoute, DocsRoutes } from '@teambit/docs.entities.docs-routes';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
@@ -9,6 +10,7 @@ import { Sidebar } from '@teambit/design.ui.sidebar.sidebar';
 import styles from './docs.module.scss';
 import { PrimaryLinks } from './primary-links';
 import { DocsPlugin } from './docs-plugin';
+import { DocsContext } from './docs-context';
 
 export type ContentCategory = {
   /**
@@ -44,31 +46,12 @@ export type DocsProps = {
   primaryLinks?: DocsRoute[];
 
   /**
-   * Component to render for doc contribution instructions.
-   */
-  contribution?: ReactNode;
-
-  /**
    * array doc plugins to compose.
    */
-  plugins?: DocsPlugin<unknown>[];
-
-  /**
-   * shows a next page box after every page unless specifically set otherwise by the route using the `showNext` property on DocsRoute.
-   */
-  showNext?: boolean;
+  plugins?: DocsPlugin[];
 } & React.HtmlHTMLAttributes<HTMLDivElement>;
 
-export function Docs({
-  contents,
-  primaryLinks = [],
-  showNext = true,
-  baseUrl = '/',
-  contribution,
-  plugins = [],
-  className,
-  ...rest
-}: DocsProps) {
+export function Docs({ contents, primaryLinks = [], baseUrl = '/', plugins = [], className, ...rest }: DocsProps) {
   const { path } = useRouteMatch();
   const sidebar = useSidebar();
   const primaryRoutes = DocsRoutes.from(primaryLinks, baseUrl || path);
@@ -89,48 +72,46 @@ export function Docs({
   }, [primaryRoutes, contentRoutes]);
 
   return (
-    <div {...rest} className={classNames(styles.main, className)}>
-      <Sidebar isOpen={sidebar.isOpen} toggle={sidebar.setIsOpen}>
-        <PrimaryLinks tree={primaryRoutes.toSideBarTree()} />
-        {contentRoutes?.map((category) => (
-          <Tree
-            key={category.title}
-            displayTitle={category.title}
-            tree={category.routes.toSideBarTree()}
-            linkPrefix={baseUrl}
-            className={category.className}
-          />
-        ))}
-      </Sidebar>
-      <div className={styles.content}>
-        <Switch>
-          {contribution ? <Route>{contribution}</Route> : ''}
-          {routeArray.map((route, key) => {
-            const next = routeArray[key + 1] ? routeArray[key + 1] : undefined;
-            // const dataArray = plugins.map((plugin) => plugin.enrichContent(route, routeArray, key));
-            // const data = dataArray.reduce((acc, current) => {
-            //   const currentKeys = Object.keys(current);
-            //   currentKeys.forEach((currentKey) => {
-            //     acc[currentKey] = current[currentKey];
-            //   });
-            //   return acc;
-            // }, {});
-
-            return (
-              <Route key={route.title} path={route.absPath}>
-                <DocPage
-                  nextPage={showNext ? next : undefined}
-                  title={route.title}
-                  description={route.description}
-                  baseUrl={baseUrl}
-                >
-                  {route.component}
-                </DocPage>
-              </Route>
-            );
-          })}
-        </Switch>
+    <DocsContext.Provider
+      value={{
+        contentRoutes: contentRoutes?.map((category) => category.routes),
+        primaryRoutes,
+        routes: routeArray,
+        plugins,
+      }}
+    >
+      <div {...rest} className={classNames(styles.main, className)}>
+        <Sidebar isOpen={sidebar.isOpen} toggle={sidebar.setIsOpen}>
+          <PrimaryLinks tree={primaryRoutes.toSideBarTree()} />
+          {contentRoutes?.map((category) => (
+            <Tree
+              key={category.title}
+              displayTitle={category.title}
+              tree={category.routes.toSideBarTree()}
+              linkPrefix={baseUrl}
+              className={category.className}
+            />
+          ))}
+        </Sidebar>
+        <div className={styles.content}>
+          <Switch>
+            {routeArray.map((route, key) => {
+              return (
+                <Route key={route.title} path={route.absPath}>
+                  <DocPage
+                    index={key}
+                    route={route}
+                    baseUrl={baseUrl}
+                    plugins={plugins}
+                  >
+                    {route.component}
+                  </DocPage>
+                </Route>
+              );
+            })}
+          </Switch>
+        </div>
       </div>
-    </div>
+    </DocsContext.Provider>
   );
 }

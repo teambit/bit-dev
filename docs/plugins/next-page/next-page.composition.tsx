@@ -1,8 +1,7 @@
 import React from 'react';
-import { NextPage } from './next-page';
+import { Docs } from '@teambit/docs.ui.docs';
+import { NextPagePlugin } from './next-page-plugin';
 
 export const BasicNextPage = () => {
-  return (
-    <NextPage>hello world!</NextPage>
-  );
-}
+  return <Docs plugins={[new NextPagePlugin()]} />;
+};
