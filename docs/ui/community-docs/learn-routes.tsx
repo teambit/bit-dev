@@ -32,6 +32,8 @@ const MovingComponents = loadable(() => import('@teambit/workspace.content.movin
 const Variants = loadable(() => import('@teambit/workspace.content.variants'));
 
 /* Scope */
+const ScopeBitCloud = loadable(() => import('@teambit/scope.content.scope-bit-cloud'));
+const RemoteScopes = loadable(() => import('@teambit/scope.content.remote-scopes'));
 const ScopeOverview = loadable(() => import('@teambit/scope.content.scope-overview'));
 const CreatingScopes = loadable(() => import('@teambit/scope.content.creating-scopes'));
 const ScopeJson = loadable(() => import('@teambit/scope.content.scope-json'));
@@ -483,25 +485,27 @@ export const learnDocsRoutes: DocsRoute[] = [
       path: 'scope-overview',
       title: 'Scope Overview',
       description:
-        'Scope is a distributed component collaboration host. You can think of it as a micro service, which helps set team and ownership boundaries and allows others to use components as APIs and collaborate on them.',
+        'Scope is a server for hosting components.',
       component: <ScopeOverview />,
-    },
-    config: {
-      path: 'scope-config',
-      title: 'Scope configuration',
-      component: <div />,
     },
     children: [
       {
-        path: 'creating-scopes',
-        title: 'Creating Scopes',
+        path: 'scope-bit-cloud',
+        title: 'Scopes on Bit.cloud',
         description:
-          'Components can be collaborated on using Scopes hosted on Bit Cloud. This can be done quite easily as Bit offers built-in support for Bit Cloud.',
+          'Bit.cloud is a cloud hosting provider for Bit Scopes and Components.',
+          component: <ScopeBitCloud />
+      },
+      {
+        path: 'creating-scopes',
+        title: 'Create bare scope',
+        description:
+          'Base Scopes used as remote storage for components.',
         component: <CreatingScopes />,
       },
       {
-        path: 'configuring-scopes',
-        title: 'Configuring scopes (scope.json)',
+        path: 'configure-scopes',
+        title: 'Configure scopes',
         component: <ScopeJson />,
       },
       {
@@ -510,17 +514,17 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <HostingScopes />,
       },
       {
-        path: 'inspecting-scopes',
-        title: 'Inspecting Scopes',
+        path: 'remote-scopes',
+        title: 'Remotes',
         description:
-          'Component objects are stored in Scopes (Local Scopes and Remote Scopes), using the content-addressable storage method. They are either copied to or from remote scopes, when exported or imported (respectively).',
-        component: <ComponentObjects />,
+          'Connect scopes and workspace with remotes.',
+        component: <RemoteScopes />,
       },
-      {
+      /*{
         path: 'extending-scopes',
         title: 'Extending Scopes',
-        component: <ScopeOverview />,
-      },
+        component: <div />,
+      },*/
     ],
   },
   {

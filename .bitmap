@@ -747,6 +747,12 @@
         "mainFile": "index.ts",
         "rootDir": "preview/content/register-custom-preview"
     },
+    "content/remote-scopes": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "scope/content/remote-scopes"
+    },
     "content/rendering-docs": {
         "scope": "teambit.docs",
         "version": "1.13.0",
@@ -758,6 +764,12 @@
         "version": "1.13.0",
         "mainFile": "index.ts",
         "rootDir": "react/content/replace-react-tools"
+    },
+    "content/scope-bit-cloud": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "scope/content/scope-bit-cloud"
     },
     "content/scope-json": {
         "scope": "teambit.scope",
