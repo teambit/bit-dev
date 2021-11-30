@@ -1,7 +1,11 @@
 import { ComponentType } from 'react';
-import { Route } from '@teambit/docs.entities.docs-routes';
 
-export interface DocsPlugin<T> {
+export interface DocsPlugin<TB = {}, TR = {}> {
+  /**
+   * the plugin name. can be the class name.
+   */
+  name: string;
+
   /**
    * add plugins to the doc page.
    */
@@ -9,16 +13,11 @@ export interface DocsPlugin<T> {
     /**
      * add plugin to the bottom section of the doc page.
      */
-    bottom?: ComponentType<T>[];
+    bottom?: ComponentType<TB>[];
 
     /**
      * add plugin to the right section of the doc page.
      */
-    right?: ComponentType<T>[];
+    right?: ComponentType<TR>[];
   };
-
-  /**
-   * allows to process content provided to the docs section.
-   */
-  enrichContent(currentRoute: Route, routes: Route[], key: number): T;
 }

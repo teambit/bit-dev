@@ -21,6 +21,12 @@
         "mainFile": "index.ts",
         "rootDir": "docs/blocks/component/architecture-breakdown"
     },
+    "blocks/header": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "design/blocks/header"
+    },
     "buttons/button": {
         "scope": "teambit.base-react",
         "version": "1.13.0",
@@ -975,6 +981,18 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/pages/page"
     },
+    "plugins/docs/table-of-contents": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/plugins/docs/table-of-contents"
+    },
+    "plugins/next-page": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/plugins/next-page"
+    },
     "theme/create-theme": {
         "scope": "teambit.base-react",
         "version": "1.13.0",
@@ -1028,6 +1046,12 @@
         "version": "1.13.0",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/community-docs"
+    },
+    "ui/community-highlighter": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/community-highlighter"
     },
     "ui/component-card-grid": {
         "scope": "teambit.community",

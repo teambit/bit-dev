@@ -1,5 +1,6 @@
 import React from 'react';
 import loadable from '@loadable/component';
+import { NextPagePlugin } from '@teambit/docs.plugins.next-page';
 import { DocsRoute } from '@teambit/docs.entities.docs-routes';
 
 /* Quick Start */
@@ -22,5 +23,10 @@ export const primaryRoutes: DocsRoute[] = [
     description:
       'Bit can change how think about software design and the apps you build. Where you used in thinking in applications, you will appreciate component trees and dependency graphs. Bit makes it easier to implement independent components and compose them into systems.',
     component: <ThinkingInComponents />,
+    plugins: {
+      [NextPagePlugin.name]: {
+        show: false,
+      },
+    },
   },
 ];

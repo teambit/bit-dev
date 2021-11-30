@@ -1,53 +1,44 @@
 import React, { useRef, useEffect, ReactNode } from 'react';
 import { MDXLayout } from '@teambit/mdx.ui.mdx-layout';
 import { Page } from '@teambit/base-react.pages.page';
-import { NextPage } from '@teambit/community.ui.cards.next-page';
-import { Panel } from '@teambit/base-react.layout.panel';
+import { DocsPlugin } from '@teambit/docs.ui.docs';
 import type { Route } from '@teambit/docs.entities.docs-routes';
+import { DocPageContext } from './doc-page-context';
 import { mdxComponents } from './mdx-components';
 import styles from './doc-page.module.scss';
-import { DocPlugin } from './doc-plugin';
 
 export type DocPageProps = {
-  /**
-   * title of the docs page.
-   */
-  title: string;
-
-  /**
-   * description of the docs page.
-   */
-  description?: string;
-
-  /**
-   * next page to show.
-   */
-  nextPage?: Route;
-
   /**
    * a text to be rendered in the component.
    */
   children: ReactNode;
 
   /**
-   * plugins to render in the doc page.
+   * current route.
    */
-  plugins?: DocPlugin[];
+  route: Route;
+
+  /**
+   * current key.
+   */
+  index: number;
 
   /**
    * base url to use for docs section.
    */
   baseUrl?: string;
+
+  plugins: DocsPlugin<any>[];
 };
 
 // const scrollToRef = (ref) => {
 //   return window.scrollTo(0, -ref.current.offsetTop);
 // };
 
-export function DocPage({ title, description, nextPage, children, baseUrl = '/docs', plugins }: DocPageProps) {
+export function DocPage({ route, index, children, baseUrl = '/docs', plugins = [] }: DocPageProps) {
   const myRef = useRef(null);
   // const executeScroll = () => scrollToRef(myRef);
-  const pageDescription = description || `Documentation page for ${title} - Bit.`;
+  const pageDescription = route.description || `Documentation page for ${route.title} - Bit.`;
 
   useEffect(() => {
     // executeScroll();
@@ -64,22 +55,24 @@ export function DocPage({ title, description, nextPage, children, baseUrl = '/do
   }, [window?.location.hash]);
 
   return (
-    <Page title={`${title} | Bit`} description={pageDescription}>
-      <div ref={myRef} />
-      <MDXLayout components={mdxComponents(baseUrl)}>
-        <div className={styles.mdxLayout}>{children}</div>
-      </MDXLayout>
+    <DocPageContext.Provider value={{ index, route }}>
+      <Page title={`${route.title} | Bit`} description={pageDescription}>
+        <div ref={myRef} />
+        <MDXLayout components={mdxComponents(baseUrl)}>
+          <div className={styles.mdxLayout}>{children}</div>
+        </MDXLayout>
 
-      <Panel className={styles.rightPanel} plugins={plugins?.flatMap((plugin) => plugin.right)} />
-      <Panel className={styles.bottomPanel} plugins={plugins?.flatMap((plugin) => plugin.bottom)} />
-      {nextPage && (
-        <NextPage
-          className={styles.next}
-          title={nextPage.title}
-          description={nextPage.description}
-          href={nextPage.absPath}
-        />
-      )}
-    </Page>
+        {plugins.map((plugin) => {
+          return plugin.page.bottom?.flatMap((Plugin) => {
+            return <Plugin {...route.plugins[plugin.name]} key={plugin.name} />;
+          });
+        })}
+        {plugins.map((plugin) => {
+          return plugin.page.right?.flatMap((Plugin) => {
+            return <Plugin {...route.plugins[plugin.name]} key={plugin.name} />;
+          });
+        })}
+      </Page>
+    </DocPageContext.Provider>
   );
 }
