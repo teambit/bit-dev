@@ -2,8 +2,7 @@ import React from 'react';
 import { DocsRoute } from '@teambit/docs.entities.docs-routes';
 import { RoutingProvider } from '@teambit/base-ui.routing.routing-provider';
 import { SidebarProvider } from '@teambit/design.ui.sidebar.sidebar-context';
-import { ReactRouterRoutingProvider } from '@teambit/ui-foundation.ui.navigation.react-router.routing-adapter';
-import { useLocation } from 'react-router-dom';
+import { useLocation, MemoryRouter } from 'react-router-dom';
 import { Link } from '@teambit/ui-foundation.ui.react-router.link';
 import { NavLink } from '@teambit/ui-foundation.ui.react-router.nav-link';
 import loadable from '@loadable/component';
@@ -66,12 +65,12 @@ const routes: DocsRoute[] = [
   },
 ];
 
-export const BasicDocs = ({ test = undefined }: { test?: boolean }) => (
+export const BasicDocs = () => (
   <RoutingProvider value={routing}>
     <SidebarProvider>
-      <ReactRouterRoutingProvider useBrowserRouter={test}>
+      <MemoryRouter>
         <Docs baseUrl="/" contents={[{ routes }]} primaryLinks={primaryRoutes} />
-      </ReactRouterRoutingProvider>
+      </MemoryRouter>
     </SidebarProvider>
   </RoutingProvider>
 );
