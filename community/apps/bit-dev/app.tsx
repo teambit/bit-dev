@@ -37,7 +37,7 @@ export function BitDevApp() {
           </WideColumn>
         </Route>
         <Route exact path="/plugins">
-          <Suspense fallback={<div>loading...</div>}>
+          <Suspense fallback={<div />}>
             <Plugins />
           </Suspense>
         </Route>
