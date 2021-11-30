@@ -55,6 +55,8 @@ export interface DocsRoute {
    * overview entry for the section.
    */
   overview?: SpecialRoute;
+
+  plugins?: Record<string, unknown>;
 }
 
 type SpecialRoute = {
