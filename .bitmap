@@ -1047,6 +1047,12 @@
         "mainFile": "index.ts",
         "rootDir": "docs/ui/community-docs"
     },
+    "ui/community-highlighter": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/community-highlighter"
+    },
     "ui/component-card-grid": {
         "scope": "teambit.community",
         "version": "1.13.0",
