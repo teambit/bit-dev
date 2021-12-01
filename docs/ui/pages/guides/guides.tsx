@@ -10,5 +10,5 @@ export type GuidesProps = {
 } & DocsProps;
 
 export function Guides({ baseUrl = '/guides', ...rest }: GuidesProps) {
-  return <Docs {...rest} routes={docsRoutes} baseUrl={baseUrl} />;
+  return <Docs {...rest} contents={[{ routes: docsRoutes }]} baseUrl={baseUrl} />;
 }
