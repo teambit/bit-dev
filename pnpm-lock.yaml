@@ -104,6 +104,7 @@ importers:
       eslint-plugin-react: 7.22.0
       eslint-plugin-react-hooks: 4.2.0
       history: ^5.0.1
+      lodash.compact: 3.0.1
       millify: 4.0.0
       prettier: 2.4.1
       react: 16.13.1
@@ -207,6 +208,7 @@ importers:
       eslint-plugin-react: registry.npmjs.org/eslint-plugin-react/7.22.0_eslint@7.32.0
       eslint-plugin-react-hooks: registry.npmjs.org/eslint-plugin-react-hooks/4.2.0_eslint@7.32.0
       history: registry.npmjs.org/history/5.1.0
+      lodash.compact: registry.npmjs.org/lodash.compact/3.0.1
       millify: registry.npmjs.org/millify/4.0.0
       prettier: registry.npmjs.org/prettier/2.4.1
       react: registry.npmjs.org/react/16.13.1
@@ -245,6 +247,9 @@ importers:
   base-react/layout/grid:
     specifiers: {}
 
+  base-react/layout/panel:
+    specifiers: {}
+
   base-react/navigation/link:
     specifiers: {}
 
@@ -261,6 +266,9 @@ importers:
     specifiers: {}
 
   base-react/ui/layout/graph-node:
+    specifiers: {}
+
+  bit/content/what-is-bit:
     specifiers: {}
 
   community/apps/bit-dev:
@@ -593,6 +601,9 @@ importers:
   dependencies/content/yarn:
     specifiers: {}
 
+  design/blocks/header:
+    specifiers: {}
+
   design/ui/brand/logo:
     specifiers: {}
 
@@ -732,6 +743,12 @@ importers:
     specifiers: {}
 
   docs/modules/paths:
+    specifiers: {}
+
+  docs/plugins/docs/table-of-contents:
+    specifiers: {}
+
+  docs/plugins/next-page:
     specifiers: {}
 
   docs/ui/community-docs:
@@ -8792,6 +8809,12 @@ packages:
     resolution: {integrity: sha1-soqmKIorn8ZRA1x3EfZathkDMaY=, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/lodash.camelcase/-/lodash.camelcase-4.3.0.tgz}
     name: lodash.camelcase
     version: 4.3.0
+    dev: false
+
+  registry.npmjs.org/lodash.compact/3.0.1:
+    resolution: {integrity: sha1-VAzjg3dFl1gHRx4WtKK6IeclbKU=, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/lodash.compact/-/lodash.compact-3.0.1.tgz}
+    name: lodash.compact
+    version: 3.0.1
     dev: false
 
   registry.npmjs.org/lodash.curry/4.1.1:

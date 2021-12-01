@@ -1,6 +1,7 @@
 import React from 'react';
 import { Docs } from '@teambit/docs.ui.docs';
-import type { DocsProps, CategoryRoutes } from '@teambit/docs.ui.docs';
+import type { DocsProps, ContentCategory } from '@teambit/docs.ui.docs';
+import { NextPagePlugin } from '@teambit/docs.plugins.next-page';
 // import { ContributingDocs } from '@teambit/docs.content.contributing-docs';
 import { primaryRoutes } from './primary-routes';
 import { gettingStartedDocsRoutes } from './getting-started-routes';
@@ -15,7 +16,7 @@ export type CommunityDocsProps = {
 } & DocsProps;
 
 export function CommunityDocs({ baseUrl = '/docs', ...rest }: CommunityDocsProps) {
-  const routesCategories: CategoryRoutes[] = [
+  const routesCategories: ContentCategory[] = [
     { title: 'GETTING STARTED', routes: gettingStartedDocsRoutes, className: styles.gettingStarted },
     { title: 'LEARN', routes: learnDocsRoutes },
   ];
@@ -23,9 +24,9 @@ export function CommunityDocs({ baseUrl = '/docs', ...rest }: CommunityDocsProps
     <Docs
       {...rest}
       primaryLinks={primaryRoutes}
-      routesCategories={routesCategories}
+      contents={routesCategories}
       baseUrl={baseUrl}
-      // plugins={[new TableOfContentsPlugin(), new NextPagePlugin()]}
+      plugins={[new NextPagePlugin()]}
       // contribution={<ContributingDocs/>}
     />
   );

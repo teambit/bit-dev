@@ -1,3 +1,4 @@
+import { MemoryRouter } from 'react-router-dom';
 import { Heading, Elements } from '@teambit/community.ui.heading';
 import { LeftRight } from '@teambit/design.ui.layouts.sections.left-right';
 import { Subtitle } from '@teambit/docs.ui.subtitle';
@@ -18,12 +19,14 @@ import { exampleComponents } from './example-components';
 
 Thinking in components is a different mindset. It is about understanding and capitalizing on smaller, reusable portions of value in the mutual work we do that compose together to
 a greater whole. 
-This could apply on almost anything we create digitally, from software development, to content creation, design, product management and anything else digital you might imagine.
+This could apply on almost anything we create from software development, to content creation, design, product management or even organization structure and anything you might imagine.
 
 To demonstarate thinking in components we would use the following simple product that show a list of top inventions:
 
 <ExcludeHighlighter>
-  <TopInventions />
+  <MemoryRouter>
+    <TopInventions />
+  </MemoryRouter>
 </ExcludeHighlighter>
 <br />
 

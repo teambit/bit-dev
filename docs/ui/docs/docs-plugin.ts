@@ -1,6 +1,11 @@
-import { PanelPlugin } from '@teambit/base-react.layout.panel';
+import { ComponentType } from 'react';
 
-export interface DocsPlugin {
+export interface DocsPlugin<TB = {}, TR = {}> {
+  /**
+   * the plugin name. can be the class name.
+   */
+  name: string;
+
   /**
    * add plugins to the doc page.
    */
@@ -8,11 +13,11 @@ export interface DocsPlugin {
     /**
      * add plugin to the bottom section of the doc page.
      */
-    bottom: PanelPlugin[];
+    bottom?: ComponentType<TB>[];
 
     /**
      * add plugin to the right section of the doc page.
      */
-    right: PanelPlugin[];
+    right?: ComponentType<TR>[];
   };
 }
