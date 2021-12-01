@@ -21,6 +21,12 @@
         "mainFile": "index.ts",
         "rootDir": "docs/blocks/component/architecture-breakdown"
     },
+    "blocks/footer": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "design/blocks/footer"
+    },
     "blocks/header": {
         "scope": "",
         "version": "",
