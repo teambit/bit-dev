@@ -8,9 +8,5 @@ export type HeaderProps = {
 };
 
 export function Header({ children }: HeaderProps) {
-  return (
-    <div>
-      {children}
-    </div>
-  );
+  return <div>{children}</div>;
 }
