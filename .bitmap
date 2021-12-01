@@ -1287,6 +1287,12 @@
         "mainFile": "index.ts",
         "rootDir": "design/ui/navigation/link"
     },
+    "ui/navigation/menu": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "design/ui/navigation/menu"
+    },
     "ui/navigation/react-router/link": {
         "scope": "teambit.ui-foundation",
         "version": "1.13.0",
