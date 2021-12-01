@@ -23,7 +23,7 @@ export function Header({ highlighting, setHighlighting, className, ...rest }: He
 
   return (
     <BaseHeader className={classNames(className)} menuLinks={headerContent} {...rest}>
-      <div className={styles.navRight}>
+      <div className={styles.right}>
         <GithubStars className={styles.githubLink} />
         <ExternalLink href="https://join.slack.com/t/bit-dev-community/shared_invite/zt-o2tim18y-UzwOCFdTafmFKEqm2tXE4w">
           <Icon of="slack" />
@@ -39,7 +39,7 @@ export function Header({ highlighting, setHighlighting, className, ...rest }: He
 
 // function Plugins({ onToggleClick, highlighting }) {
 //   return (
-//     <div className={styles.navRight}>
+//     <div className={styles.right}>
 //       <GithubStars className={styles.githubLink} />
 //       <ExternalLink href="https://join.slack.com/t/bit-dev-community/shared_invite/zt-o2tim18y-UzwOCFdTafmFKEqm2tXE4w">
 //         <Icon of="slack" />

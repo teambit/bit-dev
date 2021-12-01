@@ -10,9 +10,12 @@
   @media screen and (max-width: $br-md) {
     flex-direction: column-reverse;
   }
+  @media screen and (max-width: $br-sm) {
+    display: none;
+  }
 }
 
-.navRight {
+.right {
   display: flex;
   align-items: center;
   font-size: var(--bit-p-xs, 14px);
@@ -22,6 +25,9 @@
   }
   a {
     display: inline-flex;
+  }
+  @media screen and (max-width: $br-sm) {
+    display: none;
   }
 }
 
