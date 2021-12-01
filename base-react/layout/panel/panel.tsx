@@ -7,7 +7,7 @@ export type PanelProps = {
    */
   children?: ReactNode;
 
-  plugins?: PanelPlugin[];
+  plugins?: PanelPlugin<unknown>[];
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export function Panel({ plugins }: PanelProps) {

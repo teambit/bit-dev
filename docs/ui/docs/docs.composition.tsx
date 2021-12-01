@@ -53,7 +53,7 @@ const routes: DocsRoute[] = [
 export const BasicDocs = () => (
   <Docs
     baseUrl="https://teambit-community-apps-bit-dev.netlify.app/docs"
-    routes={routes}
+    contents={[{ routes }]}
     primaryLinks={primaryRoutes}
     data-testid="test-basic-docs"
   />
