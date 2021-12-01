@@ -7,6 +7,7 @@ export type Route = {
   description?: string;
   absPath: string;
   component: ReactNode;
+  plugins: Record<string, unknown>[];
 };
 
 export class DocsRoutes {
@@ -80,6 +81,7 @@ export class DocsRoutes {
               component: currentRoute.component,
               absPath: this.computePath(currentRoute, parentPath),
               description: currentRoute.description,
+              plugins: currentRoute.plugins || ([] as any),
             },
           ]
         : [];
@@ -90,6 +92,7 @@ export class DocsRoutes {
               description: config.description,
               absPath: this.computePath(config, currentRoute.path),
               component: config.component,
+              plugins: currentRoute.plugins || ([] as any),
             },
           ]
         : [];
@@ -100,6 +103,7 @@ export class DocsRoutes {
               description: overview.description,
               absPath: this.computePath(overview, currentRoute.path),
               component: overview.component,
+              plugins: currentRoute.plugins || ([] as any),
             },
           ]
         : [];
@@ -117,6 +121,7 @@ export class DocsRoutes {
         description: currentRoute.description,
         absPath: this.computePath(currentRoute, parentPath),
         component: currentRoute.component,
+        plugins: currentRoute.plugins || ([] as any),
       },
     ];
   }
