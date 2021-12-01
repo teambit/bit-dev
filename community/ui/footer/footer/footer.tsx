@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import { Category, CategoryProps } from '@teambit/community.ui.footer.category';
 import { Logo } from '@teambit/design.ui.brand.logo';
-import { Link } from '@teambit/community.ui.footer.link';
+import { IconLink } from '@teambit/design.ui.navigation.icon-link';
 import styles from './footer.module.scss';
 
 export type FooterProps = {
@@ -20,7 +20,7 @@ export function Footer({ categoryList, className }: FooterProps) {
       <div className={styles.bottom}>
         <Logo className={styles.logo} />
         <span>© 2021 Cocycles, Ltd.</span>
-        <Link text="Privacy" href="https://bit.cloud/resources/privacy" external />
+        <IconLink text="Privacy" href="https://bit.cloud/resources/privacy" external />
       </div>
     </div>
   );
