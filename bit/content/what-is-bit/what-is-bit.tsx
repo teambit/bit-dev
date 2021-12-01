@@ -1,5 +1,5 @@
 import React from 'react';
-import WhatIsBitShort from './what-is-bit-short.mdx';
+// import WhatIsBitShort from './what-is-bit-short.mdx';
 import WhatIsBitLong from './what-is-bit.mdx';
 
 // export enum Size {
@@ -12,6 +12,6 @@ import WhatIsBitLong from './what-is-bit.mdx';
 // };
 
 export function WhatIsBit({ size }) {
-  if (size === 'sm') return <WhatIsBitShort />;
+  // if (size === 'sm') return <WhatIsBitShort />;
   return <WhatIsBitLong />;
 }
