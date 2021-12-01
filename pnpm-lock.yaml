@@ -643,6 +643,9 @@ importers:
   design/ui/layouts/sections/top-down:
     specifiers: {}
 
+  design/ui/navigation/icon-link:
+    specifiers: {}
+
   design/ui/navigation/link:
     specifiers: {}
 

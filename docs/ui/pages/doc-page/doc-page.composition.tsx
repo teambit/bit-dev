@@ -1,9 +1,9 @@
-import React from 'react';
-import { DocPage } from './doc-page';
-import { CreateWorkspace } from '@teambit/docs.content.getting-started.create-workspace';
+// import React from 'react';
+// import { CreateWorkspace } from '@teambit/docs.content.getting-started.create-workspace';
+// import { DocPage } from './doc-page';
 
-export const BasicDocPage = () => (
-  <DocPage title="Creating a Workspace">
-    <CreateWorkspace />
-  </DocPage>
-);
+// export const BasicDocPage = () => (
+//   <DocPage>
+//     <CreateWorkspace />
+//   </DocPage>
+// );
