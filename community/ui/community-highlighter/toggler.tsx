@@ -9,7 +9,7 @@ export function Toggler() {
   return (
     <div className={styles.inspect}>
       <span>Inspect</span>
-      <Toggle onInputChanged={(e) => setDisabled(!e.target.checked)} checked={disabled} />
+      <Toggle onInputChanged={(e) => setDisabled(e.target.checked)} checked={disabled} />
     </div>
   );
 }
