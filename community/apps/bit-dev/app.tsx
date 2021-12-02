@@ -19,9 +19,10 @@ const Plugins = loadable(() => import('@teambit/community.ui.pages.plugins'));
 export function BitDevApp() {
   const [highlighting, setHighlighting] = useLocalStorage('highlighting', true);
 
+
   return (
     <AppContext showHighlighter={highlighting}>
-      <Header highlighting={highlighting} setHighlighting={setHighlighting} />
+      <Header />
       <Switch>
         <Redirect exact from="/docs" to="/docs/quick-start" />
         <Route path="/docs">
