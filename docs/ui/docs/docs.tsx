@@ -6,9 +6,9 @@ import { Sidebar as Tree } from '@teambit/docs.ui.sidebar.sidebar';
 import { DocPage } from '@teambit/docs.ui.pages.doc-page';
 import { useSidebar } from '@teambit/design.ui.sidebar.sidebar-context';
 import { Sidebar } from '@teambit/design.ui.sidebar.sidebar';
+import { DocsPlugin } from '@teambit/docs.plugins.docs-plugin';
 import styles from './docs.module.scss';
 import { PrimaryLinks } from './primary-links';
-import { DocsPlugin } from './docs-plugin';
 import { DocsContext } from './docs-context';
 
 export type ContentCategory = {

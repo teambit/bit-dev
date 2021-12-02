@@ -46,6 +46,7 @@ export function Header({
         </div>
         <div className={styles.right}>
           {plugins?.map((Plugin, index) => (
+            // eslint-disable-next-line react/no-array-index-key
             <Plugin key={index} />
           ))}
         </div>

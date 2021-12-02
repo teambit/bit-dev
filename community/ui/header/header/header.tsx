@@ -11,21 +11,16 @@ import styles from './header.module.scss';
 
 export type HeaderProps = {} & BaseHeaderProps;
 
+const pluginsArray = [
+  () => <GithubStars className={styles.githubLink} />,
+  () => (
+    <ExternalLink href="https://join.slack.com/t/bit-dev-community/shared_invite/zt-o2tim18y-UzwOCFdTafmFKEqm2tXE4w">
+      <Icon of="slack" />
+    </ExternalLink>
+  ),
+  Toggler,
+];
+
 export function Header({ className, plugins, ...rest }: HeaderProps) {
-  return (
-    <BaseHeader
-      {...rest}
-      className={classNames(className)}
-      menuLinks={headerContent}
-      plugins={[
-        () => <GithubStars className={styles.githubLink} />,
-        () => (
-          <ExternalLink href="https://join.slack.com/t/bit-dev-community/shared_invite/zt-o2tim18y-UzwOCFdTafmFKEqm2tXE4w">
-            <Icon of="slack" />
-          </ExternalLink>
-        ),
-        Toggler,
-      ]}
-    />
-  );
+  return <BaseHeader {...rest} className={classNames(className)} menuLinks={headerContent} plugins={pluginsArray} />;
 }

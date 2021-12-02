@@ -987,6 +987,12 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/pages/page"
     },
+    "plugins/docs-plugin": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/plugins/docs-plugin"
+    },
     "plugins/docs/table-of-contents": {
         "scope": "teambit.docs",
         "version": "0.0.1",

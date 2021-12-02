@@ -1,7 +1,7 @@
 import React, { useRef, useEffect, ReactNode } from 'react';
 import { MDXLayout } from '@teambit/mdx.ui.mdx-layout';
 import { Page } from '@teambit/base-react.pages.page';
-import { DocsPlugin } from '@teambit/docs.ui.docs';
+import { DocsPlugin } from '@teambit/docs.plugins.docs-plugin';
 import type { Route } from '@teambit/docs.entities.docs-routes';
 import { DocPageContext } from './doc-page-context';
 import { mdxComponents } from './mdx-components';
