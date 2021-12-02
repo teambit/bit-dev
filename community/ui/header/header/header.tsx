@@ -1,22 +1,17 @@
 import React from 'react';
 import classNames from 'classnames';
-import { useLocalStorage } from '@teambit/community.ui.hooks.use-local-storage';
 import { Icon } from '@teambit/design.elements.icon';
 import { GithubStars } from '@teambit/community.ui.github-stars';
-import { Toggle } from '@teambit/design.ui.input.toggle';
 import { ExternalLink } from '@teambit/design.ui.external-link';
 import { Header as BaseHeader, HeaderProps as BaseHeaderProps } from '@teambit/design.blocks.header';
+import { Toggler } from '@teambit/community.ui.community-highlighter';
+import { headerContent } from './header-links';
 
 import styles from './header.module.scss';
 
 export type HeaderProps = {} & BaseHeaderProps;
 
 export function Header({ className, plugins, ...rest }: HeaderProps) {
-  const [highlighting, setHighlighting] = useLocalStorage('highlighting', true);
-
-  function onToggleClick(e) {
-    return setHighlighting?.(e.target.checked);
-  }
   return (
     <BaseHeader
       {...rest}
@@ -29,28 +24,8 @@ export function Header({ className, plugins, ...rest }: HeaderProps) {
             <Icon of="slack" />
           </ExternalLink>
         ),
-        () => (
-          <div className={styles.inspect}>
-            <span>Inspect</span>
-            <Toggle onInputChanged={onToggleClick} checked={highlighting} />
-          </div>
-        ),
+        Toggler,
       ]}
     />
   );
 }
-
-const headerContent = [
-  {
-    title: 'Docs',
-    href: '/docs',
-  },
-  {
-    title: 'Plugins',
-    href: '/plugins',
-  },
-  {
-    title: 'bit.cloud',
-    href: 'https://bit.cloud',
-  },
-];

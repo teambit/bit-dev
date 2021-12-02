@@ -20,7 +20,7 @@ export function CommunityHighlighter({ children }: CommunityHighlighterProps) {
         classes={{ label: styles.label, frame: styles.frame }}
         placement="top"
         style={{ border: 'none' }}
-        disabled
+        disabled={disabled}
       >
         {children}
       </ComponentHighlighter>

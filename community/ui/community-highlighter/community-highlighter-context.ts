@@ -2,7 +2,7 @@ import { createContext } from 'react';
 
 export type CommunityHighlighterContextProps = {
   disabled: boolean;
-  setDisabled: () => boolean | undefined;
+  setDisabled: (disabled: boolean) => boolean | undefined;
 };
 
 export const CommunityHighlighterContext = createContext<CommunityHighlighterContextProps>({
