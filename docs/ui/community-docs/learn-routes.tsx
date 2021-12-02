@@ -541,7 +541,7 @@ export const learnDocsRoutes: DocsRoute[] = [
         title: 'Using Envs',
         component: <UsingEnvs />,
       },
-     {
+      {
         path: 'inspecting-env',
         title: 'Inspecting an Env',
         description: '',
@@ -550,22 +550,20 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'composing-env',
         title: 'Composing an Env',
-        description:
-          'Extend existing envs to create your unique workflow.',
+        description: 'Extend existing envs to create your unique workflow.',
         component: <ExtendingEnv />,
       },
       {
         path: 'dev-services-overview',
         title: 'Env Services',
-        description:
-          "Environment Services control various workflows and commands for components.",
+        description: 'Environment Services control various workflows and commands for components.',
         component: <DevServicesOverview />,
-      }
+      },
     ],
   },
   {
     path: 'dev-services',
-    title: 'Base Env Services',
+    title: 'Dev Services',
     icon: 'compCI',
     open: false,
     overview: {
@@ -671,8 +669,8 @@ export const learnDocsRoutes: DocsRoute[] = [
             component: <CompilingDuringBuild />,
           },
           {
-            path: 'configure-env-with-compiler',
-            title: 'Configure an Env with a Compiler',
+            path: 'using-a-compiler',
+            title: 'Using a Compiler',
             description: 'Learn how to configure an Env to use a different compiler.',
             component: <ConfigureEnvWithCompiler />,
           },

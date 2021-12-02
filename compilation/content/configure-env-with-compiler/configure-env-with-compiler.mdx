@@ -1,55 +1,99 @@
-# Configure an Env with a Compiler
+# Using a Compiler
 
-If you're using a custom compiler implementation, make sure to compile it first, before using it:
+## Using a Compiler in a new Env
 
-```bash
-bit compile
-```
-
-To use the new compiler, create an Env extension or use an existing one.
-
-For example, the following will create a React Env extension.
+Create a new Env using the 'env' template:
 
 ```
-bit create react-env extensions/my-react
+bit create env aspect/my-env
 ```
 
-The compiler can be configured using the `overrideCompiler` and `overrideBuildPipe` APIs, however, these may not exist in all Envs.
+A compiler should provide compilation during development (in the workspace) as well as during build. Implement `useCompiler` for the former, and `useBuildPipe` for the latter.
+Notice how compilation during build is done by passing a compiler instance to the `createTask` API, which is provided by the Compiler Dev Service.
 
-To make this tutorial Env-agnostic, we'll directly override the Envs Build Pipeline and Compiler.
+Both the Compiler aspect instance, as well as the compiler implementation instance are passed to `MyEnv` from `MyEnvMain` in the `my-env.main.runtime.ts` files (which will be discussed in the next step).
 
-Add an Env implementation file to your newly created Env extension.
-
-```
-cd my-scope/extensions/my-env
-touch my-env.env.ts
-```
-
-Implement the `getCompiler` [Service Handler](/dev-services/dev-services-overview#service-handlers) to use a compiler for compilation in the workspace (in development).
-
-Implement the [`getBuildPipe`](dev-services/builder/build-pipelines#add-a-build-task-from-an-env) [Service Handler](/dev-services/dev-services-overview#service-handlers) to use a compiler during build.
+Make sure to set dependencies (using `getDependencies`) to support the compiler config. For example, if your Babel compiler receives a config (`babelConfig`) that sets it to support React with TS compilation,
+it will naturally require additional dependencies like `@babel/preset-react` and `@babel/preset-typescript`, to be configured on every component using this Env (these dependencies will be installed in the components' Workspaces or Capsules).
 
 ```ts
-import { CompilerEnv, BuilderEnv } from '@teambit/envs';
-import { MyCompilerNoSmMain } from '@my-org/compilation.examples.extensions.my-compiler-no-sm';
+import { CompilerEnv, BuilderEnv, DependenciesEnv } from '@teambit/envs';
+import { CompilerMain } from '@teambit/compiler';
+import { BabelMain } from '@teambit/babel';
+import { babelConfig } from './babel/babel.config';
 
-// The Env class should only implement the services it overrides as it will be merged with the base Env
-export class MyEnv implements CompilerEnv, BuilderEnv {
-  constructor(private myCompiler: MyCompiler) {}
+export const AspectEnvType = 'custom-env';
 
-  myCompiler = this.myCompiler.createCompiler();
+export class MyEnv implements CompilerEnv, BuilderEnv, DependenciesEnv {
+  constructor(private compiler: CompilerMain, private babel: BabelMain) {}
 
-  // Use the 'getCompiler' service handler to use a compiler
   getCompiler() {
-    return this.myCompiler;
+    const babelCompiler = this.babel.createCompiler({
+      babelTransformOptions: babelConfig,
+    });
+    return babelCompiler;
   }
 
-  // Use the 'getBuildPipe' service handler to register a build task
   getBuildPipe() {
-    return [this.myCompiler.createTask()];
+    const babelCompiler = this.babel.createCompiler({
+      babelTransformOptions: babelConfig,
+    });
+    return [this.compiler.createTask('BabelCompiler', babelCompiler)];
+  }
+
+  async __getDescriptor() {
+    return {
+      type: AspectEnvType,
+    };
   }
 }
 ```
+
+The `my-env.main.runtime.ts` file should list all Aspects used by this Env.
+This includes the Envs aspect for `Env` registration, the `Compiler` aspect for the compiler's build task, and finally, the compiler implementation (in this case, the `Babel` aspect).
+
+```ts
+import { MainRuntime } from '@teambit/cli';
+import { EnvsMain, EnvsAspect } from '@teambit/envs';
+import { CompilerMain, CompilerAspect } from '@teambit/compiler';
+import { BabelMain, BabelAspect } from '@teambit/babel';
+import { MyEnv } from './my-env.env';
+import { MyEnvAspect } from './my-env.aspect';
+
+export class MyEnvMain {
+  // List this env's dependencies (other aspects used by it)
+  static dependencies = [EnvsAspect, CompilerAspect, BabelAspect];
+  static runtime = MainRuntime;
+  // Provide the env with the relevant aspect instances (the instances are injected by Bit)
+  static async provider([envs, compiler, babel]: [EnvsMain, CompilerMain, BabelMain]) {
+    // Create a 'my env' instance
+    const myEnv = new MyEnv(compiler, babel);
+    // Register the 'my env' instance as an env
+    envs.registerEnv(myEnv);
+    return new MyEnvMain();
+  }
+}
+
+CustomEnvAspect.addRuntime(MyEnvMain);
+```
+
+## Replace an Env's compiler using an Env extension
+
+You can use an Env extension to replace the (base) Env's default compiler with another compiler implementation.
+
+For example, the following will create a React Env extension:
+
+```
+bit create react-env aspects/my-react
+```
+
+React Env uses the TypeScript aspect by default.
+To replace it with another Aspect, another compiler, override its `getCompiler` and `getBuildPipe` service handlers, for compilation in the workspace, as well as during build.
+
+Make sure to _add_ the new compiler task to the build pipeline, and not override it altogether. In the example below, the Env's default compilation task is filtered out from the Env's default build pipeline by selecting its `aspectId` property (which is equal to the Compiler aspect ID).
+
+Set dependencies (using `getDependencies`) to support the compiler config. For example, if your Babel compiler receives a config (`babelConfig`) that sets it to support React with TS compilation,
+it will naturally require additional dependencies like `@babel/preset-react` and `@babel/preset-typescript`, to be configured on every component using this Env (these dependencies will be installed in the components' Workspaces or Capsules).
 
 In the Env's main runtime file (`my-env.main.runtime.ts`), implement the following:
 
@@ -57,25 +101,44 @@ In the Env's main runtime file (`my-env.main.runtime.ts`), implement the followi
 import { MainRuntime } from '@teambit/cli';
 import { ReactAspect, ReactMain } from '@teambit/react';
 import { EnvsAspect, EnvsMain } from '@teambit/envs';
-import { MyCompilerMain, MyCompilerAspect } from '@my-org/my-scope.extensions.my-compiler';
-import { MyReactAspect } from './my-react.aspect';
-import { MyReact } from './my-react.env';
+import { BabelAspect, BabelMain } from '@teambit/babel';
+import { CompilerAspect } from '@teambit/compiler';
+import { babelConfig } from './babel/babel.config';
+import { ExtReactAspect } from './ext-react.aspect';
 
-export class MyReactNoSmMain {
-  constructor(readonly myReactEnv: MyReactNoSm) {}
-
-  static dependencies = [ReactAspect, EnvsAspect, MyCompilerAspect];
+export class ExtReactMain {
+  static dependencies = [ReactAspect, EnvsAspect, BabelAspect];
 
   static runtime = MainRuntime;
 
-  static async provider([react, envs, myCompiler]: [ReactMain, EnvsMain, MyCompilerMain]) {
-    // Merge the customized and base Env instances
-    const myReactEnv = envs.merge<MyReact>(new MyReact(myCompiler), react.reactEnv);
+  static async provider([react, envs, babel]: [ReactMain, EnvsMain, BabelMain]) {
+    const babelCompiler = babel.createCompiler({
+      babelTransformOptions: babelConfig,
+    });
 
-    envs.registerEnv(myReactEnv);
-    return new MyReactMain(myReactEnv);
+    // Get React's build pipeline
+    const basicBuildPipeline = react.reactEnv.getBuildPipe();
+    // Filter out compilation build tasks
+    const basicBuildPipelineWithoutCompilation = basicBuildPipeline.filter(
+      (task) => task.aspectId !== CompilerAspect.id
+    );
+
+    const compilerBuildTask = [
+      compiler.createTask('BabelCompiler', babelCompiler),
+      ...basicBuildPipelineWithoutCompilation,
+    ];
+
+    const overrideObj = {
+      getCompiler: () => babelCompiler,
+      getBuildPipe: () => compilerBuildTask,
+    };
+
+    const compilerTransformer = envs.override(overrideObj);
+    const newEnv = react.compose([compilerTransformer]);
+    envs.registerEnv(newEnv);
+    return new ExtReactMain();
   }
 }
 
-MyReactAspect.addRuntime(MyReactMain);
+ExtReactAspect.addRuntime(ExtReactMain);
 ```
