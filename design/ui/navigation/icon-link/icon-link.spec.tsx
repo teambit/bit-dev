@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { LinkWithIcon, LinkWithImage } from './link.composition';
+import { LinkWithIcon, LinkWithImage } from './icon-link.composition';
 
 describe('footer link', () => {
   it('should render with the correct text', () => {
