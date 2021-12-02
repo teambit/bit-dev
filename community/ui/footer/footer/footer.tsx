@@ -6,10 +6,10 @@ import styles from './footer.module.scss';
 
 export type FooterProps = {} & BaseFooterProps;
 
-export function Footer({ categoryList, children, ...rest }: FooterProps) {
+export function Footer({ categoryList, children = <BottomLinks />, ...rest }: FooterProps) {
   return (
     <BaseFooter {...rest} categoryList={categoryList} className={styles.footer}>
-      {children || <BottomLinks />}
+      {children}
     </BaseFooter>
   );
 }
