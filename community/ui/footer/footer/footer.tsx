@@ -1,7 +1,7 @@
 import React from 'react';
 import { Footer as BaseFooter, FooterProps as BaseFooterProps } from '@teambit/design.blocks.footer';
 import { Logo } from '@teambit/design.ui.brand.logo';
-import { Link } from '@teambit/community.ui.footer.link';
+import { IconLink } from '@teambit/design.ui.navigation.icon-link';
 import styles from './footer.module.scss';
 
 export type FooterProps = {} & BaseFooterProps;
@@ -19,7 +19,7 @@ function BottomLinks() {
     <>
       <Logo className={styles.logo} />
       <span>© 2021 Cocycles, Ltd.</span>
-      <Link text="Privacy" href="https://bit.cloud/resources/privacy" external />
+      <IconLink text="Privacy" href="https://bit.cloud/resources/privacy" external />
     </>
   );
 }

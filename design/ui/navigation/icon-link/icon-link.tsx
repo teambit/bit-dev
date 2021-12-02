@@ -2,9 +2,9 @@ import React from 'react';
 import classNames from 'classnames';
 import { Link as BaseLink, LinkProps as BaseLinkProps } from '@teambit/design.ui.navigation.link';
 import { Icon } from '@teambit/design.elements.icon';
-import styles from './link.module.scss';
+import styles from './icon-link.module.scss';
 
-export type LinkProps = {
+export type IconLinkProps = {
   /**
    * icon to be rendered in the component.
    */
@@ -20,9 +20,9 @@ function getIcon(icon: string, text: string) {
   return <Icon className={styles.icon} of={icon} />;
 }
 
-export function Link({ className, icon, text, children, ...rest }: LinkProps) {
+export function IconLink({ className, icon, text, children, ...rest }: IconLinkProps) {
   return (
-    <BaseLink {...rest} className={classNames(styles.link, className)}>
+    <BaseLink {...rest} className={classNames(styles.iconLink, className)}>
       {icon && getIcon(icon, text)}
       <span>{text}</span>
       {children}
