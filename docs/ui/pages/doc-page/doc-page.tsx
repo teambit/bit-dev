@@ -28,7 +28,7 @@ export type DocPageProps = {
    */
   baseUrl?: string;
 
-  plugins: DocsPlugin<any>[];
+  plugins?: DocsPlugin<any>[];
 };
 
 // const scrollToRef = (ref) => {
