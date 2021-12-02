@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { DocsPlugin } from '@teambit/docs.ui.docs';
+// import { DocsPlugin } from '@teambit/docs.ui.docs';
 
 export type TableOfContentsProps = {
   /**

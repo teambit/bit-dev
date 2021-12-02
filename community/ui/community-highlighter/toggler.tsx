@@ -1,5 +1,15 @@
+import React from 'react';
+import { Toggle } from '@teambit/design.ui.input.toggle';
+import styles from './community-highlighter.module.scss';
+import { useHighlighter } from './use-highlighter';
 
+export function Toggler() {
+  const { setDisabled, disabled } = useHighlighter();
 
-export function Togeller() {
-
+  return (
+    <div className={styles.inspect}>
+      <span>Inspect</span>
+      <Toggle onInputChanged={setDisabled} checked={disabled} />
+    </div>
+  );
 }
