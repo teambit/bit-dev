@@ -15,8 +15,6 @@ export type HeaderProps = {
 } & React.HTMLAttributes<HTMLElement>;
 
 export function Header({ highlighting, setHighlighting, className, ...rest }: HeaderProps) {
-  // const sidebar = useSidebar();
-
   function onToggleClick(e) {
     return setHighlighting?.(e.target.checked);
   }
@@ -36,21 +34,6 @@ export function Header({ highlighting, setHighlighting, className, ...rest }: He
     </BaseHeader>
   );
 }
-
-// function Plugins({ onToggleClick, highlighting }) {
-//   return (
-//     <div className={styles.right}>
-//       <GithubStars className={styles.githubLink} />
-//       <ExternalLink href="https://join.slack.com/t/bit-dev-community/shared_invite/zt-o2tim18y-UzwOCFdTafmFKEqm2tXE4w">
-//         <Icon of="slack" />
-//       </ExternalLink>
-//       <div className={styles.inspect}>
-//         <span>Inspect</span>
-//         <Toggle onInputChanged={onToggleClick} checked={highlighting} />
-//       </div>
-//     </div>
-//   );
-// }
 
 const headerContent = [
   {

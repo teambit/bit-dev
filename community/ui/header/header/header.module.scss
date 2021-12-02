@@ -8,7 +8,8 @@
     margin-right: 4px;
   }
   @media screen and (max-width: $br-md) {
-    flex-direction: column-reverse;
+    font-size: 12px;
+    padding-left: 8px;
   }
   @media screen and (max-width: $br-sm) {
     display: none;
