@@ -3,6 +3,7 @@ import { Footer } from './footer';
 
 export const BasicFooter = () => (
   <Footer
+    data-testid="footer"
     categoryList={[
       {
         title: 'links with icons',
