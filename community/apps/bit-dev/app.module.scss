@@ -11,31 +11,3 @@
     }
   }
 }
-
-.frame {
-  border: 1px solid var(--bit-border-color-lightest, #ededed);
-}
-
-.inspect {
-  display: flex;
-  align-items: center;
-  padding-left: 24px;
-  > span {
-    margin-right: 4px;
-  }
-  @media screen and (max-width: $br-md) {
-    font-size: 12px;
-    padding-left: 8px;
-  }
-  @media screen and (max-width: $br-sm) {
-    display: none;
-  }
-}
-
-.githubLink {
-  @media screen and (max-width: $br-md) {
-    > span:not(:first-child) {
-      display: none;
-    }
-  }
-}

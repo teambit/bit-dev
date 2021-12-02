@@ -11,9 +11,18 @@ export type HeaderProps = {
   menuLinks?: NavLinkType[];
   Icon?: ComponentType<LogoProps>;
   Menu?: ComponentType<NavigationMenuProps>;
+  plugins?: ComponentType<unknown>[];
 } & React.HTMLAttributes<HTMLElement>;
 
-export function Header({ className, Menu = NavigationMenu, Icon = Logo, menuLinks, children, ...rest }: HeaderProps) {
+export function Header({
+  className,
+  Menu = NavigationMenu,
+  Icon = Logo,
+  menuLinks,
+  children,
+  plugins,
+  ...rest
+}: HeaderProps) {
   return (
     <header {...rest} className={classNames(styles.header, className)}>
       <WideColumn className={styles.headerContent}>
@@ -23,7 +32,11 @@ export function Header({ className, Menu = NavigationMenu, Icon = Logo, menuLink
           </Link>
           <Menu links={menuLinks} className={styles.linkMenu} />
         </div>
-        <div>{children}</div>
+        <div className={styles.right}>
+          {plugins?.map((Plugin, index) => (
+            <Plugin key={index} />
+          ))}
+        </div>
       </WideColumn>
     </header>
   );

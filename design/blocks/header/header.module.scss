@@ -14,6 +14,22 @@
   justify-content: space-between;
 }
 
+.right {
+  display: flex;
+  align-items: center;
+  font-size: var(--bit-p-xs, 14px);
+  > *:not(:last-child) {
+    font-size: inherit;
+    margin-right: 8px;
+  }
+  a {
+    display: inline-flex;
+  }
+  @media screen and (max-width: $br-sm) {
+    display: none;
+  }
+}
+
 .linkMenu {
   > a {
     margin-right: 24px;
