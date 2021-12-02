@@ -21,6 +21,12 @@
         "mainFile": "index.ts",
         "rootDir": "docs/blocks/component/architecture-breakdown"
     },
+    "blocks/footer": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "design/blocks/footer"
+    },
     "blocks/header": {
         "scope": "teambit.design",
         "version": "0.0.1",
@@ -1280,6 +1286,12 @@
         "version": "1.13.0",
         "mainFile": "index.ts",
         "rootDir": "design/ui/navigation/link"
+    },
+    "ui/navigation/menu": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "design/ui/navigation/menu"
     },
     "ui/navigation/react-router/link": {
         "scope": "teambit.ui-foundation",
