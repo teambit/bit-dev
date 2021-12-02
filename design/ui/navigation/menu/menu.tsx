@@ -36,6 +36,9 @@ export type NavigationMenuProps = {
    */
   links?: NavLinkType[];
 
+  /**
+   * An element to use to override the Link in the menu. defaults to TabLink
+   */
   Link?: ComponentType<TabLinkProps>;
 } & React.HtmlHTMLAttributes<HTMLDivElement>;
 

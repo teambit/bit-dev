@@ -8,9 +8,21 @@ import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 import styles from './header.module.scss';
 
 export type HeaderProps = {
+  /**
+   * A list of links to be displayed in the header.
+   */
   menuLinks?: NavLinkType[];
+  /**
+   * An element to use to override the icon in the header.
+   */
   Icon?: ComponentType<LogoProps>;
+  /**
+   * An element to use to override the link menu in the header.
+   */
   Menu?: ComponentType<NavigationMenuProps>;
+  /**
+   * A list of plugins to be displayed in the right side of the header.
+   */
   plugins?: ComponentType<unknown>[];
 } & React.HTMLAttributes<HTMLElement>;
 

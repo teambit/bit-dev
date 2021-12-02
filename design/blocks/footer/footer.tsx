@@ -4,6 +4,9 @@ import { Category, CategoryProps } from './category';
 import styles from './footer.module.scss';
 
 export type FooterProps = {
+  /**
+   * A list categories of links to be displayed in the footer.
+   */
   categoryList: CategoryProps[];
 } & React.HTMLAttributes<HTMLDivElement>;
 
