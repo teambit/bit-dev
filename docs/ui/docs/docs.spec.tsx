@@ -8,3 +8,9 @@ it('should render with the correct text in the sidebar', () => {
 
   expect(rendered).toBeTruthy();
 });
+it('should not have H1 until the sidebar is clicked', () => {
+  const { container } = render(<BasicDocs />);
+  const h1Element = container.querySelector('h1');
+
+  expect(h1Element).toBeFalsy();
+});

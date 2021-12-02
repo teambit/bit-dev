@@ -3,7 +3,10 @@ import { CreateWorkspace } from '@teambit/docs.content.getting-started.create-wo
 import { DocPage } from './doc-page';
 
 export const BasicDocPage = () => (
-  <DocPage title="Create a new Workspace">
+  <DocPage
+    index={0}
+    route={{ title: 'Create a new Workspace', component: <CreateWorkspace />, absPath: '/', plugins: [] }}
+  >
     <CreateWorkspace />
   </DocPage>
 );

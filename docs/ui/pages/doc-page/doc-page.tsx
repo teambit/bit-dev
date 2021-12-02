@@ -40,9 +40,9 @@ export function DocPage({ route, index, children, baseUrl = '/docs', plugins = [
   // const executeScroll = () => scrollToRef(myRef);
   const pageDescription = route.description || `Documentation page for ${route.title} - Bit.`;
 
-  useEffect(() => {
-    // executeScroll();
-  }, []);
+  // useEffect(() => {
+  //   executeScroll();
+  // }, []);
 
   // @TODO @josh remove when ssr is working
   useEffect(() => {
