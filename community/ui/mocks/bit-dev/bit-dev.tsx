@@ -19,7 +19,7 @@ export const BitDevMock = ({ component }: BitDevMockProps) => {
     <>
       <Header />
       <WideColumn>
-        <Docs baseUrl="" routes={routes} />
+        <Docs baseUrl="" contents={[{ routes }]} />
       </WideColumn>
     </>
   );
