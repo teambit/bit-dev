@@ -10,14 +10,14 @@ export type CommunityHighlighterProps = {
 };
 
 export function CommunityHighlighter({ children }: CommunityHighlighterProps) {
-  const [disabled, setDisabled] = useState();
+  // const [disabled, setDisabled] = useState();
 
   return (
     <ComponentHighlighter
       classes={{ label: styles.label, frame: styles.frame }}
       placement="top"
       style={{ border: 'none' }}
-      disabled={disabled}
+      disabled
     >
       {children}
     </ComponentHighlighter>

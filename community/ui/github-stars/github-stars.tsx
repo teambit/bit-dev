@@ -10,7 +10,7 @@ export type GithubStarsProps = {
   /**
    * Github repo to display.
    */
-  repo: string;
+  repo?: string;
 } & React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
 export function GithubStars({ className, ...rest }: GithubStarsProps) {
