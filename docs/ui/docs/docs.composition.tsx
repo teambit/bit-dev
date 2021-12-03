@@ -1,11 +1,7 @@
 import React from 'react';
 import { DocsRoute } from '@teambit/docs.entities.docs-routes';
-import { RoutingProvider } from '@teambit/base-ui.routing.routing-provider';
-import { SidebarProvider } from '@teambit/design.ui.sidebar.sidebar-context';
-import { useLocation, MemoryRouter } from 'react-router-dom';
-import { Link } from '@teambit/ui-foundation.ui.react-router.link';
-import { NavLink } from '@teambit/ui-foundation.ui.react-router.nav-link';
 import loadable from '@loadable/component';
+import { MemoryRouter } from '@teambit/community.ui.router.router-provider';
 import { Docs } from './docs';
 
 const QuickStart = loadable(() => import('@teambit/docs.content.quick-start'));
@@ -15,8 +11,6 @@ const CreateComponents = loadable(
   () => import('@teambit/community.content.getting-started.composing.create-components')
 );
 const ComponentConfig = loadable(() => import('@teambit/component.content.component-config'));
-
-const routing = { Link, NavLink, useLocation };
 
 const primaryRoutes: DocsRoute[] = [
   {
@@ -66,11 +60,7 @@ const routes: DocsRoute[] = [
 ];
 
 export const BasicDocs = () => (
-  <RoutingProvider value={routing}>
-    <SidebarProvider>
-      <MemoryRouter>
-        <Docs baseUrl="/" contents={[{ routes }]} primaryLinks={primaryRoutes} />
-      </MemoryRouter>
-    </SidebarProvider>
-  </RoutingProvider>
+  <MemoryRouter>
+    <Docs baseUrl="/" contents={[{ routes }]} primaryLinks={primaryRoutes} />
+  </MemoryRouter>
 );

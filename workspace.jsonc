@@ -103,6 +103,7 @@
         "@teambit/evangelist.surfaces.tooltip": "1.0.1",
         "@teambit/explorer.ui.gallery.component-card": "0.0.470",
         "@teambit/explorer.ui.gallery.component-grid": "0.0.435",
+        "@teambit/graph.relations-graph": "0.0.2",
         "@teambit/harmony": "0.2.11",
         "@teambit/mdx.modules.mdx-loader": "0.0.466",
         "@teambit/mdx.ui.mdx-layout": "0.0.479",
@@ -114,6 +115,7 @@
         "@teambit/ui-foundation.ui.react-router.nav-link": "0.0.441",
         "@teambit/ui-foundation.ui.tree.folder-tree-node": "0.0.453",
         "@teambit/ui-foundation.ui.tree.tree-node": "0.0.453",
+        "@teambit/wiki.apps.wiki": "0.0.4",
         "@testing-library/react-hooks": "7.0.1",
         "@types/history": "^4.0.0",
         "@types/loadable__component": "5.13.4",
@@ -148,6 +150,8 @@
         "url-parse": "1.5.3"
       },
       "peerDependencies": {
+        "@apollo/client": "3.3.7",
+        "graphql": "^14.3.0",
         "@testing-library/react": "12.0.0",
         "react": "16.13.1",
         "react-dom": "16.13.1"

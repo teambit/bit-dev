@@ -1,36 +1,75 @@
 import { MemoryRouter } from 'react-router-dom';
+import { ComponentID } from '@teambit/component-id';
 import { Heading, Elements } from '@teambit/community.ui.heading';
 import { LeftRight } from '@teambit/design.ui.layouts.sections.left-right';
 import { Subtitle } from '@teambit/docs.ui.subtitle';
 import { ComponentCardGroup } from '@teambit/explorer.ui.gallery.component-card-group';
 import { ArchitectureBreakdown } from '@teambit/docs.blocks.component.architecture-breakdown';
+import { BubbleHighlighter } from '@teambit/community.ui.bubble-highlighter';
 import { ExcludeHighlighter } from '@teambit/react.ui.component-highlighter';
+import { WikiApp } from '@teambit/wiki.apps.wiki';
+import { Graph } from './graph';
 import { HighlightComponent } from '@teambit/docs.ui.highlighter.highlight-component';
 import { TopInventions } from '@learnbit/inventions.blocks.top-inventions';
 import styles from './thinking-in-components.module.scss';
 import { exampleComponents } from './example-components';
 
 # Thinking in components
+As you might have noticed, this site was built in independent components. As we built the new documentation we started hiring more people to work at Bit and we needed
+a wiki to be a single source of truth for all information internal at Bit to keep everyone in sync as we scale and decided to document the process to demonstarate
+thinking in components. 
 
-<Subtitle>
-  Components can change the way you think about almost everything. Thinking in components is balancing short term and long term value creation,
-  in a way that helps do better work on the short term that translate to exponentially growing creation of value over time. 
-</Subtitle>
+Thinking in components is a recursive process that starts at defining and the **immediate component we need**. Upon the definition of this component, **think which components you wish you had now**. 
+Search for these components, try to **use or collaborte on something that exists**, otherwise **create a new component that fulfills this exact need**.
 
-Thinking in components is a different mindset. It is about understanding and capitalizing on smaller, reusable portions of value in the mutual work we do that compose together to
+<!-- Thinking in components is a different mindset. It is about understanding and capitalizing on smaller, reusable portions of value in the mutual work we do that compose together to
 a greater whole. 
 This could apply on almost anything we create from software development, to content creation, design, product management or even organization structure and anything you might imagine.
 
-To demonstarate thinking in components we would use the following simple product that show a list of top inventions:
+To demonstarate thinking in components we would use the following simple product that show a list of top inventions: -->
+
+<br />
 
 <ExcludeHighlighter>
   <MemoryRouter>
-    <TopInventions />
+    <BubbleHighlighter componentId={ComponentID.fromString('teambit.wiki/apps/wiki')} showId>
+      <WikiApp />
+    </BubbleHighlighter>
   </MemoryRouter>
 </ExcludeHighlighter>
+
 <br />
 
-Thinking of this simple product in `one-piece`, keeps us longer away from initial value creation, and ends up creating a single point of value. We ended up creating something
+<Graph />
+
+## Define the component you need
+
+So in our case, the definition was very simple, we wanted a Wiki in the new internal website we are building for our company called `.bit`. Our first decision was the decide
+the name for the component. No worries! Even if you won't get it right on the get go, you can always fix later! 
+
+```
+bit create react-app apps/wiki
+```
+```
+1 component(s) were created
+
+ranm8.wiki/apps/wiki
+    location: wiki/apps/wiki
+    env:      teambit.harmony/node
+```
+
+We have now created the first node of the graph.
+
+## Step 2: Think which components you wish you had
+
+The first step is thinking which components you wish you had now: 
+
+Looking into the design sketch, In our case I needed the follwing
+
+
+
+
+<!-- Thinking of this simple product in one-piece, keeps us longer away from initial value creation, and ends up creating a single point of value. We ended up creating something
 very specific that ever serves a single purpose, ignoring the smaller details. The bigger the one-piece is, the bigger the problem gets.
 
 Repeating this pattern of thinking, ends up with even a worse equation; work is repeated infinitely, and the more people doing work, the more work is repeated. 
@@ -50,7 +89,7 @@ and decreased up-side.
 For an enteprise, that means every dollar spent in value creation is decreasing the value of total dollars invested. The more invested, the less value the enterprise can
 create. 
 
-This equation applies on the entire range, all the way from smallest system to the biggest one.
+This equation applies on the entire range, all the way from smallest system to the biggest one. -->
 
 <!-- Planning and building this product as a whole, without breaking it down to smaller pieces of value is prone to cause the organization to repeat the same again, and again,
 which results in an exponentially  
@@ -74,9 +113,6 @@ Problems all of these stake holders are working in different methods and work on
 - Bad user experience.
 - Inconsistency.
 - Motivates to work alone. -->
-
-## Bottom up
-"Bottom up". "Top down".
 
 ## Components
 

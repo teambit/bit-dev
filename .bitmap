@@ -851,7 +851,7 @@
     },
     "content/what-is-bit": {
         "scope": "teambit.bit",
-        "version": "1.23.0",
+        "version": "1.23.4",
         "mainFile": "index.ts",
         "rootDir": "bit/content/what-is-bit"
     },
@@ -887,7 +887,7 @@
     },
     "entities/docs-routes": {
         "scope": "teambit.docs",
-        "version": "1.23.0",
+        "version": "1.23.2",
         "mainFile": "index.ts",
         "rootDir": "docs/entities/docs-routes"
     },
@@ -953,7 +953,7 @@
     },
     "layout/panel": {
         "scope": "teambit.base-react",
-        "version": "1.23.0",
+        "version": "1.23.2",
         "mainFile": "index.ts",
         "rootDir": "base-react/layout/panel"
     },
@@ -1133,7 +1133,7 @@
     },
     "ui/github-stars": {
         "scope": "teambit.community",
-        "version": "1.23.0",
+        "version": "1.23.2",
         "mainFile": "index.ts",
         "rootDir": "community/ui/github-stars"
     },
@@ -1175,13 +1175,13 @@
     },
     "ui/header/header": {
         "scope": "teambit.community",
-        "version": "1.23.0",
+        "version": "1.23.2",
         "mainFile": "index.ts",
         "rootDir": "community/ui/header/header"
     },
     "ui/header/nav": {
         "scope": "teambit.community",
-        "version": "1.23.0",
+        "version": "1.23.2",
         "mainFile": "index.ts",
         "rootDir": "community/ui/header/nav"
     },
@@ -1277,7 +1277,7 @@
     },
     "ui/mocks/bit-dev": {
         "scope": "teambit.community",
-        "version": "1.23.0",
+        "version": "1.23.1",
         "mainFile": "index.ts",
         "rootDir": "community/ui/mocks/bit-dev"
     },
@@ -1370,6 +1370,12 @@
         "version": "1.23.0",
         "mainFile": "index.ts",
         "rootDir": "community/ui/plugins/explore-section"
+    },
+    "ui/router/router-provider": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/router/router-provider"
     },
     "ui/search/search-input": {
         "scope": "teambit.explorer",
