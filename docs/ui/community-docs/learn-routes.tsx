@@ -556,8 +556,8 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'dev-services-overview',
-        title: 'Env Services',
-        description: 'Environment Services control various workflows and commands for components.',
+        title: 'Dev Services',
+        description: 'Development Services control various workflows and commands for components.',
         component: <DevServicesOverview />,
       },
       {
