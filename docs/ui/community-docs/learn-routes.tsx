@@ -134,6 +134,7 @@ const EnvsOverview = loadable(() => import('@teambit/envs.content.envs-overview'
 const InspectingEnv = loadable(() => import('@teambit/envs.content.inspecting-env'));
 const ExtendingEnv = loadable(() => import('@teambit/envs.content.extending-env'));
 const UsingEnvs = loadable(() => import('@teambit/envs.content.using-envs'));
+const EnvsApi = loadable(() => import('@teambit/envs.content.envs-api'));
 
 /* Dependencies */
 
@@ -558,6 +559,11 @@ export const learnDocsRoutes: DocsRoute[] = [
         title: 'Env Services',
         description: 'Environment Services control various workflows and commands for components.',
         component: <DevServicesOverview />,
+      },
+      {
+        path: 'envs-api',
+        title: 'Envs API',
+        component: <EnvsApi />,
       },
     ],
   },

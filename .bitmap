@@ -345,6 +345,12 @@
         "mainFile": "index.ts",
         "rootDir": "envs/content/env-troubleshooting"
     },
+    "content/envs-api": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "envs/content/envs-api"
+    },
     "content/envs-overview": {
         "scope": "",
         "version": "",
