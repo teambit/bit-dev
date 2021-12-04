@@ -13,12 +13,13 @@ Notice how compilation during build is done by passing a compiler instance to th
 
 Both the Compiler aspect instance, as well as the compiler implementation instance are passed to `MyEnv` from `MyEnvMain` in the `my-env.main.runtime.ts` files (which will be discussed in the next step).
 
-Make sure to set dependencies (using `getDependencies`) to support the compiler config. For example, if your Babel compiler receives a config (`babelConfig`) that sets it to support React with TS compilation,
+Make sure to set dependencies (using `getDependencies`) to support the compiler config. For instance, if this example's Babel compiler receives a config (`babelConfig`) that sets it to support React with TS compilation,
 it will naturally require additional dependencies like `@babel/preset-react` and `@babel/preset-typescript`, to be configured on every component using this Env (these dependencies will be installed in the components' Workspaces or Capsules).
 
 ```ts
 import { CompilerEnv, BuilderEnv, DependenciesEnv } from '@teambit/envs';
 import { CompilerMain } from '@teambit/compiler';
+// Babel aspect is used as an example
 import { BabelMain } from '@teambit/babel';
 import { babelConfig } from './babel/babel.config';
 
@@ -56,6 +57,7 @@ This includes the Envs aspect for `Env` registration, the `Compiler` aspect for 
 import { MainRuntime } from '@teambit/cli';
 import { EnvsMain, EnvsAspect } from '@teambit/envs';
 import { CompilerMain, CompilerAspect } from '@teambit/compiler';
+// Babel aspect is used as an example
 import { BabelMain, BabelAspect } from '@teambit/babel';
 import { MyEnv } from './my-env.env';
 import { MyEnvAspect } from './my-env.aspect';
@@ -92,7 +94,7 @@ To replace it with another Aspect, another compiler, override its `getCompiler` 
 
 Make sure to _add_ the new compiler task to the build pipeline, and not override it altogether. In the example below, the Env's default compilation task is filtered out from the Env's default build pipeline by selecting its `aspectId` property (which is equal to the Compiler aspect ID).
 
-Set dependencies (using `getDependencies`) to support the compiler config. For example, if your Babel compiler receives a config (`babelConfig`) that sets it to support React with TS compilation,
+Set dependencies (using `getDependencies`) to support the compiler config. For instance, if this example's Babel compiler receives a config (`babelConfig`) that sets it to support React with TS compilation,
 it will naturally require additional dependencies like `@babel/preset-react` and `@babel/preset-typescript`, to be configured on every component using this Env (these dependencies will be installed in the components' Workspaces or Capsules).
 
 In the Env's main runtime file (`my-env.main.runtime.ts`), implement the following:
@@ -101,8 +103,9 @@ In the Env's main runtime file (`my-env.main.runtime.ts`), implement the followi
 import { MainRuntime } from '@teambit/cli';
 import { ReactAspect, ReactMain } from '@teambit/react';
 import { EnvsAspect, EnvsMain } from '@teambit/envs';
-import { BabelAspect, BabelMain } from '@teambit/babel';
 import { CompilerAspect } from '@teambit/compiler';
+// Babel aspect is used as an example
+import { BabelAspect, BabelMain } from '@teambit/babel';
 import { babelConfig } from './babel/babel.config';
 import { ExtReactAspect } from './ext-react.aspect';
 
