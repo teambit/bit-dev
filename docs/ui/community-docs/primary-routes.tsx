@@ -1,6 +1,7 @@
 import React from 'react';
 import { lazy } from '@loadable/component';
 import { NextPagePlugin } from '@teambit/docs.plugins.next-page';
+import { TableOfContentsPlugin } from '@teambit/docs.plugins.docs.table-of-contents';
 import { DocsRoute } from '@teambit/docs.entities.docs-routes';
 
 /* Quick Start */
@@ -15,6 +16,11 @@ export const primaryRoutes: DocsRoute[] = [
     description:
       'Bit is a component build and collaboration framework. It helps teams build components together, and compose them into various features and apps. This allows to build anything in a component-driven architecture, from UI applications, backend services and even CLI tools.',
     component: <QuickStart />,
+    plugins: {
+      [TableOfContentsPlugin.name]: {
+        show: false,
+      },
+    },
   },
   {
     path: 'thinking-in-components',
@@ -25,6 +31,9 @@ export const primaryRoutes: DocsRoute[] = [
     component: <ThinkingInComponents />,
     plugins: {
       [NextPagePlugin.name]: {
+        show: false,
+      },
+      [TableOfContentsPlugin.name]: {
         show: false,
       },
     },

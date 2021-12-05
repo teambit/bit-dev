@@ -43,22 +43,8 @@ export function DocPage({ route, index, children, baseUrl = '/docs', plugins = [
   const pageDescription = route.description || `Documentation page for ${route.title} - Bit.`;
 
   useEffect(() => {
-    const targetNode = contentRef.current;
-
-    const config = {
-      attributes: true,
-      childList: true,
-      characterData: true,
-    };
-    const callback = () => {
-      scrollToRef(myRef);
-    };
-    const observer = new MutationObserver(callback);
-    if (targetNode instanceof HTMLElement) {
-      observer.observe(targetNode, config);
-    }
-  }, [contentRef?.current]);
-
+    scrollToRef(myRef);
+  }, [contentRef.current]);
   // @TODO @josh remove when ssr is working
   useEffect(() => {
     if (window?.location.hash) {

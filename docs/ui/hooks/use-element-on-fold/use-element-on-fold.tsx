@@ -1,11 +1,12 @@
 import { useEffect, useState, useMemo } from 'react';
 import { getElements } from './get-elements';
 
-export const useElementOnFold = (ref, selectors) => {
+export const useElementOnFold = (ref?: React.MutableRefObject<HTMLElement>, selectors?: string, disabled?: boolean) => {
   const elements = useMemo(() => getElements({ ref, selectors }), [ref?.current]);
   const [activeElement, setActive] = useState<HTMLElement | undefined>(undefined);
 
   useEffect(() => {
+    if (disabled) return undefined;
     // IntersectionObserver will only run if browser has support
     if ('IntersectionObserver' in window && 'IntersectionObserverEntry' in window) {
       const handleIntersection = (entries: IntersectionObserverEntry[]) => {
