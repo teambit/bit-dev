@@ -7,17 +7,17 @@ export type ButtonProps = {
   /**
    * a text to be rendered in the Button.
    */
-  children?: ReactNode,
+  children?: ReactNode;
 
   /**
    * use secondary style.
    */
-  secondary?: boolean,
+  secondary?: boolean;
 
   /**
    * class name to inject
    */
-  className?: string
+  className?: string;
 } & BaseButtonProps;
 
 export function Button({ className, secondary, children, ...rest }: ButtonProps) {

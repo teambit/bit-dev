@@ -1,5 +1,6 @@
 import React from 'react';
-import { DocsPlugin, useDocs } from '@teambit/docs.ui.docs';
+import { useDocs } from '@teambit/docs.ui.docs';
+import { DocsPlugin } from '@teambit/docs.plugins.docs-plugin';
 import { useDocPage } from '@teambit/docs.ui.pages.doc-page';
 import { Route } from '@teambit/docs.entities.docs-routes';
 import { NextPage } from '@teambit/community.ui.cards.next-page';

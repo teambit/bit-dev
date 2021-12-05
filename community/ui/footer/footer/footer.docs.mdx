@@ -4,11 +4,11 @@ labels: ['react', 'ui']
 ---
 
 import { Footer } from './footer';
-import { FigmaEmbed } from '@teambit/design.embeds.figma';
+import { footerMock } from './footer.mock';
 
-Footer of the app. Accepts a list of categories with a list of links for each category.
+A concrete footer for the bit.dev app. Accepts a list of categories with a list of links for each category.
 
-Each link can be displayed with or without an icon
+Each link can be displayed with or without an icon.
 
 ```ts live
 <Footer
@@ -54,4 +54,14 @@ Each link can be displayed with or without an icon
     },
   ]}
 />
+```
+
+The footer also provides a fallback bottom section if no children are provided.
+
+To override this behavior, provide `children` to override it.
+
+```ts live
+<Footer categoryList={footerMock}>
+  <div>override bottom line</div>
+</Footer>
 ```
