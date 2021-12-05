@@ -1,0 +1,17 @@
+.tableOfContent {
+  width: var(--bit-table-of-content-width, 264px);
+
+  height: 100%;
+  overflow: auto;
+  font-size: 14px;
+}
+
+.title {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 8px 0;
+}
+
+.item {
+  border-radius: 8px;
+}

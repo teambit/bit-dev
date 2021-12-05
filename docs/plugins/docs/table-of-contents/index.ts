@@ -1,2 +1,2 @@
-export { TableOfContents } from './table-of-contents';
-export type { TableOfContentsProps } from './table-of-contents';
+export { TableOfContentsPlugin } from './table-of-contents';
+export type { TableOfContentsPluginProps } from './table-of-contents';
