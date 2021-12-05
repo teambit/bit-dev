@@ -1,6 +1,22 @@
 import React from 'react';
 import { DocsRoute } from '@teambit/docs.entities.docs-routes';
+import { RoutingProvider } from '@teambit/base-ui.routing.routing-provider';
+import { SidebarProvider } from '@teambit/design.ui.sidebar.sidebar-context';
+import { useLocation, MemoryRouter } from 'react-router-dom';
+import { Link } from '@teambit/ui-foundation.ui.react-router.link';
+import { NavLink } from '@teambit/ui-foundation.ui.react-router.nav-link';
+import loadable from '@loadable/component';
 import { Docs } from './docs';
+
+const QuickStart = loadable(() => import('@teambit/docs.content.quick-start'));
+const ThinkingInComponents = loadable(() => import('@teambit/docs.content.thinking-in-components'));
+const CreateWorkspace = loadable(() => import('@teambit/docs.content.getting-started.create-workspace'));
+const CreateComponents = loadable(
+  () => import('@teambit/community.content.getting-started.composing.create-components')
+);
+const ComponentConfig = loadable(() => import('@teambit/component.content.component-config'));
+
+const routing = { Link, NavLink, useLocation };
 
 const primaryRoutes: DocsRoute[] = [
   {
@@ -8,13 +24,13 @@ const primaryRoutes: DocsRoute[] = [
     icon: 'lightning',
     title: 'Quick Start',
     description: 'Quick Start',
-    component: <div />,
+    component: <QuickStart />,
   },
   {
     path: 'thinking-in-components',
     icon: 'Lightbulb-thinking',
     title: 'Thinking in components',
-    component: <div />,
+    component: <ThinkingInComponents />,
   },
 ];
 
@@ -22,12 +38,11 @@ const routes: DocsRoute[] = [
   {
     path: 'installation',
     title: 'Installation',
-    component: <div />,
     children: [
       {
         path: 'start-bit-project',
         title: 'Start a new Bit Workspace',
-        component: <div />,
+        component: <CreateWorkspace />,
       },
     ],
   },
@@ -39,22 +54,23 @@ const routes: DocsRoute[] = [
       {
         path: 'creating-components',
         title: 'Creating components',
-        component: <div />,
+        component: <CreateComponents />,
       },
       {
         path: 'component-config',
         title: 'Component Configuration',
-        component: <div />,
+        component: <ComponentConfig />,
       },
     ],
   },
 ];
 
 export const BasicDocs = () => (
-  <Docs
-    baseUrl="https://teambit-community-apps-bit-dev.netlify.app/docs"
-    contents={[{ routes }]}
-    primaryLinks={primaryRoutes}
-    data-testid="test-basic-docs"
-  />
+  <RoutingProvider value={routing}>
+    <SidebarProvider>
+      <MemoryRouter>
+        <Docs baseUrl="/" contents={[{ routes }]} primaryLinks={primaryRoutes} />
+      </MemoryRouter>
+    </SidebarProvider>
+  </RoutingProvider>
 );

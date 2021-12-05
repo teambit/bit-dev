@@ -61,12 +61,6 @@ This component receives and renders all the Routes and makes them available in R
       ],
     },
   ];
-  return (
-    <Docs
-      baseUrl="https://teambit-community-apps-bit-dev.netlify.app/docs"
-      routes={routes}
-      primaryLinks={primaryRoutes}
-    />
-  );
+  return <Docs baseUrl="/" contents={[{ routes }]} primaryLinks={primaryRoutes} />;
 };
 ```
