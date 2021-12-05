@@ -1,69 +1,9 @@
 @import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
 
-.header {
-  width: 100%;
-  height: var(--bit-header-height, 40px); 
-  display: flex;
-  font-size: 14px;
-  border-bottom: 1px solid var(--bit-border-color-lightest, #ededed);
+.githubLink {
   @media screen and (max-width: $br-md) {
-    flex-direction: column;
-    height: 100%;
-    padding-top: 8px;
-  }
-}
-
-.headerContent {
-  display: flex;
-  align-items: center;
-  > a {
-    display: inline-flex;
-  }
-  .hamburgerButton {
-    display: none;
-    border: none;
-    margin-right: 8px;
-    width: 24px;
-    height: 24px;
-    @media screen and (max-width: $br-md) {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-  .linkList {
-    @media screen and (max-width: $br-md) {
-      > a {
-        display: none;
-      }
+    > span:not(:first-child) {
+      display: none;
     }
   }
 }
-
-.mobileLinkList {
-  display: none;
-  justify-content: space-evenly;
-  padding-top: 24px;
-  text-align: center;
-  > a {
-    margin: 0;
-    padding-bottom: 8px;
-  }
-  @media screen and (max-width: $br-md) {
-    display: flex;
-  }
-}
-
-.logo {
-  margin-right: 32px;
-}
-
-.inspect {
-  display: flex;
-  align-items: center;
-  > span {
-    margin-right: 4px;
-  }
-  padding-left: 24px;
-}
-

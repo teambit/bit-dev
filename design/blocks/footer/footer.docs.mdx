@@ -1,0 +1,106 @@
+---
+description: 'Footer component to be used at the bottom of the app'
+labels: ['react', 'ui']
+---
+
+import { Footer } from './footer';
+
+A Footer component that Accepts a list of categories with a list of links for each category.
+
+Each link can be displayed with or without an icon
+
+```ts live
+<Footer
+  categoryList={[
+    {
+      title: 'links with icons',
+      links: [
+        {
+          icon: 'https://static.bit.dev/bit-logo.svg',
+          text: 'Bit',
+          href: 'https://bit.dev',
+          external: true,
+        },
+        {
+          icon: 'slack',
+          text: 'Slack',
+          href: 'https://bit.dev',
+          external: true,
+        },
+        { icon: 'twitter-logo', text: 'Twitter', href: '#' },
+        { icon: 'github-logo', text: 'Github', href: '#' },
+      ],
+    },
+    {
+      title: 'links without icons',
+      links: [
+        {
+          text: 'Bit',
+          href: 'https://bit.dev',
+          external: true,
+        },
+        {
+          text: 'Slack',
+          href: 'https://bit.dev',
+          external: true,
+        },
+        {
+          text: 'Twitter',
+          href: '#',
+        },
+        { text: 'Github', href: '#' },
+      ],
+    },
+  ]}
+/>
+```
+
+The footer also accepts children to be rendered under the links.
+
+```ts live
+<Footer
+  categoryList={[
+    {
+      title: 'links with icons',
+      links: [
+        {
+          icon: 'https://static.bit.dev/bit-logo.svg',
+          text: 'Bit',
+          href: 'https://bit.dev',
+          external: true,
+        },
+        {
+          icon: 'slack',
+          text: 'Slack',
+          href: 'https://bit.dev',
+          external: true,
+        },
+        { icon: 'twitter-logo', text: 'Twitter', href: '#' },
+        { icon: 'github-logo', text: 'Github', href: '#' },
+      ],
+    },
+    {
+      title: 'links without icons',
+      links: [
+        {
+          text: 'Bit',
+          href: 'https://bit.dev',
+          external: true,
+        },
+        {
+          text: 'Slack',
+          href: 'https://bit.dev',
+          external: true,
+        },
+        {
+          text: 'Twitter',
+          href: '#',
+        },
+        { text: 'Github', href: '#' },
+      ],
+    },
+  ]}
+>
+  children will be displayed here
+</Footer>
+```
