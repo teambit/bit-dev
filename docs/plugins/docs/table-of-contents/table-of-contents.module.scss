@@ -1,0 +1,13 @@
+@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
+
+.tableOfContent {
+  position: sticky;
+  flex-shrink: 0;
+  margin-left: 32px;
+  top: 56px;
+  bottom: 0;
+  right: 8px;
+  @media screen and (max-width: $br-lg) {
+    display: none;
+  }
+}

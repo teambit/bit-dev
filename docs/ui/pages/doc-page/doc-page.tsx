@@ -1,8 +1,7 @@
-import React, { useRef, useState, useEffect, ReactNode, Suspense } from 'react';
+import React, { useRef, useEffect, ReactNode, Suspense } from 'react';
 import { MDXLayout } from '@teambit/mdx.ui.mdx-layout';
 import { Page } from '@teambit/base-react.pages.page';
 import { DocsPlugin } from '@teambit/docs.plugins.docs-plugin';
-import { TableOfContent } from '@teambit/docs.ui.navigation.table-of-content';
 import type { Route } from '@teambit/docs.entities.docs-routes';
 import { DocPageContext } from './doc-page-context';
 import { mdxComponents } from './mdx-components';
@@ -32,8 +31,6 @@ export type DocPageProps = {
   plugins?: DocsPlugin<any>[];
 };
 
-const docSelectors = '.docs-heading h1, .docs-heading h2, .docs-heading h3';
-
 const components = mdxComponents('/docs', 'docs-heading');
 const scrollToRef = (ref) => {
   return window.scrollTo(0, -ref.current.offsetTop);
@@ -42,7 +39,6 @@ const scrollToRef = (ref) => {
 export function DocPage({ route, index, children, baseUrl = '/docs', plugins = [] }: DocPageProps) {
   const myRef = useRef(null);
   const contentRef = useRef() as React.MutableRefObject<HTMLDivElement>;
-  const [loaded, setLoaded] = useState(false);
 
   const pageDescription = route.description || `Documentation page for ${route.title} - Bit.`;
 
@@ -55,7 +51,6 @@ export function DocPage({ route, index, children, baseUrl = '/docs', plugins = [
       characterData: true,
     };
     const callback = () => {
-      setLoaded(true);
       scrollToRef(myRef);
     };
     const observer = new MutationObserver(callback);
@@ -75,54 +70,29 @@ export function DocPage({ route, index, children, baseUrl = '/docs', plugins = [
   }, [window?.location.hash]);
 
   return (
-    // <Suspense fallback={<div />}>
-    //   <Page title={`${title} | Bit`} description={pageDescription} className={styles.docsPage}>
-    //     <div ref={myRef} id="content" className={styles.content}>
-    //       <MDXLayout components={components}>
-    //         <div className={styles.mdxLayout} ref={contentRef}>
-    //           {children}
-    //         </div>
-    //       </MDXLayout>
-    //       {/* <Panel className={styles.rightPanel} plugins={plugins?.flatMap((plugin) => plugin.right)} />
-    //       <Panel className={styles.bottomPanel} plugins={plugins?.flatMap((plugin) => plugin.bottom)} /> */}
-    //       {nextPage && loaded && (
-    //         <NextPage
-    //           className={styles.next}
-    //           title={nextPage.title}
-    //           description={nextPage.description}
-    //           href={nextPage.absPath}
-    //         />
-    //       )}
-    //     </div>
+    <Suspense fallback={<div />}>
+      <DocPageContext.Provider value={{ index, route }}>
+        <Page title={`${route.title} | Bit`} description={pageDescription} className={styles.docsPage}>
+          <div ref={myRef} id="content" className={styles.content}>
+            <MDXLayout components={components}>
+              <div className={styles.mdxLayout} ref={contentRef}>
+                {children}
+              </div>
+            </MDXLayout>
 
-    //     {loaded && (
-    //       <TableOfContent
-    //         title="on this page"
-    //         className={styles.tableOfContent}
-    //         rootRef={contentRef}
-    //         selectors={docSelectors}
-    //       />
-    //     )}
-    //   </Page>
-    // </Suspense>
-    <DocPageContext.Provider value={{ index, route }}>
-      <Page title={`${route.title} | Bit`} description={pageDescription}>
-        <div ref={myRef} />
-        <MDXLayout components={mdxComponents(baseUrl)}>
-          <div className={styles.mdxLayout}>{children}</div>
-        </MDXLayout>
-
-        {plugins.map((plugin) => {
-          return plugin.page.bottom?.flatMap((Plugin) => {
-            return <Plugin {...route.plugins[plugin.name]} key={plugin.name} />;
-          });
-        })}
-        {plugins.map((plugin) => {
-          return plugin.page.right?.flatMap((Plugin) => {
-            return <Plugin {...route.plugins[plugin.name]} key={plugin.name} />;
-          });
-        })}
-      </Page>
-    </DocPageContext.Provider>
+            {plugins.map((plugin) => {
+              return plugin.page.bottom?.flatMap((Plugin) => {
+                return <Plugin {...route.plugins[plugin.name]} key={plugin.name} contentRef={contentRef} />;
+              });
+            })}
+          </div>
+          {plugins.map((plugin) => {
+            return plugin.page.right?.flatMap((Plugin) => {
+              return <Plugin {...route.plugins[plugin.name]} key={plugin.name} contentRef={contentRef} />;
+            });
+          })}
+        </Page>
+      </DocPageContext.Provider>
+    </Suspense>
   );
 }
