@@ -1371,6 +1371,12 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/plugins/explore-section"
     },
+    "ui/scrollbar": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "design/ui/scrollbar"
+    },
     "ui/search/search-input": {
         "scope": "teambit.explorer",
         "version": "1.23.0",

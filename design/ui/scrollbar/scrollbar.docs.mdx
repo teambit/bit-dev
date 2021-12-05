@@ -1,0 +1,45 @@
+---
+description: 'A Scrollbar component.'
+labels: ['scrollbar', 'css', 'webkit']
+---
+
+import { Scrollbar } from './scrollbar';
+
+A Scrollbar Component for handling scrollbar CSS.  
+Not work in Firefox, and is used only in Windows OS.
+
+### Component usage
+
+```js
+<Scrollbar>your scrollable content here</Scrollbar>
+<div className={scrollbarSelfClass}>your scrollable content here</div>
+<div className={scrollbarAllClass}>your scrollable content here, using this class will apply scrollbar to all scrollable elements of the app.</div>
+```
+
+Modify the text to see it change live:
+
+```js live
+<Scrollbar
+  style={{
+    height: 250,
+    overflowY: 'scroll',
+    borderTop: '2px solid',
+    borderBottom: '2px solid',
+    borderColor: 'gray',
+    boxSizing: 'border-box',
+  }}
+>
+  <div
+    style={{
+      height: 2000,
+      textAlign: 'center',
+      borderTop: '2px solid',
+      borderBottom: '2px solid',
+      borderColor: 'green',
+      boxSizing: 'border-box',
+    }}
+  >
+    Scroll me!
+  </div>
+</Scrollbar>
+```
