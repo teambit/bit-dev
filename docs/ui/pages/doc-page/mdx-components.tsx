@@ -7,7 +7,7 @@ import { Link } from '@teambit/design.ui.navigation.link';
 const getTextLink = (element: ReactNode) =>
   typeof element === 'string' ? element.trim().toLowerCase().replace(/ /g, '-') : undefined;
 
-export const mdxComponents = (baseUrl: string, selectorClassName): MDXProviderComponents => {
+export const mdxComponents = (baseUrl: string, selectorClassName?: string): MDXProviderComponents => {
   return {
     h1: ({ children, className, ...rest }: HTMLAttributes<HTMLHeadingElement>) => (
       <H1 className={classNames(selectorClassName, className)} link={getTextLink(children)} {...rest}>
