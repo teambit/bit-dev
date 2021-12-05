@@ -1,6 +1,6 @@
-import React from 'react';
-import { TableOfContentsPlugin } from './table-of-contents';
+// import React from 'react';
+// import { TableOfContentsPlugin } from './table-of-contents';
 
-export const BasicTableOfContentsPlugin = () => {
-  return <TableOfContentsPlugin>hello world!</TableOfContentsPlugin>;
-};
+// export const BasicTableOfContentsPlugin = () => {
+//   return <TableOfContentsPlugin>hello world!</TableOfContentsPlugin>;
+// };
