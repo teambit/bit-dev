@@ -314,6 +314,9 @@ importers:
   community/ui/cards/next-page:
     specifiers: {}
 
+  community/ui/community-highlighter:
+    specifiers: {}
+
   community/ui/component-card-grid:
     specifiers: {}
 
@@ -500,6 +503,9 @@ importers:
   component/content/tags:
     specifiers: {}
 
+  components-oss/hooks/use-components:
+    specifiers: {}
+
   compositions/content/composition-context:
     specifiers: {}
 
@@ -599,6 +605,9 @@ importers:
   dependencies/content/yarn:
     specifiers: {}
 
+  design/blocks/footer:
+    specifiers: {}
+
   design/blocks/header:
     specifiers: {}
 
@@ -636,6 +645,9 @@ importers:
     specifiers: {}
 
   design/ui/navigation/link:
+    specifiers: {}
+
+  design/ui/navigation/menu:
     specifiers: {}
 
   design/ui/navigation/tab-link:
@@ -744,6 +756,9 @@ importers:
     specifiers: {}
 
   docs/modules/paths:
+    specifiers: {}
+
+  docs/plugins/docs-plugin:
     specifiers: {}
 
   docs/plugins/docs/table-of-contents:

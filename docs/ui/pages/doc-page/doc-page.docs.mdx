@@ -1,22 +1,21 @@
 ---
 description: 'A DocPage component.'
-labels: ['label1', 'label2', 'label3']
+labels: ['doc', 'page', 'label3']
 ---
 
 import { DocPage } from './doc-page';
 
-## React Component for rendering text
+## React Component for rendering doc page
 
-A basic div that renders some text
+A component that renders doc's page using MDX.
 
 ### Component usage
+
 ```js
-<DocPage text="hello from DocPage" />
-```
-
-### Using props to customize the text
-
-Modify the text to see it change live:
-```js live
-<DocPage text="hello from DocPage" />
+<DocPage
+  index={0}
+  route={{ title: 'Create a new Workspace', component: <CreateWorkspace />, absPath: '/', plugins: [] }}
+>
+  <CreateWorkspace />
+</DocPage>
 ```

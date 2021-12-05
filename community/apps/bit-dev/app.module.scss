@@ -1,15 +1,15 @@
 .app {
-    --bit-header-height: 40px;
+  --bit-header-height: 40px;
 }
 .label {
-    a {
-        background-color: var(--bit-bg-heavy, #f6f6f6) !important;
-        &:hover {
-            background-color: var(--bit-border-color-lightest, #ededed) !important;
-        }
+  a {
+    background-color: var(--bit-bg-heavy, #f6f6f6) !important;
+    &:hover {
+      background-color: var(--bit-border-color-lightest, #ededed) !important;
     }
+  }
 }
 
 .frame {
-    border: 1px solid var(--bit-border-color-lightest, #ededed);
+  border: 1px solid var(--bit-border-color-lightest, #ededed);
 }
