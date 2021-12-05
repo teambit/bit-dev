@@ -1,0 +1,50 @@
+---
+description: 'A table of content component that collects elements from the page, displays them in a styled table, and observes when an element is at the top of the page to display it as active.'
+labels: ['react', 'ui', 'table of content']
+---
+
+import { useRef } from 'react';
+import { TableOfContent } from './table-of-content';
+import { FigmaEmbed } from '@teambit/design.embeds.figma';
+
+A UI component that collects elements from the page and presents them in a table of content. It also observes the elements and displays the active one when it is in the top of the fold.
+
+### Renders a table of content
+
+Pass a `rootRef` with the ref of the parent element you wish to track and a string with selectors to track.
+
+
+```js live
+() => {
+  const ref = useRef();
+  return (
+    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <div ref={ref} style={{marginRight: 50}}>
+        <h3 className="track-element">first heading</h3>
+        <h3 className="track-element">second heading</h3>
+        <h3>non tracked heading</h3>
+      </div>
+      <TableOfContent rootRef={ref} title="table of content" selectors=".track-element" />
+    </div>
+  );
+};
+```
+
+:::tip
+scroll down to see the active behavior of tha table. A tracked element at the top of the page should be highlighter in the table.
+:::
+
+### Default behavior
+
+If no ref is specified, defaults to the `document`.
+
+If no selectors are specified, defaults to headings (`h1`-`h8`).
+
+```js live
+<TableOfContent />
+```
+
+
+### Design
+
+<FigmaEmbed src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FoMNBFjyJav0V1t09pkIh5f%2FSide-navigation-Component-page-and-Right-side-panel%3Fnode-id%3D816%253A9653" />
