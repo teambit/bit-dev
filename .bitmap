@@ -1383,12 +1383,6 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/plugins/explore-section"
     },
-    "ui/scrollbar": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "design/ui/scrollbar"
-    },
     "ui/search/search-input": {
         "scope": "teambit.explorer",
         "version": "1.23.0",
@@ -1442,6 +1436,12 @@
         "version": "1.23.0",
         "mainFile": "index.ts",
         "rootDir": "community/ui/sticky-menu"
+    },
+    "ui/styles/scrollbar": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "design/ui/styles/scrollbar"
     },
     "ui/subtitle": {
         "scope": "teambit.docs",

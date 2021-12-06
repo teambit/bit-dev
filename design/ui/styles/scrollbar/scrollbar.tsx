@@ -7,9 +7,8 @@ export const scrollbarSelfClass = styles.scrollbarSelf;
 
 export type ScrollbarProps = {} & React.HTMLAttributes<HTMLDivElement>;
 
-const isWindows = window && window.navigator.platform.indexOf('Win') > -1;
-
 export function Scrollbar({ children, className, ...rest }: ScrollbarProps) {
+  const isWindows = window.navigator.platform.indexOf('Win') > -1;
   return (
     <div className={classNames(isWindows && scrollbarSelfClass, className)} {...rest}>
       {children}
