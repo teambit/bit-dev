@@ -656,6 +656,9 @@ importers:
   design/ui/sidebar/sidebar-context:
     specifiers: {}
 
+  design/ui/styles/scrollbar:
+    specifiers: {}
+
   design/ui/surfaces/cloud:
     specifiers: {}
 
@@ -774,6 +777,12 @@ importers:
     specifiers: {}
 
   docs/ui/highlighter/highlight-component:
+    specifiers: {}
+
+  docs/ui/hooks/use-element-on-fold:
+    specifiers: {}
+
+  docs/ui/navigation/table-of-content:
     specifiers: {}
 
   docs/ui/pages/doc-page:
