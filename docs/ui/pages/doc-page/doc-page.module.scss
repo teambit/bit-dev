@@ -1,3 +1,9 @@
+@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
+
+.docsPage {
+  display: flex;
+}
+
 .next {
   margin-top: 40px;
   margin-bottom: 20px;
@@ -14,5 +20,22 @@
 
   img {
     max-width: 100%;
+  }
+}
+
+.content {
+  position: relative;
+  min-width: 0; // this is in order for content to fit next to the table of content without colliding
+}
+
+.tableOfContent {
+  position: sticky;
+  flex-shrink: 0;
+  margin-left: 32px;
+  top: 56px;
+  bottom: 0;
+  right: 8px;
+  @media screen and (max-width: $br-lg) {
+    display: none;
   }
 }
