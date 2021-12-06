@@ -1,181 +1,179 @@
 import React from 'react';
-import loadable from '@loadable/component';
+import { lazy } from '@loadable/component';
 import { DocsRoute } from '@teambit/docs.entities.docs-routes';
 
 /* Getting Started */
 
-// const InstallingBit = loadable(() => import('@teambit/docs.content.getting-started.installing-bit'));
-const CreateComponents = loadable(
-  () => import('@teambit/community.content.getting-started.composing.create-components')
-);
+// const InstallingBit = lazy(() => import('@teambit/docs.content.getting-started.installing-bit'));
+const CreateComponents = lazy(() => import('@teambit/community.content.getting-started.composing.create-components'));
 
 /* Harmony */
-// const CliReference = loadable(() => import('@teambit/harmony.content.cli-reference'));
-const AspectsOverview = loadable(() => import('@teambit/harmony.content.aspects-overview'));
-const UsingAspects = loadable(() => import('@teambit/harmony.content.using-aspects'));
+// const CliReference = lazy(() => import('@teambit/harmony.content.cli-reference'));
+const AspectsOverview = lazy(() => import('@teambit/harmony.content.aspects-overview'));
+const UsingAspects = lazy(() => import('@teambit/harmony.content.using-aspects'));
 
 /* Workspace */
-const WorkspaceOverview = loadable(() => import('@teambit/workspace.content.workspace-overview'));
-const Bitmap = loadable(() => import('@teambit/workspace.content.bitmap'));
-const WorkspaceLink = loadable(() => import('@teambit/workspace.content.workspace-link'));
-const DirectoryStructure = loadable(() => import('@teambit/workspace.content.directory-structure'));
-const ComponentDir = loadable(() => import('@teambit/workspace.content.component-directory'));
-const WorkspaceStatus = loadable(() => import('@teambit/workspace.content.workspace-status'));
-const ClearingCache = loadable(() => import('@teambit/workspace.content.clearing-cache'));
-const WorkspaceConfiguration = loadable(() => import('@teambit/workspace.content.workspace-configuration'));
-const ImportingComponents = loadable(() => import('@teambit/workspace.content.importing-components'));
-const ExportingComponents = loadable(() => import('@teambit/workspace.content.exporting-components'));
-const CreatingWorkspaces = loadable(() => import('@teambit/workspace.content.creating-workspaces'));
-const ConfiguringRemoteScopes = loadable(() => import('@teambit/workspace.content.configuring-remote-scopes'));
-const LocalScope = loadable(() => import('@teambit/workspace.content.local-scope'));
-const MovingComponents = loadable(() => import('@teambit/workspace.content.moving-components'));
-const Variants = loadable(() => import('@teambit/workspace.content.variants'));
+const WorkspaceOverview = lazy(() => import('@teambit/workspace.content.workspace-overview'));
+const Bitmap = lazy(() => import('@teambit/workspace.content.bitmap'));
+const WorkspaceLink = lazy(() => import('@teambit/workspace.content.workspace-link'));
+const DirectoryStructure = lazy(() => import('@teambit/workspace.content.directory-structure'));
+const ComponentDir = lazy(() => import('@teambit/workspace.content.component-directory'));
+const WorkspaceStatus = lazy(() => import('@teambit/workspace.content.workspace-status'));
+const ClearingCache = lazy(() => import('@teambit/workspace.content.clearing-cache'));
+const WorkspaceConfiguration = lazy(() => import('@teambit/workspace.content.workspace-configuration'));
+const ImportingComponents = lazy(() => import('@teambit/workspace.content.importing-components'));
+const ExportingComponents = lazy(() => import('@teambit/workspace.content.exporting-components'));
+const CreatingWorkspaces = lazy(() => import('@teambit/workspace.content.creating-workspaces'));
+const ConfiguringRemoteScopes = lazy(() => import('@teambit/workspace.content.configuring-remote-scopes'));
+const LocalScope = lazy(() => import('@teambit/workspace.content.local-scope'));
+const MovingComponents = lazy(() => import('@teambit/workspace.content.moving-components'));
+const Variants = lazy(() => import('@teambit/workspace.content.variants'));
 
 /* Scope */
-const ScopeOverview = loadable(() => import('@teambit/scope.content.scope-overview'));
-const CreatingScopes = loadable(() => import('@teambit/scope.content.creating-scopes'));
-const ScopeJson = loadable(() => import('@teambit/scope.content.scope-json'));
-const HostingScopes = loadable(() => import('@teambit/scope.content.hosting-scopes'));
+const ScopeOverview = lazy(() => import('@teambit/scope.content.scope-overview'));
+const CreatingScopes = lazy(() => import('@teambit/scope.content.creating-scopes'));
+const ScopeJson = lazy(() => import('@teambit/scope.content.scope-json'));
+const HostingScopes = lazy(() => import('@teambit/scope.content.hosting-scopes'));
 
 /* Dev services */
 
-const AvailableServices = loadable(() => import('@teambit/envs.content.available-services'));
-const DevServicesOverview = loadable(() => import('@teambit/envs.content.dev-services-overview'));
+const AvailableServices = lazy(() => import('@teambit/envs.content.available-services'));
+const DevServicesOverview = lazy(() => import('@teambit/envs.content.dev-services-overview'));
 
 /* Preview */
 
-const PreviewOverview = loadable(() => import('@teambit/preview.content.preview-overview'));
-const PreviewDuringBuild = loadable(() => import('@teambit/preview.content.preview-during-build'));
-const PreviewDuringDevelopment = loadable(() => import('@teambit/preview.content.preview-during-development'));
+const PreviewOverview = lazy(() => import('@teambit/preview.content.preview-overview'));
+const PreviewDuringBuild = lazy(() => import('@teambit/preview.content.preview-during-build'));
+const PreviewDuringDevelopment = lazy(() => import('@teambit/preview.content.preview-during-development'));
 
-const RegisterCustomPreview = loadable(() => import('@teambit/preview.content.register-custom-preview'));
+const RegisterCustomPreview = lazy(() => import('@teambit/preview.content.register-custom-preview'));
 
 /* Tester */
-const TesterOverview = loadable(() => import('@teambit/defender.content.tester-overview'));
-const TestingDuringDevelopment = loadable(() => import('@teambit/defender.content.testing-during-development'));
-const TestingDuringBuild = loadable(() => import('@teambit/defender.content.testing-during-build'));
-const ConfigureEnvWithTester = loadable(() => import('@teambit/defender.content.configure-env-with-tester'));
-const ImplementTester = loadable(() => import('@teambit/defender.content.implement-tester'));
+const TesterOverview = lazy(() => import('@teambit/defender.content.tester-overview'));
+const TestingDuringDevelopment = lazy(() => import('@teambit/defender.content.testing-during-development'));
+const TestingDuringBuild = lazy(() => import('@teambit/defender.content.testing-during-build'));
+const ConfigureEnvWithTester = lazy(() => import('@teambit/defender.content.configure-env-with-tester'));
+const ImplementTester = lazy(() => import('@teambit/defender.content.implement-tester'));
 
 /* Linter */
 
-const LinterOverview = loadable(() => import('@teambit/defender.content.linter-overview'));
-const LintingDuringDevelopment = loadable(() => import('@teambit/defender.content.linting-during-development'));
-const LintingDuringBuild = loadable(() => import('@teambit/defender.content.linting-during-build'));
-const ConfigureEnvWithLinter = loadable(() => import('@teambit/defender.content.configure-env-with-linter'));
-const ImplementLinter = loadable(() => import('@teambit/defender.content.implement-linter'));
+const LinterOverview = lazy(() => import('@teambit/defender.content.linter-overview'));
+const LintingDuringDevelopment = lazy(() => import('@teambit/defender.content.linting-during-development'));
+const LintingDuringBuild = lazy(() => import('@teambit/defender.content.linting-during-build'));
+const ConfigureEnvWithLinter = lazy(() => import('@teambit/defender.content.configure-env-with-linter'));
+const ImplementLinter = lazy(() => import('@teambit/defender.content.implement-linter'));
 
 /* Formatter */
 
-const FormatterOverview = loadable(() => import('@teambit/defender.content.formatter-overview'));
-const FormattingDuringDevelopment = loadable(() => import('@teambit/defender.content.formatting-during-development'));
-const FormattingDuringBuild = loadable(() => import('@teambit/defender.content.formatting-during-build'));
-const ConfigureEnvWithFormatter = loadable(() => import('@teambit/defender.content.configure-env-with-formatter'));
-const ImplementFormatter = loadable(() => import('@teambit/defender.content.implement-formatter'));
+const FormatterOverview = lazy(() => import('@teambit/defender.content.formatter-overview'));
+const FormattingDuringDevelopment = lazy(() => import('@teambit/defender.content.formatting-during-development'));
+const FormattingDuringBuild = lazy(() => import('@teambit/defender.content.formatting-during-build'));
+const ConfigureEnvWithFormatter = lazy(() => import('@teambit/defender.content.configure-env-with-formatter'));
+const ImplementFormatter = lazy(() => import('@teambit/defender.content.implement-formatter'));
 
 /* Compiler  */
 
-const CompilerOverview = loadable(() => import('@teambit/compilation.content.compiler-overview'));
-const CompilingDuringDevelopment = loadable(() => import('@teambit/compilation.content.compiling-during-development'));
-const CompilingDuringBuild = loadable(() => import('@teambit/compilation.content.compiling-during-build'));
-const ConfigureEnvWithCompiler = loadable(() => import('@teambit/compilation.content.configure-env-with-compiler'));
-const ImplementCompiler = loadable(() => import('@teambit/compilation.content.implement-compiler'));
-const CompilerAPI = loadable(() => import('@teambit/compilation.content.compiler-api'));
-const MultiCompiler = loadable(() => import('@teambit/compilation.content.multi-compiler'));
-const ConfigureWebpck = loadable(() => import('@teambit/webpack.content.configure-webpack'));
+const CompilerOverview = lazy(() => import('@teambit/compilation.content.compiler-overview'));
+const CompilingDuringDevelopment = lazy(() => import('@teambit/compilation.content.compiling-during-development'));
+const CompilingDuringBuild = lazy(() => import('@teambit/compilation.content.compiling-during-build'));
+const ConfigureEnvWithCompiler = lazy(() => import('@teambit/compilation.content.configure-env-with-compiler'));
+const ImplementCompiler = lazy(() => import('@teambit/compilation.content.implement-compiler'));
+const CompilerAPI = lazy(() => import('@teambit/compilation.content.compiler-api'));
+const MultiCompiler = lazy(() => import('@teambit/compilation.content.multi-compiler'));
+const ConfigureWebpck = lazy(() => import('@teambit/webpack.content.configure-webpack'));
 
 /* Builder */
 
-const BuilderOverview = loadable(() => import('@teambit/pipelines.content.builder-overview'));
-const BuildPipelines = loadable(() => import('@teambit/pipelines.content.build-pipelines'));
-const BuildTasks = loadable(() => import('@teambit/pipelines.content.build-tasks'));
-const BuildArtifacts = loadable(() => import('@teambit/pipelines.content.build-artifacts'));
-const Capsule = loadable(() => import('@teambit/component.content.capsule'));
-const BuildTaskApi = loadable(() => import('@teambit/pipelines.content.build-task-api'));
-const BuildArtifactsApi = loadable(() => import('@teambit/pipelines.content.build-artifacts-api'));
-const UsingBuildTask = loadable(() => import('@teambit/pipelines.content.using-build-task'));
+const BuilderOverview = lazy(() => import('@teambit/pipelines.content.builder-overview'));
+const BuildPipelines = lazy(() => import('@teambit/pipelines.content.build-pipelines'));
+const BuildTasks = lazy(() => import('@teambit/pipelines.content.build-tasks'));
+const BuildArtifacts = lazy(() => import('@teambit/pipelines.content.build-artifacts'));
+const Capsule = lazy(() => import('@teambit/component.content.capsule'));
+const BuildTaskApi = lazy(() => import('@teambit/pipelines.content.build-task-api'));
+const BuildArtifactsApi = lazy(() => import('@teambit/pipelines.content.build-artifacts-api'));
+const UsingBuildTask = lazy(() => import('@teambit/pipelines.content.using-build-task'));
 
 /* Docs */
 
-const DocsOverview = loadable(() => import('@teambit/docs.content.docs-overview'));
-const MDX = loadable(() => import('@teambit/docs.content.mdx'));
-const DocTemplates = loadable(() => import('@teambit/docs.content.doc-templates'));
-const RenderingDocs = loadable(() => import('@teambit/docs.content.rendering-docs'));
+const DocsOverview = lazy(() => import('@teambit/docs.content.docs-overview'));
+const MDX = lazy(() => import('@teambit/docs.content.mdx'));
+const DocTemplates = lazy(() => import('@teambit/docs.content.doc-templates'));
+const RenderingDocs = lazy(() => import('@teambit/docs.content.rendering-docs'));
 
 /* Compositions */
 
-const CompositionsOverview = loadable(() => import('@teambit/compositions.content.compositions-overview'));
-const CompositionFormat = loadable(() => import('@teambit/compositions.content.composition-format'));
-const CompositionContext = loadable(() => import('@teambit/compositions.content.composition-context'));
-const MountingCompositionsToDom = loadable(() => import('@teambit/compositions.content.mounting-compositions-to-dom'));
-const CompositionsAndStories = loadable(() => import('@teambit/compositions.content.compositions-and-stories'));
+const CompositionsOverview = lazy(() => import('@teambit/compositions.content.compositions-overview'));
+const CompositionFormat = lazy(() => import('@teambit/compositions.content.composition-format'));
+const CompositionContext = lazy(() => import('@teambit/compositions.content.composition-context'));
+const MountingCompositionsToDom = lazy(() => import('@teambit/compositions.content.mounting-compositions-to-dom'));
+const CompositionsAndStories = lazy(() => import('@teambit/compositions.content.compositions-and-stories'));
 
 /* Components */
 
-const NavigateHistory = loadable(() => import('@teambit/component.content.navigate-history'));
-const ComponentId = loadable(() => import('@teambit/component.content.component-id'));
-const ComponentOverview = loadable(() => import('@teambit/component.content.component-overview'));
-const RemovingDeprecating = loadable(() => import('@teambit/docs.content.guides.removing-deprecating-components'));
-const MergingComponentVersions = loadable(() => import('@teambit/docs.content.guides.merging-component-versions'));
-const MainFile = loadable(() => import('@teambit/component.content.component-main-file'));
-const ComponentConfig = loadable(() => import('@teambit/component.content.component-config'));
-const ComponentJson = loadable(() => import('@teambit/component.content.component-json'));
-const ComponentObjects = loadable(() => import('@teambit/component.content.component-objects'));
-const DevFiles = loadable(() => import('@teambit/component.content.dev-files'));
-const InspectingComponents = loadable(() => import('@teambit/component.content.inspecting-components'));
-const Tags = loadable(() => import('@teambit/component.content.tags'));
-const Snaps = loadable(() => import('@teambit/component.content.snaps'));
-const ComponentAnatomy = loadable(() => import('@teambit/component.content.component-anatomy'));
-const AddingComponents = loadable(() => import('@teambit/component.content.adding-components'));
+const NavigateHistory = lazy(() => import('@teambit/component.content.navigate-history'));
+const ComponentId = lazy(() => import('@teambit/component.content.component-id'));
+const ComponentOverview = lazy(() => import('@teambit/component.content.component-overview'));
+const RemovingDeprecating = lazy(() => import('@teambit/docs.content.guides.removing-deprecating-components'));
+const MergingComponentVersions = lazy(() => import('@teambit/docs.content.guides.merging-component-versions'));
+const MainFile = lazy(() => import('@teambit/component.content.component-main-file'));
+const ComponentConfig = lazy(() => import('@teambit/component.content.component-config'));
+const ComponentJson = lazy(() => import('@teambit/component.content.component-json'));
+const ComponentObjects = lazy(() => import('@teambit/component.content.component-objects'));
+const DevFiles = lazy(() => import('@teambit/component.content.dev-files'));
+const InspectingComponents = lazy(() => import('@teambit/component.content.inspecting-components'));
+const Tags = lazy(() => import('@teambit/component.content.tags'));
+const Snaps = lazy(() => import('@teambit/component.content.snaps'));
+const ComponentAnatomy = lazy(() => import('@teambit/component.content.component-anatomy'));
+const AddingComponents = lazy(() => import('@teambit/component.content.adding-components'));
 
 /* Envs */
 
-const EnvsOverview = loadable(() => import('@teambit/envs.content.envs-overview'));
-const InspectingEnv = loadable(() => import('@teambit/envs.content.inspecting-env'));
-const ExtendingEnv = loadable(() => import('@teambit/envs.content.extending-env'));
-const UsingEnvs = loadable(() => import('@teambit/envs.content.using-envs'));
-const EnvsApi = loadable(() => import('@teambit/envs.content.envs-api'));
+const EnvsOverview = lazy(() => import('@teambit/envs.content.envs-overview'));
+const InspectingEnv = lazy(() => import('@teambit/envs.content.inspecting-env'));
+const ExtendingEnv = lazy(() => import('@teambit/envs.content.extending-env'));
+const UsingEnvs = lazy(() => import('@teambit/envs.content.using-envs'));
+const EnvsApi = lazy(() => import('@teambit/envs.content.envs-api'));
 
 /* Dependencies */
 
-const InspectingDependencies = loadable(() => import('@teambit/dependencies.content.inspecting-dependencies'));
-const DependenciesOverview = loadable(() => import('@teambit/dependencies.content.dependencies-overview'));
-const ExternalDependencies = loadable(() => import('@teambit/dependencies.content.external-dependencies'));
-const DependencyPolicies = loadable(() => import('@teambit/dependencies.content.dependency-policies'));
-const ConfiguringDependencies = loadable(() => import('@teambit/dependencies.content.configuring-dependencies'));
-const DependenciesConfiguration = loadable(() => import('@teambit/dependencies.content.dependencies-configuration'));
-const DependencyInstallation = loadable(() => import('@teambit/dependencies.content.installing-dependencies'));
-// const DependencyResolution = loadable(() => import('@teambit/dependencies.content.dependency-resolution'));
-const LockFiles = loadable(() => import('@teambit/dependencies.content.lock-files'));
-const Pnpm = loadable(() => import('@teambit/dependencies.content.pnpm'));
-const Yarn = loadable(() => import('@teambit/dependencies.content.yarn'));
-const NodeModules = loadable(() => import('@teambit/dependencies.content.node-modules'));
-const PackageManagers = loadable(() => import('@teambit/dependencies.content.package-managers'));
+const InspectingDependencies = lazy(() => import('@teambit/dependencies.content.inspecting-dependencies'));
+const DependenciesOverview = lazy(() => import('@teambit/dependencies.content.dependencies-overview'));
+const ExternalDependencies = lazy(() => import('@teambit/dependencies.content.external-dependencies'));
+const DependencyPolicies = lazy(() => import('@teambit/dependencies.content.dependency-policies'));
+const ConfiguringDependencies = lazy(() => import('@teambit/dependencies.content.configuring-dependencies'));
+const DependenciesConfiguration = lazy(() => import('@teambit/dependencies.content.dependencies-configuration'));
+const DependencyInstallation = lazy(() => import('@teambit/dependencies.content.installing-dependencies'));
+// const DependencyResolution = lazy(() => import('@teambit/dependencies.content.dependency-resolution'));
+const LockFiles = lazy(() => import('@teambit/dependencies.content.lock-files'));
+const Pnpm = lazy(() => import('@teambit/dependencies.content.pnpm'));
+const Yarn = lazy(() => import('@teambit/dependencies.content.yarn'));
+const NodeModules = lazy(() => import('@teambit/dependencies.content.node-modules'));
+const PackageManagers = lazy(() => import('@teambit/dependencies.content.package-managers'));
 
 /* Packages */
 
-const PackagesOverview = loadable(() => import('@teambit/pkg.content.packages-overview'));
-const PackageJson = loadable(() => import('@teambit/pkg.content.package-json'));
-const ManagingPackageJson = loadable(() => import('@teambit/pkg.content.managing-package-json'));
-const PackageName = loadable(() => import('@teambit/pkg.content.package-name'));
-const PackingComponents = loadable(() => import('@teambit/pkg.content.packing-components'));
-const CommonjsPackageRegistries = loadable(() => import('@teambit/pkg.content.commonjs-package-registries'));
-const PkgBuildTasks = loadable(() => import('@teambit/pkg.content.pkg-build-tasks'));
-const Npmrc = loadable(() => import('@teambit/pkg.content.npmrc'));
+const PackagesOverview = lazy(() => import('@teambit/pkg.content.packages-overview'));
+const PackageJson = lazy(() => import('@teambit/pkg.content.package-json'));
+const ManagingPackageJson = lazy(() => import('@teambit/pkg.content.managing-package-json'));
+const PackageName = lazy(() => import('@teambit/pkg.content.package-name'));
+const PackingComponents = lazy(() => import('@teambit/pkg.content.packing-components'));
+const CommonjsPackageRegistries = lazy(() => import('@teambit/pkg.content.commonjs-package-registries'));
+const PkgBuildTasks = lazy(() => import('@teambit/pkg.content.pkg-build-tasks'));
+const Npmrc = lazy(() => import('@teambit/pkg.content.npmrc'));
 
 /* Reference */
 
-const UsingBVM = loadable(() => import('@teambit/docs.content.guides.using-bvm'));
-const CliReference = loadable(() => import('@teambit/harmony.content.cli-reference'));
+const UsingBVM = lazy(() => import('@teambit/docs.content.guides.using-bvm'));
+const CliReference = lazy(() => import('@teambit/harmony.content.cli-reference'));
 
 /* Global Config */
-const BitConfig = loadable(() => import('@teambit/docs.content.guides.bit-config'));
-const ConfigFiles = loadable(() => import('@teambit/docs.content.guides.config-files'));
+const BitConfig = lazy(() => import('@teambit/docs.content.guides.bit-config'));
+const ConfigFiles = lazy(() => import('@teambit/docs.content.guides.config-files'));
 
 /* React */
-const ReactOverview = loadable(() => import('@teambit/react.content.react-overview'));
-const ReplacingReactTools = loadable(() => import('@teambit/react.content.replace-react-tools'));
-const ConfigReactTools = loadable(() => import('@teambit/react.content.config-react-tools'));
+const ReactOverview = lazy(() => import('@teambit/react.content.react-overview'));
+const ReplacingReactTools = lazy(() => import('@teambit/react.content.replace-react-tools'));
+const ConfigReactTools = lazy(() => import('@teambit/react.content.config-react-tools'));
 
 export const learnDocsRoutes: DocsRoute[] = [
   {
