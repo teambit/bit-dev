@@ -3,21 +3,23 @@ import wsScreenshot from './ws-screenshot.png';
 
 # Workspace Overview
 
-The Bit Workspace is a component-driven development workspace, allowing to implement and compose loosley-coupled, independent components into systems. Every
-component in the Bit workspace is independent, to the same degree a Git repo is. It is dynamic development workspace that allows to import component and export components from
-it for everyone to use. 
+The Bit Workspace is made for component-driven development - it is where you build independent, loosley-coupled components and composing them to systems.  Workspace a composition of components. You can `import` any component to it for maintaining it, or `export` others for different teams to use as an API. Each component holds the implementation, history and config for itself, meaning the component is essentially de-coupled from the workspace.
 
-Teams and individuals can resort to a decoupled codebase, containing only the components they are maintaining, exporting them as APIs for others to use. Components can easily
-be moved between Workspaces.
+## Simple, scalable dev experience
 
-## Simple, scalable dev experience 
 Get a simple and scalable dev experience.
 
+- shared commands
+- global config policy
+- no need to handle per-component configs
+
 ## Collaborate on independent components
+
 Component collaboration
 
 ## Personalized workspaces
-Personalized workspaces 
+
+Personalized workspaces
 
 ## Easy on-boarding
 
@@ -39,7 +41,7 @@ Workspaces are used for building and maintaining Component Libraries, Apps or Mo
 ## Workspace Anatomy
 
 A Bit workspace has a minimal footprint on the codebase. It requires only two files to manage components.
- 
+
 - `.bitmap` - Mapping of Component IDs to the Components' location in the filesystem (in the workspace directory).
 - `workspace.jsonc` - Main file for the Workspace configuration.
 
@@ -117,7 +119,7 @@ By default, Bit generates a local build for the dev server in the `public/bit` d
 Bit creates a module in the [workspace's] `node_modules` directory, for each component in the workspace. That includes components that haven't been exported, yet.
 Each module contains the compiled code of its corresponding component, as well as symlinks to its source files.
 
-```
+```bash
 └── node_modules
     └── @my-org
         └── my-scope.ui.card
