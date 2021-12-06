@@ -40,6 +40,7 @@ const HostingScopes = loadable(() => import('@teambit/scope.content.hosting-scop
 /* Dev services */
 
 const AvailableServices = loadable(() => import('@teambit/envs.content.available-services'));
+const DevServices = loadable(() => import('@teambit/envs.content.dev-services'));
 const DevServicesOverview = loadable(() => import('@teambit/envs.content.dev-services-overview'));
 
 /* Preview */
@@ -555,10 +556,10 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <ExtendingEnv />,
       },
       {
-        path: 'dev-services-overview',
+        path: 'dev-services',
         title: 'Dev Services',
         description: 'Development Services control various workflows and commands for components.',
-        component: <DevServicesOverview />,
+        component: <DevServices />,
       },
       {
         path: 'envs-api',
@@ -568,14 +569,14 @@ export const learnDocsRoutes: DocsRoute[] = [
     ],
   },
   {
-    path: 'dev-services',
+    path: 'dev-services-overview',
     title: 'Dev Services',
     icon: 'compCI',
     open: false,
     overview: {
       path: 'available-services',
       title: 'available services',
-      component: <AvailableServices />,
+      component: <DevServicesOverview />,
     },
     children: [
       {

@@ -321,6 +321,12 @@
         "mainFile": "index.ts",
         "rootDir": "component/content/dev-files"
     },
+    "content/dev-services": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "envs/content/dev-services"
+    },
     "content/dev-services-overview": {
         "scope": "teambit.envs",
         "version": "1.23.0",
