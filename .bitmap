@@ -1245,6 +1245,12 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/homepage/sections/standardization"
     },
+    "ui/hooks/use-element-on-fold": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/ui/hooks/use-element-on-fold"
+    },
     "ui/hooks/use-local-storage": {
         "scope": "teambit.community",
         "version": "1.23.0",
@@ -1334,6 +1340,12 @@
         "version": "1.23.0",
         "mainFile": "index.ts",
         "rootDir": "design/ui/navigation/tab-link"
+    },
+    "ui/navigation/table-of-content": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/ui/navigation/table-of-content"
     },
     "ui/pages/doc-page": {
         "scope": "teambit.docs",
