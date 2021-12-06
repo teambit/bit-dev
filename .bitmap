@@ -1181,7 +1181,7 @@
     },
     "ui/header/nav": {
         "scope": "teambit.community",
-        "version": "1.23.3",
+        "version": "1.23.4",
         "mainFile": "index.ts",
         "rootDir": "community/ui/header/nav"
     },
