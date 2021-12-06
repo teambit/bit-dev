@@ -1,7 +1,7 @@
 import React from 'react';
 import WhatIsBitLong from './what-is-bit.mdx';
-import WhatIsBitShort from './what-is-bit-short.mdx';
-import WhatIsBitSmall from './what-is-bit-small.mdx';
+// import WhatIsBitShort from './what-is-bit-short.mdx';
+// import WhatIsBitSmall from './what-is-bit-small.mdx';
 
 // export enum Size {
 //   SMALL,
