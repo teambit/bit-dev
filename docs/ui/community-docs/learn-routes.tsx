@@ -37,9 +37,9 @@ const HostingScopes = lazy(() => import('@teambit/scope.content.hosting-scopes')
 
 /* Dev services */
 
-const AvailableServices = loadable(() => import('@teambit/envs.content.available-services'));
-const DevServices = loadable(() => import('@teambit/envs.content.dev-services'));
-const DevServicesOverview = loadable(() => import('@teambit/envs.content.dev-services-overview'));
+// const AvailableServices = lazy(() => import('@teambit/envs.content.available-services'));
+const DevServices = lazy(() => import('@teambit/envs.content.dev-services'));
+const DevServicesOverview = lazy(() => import('@teambit/envs.content.dev-services-overview'));
 
 /* Preview */
 

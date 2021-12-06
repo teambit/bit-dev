@@ -59,7 +59,7 @@ As mentioned above, Dev Services are standardizers of certain types of developme
 For example, the following compiler implements the Compiler interface, to integrate [Babel](https://jestjs.io/) into Bit, _as a compiler_.
 Using the Dev Service API, the Babel Aspect is able to access and use all the relevant Aspects, and use them in a way that is consistent with other Aspects that serve as compilers.
 
-```ts title="Example: The Babel Aspect implements the Compiler interface"
+```ts
 // ...
 import * as babel from '@babel/core';
 import { ... } from '@teambit/compiler';
