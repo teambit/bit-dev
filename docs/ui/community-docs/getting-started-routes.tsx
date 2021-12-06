@@ -1,25 +1,23 @@
 import React from 'react';
-import loadable from '@loadable/component';
+import { lazy } from '@loadable/component';
 import { DocsRoute } from '@teambit/docs.entities.docs-routes';
 
-const DevEnvs = loadable(() => import('@teambit/docs.content.getting-started.dev-envs'));
-const UseDependencies = loadable(() => import('@teambit/docs.content.getting-started.use-dependencies'));
-const CreateWorkspace = loadable(() => import('@teambit/docs.content.getting-started.create-workspace'));
-const CreateComponents = loadable(
-  () => import('@teambit/community.content.getting-started.composing.create-components')
-);
+const DevEnvs = lazy(() => import('@teambit/docs.content.getting-started.dev-envs'));
+const UseDependencies = lazy(() => import('@teambit/docs.content.getting-started.use-dependencies'));
+const CreateWorkspace = lazy(() => import('@teambit/docs.content.getting-started.create-workspace'));
+const CreateComponents = lazy(() => import('@teambit/community.content.getting-started.composing.create-components'));
 
-const VersionComponents = loadable(() => import('@teambit/docs.content.getting-started.version-components'));
-// const NamingComponents = loadable(() => import('@teambit/docs.content.getting-started.version-components'));
-// const WhatIsScope = loadable(() => import('@teambit/docs.content.getting-started.what-is-scope'));
-// const HostBitCloud = loadable(() => import('@teambit/docs.content.getting-started.host-bit-cloud'));
-// const SelfHostScope = loadable(() => import('@teambit/docs.content.getting-started.self-host-scope'));
-const ShareComponents = loadable(() => import('@teambit/docs.content.getting-started.share-components'));
-const InstallComponents = loadable(() => import('@teambit/docs.content.getting-started.install-components'));
-const ImportComponents = loadable(() => import('@teambit/docs.content.getting-started.import-components'));
-const UpdateComponents = loadable(() => import('@teambit/docs.content.getting-started.update-components'));
-const CiExport = loadable(() => import('@teambit/docs.content.getting-started.ci-export'));
-// const CiInstall = loadable(() => import('@teambit/docs.content.getting-started.ci-install'));
+const VersionComponents = lazy(() => import('@teambit/docs.content.getting-started.version-components'));
+// const NamingComponents = lazy(() => import('@teambit/docs.content.getting-started.version-components'));
+// const WhatIsScope = lazy(() => import('@teambit/docs.content.getting-started.what-is-scope'));
+// const HostBitCloud = lazy(() => import('@teambit/docs.content.getting-started.host-bit-cloud'));
+// const SelfHostScope = lazy(() => import('@teambit/docs.content.getting-started.self-host-scope'));
+const ShareComponents = lazy(() => import('@teambit/docs.content.getting-started.share-components'));
+const InstallComponents = lazy(() => import('@teambit/docs.content.getting-started.install-components'));
+const ImportComponents = lazy(() => import('@teambit/docs.content.getting-started.import-components'));
+const UpdateComponents = lazy(() => import('@teambit/docs.content.getting-started.update-components'));
+const CiExport = lazy(() => import('@teambit/docs.content.getting-started.ci-export'));
+// const CiInstall = lazy(() => import('@teambit/docs.content.getting-started.ci-install'));
 
 export const gettingStartedDocsRoutes: DocsRoute[] = [
   {

@@ -1,42 +1,27 @@
 @import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
 
 .content {
-  padding: 0 36px;
+  position: relative;
+  padding-left: 36px;
   box-sizing: border-box;
   width: 100%;
   min-width: 0; // prevents content from overflowing
   @media screen and (max-width: $br-md) {
     padding: 0;
+    margin-left: 0;
   }
 }
 
 .main {
   display: flex;
+  position: relative;
 }
 
-.sidebar {
-  border-right: 1px solid var(--bit-border-color-lightest, #ededed);
-  @media screen and (max-width: $br-md) {
-    border-right: none;
-  }
-  .overlay {
-    display: none;
-    z-index: 99999; // TODO: get from zindexs
-    position: fixed;
-    background-color: var(--bit-text-color-heavy, #2b2b2b);
-    opacity: 0.8;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-  }
-  &.open {
-    .overlay {
-      @media screen and (max-width: $br-md) {
-        display: unset;
-      }
-    }
-  }
+
+.collapsableSidebar {
+  background-color: var(--bit-bg-modal, #ffffff);
+  height: 100%;
+  z-index: 1;
 }
 
 .sidebarContent {
