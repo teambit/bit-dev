@@ -1,0 +1,25 @@
+---
+description: 'what is an env'
+labels: ['content', 'mdx']
+---
+
+import { EnvsOverview } from './index';
+
+### Component usage
+```js
+<EnvsOverview />
+```
+
+### Render with theme and MDX providers
+
+```js
+import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions'
+import { MDXLayout } from '@teambit/ui.mdx-layout'
+import { EnvsOverview } from './index'
+
+<ThemeCompositions>
+  <MDXLayout>
+    <EnvsOverview />
+  </MDXLayout>
+</ThemeCompositions>
+```
