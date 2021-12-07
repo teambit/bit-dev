@@ -1,0 +1,82 @@
+# Envs API
+
+## override
+
+```ts
+override(propsToOverride: Environment): EnvTransformer
+```
+
+Gets Env properties (`targetEnv`) and returns an Env transformer function that overrides these properties in the 'source Env' (see usage example in ['compose'](/envs/envs-api#compose))
+
+```ts
+const targetEnv = {
+  getCompiler: () => myCompiler,
+  getLinter: () => myLinter,
+};
+
+const envs = new Envs();
+envs.override(targetEnv);
+// output:
+// (sourceEnv) => {
+//     return this.merge(targetEnv, sourceEnv);
+//   }
+```
+
+## merge
+
+```ts
+merge<T>(targetEnv: Environment, sourceEnv: Environment): T
+```
+
+Merges one Env into another. In case of conflicting properties, `sourceEnv` properties override `targetEnv` properties.
+
+```ts
+const targetEnv = {
+  getCompiler: () => {prop: 'new'},
+  getLinter: () => {prop: 'new'},
+};
+
+const sourceEnv = {
+  getCompiler: () => {prop: 'old'},
+  getFormatter: () => {prop: 'old'},
+};
+
+const envs = new Envs();
+
+envs.merge(targetEnv, sourceEnv);
+// output:
+// {
+//   getCompiler: () => {prop: 'new'},
+//   getFormatter: () => {prop: 'old'},
+//   getLinter: () => {prop: 'new'}
+// }
+```
+
+## compose
+
+```ts
+compose(sourceEnv: Environment, envTransformers: EnvTransformer[]): Environment
+```
+
+Composes an Env out of an Env and an array of [Env Transformers](/envs/envs-api#override).
+
+```ts
+const targetEnv = {
+  getCompiler: () => {prop: 'old'},
+  getLinter: () => {prop: 'old'}
+}
+
+const linterProp = { getLinter: () => {prop: 'new'} }
+const compilerProp = { getCompiler: () => {prop: 'new'} }
+
+const linterTransformer = envs.override(linterProp)
+const compilerTransformer = envs.override(compilerProp)
+
+envs.compose(targetEnv, [linterTransformer, compilerTransformer])
+// output:
+// {
+//   getCompiler: () => {prop: 'new'},
+//   getFormatter: () => {props: 'old'},
+//   getLinter: () => {prop: 'new'}
+// }
+```

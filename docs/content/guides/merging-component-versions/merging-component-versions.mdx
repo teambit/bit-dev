@@ -1,45 +1,97 @@
 # Merge Conflicts
 
-You may encounter a merge conflict, if you tagged a new version and exported it, but there's such version already shared. Let's resolve such conflict.  
+Components are version-controlled, collaborating on them is all about managing contributions from multiple authors. Sometimes your changes will conflict with others editing the same component.  
+Bridge this gap by merging the other's changes into your own.
 
-The flow starts with running `export`, trying to export a new version:
+## Conflicts on exported versions
+
+Component versions are immutable, and once exported can't be changed. This means that once a component was versioned with a specific semantic version, others can't change it or export a different implementation of the component with the same semantic version.  
+If you happen to encounter such a case, Bit will trigger a **merge conflict**. To continue the export process, you must resolve the conflict and set another semantic version.
+
+:::tip avoid merge conflicts by running `bit import` to fetch new remote versions before you `tag` and `export`
+:::
+
+Tag a component with a semver and try to export it:
 
 ```bash
 bit tag teambit.base-ui/input/button --message "my message"
 bit export
 ```
 
-We tried to export `1.0.5` for `teambit.base-ui/input/button`, but there's already `1.0.5` on the remote..
-
 ```bash
 error: merge conflict occurred while importing the component teambit.base-ui/input/button. conflict version(s): 1.0.5
 to resolve it and merge your local and remote changes, please do the following:
 1) bit untag teambit.base-ui/input/button 1.0.5
 2) bit import
-3) bit checkout 1.0.5 teambit.base-ui/input/button
+3) bit checkout 1.0.2 teambit.base-ui/input/button
 ```
 
-To resolve the conflict, `untag` the component’s local version.
+You tried to export `1.0.2` for `teambit.base-ui/input/button`, but Bit tells you that version is already available, and that there's even a future version called `1.0.5` on the remote.  
+Follow the on-screen instructions to resolve the conflict. Start by using the `untag` command, to remove the conflicted version.
 
 ```bash
 bit untag teambit.base-ui/input/button 1.0.5
 ```
 
-Now we use `import` to update the local component history, so we have `1.0.5` from the remote.
+Now we use `import` to get `1.0.5` from the remote.
 
 ```bas
 bit import
 ```
 
-Checkout version `1.0.5` so you can merge your changes on top of it.
+Checkout the component to version `1.0.5` and merge your changes on top of it.
 
 ```bash
 bit checkout 1.0.5 teambit.base-ui/input/button
 ```
 
-Tag and export again, after solving the conflict.
+Now you can safely `tag` a new version and export, after solving the conflict.
 
 ```bash
 bit tag teambit.base-ui/input/button --message "my message" 
 bit export
+```
+
+## Merge with local changes
+
+Modified components in a Bit workspace can get upstream changes. If there are any local changes, the `checkout` command merges them with the upcoming changes. In cases where upstream change conflicts with your local, a local **merge conflict** is triggered.
+
+When you have a **modified component** and it has newer versions, `bit status` shows the following:
+
+```bash
+pending updates
+(use "bit checkout [version] [component_id]" to merge changes)
+(use "bit log [component_id]" to list all available versions)
+
+    > teambit.base-ui/input/button current: 1.0.0 latest: 1.0.1
+
+modified components
+(use "bit tag --all [version]" to lock a version with all your changes)
+
+    > teambit.base-ui/input/button ... ok
+```
+
+Here use the same `checkout` command. Bit will use Git in an attempt to automatically merge changes between local changes the incoming version.  
+If there's a merge conflict, you get this output:
+
+```bash
+successfully switched teambit.base-ui/input/button to version 1.0.5
+updated base-ui/input/button.spec.ts
+updated base-ui/input/index.ts
+CONFLICT base-ui/input/button.ts automatic merge failed. please fix conflicts manually and then tag the results.
+```
+
+You can use the several options when `checkout` to resolve conflicts.
+
+- `--theirs` - the remote version overrides the local modifications.
+- `--ours` - the local implementation overrides the remote changes.
+- `--manual` - resolve the conflict manually.
+
+Once merge is resolved, run `bit status` and see the result.
+
+```status
+modified components
+(use "bit tag --all [version]" to lock a version with all your changes)
+
+     > teambit.base-ui/input/button ... ok
 ```

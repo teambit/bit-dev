@@ -51,6 +51,12 @@
         "mainFile": "index.ts",
         "rootDir": "harmony/content/aspects-overview"
     },
+    "content/available-services": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "envs/content/available-services"
+    },
     "content/bitmap": {
         "scope": "teambit.workspace",
         "version": "1.23.0",
@@ -315,6 +321,12 @@
         "mainFile": "index.ts",
         "rootDir": "component/content/dev-files"
     },
+    "content/dev-services": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "envs/content/dev-services"
+    },
     "content/dev-services-overview": {
         "scope": "teambit.envs",
         "version": "1.23.0",
@@ -344,6 +356,18 @@
         "version": "1.23.0",
         "mainFile": "index.ts",
         "rootDir": "envs/content/env-troubleshooting"
+    },
+    "content/envs-api": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "envs/content/envs-api"
+    },
+    "content/envs-overview": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "envs/content/envs-overview"
     },
     "content/exporting-components": {
         "scope": "teambit.workspace",
@@ -500,6 +524,12 @@
         "version": "1.23.0",
         "mainFile": "index.ts",
         "rootDir": "docs/content/guides/removing-deprecating-components"
+    },
+    "content/guides/usage-analytics": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/guides/usage-analytics"
     },
     "content/guides/using-bvm": {
         "scope": "teambit.docs",
@@ -759,6 +789,12 @@
         "mainFile": "index.ts",
         "rootDir": "preview/content/register-custom-preview"
     },
+    "content/remote-scopes": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "scope/content/remote-scopes"
+    },
     "content/rendering-docs": {
         "scope": "teambit.docs",
         "version": "1.23.0",
@@ -770,6 +806,12 @@
         "version": "1.23.0",
         "mainFile": "index.ts",
         "rootDir": "react/content/replace-react-tools"
+    },
+    "content/scope-bit-cloud": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "scope/content/scope-bit-cloud"
     },
     "content/scope-json": {
         "scope": "teambit.scope",
@@ -836,6 +878,12 @@
         "version": "1.23.0",
         "mainFile": "index.ts",
         "rootDir": "pipelines/content/using-build-task"
+    },
+    "content/using-envs": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "envs/content/using-envs"
     },
     "content/variants": {
         "scope": "teambit.workspace",
