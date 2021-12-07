@@ -7,7 +7,19 @@ export type GetElements = {
   selectors?: string;
 };
 
-export function getElements({ ref, selectors = defaultSelectors }): HTMLElement[] {
-  const elements = ref ? ref?.current?.querySelectorAll(selectors) : document.querySelectorAll(selectors);
+export function getElements({ ref, selectors = defaultSelectors }: GetElements): Element[] {
+  const sanitizedSelectors = isSelectorValid(selectors);
+  const elements = ref
+    ? ref?.current?.querySelectorAll(sanitizedSelectors)
+    : document.querySelectorAll(sanitizedSelectors);
   return elements ? Array.from(elements) : [];
 }
+
+const isSelectorValid = (selector) => {
+  try {
+    document.createDocumentFragment().querySelector(selector);
+  } catch {
+    return undefined;
+  }
+  return selector;
+};
