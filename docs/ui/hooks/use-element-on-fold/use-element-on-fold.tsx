@@ -2,7 +2,7 @@ import { useEffect, useState, useMemo } from 'react';
 import { getElements } from './get-elements';
 
 export const useElementOnFold = (ref?: React.MutableRefObject<HTMLElement>, selectors?: string, disabled?: boolean) => {
-  const elements = useMemo(() => getElements({ ref, selectors }), [ref?.current]);
+  const elements = useMemo(() => getElements({ ref, selectors }), [ref?.current, selectors]);
   const [activeElement, setActive] = useState<HTMLElement | undefined>(undefined);
 
   useEffect(() => {
