@@ -5,15 +5,16 @@ import importVisual from './import-visual.png';
 
 # Importing Components
 
-You can import a component from a remote scope to a workspace and maintain it as if it was implemented there. Imported components can be modified, compiled, tested and used as dependencies for other components and apps in the workspace. You may also snap and version imported components.
+You can import a component from a remote scope to a Bit workspace. Imported components are just like any other component: They can be modified, compiled, tested and used as dependencies for other components. You may also snap and version imported components.
 
 <img src={importVisual} style={{ maxHeight:'200px' }} />
 
-To use the `import` command you need have a Bit-workspace in your repository. If you already have a Bit-workspace, you can simply import the component. If you don't - create a new directly, initialize Bit, and import the component:
+Use the `import` command in a Bit workspace.
 
 ```bash
 bit import teambit.base-ui/input/button
 ```
+
 ```bash
 ✔ installing dependencies using pnpm
 ✔ running post install subscribers
@@ -22,23 +23,18 @@ successfully imported one component
 - added teambit.base-ui/input/button new versions: 0.5.9, 0.5.10, 0.6.0, 0.6.2, 0.6.3, 0.6.4, 0.6.5, 0.6.6, 0.6.7, 0.6.8, 0.6.9, 0.6.10, 0.6.11, 0.6.12, 0.7.0, 0.7.1, 0.7.2, 1.0.0, 1.0.1, 1.0.2, 1.0.3, currently used version 1.0.3 
 ```
 
-:::tip How to find import my component?
+:::tip Copy your component's `import` command from the component page's "use" section
 
-When browsing components in remote Scopes, open the green drop-down labeled "use", and copy the `bit import` command.
-
-<img src={importDropDown} style={{ maxHeight:'180px' }} />
+<img src={importDropDown} style={{ maxHeight:'200px' }} />
 
 :::
 
-The import process fetch the component's revision history, install its dependencies.
-
-
-Bit creates a directory where is "checkout" the implementation of the imported component.
+The import process fetches the component, install its dependencies, creates a directory for the component in the workspace for placing its implementation. Component location is set according to the `defaultDirectory` setting in your `workspace.jsonc` file
 
 ```bash
-base-ui
-└── input
-    └── button
+base-ui                            # Imported component "scope"
+└── input                          # Imported component "namespace
+    └── button                     # Imported component "name"
         ├── button.composition.tsx
         ├── button.docs.mdx
         ├── button.module.scss
@@ -47,9 +43,7 @@ base-ui
         └── index.ts
 ```
 
-:::tip change target directory
-
-Component directory structure is set according to the `defaultDirectory` setting in your `workspace.jsonc` file. You can override this by passing the `--path` flag.
+:::tip override `defaultDirectory` with the `--path` option.
 
 ```bash
 bit import teambit.base-ui/input/button --path random/directory
@@ -59,34 +53,33 @@ bit import teambit.base-ui/input/button --path random/directory
 
 ## Just like using any component
 
-Like all components in the workspace, imported components are linked in `node_modules`. You can use this `import` call to add a dependency on the imported component.
+Imported components appear when you run `bit start`, compiled during `bit compile` and tested during `bit test`. Change and use them as you would work with any other component you created.
+
+You may import them as dependencies for other components.
 
 ```javascript
-import { Button } from '@teambit/base-ui.input.button';
+import { Button } from '@teambit/base-ui.input.button'; // Bit creates a node_module link for your imported component
 ```
 
-This makes the dev-experience of maintaining imported components to be 100% similar to using components you authored in your workspace.  
-Imported components appear when you run `bit start`, compiled during `bit compile` and tested during `bit test`. Change and use them as you would work on your own components. You may also commit imported components to your Git repository.
-
-## Travel in version history
-
-You can navigate the component history, for any 
-Bit manages the complete revision history of a component. You can checkout a specific version of an imported component to your workspace.
+Past versions are available for `checkout`, so you can [navigate version history](/docs/components/navigating-history)
 
 ```bash
-bit checkout 0.0.5 teambit.base-ui/input/button # checkout version 0.0.5
+bit checkout 0.0.5 teambit.base-ui/input/button  # checkout version 0.0.5
 bit checkout latest teambit.base-ui/input/button # checkout latest version
-bit checkout latest # checkout latest version for all components
 ```
-
-Learn more about navigating in [component history here](/components/navigating-history).
-
-## Eject Imported Components
 
 When you no longer need a component in a workspace you can eject it and replace with a dependency.
 
 ```bash
 bit eject teambit.base-ui/input/button
+```
+
+Additionally, you can also modify the component, create [versions](/docs/components/tags) or [snaps](/docs/components/snaps) and [export](/docs/components/exporting-components) them:
+
+```bash
+bit snap teambit.base-ui/input/button --message "snapshot a component from any workspace"
+bit tag teambit.base-ui/input/button --message "versioning a component from any workspace"
+bit export
 ```
 
 ## Fetching updates
@@ -138,88 +131,8 @@ auto-merged base-ui/input/button.ts
 
 The component is now on the version that was checked out with the local changes on top of it.
 
-## Importing for Modified Components
+:::info Merge with local changes
 
-Bit behaves slightly differently when importing changes for a component that was modified locally.  
-When you run `bit status` and a modified component has an incoming change it is listed in both **modified** and has **pending updates**.
+When you have local changes on a component, and you checkout to new version, Bit uses Git to resolve any conflicts. Anything that is not automatically resolved requires a manual intervention. Learn more [here](/docs/components/merge-conflicts).
 
-```bash
-pending updates
-(use "bit checkout [version] [component_id]" to merge changes)
-(use "bit log [component_id]" to list all available versions)
-
-    > teambit.base-ui/input/button current: 1.0.0 latest: 1.0.1
-
-modified components
-(use "bit tag --all [version]" to lock a version with all your changes)
-
-    > teambit.base-ui/input/button ... ok
-```
-
-Here use the same `checkout` command. Bit will use Git in an attempt to automatically merge changes between local changes the incoming version.  
-Merge conflicts may occur:
-
-```bash
-successfully switched teambit.base-ui/input/button to version 1.0.5
-updated base-ui/input/button.spec.ts
-updated base-ui/input/index.ts
-CONFLICT base-ui/input/button.ts automatic merge failed. please fix conflicts manually and then tag the results.
-```
-
-You can use the several options when `checkout` to resolve conflicts.
-
-- `--theirs` - the remote version overrides the local modifications.
-- `--ours` - the local implementation overrides the remote changes.
-- `--manual` - resolve the conflict manually.
-
-Once merge is resolved, run `bit status` and see the result.
-
-```status
-modified components
-(use "bit tag --all [version]" to lock a version with all your changes)
-
-     > teambit.base-ui/input/button ... ok
-```
-
-## Export Changes
-
-You can snap and version imported components the same way you can do for your own components. This way you can collaborate with the original author of the component.  
-When you have a modification you want to share, version is with `tag` and export.
-
-```bash
-bit tag teambit.base-ui/input/button --message "my message"
-bit export
-```
-
-## what to do with this?
-
-### The Import Process for Initial Imports
-
-1. Bit fetches the Component from its Scope
-1. Bit stores the fetched Component in the Local Scope
-1. Bit checks out the latest Component version to the Workspace:
-   1. Bit writes the Component source files into the Workspace directory (using the value set in the `defaultDirectory` of the Workspace Configuration, or according to the value passed using the `--path` option - `bit import --path 'path'`)
-   1. Bit adds the Component (with the exact version of it) to the `.bitmap` file
-1. Bit re-calculates the Component dependencies and installs them
-1. Bit symlinks from the Workspace `node_modules` directory to the component source files
-1. Bit writes the `package.json` to the component’s corresponding module directory (nested in the workspace `node_modules` directory)
-1. Bit compiles the component
-
-### Installing the Dependencies of Imported Components
-
-Let's say we import 'Component A'.
-
-<Image src={importDepsImg} />
-
-1. Bit fetches 'Component A', as well as of 'Component B', and stores them in the Local Scope
-2. Bit checks out 'Component A' to the workspace
-3. Bit installs 'Component B'
-4. Bit installs the dependencies of 'Component B' (as well as its transitive dependencies)
-5. Bit re-calculates the dependencies of 'Component A' based on its new hosting workspace configuration (the re-calculation includes only dependencies of module-type 'package')
-6. Bit installs the dependencies of 'Component A'
-7. Bit writes the `package.json` file into Component A's corresponding (linked) module in the `node_modules` directory (located at the root of the Workspace)
-
-:::note
-If a component is first installed, and then imported - the imported version will replace the installed one (even if the two are of different versions).
-This will not affect transitive dependencies (a dependency of a dependency will still be able to use the installed component as it will be nested and not on the root).
-:::
+::::
