@@ -1,0 +1,25 @@
+---
+description: 'A community doc.'
+labels: ['content', 'mdx',]
+---
+
+import UsageAnalytics from './index';
+
+### Component usage
+```js
+<UsageAnalytics />
+```
+
+### Render with theme and MDX providers
+
+```js
+import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions'
+import { MDXLayout } from '@teambit/mdx.ui.mdx-layout'
+import { UsageAnalytics } from './index'
+
+<ThemeCompositions>
+  <MDXLayout>
+    <UsageAnalytics />
+  </MDXLayout>
+</ThemeCompositions>
+```
