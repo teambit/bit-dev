@@ -525,6 +525,12 @@
         "mainFile": "index.ts",
         "rootDir": "docs/content/guides/removing-deprecating-components"
     },
+    "content/guides/usage-analytics": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/guides/usage-analytics"
+    },
     "content/guides/using-bvm": {
         "scope": "teambit.docs",
         "version": "1.23.0",

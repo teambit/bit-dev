@@ -178,7 +178,16 @@ const ReactOverview = lazy(() => import('@teambit/react.content.react-overview')
 const ReplacingReactTools = lazy(() => import('@teambit/react.content.replace-react-tools'));
 const ConfigReactTools = lazy(() => import('@teambit/react.content.config-react-tools'));
 
+/* Misc */
+const UsageAnalytics = lazy(() => import('@teambit/docs.content.guides.usage-analytics'));
+
 export const learnDocsRoutes: DocsRoute[] = [
+  {
+    path: 'usage-analytics',
+    title: 'Usage Analytics',
+    displayInSidebar: false,
+    component: <UsageAnalytics />,
+  },
   {
     path: 'workspace',
     title: 'Workspace',
