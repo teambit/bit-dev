@@ -1,35 +1,22 @@
 # Extending an Env
 
-Envs can be customized and extended by creating a Env Extension. An Env Extension is an Aspect component <!--TODO --> that depends on another Env and uses it to compose a new customized Env.
+Any env in Bit is composable and extendable. This means that instead of starting from scratch, you take an existing env and compose your workflow and configs using it. The base env will be a dependency for yours, so you can start iterating on the specific settings you need. The scope of changes and complexity is up to you: adding a single lint rule, changing the build pipeline or even adding a completely new workflow, and anything is between is possible.
 
-As any other component, an Env extension can be independently consumed and collaborated on. You can share your Env extension with other team members to enjoy a _standardized_ autonomous development.
+Your custom env will be versioned and managed just like any other component, allowing you a single-point of control for how components are managed.
 
-<!-- The core / builtin envs used to provide such APIs which follows a common pattern.
-Different services of the env, can be mutate using a mutation function, which basically get the current config, and let you change it via regular js API.
-Some of these mutator include some sugar API for common mutations. for example the webpack config mutator have an API to easily add aliases to the webpack config.
-The core envs standard is to call this API in the form of `use<ToolName>` for example `useTypescript`, `useWebpack`. -->
-
-<!-- ## EnvTransformer
-
-An env transformer is just a function that get an env and return a new env.
-
-```js
-type EnvTransformer = (env: Environment) => Environment;
-``` -->
-
-## Create a New Env Extension
-
-The quickest way to create your own Env Extension is by using the Env Extension template provided by the Env you wish to extend.
-
-Use the `bit templates` command inside the workspace directory to list all available templates. If the Env you wish to extend does not offer an extension template, [create its files manually](#)<!-- TODO -->.
-
-For example, to create a React extension using React's template:
+Envs provide templates to get started quickly with composing on top of them. To see list of available templates:
 
 ```bash
-bit create react-env my-env
+bit templates
 ```
 
-This will generate the following files:
+Let's create a basic env that composes one of the base envs:
+
+```bash
+bit create react-env envs/my-env
+```
+
+The template generates the following component:
 
 ```bash
 scope/my-env
@@ -46,143 +33,59 @@ scope/my-env
     └── webpack-transformers.ts
 ```
 
-## Override and extend service configs
+To get started with your local env, you first need to configure it as an [aspect](/docs/extending-bit/aspect-overview) using the `teambit.harmony/aspect` env. Once this is set, you can apply the env you now have in your workspace to be applied on any component.  
+Both tasks are handled by configuring `workspace.jsonc` file:
 
-Each Env offers a different set of config customization APIs as it uses different Aspects to implement its Env Services.
+```javascript
+{
+  "teambit.workspace/variants": {
+    "envs/my-env": {
+      "teambit.harmony/aspect": {}
+    },
+    "{pages/**}": {
+      "company.scope/envs/my-env": {}
+    }
+  }
+}
+```
 
-For example, the React Env uses the TypeScript Aspect for compilation. TypeScript's config (`tsconfig.json`) is customized using the `useTypescript()` API. A different Env might use a different Aspect for compilation which would naturally offer a different config API.
-[Inspect your Env](/envs/extending-env) to understand which config APIs are available.
+Validate the configuration by running `env`:
 
-Use the config APIs in the Env extension `compose` method, to create a new composition of the previous Env services with the mutated ones.
+```bash
+bit env
+```
 
-For example:
+```bash
+┌──────────────────────────────────┬─────────────────────────────────┐
+│ component                        │ env                             │
+├──────────────────────────────────┼─────────────────────────────────┤
+│ company.scope/envs/my-env        │ teambit.harmony/aspect          │
+├──────────────────────────────────┼─────────────────────────────────┤
+│ company.scope/pages/welcome      │ company.scope/envs/my-env       │
+└──────────────────────────────────┴─────────────────────────────────┘
+```
 
-```ts {15,20} title="my-react.main.ts"
-// my-react.main.ts
+Now when you run `compile` and any other command, the component `company.scope/pages/welcome` will use the configuration from `company.scope/envs/my-env`.
 
+Get started with optimizing your flow by editing `*.main.ts`:
+
+```javascript
 import { MainRuntime } from '@teambit/cli';
-import { ReactAspect, ReactMain } from '@teambit/react';
+import { ReactAspect, ReactMain } from '@teambit/react'; // Set a dependency on the env to extend
 import { EnvsAspect, EnvsMain } from '@teambit/envs';
 import { MyReactAspect } from './my-react.aspect';
 
 export class MyReactMain {
   static slots = [];
-
   static dependencies = [ReactAspect, EnvsAspect];
-
   static runtime = MainRuntime;
 
   static async provider([react, envs]: [ReactMain, EnvsMain]) {
     const templatesReactEnv = envs.compose(react.reactEnv, [
-      react.useTypescript( {
-          devConfig: {
-              setTarget('ESNext')
-          }
-      }),
-      react.useEslint({
-        transformers: [
-          (config) => {
-            config.setRule('no-console', ['error']);
-            return config;
-          },
-        ],
-      }),
+      react.useTypescript( ),     // an API from the base env to change the functionality of the typescript compiler
+      react.useEslint( ),         // an API from the base env to change the functionality of the eslint linter
     ]);
-    envs.registerEnv(templatesReactEnv);
-    return new MyReactMain();
-  }
-}
-
-MyReactAspect.addRuntime(MyReactMain);
-
-```
-
-:::note
-The config APIs (`useX`) internally use the `override` API from the envs aspect to override a specific service handler.
-:::
-
-## Override or add services
-
-An Env extension can be used to add a service or completely override an existing one. For example, it enables you to replace the TypeScript Aspect with the Babel Aspect, for compilation.
-This is done by creating an instance of an Env.
-By consensus, the Env class should be placed in the Env extension `*.env.ts` file.
-
-For example, to create a new Env instance which override the Envs dependencies:
-
-```ts
-cd envs/my-react
-touch my-react.env.ts
-```
-
-```ts title="my-react.env.ts"
-// my-react.env.ts
-
-import { DependenciesEnv } from '@teambit/envs';
-import { VariantPolicyConfigObject } from '@teambit/dependency-resolver';
-
-// The Env class should only implement the services it overrides
-export class MyReact implements DependenciesEnv {
-  getDependencies(): VariantPolicyConfigObject {
-    return {
-      devDependencies: {
-        '@types/jest': '26.0.20',
-      },
-    };
-  }
-}
-```
-
-:::note Available dev services
-See the ['Dev Services'](#)<!-- TODO --> section to learn which dev services are available.
-
-:::
-
-Use the new Env class to implement only those services that need to be added or overridden.
-
-Use the [`merge`](./implementing-new-env#merge) method offered by the Envs Aspect, to merge the customized Env instance with the basic one (provided by the Env you wish to customize).
-
-For example:
-
-```ts title="my-react.main.runtime.ts"
-// my-react.main.runtime.ts
-
-import {
-  EnvsAspect,
-  EnvsMain,
-  EnvTransformer,
-  Environment,
-} from '@teambit/envs';
-
-import { ReactAspect, ReactMain } from '@teambit/react';
-
-// Import your extension's Env class
-import { MyReactEnv } from './my-react.env';
-
-export class MyReactMain {
-  constructor(
-    private react: ReactMain,
-
-    readonly htmlEnv: HtmlEnv,
-
-    private envs: EnvsMain
-  ) {}
-
-  static slots = [];
-
-  static dependencies = [ReactAspect, EnvsAspect];
-
-  static runtime = MainRuntime;
-
-  static async provider([react, envs]: [ReactMain, EnvsMain]) {
-    // Merge the customized and basic Env instances
-    const myReactEnv = envs.merge(new MyReactEnv(), react.reactEnv);
-
-    // Use the config APIs to mutate configs and further customize your new Env
-    const templatesReactEnv = envs.compose(myReactEnv, [
-      // Config APIs (useX, useY)
-    ]);
-
-    envs.registerEnv(templatesReactEnv);
+    envs.registerEnv(templatesReactEnv); // register the composed env
     return new MyReactMain();
   }
 }
@@ -190,4 +93,21 @@ export class MyReactMain {
 MyReactAspect.addRuntime(MyReactMain);
 ```
 
-Notice how the above example allows to combine config mutations using the config APIs (in the `compose` method) with the complete override of a Service Handler.
+Once you apply any change, you can `tag` the first version of your component and export it.
+
+```bash
+bit tag company.scope/envs/my-env --message "first version"
+bit export
+```
+
+Using a customized env works just the same as any other env. In any Bit workspace open the `workspace.jsonc` file and apply your env via `variants`:
+
+```javascript
+{
+  "teambit.workspace/variants": {
+    "{pages/**}": {
+      "company.scope/envs/my-env": {}
+    }
+  }
+}
+```
