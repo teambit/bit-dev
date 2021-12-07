@@ -177,7 +177,7 @@ const ReplacingReactTools = lazy(() => import('@teambit/react.content.replace-re
 const ConfigReactTools = lazy(() => import('@teambit/react.content.config-react-tools'));
 
 /* Misc */
-const UsageAnalytics = loadable(() => import('@teambit/docs.content.guides.usage-analytics'));
+const UsageAnalytics = lazy(() => import('@teambit/docs.content.guides.usage-analytics'));
 
 export const learnDocsRoutes: DocsRoute[] = [
   {
