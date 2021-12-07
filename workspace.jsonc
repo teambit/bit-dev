@@ -80,6 +80,7 @@
         "@teambit/component.modules.component-url": "0.0.71",
         "@teambit/component.ui.graph.component-node-container": "0.0.33",
         "@teambit/component.ui.graph.dependencies-graph": "0.0.34",
+        "@teambit/dependencies.modules.packages-excluder": "0.0.44",
         "@teambit/design.elements.icon": "1.0.6",
         "@teambit/design.embeds.figma": "0.0.6",
         "@teambit/design.ui.cli-snippet": "0.0.349",
@@ -134,6 +135,7 @@
         "eslint-plugin-react": "7.22.0",
         "eslint-plugin-react-hooks": "4.2.0",
         "history": "^5.0.0",
+        "lodash.compact": "3.0.1",
         "millify": "4.0.0",
         "prettier": "2.4.1",
         "react-helmet": "6.1.0",
@@ -169,7 +171,7 @@
    * see https://harmony-docs.bit.dev/aspects/variants for more info.
    **/
   "teambit.workspace/variants": {
-    "{ui/**}, !{ui/mocks/**}, {blocks/**}": {
+    "{ui/**}, !{ui/mocks/**}, {blocks/**}, {plugins/**}": {
       "teambit.community/envs/community-react": {}
     },
     "{ui/mocks/**}": {

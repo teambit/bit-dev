@@ -1,6 +1,6 @@
-import React from 'react';
-import loadable from '@loadable/component';
+import React, { Suspense } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
+import loadable from '@loadable/component';
 import { Guides } from '@teambit/docs.ui.pages.guides';
 import { Header } from '@teambit/community.ui.header.header';
 import { Homepage } from '@teambit/community.ui.pages.homepage';
@@ -8,7 +8,6 @@ import { NotFound } from '@teambit/community.ui.pages.errors.not-found';
 import { CommunityDocs } from '@teambit/docs.ui.community-docs';
 import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 import { Footer, footerMock } from '@teambit/community.ui.footer.footer';
-import { useLocalStorage } from '@teambit/community.ui.hooks.use-local-storage';
 import { AppContext } from './app-context';
 
 /**
@@ -17,11 +16,9 @@ import { AppContext } from './app-context';
 const Plugins = loadable(() => import('@teambit/community.ui.pages.plugins'));
 
 export function BitDevApp() {
-  const [highlighting, setHighlighting] = useLocalStorage('highlighting', true);
-
   return (
-    <AppContext showHighlighter={highlighting}>
-      <Header highlighting={highlighting} setHighlighting={setHighlighting} />
+    <AppContext>
+      <Header />
       <Switch>
         <Redirect exact from="/docs" to="/docs/quick-start" />
         <Route path="/docs">
@@ -37,7 +34,9 @@ export function BitDevApp() {
           </WideColumn>
         </Route>
         <Route exact path="/plugins">
-          <Plugins />
+          <Suspense fallback={<div />}>
+            <Plugins />
+          </Suspense>
         </Route>
         <Route exact path="/">
           <Homepage />

@@ -3,6 +3,11 @@ description: 'A component-based documentation section'
 labels: ['docs', 'page', 'routes']
 ---
 
+import { RoutingProvider } from '@teambit/base-ui.routing.routing-provider';
+import { SidebarProvider } from '@teambit/design.ui.sidebar.sidebar-context';
+import { useLocation, MemoryRouter } from 'react-router-dom';
+import { Link } from '@teambit/ui-foundation.ui.react-router.link';
+import { NavLink } from '@teambit/ui-foundation.ui.react-router.nav-link';
 import { Docs } from './docs';
 
 `Docs` is a component-based documentation section built in React. It is a React component you can use in your website's components.
@@ -14,13 +19,14 @@ This component receives and renders all the Routes and makes them available in R
 
 ```js live
 () => {
+  const routing = { Link, NavLink, useLocation };
   const primaryRoutes = [
     {
       path: 'quick-start',
       icon: 'lightning',
       title: 'Quick Start',
       description: 'Quick Start',
-      component: <div />,
+      component: <div>My quick start content...</div>,
     },
     {
       path: 'thinking-in-components',
@@ -29,7 +35,6 @@ This component receives and renders all the Routes and makes them available in R
       component: <div />,
     },
   ];
-
   const routes = [
     {
       path: 'installation',
@@ -61,12 +66,15 @@ This component receives and renders all the Routes and makes them available in R
       ],
     },
   ];
+
   return (
-    <Docs
-      baseUrl="https://teambit-community-apps-bit-dev.netlify.app/docs"
-      routes={routes}
-      primaryLinks={primaryRoutes}
-    />
+    <RoutingProvider value={routing}>
+      <SidebarProvider>
+        <MemoryRouter>
+          <Docs baseUrl="/" contents={[{ routes }]} primaryLinks={primaryRoutes} />
+        </MemoryRouter>
+      </SidebarProvider>
+    </RoutingProvider>
   );
 };
 ```
