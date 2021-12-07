@@ -1,61 +1,85 @@
 import { Image } from '@teambit/docs.ui.zoomable-image';
 import wsScreenshot from './ws-screenshot.png';
+import looseComponents from './loose-components.png';
+import multiRepo from './multi-repo.png';
 
 # Workspace Overview
 
-The Bit Workspace is made for component-driven development - it is where you build independent, loosley-coupled components and composing them to systems.  Workspace a composition of components. You can `import` any component to it for maintaining it, or `export` others for different teams to use as an API. Each component holds the implementation, history and config for itself, meaning the component is essentially de-coupled from the workspace.
+The Bit Workspace is made for component-driven development. It is where you build independent, loosley-coupled, components and composing them to systems.  
+Workspace is a composition of components where a component is like a "mini repository". Each component manages implementation, history and config for itself. A component is decoupled from the workspace, you can `import` any Bit component or `export` yours.
+
+<Image src={looseComponents} width="85%"/>
+
+Get started and generate a demo workspace:
+
+```bash
+bit new react demo
+```
+
+## Component development server
+
+All components in your workspace are rendered and presented on a local development server. To start it, run the following command:
+
+```sh
+bit start
+```
+
+<Image src={wsScreenshot} width="80%"/>
 
 ## Simple, scalable dev experience
 
-Get a simple and scalable dev experience.
+Keeping a similar dev-experience across workspaces allows you to jump in and out from codebases. When you don't need to deal with a per-project setup or learn the workflow commands/scripts you simply focus on the code.
 
-- shared commands
-- global config policy
-- no need to handle per-component configs
+Simple dev experience means you can **easily onboard** yourself to a workspace, thanks to:
 
-## Collaborate on independent components
+- **Use the same commands** - Regardless of the tooling and configs used in a workspace, you use the same commands (`compile`, `test`, etc) and get similarly structured outputs.
+- **Minimal configuration** - Most of the configuration and setup is automated. No need to define per-component dependencies and no additional files needed to change a component's build pipeline.
+- **Templates and standards** - Create new components with templates and apply your formatting, linting, compilation and testing standards with a single policy.
+- **Components are directories** - Each [component in your workspace is a directory](docs/workspace/component-directory) so relevant files, assets and tests available in a single place.
 
-Component collaboration
+This makes it easy to scale the amount of components in a workspace, scale the amount of workspaces and even scale the amount of developers!
 
-## Personalized workspaces
+## Composition of components
 
-Personalized workspaces
+The workspace is a container for the components. You get a monolithic-like developer experience and ability to refactor many components in a single place. In this "container" a component manages its own implementation, history and config ([read more](/docs/components/component-overview)).  
+This allows you to be flexible with how you structure a workspace and its contents. For example, you can [import a component](/docs/components/importing-components):
 
-## Easy on-boarding
+```bash
+bit import teambit.community/ui/graph/bubble-graph
+```
 
-## Performance
+Bit adds the new component to the list of components in the workspace, pulls down the complete revision history, configs and dependencies. Now you can do local modifications, see the component when running `bit start`, and maintain it as if you implemented it in your own workspace.
+
+In the same sense you can `export` and even `eject` any of your components from a workspace, and more it to another one. So if you started with building all components in the same place, you are not locked to that decision.
+
+<Image src={multiRepo} width="85%"/>
+
+### Personalize your workspace
+
+With composability in mind you can personalize your workspace on a per-feature basis or on the work you are currently focus on. You can start your flow by using `bit import` and fetch all required components, starting to modify and work on them as needed.  
+When done, you can version and eject unneeded components. Instead of you working in the boundaries of your workspace, have the workspace fit to your current work.
+
+## Configuration-less
+
+Regardless of the amount of components you have in your workspace, and how different they may be in their configuration, it only requires two files to manage components.
+
+- `workspace.jsonc` - Contains the configuration policy for all components in the workspace.
+- `.bitmap` - Maps Bit components to their corresponding location (dir) in the workspace.
+
+With both these files you track where each component is located and can apply configuration from a centralized location according to various [`variant`](/docs/workspace/variants) rules. The workspace then calculates the configuration to apply on a per-component basis.
+
+The end result is a clean workspace where you have a minimal amount of configuration files, no matter how many components you have and their variants.
 
 ## Any dev environment, any framework
 
-## Configuration less
+Angular modules, React components, Node modules or any other type of components you might need are rendered with the same [workspace UI](docs/workspace/workspace-ui), compiled by the same `compile` command, etc.  
+You can maintain components of different types and frameworks in a Bit workspace, as each component has it's own configured [Component Development Environment](/docs/envs/envs-overview), which the workspace use to run various workflows.
 
-## Team Boundararies
+## Components in the workspace
 
-## Monorepo / Polyrepo
+A Bit Workspace manages many components. It aims to create symmetry between component naming and the directory structure.
 
-A Bit Workspace enables the development and composition of loosely-coupled, independent components.
-It is like a component-level Monorepo which provides a dev experience similar to building regular apps using tools like CRA, Next.JS and others.
-
-Workspaces are used for building and maintaining Component Libraries, Apps or Modules. <!--TODO [Component Libraries](/), [Apps](/), [Modules](/) -->
-
-## Workspace Anatomy
-
-A Bit workspace has a minimal footprint on the codebase. It requires only two files to manage components.
-
-- `.bitmap` - Mapping of Component IDs to the Components' location in the filesystem (in the workspace directory).
-- `workspace.jsonc` - Main file for the Workspace configuration.
-
-:::note
-Component versions are located in the [local scope](/local-scope).
-:::
-
-## Flexible Directory Structure
-
-A Bit Workspace is a monorepo that supports nesting Components in sub-directories. You can build a highly-nested structure for your workspace, a flat structure, or decide where in your project you want deep nesting and where you don't.
-
-By Default, Bit aims to create symmetry between component scoping and name-spacing on the one side, and the workspace directory structure, on the other.
-
-```sh title="Components in workspace sorted according to functionality"
+```sh
 ├── cart
 │   ├── purchase-summary
 │   └── shopping-cart
@@ -68,122 +92,48 @@ By Default, Bit aims to create symmetry between component scoping and name-spaci
         └── theme-context
 ```
 
-This default behavior aims to improve the discovery experience for components in your codebase. The structure is not rigid. You can move components around as needed, or create and sort them in any way you see fit; as above, the bitmap file enables bit to track components wherever they are in your workspace.
-
-## Components as a Directories
-
-Bit requires each component's files to be contained in a single directory in the Workspace. This directory includes the component's code, stylings, tests, documentation, etc and an `index` main (entry) file for all exports.
-
-```sh title="Basic component directory"
-└── shopping-cart
-    ├── index.ts
-    ├── shopping-cart.composition.tsx
-    ├── shopping-cart.docs.mdx
-    ├── shopping-cart.spec.tsx
-    └── shopping-cart.tsx
-```
-
-:::note
-You can keep sub-directories to sort internal files as needed. So you could put `shopping-cart.spec.tsx` in a `tests` folder for instance.
+:::tip The structure is not rigid. You can sort components however you see fit.
 :::
 
-This structure has several benefits:
-
-- Directory structure is easily consumable by placing all the related files together.
-- File references become shorter and more read-friendly.
-- Easy to move components around in the workspace.
-- Simple refactoring workflow, as changes are consolidated to the same place.
-- `index` is a single point for consumers and maintainers to start from when doing any operation on the component.
-
-## Different Component Types in a Single Workspace
-
-Bit workspaces allow you to maintain components of different types and frameworks.
-Since each component is isolated and be built independently using its configured Env, a single workspace can easily include both Angular modules, React components, Node modules or any other type of components you might need.
-
-## Workspace UI
-
-All components in your workspace are rendered and presented on a local development server. To start it, run the following command:
-
-```sh
-bit start
-```
-
-<Image src={wsScreenshot} />
-
-:::note
-By default, Bit generates a local build for the dev server in the `public/bit` directory.
-:::
-
-## Component Module Links
-
-Bit creates a module in the [workspace's] `node_modules` directory, for each component in the workspace. That includes components that haven't been exported, yet.
-Each module contains the compiled code of its corresponding component, as well as symlinks to its source files.
+For each component Bit generates a link in the root `node_modules` directory according to the component ID. It contains the compiled output of a component.
 
 ```bash
 └── node_modules
     └── @my-org
         └── my-scope.ui.card
-            ├── card.composition.tsx -> ~/my-workspace/my-scope/ui/card/card.composition.tsx
-            ├── card.docs.mdx -> ~/my-workspace/my-scope/ui/card/card.docs.mdx
-            ├── card.spec.tsx -> ~/my-workspace/my-scope/ui/card/card.spec.tsx
-            ├── card.tsx -> ~/my-workspace/my-scope/ui/card/card.tsx
-            ├── dist
-            │   ├── card.composition.js
-            │   ├── card.composition.js.map
-            │   ├── card.docs.mdx
-            │   ├── card.js
-            │   ├── card.js.map
-            │   ├── card.spec.js
-            │   ├── card.spec.js.map
-            │   ├── index.js
-            │   └── index.js.map
-            ├── index.ts -> ~/my-workspace/demo/ui/card/index.ts
-            └── package.json
 ```
 
-When consuming one component in another component, even in the same workspace, these modules are used as absolute paths.
+Use these modules when consuming one component in another, even in the same workspace.
 
 ```jsx
 import { Card } from '@my-org/my-scope.ui.card';
 ```
 
-By using module links in `import` statements you treat all dependencies as regular npm packages (which they are), thereby decoupling the component's implementation from the project's file structure, making the component transferable.
+:::info Absolute import statements decouple a component from the project's file structure.
+:::
 
-By default, `bit install` links all components tracked in your Workspace.
+## Dependency Policy
+
+The workspace dependency policy defines how external dependencies are installed and in which version. You may apply complex setups to have multiple versions of a dependency installed to fit different components. It allows you to determine where you want to adopt to a new version and which components should still use past versions.
+
+In your workspace you also have a [dependency resolver](/docs/dependencies/dependencies-overview) that uses the policy to determine the type of dependency on a per-component basis.  
+Types of dependencies, like `dependency` and `devDependency` are contextual for each component. Meaning that according to where a component `import`s a dependency, it will be set with the corresponding type. For example, a dependency only used in a test file will set as a `devDependency` for that specific component.
+
+## Performance
+
+Bit workspace is optimized for quick and snappy feedback loop on code changes. It leaves the tough work of ensuring de-coupling and isolation to a more robust CI flow.
+
+To optimize performance even further any time you change a component Bit find which components are affected by the change. Bit then build your modified components and their affected dependents.
+
+## Integrate to existing codebases
+
+Bit is a build tool that allows you to manage independent components. You may create a Bit workspace in a fresh directory or initialize one as part of an existing repository.  
+You can get started working on independent components alongside projects built with [Angular](https://angular.io/tutorial/toh-pt0), [CRA](https://create-react-app.dev) and even [Lerna](https://lerna.js.org).
+
+`cd` to a pre-existing repository and run:
 
 ```bash
-bit install
+bit init
 ```
 
-To link all components you can use:
-
-```bash
-bit link
-```
-
-## Workspace Dependency Graph
-
-Bit keeps a dependency graph representing all components in the workspace according to their `import` statements.
-
-When you make any change to a component, Bit finds all its dependents and runs operations on them recursively. This is to ensure that not only your modified component works and updates as expected, but that all components affected from the change are updated and validated too.
-
-This also helps save time and resources by building (or testing) only affected components.
-
-## Centralized Component Management
-
-A Workspace serves as the main interface for managing components. Bit uses the configurations and actions carried out in the workspace to manage Components.
-
-### Component Configuration
-
-In an effort to keep the workspace clean of any unwanted configuration files and focus only on code, there's no `package.json` required for each Bit Component. Instead use the workspace to manage a set of configuration rules and policies that Bit then applies on each component.
-
-### Per-component Versioning
-
-A Bit Component has its own versioning history and changelog. The Bit Workspace supports this workflow by versioning only modified components.  
-In a similar way to how Bit builds only affected components, it recursively finds all affected components (i.e. dependents), and promotes their `patch` version.
-
-### Dependency Policy
-
-Any component in your workspace can `import` any of the dependencies available in the workspace. Moreover, a package which is a `dependency` for one component may be a `devDependency` for another. Instead of having to manually define dependencies per component, the Workspace calculates dependencies for each component according to its respective list of `import`s. And per dependency, it's dependency type is decided by the file/s requesting it.
-
-The workspace's policy also allows setting different versions of the same dependencies for different components in the same workspace, via the variants section.
+From here you may use any Bit command and flow to build independent components and integrate them into your application.
