@@ -28,7 +28,7 @@ envs.override(targetEnv);
 merge<T>(targetEnv: Environment, sourceEnv: Environment): T
 ```
 
-Merges two Envs into one. In case of conflicting properties, 'source env' properties override 'target env' properties.
+Merges one Env into another. In case of conflicting properties, `sourceEnv` properties override `targetEnv` properties.
 
 ```ts
 const targetEnv = {
@@ -61,7 +61,7 @@ compose(sourceEnv: Environment, envTransformers: EnvTransformer[]): Environment
 Composes an Env out of an Env and an array of [Env Transformers](/envs/envs-api#override).
 
 ```ts
-const sourceEnv = {
+const targetEnv = {
   getCompiler: () => {prop: 'old'},
   getLinter: () => {prop: 'old'}
 }
@@ -72,7 +72,7 @@ const compilerProp = { getCompiler: () => {prop: 'new'} }
 const linterTransformer = envs.override(linterProp)
 const compilerTransformer = envs.override(compilerProp)
 
-envs.compose(sourceEnv, [linterTransformer, compilerTransformer])
+envs.compose(targetEnv, [linterTransformer, compilerTransformer])
 // output:
 // {
 //   getCompiler: () => {prop: 'new'},
