@@ -19,6 +19,7 @@ const isSelectorValid = (selector) => {
   try {
     document.createDocumentFragment().querySelector(selector);
   } catch {
+    console.error('selector is not valid - ', selector);
     return undefined;
   }
   return selector;
