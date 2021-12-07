@@ -37,6 +37,8 @@ const HostingScopes = lazy(() => import('@teambit/scope.content.hosting-scopes')
 
 /* Dev services */
 
+// const AvailableServices = lazy(() => import('@teambit/envs.content.available-services'));
+const DevServices = lazy(() => import('@teambit/envs.content.dev-services'));
 const DevServicesOverview = lazy(() => import('@teambit/envs.content.dev-services-overview'));
 
 /* Preview */
@@ -127,9 +129,11 @@ const AddingComponents = lazy(() => import('@teambit/component.content.adding-co
 
 /* Envs */
 
+const EnvsOverview = lazy(() => import('@teambit/envs.content.envs-overview'));
 const InspectingEnv = lazy(() => import('@teambit/envs.content.inspecting-env'));
 const ExtendingEnv = lazy(() => import('@teambit/envs.content.extending-env'));
-// const EnvToubleshooting = lazy(() => import('@teambit/envs.content.env-troubleshooting'));
+const UsingEnvs = lazy(() => import('@teambit/envs.content.using-envs'));
+const EnvsApi = lazy(() => import('@teambit/envs.content.envs-api'));
 
 /* Dependencies */
 
@@ -273,14 +277,14 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Components',
     icon: 'comps',
     open: false,
+    overview: {
+      path: 'component-overview',
+      title: 'Component Overview',
+      description:
+        'Component is a decoupled, versioned source-code container designed for the purpose of containing a single module or component.',
+      component: <ComponentOverview />,
+    },
     children: [
-      {
-        path: 'component-overview',
-        title: 'Component Overview',
-        description:
-          'Component is a decoupled, versioned source-code container designed for the purpose of containing a single module or component.',
-        component: <ComponentOverview />,
-      },
       {
         path: 'adding-components',
         title: 'Adding Components',
@@ -346,13 +350,13 @@ export const learnDocsRoutes: DocsRoute[] = [
         path: 'merge-conflicts',
         component: <MergingComponentVersions />,
       },
-      {
+      /*{
         path: 'component-main-file',
         title: 'Main file',
         description:
           'The main file of a Component is the file resolved upon a require of the Component Directory. Main file is usually expected to expose the Component API.',
         component: <MainFile />,
-      },
+      },*/
       {
         path: 'component-json',
         title: 'component.json',
@@ -526,25 +530,16 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Envs',
     icon: 'env',
     open: false,
-    config: {
-      path: 'envs-config',
-      title: 'Envs configuration',
-      component: <div />,
+    overview: {
+      path: 'envs-overview',
+      title: 'Envs Overview',
+      component: <EnvsOverview />,
     },
     children: [
       {
-        path: 'envs-overview',
-        title: 'Envs Overview',
-      },
-      {
-        path: 'using-env',
-        title: 'Using envs',
-      },
-      {
-        path: 'composing-env',
-        title: 'Composing an Env',
-        description: '',
-        component: <ExtendingEnv />,
+        path: 'using-envs',
+        title: 'Using Envs',
+        component: <UsingEnvs />,
       },
       {
         path: 'inspecting-env',
@@ -553,31 +548,35 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <InspectingEnv />,
       },
       {
-        path: 'env-service',
-        title: 'Env service',
-        description: '',
-        component: <div />,
+        path: 'composing-env',
+        title: 'Composing an Env',
+        description: 'Extend existing envs to create your unique workflow.',
+        component: <ExtendingEnv />,
       },
-      // {
-      //   path: 'env-troubleshooting',
-      //   title: 'Env Troubleshooting',
-      //   component: <EnvToubleshooting />,
-      // },
+      {
+        path: 'dev-services',
+        title: 'Dev Services',
+        description: 'Development Services control various workflows and commands for components.',
+        component: <DevServices />,
+      },
+      {
+        path: 'envs-api',
+        title: 'Envs API',
+        component: <EnvsApi />,
+      },
     ],
   },
   {
-    path: 'dev-services',
+    path: 'dev-services-overview',
     title: 'Dev Services',
     icon: 'compCI',
     open: false,
+    overview: {
+      path: 'dev-services-overview',
+      title: 'Dev services overview',
+      component: <DevServicesOverview />,
+    },
     children: [
-      {
-        path: 'dev-services-overview',
-        title: 'Dev Services Overview',
-        description:
-          "Dev Services simplify and standardize component development processes, like testing, linting and documenting. They are applied on components, and used by components, via the components' Envs.",
-        component: <DevServicesOverview />,
-      },
       {
         path: 'builder',
         title: 'Builder',
@@ -675,8 +674,8 @@ export const learnDocsRoutes: DocsRoute[] = [
             component: <CompilingDuringBuild />,
           },
           {
-            path: 'configure-env-with-compiler',
-            title: 'Configure an Env with a Compiler',
+            path: 'using-a-compiler',
+            title: 'Using a Compiler',
             description: 'Learn how to configure an Env to use a different compiler.',
             component: <ConfigureEnvWithCompiler />,
           },
