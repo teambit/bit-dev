@@ -56,6 +56,7 @@ export function TableOfContent({ className, children, title, rootRef, selectors,
             className={styles.item}
             isActive={() => activeElement?.innerText === link?.displayName}
             href={`#${link?.id}`}
+            data-element-type={link?.element}
           >
             {link?.displayName}
           </MenuLinkItem>
@@ -66,7 +67,7 @@ export function TableOfContent({ className, children, title, rootRef, selectors,
   );
 }
 
-function getLinks(links: HTMLElement[]) {
+function getLinks(links: Element[]) {
   if (!links) return undefined;
   return Object.values(links).map((link) => {
     const linkText = link?.textContent;
@@ -74,6 +75,7 @@ function getLinks(links: HTMLElement[]) {
     return {
       id: linkText.toLowerCase().replace(/ /g, '-'),
       displayName: linkText,
+      element: link.tagName,
     };
   });
 }
