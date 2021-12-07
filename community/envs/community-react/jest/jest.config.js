@@ -1,9 +1,12 @@
-const reactJestConfig = require('@teambit/react/dist/jest/jest.config');
+const reactJestConfig = require('@teambit/react/jest/jest.config');
+const { generateNodeModulesPattern } = require('@teambit/dependencies.modules.packages-excluder');
+
+const packagesToExclude = ['@teambit', '@learnbit', 'react-medium-image-zoom', 'react-syntax-highlighter'];
 
 module.exports = {
   ...reactJestConfig,
   transformIgnorePatterns: [
-    'node_modules/(?!(.*@teambit|.*@learnbit|.*react-medium-image-zoom|.*react-syntax-highlighter)/)',
     '^.+\\.module\\.(css|sass|scss)$',
+    generateNodeModulesPattern({ packages: packagesToExclude }),
   ],
 };
