@@ -572,8 +572,8 @@ export const learnDocsRoutes: DocsRoute[] = [
     icon: 'compCI',
     open: false,
     overview: {
-      path: 'available-services',
-      title: 'available services',
+      path: 'dev-services-overview',
+      title: 'Dev services overview',
       component: <DevServicesOverview />,
     },
     children: [
