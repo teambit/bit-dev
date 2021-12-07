@@ -8,7 +8,7 @@ const staticEnvBaseUrl = 'https://static.bit.dev/extensions-icons/';
 function ComponentCardPreview({ src }: { src: string }) {
   return (
     <div style={{ height: '100%', display: 'flex', justifyContent: 'center' }}>
-      <img src={src} width="70" />
+      <img src={src} width="70" alt="" />
     </div>
   );
 }
@@ -32,7 +32,7 @@ const mockData: ComponentCardProps[] = [
     envIcon: `${staticEnvBaseUrl}default.svg`,
   },
   {
-    id: 'teambit.harmony/aspect',
+    id: 'teambit.harmony/aspect-2',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ipsum fdfd',
     envIcon: `${staticEnvBaseUrl}default.svg`,
     preview: <div>hello world</div>,

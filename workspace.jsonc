@@ -80,6 +80,7 @@
         "@teambit/component.modules.component-url": "0.0.71",
         "@teambit/component.ui.graph.component-node-container": "0.0.33",
         "@teambit/component.ui.graph.dependencies-graph": "0.0.34",
+        "@teambit/dependencies.modules.packages-excluder": "0.0.44",
         "@teambit/design.elements.icon": "1.0.6",
         "@teambit/design.embeds.figma": "0.0.6",
         "@teambit/design.ui.cli-snippet": "0.0.349",
