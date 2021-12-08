@@ -4,7 +4,7 @@ import { Route } from '@teambit/docs.entities.docs-routes';
 import { TableOfContent } from '@teambit/docs.ui.navigation.table-of-content';
 import styles from './table-of-contents.module.scss';
 
-const docSelectors = '.docs-heading h2, .docs-heading h3';
+const docSelectors = '.docs-heading h1, .docs-heading h2, .docs-heading h3';
 
 export type TableOfContentsPluginProps = {
   nextRoute: Route | undefined;

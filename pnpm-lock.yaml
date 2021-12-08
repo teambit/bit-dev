@@ -739,6 +739,9 @@ importers:
   docs/content/guides/removing-deprecating-components:
     specifiers: {}
 
+  docs/content/guides/usage-analytics:
+    specifiers: {}
+
   docs/content/guides/using-bvm:
     specifiers: {}
 
@@ -809,6 +812,9 @@ importers:
     specifiers: {}
 
   envs/content/available-services:
+    specifiers: {}
+
+  envs/content/dev-services:
     specifiers: {}
 
   envs/content/dev-services-overview:
@@ -932,6 +938,12 @@ importers:
     specifiers: {}
 
   scope/content/index-json:
+    specifiers: {}
+
+  scope/content/remote-scopes:
+    specifiers: {}
+
+  scope/content/scope-bit-cloud:
     specifiers: {}
 
   scope/content/scope-json:
