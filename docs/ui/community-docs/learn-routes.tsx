@@ -193,16 +193,16 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Workspace',
     icon: 'workspace',
     open: false,
-    config: {
-      path: 'workspace-configuration',
-      component: <WorkspaceConfiguration />,
-      title: 'Workspace Configuration',
+    overview: {
+      path: 'workspace-overview',
+      title: 'Workspace Overview',
+      component: <WorkspaceOverview />,
     },
     children: [
       {
-        path: 'workspace-overview',
-        title: 'Workspace Overview',
-        component: <WorkspaceOverview />,
+        path: 'workspace-configuration',
+        component: <WorkspaceConfiguration />,
+        title: 'Workspace Configuration',
       },
       {
         path: 'creating-workspaces',
