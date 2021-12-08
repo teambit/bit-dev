@@ -67,7 +67,7 @@ Typically, the component’s content is not just the source code itself and can 
 
 ### Main file
 
-<ComponentMainFile />
+Main file exposes the public API of the component. Read more about it [here](/docs/components/component-main-file).
 
 ### Implementation files
 
@@ -90,7 +90,7 @@ The dependencies include the following:
 - Bit components installed as `node_modules`
 - Bit components in the workspace.
 
-Bit then split dependencies according to their source.
+Dependencies according to their source.
 
 - Package dependencies - All dependencies that packages from any node module registry (like npmjs.org)
 - Bit components - Dependencies that are also components, regardless if they are in the same workpsace or installed to `node_modules`.
