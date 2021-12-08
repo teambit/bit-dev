@@ -8,6 +8,7 @@ export type Route = {
   absPath: string;
   component: ReactNode;
   plugins: Record<string, unknown>[];
+  displayInSidebar?: boolean;
 };
 
 export class DocsRoutes {
@@ -42,6 +43,7 @@ export class DocsRoutes {
       overviewPath:
         docRoute.overview?.path && [this.basePath, this.accumulatePath(docRoute.overview.path, parentPath)].join('/'),
       path: [this.basePath, this.accumulatePath(docRoute.path, parentPath)].join('/'),
+      displayInSidebar: docRoute.displayInSidebar,
     };
   }
 
@@ -119,6 +121,7 @@ export class DocsRoutes {
       {
         title: currentRoute.title,
         description: currentRoute.description,
+        displayInSidebar: currentRoute.displayInSidebar,
         absPath: this.computePath(currentRoute, parentPath),
         component: currentRoute.component,
         plugins: currentRoute.plugins || ([] as any),
