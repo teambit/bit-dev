@@ -30,6 +30,8 @@ const MovingComponents = lazy(() => import('@teambit/workspace.content.moving-co
 const Variants = lazy(() => import('@teambit/workspace.content.variants'));
 
 /* Scope */
+const ScopeBitCloud = lazy(() => import('@teambit/scope.content.scope-bit-cloud'));
+const RemoteScopes = lazy(() => import('@teambit/scope.content.remote-scopes'));
 const ScopeOverview = lazy(() => import('@teambit/scope.content.scope-overview'));
 const CreatingScopes = lazy(() => import('@teambit/scope.content.creating-scopes'));
 const ScopeJson = lazy(() => import('@teambit/scope.content.scope-json'));
@@ -176,22 +178,31 @@ const ReactOverview = lazy(() => import('@teambit/react.content.react-overview')
 const ReplacingReactTools = lazy(() => import('@teambit/react.content.replace-react-tools'));
 const ConfigReactTools = lazy(() => import('@teambit/react.content.config-react-tools'));
 
+/* Misc */
+const UsageAnalytics = lazy(() => import('@teambit/docs.content.guides.usage-analytics'));
+
 export const learnDocsRoutes: DocsRoute[] = [
+  {
+    path: 'usage-analytics',
+    title: 'Usage Analytics',
+    displayInSidebar: false,
+    component: <UsageAnalytics />,
+  },
   {
     path: 'workspace',
     title: 'Workspace',
     icon: 'workspace',
     open: false,
-    config: {
-      path: 'workspace-configuration',
-      component: <WorkspaceConfiguration />,
-      title: 'Workspace Configuration',
+    overview: {
+      path: 'workspace-overview',
+      title: 'Workspace Overview',
+      component: <WorkspaceOverview />,
     },
     children: [
       {
-        path: 'workspace-overview',
-        title: 'Workspace Overview',
-        component: <WorkspaceOverview />,
+        path: 'workspace-configuration',
+        component: <WorkspaceConfiguration />,
+        title: 'Workspace Configuration',
       },
       {
         path: 'creating-workspaces',
@@ -277,13 +288,14 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Components',
     icon: 'comps',
     open: false,
-    overview: {
-      path: 'component-overview',
-      title: 'Component Overview',
-      description:
-        'Component is a decoupled, versioned source-code container designed for the purpose of containing a single module or component.',
-      component: <ComponentOverview />,
-    },
+    overview:
+      {
+        path: 'component-overview',
+        title: 'Component Overview',
+        description:
+          'Component is a decoupled, versioned source-code container designed for the purpose of containing a single module or component.',
+        component: <ComponentOverview />,
+      },
     children: [
       {
         path: 'adding-components',
@@ -292,8 +304,13 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <AddingComponents />,
       },
       {
+        path: 'component-config',
+        title: 'Component Configuration',
+        component: <ComponentConfig />,
+      },
+      {
         path: 'component-id',
-        title: 'Naming Components',
+        title: 'Component ID',
         description:
           'The Component ID is designed to be a unique, human-readable name that simplifies and help organize components.',
         component: <ComponentId />,
@@ -301,25 +318,39 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'component-anatomy',
         title: 'Component Anatomy',
-        description: 'How Bit manages a component as a mini-repository.',
+        description: 'How Bit manages all data on a component.',
         component: <ComponentAnatomy />,
       },
+      /*{
+        path: 'inspecting-components',
+        title: 'Inspecting components',
+        component: <InspectingComponents />,
+      },*/
       {
-        path: 'component-config',
-        title: 'Component Configuration',
-        component: <ComponentConfig />,
+        path: 'component-main-file',
+        title: 'Main file',
+        description:
+          'Main file exposes the Component API.',
+        component: <MainFile />,
       },
       {
-        path: 'tags',
-        title: 'Versioning',
-        description: 'Manage component releases with semantic version.',
-        component: <Tags />,
+        path: 'dev-files',
+        title: 'Dev files',
+        description:
+          'Dev files are component files used for development and not for production. Dev files are determined as such by the Dev Files Aspect.',
+        component: <DevFiles />,
       },
       {
         path: 'snaps',
         title: 'Snapshot changes',
         description: 'Record component history with snapshots.',
         component: <Snaps />,
+      },
+      {
+        path: 'tags',
+        title: 'Versioning',
+        description: 'Manage component releases with semantic version.',
+        component: <Tags />,
       },
       {
         path: 'navigating-history',
@@ -351,29 +382,10 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <MergingComponentVersions />,
       },
       /*{
-        path: 'component-main-file',
-        title: 'Main file',
-        description:
-          'The main file of a Component is the file resolved upon a require of the Component Directory. Main file is usually expected to expose the Component API.',
-        component: <MainFile />,
-      },*/
-      {
         path: 'component-json',
         title: 'component.json',
         component: <ComponentJson />,
-      },
-      {
-        path: 'inspecting-components',
-        title: 'Inspecting components',
-        component: <InspectingComponents />,
-      },
-      {
-        path: 'dev-files',
-        title: 'Dev files',
-        description:
-          'Dev files are component files used for development and not for production. Dev files are determined as such by the Dev Files Aspect.',
-        component: <DevFiles />,
-      },
+      },*/
       {
         path: 'component-capsules',
         title: 'Component capsules',
@@ -481,29 +493,31 @@ export const learnDocsRoutes: DocsRoute[] = [
     open: false,
     title: 'Scope',
     icon: 'collection',
-    config: {
-      path: 'scope-config',
-      title: 'Scope configuration',
-      component: <div />,
+    overview: {
+      path: 'scope-overview',
+      title: 'Scope Overview',
+      description:
+        'Scope is a server for hosting components.',
+      component: <ScopeOverview />,
     },
     children: [
       {
-        path: 'scope-overview',
-        title: 'Scope Overview',
+        path: 'scope-bit-cloud',
+        title: 'Scopes on Bit.cloud',
         description:
-          'Scope is a distributed component collaboration host. You can think of it as a micro service, which helps set team and ownership boundaries and allows others to use components as APIs and collaborate on them.',
-        component: <ScopeOverview />,
+          'Bit.cloud is a cloud hosting provider for Bit Scopes and Components.',
+          component: <ScopeBitCloud />
       },
       {
         path: 'creating-scopes',
-        title: 'Creating Scopes',
+        title: 'Create bare scope',
         description:
-          'Components can be collaborated on using Scopes hosted on Bit Cloud. This can be done quite easily as Bit offers built-in support for Bit Cloud.',
+          'Base Scopes used as remote storage for components.',
         component: <CreatingScopes />,
       },
       {
-        path: 'configuring-scopes',
-        title: 'Configuring scopes (scope.json)',
+        path: 'configure-scopes',
+        title: 'Configure scopes',
         component: <ScopeJson />,
       },
       {
@@ -512,17 +526,17 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <HostingScopes />,
       },
       {
-        path: 'inspecting-scopes',
-        title: 'Inspecting Scopes',
+        path: 'remote-scopes',
+        title: 'Remotes',
         description:
-          'Component objects are stored in Scopes (Local Scopes and Remote Scopes), using the content-addressable storage method. They are either copied to or from remote scopes, when exported or imported (respectively).',
-        component: <ComponentObjects />,
+          'Connect scopes and workspace with remotes.',
+        component: <RemoteScopes />,
       },
-      {
+      /*{
         path: 'extending-scopes',
         title: 'Extending Scopes',
-        component: <ScopeOverview />,
-      },
+        component: <div />,
+      },*/
     ],
   },
   {

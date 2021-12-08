@@ -1,3 +1,5 @@
+# Bit Version Manager
+
 [BVM](https://github.com/teambit/bvm) is a version manager for Bit.  
 Using BVM makes it easier to install and manage multiple versions of Bit in a single environment.
 
@@ -10,9 +12,10 @@ Using BVM makes it easier to install and manage multiple versions of Bit in a si
 
 ## Install BVM
 
-**Solution:**
-
-Run the following command:
+```bash
+npm i -g @teambit/bvm
+yarn global add @teambit/bvm
+```
 
 ## Install Bit
 
@@ -23,6 +26,69 @@ bvm install
 ```bash title="Upgrade Bit's version"
 bvm upgrade
 ```
+
+## Troubleshooting
+
+### Getting errors due to firewall/proxy
+
+Depending on your proxy or firewall settings, use the following configs to have BVM use the correct proxy:
+
+```bash
+bvm config set proxy http://proxy.example.com:8080
+bvm config set https_proxy https://proxy.example.com:8080;
+```
+
+### BVM is not recognized in your terminal
+
+If you get this error, run:
+
+#### Windows
+
+```bash
+setx path "%path%;%AppData%\npm" and re-open your terminal
+```
+
+#### MacOS/Linux
+
+```bash with Zsh
+# npm
+echo 'export PATH=$(npm bin -g):$PATH' >> ~/.zshrc && source ~/.zshrc
+# yarn
+echo 'export PATH=$(yarn global bin):$PATH'  >> ~/.zshrc && source ~/.zshrc
+```
+
+```bash with Bash
+# npm
+echo 'export PATH=$(npm bin -g):$PATH' >> ~/.bashrc && source ~/.bashrc
+# yarn
+echo 'export PATH=$(yarn global bin):$PATH'  >> ~/.bashrc && source ~/.bashrc
+```
+
+### Global Bit install location was not found
+
+#### Windows
+
+Please run the following command:
+
+```bash
+setx path "%path%;%LocalAppData%\.bvm"
+```
+
+then re-open the terminal.
+
+#### MacOS/Linux
+
+Please run the following command:
+
+```bash with Zsh
+echo 'export PATH=$HOME/bin:$PATH' >> ~/.zshrc && source ~/.zshrc
+```
+
+```bash with Bash
+echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc && source ~/.bashrc
+```
+
+then re-open the terminal.
 
 ## Using v15 and v14
 

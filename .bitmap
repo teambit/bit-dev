@@ -525,6 +525,12 @@
         "mainFile": "index.ts",
         "rootDir": "docs/content/guides/removing-deprecating-components"
     },
+    "content/guides/usage-analytics": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/guides/usage-analytics"
+    },
     "content/guides/using-bvm": {
         "scope": "teambit.docs",
         "version": "1.23.0",
@@ -783,6 +789,12 @@
         "mainFile": "index.ts",
         "rootDir": "preview/content/register-custom-preview"
     },
+    "content/remote-scopes": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "scope/content/remote-scopes"
+    },
     "content/rendering-docs": {
         "scope": "teambit.docs",
         "version": "1.23.0",
@@ -794,6 +806,12 @@
         "version": "1.23.0",
         "mainFile": "index.ts",
         "rootDir": "react/content/replace-react-tools"
+    },
+    "content/scope-bit-cloud": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "scope/content/scope-bit-cloud"
     },
     "content/scope-json": {
         "scope": "teambit.scope",
@@ -1264,8 +1282,8 @@
         "rootDir": "community/ui/homepage/sections/standardization"
     },
     "ui/hooks/use-element-on-fold": {
-        "scope": "",
-        "version": "",
+        "scope": "teambit.docs",
+        "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/hooks/use-element-on-fold"
     },
@@ -1360,8 +1378,8 @@
         "rootDir": "design/ui/navigation/tab-link"
     },
     "ui/navigation/table-of-content": {
-        "scope": "",
-        "version": "",
+        "scope": "teambit.docs",
+        "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/navigation/table-of-content"
     },

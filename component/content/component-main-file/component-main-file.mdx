@@ -1,5 +1,6 @@
-Component's `main` file is a a way to rollup exports from the component in a single convenient method. It exposes selected exports of from the component, similar to a [barrel file](https://basarat.gitbook.io/typescript/main-1/barrel).  
-This practice simplifies the component's code and allows for easier maintenance, as it is a single point of entry for the component.
+# Main File
+
+Component's `main` file exposes the component's API. This simplifies the component's code and allows for easier maintenance, as it is a single point of entry for the component.
 
 A `main` file will typically look like this, but may contain additional exports as needed:
 
@@ -15,3 +16,23 @@ There are several rules Bit follows when setting a `main` file (list is orered b
 1. File with the same name as the component's foldername.
 
 Bit logs the `main` file in the `.bitmap` file, and uses it when generating the component's `package.json` file to be [main entry point](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#main).
+
+## Changing a Component main file
+
+Use the `add` command on your component to update it's main file.
+
+```bash
+bit add ui/button --main button.ts
+```
+
+## Requiring internal files
+
+Requiring internal JavaScript files from components is not recommended. Make sure to only `require` non-compiled assets like `scss`, `less` or `png` files.
+
+```ts
+import { Button } from '@teambit/base-ui.button'; // good!
+import { Button } from '@teambit/base-ui.button/button'; // bad! requires internal file of the component.
+import styles from '@teambit/base-ui.button/button.modules.scss'; // resources like `scss` and `png` since they are not compiled and handles by the consuming app.
+```
+
+JavaScript files are compiled, requiring them may cause inconsistencies for your application. Assets on the other hand are usually not compiled, and are expected to be handled by the consuming app.
