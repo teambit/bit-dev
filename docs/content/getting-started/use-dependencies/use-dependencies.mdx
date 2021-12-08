@@ -1,6 +1,7 @@
 import depImg from './deps.png';
 import depGraphImg from './dep-graph.png';
 import devDepGraphImg from './dev-dep-graph.png';
+import { Image } from '@teambit/docs.ui.zoomable-image';
 
 # Using Dependencies
 
@@ -58,7 +59,7 @@ bit show ui/my-welcome
 └───────────────────┴────────────────────────────────────────────────────────────────┘
 ```
 
-<img src={depImg} />
+<Image src={depImg} />
 
 We will now add a second dependency, `ui/card` and the initial implementation for our new component.
 
@@ -95,7 +96,7 @@ MyWelcome.defaultProps = {
 
 By going to the component's [Dependencies UI](/dependencies/ui) tab, we can inspect the computed dependency graph, which includes direct and indirect dependencies.
 
-<img src={depGraphImg} />
+<Image src={depGraphImg} />
 
 As seen above, Bit understands more than just just the list of direct dependencies for a component and capable of showing the entire dependency / dependents graph of each component. A list of the component's direct dependencies can be seen using `bit show` or in the [Code UI tab](/code/ui).
 
@@ -162,7 +163,7 @@ As seen at the `bit show` output demonstrated above, Bit recognizes three files 
 
 Dev dependencies can be viewed either using `bit show` as seen in the example above or by selecting `show non-runtime` option in the Dependencies UI.
 
-<img src={devDepGraphImg} />
+<Image src={devDepGraphImg} />
 
 Dotted edges represent a dev dependency between two components.
 
