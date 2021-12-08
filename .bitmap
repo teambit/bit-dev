@@ -1485,6 +1485,12 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/sticky-menu"
     },
+    "ui/styles/scrollbar": {
+        "scope": "teambit.design",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "design/ui/styles/scrollbar"
+    },
     "ui/subtitle": {
         "scope": "teambit.docs",
         "version": "1.23.0",
