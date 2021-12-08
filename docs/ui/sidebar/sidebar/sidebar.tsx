@@ -15,6 +15,7 @@ export type SidebarPayload = {
   path?: string;
   configPath?: string;
   overviewPath?: string;
+  displayInSidebar?: boolean;
 };
 
 export type SidebarTreeNode = TreeNode<SidebarPayload>;
