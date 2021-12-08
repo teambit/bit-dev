@@ -1,6 +1,6 @@
 ---
-description: 'Source of truth for what is bit'
-labels: ['content', 'mdx']
+description: 'Source of truth for "what is bit?"'
+labels: ['content', 'mdx', 'bit', 'what']
 ---
 
 import { WhatIsBit } from './index';
@@ -10,16 +10,14 @@ import { WhatIsBit } from './index';
 <WhatIsBit />
 ```
 
-### Render with theme and MDX providers
+### Show the lenghty description of Bit
 
-```js
-import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions'
-import { MDXLayout } from '@teambit/mdx.ui.mdx-layout'
-import { WhatIsBit } from './index'
+```tsx live
+<WhatIsBit size="LARGE" />
+```
 
-<ThemeCompositions>
-  <MDXLayout>
-    <WhatIsBit />
-  </MDXLayout>
-</ThemeCompositions>
+### Show a short one
+
+```tsx live
+<WhatIsBit size="MEDIUM" />
 ```
