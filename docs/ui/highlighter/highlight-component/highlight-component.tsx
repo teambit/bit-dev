@@ -38,7 +38,7 @@ export function HighlightComponent({ children, title }: HighlightComponentProps)
       mode="allChildren"
       bgColorHover="#C9C3F6"
       bgColor="#ECEAFF"
-      highlightStyle={{ fontSize: 8 }}
+      size="s"
       watchMotion
       {...excludeHighlighterAtt} // prevent external highlighters from applying inside this one
     >
