@@ -7,9 +7,6 @@
   top: 56px;
   bottom: 0;
   right: 8px;
-  [data-element-type='H3'] {
-    padding-left: 16px;
-  }
   @media screen and (max-width: $br-lg) {
     display: none;
   }
