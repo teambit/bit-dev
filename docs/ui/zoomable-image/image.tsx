@@ -7,13 +7,24 @@ import styles from './image.module.scss';
 
 export type ImageProps = {
   center?: boolean;
+  width?: string | number;
 } & BaseImageProps;
 
-export const Image = ({ center = true, width, alt, src, className, ...rest }: ImageProps) => {
+export const Image = ({
+  center = true,
+  width,
+  alt,
+  src,
+  className,
+  ...rest
+}: ImageProps) => {
   return (
-    <div className={cs(center && styles.center, className)} {...rest}>
+    <div
+      style={{ width: width || '100%' }}
+      className={cs(center && styles.center, className)}
+    >
       <Zoom>
-        <BaseImage fullWidth alt={alt} src={src} />
+        <BaseImage fullWidth={true} alt={alt} src={src} {...rest} />
       </Zoom>
     </div>
   );

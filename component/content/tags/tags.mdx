@@ -1,4 +1,5 @@
 import firstTag from './first-tag.png';
+import { Image } from '@teambit/docs.ui.zoomable-image';
 
 # Versioning Components
 
@@ -23,7 +24,7 @@ bit tag ui/text --ver 1.0.0 --message "my first vesion"
 During the `snap` process, Bit runs the full component [build pipeline](/docs/dev-services/builder/build-pipelines#build-pipelines), as defined in its environment.  
 We can see the new version in the component's **changelog** tab in the workspace-ui:
 
-<img src={firstTag} />
+<Image src={firstTag} />
 
 ```bash
 $ bit log ui/heading
