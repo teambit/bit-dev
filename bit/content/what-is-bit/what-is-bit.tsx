@@ -15,7 +15,7 @@ import WhatIsBitSmall from './what-is-bit-small.mdx';
 
 // @TODO Ran mdx don't support mdx type with typescript.
 // eslint-disable-next-line react/prop-types
-export function WhatIsBit({ size }) {
+export function WhatIsBit({ size = 'LARGE' }) {
   if (size === 'SMALL') return <WhatIsBitSmall />;
   if (size === 'MEDIUM') return <WhatIsBitShort />;
   return <WhatIsBitLong />;
