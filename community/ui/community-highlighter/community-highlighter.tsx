@@ -19,8 +19,8 @@ export function CommunityHighlighter({ children }: CommunityHighlighterProps) {
       <ComponentHighlighter
         className={styles.highlighter}
         placement="top"
-        disabled={disabled}
         highlightStyle={{ fontSize: 14 }}
+        disabled={disabled}
       >
         {children}
       </ComponentHighlighter>
