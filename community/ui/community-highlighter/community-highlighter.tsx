@@ -16,7 +16,12 @@ export function CommunityHighlighter({ children }: CommunityHighlighterProps) {
 
   return (
     <CommunityHighlighterContext.Provider value={{ disabled, setDisabled }}>
-      <ComponentHighlighter className={styles.highlighter} placement="top" size="s" disabled={disabled}>
+      <ComponentHighlighter
+        className={styles.highlighter}
+        placement="top"
+        disabled={disabled}
+        highlightStyle={{ fontSize: 14 }}
+      >
         {children}
       </ComponentHighlighter>
     </CommunityHighlighterContext.Provider>
