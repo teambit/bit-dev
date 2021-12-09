@@ -658,6 +658,9 @@ importers:
   design/ui/sidebar/sidebar-context:
     specifiers: {}
 
+  design/ui/styles/scrollbar:
+    specifiers: {}
+
   design/ui/surfaces/cloud:
     specifiers: {}
 
