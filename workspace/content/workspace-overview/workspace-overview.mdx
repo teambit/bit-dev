@@ -1,16 +1,17 @@
 import { Image } from '@teambit/docs.ui.zoomable-image';
 import wsScreenshot from './ws-screenshot.png';
-import looseComponents from './loose-components.png';
+import workspaces from './workspaces.png';
 import multiRepo from './multi-repo.png';
 
 # Workspace Overview
 
-The Bit Workspace is made for component-driven development. It is where you build independent, loosley-coupled, components and composing them to systems.  
-Workspace is a composition of components where a component is like a "mini repository". Each component manages implementation, history and config for itself. A component is decoupled from the workspace, you can `import` any Bit component or `export` yours.
+A Bit Workspace is where you build Components and compose them into systems.
 
-<Image src={looseComponents} width="85%"/>
+Components authored and maintained in a Workspace are not coupled to it in any way. They can be exported out and imported into other Workspaces.
 
-Get started and generate a demo workspace:
+<Image src={workspaces} style={{maxWidth: 800}} />
+
+To get started with a demo Workspace, run the following command:
 
 ```bash
 bit new react demo
@@ -18,7 +19,7 @@ bit new react demo
 
 ## Component development server
 
-All components in your workspace are rendered and presented on a local development server. To start it, run the following command:
+Components in your workspace are displayed in the Workspace UI, served by Bit's dev server. To start it, run the following command:
 
 ```sh
 bit start
@@ -28,7 +29,7 @@ bit start
 
 ## Simple, scalable dev experience
 
-Keeping a similar dev-experience across workspaces allows you to jump in and out from codebases. When you don't need to deal with a per-project setup or learn the workflow commands/scripts you simply focus on the code.
+Keeping a similar dev-experience across workspaces allows you to jump in and out of codebases. You don't need to learn each project's dev setup, workflows, or specific commands.
 
 Simple dev experience means you can **easily onboard** yourself to a workspace, thanks to:
 

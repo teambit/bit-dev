@@ -1,24 +1,19 @@
 import { Image } from '@teambit/docs.ui.zoomable-image';
 import componentImg from './component.png';
 
-# Creating Components
+# Create Components
 
-Bit makes it simple to build each [Component](/components/component-overview) independently, and compose it to others with [Dependencies](/dependencies/dependencies-overview). Components 
-can be created in different types such as Node Modules, React Components, Angular Modules and more. 
-Component types are defined by the configured [development environment (Env)](/docs/getting-started/dev-envs).
+When you create a component you generate its initial source files and add its ID to the `.bitmap` file.
 
-<!-- Components can be either abstract and very reusable but also concrete and useful only in specific contexts. 
-An example for an abstract component is a `button`, owned by a design team, which might be useful for many apps and 
-other components, where an example for a concerete one would be `Homepage` which might be used only once or twice. -->
+Components can be of various types such as, React, Angular, NodeJS, and others. The type of each component is determined by the Env it uses.
 
-Our official supported Envs include [Node](/node/overview), [React](/docs/react), [Angular](/docs/angular) and [LitHTML](/docs/lit-html).
-Envs can be found in the [Bit Cloud community hub](/).  
-
-Envs can come built-in with a set of pre-configured templates to make the process of creating components repeatable, easy and directing towards best practices. To view available templates use the `bit templates` command.
+Bit's official Envs offer Component templates to help you create new components. Run the following inside your Workspace to list all available component templates:
 
 ```bash
 bit templates
 ```
+
+The output is similar to the following (it may also include templates provided by custom Envs in your Workspace):
 
 ```
 teambit.react/react
@@ -38,11 +33,27 @@ teambit.mdx/mdx
     mdx (Content component)
 ```
 
-:::note
-Templates are shown from all Envs configured in your Workspace.
-:::
+Run the following to create a component using one of these templates:
 
-Creating your first React Component is as simple as using the `bit create` command which is powered by the [Component Generator](/generator/overview). 
+```bash
+bit create COMPONENT_TEMPLATE COMPONENT_NAME [--scope SCOPE_NAME]
+```
+
+For example, run the following to create a React component:
+
+```bash
+bit create react ui/my-welcome
+```
+
+The output is the following:
+
+```bash
+1 component(s) were created
+
+company.demo/ui/my-welcome
+    location: base-ui/ui/my-welcome
+    env:      teambit.react/react
+```
 
 :::note
 By default, components are created according to the `defaultScope` defined in the [workspace.json](/workspace/workspace-json). 

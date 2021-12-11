@@ -12,7 +12,6 @@ export type ImageProps = {
 
 export const Image = ({
   center = true,
-  width,
   alt,
   src,
   className,
@@ -20,11 +19,11 @@ export const Image = ({
 }: ImageProps) => {
   return (
     <div
-      style={{ width: width || '100%' }}
       className={cs(center && styles.center, className)}
+      {...rest}
     >
       <Zoom>
-        <BaseImage fullWidth={true} alt={alt} src={src} {...rest} />
+        <BaseImage fullWidth={true} alt={alt} src={src} />
       </Zoom>
     </div>
   );
