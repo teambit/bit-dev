@@ -333,6 +333,13 @@
         "mainFile": "index.ts",
         "rootDir": "envs/content/dev-services-overview"
     },
+    "content/diff-changes": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.lanes",
+        "mainFile": "index.ts",
+        "rootDir": "lanes/content/diff-changes"
+    },
     "content/directory-structure": {
         "scope": "teambit.workspace",
         "version": "1.23.0",
@@ -368,6 +375,13 @@
         "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "envs/content/envs-overview"
+    },
+    "content/export": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.lanes",
+        "mainFile": "index.ts",
+        "rootDir": "lanes/content/export"
     },
     "content/exporting-components": {
         "scope": "teambit.workspace",
@@ -585,6 +599,13 @@
         "mainFile": "index.ts",
         "rootDir": "envs/content/implementing-new-env"
     },
+    "content/import": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.lanes",
+        "mainFile": "index.ts",
+        "rootDir": "lanes/content/import"
+    },
     "content/importing-components": {
         "scope": "teambit.workspace",
         "version": "1.23.1",
@@ -615,11 +636,25 @@
         "mainFile": "index.ts",
         "rootDir": "envs/content/inspecting-env"
     },
+    "content/inspecting-lane": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.lanes",
+        "mainFile": "index.ts",
+        "rootDir": "lanes/content/inspecting-lane"
+    },
     "content/installing-dependencies": {
         "scope": "teambit.dependencies",
         "version": "1.23.0",
         "mainFile": "index.ts",
         "rootDir": "dependencies/content/installing-dependencies"
+    },
+    "content/lane-objects": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.lanes",
+        "mainFile": "index.ts",
+        "rootDir": "lanes/content/lane-objects"
     },
     "content/lanes-overview": {
         "scope": "",
@@ -669,6 +704,13 @@
         "version": "1.23.1",
         "mainFile": "index.ts",
         "rootDir": "docs/content/mdx"
+    },
+    "content/merging": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.lanes",
+        "mainFile": "index.ts",
+        "rootDir": "lanes/content/merging"
     },
     "content/mounting-compositions-to-dom": {
         "scope": "teambit.compositions",
@@ -795,6 +837,13 @@
         "version": "1.23.0",
         "mainFile": "index.ts",
         "rootDir": "preview/content/register-custom-preview"
+    },
+    "content/remote-lanes": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.lanes",
+        "mainFile": "index.ts",
+        "rootDir": "lanes/content/remote-lanes"
     },
     "content/remote-scopes": {
         "scope": "teambit.scope",
