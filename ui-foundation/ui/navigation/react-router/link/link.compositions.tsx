@@ -1,6 +1,6 @@
 import React from 'react';
 import { MemoryRouter, Route, useLocation } from 'react-router-dom';
-import { Link } from './link';
+import { ReactRouterLink } from './link';
 
 export const Preview = () => (
   <MemoryRouter>
@@ -17,11 +17,11 @@ function SomeLinks() {
 
       <div>
         link:{' '}
-        <Link href="/path/one?what=is" state={{ some: 'state' }}>
+        <ReactRouterLink href="/path/one?what=is" state={{ some: 'state' }}>
           link1
-        </Link>
+        </ReactRouterLink>
         <br />
-        link: <Link href="/path/two">link2</Link>
+        link: <ReactRouterLink href="/path/two">link2</ReactRouterLink>
       </div>
 
       <Route path="/path/one">First path</Route>

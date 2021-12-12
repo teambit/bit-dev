@@ -2,14 +2,14 @@ import React, { forwardRef, useMemo } from 'react';
 import { NavLink as BaseNavLink } from 'react-router-dom';
 import { parsePath } from 'history';
 import { NavLinkProps } from '@teambit/base-react.navigation.router-context';
-import { LinkAnchor, useLinkContext } from '@teambit/ui-foundation.ui.navigation.react-router.link-anchor';
+import { NavLink as DefaultNavLink } from '@teambit/base-react.navigation.link';
 
 export type { NavLinkProps };
 
 /**
  * Adapter between React router's NavLink and our isomorphic Navlink components. Learn more [Here](https://bit.dev/teambit/base-react/navigation/router-context)
  */
-export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(function NavLink(
+export const ReactRouterNavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(function ReactRouterNavLink(
   {
     href = '',
     state,
@@ -17,6 +17,8 @@ export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(function NavL
     // props we should not get, and should not pass to RR link:
     external,
     native,
+
+    // rest
     ...rest
   }: NavLinkProps,
   ref
@@ -29,10 +31,13 @@ export const NavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(function NavL
     return () => active;
   }, [active]);
 
-  // only use anchor when its context is available
-  const { baseUrl } = useLinkContext();
-  const component = baseUrl ? LinkAnchor : undefined;
+  // support legacy routing - which doesn't handle external / native
+  if (external || native) {
+    const existingProps = { external, native, active, href, state };
+
+    return <DefaultNavLink {...existingProps} ref={ref} {...rest} />;
+  }
 
   // @ts-ignore (https://github.com/teambit/bit/issues/4401)
-  return <BaseNavLink to={to} isActive={isActive} component={component} {...rest} ref={ref} />;
+  return <BaseNavLink to={to} isActive={isActive} ref={ref} {...rest} />;
 });

@@ -2,14 +2,14 @@ import React, { forwardRef, useMemo } from 'react';
 import { Link as BaseLink } from 'react-router-dom';
 import { parsePath } from 'history';
 import type { LinkProps } from '@teambit/base-react.navigation.router-context';
-import { LinkAnchor, useLinkContext } from '@teambit/ui-foundation.ui.navigation.react-router.link-anchor';
+import { Link as DefaultLink } from '@teambit/base-react.navigation.link';
 
 export type { LinkProps };
 
 /**
  * Adapter between React router's Link and our isomorphic link components. Learn more [Here](https://bit.dev/teambit/base-react/navigation/router-context)
  */
-export const Link = forwardRef<HTMLAnchorElement, LinkProps>(function Link(
+export const ReactRouterLink = forwardRef<HTMLAnchorElement, LinkProps>(function ReactRouterLink(
   {
     href = '',
     state,
@@ -23,10 +23,10 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(function Link(
 ) {
   const to = useMemo(() => ({ ...parsePath(href), state }), [href, state]);
 
-  // only use anchor when its context is available
-  const { baseUrl } = useLinkContext();
-  const component = baseUrl ? LinkAnchor : undefined;
+  // support legacy routing - which doesn't handle external / native
+  if (external || native)
+    return <DefaultLink external={external} native={native} href={href} state={state} ref={ref} {...rest} />;
 
   // @ts-ignore (https://github.com/teambit/bit/issues/4401)
-  return <BaseLink to={to} {...rest} component={component} ref={ref} />;
+  return <BaseLink to={to} {...rest} ref={ref} />;
 });

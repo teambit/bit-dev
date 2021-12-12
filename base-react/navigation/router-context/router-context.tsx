@@ -34,9 +34,6 @@ export type RouterContextType = {
    * useLocation implementation.
    */
   useLocation?: UseLocation;
-
-  /** adapt location to context and convert to string */
-  useHref?: (location: string | Partial<Location>) => string;
 };
 
 export const RouterContext = React.createContext<RouterContextType>({});

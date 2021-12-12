@@ -4,7 +4,6 @@ labels: ['location', 'routing', 'hook']
 ---
 
 import { useLocation } from './use-location';
-import { useHref } from './use-href';
 
 Provides the current location according to the current routing system.  
 Defaults to `window.location`.
@@ -14,23 +13,5 @@ Defaults to `window.location`.
   const location = useLocation();
 
   return <div>current domain </div>;
-};
-```
-
-## useHref()
-
-Generate (string) path based on the contextual logic of the routing system. This is mostly relevant when making href for non-links elements, like iframes.  
-
-> useHref will transform the location, as needed. For example, react router might include a basename.
-
-```tsx live
-() => {
-  const href = useHref({
-    pathname: '/some/path',
-    search: 'what=isIt',
-    hash: '29632d',
-  });
-
-  return <div>"{href}"</div>;
 };
 ```

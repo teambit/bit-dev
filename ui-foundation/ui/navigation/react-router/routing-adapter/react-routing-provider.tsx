@@ -1,18 +1,13 @@
 import React, { ReactNode } from 'react';
-import { useLocation, BrowserRouter } from 'react-router-dom';
-import { Noop } from '@teambit/base-ui.elements.noop';
+import { useLocation } from 'react-router-dom';
 
 import { RouterProvider, RouterContextType } from '@teambit/base-react.navigation.router-context';
-import { Link, NavLink } from '@teambit/ui-foundation.ui.navigation.react-router.link';
-import { LinkContextProvider } from '@teambit/ui-foundation.ui.navigation.react-router.link-anchor';
-
-import { useReactRouterHref } from './use-react-router-href';
+import { ReactRouterLink, ReactRouterNavLink } from '@teambit/ui-foundation.ui.navigation.react-router.link';
 
 export const reactRouterAdapter: RouterContextType = {
-  Link,
-  NavLink,
+  Link: ReactRouterLink,
+  NavLink: ReactRouterNavLink,
   useLocation,
-  useHref: useReactRouterHref,
 };
 
 type ReactRouterRoutingProviderProps = {
@@ -31,18 +26,6 @@ type ReactRouterRoutingProviderProps = {
 };
 
 /** wrap your code with this adapter to use React Router 5 as your Routing system */
-export function ReactRouterRoutingProvider({
-  children,
-  useBrowserRouter = false,
-  displayUrl,
-}: ReactRouterRoutingProviderProps) {
-  const RouterComponent = useBrowserRouter ? BrowserRouter : Noop;
-
-  return (
-    <RouterComponent>
-      <LinkContextProvider baseUrl={displayUrl}>
-        <RouterProvider value={reactRouterAdapter}>{children}</RouterProvider>
-      </LinkContextProvider>
-    </RouterComponent>
-  );
+export function ReactRouterRoutingProvider({ children }: ReactRouterRoutingProviderProps) {
+  return <RouterProvider value={reactRouterAdapter}>{children}</RouterProvider>;
 }
