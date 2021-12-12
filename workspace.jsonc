@@ -238,6 +238,9 @@
     "compilation": {
       "defaultScope": "teambit.compilation"
     },
+    "lanes": {
+      "defaultScope": "teambit.lanes"
+    },
     "harmony": {
       "defaultScope": "teambit.harmony"
     },

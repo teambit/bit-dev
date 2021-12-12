@@ -181,6 +181,9 @@ const ConfigReactTools = lazy(() => import('@teambit/react.content.config-react-
 /* Misc */
 const UsageAnalytics = lazy(() => import('@teambit/docs.content.guides.usage-analytics'));
 
+/* lanes */
+const LanesOverview = lazy(() => import('@teambit/lanes.content.lanes-overview'));
+
 export const learnDocsRoutes: DocsRoute[] = [
   {
     path: 'usage-analytics',
@@ -485,6 +488,26 @@ export const learnDocsRoutes: DocsRoute[] = [
         description:
           'A lock file is a representation of the node_modules directory, written in a YAML format. It is automatically generated and updated, whenever the node_modules directory structure is modified by the package manager (when packages are either installed or removed).',
         component: <LockFiles />,
+      },
+    ],
+  },
+  {
+    path: 'lanes',
+    open: false,
+    title: 'Lanes',
+    icon: 'collection',
+    overview: {
+      path: 'lanes-overview',
+      title: 'Lanes Overview',
+      component: <LanesOverview />,
+      description: 'Lanes allow for change management in a distributed environment'
+    },
+    children: [
+      {
+        path: 'hi there',
+        title: 'not sure yet',
+        description: 'not sure yet',
+        component: <div />,
       },
     ],
   },

@@ -621,6 +621,13 @@
         "mainFile": "index.ts",
         "rootDir": "dependencies/content/installing-dependencies"
     },
+    "content/lanes-overview": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.lanes",
+        "mainFile": "index.ts",
+        "rootDir": "lanes/content/lanes-overview"
+    },
     "content/linter-overview": {
         "scope": "teambit.defender",
         "version": "1.23.0",
