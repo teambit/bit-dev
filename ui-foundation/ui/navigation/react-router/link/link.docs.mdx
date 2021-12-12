@@ -4,8 +4,8 @@ labels: ['ui', 'react-router', 'link']
 ---
 
 import { MemoryRouter, Route, useLocation } from 'react-router-dom';
-import { Link } from './link';
-import { NavLink } from './nav-link';
+import { ReactRouterLink } from './link';
+import { ReactRouterNavLink } from './nav-link';
 
 React Router 5 implementation of our isomorphic link. Read more [here](https://bit.dev/teambit/base-react/navigation/link).  
 Use
@@ -18,7 +18,7 @@ Use
 The link component behaves like a native `<a>` tag, and assumes a React Router `<Router>` context is available.
 
 ```tsx
-<Link href="/pricing">pricing page</Link>
+<ReactRouterLink href="/pricing">pricing page</ReactRouterLink>
 ```
 
 Here is an example of this Link component in action, used directly with React Router. (in a real world situation, we would use it through the Routing Adapter)  
@@ -39,13 +39,13 @@ Try it out!
 
         {/* links: */}
         <div>
-          <NavLink href="/path/one?what=is" state={{ some: 'state' }} activeStyle={{ fontWeight: 'bold' }}>
+          <ReactRouterNavLink href="/path/one?what=is" state={{ some: 'state' }} activeStyle={{ fontWeight: 'bold' }}>
             /path/one
-          </NavLink>
+          </ReactRouterNavLink>
           <br />
-          <NavLink href="/path/two" activeStyle={{ fontWeight: 'bold' }}>
+          <ReactRouterNavLink href="/path/two" activeStyle={{ fontWeight: 'bold' }}>
             /path/two
-          </NavLink>
+          </ReactRouterNavLink>
         </div>
 
         <br />

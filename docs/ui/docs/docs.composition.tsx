@@ -1,10 +1,12 @@
 import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
 import { DocsRoute } from '@teambit/docs.entities.docs-routes';
 import { RoutingProvider } from '@teambit/base-ui.routing.routing-provider';
 import { SidebarProvider } from '@teambit/design.ui.sidebar.sidebar-context';
-import { useLocation, MemoryRouter } from 'react-router-dom';
-import { Link } from '@teambit/ui-foundation.ui.react-router.link';
-import { NavLink } from '@teambit/ui-foundation.ui.react-router.nav-link';
+import {
+  ReactRouterRoutingProvider,
+  reactRouterAdapter,
+} from '@teambit/ui-foundation.ui.navigation.react-router.routing-adapter';
 import { lazy } from '@loadable/component';
 import { Docs } from './docs';
 
@@ -13,8 +15,6 @@ const ThinkingInComponents = lazy(() => import('@teambit/docs.content.thinking-i
 const CreateWorkspace = lazy(() => import('@teambit/docs.content.getting-started.create-workspace'));
 const CreateComponents = lazy(() => import('@teambit/community.content.getting-started.composing.create-components'));
 const ComponentConfig = lazy(() => import('@teambit/component.content.component-config'));
-
-const routing = { Link, NavLink, useLocation };
 
 const primaryRoutes: DocsRoute[] = [
   {
@@ -64,11 +64,14 @@ const routes: DocsRoute[] = [
 ];
 
 export const BasicDocs = () => (
-  <RoutingProvider value={routing}>
-    <SidebarProvider>
-      <MemoryRouter>
-        <Docs baseUrl="/" contents={[{ routes }]} primaryLinks={primaryRoutes} />
-      </MemoryRouter>
-    </SidebarProvider>
-  </RoutingProvider>
+  <MemoryRouter>
+    <ReactRouterRoutingProvider>
+      {/* @ts-ignore - TODO remove when sidebar use thew new link components */}
+      <RoutingProvider value={reactRouterAdapter}>
+        <SidebarProvider>
+          <Docs baseUrl="/" contents={[{ routes }]} primaryLinks={primaryRoutes} />
+        </SidebarProvider>
+      </RoutingProvider>
+    </ReactRouterRoutingProvider>
+  </MemoryRouter>
 );
