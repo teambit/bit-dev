@@ -49,26 +49,29 @@ export function NodeTitle({ id, icon, open, configPath, overviewPath, setOpen }:
     if (overviewPath !== window?.location.pathname && !open) setOpen(!open);
   };
 
+  const content = (
+    <div className={styles.left}>
+      <Icon className={classNames(styles.icon, !open && styles.collapsed)} of="fat-arrow-down" />
+      {CustomIcon}
+      <span className={classNames(styles.name, ellipsis)}>{displayName}</span>
+    </div>
+  );
+
   const Title = (
-    <div className={classNames(indentClass, styles.folder)} onClick={handleOnFolderClick}>
-      <div className={styles.left}>
-        <Icon className={classNames(styles.icon, !open && styles.collapsed)} of="fat-arrow-down" />
-        {CustomIcon}
-        <span className={classNames(styles.name, ellipsis)}>{displayName}</span>
-      </div>
+    <div
+      className={classNames(indentClass, styles.folder, overviewPath === window?.location.pathname && styles.active)}
+      onClick={handleOnFolderClick}
+    >
+      {overviewPath ? (
+        <Link href={overviewPath} className={classNames(styles.folderLink)}>
+          {content}
+        </Link>
+      ) : (
+        content
+      )}
       <ConfigIcon configPath={configPath} />
     </div>
   );
 
-  if (overviewPath) {
-    return (
-      <Link
-        href={overviewPath}
-        className={classNames(styles.folderLink, overviewPath === window?.location.pathname && styles.active)}
-      >
-        {Title}
-      </Link>
-    );
-  }
   return Title;
 }

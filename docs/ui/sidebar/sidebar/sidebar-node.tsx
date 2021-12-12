@@ -20,6 +20,9 @@ export function SidebarNode(props: SidebarNodeProps) {
 
   if (!node.children) {
     const isNodeActive = currentPath === node.payload.path;
+    if (node.payload.displayInSidebar === false) {
+      return <div />;
+    }
     return (
       // TODO: migrate to use the new base-react link with React Router.
       <TreeNode
