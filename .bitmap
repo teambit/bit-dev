@@ -627,6 +627,12 @@
         "mainFile": "index.ts",
         "rootDir": "dependencies/content/installing-dependencies"
     },
+    "content/isolation-errors": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "component/content/isolation-errors"
+    },
     "content/linter-overview": {
         "scope": "teambit.defender",
         "version": "1.23.0",
