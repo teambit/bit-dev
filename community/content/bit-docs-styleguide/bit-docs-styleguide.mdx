@@ -1,19 +1,31 @@
 # Documentation style guide
 
-## Terminal
+## CLI Syntax
 
-### Variables
+### Arguments
 
-Mandatory variable:
+Mandatory arguments:
 
 ```
 bit create COMPONENT_TEMPLATE COMPONENT_NAME
 ```
 
-Optional Variables:
+Arguments that can repeat:
+
+```
+bit create COMPONENT_TEMPLATE COMPONENT_NAME...
+```
+
+Optional arguments:
 
 ```
 bit create COMPONENT_TEMPLATE COMPONENT_NAME [--scope SCOPE_NAME]
+```
+
+Mutually exclusive arguments:
+
+```bash
+bit tag {--all | COMPONENT_ID...}
 ```
 
 ## Outputs
