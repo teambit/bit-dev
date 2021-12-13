@@ -1,5 +1,16 @@
 # Documentation style guide
 
+## Titles
+
+Capitalize only the first letter:
+
+* _Recommended_: Dependency updates
+* _Not recommended_: Dependency Updates 
+
+Do not use 
+
+* _Not recommended_: Updating dependencies
+
 ## CLI Syntax
 
 ### Arguments
@@ -28,11 +39,13 @@ Mutually exclusive arguments:
 bit tag {--all | COMPONENT_ID...}
 ```
 
-## Outputs
+## Output
 Run the following command:
+
 ```
-bit show ui/text
+bit show company.demo/ui/text
 ```
+
 This will output the following:
 
 ```
@@ -43,7 +56,9 @@ This will output the following:
 └───────────────────┴──────────────────────────────────────────────────────────┘
 ```
 
-## Aspect names
+## Aspects
+
+### Aspect names
 
 Use an uppercase at the beginning of every word.
 
@@ -57,3 +72,14 @@ Always use the description of the link as the link text.
 
 * _Recommended_: Read more about updating dependencies in [Dependency updates](#) 
 * _Not recommended_: [See here](#) to learn more about updating dependencies
+
+
+## Components 
+
+### Referencing a Component
+
+When referencing a component use its full component ID.
+
+```
+bit show company.demo/ui/text
+```
