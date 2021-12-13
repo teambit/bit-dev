@@ -1,0 +1,47 @@
+# Documentation style guide
+
+## Terminal
+
+### Variables
+
+Mandatory variable:
+
+```
+bit create COMPONENT_TEMPLATE COMPONENT_NAME
+```
+
+Optional Variables:
+
+```
+bit create COMPONENT_TEMPLATE COMPONENT_NAME [--scope SCOPE_NAME]
+```
+
+## Outputs
+Run the following command:
+```
+bit show ui/text
+```
+This will output the following:
+
+```
+┌───────────────────┬──────────────────────────────────────────────────────────┐
+│ id                │ company.scope/ui/text@0.0.2                              │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ scope             │ company.scope                                            │
+└───────────────────┴──────────────────────────────────────────────────────────┘
+```
+
+## Aspect names
+
+Use an uppercase at the beginning of every word.
+
+* _Recommended_: Dependency Resolver 
+* _Not recommended_: dependency resolver
+* _Not recommended_: Dependency resolver
+
+## Links
+
+Always use the description of the link as the link text.
+
+* _Recommended_: Read more about updating dependencies in [Dependency updates](#) 
+* _Not recommended_: [See here](#) to learn more about updating dependencies

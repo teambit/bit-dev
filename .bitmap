@@ -61,7 +61,7 @@
         "scope": "",
         "version": "",
         "mainFile": "index.ts",
-        "rootDir": "docs/content/bit-docs-styleguide"
+        "rootDir": "community/content/bit-docs-styleguide"
     },
     "content/bitmap": {
         "scope": "teambit.workspace",

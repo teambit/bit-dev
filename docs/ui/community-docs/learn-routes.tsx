@@ -102,7 +102,10 @@ const DocsOverview = lazy(() => import('@teambit/docs.content.docs-overview'));
 const MDX = lazy(() => import('@teambit/docs.content.mdx'));
 const DocTemplates = lazy(() => import('@teambit/docs.content.doc-templates'));
 const RenderingDocs = lazy(() => import('@teambit/docs.content.rendering-docs'));
-const Styleguide = lazy(() => import('@teambit/docs.content.bit-docs-styleguide'));
+
+/* Community */
+const Styleguide = lazy(() => import('@teambit/community.content.bit-docs-styleguide'));
+
 
 /* Compositions */
 
