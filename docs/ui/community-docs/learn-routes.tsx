@@ -30,6 +30,8 @@ const MovingComponents = lazy(() => import('@teambit/workspace.content.moving-co
 const Variants = lazy(() => import('@teambit/workspace.content.variants'));
 
 /* Scope */
+const ScopeBitCloud = lazy(() => import('@teambit/scope.content.scope-bit-cloud'));
+const RemoteScopes = lazy(() => import('@teambit/scope.content.remote-scopes'));
 const ScopeOverview = lazy(() => import('@teambit/scope.content.scope-overview'));
 const CreatingScopes = lazy(() => import('@teambit/scope.content.creating-scopes'));
 const ScopeJson = lazy(() => import('@teambit/scope.content.scope-json'));
@@ -37,6 +39,8 @@ const HostingScopes = lazy(() => import('@teambit/scope.content.hosting-scopes')
 
 /* Dev services */
 
+// const AvailableServices = lazy(() => import('@teambit/envs.content.available-services'));
+const DevServices = lazy(() => import('@teambit/envs.content.dev-services'));
 const DevServicesOverview = lazy(() => import('@teambit/envs.content.dev-services-overview'));
 
 /* Preview */
@@ -98,6 +102,7 @@ const DocsOverview = lazy(() => import('@teambit/docs.content.docs-overview'));
 const MDX = lazy(() => import('@teambit/docs.content.mdx'));
 const DocTemplates = lazy(() => import('@teambit/docs.content.doc-templates'));
 const RenderingDocs = lazy(() => import('@teambit/docs.content.rendering-docs'));
+const Styleguide = lazy(() => import('@teambit/docs.content.bit-docs-styleguide'));
 
 /* Compositions */
 
@@ -124,12 +129,15 @@ const Tags = lazy(() => import('@teambit/component.content.tags'));
 const Snaps = lazy(() => import('@teambit/component.content.snaps'));
 const ComponentAnatomy = lazy(() => import('@teambit/component.content.component-anatomy'));
 const AddingComponents = lazy(() => import('@teambit/component.content.adding-components'));
+const IsolationErrors = lazy(() => import('@teambit/component.content.isolation-errors'));
 
 /* Envs */
 
+const EnvsOverview = lazy(() => import('@teambit/envs.content.envs-overview'));
 const InspectingEnv = lazy(() => import('@teambit/envs.content.inspecting-env'));
 const ExtendingEnv = lazy(() => import('@teambit/envs.content.extending-env'));
-// const EnvToubleshooting = lazy(() => import('@teambit/envs.content.env-troubleshooting'));
+const UsingEnvs = lazy(() => import('@teambit/envs.content.using-envs'));
+const EnvsApi = lazy(() => import('@teambit/envs.content.envs-api'));
 
 /* Dependencies */
 
@@ -172,7 +180,22 @@ const ReactOverview = lazy(() => import('@teambit/react.content.react-overview')
 const ReplacingReactTools = lazy(() => import('@teambit/react.content.replace-react-tools'));
 const ConfigReactTools = lazy(() => import('@teambit/react.content.config-react-tools'));
 
+/* Misc */
+const UsageAnalytics = lazy(() => import('@teambit/docs.content.guides.usage-analytics'));
+
 export const learnDocsRoutes: DocsRoute[] = [
+  {
+    path: 'usage-analytics',
+    title: 'Usage Analytics',
+    displayInSidebar: false,
+    component: <UsageAnalytics />,
+  },
+  {
+    path: 'docs-style-guide',
+    title: 'Docs style guide',
+    component: <Styleguide />,
+    displayInSidebar: false,
+  },
   {
     path: 'workspace',
     title: 'Workspace',
@@ -182,11 +205,6 @@ export const learnDocsRoutes: DocsRoute[] = [
       path: 'workspace-overview',
       title: 'Workspace Overview',
       component: <WorkspaceOverview />,
-    },
-    config: {
-      path: 'workspace-configuration',
-      component: <WorkspaceConfiguration />,
-      title: 'Workspace Configuration',
     },
     children: [
       {
@@ -273,7 +291,7 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Components',
     icon: 'comps',
     open: false,
-    children: [
+    overview:
       {
         path: 'component-overview',
         title: 'Component Overview',
@@ -281,6 +299,7 @@ export const learnDocsRoutes: DocsRoute[] = [
           'Component is a decoupled, versioned source-code container designed for the purpose of containing a single module or component.',
         component: <ComponentOverview />,
       },
+    children: [
       {
         path: 'adding-components',
         title: 'Adding Components',
@@ -288,8 +307,13 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <AddingComponents />,
       },
       {
+        path: 'component-config',
+        title: 'Component Configuration',
+        component: <ComponentConfig />,
+      },
+      {
         path: 'component-id',
-        title: 'Naming Components',
+        title: 'Component ID',
         description:
           'The Component ID is designed to be a unique, human-readable name that simplifies and help organize components.',
         component: <ComponentId />,
@@ -297,25 +321,39 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'component-anatomy',
         title: 'Component Anatomy',
-        description: 'How Bit manages a component as a mini-repository.',
+        description: 'How Bit manages all data on a component.',
         component: <ComponentAnatomy />,
       },
       {
-        path: 'component-config',
-        title: 'Component Configuration',
-        component: <ComponentConfig />,
+        path: 'inspecting-components',
+        title: 'Inspecting components',
+        component: <InspectingComponents />,
       },
       {
-        path: 'tags',
-        title: 'Versioning',
-        description: 'Manage component releases with semantic version.',
-        component: <Tags />,
+        path: 'component-main-file',
+        title: 'Main file',
+        description:
+          'Main file exposes the Component API.',
+        component: <MainFile />,
+      },
+      {
+        path: 'dev-files',
+        title: 'Dev files',
+        description:
+          'Dev files are component files used for development and not for production. Dev files are determined as such by the Dev Files Aspect.',
+        component: <DevFiles />,
       },
       {
         path: 'snaps',
         title: 'Snapshot changes',
         description: 'Record component history with snapshots.',
         component: <Snaps />,
+      },
+      {
+        path: 'tags',
+        title: 'Versioning',
+        description: 'Manage component releases with semantic version.',
+        component: <Tags />,
       },
       {
         path: 'navigating-history',
@@ -347,28 +385,9 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <MergingComponentVersions />,
       },
       {
-        path: 'component-main-file',
-        title: 'Main file',
-        description:
-          'The main file of a Component is the file resolved upon a require of the Component Directory. Main file is usually expected to expose the Component API.',
-        component: <MainFile />,
-      },
-      {
         path: 'component-json',
         title: 'component.json',
         component: <ComponentJson />,
-      },
-      {
-        path: 'inspecting-components',
-        title: 'Inspecting components',
-        component: <InspectingComponents />,
-      },
-      {
-        path: 'dev-files',
-        title: 'Dev files',
-        description:
-          'Dev files are component files used for development and not for production. Dev files are determined as such by the Dev Files Aspect.',
-        component: <DevFiles />,
       },
       {
         path: 'component-capsules',
@@ -382,6 +401,11 @@ export const learnDocsRoutes: DocsRoute[] = [
         title: 'Component Objects',
         description: 'How Bit saves revision history for components',
         component: <ComponentObjects />,
+      },
+      {
+        path: 'isolation-errors',
+        title: 'Isolation errors',
+        component: <IsolationErrors />
       },
     ],
   },
@@ -477,29 +501,31 @@ export const learnDocsRoutes: DocsRoute[] = [
     open: false,
     title: 'Scope',
     icon: 'collection',
-    config: {
-      path: 'scope-config',
-      title: 'Scope configuration',
-      component: <div />,
+    overview: {
+      path: 'scope-overview',
+      title: 'Scope Overview',
+      description:
+        'Scope is a server for hosting components.',
+      component: <ScopeOverview />,
     },
     children: [
       {
-        path: 'scope-overview',
-        title: 'Scope Overview',
+        path: 'scope-bit-cloud',
+        title: 'Scopes on Bit.cloud',
         description:
-          'Scope is a distributed component collaboration host. You can think of it as a micro service, which helps set team and ownership boundaries and allows others to use components as APIs and collaborate on them.',
-        component: <ScopeOverview />,
+          'Bit.cloud is a cloud hosting provider for Bit Scopes and Components.',
+          component: <ScopeBitCloud />
       },
       {
         path: 'creating-scopes',
-        title: 'Creating Scopes',
+        title: 'Create bare scope',
         description:
-          'Components can be collaborated on using Scopes hosted on Bit Cloud. This can be done quite easily as Bit offers built-in support for Bit Cloud.',
+          'Base Scopes used as remote storage for components.',
         component: <CreatingScopes />,
       },
       {
-        path: 'configuring-scopes',
-        title: 'Configuring scopes (scope.json)',
+        path: 'configure-scopes',
+        title: 'Configure scopes',
         component: <ScopeJson />,
       },
       {
@@ -508,17 +534,17 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <HostingScopes />,
       },
       {
-        path: 'inspecting-scopes',
-        title: 'Inspecting Scopes',
+        path: 'remote-scopes',
+        title: 'Remotes',
         description:
-          'Component objects are stored in Scopes (Local Scopes and Remote Scopes), using the content-addressable storage method. They are either copied to or from remote scopes, when exported or imported (respectively).',
-        component: <ComponentObjects />,
+          'Connect scopes and workspace with remotes.',
+        component: <RemoteScopes />,
       },
-      {
+      /*{
         path: 'extending-scopes',
         title: 'Extending Scopes',
-        component: <ScopeOverview />,
-      },
+        component: <div />,
+      },*/
     ],
   },
   {
@@ -526,25 +552,16 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Envs',
     icon: 'env',
     open: false,
-    config: {
-      path: 'envs-config',
-      title: 'Envs configuration',
-      component: <div />,
+    overview: {
+      path: 'envs-overview',
+      title: 'Envs Overview',
+      component: <EnvsOverview />,
     },
     children: [
       {
-        path: 'envs-overview',
-        title: 'Envs Overview',
-      },
-      {
-        path: 'using-env',
-        title: 'Using envs',
-      },
-      {
-        path: 'composing-env',
-        title: 'Composing an Env',
-        description: '',
-        component: <ExtendingEnv />,
+        path: 'using-envs',
+        title: 'Using Envs',
+        component: <UsingEnvs />,
       },
       {
         path: 'inspecting-env',
@@ -553,31 +570,35 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <InspectingEnv />,
       },
       {
-        path: 'env-service',
-        title: 'Env service',
-        description: '',
-        component: <div />,
+        path: 'composing-env',
+        title: 'Composing an Env',
+        description: 'Extend existing envs to create your unique workflow.',
+        component: <ExtendingEnv />,
       },
-      // {
-      //   path: 'env-troubleshooting',
-      //   title: 'Env Troubleshooting',
-      //   component: <EnvToubleshooting />,
-      // },
+      {
+        path: 'dev-services',
+        title: 'Dev Services',
+        description: 'Development Services control various workflows and commands for components.',
+        component: <DevServices />,
+      },
+      {
+        path: 'envs-api',
+        title: 'Envs API',
+        component: <EnvsApi />,
+      },
     ],
   },
   {
-    path: 'dev-services',
+    path: 'dev-services-overview',
     title: 'Dev Services',
     icon: 'compCI',
     open: false,
+    overview: {
+      path: 'dev-services-overview',
+      title: 'Dev services overview',
+      component: <DevServicesOverview />,
+    },
     children: [
-      {
-        path: 'dev-services-overview',
-        title: 'Dev Services Overview',
-        description:
-          "Dev Services simplify and standardize component development processes, like testing, linting and documenting. They are applied on components, and used by components, via the components' Envs.",
-        component: <DevServicesOverview />,
-      },
       {
         path: 'builder',
         title: 'Builder',
@@ -675,8 +696,8 @@ export const learnDocsRoutes: DocsRoute[] = [
             component: <CompilingDuringBuild />,
           },
           {
-            path: 'configure-env-with-compiler',
-            title: 'Configure an Env with a Compiler',
+            path: 'using-a-compiler',
+            title: 'Using a Compiler',
             description: 'Learn how to configure an Env to use a different compiler.',
             component: <ConfigureEnvWithCompiler />,
           },
