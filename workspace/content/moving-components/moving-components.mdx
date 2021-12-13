@@ -24,13 +24,13 @@ A new Component is a Component that has never been versioned.
 To rename a new Component, first, untrack it:
 
 ```bash
-bit untrack teambit.design/ui/buttons/button
+bit untrack CURRENT_COMPONENT_ID
 ```
 
-Then, track back the component
+Then, track back the component using its new name:
 
 ```
-bit add design/ui/buttons/button --id ui/button
+bit add PATH_TO_COMPONENT --id COMPONENT_NAME
 ```
 
 ### Rename a Component that has dependents
