@@ -5,7 +5,7 @@ import multiRepo from './multi-repo.png';
 
 # Workspace Overview
 
-A Bit Workspace is where you build Components and compose them into systems.
+A Bit Workspace is where you build Components and compose them into services and apps.
 
 Components authored and maintained in a Workspace are not coupled to it in any way. They can be exported out and imported into other Workspaces.
 
@@ -19,7 +19,7 @@ bit new react demo
 
 ## Component development server
 
-Components in your workspace are displayed in the Workspace UI, served by Bit's dev server. To start it, run the following command:
+Components in your workspace are displayed in the Workspace UI which is served by Bit's dev server. To start it, run the following command:
 
 ```sh
 bit start
@@ -55,7 +55,7 @@ In the same sense you can `export` and even `eject` any of your components from 
 
 <Image src={multiRepo} width="85%"/>
 
-### Personalize your workspace
+## Personalize your workspace
 
 With composability in mind you can personalize your workspace on a per-feature basis or on the work you are currently focus on. You can start your flow by using `bit import` and fetch all required components, starting to modify and work on them as needed.  
 When done, you can version and eject unneeded components. Instead of you working in the boundaries of your workspace, have the workspace fit to your current work.

@@ -1,14 +1,14 @@
 import { WsConfigVsCompConfig } from '@teambit/docs.content.guides.ws-config-vs-comp-config';
 
-# Configuring the Workspace (workspace.jsonc)
+# Workspace configuration (workspace.jsonc)
 
 The `workspace.jsonc` serves as the main configuration file for the workspace and its components.
 
-`workspace.jsonc` is composed of a list of [Aspects](/extending-bit/aspect-overview) and their corresponding configurations.
-To add configuration to the `workspace.jsonc`, first add the relevant Aspect, and then set its configuration.
+`workspace.jsonc` is composed of Aspect IDs ([Component IDs](/components/component-id)) and their corresponding configurations.
+To add configuration to the `workspace.jsonc`, first add the relevant Aspect ID, and then set its configuration.
 
-For example, to set the Workspace name, add the `teambit.workspace/workspace` Aspect and set its `"name"` property.
-To set versions to install in that Workspace, add the `teambit.dependencies/dependency-resolver` Aspect, and set its `"policy"` property
+For example, to set the Workspace name, add `teambit.workspace/workspace` (which handles the Workspace) and set its `"name"` property.
+To set versions to install in that Workspace, add `teambit.dependencies/dependency-resolver` (which handles dependencies), and set its `"policy"` property.
 
 ```json
 {
@@ -25,19 +25,17 @@ To set versions to install in that Workspace, add the `teambit.dependencies/depe
   }
 }
 ```
-- `teambit.workspace/workspace`: The Workspace Aspect (responsible for the Workspace)
-- `teambit.dependencies/dependency-resolver`: The Dependency Resolver Aspect (responsible for dependency management)
 
-Since each Aspect is a [Component](/docs/components/components-overview), it uses the [Component ID](/docs/components/component-id) pattern.
+:::note Extensible configurations
+The workspace configuration is not limited to a pre-defined set of Aspects. Any Aspect, either from Bit or from the community, can be added as well.
+Check your Aspect's docs to learn how to configure it in the Workspace.
+:::
 
+## Configure the Workspace aspect
 
-The workspace configuration is extensible. It is not limited to a pre-configured list of Aspects.
+`teambit.workspace/workspace` receives configurations for the workspace itself, as well as default values for components managed by that workspace.
 
-## teambit.workspace/workspace
-
-`teambit.workspace/workspace` receives configurations for the workspace itself, as well as default values for components managed by the workspace.
-
-### name
+## name
 
 ```ts
 name: string;
@@ -45,7 +43,7 @@ name: string;
 
 The name of the workspace. This name will be displayed in the workspace UI.
 
-### icon
+## icon
 
 ```ts
 icon: string;
@@ -53,7 +51,7 @@ icon: string;
 
 Th path to an icon (svg, jpeg, etc.). The icon wll be displayed in the workspace UI.
 
-### defaultScope
+## defaultScope
 
 ```ts
 defaultScope: string;
@@ -61,7 +59,7 @@ defaultScope: string;
 
 The default scope for all components in the workspace (this will be overridden by any other source of configuration, For example, variant)
 
-### defaultDirectory
+## defaultDirectory
 
 ```ts
 defaultDirectory: string;
@@ -86,19 +84,18 @@ For example:
 }
 ```
 
-## Adding an Aspect to the workspace configuration
+## Add a new Aspect configuration
 
-When you add an Aspect to the workspace configuration you affect all components in that Workspace.
+When you add an Aspect to the workspace configuration you affect all components in _that_ Workspace.
 
 For example, the custom Aspect `my-org.my-scope/snapshot` defines files that match the glob pattern `**/snapshot.*` as [dev files](/docs/components/dev-files).
 Adding that Aspect to the workspace configuration will define the `**/snapshot.*` files of every component in that Workspace as a dev files.
 
 ```json
 {
-  "teambit.workspace/workspace": {
-    // ..
-  },
-  "company.scope/extensions/my-dev-files": {}
+  "my-org.my-scope/snapshots": {
+    "useDevFiles": true
+  }
 }
 ```
 

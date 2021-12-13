@@ -3,7 +3,7 @@
 ## Create a new Workspace using a template
 
 Create a new Workspace using a template that best suits your future Components.
-Each template provides a specific set of config files and workspace configuration. The workspace configuration includes the Envs, Aspects and dependencies to use.
+Each template provides, among other things, specific [Workspace configuration](/workspace/workspace-configuration). This configuration includes the Envs, Aspects and dependencies to use in that Workspace.
 
 Run the following to list all available templates:
 
@@ -42,13 +42,13 @@ This generates the following files and directories:
 
 A Bit project can be initialized on any project (including an empty one). Use this option to gradually migrate your project to Bit's component-driven paradigm.
 
-At the root of your project's directory, run:
+At the root of your project's directory, run the following:
 
 ```bash
 bit init
 ```
 
-The following files are be created at the root of your project:
+This creates the following files at the root of your project:
 
 - `.bitmap`: The [mapping of Components](/workspace/bitmap) to their corresponding [Component Directory](/workspace/component-directory) in the filesystem.
 - `workspace.jsonc`: The [Workspace configuration](/workspace/workspace-configuration) file.
