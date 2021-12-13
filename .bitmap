@@ -57,6 +57,12 @@
         "mainFile": "index.ts",
         "rootDir": "envs/content/available-services"
     },
+    "content/bit-docs-styleguide": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/bit-docs-styleguide"
+    },
     "content/bitmap": {
         "scope": "teambit.workspace",
         "version": "1.23.0",
@@ -620,6 +626,12 @@
         "version": "1.23.0",
         "mainFile": "index.ts",
         "rootDir": "dependencies/content/installing-dependencies"
+    },
+    "content/isolation-errors": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "component/content/isolation-errors"
     },
     "content/linter-overview": {
         "scope": "teambit.defender",
