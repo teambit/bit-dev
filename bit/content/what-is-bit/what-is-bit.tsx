@@ -1,5 +1,7 @@
 import React from 'react';
 import WhatIsBitLong from './what-is-bit.mdx';
+import WhatIsBitShort from './what-is-bit-short.mdx';
+import WhatIsBitSmall from './what-is-bit-small.mdx';
 
 // export enum Size {
 //   SMALL,
@@ -13,6 +15,8 @@ import WhatIsBitLong from './what-is-bit.mdx';
 
 // @TODO Ran mdx don't support mdx type with typescript.
 // eslint-disable-next-line react/prop-types
-export function WhatIsBit() {
+export function WhatIsBit({ size = 'LARGE' }) {
+  if (size === 'SMALL') return <WhatIsBitSmall />;
+  if (size === 'MEDIUM') return <WhatIsBitShort />;
   return <WhatIsBitLong />;
 }
