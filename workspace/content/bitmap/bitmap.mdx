@@ -1,12 +1,12 @@
 # .bitmap
 
-`.bitmap` is a file auto-generated and managed by Bit in the [Workspace](/workspace/overview) for mapping component to their corresponding directory in the project's file system.
-The `.bitmap` file is meant to be tracked and committed to the VCS repository (Git/Mercurial)
+The `.bitmap` file is where Components are mapped to their Component Directories in the Workspace. 
+It is auto-generated and maintained by Bit.
 
-An example `.bitmap` file can be found on [this example project](https://github.com/bit-demos/ecommerce/blob/main/.bitmap).
+For example, `bit add` and `bit import` add a new [Component Entry](#component-entry) to the `.bitmap` file, while `bit remove` removes an entry.
 
-:::note
-Please note, `.bitmap` file should is not meant or designed to be manually changed by developers. Make sure to use it through Bit commands like `bit add`, `bit remove`, `bit create` or others commands related to controlling the Workspace.
+:::info
+`.bitmap` files should be source-controlled by your SCM as they contain critical information about Components in that project.
 :::
 
 ## Component entry

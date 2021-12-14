@@ -206,19 +206,31 @@ export const learnDocsRoutes: DocsRoute[] = [
     open: false,
     overview: {
       path: 'workspace-overview',
-      title: 'Workspace Overview',
+      title: 'Workspace overview',
       component: <WorkspaceOverview />,
     },
     children: [
       {
         path: 'creating-workspaces',
-        title: 'Creating Workspaces',
+        title: 'Create a workspace',
         component: <CreatingWorkspaces />,
       },
       {
+        path: 'configuring-remote-scopes',
+        title: 'Configure remote scopes',
+        component: <ConfiguringRemoteScopes />,
+      },
+      {
         path: 'creating-components',
-        title: 'Creating components',
+        title: 'Add a component',
         component: <CreateComponents />,
+      },
+      {
+        path: 'workspace-status',
+        title: 'Workspace status',
+        description:
+          "Bit' workspace track changes done to components, and shows the state of each in your project's workspace.",
+        component: <WorkspaceStatus />,
       },
       {
         path: 'workspace-configuration',
@@ -227,28 +239,21 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'directory-structure',
-        title: 'Directory Structure',
+        title: 'Workspace directory structure',
         description:
           'The Bit Workspace is flexible in directory structure to preserve a seamless dev experience for building distributed apps.',
         component: <DirectoryStructure />,
       },
       {
         path: 'component-directory',
-        title: 'Component Directory',
+        title: 'Component directories',
         description:
           'A Component Directory is a directory in the developer Workspace. Directories are mapped as Components using the .bitmap rootDir property which exist for every Component entry.',
         component: <ComponentDir />,
       },
       {
-        path: 'workspace-status',
-        title: 'Workspace Status',
-        description:
-          "Bit' workspace track changes done to components, and shows the state of each in your project's workspace.",
-        component: <WorkspaceStatus />,
-      },
-      {
         path: 'moving-components',
-        title: 'Moving Components',
+        title: 'Move a component',
         description: 'To move a component you can use the bit move command.',
         component: <MovingComponents />,
       },
@@ -260,31 +265,26 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'bitmap',
-        title: 'bitmap',
+        title: 'Component to files map (.bitmap)',
         description:
           ".bitmap is a file auto-generated and managed by Bit in the Workspace for mapping component to their corresponding directory in the project's file system.",
         component: <Bitmap />,
       },
       {
         path: 'component-links',
-        title: 'Workspace Component Link',
+        title: 'Workspace component link',
         component: <WorkspaceLink />,
       },
       {
-        path: 'configuring-remote-scopes',
-        title: 'Configuring Remote Scopes',
-        component: <ConfiguringRemoteScopes />,
-      },
-      {
         path: 'local-scope',
-        title: 'Local Scope',
+        title: 'Local scope',
         description:
           'The Local Scope is located in the .bit or .git/bit directory at the root of the Workspace. It is where component versions (snapshots) are stored.',
         component: <LocalScope />,
       },
       {
         path: 'clearing-cache',
-        title: 'Clearing Cache',
+        title: 'Clear cache',
         component: <ClearingCache />,
       },
     ],
@@ -294,8 +294,7 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Components',
     icon: 'comps',
     open: false,
-    overview:
-      {
+    overview: {
         path: 'component-overview',
         title: 'Component Overview',
         description:
