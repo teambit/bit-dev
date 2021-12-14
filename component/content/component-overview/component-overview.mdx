@@ -24,12 +24,15 @@ For example, the following is a standard React component in a Bit Workspace. Alt
 Right now, it is no more than files in a directory.
 
 ```
+...
 ├── ui
      └── card
           ├── card.module.scss
           ├── card.spec.tsx
           ├── card.tsx
           └── index.ts
+├── workspace.jsonc
+├── .bitmap
 ```
 
 The following command tracks the above component. It provides it with a Component ID and registers this ID in the Workspace's `.bitmap` file:
@@ -46,16 +49,16 @@ $ bit add ui/card --id card
 Since it is a component, it most likely has dependencies. These dependencies are detected and resolved by Bit. This Component is more than a set of source files.
 It has a dependency graph as well. 
 
-Now that it is recognized as a Component by Bit, it uses different Bit Aspects for its development.
+A Component uses different Bit Aspects for its development.
 These Aspects and their corresponding configurations are applied on this Component by various sources in the Workspace.
-These Aspect configurations are also part of this Component.
+The config for these Aspect is also part of this Component.
 
 The Component's data currently exists only in memory. It is not written into any file. The following command displays that data:
 
 ```
 $ bit show card
 ```
-The output contains information regarding its Component ID, source files, main file, and dependencies (where some are components and some are packages).
+The output contains information regarding this Component's ID, source files, main file, and dependencies (where some are components and some are packages).
 Under the 'aspects' label are listed the Aspects that this Component uses:
 
 ```
@@ -116,6 +119,8 @@ new components
 (first version for components)
      > card@1.0.0
 ```
+
+The Component is stored in the Local Scope. It is ready to be exported to a Remote Scope where it will become available to other Workspaces.
 
 ## Component synchronization workflow
 
