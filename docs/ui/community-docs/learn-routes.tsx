@@ -303,12 +303,6 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
     children: [
       {
-        path: 'adding-components',
-        title: 'Adding Components',
-        description: 'Add a new component to be managed by Bit.',
-        component: <AddingComponents />,
-      },
-      {
         path: 'component-config',
         title: 'Component Configuration',
         component: <ComponentConfig />,

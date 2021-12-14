@@ -5,13 +5,14 @@ import componentImg from './component.png';
 
 # Component Overview
 
-**Bit Component** is a container designed for single module or component, it allow you to decouple and version independent components.  
-It is the most fundamental building block of Bit and what enables component-driven software. Create, maintain and compose components to apps and systems.
+A _Component_ is an [independently source-controlled](/components/component-objects) module that is stored in a [Scope](/scope/scope-overview) and maintained in a [Workspace](/workspace/workspace-overview).
+Components are key to effective component-driven development.
 
-Each component has a unique [ID](/components/component-id) and contains [Source Code](/components/source-code), [Dependencies](/dependencies/overview), [Artifacts](/components/artifact), [Configuration](/components/component-config) and [Metadata](/components/metadata). Component generate and manage its own artifacts, like [Package](/packages/package), [Distribution](/compiler/dist), and even a [Preview](/preview/preview).  
-Components are connected together through dependencies, as Bit forms a complete dependency graph of your codebase.
+A Component contains the history of its [Source Code](/components/source-code), [Dependencies](/dependencies/overview) (packages and other Components), [Artifacts](/components/artifact) (including a consumable [package](/packages/packages-overview)), [Configuration](/components/component-config) and [Metadata](/components/metadata).
+Each Component has a unique [ID](/components/component-id) which is used by Scopes and Workspaces, to reference it.
 
-<Image width="30%" src={componentImg} alt="Bit Components" />
+
+<Image src={componentImg} alt="Bit Components" style={{maxWidth: 800}} />
 
 [Workspaces](/docs/workspace/workspace-overview) is where components are developed. You can [snap](/docs/components/snaps) a component to save changes for component, or [tag](/docs/components/tags) and use semver to version a set of changes. Bit persists these changes to builds the component history, and stores it for the workspace. Using [import](/docs/components/importing-components) and [export](/docs/components/exporting-components) to sync these changes to a remote scope.
 
