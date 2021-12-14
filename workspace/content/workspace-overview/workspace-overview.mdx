@@ -5,9 +5,10 @@ import multiRepo from './multi-repo.png';
 
 # Workspace Overview
 
-A Bit Workspace is where you build Components and compose them into services and apps.
+A Bit Workspace is where you build [Components](/components/component-overview) and compose them into services and apps. 
 
-Components authored and maintained in a Workspace are not coupled to it in any way. They can be exported out and imported into other Workspaces.
+Workspaces are usually source-controlled as "standard projects" using SCMs like git. However, once a Component in that Workspace is versioned and exported to a Remote Scope, it is no longer coupled to it in any way.
+In that sense, a Workspace is best thought of as a temporary hub where Components are maintained, composed into more complex Components, and exported again.
 
 <Image src={workspaces} style={{maxWidth: 800}} />
 
@@ -42,16 +43,16 @@ This makes it easy to scale the amount of components in a workspace, scale the a
 
 ## Composition of components
 
-The workspace is a container for the components. You get a monolithic-like developer experience and ability to refactor many components in a single place. In this "container" a component manages its own implementation, history and config ([read more](/docs/components/component-overview)).  
-This allows you to be flexible with how you structure a workspace and its contents. For example, you can [import a component](/docs/components/importing-components):
+A Workspace provides a monolith-like developer experience, and enables you to refactor many components in a single "project". In this "project", each component manages its own implementation, history and config.  
+This allows you to be flexible with how you structure your Workspace. For example, you can [import a component](/docs/components/importing-components):
 
 ```bash
 bit import teambit.community/ui/graph/bubble-graph
 ```
 
-Bit adds the new component to the list of components in the workspace, pulls down the complete revision history, configs and dependencies. Now you can do local modifications, see the component when running `bit start`, and maintain it as if you implemented it in your own workspace.
+Bit adds the new component to the list of components in the workspace, pulls down the complete revision history, configs and dependencies. Now you're able to modify it locally, examine the component when running `bit start`, and maintain it as if that component was authored by you.
 
-In the same sense you can `export` and even `eject` any of your components from a workspace, and more it to another one. So if you started with building all components in the same place, you are not locked to that decision.
+In the same sense you can `export` and even `eject` Components from a Workspace, and more it to another one. So if you started with building all components in the same place, you are not locked to that decision.
 
 <Image src={multiRepo} width="85%"/>
 
