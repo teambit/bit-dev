@@ -1,5 +1,4 @@
 import React from 'react';
-import { MemoryRouter } from 'react-router-dom';
 import { DocsRoute } from '@teambit/docs.entities.docs-routes';
 import { RoutingProvider } from '@teambit/base-ui.routing.routing-provider';
 import { SidebarProvider } from '@teambit/design.ui.sidebar.sidebar-context';
@@ -64,14 +63,12 @@ const routes: DocsRoute[] = [
 ];
 
 export const BasicDocs = () => (
-  <MemoryRouter>
-    <ReactRouterRoutingProvider>
-      {/* @ts-ignore - TODO remove when sidebar use thew new link components */}
-      <RoutingProvider value={reactRouterAdapter}>
-        <SidebarProvider>
-          <Docs baseUrl="/" contents={[{ routes }]} primaryLinks={primaryRoutes} />
-        </SidebarProvider>
-      </RoutingProvider>
-    </ReactRouterRoutingProvider>
-  </MemoryRouter>
+  <ReactRouterRoutingProvider>
+    {/* @ts-ignore - TODO remove when sidebar use thew new link components */}
+    <RoutingProvider value={reactRouterAdapter}>
+      <SidebarProvider>
+        <Docs /* baseUrl="/" */ contents={[{ routes }]} primaryLinks={primaryRoutes} />
+      </SidebarProvider>
+    </RoutingProvider>
+  </ReactRouterRoutingProvider>
 );

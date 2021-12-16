@@ -12,7 +12,7 @@ export function PrimaryLinks({ tree }: { tree: SidebarTreeNode }) {
         // TODO: oded fix that
         const icon = typeof link.payload?.icon === 'string' ? link.payload?.icon : undefined;
         return (
-          <MenuLinkItem key={link.payload?.title} href={link.payload?.path} icon={icon}>
+          <MenuLinkItem key={link.id} href={link.payload?.path} icon={icon}>
             {link.payload?.title}
           </MenuLinkItem>
         );

@@ -81,9 +81,9 @@ export function Docs({ contents, primaryLinks = [], baseUrl, plugins = [], class
       <div {...rest} className={classNames(styles.main, className)}>
         <Sidebar isOpen={sidebar.isOpen} toggle={sidebar.setIsOpen}>
           <PrimaryLinks tree={primaryRoutes.toSideBarTree()} />
-          {contentRoutes?.map((category) => (
+          {contentRoutes?.map((category, idx) => (
             <Tree
-              key={category.title}
+              key={category.title || idx}
               displayTitle={category.title}
               tree={category.routes.toSideBarTree()}
               className={category.className}

@@ -8,7 +8,6 @@ import {
   reactRouterAdapter,
 } from '@teambit/ui-foundation.ui.navigation.react-router.routing-adapter';
 import { SidebarProvider } from '@teambit/design.ui.sidebar.sidebar-context';
-import { MemoryRouter } from 'react-router-dom';
 import { Docs } from './docs';
 
 `Docs` is a component-based documentation section built in React. It is a React component you can use in your website's components.
@@ -68,15 +67,13 @@ This component receives and renders all the Routes and makes them available in R
   ];
 
   return (
-    <MemoryRouter>
-      <ReactRouterRoutingProvider>
-        <RoutingProvider value={reactRouterAdapter}>
-          <SidebarProvider>
-            <Docs baseUrl="/" contents={[{ routes }]} primaryLinks={primaryRoutes} />
-          </SidebarProvider>
-        </RoutingProvider>
-      </ReactRouterRoutingProvider>
-    </MemoryRouter>
+    <ReactRouterRoutingProvider>
+      <RoutingProvider value={reactRouterAdapter}>
+        <SidebarProvider>
+          <Docs baseUrl="/" contents={[{ routes }]} primaryLinks={primaryRoutes} />
+        </SidebarProvider>
+      </RoutingProvider>
+    </ReactRouterRoutingProvider>
   );
 };
 ```
