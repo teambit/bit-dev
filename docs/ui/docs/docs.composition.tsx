@@ -63,12 +63,7 @@ const routes: DocsRoute[] = [
 ];
 
 export const BasicDocs = () => (
-  <ReactRouterRoutingProvider>
-    {/* @ts-ignore - TODO remove when sidebar use thew new link components */}
-    <RoutingProvider value={reactRouterAdapter}>
-      <SidebarProvider>
-        <Docs /* baseUrl="/" */ contents={[{ routes }]} primaryLinks={primaryRoutes} />
-      </SidebarProvider>
-    </RoutingProvider>
-  </ReactRouterRoutingProvider>
+  <SidebarProvider>
+    <Docs /* baseUrl="/" */ contents={[{ routes }]} primaryLinks={primaryRoutes} />
+  </SidebarProvider>
 );

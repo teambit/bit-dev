@@ -10,7 +10,7 @@ export const reactRouterAdapter: RouterContextType = {
   useLocation,
 };
 
-type ReactRouterRoutingProviderProps = {
+export type ReactRouterRoutingProviderProps = {
   children: ReactNode;
 };
 
