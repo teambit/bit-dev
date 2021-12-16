@@ -1,4 +1,5 @@
 import React, { forwardRef, useMemo } from 'react';
+import classnames from 'classnames';
 import { NavLink as BaseNavLink } from 'react-router-dom';
 import { parsePath } from 'history';
 import { NavLinkProps } from '@teambit/base-react.navigation.router-context';
@@ -14,6 +15,16 @@ export const ReactRouterNavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(fu
     href = '',
     state,
     active,
+
+    // WIP!
+    exact,
+    strict, // TOTO - no implementation in RR6
+    activeClassName,
+    activeStyle,
+    className,
+    style,
+    children = null,
+
     // props we should not get, and should not pass to RR link:
     external,
     native,
@@ -25,19 +36,24 @@ export const ReactRouterNavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(fu
 ) {
   const to = useMemo(() => ({ ...parsePath(href), state }), [href, state]);
 
-  const isActive = useMemo(() => {
-    if (active === undefined) return undefined;
-
-    return () => active;
-  }, [active]);
-
   // support legacy routing - which doesn't handle external / native
   if (external || native) {
-    const existingProps = { external, native, active, href, state };
+    const existingProps = { external, native, active, strict, href, state };
 
     return <DefaultNavLink {...existingProps} ref={ref} {...rest} />;
   }
 
   // @ts-ignore (https://github.com/teambit/bit/issues/4401)
-  return <BaseNavLink to={to} isActive={isActive} ref={ref} {...rest} />;
+  return (
+    <BaseNavLink
+      to={to}
+      ref={ref}
+      end={exact}
+      style={({ isActive }) => ({ ...style, ...((active ?? isActive) && activeStyle) })}
+      className={({ isActive }) => classnames(className, (active ?? isActive) && activeClassName)}
+      {...rest}
+    >
+      {children}
+    </BaseNavLink>
+  );
 });

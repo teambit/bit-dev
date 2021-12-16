@@ -15,13 +15,11 @@ export type SidebarNodeProps = {
 } & TreeNodeComponentProps<any>;
 
 export function SidebarNode(props: SidebarNodeProps) {
-  const currentPath = window?.location.pathname;
   const { node, depth } = props;
 
   if (!node.children) {
-    const isNodeActive = currentPath === node.payload.path;
     if (node.payload.displayInSidebar === false) {
-      return <div />;
+      return <div />; // todo - allow null in tree node
     }
     return (
       // TODO: migrate to use the new base-react link with React Router.
@@ -29,25 +27,12 @@ export function SidebarNode(props: SidebarNodeProps) {
         node={{ id: node.payload.title }}
         icon={node.payload?.icon}
         depth={depth}
-        // TODO - navLink should show up as active by itself
-        isActive={isNodeActive}
+        // TODO - update TreeNode to fix activity, when this is merged -> https://github.com/teambit/bit/pull/5152
+        // isActive={isNodeActive}
         href={node.payload?.path}
       />
     );
   }
 
-  const isFolderActive = currentPath.includes(`/${node.id}/`);
-  return (
-    <DocsTreeNode
-      node={{
-        id: node.payload?.title,
-        children: node.children,
-        payload: {
-          ...node.payload,
-          open: isFolderActive || node.payload.open,
-        },
-      }}
-      depth={depth}
-    />
-  );
+  return <DocsTreeNode node={node} depth={depth} />;
 }

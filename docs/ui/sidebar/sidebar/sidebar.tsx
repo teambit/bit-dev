@@ -30,14 +30,9 @@ export type SidebarProps = {
    * a nested tree node, which includes children for tree nesting.
    */
   tree: SidebarTreeNode;
-
-  /**
-   * prefix for all rendered links in the sidebar.
-   */
-  linkPrefix?: string;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-export function Sidebar({ displayTitle, tree, linkPrefix, className, ...rest }: SidebarProps) {
+export function Sidebar({ displayTitle, tree, className, ...rest }: SidebarProps) {
   const links = tree && tree.children;
   if (!links || links.length === 0) return null;
   const [active, setToActive] = useState(tree.id);

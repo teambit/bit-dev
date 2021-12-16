@@ -11,7 +11,15 @@ import { ReactRouterLink, ReactRouterNavLink } from '@teambit/ui-foundation.ui.n
 // * @teambit/base-ui.routing.link
 // * @teambit/base-ui.routing.nav-link
 
-export const legacyRouting: Routing = { Link: ReactRouterLink, NavLink: ReactRouterNavLink, useLocation };
+export const legacyRouting: Routing = {
+  Link: ReactRouterLink,
+  // eslint-disable-next-line react/prop-types
+  NavLink: ({ isActive, ...props }) => {
+    const active = isActive?.();
+    return <ReactRouterNavLink active={active} {...props} />;
+  },
+  useLocation,
+};
 
 export function LegacyRoutingProvider({ children }: { children?: ReactNode }) {
   return <RoutingProvider value={legacyRouting}>{children}</RoutingProvider>;

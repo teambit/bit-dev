@@ -1,4 +1,4 @@
-import React, { ComponentType, RefAttributes, DetailedHTMLProps, AnchorHTMLAttributes } from 'react';
+import React, { ComponentType, RefAttributes, AnchorHTMLAttributes } from 'react';
 
 export interface LinkProps extends RefAttributes<HTMLAnchorElement>, AnchorHTMLAttributes<HTMLAnchorElement> {
   /**
