@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect, ReactNode } from 'react';
+import React, { useMemo, ReactNode } from 'react';
 import classNames from 'classnames';
 import { MenuLinkItem } from '@teambit/design.ui.surfaces.menu.link-item';
 import { useElementOnFold } from '@teambit/docs.ui.hooks.use-element-on-fold';
@@ -20,30 +20,8 @@ export type TableOfContentProps = {
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export function TableOfContent({ className, children, title, rootRef, selectors, ...rest }: TableOfContentProps) {
-  const [isLoaded, setLoaded] = useState(false);
-  const { activeElement, elements } = useElementOnFold(rootRef, selectors, !isLoaded);
+  const { activeElement, elements } = useElementOnFold(rootRef, selectors);
   const anchors = useMemo(() => getLinks(elements), [elements]);
-
-  useEffect(() => {
-    const targetNode = rootRef?.current;
-    if (!(targetNode instanceof HTMLElement)) {
-      return () => {};
-    }
-    const config = {
-      attributes: true,
-      childList: true,
-      characterData: true,
-    };
-    // watch for changes on children
-    const observer = new MutationObserver(() => {
-      setLoaded(true);
-      observer.disconnect();
-    });
-
-    observer.observe(targetNode, config);
-
-    return () => observer.disconnect();
-  }, [rootRef?.current]);
 
   if (!anchors) return null;
   return (

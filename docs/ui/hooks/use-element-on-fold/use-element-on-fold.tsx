@@ -1,61 +1,65 @@
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState, useReducer, useMemo } from 'react';
+import { useDebouncedCallback } from 'use-debounce';
 import { getElements } from './get-elements';
 
-export const useElementOnFold = (ref?: React.MutableRefObject<HTMLElement>, selectors?: string, disabled?: boolean) => {
-  const elements = useMemo(() => getElements({ ref, selectors }), [ref?.current, selectors]);
+export const useElementOnFold = (
+  ref?: React.MutableRefObject<HTMLElement>,
+  selectors?: string,
+  { disabled, debounceDuration = 300 }: { disabled?: boolean; debounceDuration?: number } = {}
+) => {
+  const [idx, update] = useReducer((x) => x + 1, 0);
+  const debouncedUpdate = useDebouncedCallback(update, debounceDuration);
+
+  const elements = useMemo(
+    () => (disabled ? [] : getElements({ ref, selectors })),
+    [ref?.current, selectors, disabled, idx]
+  );
   const [activeElement, setActive] = useState<HTMLElement | undefined>(undefined);
+
+  // recalculate after mounting
+  useEffect(() => debouncedUpdate(), []);
 
   useEffect(() => {
     if (disabled) return undefined;
-    // IntersectionObserver will only run if browser has support
-    if ('IntersectionObserver' in window && 'IntersectionObserverEntry' in window) {
-      const handleIntersection = (entries: IntersectionObserverEntry[]) => {
-        // Get all headings that are currently visible on the page
-        const visibleHeadings: IntersectionObserverEntry[] = [];
+    // IntersectionObserver will only run when browser has support
+    if (typeof IntersectionObserver === 'undefined') return undefined;
 
-        entries.forEach((el: IntersectionObserverEntry) => {
-          if (el.isIntersecting) visibleHeadings.push(el);
-        });
+    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+      // Get all headings that are currently visible on the page
+      const visibleElements: IntersectionObserverEntry[] = entries.filter((el) => el.isIntersecting);
 
-        const getIndexFromId = (id) => entries.findIndex((heading) => heading.target.id === id);
-        // If there is only one visible heading, this is our "active" heading
-        if (visibleHeadings.length === 1) {
-          if (visibleHeadings[0]?.target instanceof HTMLElement) {
-            setActive(visibleHeadings[0]?.target);
-          }
-          // If there is more than one visible heading,
-          // choose the one that is closest to the top of the page
-        } else if (visibleHeadings.length > 1) {
-          const sortedVisibleHeadings = visibleHeadings.sort((a, b) =>
-            sortElementsById(getIndexFromId(a.target.id), getIndexFromId(b.target.id))
-          );
-          if (sortedVisibleHeadings[0] instanceof HTMLElement) {
-            setActive(sortedVisibleHeadings[0]);
-          }
-        }
-      };
-      const observer = new IntersectionObserver(handleIntersection, {
-        rootMargin: '0px 0px -90% 0px',
-      });
-      elements.forEach((element) => {
-        observer.observe(element);
-      });
+      if (visibleElements.length === 0) return;
 
-      return () => observer.disconnect();
-    }
+      // intersection observer sorts entries by their location on the page
+      // so, first element should be the closest to the top of the page
+      if (visibleElements[0]?.target instanceof HTMLElement) {
+        setActive(visibleElements[0]?.target);
+      }
+    };
 
-    return undefined;
-  }, [elements]);
+    const observer = new IntersectionObserver(handleIntersection, { rootMargin: '0px 0px -90px 0px' });
+    elements.forEach((element) => {
+      observer.observe(element);
+    });
 
-  return { activeElement, elements };
+    return () => observer.disconnect();
+  }, [elements, disabled]);
+
+  // recalculate when detecting dom changes
+  useEffect(() => {
+    const targetNode = ref?.current;
+    if (!(targetNode instanceof HTMLElement)) return () => {};
+    if (typeof MutationObserver === undefined) return () => {};
+
+    const config = { attributes: false, childList: true, characterData: false };
+    const observer = new MutationObserver(() => {
+      debouncedUpdate();
+    });
+
+    observer.observe(targetNode, config);
+
+    return () => observer.disconnect();
+  }, [ref?.current]);
+
+  return { activeElement, elements, update: debouncedUpdate };
 };
-
-function sortElementsById(a, b) {
-  if (a < b) {
-    return -1;
-  }
-  if (a > b) {
-    return 1;
-  }
-  return 0;
-}
