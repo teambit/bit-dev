@@ -2,7 +2,7 @@ import ComponentMainFile from '@teambit/component.content.component-main-file';
 
 # Component Anatomy
 
-A Component contains data of five types:
+A Component contains 5 types of data:
 
 - Source code
 - Dependencies
@@ -10,45 +10,15 @@ A Component contains data of five types:
 - Artifacts
 - Metadata
 
-To see how Bit structures your component, use the `show` command:
-
-```
-bit show teambit.community/ui/graph/bubble-graph --remote
-```
-
-```
-┌───────────────────┬──────────────────────────────────────────────────────────────────┐
-│ id                │ teambit.community/ui/graph/bubble-graph@1.8.15                   │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ scope             │ teambit.community                                                │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ name              │ ui/graph/bubble-graph                                            │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ env               │ teambit.community/envs/community-react@1.8.15                    │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ package name      │ @teambit/community.ui.graph.bubble-graph                         │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ main file         │ index.ts                                                         │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ files             │ ...                                                              │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ dev files         │ ...                                                              │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ extensions        │ ...                                                              │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ dependencies      │ ...                                                              │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ dev dependencies  │ ...                                                              │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ peer dependencies │ ...                                                              │
-└───────────────────┴──────────────────────────────────────────────────────────────────┘
-```
-
 ## Source code
 
-Typically, the component’s content is not just the source code itself and can include additional files that are related, such as the styling files, assets (images, fonts), test code, documentation.
+The Component's main file, implementation files and development files. A file is considered part of the Component's files if it is under the same Component Directory.
 
 ```bash
+$ bit show teambit.community/ui/graph/bubble-graph
+
+┌───────────────────┬──────────────────────────────────────────────────────────────────┐
+│ ...               │ ...                                                              │
 ├───────────────────┼──────────────────────────────────────────────────────────────────┤
 │ main file         │ index.ts                                                         │
 ├───────────────────┼──────────────────────────────────────────────────────────────────┤
@@ -64,39 +34,19 @@ Typically, the component’s content is not just the source code itself and can 
 │                   │ bubble-graph.composition.tsx (teambit.compositions/compositions) │
 │                   │ bubble-graph.docs.mdx (teambit.docs/docs)                        │
 ├───────────────────┼──────────────────────────────────────────────────────────────────┤
+│ ...               │ ...                                                              │
+└───────────────────┴──────────────────────────────────────────────────────────────────┘
 ```
-
-### Main file
-
-Main file exposes the public API of the component. Read more about it [here](/docs/components/component-main-file).
-
-### Implementation files
-
-Components can have any number of files. Files can be sorted into sub-directories for readability. Files can be TypeScript files implementing functionality, design assets like `scss` and even binary files like `png`.
-
-### Dev Files
-
-Component dev-files are files we use for non-production purposes like testing, documentation, etc. Categorizing dev-files helps Bit with marking which dependencies should be considered as `devDependencies`, thus help with managing a component dependency tree.  
-
-Bit marks which configuration set each of the files as a dev-file. [read more](docs/components/dev-files) on how to manage component dev-files.
 
 ## Dependencies
 
-Component dependencies are managed by the [dependency resolver](https://bit.dev/docs/dependencies/dependencies-overview). This tool reads through all `import` and `require` statement in the component source code, and maps them to components or installed packages.
-
-Bit then creates a model of all the dependencies of the component. The dependency graph makes a component self-contained and allows for moving the component around projects without losing any references.
-The dependencies include the following:
-
-- NPM packages installed as `node_modules`
-- Bit components installed as `node_modules`
-- Bit components in the workspace.
-
-Dependencies according to their source.
-
-- Package dependencies - All dependencies that packages from any node module registry (like npmjs.org)
-- Bit components - Dependencies that are also components, regardless if they are in the same workpsace or installed to `node_modules`.
+A Component's dependencies. This includes Components maintained in the same Workspace, as well as external dependencies. External dependencies can be packages or other Components that are installed as packages.
 
 ```bash
+$ bit show teambit.community/ui/graph/bubble-graph
+
+┌───────────────────┬──────────────────────────────────────────────────────────────────┐
+│ ...               │ ...                                                              │
 ├───────────────────┼──────────────────────────────────────────────────────────────────┤
 │ dependencies      │ @teambit/community.entity.graph.grid-graph@1.9.53--- (component) │
 │                   │ @teambit/community.ui.graph.grid-graph@1.9.58------- (component) │
@@ -118,21 +68,15 @@ Dependencies according to their source.
 └───────────────────┴──────────────────────────────────────────────────────────────────┘
 ```
 
-### Dependency types
-
-`dependencies` and `devDependencies` are contextual to the component. While one component may use a dependency for its documentation, anohter component may use it for its implementation. This is why the dependency resolver is managing depenency type on a per-component basis. More specifically, by understanding in which file type the dependency is used.
-
-- Dependency used in a dev-file: `devDependencies`.
-- Dependency used in an implementation file: `dependencies`.
-- Dependency used in both dev-file and implementation file: `dependencies`.
-
-If a dependency is marked as a `peerDependency`, Bit marks that dependency as a `peerDependency`, regardless of where it is used.
-
 ## Configuration
 
-Configuration is the different aspects loaded for each component. Each aspect is responsible for a specific part of the component's lifecycle and holds a configuration for itself.
+A Component's configuration consists of the Aspects it uses and their corresponding configs.
 
 ```bash
+$ bit show teambit.community/ui/graph/bubble-graph
+
+┌───────────────────┬──────────────────────────────────────────────────────────────────┐
+│ ...               │ ...                                                              │
 ├───────────────────┼──────────────────────────────────────────────────────────────────┤
 │ extensions        │ teambit.community/envs/community-react@1.8.15                    │
 │                   │ teambit.component/dev-files                                      │
@@ -143,17 +87,21 @@ Configuration is the different aspects loaded for each component. Each aspect is
 │                   │ teambit.dependencies/dependency-resolver                         │
 │                   │ teambit.pipelines/builder                                        │
 ├───────────────────┼──────────────────────────────────────────────────────────────────┤
+│ ...               │ ...                                                              │
+└───────────────────┴──────────────────────────────────────────────────────────────────┘
 ```
 
 ## Artifacts
 
-During the component build pipeline Bit creates several artifacts and saves them as part of the model. See all artifacts with the `artifacts` command:
+Artifacts are generated during the Component build. Artifacts are persisted when a Component is snapped or tagged. Each Component version holds the artifacts that were generated as part of its build.
+
+The following lists a Component's latest artifacts:
 
 ```bash
 bit artifacts teambit.community/ui/graph/bubble-graph
 ```
 
-Each version or snap of a component holds a list of generated artifacts. Each aspect creates can create various artifacts, according to its task.
+The following output groups the Component artifacts by the Aspect (Aspect ID) that registered the build task, and then again, by the build task name:
 
 ```bash
 teambit.community/ui/graph/bubble-graph@1.9.58
