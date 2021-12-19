@@ -1,6 +1,6 @@
 # Dev Files
 
-Dev files are component files used for development and not for production. Dev files are determined as such by the Dev Files Aspect.
+Dev files are Component files used for development and not for production. Dev files are determined as such by the Dev Files Aspect.
 
 Categorizing files as dev files is especially useful in dependency resolution, as dependencies can be inferred to be of type `devDependencies` by looking at the type of files that use them (if 'package-a' is only used by the component's dev files, then it is a dev dependency of that component).
 
@@ -15,7 +15,7 @@ For example, the `ui/card` component has the following file structure:
     └── index.ts
 ```
 
-To examine it:
+To examine it using the `bit show` command:
 
 ```
 $ bit show ui/card
@@ -52,10 +52,10 @@ $ bit show ui/card
 └───────────────────┴──────────────────────────────────────────────────────────┘
 ```
 
-The component's compositions, documentation and test files are categorized as 'dev files'.
-To the side of each listed dev file, you'll find the Aspect that registered it as such (via the Dev Files Aspect).
+The Component's compositions, documentation and test files are categorized as 'dev files'.
 
-If, for example, `@testing-library/react` will be used by the test file, `card.spec.tsx` (and no other production file), it will be inferred as a dev dependency of that component.
+Any dependency of these files (and only these files) is resolved as a dev dependency.
+For example, `@testing-library/react` is used by the Component's test file, `card.spec.tsx` (and no other production file):
 
 ```tsx
 // card.spec.tsx
@@ -70,6 +70,8 @@ it('should render a Heading', () => {
   expect(rendered).toBeTruthy();
 });
 ```
+
+The following examines the `ui/card` dependencies. Notice how `@testing-library/react` is resolved as a dev dependency.
 
 ```bash
 $ bit show ui/card
@@ -86,11 +88,11 @@ $ bit show ui/card
 └───────────────────┴──────────────────────────────────────────────────────────┘
 ```
 
-## Configuring Dev Files
+## Configure dev files
 
 Dev files are configured by setting glob patterns that match the files' names.
 
-### Setting Glob Patterns via `workspace.jsonc`
+### Set glob patterns via `workspace.jsonc`
 
 Use the `devFilePatterns` property in `teambit.component/dev-files` to manually set a glob pattern for dev files.
 
@@ -106,7 +108,7 @@ Use the `devFilePatterns` property in `teambit.component/dev-files` to manually 
 }
 ```
 
-### Setting Glob Patterns via the Dev Files API
+### Set glob patterns via the Dev Files aspect API
 
 Update your extension or create an new one to register glob patterns for dev files, using the Dev Files `registerDevPattern` API.
 
