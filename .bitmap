@@ -39,6 +39,13 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/buttons/button"
     },
+    "content/add-components": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.workspace",
+        "mainFile": "index.ts",
+        "rootDir": "workspace/content/add-components"
+    },
     "content/adding-components": {
         "scope": "teambit.component",
         "version": "1.23.0",
@@ -206,6 +213,13 @@
         "version": "1.23.0",
         "mainFile": "index.ts",
         "rootDir": "component/content/component-overview"
+    },
+    "content/compose-components": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.component",
+        "mainFile": "index.ts",
+        "rootDir": "component/content/compose-components"
     },
     "content/composition-context": {
         "scope": "teambit.compositions",

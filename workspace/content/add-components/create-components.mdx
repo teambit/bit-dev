@@ -1,0 +1,78 @@
+import { Image } from '@teambit/docs.ui.zoomable-image';
+import componentImg from './component.png';
+
+# Create Components
+
+When you create a component you generate its initial source files and add its component ID to the [.bitmap file](/workspace/bitmap).
+
+Components can be of various types such as, React, Angular, NodeJS, and others. The type of each component is determined by the Env it uses.
+
+## Create Components using a template
+
+Bit's official Envs offer Component templates to help you create new components. Run the following command inside your Workspace directory to list all available component templates:
+
+```bash
+bit templates
+```
+
+The output is similar to the following (it may also include templates provided by custom Envs in your Workspace):
+
+```
+teambit.react/react
+    react (a basic react component)
+    react-context (a react context component)
+    react-hook (a react hook component)
+    react-env (customize the base React env with your configs and tools)
+
+teambit.harmony/node
+    node-env (customize the base Node env with your configs and tools)
+    module (a general purpose node module)
+
+teambit.harmony/aspect
+    aspect (extend Bit capabilities)
+
+teambit.mdx/mdx
+    mdx (Content component)
+```
+
+Run the following to create a component using one of these templates:
+
+```bash
+bit create COMPONENT_TEMPLATE COMPONENT_NAME [--scope SCOPE_NAME]
+```
+
+For example, run the following to create a React component:
+
+```bash
+bit create react ui/my-welcome
+```
+
+A [Component Directory](/workspace/component-directory) is generated with the following files:
+
+- `index.ts` / [Component main file](/components/main-file), exposing the component API.
+- `my-welcome.tsx` / Implantation of the React component. You can add as many files as required for your Component to operate.
+- `my-welcome.spec.tsx` / [Tests](/tester/overview) file for the Component.
+- `my-welcome.compositions.tsx` / [Compositions](/compositions/overview) file helping to simulate and visualize the component in different states.
+- `my-welcome.docs.md` / [Docs](/docs/overview) file. A markdown file for documenting the component.
+
+
+The Component's Env is not determined by the templated it used, but by the [Component Configuration](/components/component-config).
+To learn more about configuring an Env see [Using Envs](//envs/using-env).
+
+## Track existing directories as Components
+
+Track an existing directory as a Component by running the following:
+
+```bash
+bit add COMPONENT_DIRECTORY_PATH [--namespace NAMESPACES] [--main COMPONENT_MAIN_FILE]
+```
+
+For example, to add the `ui/button` directory (using its relative path in the Workspace directory), and to name it with the `ui/inputs` namespaces, run the following:
+
+```
+bit add ui/button --namespaces ui/inputs
+```
+
+:::note Component entry file
+A component's [main or entry file](/components/component-main-file) is `index.{t,j}s` by default. To set a different file use the `--main` option.
+:::

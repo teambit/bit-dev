@@ -28,6 +28,7 @@ const ConfiguringRemoteScopes = lazy(() => import('@teambit/workspace.content.co
 const LocalScope = lazy(() => import('@teambit/workspace.content.local-scope'));
 const MovingComponents = lazy(() => import('@teambit/workspace.content.moving-components'));
 const Variants = lazy(() => import('@teambit/workspace.content.variants'));
+const AddComponents = lazy(() => import('@teambit/workspace.content.add-components'));
 
 /* Scope */
 const ScopeBitCloud = lazy(() => import('@teambit/scope.content.scope-bit-cloud'));
@@ -106,7 +107,6 @@ const RenderingDocs = lazy(() => import('@teambit/docs.content.rendering-docs'))
 /* Community */
 const Styleguide = lazy(() => import('@teambit/community.content.bit-docs-styleguide'));
 
-
 /* Compositions */
 
 const CompositionsOverview = lazy(() => import('@teambit/compositions.content.compositions-overview'));
@@ -127,12 +127,11 @@ const ComponentConfig = lazy(() => import('@teambit/component.content.component-
 const ComponentJson = lazy(() => import('@teambit/component.content.component-json'));
 const ComponentObjects = lazy(() => import('@teambit/component.content.component-objects'));
 const DevFiles = lazy(() => import('@teambit/component.content.dev-files'));
-const InspectingComponents = lazy(() => import('@teambit/component.content.inspecting-components'));
 const Tags = lazy(() => import('@teambit/component.content.tags'));
 const Snaps = lazy(() => import('@teambit/component.content.snaps'));
 const ComponentAnatomy = lazy(() => import('@teambit/component.content.component-anatomy'));
-const AddingComponents = lazy(() => import('@teambit/component.content.adding-components'));
 const IsolationErrors = lazy(() => import('@teambit/component.content.isolation-errors'));
+const ComposeComponents = lazy(() => import('@teambit/component.content.compose-components'));
 
 /* Envs */
 
@@ -223,7 +222,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'creating-components',
         title: 'Add a component',
-        component: <CreateComponents />,
+        component: <AddComponents />,
       },
       {
         path: 'workspace-status',
@@ -295,13 +294,18 @@ export const learnDocsRoutes: DocsRoute[] = [
     icon: 'comps',
     open: false,
     overview: {
-        path: 'component-overview',
-        title: 'Component Overview',
-        description:
-          'Component is a decoupled, versioned source-code container designed for the purpose of containing a single module or component.',
-        component: <ComponentOverview />,
-      },
+      path: 'component-overview',
+      title: 'Component Overview',
+      description:
+        'Component is a decoupled, versioned source-code container designed for the purpose of containing a single module or component.',
+      component: <ComponentOverview />,
+    },
     children: [
+      {
+        path: 'compose-components',
+        title: 'Compose a component',
+        component: <ComposeComponents />,
+      },
       {
         path: 'component-config',
         title: 'Component Configuration',
@@ -321,15 +325,9 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <ComponentAnatomy />,
       },
       {
-        path: 'inspecting-components',
-        title: 'Inspecting components',
-        component: <InspectingComponents />,
-      },
-      {
         path: 'component-main-file',
         title: 'Main file',
-        description:
-          'Main file exposes the Component API.',
+        description: 'Main file exposes the Component API.',
         component: <MainFile />,
       },
       {
@@ -401,7 +399,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'isolation-errors',
         title: 'Isolation errors',
-        component: <IsolationErrors />
+        component: <IsolationErrors />,
       },
     ],
   },
@@ -500,23 +498,20 @@ export const learnDocsRoutes: DocsRoute[] = [
     overview: {
       path: 'scope-overview',
       title: 'Scope Overview',
-      description:
-        'Scope is a server for hosting components.',
+      description: 'Scope is a server for hosting components.',
       component: <ScopeOverview />,
     },
     children: [
       {
         path: 'scope-bit-cloud',
         title: 'Scopes on Bit.cloud',
-        description:
-          'Bit.cloud is a cloud hosting provider for Bit Scopes and Components.',
-          component: <ScopeBitCloud />
+        description: 'Bit.cloud is a cloud hosting provider for Bit Scopes and Components.',
+        component: <ScopeBitCloud />,
       },
       {
         path: 'creating-scopes',
         title: 'Create bare scope',
-        description:
-          'Base Scopes used as remote storage for components.',
+        description: 'Base Scopes used as remote storage for components.',
         component: <CreatingScopes />,
       },
       {
@@ -532,8 +527,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'remote-scopes',
         title: 'Remotes',
-        description:
-          'Connect scopes and workspace with remotes.',
+        description: 'Connect scopes and workspace with remotes.',
         component: <RemoteScopes />,
       },
       /*{
