@@ -13,24 +13,24 @@ export type Route = {
 };
 
 export class DocsRoutes {
-  constructor(readonly tree: DocsRoute[], readonly basePath?: string) {}
+  constructor(readonly tree: DocsRoute[]) {}
 
   /**
    * get the list of routes to include.
    */
-  getRoutes(): Route[] {
+  getRoutes(basePath?: string): Route[] {
     return this.tree.flatMap((route) => {
-      return this.computeRoutes(route, this.basePath);
+      return this.computeRoutes(route, basePath);
     });
   }
 
   /**
    * create a sidebar tree.
    */
-  toSideBarTree(): SidebarTreeNode {
+  toSideBarTree(basePath?: string): SidebarTreeNode {
     return {
       id: '',
-      children: this.tree.map((node) => this.computeTreeNode(node, this.basePath)),
+      children: this.tree.map((node) => this.computeTreeNode(node, basePath)),
     };
   }
 
@@ -128,7 +128,7 @@ export class DocsRoutes {
     ];
   }
 
-  static from(routes: DocsRoute[], basePath?: string) {
-    return new DocsRoutes(routes, basePath);
+  static from(routes: DocsRoute[]) {
+    return new DocsRoutes(routes);
   }
 }

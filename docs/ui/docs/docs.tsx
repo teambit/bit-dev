@@ -53,11 +53,11 @@ export type DocsProps = {
 
 export function Docs({ contents, primaryLinks = [], baseUrl, plugins = [], className, ...rest }: DocsProps) {
   const sidebar = useSidebar();
-  const primaryRoutes = DocsRoutes.from(primaryLinks, baseUrl);
+  const primaryRoutes = DocsRoutes.from(primaryLinks);
   const contentRoutes = contents?.map((category) => {
     return {
       title: category.title,
-      routes: DocsRoutes.from(category.routes || [], ''),
+      routes: DocsRoutes.from(category.routes || []),
       className: category.className,
     };
   });
@@ -80,12 +80,12 @@ export function Docs({ contents, primaryLinks = [], baseUrl, plugins = [], class
     >
       <div {...rest} className={classNames(styles.main, className)}>
         <Sidebar isOpen={sidebar.isOpen} toggle={sidebar.setIsOpen}>
-          <PrimaryLinks tree={primaryRoutes.toSideBarTree()} />
+          <PrimaryLinks tree={primaryRoutes.toSideBarTree(baseUrl)} />
           {contentRoutes?.map((category, idx) => (
             <Tree
               key={category.title || idx}
               displayTitle={category.title}
-              tree={category.routes.toSideBarTree()}
+              tree={category.routes.toSideBarTree(baseUrl)}
               className={category.className}
             />
           ))}
