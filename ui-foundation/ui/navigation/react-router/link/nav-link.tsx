@@ -16,9 +16,8 @@ export const ReactRouterNavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(fu
     state,
     active,
 
-    // WIP!
     exact,
-    strict, // TOTO - no implementation in RR6
+    strict, // no implementation in RR6
     activeClassName,
     activeStyle,
     className,
