@@ -264,7 +264,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'bitmap',
-        title: 'Component to files map (.bitmap)',
+        title: 'Component mapping (.bitmap)',
         description:
           ".bitmap is a file auto-generated and managed by Bit in the Workspace for mapping component to their corresponding directory in the project's file system.",
         component: <Bitmap />,
@@ -308,7 +308,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'component-config',
-        title: 'Component Configuration',
+        title: 'Component configuration',
         component: <ComponentConfig />,
       },
       {
@@ -320,7 +320,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'component-anatomy',
-        title: 'Component Anatomy',
+        title: 'Component anatomy',
         description: 'How Bit manages all data on a component.',
         component: <ComponentAnatomy />,
       },
@@ -339,13 +339,13 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'snaps',
-        title: 'Snapshot changes',
+        title: 'Snaps',
         description: 'Record component history with snapshots.',
         component: <Snaps />,
       },
       {
         path: 'tags',
-        title: 'Versioning',
+        title: 'Tags',
         description: 'Manage component releases with semantic version.',
         component: <Tags />,
       },
@@ -392,13 +392,14 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'component-objects',
-        title: 'Component Objects',
+        title: 'Component objects',
         description: 'How Bit saves revision history for components',
         component: <ComponentObjects />,
       },
       {
         path: 'isolation-errors',
         title: 'Isolation errors',
+        displayInSidebar: false,
         component: <IsolationErrors />,
       },
     ],
