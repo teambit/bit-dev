@@ -13,7 +13,7 @@ export type RouterProviderProps = {
 export function RouterProvider({ children }: RouterProviderProps) {
   return (
     <RoutingProvider value={legacyRouting}>
-      <ReactRouterRoutingProvider useBrowserRouter>{children}</ReactRouterRoutingProvider>
+      <ReactRouterRoutingProvider>{children}</ReactRouterRoutingProvider>
     </RoutingProvider>
   );
 }

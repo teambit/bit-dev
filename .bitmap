@@ -585,6 +585,13 @@
         "mainFile": "index.ts",
         "rootDir": "envs/content/inspecting-env"
     },
+    "content/installation/add-to-existing-project": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.docs",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/installation/add-to-existing-project"
+    },
     "content/installing-dependencies": {
         "scope": "teambit.dependencies",
         "version": "1.23.0",
@@ -885,6 +892,13 @@
         "mainFile": "index.ts",
         "rootDir": "dependencies/content/yarn"
     },
+    "docs/installation/setup-editor": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.bit",
+        "mainFile": "index.ts",
+        "rootDir": "bit/docs/installation/setup-editor"
+    },
     "entities/docs-routes": {
         "scope": "teambit.docs",
         "version": "1.23.2",
@@ -1005,6 +1019,12 @@
         "mainFile": "index.ts",
         "rootDir": "docs/plugins/next-page"
     },
+    "relations-graph": {
+        "scope": "teambit.graph",
+        "version": "0.0.2",
+        "mainFile": "index.ts",
+        "rootDir": "graph/relations-graph"
+    },
     "theme/create-theme": {
         "scope": "teambit.base-react",
         "version": "1.23.0",
@@ -1070,6 +1090,12 @@
         "version": "1.23.0",
         "mainFile": "index.ts",
         "rootDir": "community/ui/component-card-grid"
+    },
+    "ui/component-thinking-process": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/ui/component-thinking-process"
     },
     "ui/content/caption": {
         "scope": "teambit.design",

@@ -6,7 +6,7 @@ import { Header } from '@teambit/community.ui.header.header';
 import { Homepage } from '@teambit/community.ui.pages.homepage';
 import { NotFound } from '@teambit/community.ui.pages.errors.not-found';
 import { CommunityDocs } from '@teambit/docs.ui.community-docs';
-import { WideColumn } from '@teambit/base-ui.layout.page-frame';
+import { wideColumn } from '@teambit/base-ui.layout.page-frame';
 import { Footer, footerMock } from '@teambit/community.ui.footer.footer';
 import { AppContext } from './app-context';
 
@@ -22,16 +22,16 @@ export function BitDevApp() {
       <Switch>
         <Redirect exact from="/docs" to="/docs/quick-start" />
         <Route path="/docs">
-          <WideColumn>
+          <div className={wideColumn}>
             <CommunityDocs />
-          </WideColumn>
+          </div>
         </Route>
 
         <Redirect exact from="/guides" to="/guides/micro-frontends/overview" />
         <Route path="/guides">
-          <WideColumn>
+          <div className={wideColumn}>
             <Guides />
-          </WideColumn>
+          </div>
         </Route>
         <Route exact path="/plugins">
           <Plugins />
@@ -41,9 +41,9 @@ export function BitDevApp() {
         </Route>
         <Route component={NotFound} />
       </Switch>
-      <WideColumn>
+      <div className={wideColumn}>
         <Footer categoryList={footerMock} />
-      </WideColumn>
+      </div>
       {/* footer component */}
     </AppContext>
   );

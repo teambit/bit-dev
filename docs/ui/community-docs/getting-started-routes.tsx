@@ -9,14 +9,19 @@ const CreateComponents = loadable(
   () => import('@teambit/community.content.getting-started.composing.create-components')
 );
 
+const InstallingBit = loadable(() => import('@teambit/docs.content.getting-started.installing-bit'));
+
 const VersionComponents = loadable(() => import('@teambit/docs.content.getting-started.version-components'));
 // const NamingComponents = loadable(() => import('@teambit/docs.content.getting-started.version-components'));
 // const WhatIsScope = loadable(() => import('@teambit/docs.content.getting-started.what-is-scope'));
 // const HostBitCloud = loadable(() => import('@teambit/docs.content.getting-started.host-bit-cloud'));
 // const SelfHostScope = loadable(() => import('@teambit/docs.content.getting-started.self-host-scope'));
 const ShareComponents = loadable(() => import('@teambit/docs.content.getting-started.share-components'));
+const AddToExistingProject = loadable(() => import('@teambit/docs.content.installation.add-to-existing-project'));
+
 const InstallComponents = loadable(() => import('@teambit/docs.content.getting-started.install-components'));
 const ImportComponents = loadable(() => import('@teambit/docs.content.getting-started.import-components'));
+const EditorSetup = loadable(() => import('@teambit/bit.docs.installation.setup-editor'));
 const UpdateComponents = loadable(() => import('@teambit/docs.content.getting-started.update-components'));
 const CiExport = loadable(() => import('@teambit/docs.content.getting-started.ci-export'));
 // const CiInstall = loadable(() => import('@teambit/docs.content.getting-started.ci-install'));
@@ -31,6 +36,13 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
     // component: <InstallingBit />,
     children: [
       {
+        path: 'installing-bit',
+        title: 'Installing Bit',
+        // description:
+        //   'A Bit Workspace is where components are built and composed. Workspaces can be generated with the bit new command or initialized on an existing project.',
+        component: <InstallingBit />,
+      },
+      {
         path: 'start-bit-workspace',
         title: 'Start a new Bit Workspace',
         description:
@@ -40,10 +52,12 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
       {
         path: 'add-to-existing-project',
         title: 'Add to existing project',
+        component: <AddToExistingProject />,
       },
       {
         path: 'editor-setup',
         title: 'Editor Setup',
+        component: <EditorSetup />,
       },
       {
         path: 'getting-started/setup-ci',

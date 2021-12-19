@@ -1,7 +1,7 @@
 import React from 'react';
 import { RelationsGraph } from '@teambit/graph.relations-graph';
 
-export function Graph() {
+export function WikiGraph() {
   return (
     <div style={{ width: '100%', height: 500 }}>
       <RelationsGraph

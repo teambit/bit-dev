@@ -11,17 +11,23 @@ import { WikiApp } from '@teambit/wiki.apps.wiki';
 import { Graph } from './graph';
 import { HighlightComponent } from '@teambit/docs.ui.highlighter.highlight-component';
 import { TopInventions } from '@learnbit/inventions.blocks.top-inventions';
+import { TabContainer, TabList, Tab, TabPanel } from '@teambit/design.ui.panels.tabs';
+import { Tabs } from './tabs';
 import styles from './thinking-in-components.module.scss';
 import { exampleComponents } from './example-components';
+import AppContent from './app.mdx';
+import { wikiComponents } from './wiki';
 
 # Thinking in components
-As you might have noticed, this site was built in independent components. As we built the new documentation we started hiring more people to work at Bit and we needed
-a wiki to be a single source of truth for all information internal at Bit to keep everyone in sync as we scale and decided to document the process to demonstarate
+As you might have noticed, this site was built in components. As we built the new documentation we started hiring more people to work for our company and we needed
+an internal wiki site to be a single source of truth for all information internal at Bit to keep everyone in sync. We decided to document the process to demonstarate
 thinking in components. 
 
 Thinking in components is a recursive process that starts at defining and the **immediate component we need**. Upon the definition of this component, **think which components you wish you had now**. 
-Search for these components, try to **use or collaborte on something that exists**, otherwise **create a new component that fulfills this exact need**.
+Search for these components, try to **use or collaborte on something that exists**, otherwise **repeat the process with a new component that fulfills this exact need**.
 
+Below is the [wiki application](/) component we ended up building. Next sections will cover how we built the wiki website based on the work we have done for this documentation
+website.
 <!-- Thinking in components is a different mindset. It is about understanding and capitalizing on smaller, reusable portions of value in the mutual work we do that compose together to
 a greater whole. 
 This could apply on almost anything we create from software development, to content creation, design, product management or even organization structure and anything you might imagine.
@@ -31,43 +37,93 @@ To demonstarate thinking in components we would use the following simple product
 <br />
 
 <ExcludeHighlighter>
-  <MemoryRouter>
-    <BubbleHighlighter componentId={ComponentID.fromString('teambit.wiki/apps/wiki')} showId>
+  <BubbleHighlighter componentId={ComponentID.fromString('teambit.wiki/apps/wiki')} showId>
+    <MemoryRouter>
       <WikiApp />
-    </BubbleHighlighter>
-  </MemoryRouter>
+    </MemoryRouter>
+  </BubbleHighlighter>
 </ExcludeHighlighter>
 
 <br />
 
 <Graph />
 
-## Define the component you need
+Before we will dive into the process of thinking and composing this app. Let's start with a component.
 
-So in our case, the definition was very simple, we wanted a Wiki in the new internal website we are building for our company called `.bit`. Our first decision was the decide
-the name for the component. No worries! Even if you won't get it right on the get go, you can always fix later! 
+## Components
 
+A component as an independent, reusable product with an interface for using it. A component serve a single purpose. You design the component interface for your own needs, 
+then expand over time to support the needs of other teammates, other product teams and eventually to entire world.
+
+Components are described by names and APIs, and contain source code implementation. They can be of different kinds like apps, pages, UI components, backend services and even content. 
+You can think of almost anything in components.
+
+In the example above we have used this components:
+
+<ComponentCardGroup components={wikiComponents} />
+<br />
+
+
+<!-- ```ts
+export type ComponentDef = {
+  scope: '', // scope defines the ownership over a component. (scope of ownership)
+  type: '', // type of the component. (app, ui, backend, module, page, block, hook etc.). (semantic type of the component.)
+  env: '', // development environment for the component. (react, node, angular, vue, aspect) or your custom one. (technological constraints)
+  functionality: '' // segment the component by its functionallity, in relation the its containing scope (buttons/button, pages/).
+}
+
+function createComponent(def: ComponentDef) { // Step one
+  const id: ComponentID = ComponentID.fromDef(def);
+  const componentsToUse: ComponentDef[] = defineComponentsToUse(); // Step 2
+  const componentsToCreate: ComponentDef[] = defineComponentsToCreate(); // Step 3
+  
+  const componentsCreated = componentsToCreate.map((def) => {
+    return createComponent(def); // Step 4
+  });
+
+  // Step 5
+  const dependencies: Component[] = componentsCreated.concat(componentsToUse); 
+  const sourceCode: SourceCode = implementComponent(dependencies); 
+
+  // Step 6
+  return new Component(id, sourceCode, def.env);
+}
+``` -->
+
+<Tabs tabs={['App', 'Header', 'Wiki', 'About']}>
+  {[
+    <AppContent />
+  ]}
+</Tabs>
+
+## Collaborate
+
+
+<!-- ## Step 5: Merge -->
+
+
+
+Upon in the implementation of each of these components try and search for solutions at bit.cloud, try to use the component. 
+This way, you can easily replace the implementation of your header and keep your other components agnostic to it.
+
+For each of these components, create your own components and search for useful components with team mates and on [bit.cloud](https://bit.cloud).
+
+We goun
+
+For each of these components, search for useful components on bit.cloud or implement 
+For each of these components, Search for useful components  inspiration of [bit.cloud](https://bit.cloud/components), collaborate with a product manager
+like designers and product managers  or create new ones. 
+
+We will start with the header.
+We have found a component Bit used to build this website and decided to use it. It is flexiable enough to our needs and we are looking for a simple menu to start with.
+
+We have decided to create our own header, and use the header we have built for 
+
+```bash
+bit create react wiki
 ```
-bit create react-app apps/wiki
-```
-```
-1 component(s) were created
 
-ranm8.wiki/apps/wiki
-    location: wiki/apps/wiki
-    env:      teambit.harmony/node
-```
-
-We have now created the first node of the graph.
-
-## Step 2: Think which components you wish you had
-
-The first step is thinking which components you wish you had now: 
-
-Looking into the design sketch, In our case I needed the follwing
-
-
-
+Use the header we found.
 
 <!-- Thinking of this simple product in one-piece, keeps us longer away from initial value creation, and ends up creating a single point of value. We ended up creating something
 very specific that ever serves a single purpose, ignoring the smaller details. The bigger the one-piece is, the bigger the problem gets.
@@ -113,18 +169,7 @@ Problems all of these stake holders are working in different methods and work on
 - Bad user experience.
 - Inconsistency.
 - Motivates to work alone. -->
-
-## Components
-
-Components are the small and reusable portions of value you can find and capitalize in the work you do. You should think of a component as an independent, reusable 
-product with an interface for using it. A component serve a single purpose. You design the component interface for your own needs, then expand over time to support the needs of other teammates, 
-other product teams and eventually to entire world.
-
-Components can be anything starting from pieces of content, UI components, pages, sections, backend services, 
-frontend apps to simple software modules and anything else you can put to imgination. Here are few examples of components used in this website:
-
-<ComponentCardGroup components={exampleComponents} />
-<br />
+<!-- 
 
 A component has a purpose, defined by its name. For example: 
 
@@ -136,7 +181,7 @@ Needs push us to think what is the role of the problem in our lives, but not jus
 components are built, the easier it is to scale the process to further people.
 
 Thinking in components is a recursive process that starts at defining and the **immediate component we need**. Upon the definition of this component, **think which components you wish you had now**. 
-Search for these components, try to **use or collaborte on something that exists**, otherwise **create a new component that fulfills this exact need** and share it with everyone.
+Search for these components, try to **use or collaborte on something that exists**, otherwise **create a new component that fulfills this exact need** and share it with everyone. -->
 
 <!-- 
 Thinking on bit.dev, the first component to start thinking from is bit-dev. Then, I should think what I need in order to build bit.dev. 
@@ -152,7 +197,7 @@ Doing this for every component
 emphesize the need, and allow the development of great products. This way, every component is immedaidaly 
 Which kind of responsibilities I want them to own? -->
 
-Here is an example to the same sample product above, thought and built in components:
+<!-- Here is an example to the same sample product above, thought and built in components:
 
 <ArchitectureBreakdown />
 <br />
@@ -177,7 +222,7 @@ Thinking of this product in components, ends up with a shorter path to value, co
 
 It is about understanding and capitalizing on smaller, reusable portions of value in the mutual work we do that compose together to a greater whole. 
 
-Thinking of this product in component 
+Thinking of this product in component  -->
 
 <!-- 
 Transparency.
@@ -199,7 +244,7 @@ Everyone understand each other
 Asyncrouneous 
 Value delivery -->
 
-Rules of good component thinking:
+<!-- Rules of good component thinking:
 
 - Bottom up. 
 - Balance short term and long term.
@@ -232,7 +277,7 @@ uncertainty
 
 ## Step 3: Share the components
 
-## Step 4: Keep itereating on them
+## Step 4: Keep itereating on them -->
 
 
 <!-- 
