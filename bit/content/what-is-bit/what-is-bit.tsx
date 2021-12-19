@@ -6,15 +6,15 @@ import WhatIsBitSmall from './what-is-bit-small.mdx';
 export enum Size {
   SMALL,
   MEDIUM,
-  LARGE
+  LARGE,
 }
 
 export type WhatIsBitProps = {
-  size?: Size
+  size?: Size;
 };
 
 export function WhatIsBit({ size }: WhatIsBitProps) {
   if (size === Size.SMALL) return <WhatIsBitSmall />;
-  if (size === Size.MEDIUM) return <WhatIsBitShort />
-  return <WhatIsBitLong />
+  if (size === Size.MEDIUM) return <WhatIsBitShort />;
+  return <WhatIsBitLong />;
 }

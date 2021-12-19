@@ -4,49 +4,38 @@ import componentConfig from './comp-config.png';
 
 # Component Configuration
 
-Components in Bit can be configured and used for a variety of purposes such as setting dependencies, envs, remote scopes and controlling the generated package.json and anything else you might imagine.
+Component configuration is a composition of different [Aspects](/extending-bit/aspect), where each aspect defines a set of attributes and behaviors.  
+These aspects may be an [env](docs/envs/envs-overview) to define the "kind" of component and different development workflows all the way to controlling dependencies, remote scopes and generated artifacts, etc.  
+Configuration is a core part of each [component's anatomy](/docs/component/component-anatomy), making it a part of each component version.
 
-Components are configured with [Aspects](/extending-bit/aspect), each can accept user configurations and do useful operations accordingly. Components configuration are commonly controlled by a [component.json](./component-json), or through [Variants](/variants/overview) and possibly through any Aspect offering this kind of functionality. Component configuration can be viewed in different methods including the `bit show` command and the UI.
+To see the component config head over the component page on a scope or in the workspace dev server, and find the "config" tab. Here you will see the list of applied aspects and their configuration. [Here's an example](https://bit.dev/teambit/community/ui/graph/bubble-graph/~aspect):
 
-Configuration for Components is computed by propagating to all configured Aspects starting from the `component.json` file as a base. `component.json` files can be ejected to the filesystem any time to take control over a specific component configuration.
+<Image src={componentConfig} width="70%" />
+
+The `show` command, amongst other things, also lists the composed aspects.
 
 ```bash
-bit eject-conf ui/my-welcome
+bit show teambit.community/ui/graph/bubble-graph
 ```
 
-This commands ejects the `component.json` file for the `ui/my-welcome` component to the Workspace for you to modify its configuration.
-
-In the example below, we are configuring a Component with the [Pkg](/packages) Aspect to control its [generated package.json](/packages/package-json) properties.
-
-```json title="component.json"
-{
-  "teambit.pkg/pkg": {
-    "packageJson": {
-      "private": true
-    }
-  }
-}
+```bash
+├───────────────────┼────────────────────────────────────────────────────────────────┤
+│ extensions        │ teambit.component/dev-files                                    │
+│                   │ teambit.compositions/compositions                              │
+│                   │ teambit.pkg/pkg                                                │
+│                   │ teambit.docs/docs                                              │
+│                   │ teambit.envs/envs                                              │
+│                   │ teambit.dependencies/dependency-resolver                       │
+├───────────────────┼────────────────────────────────────────────────────────────────┤
 ```
 
-In the same sense, dependencies can be controlled by configuring the `teambit.dependencies/dependency-resolver` Aspect with a specific `policy`.
+## Changing component configuration
 
-```json title="component.json"
-{
-  "teambit.dependencies/dependency-resolver": {
-    "policy": {
-      "dependencies": {
-        "@teambit/base-ui.button": "1.0.0"
-      }
-    }
-  }
-}
-```
+While configuration is a per-component "thing", Bit offers a set of features to control many components by using configuration rules called [Variants](/variants/overview) as part of the [workspace configuration](/docs/workspace/workspace-configuration).
 
-Components are rarely configured with a [component.json](/components/component-json) and mostly are configured through easier and cleaner methods like Variants and other Aspects automating their entire configuration.
+With `variants` you can define configuration for a subset of components. In this example, all components with `ui` namespace are configured with the [React env](/docs/frameworks/react/react-overview).
 
-In the example below, all components under the `ui` namespace in my project are configured with the [React env](/).
-
-```json title="workspace.json"
+```javascript
 {
   "teambit.workspace/variants": {
     "{ui/*}": {
@@ -56,66 +45,58 @@ In the example below, all components under the `ui` namespace in my project are 
 }
 ```
 
-To learn more about Variants, head over to the [Variants documentation](/workspace/variants) section.
+## Ejecting a component config
 
-Component configuration can be viewed in different methods including the `bit show` command and the UI.
+**THIS FLOW IS BROKEN**  
+**ALSO - EDGECASE WITH NEW COMPONENTS**
+
+If you want to get full manual control over a component configuration, you can have Bit generate a `component.json` file for a component. The `eject-conf` generates the current state of the component config to a file. That file will be at the base directory of the selected components.
 
 ```bash
-bit show ui/my-welcome
+bit eject-conf teambit.community/ui/graph/bubble-graph
 ```
 
-```bash {26-31}
-┌───────────────────┬────────────────────────────────────────────────────────────────┐
-│ id                │ company.scope/ui/my-welcome                                    │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ scope             │ company.scope                                                  │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ name              │ ui/my-welcome                                                  │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ env               │ teambit.harmony/node                                           │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ package name      │ @company/scope.ui.my-welcome                                   │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ deprecated        │ false                                                          │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ main file         │ index.ts                                                       │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ files             │ index.ts                                                       │
-│                   │ my-welcome.composition.tsx                                     │
-│                   │ my-welcome.docs.mdx                                            │
-│                   │ my-welcome.spec.tsx                                            │
-│                   │ my-welcome.tsx                                                 │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ dev files         │ my-welcome.spec.tsx (teambit.defender/tester)                  │
-│                   │ my-welcome.composition.tsx (teambit.compositions/compositions) │
-│                   │ my-welcome.docs.mdx (teambit.docs/docs)                        │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ extensions        │ teambit.component/dev-files                                    │
-│                   │ teambit.compositions/compositions                              │
-│                   │ teambit.pkg/pkg                                                │
-│                   │ teambit.docs/docs                                              │
-│                   │ teambit.envs/envs                                              │
-│                   │ teambit.dependencies/dependency-resolver                       │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ dependencies      │ @company/scope.templates.ui.card@latest---- (component)        │
-│                   │ @company/scope.templates.ui.heading@latest- (component)        │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ dev dependencies  │ @company/scope.templates.envs.my-react@latest- (component)     │
-│                   │ @babel/runtime@7.12.18------------------------ (package)       │
-│                   │ @types/node@12.20.4--------------------------- (package)       │
-│                   │ @types/jest@26.0.20--------------------------- (package)       │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ peer dependencies │ react@16.13.1----------------- (package)                       │
-│                   │ @testing-library/react@12.0.0- (package)                       │
-└───────────────────┴────────────────────────────────────────────────────────────────┘
+```javascript
+{
+  "componentId": {
+    "scope": "teambit.community",
+    "name": "ui/graph/bubble-graph",
+    "version": "1.11.0"
+  },
+  "propagate": false,
+  "extensions": {
+    "teambit.dependencies/dependency-resolver": {
+      "policy": {
+        "devDependencies": {
+          "@teambit/design.embeds.figma": "0.0.6"
+        }
+      }
+    }
+  }
+}
 ```
 
-In the example above, all highlighted extensions are the configured [Aspects](/extending-bit/aspect) on the Component. Other properties such as `dependencies`, `package name` and even `env` is Metadata generated by one of the configured extensions.
+Once ejected, you can modify it to your liking and control the specific component configuration without interfering with `workspace.jsonc`. For example set dependencies directly with `teambit.dependencies/dependency-resolver`, apply another aspect, etc.
 
-Configuration can also be seen from the Component UI.
+:::tip Set the `propagate` property to `true` if you want the component to be affected by the workspace configurations.
+:::
 
-<Image src={componentConfig} />
+## Diff-ing configuration
 
-## Component Config vs Workspace Config
+The state of component configuration is stored for each version or snapshot of a component. As you modify `workspace.jsonc` or `component.json`, the configuration of a component may change. This triggers Bit to mark the component as **modified**.
 
-<WsConfigVsCompConfig />
+Run `diff` to understand which configuration was modified for a component.
+
+```bash
+bit diff ui/graph/bubble-graph
+```
+
+```bash
+--- extensionDependencies 1.11.0 original
++++ extensionDependencies 1.11.0 modified
+teambit.community/envs/community-react
+- teambit.community/envs/community-react@1.11.0
+```
+
+In this example we removed the `teambit.community/envs/community-react` aspect from the component, forcing an configuration diff.  
+From here you may decide you want this configuration to be exported. Run `tag` or `snap` to create a new version for the component where the only change is it's config.

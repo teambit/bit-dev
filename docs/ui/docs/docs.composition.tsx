@@ -1,16 +1,14 @@
 import React from 'react';
 import { DocsRoute } from '@teambit/docs.entities.docs-routes';
-import loadable from '@loadable/component';
 import { MemoryRouter } from '@teambit/community.ui.router.router-provider';
+import { lazy } from '@loadable/component';
 import { Docs } from './docs';
 
-const QuickStart = loadable(() => import('@teambit/docs.content.quick-start'));
-const ThinkingInComponents = loadable(() => import('@teambit/docs.content.thinking-in-components'));
-const CreateWorkspace = loadable(() => import('@teambit/docs.content.getting-started.create-workspace'));
-const CreateComponents = loadable(
-  () => import('@teambit/community.content.getting-started.composing.create-components')
-);
-const ComponentConfig = loadable(() => import('@teambit/component.content.component-config'));
+const QuickStart = lazy(() => import('@teambit/docs.content.quick-start'));
+const ThinkingInComponents = lazy(() => import('@teambit/docs.content.thinking-in-components'));
+const CreateWorkspace = lazy(() => import('@teambit/docs.content.getting-started.create-workspace'));
+const CreateComponents = lazy(() => import('@teambit/community.content.getting-started.composing.create-components'));
+const ComponentConfig = lazy(() => import('@teambit/component.content.component-config'));
 
 const primaryRoutes: DocsRoute[] = [
   {

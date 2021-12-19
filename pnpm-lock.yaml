@@ -42,6 +42,7 @@ importers:
       '@teambit/component.modules.component-url': 0.0.71
       '@teambit/component.ui.graph.component-node-container': 0.0.33
       '@teambit/component.ui.graph.dependencies-graph': 0.0.34
+      '@teambit/dependencies.modules.packages-excluder': 0.0.44
       '@teambit/design.elements.icon': 1.0.6
       '@teambit/design.embeds.figma': 0.0.6
       '@teambit/design.ui.cli-snippet': 0.0.349
@@ -173,6 +174,7 @@ importers:
       '@teambit/component.modules.component-url': registry.npmjs.org/@teambit/component.modules.component-url/0.0.71_react-dom@16.13.1+react@16.13.1
       '@teambit/component.ui.graph.component-node-container': 0.0.33
       '@teambit/component.ui.graph.dependencies-graph': 0.0.34
+      '@teambit/dependencies.modules.packages-excluder': registry.npmjs.org/@teambit/dependencies.modules.packages-excluder/0.0.44_react@16.13.1
       '@teambit/design.elements.icon': registry.npmjs.org/@teambit/design.elements.icon/1.0.6_react-dom@16.13.1+react@16.13.1
       '@teambit/design.ui.cli-snippet': registry.npmjs.org/@teambit/design.ui.cli-snippet/0.0.349_react-dom@16.13.1+react@16.13.1
       '@teambit/design.ui.dropdown': registry.npmjs.org/@teambit/design.ui.dropdown/1.0.10_react-dom@16.13.1+react@16.13.1
@@ -696,6 +698,9 @@ importers:
   design/ui/sidebar/sidebar-context:
     specifiers: {}
 
+  design/ui/styles/scrollbar:
+    specifiers: {}
+
   design/ui/surfaces/cloud:
     specifiers: {}
 
@@ -774,6 +779,9 @@ importers:
   docs/content/guides/removing-deprecating-components:
     specifiers: {}
 
+  docs/content/guides/usage-analytics:
+    specifiers: {}
+
   docs/content/guides/using-bvm:
     specifiers: {}
 
@@ -816,6 +824,12 @@ importers:
   docs/ui/highlighter/highlight-component:
     specifiers: {}
 
+  docs/ui/hooks/use-element-on-fold:
+    specifiers: {}
+
+  docs/ui/navigation/table-of-content:
+    specifiers: {}
+
   docs/ui/pages/doc-page:
     specifiers: {}
 
@@ -837,10 +851,22 @@ importers:
   docs/ui/zoomable-image:
     specifiers: {}
 
+  envs/content/available-services:
+    specifiers: {}
+
+  envs/content/dev-services:
+    specifiers: {}
+
   envs/content/dev-services-overview:
     specifiers: {}
 
   envs/content/env-troubleshooting:
+    specifiers: {}
+
+  envs/content/envs-api:
+    specifiers: {}
+
+  envs/content/envs-overview:
     specifiers: {}
 
   envs/content/extending-env:
@@ -850,6 +876,9 @@ importers:
     specifiers: {}
 
   envs/content/inspecting-env:
+    specifiers: {}
+
+  envs/content/using-envs:
     specifiers: {}
 
   explorer/ui/gallery/component-card-group:
@@ -952,6 +981,12 @@ importers:
     specifiers: {}
 
   scope/content/index-json:
+    specifiers: {}
+
+  scope/content/remote-scopes:
+    specifiers: {}
+
+  scope/content/scope-bit-cloud:
     specifiers: {}
 
   scope/content/scope-json:
@@ -4291,6 +4326,19 @@ packages:
     transitivePeerDependencies:
       - react
       - react-dom
+    dev: false
+
+  registry.npmjs.org/@teambit/dependencies.modules.packages-excluder/0.0.44_react@16.13.1:
+    resolution: {integrity: sha512-VDAE6fSIA7RB/Oux111VMqx6zdAm2pe5KFcPMandTCUEDt3joSDwD+VVBGmeHQ1hIhrtZkjGU6eveUsswbqZ0g==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/dependencies.modules.packages-excluder/-/dependencies.modules.packages-excluder-0.0.44.tgz}
+    id: registry.npmjs.org/@teambit/dependencies.modules.packages-excluder/0.0.44
+    name: '@teambit/dependencies.modules.packages-excluder'
+    version: 0.0.44
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      '@teambit/legacy': 1.0.185
+      react: 17.0.2
+    dependencies:
+      react: registry.npmjs.org/react/16.13.1
     dev: false
 
   registry.npmjs.org/@teambit/design.elements.icon/1.0.5_react-dom@16.13.1+react@16.13.1:

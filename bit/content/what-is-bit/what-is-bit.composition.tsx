@@ -4,4 +4,4 @@ import { Size } from './what-is-bit';
 
 export const Long = () => <WhatIsBit />;
 
-export const Short = () => <WhatIsBit size={Size.MEDIUM} />
+export const Short = () => <WhatIsBit size={Size.MEDIUM} />;

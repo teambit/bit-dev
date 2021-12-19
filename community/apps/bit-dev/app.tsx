@@ -1,6 +1,6 @@
-import React from 'react';
-import loadable from '@loadable/component';
+import React, { Suspense } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
+import { lazy } from '@loadable/component';
 import { Guides } from '@teambit/docs.ui.pages.guides';
 import { Header } from '@teambit/community.ui.header.header';
 import { Homepage } from '@teambit/community.ui.pages.homepage';
@@ -13,7 +13,7 @@ import { AppContext } from './app-context';
 /**
  * Load pages dynamically to enable code splitting.
  */
-const Plugins = loadable(() => import('@teambit/community.ui.pages.plugins'));
+const Plugins = lazy(() => import('@teambit/community.ui.pages.plugins'));
 
 export function BitDevApp() {
   return (
@@ -34,7 +34,9 @@ export function BitDevApp() {
           </div>
         </Route>
         <Route exact path="/plugins">
-          <Plugins />
+          <Suspense fallback={<div />}>
+            <Plugins />
+          </Suspense>
         </Route>
         <Route exact path="/">
           <Homepage />

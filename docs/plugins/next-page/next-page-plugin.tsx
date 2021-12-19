@@ -18,19 +18,19 @@ export class NextPagePlugin implements DocsPlugin<BottomPluginProps> {
 
   name = NextPagePlugin.name;
 
-  page = {
-    bottom: [
-      ({ show }: BottomPluginProps) => {
-        const docs = useDocs();
-        const docPage = useDocPage();
-        if (!docPage.index) return <div />;
-        const next = docs.routes[docPage.index + 1] ? docs.routes[docPage.index + 1] : undefined;
-        if (!next || show === false) return <div />;
+  NextPageBottom = ({ show }: BottomPluginProps) => {
+    const docs = useDocs();
+    const docPage = useDocPage();
+    if (!docPage.index) return null;
+    const next = docs.routes[docPage.index + 1] ? docs.routes[docPage.index + 1] : undefined;
+    if (!next || show === false) return null;
 
-        return (
-          <NextPage title={next.title} description={this.hideDescription ? '' : next.description} href={next.absPath} />
-        );
-      },
-    ],
+    return (
+      <NextPage title={next.title} description={this.hideDescription ? '' : next.description} href={next.absPath} />
+    );
+  };
+
+  page = {
+    bottom: [this.NextPageBottom],
   };
 }

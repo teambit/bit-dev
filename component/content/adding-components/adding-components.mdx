@@ -1,11 +1,12 @@
 import isolateDeps from './isolate-deps.png';
+import { Image } from '@teambit/docs.ui.zoomable-image';
 
 # Adding Components
 
 Adding is the step that converts a directory repository into a component that is managed by Bit.  
 The `add` command takes an existing directory and adds it as a component.
 
-:::tip using templates
+:::tip Using templates
 
 The `bit create` creates a new component from a template (`bit templates`), then runs `bit add` to add it as a component.  
 Use it to simplify your flow and avoid the need to create a component from scratch.
@@ -71,21 +72,17 @@ The component structure is aggregated to a single view. Read more on [component 
 ## Component ID
 
 Component ID is the unique identifier of a component. By default Bit will use the directory name of the component as the component name. You can use the `--id` flag to specify a different ID while adding a component.  
-[Learn more on naming components](docs/components/component-id).
+[Learn more on component ID](docs/components/component-id).
 
 ## Main File
 
-Main file is the entry point for the component. You can specify the main file using the --main flag on the bit add command. If the main file was not specified, Bit is trying to determine the main file as follow:
-
-- If the component has only one file, it will be the main file
-- If the component has a file named `index` with a valid extension like `js`, `ts`, `tsx` etc.
-- If the component has a file named similarly to the component folder name with a valid extension as above.
+Main file exposes the API of the component. It's recommended to have an `index` file as the **main file**. You can specify the main file using the `--main` flag on the bit add command.  [Read more about main files](/docs/components/component-main-file).
 
 ## Dependencies
 
 Bit build a dependency graph for the component by reading all `import` statements in the implementation. According to the file type, dependencies are added to the `dependencies` or `devDependencies` section of the component.
 
-<img src={isolateDeps} style={{ maxHeight:'200px' }} />
+<Image src={isolateDeps} width="70%" />
 
 Components are isolated modules in your workspace. As such, all their dependencies should be clearly defined and available for Bit to log. Run `status` to see if there are any isolation issues for your components.
 
