@@ -1,17 +1,47 @@
 # Export Components
 
-When you export components to a Remote Scopes you make them available for other developers to consume and to collaborate on.
-You can create Remote Scopes on your own server or, you can manage your scopes on [bit.cloud](https://bit.cloud).
+When you export components to Remote Scopes you make them available for other developers to consume and to collaborate on.
+You can create Remote Scopes on your own server or use [bit.cloud](https://bit.cloud) instead, to manage your scopes in the cloud.
 
-The target scope of a component is determined by the applied scope definition for a component, as part of the component ID.
 
-After you created staged [snaps](/docs/components/snaps) or [versions](/docs/components/tags). To validate you can safely export new versions, run the `status` command.
+## Configure a component with a remote scope
+
+The target scope for a component is determined by the scope section of its Component ID.
+For example, `my-org.design-system/ui/button` is composed of the scope name, `my-org.design-system` and the component name `ui/button`.
+
+When you create a new Component, you set the target Scope for it by providing a full Component ID. For example:
+
+```
+bit create react my-org.design-system/ui/button
+```
+
+Or, alternatively:
+
+```
+bit create react ui/button --scope my-org.design-system
+```
+
+A Component created without a scope will receive its scope from the Workspace configuration or Component configuration.
+
+For example:
+
+```json
+  "teambit.workspace/workspace": {
+    "name": "my-workspace",
+    "defaultScope": "my-org.design-system"
+  },
+```
+
+## Validate a component is ready to be exported
+
+For a Component to be exportable, it must first be versioned (using `bit tag` or `bit snap`).
+To validate a component is staged and ready to be exported, run the following:
 
 ```bash
 bit status
 ```
 
-Here we see that our workspace has 4 components, and 2 of them have **staged versions**.
+For example, the following output lists 2 Components as new (not versioned/staged) and 2 that are staged and ready to be exported:
 
 ```bash
 new components
@@ -28,16 +58,74 @@ staged components
      > ui/heading. versions: 1.0.0 ... ok
 ```
 
-Bit tells you exactly which versions are pending to be exported. Export them to a remote scope with the `export` command:
+Run the following to export all 'staged' (versioned) Components in your Workspace:
 
 ```sh
 bit export
 ```
 
-Bit then lets you know how many components were exported.
+The output is similar to the following:
 
 ```bash
 2 components were exported to scope teambit/base-ui
+```
+
+## Post Export
+
+The export process updates your workspace' `.bitmap` file. Make sure to commit these changes to Git.
+
+```bash
+git commit -am 'updated .bitmap file after a successful export'
+```
+
+## Export During CI
+
+To learn how to use your CI to export components, see [Automate exports](/docs/getting-started/set-up-ci/automate-export).
+
+## Merge Conflicts
+
+You may encounter a merge conflict when trying to export a Component version that already exists in the Component's remote scope (that happens when someone else exported a Component from another Workspace )
+
+For example, the following tags a Component and bumps its version patch number : `1.0.4 --> 1.0.5` (Bit bumps the patch number on every tag, by default):
+```bash
+bit tag teambit.base-ui/input/button --message "my message"
+```
+
+When trying to export that version, an error is thrown. Version `1.0.5` of `teambit.base-ui/input/button` already exists in the `teambit.base-ui` Remote Scope:
+
+```bash
+$ bit export 
+
+error: merge conflict occurred while importing the component teambit.base-ui/input/button. conflict version(s): 1.0.5
+to resolve it and merge your local and remote changes, please do the following:
+1) bit untag teambit.base-ui/input/button 1.0.5
+2) bit import
+3) bit checkout 1.0.5 teambit.base-ui/input/button
+```
+
+To resolve that conflict, `untag` the Component’s local version.
+
+```bash
+bit untag teambit.base-ui/input/button 1.0.5
+```
+
+Import the latest version from the Remote Scope (in this case, `1.0.5`):
+
+```bas
+bit import
+```
+
+Checkout version `1.0.5` to merge the  latest changes with your own local changes: 
+
+```bash
+bit checkout 1.0.5 teambit.base-ui/input/button
+```
+
+Tag and export again, after solving the conflict:
+
+```bash
+bit tag teambit.base-ui/input/button --message "my message" 
+bit export
 ```
 
 ## Ejecting Components
@@ -54,62 +142,4 @@ You can directly eject any component with the `eject` command:
 
 ```bash
 bit eject ui/text
-```
-
-## Post Export
-
-The export process updates your workspace' `.bitmap` file. Make sure to commit these changes to Git.
-
-```bash
-git commit -am 'updated .bitmap file after a successful export'
-```
-
-## Export During CI
-
-[See here](/docs/getting-started/set-up-ci/automate-export) to learn how to use your CI to export components.
-
-## Merge Conflicts
-
-You may encounter a merge conflict, if you tagged a new version and exported it, but there's such version already shared. Let's resolve such conflict.  
-
-The flow starts with running `export`, trying to export a new version:
-
-```bash
-bit tag teambit.base-ui/input/button --message "my message"
-bit export
-```
-
-We tried to export `1.0.5` for `teambit.base-ui/input/button`, but there's already `1.0.5` on the remote..
-
-```bash
-error: merge conflict occurred while importing the component teambit.base-ui/input/button. conflict version(s): 1.0.5
-to resolve it and merge your local and remote changes, please do the following:
-1) bit untag teambit.base-ui/input/button 1.0.5
-2) bit import
-3) bit checkout 1.0.5 teambit.base-ui/input/button
-```
-
-To resolve the conflict, `untag` the component’s local version.
-
-```bash
-bit untag teambit.base-ui/input/button 1.0.5
-```
-
-Now we use `import` to update the local component history, so we have `1.0.5` from the remote.
-
-```bas
-bit import
-```
-
-Checkout version `1.0.5` so you can merge your changes on top of it.
-
-```bash
-bit checkout 1.0.5 teambit.base-ui/input/button
-```
-
-Tag and export again, after solving the conflict.
-
-```bash
-bit tag teambit.base-ui/input/button --message "my message" 
-bit export
 ```
