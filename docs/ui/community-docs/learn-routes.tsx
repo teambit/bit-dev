@@ -37,6 +37,7 @@ const ScopeOverview = lazy(() => import('@teambit/scope.content.scope-overview')
 const CreatingScopes = lazy(() => import('@teambit/scope.content.creating-scopes'));
 const ScopeJson = lazy(() => import('@teambit/scope.content.scope-json'));
 const HostingScopes = lazy(() => import('@teambit/scope.content.hosting-scopes'));
+const ScopeObjects = lazy(() => import('@teambit/scope.content.scope-objects'));
 
 /* Dev services */
 
@@ -339,24 +340,24 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'snaps',
-        title: 'Snaps',
+        title: 'Snap version',
         description: 'Record component history with snapshots.',
         component: <Snaps />,
       },
       {
         path: 'tags',
-        title: 'Tags',
+        title: 'Tag version',
         description: 'Manage component releases with semantic version.',
         component: <Tags />,
       },
-      {
-        path: 'navigating-history',
-        title: 'Navigating history',
-        component: <NavigateHistory />,
-      },
+      // {
+      //   path: 'navigating-history',
+      //   title: 'Navigating history',
+      //   component: <NavigateHistory />,
+      // },
       {
         path: 'exporting-components',
-        title: 'Exporting components',
+        title: 'Export components',
         description: 'Share component snaps and versions for consumers and collaborators.',
         component: <ExportingComponents />,
       },
@@ -368,7 +369,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'importing-components',
-        title: 'Importing components',
+        title: 'Import components',
         description:
           'Importing is the process of copying Components from their Scope to the Local Scope, to use and maintain them in the Workspace.',
         component: <ImportingComponents />,
@@ -511,7 +512,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'creating-scopes',
-        title: 'Create bare scope',
+        title: 'Create a scope',
         description: 'Base Scopes used as remote storage for components.',
         component: <CreatingScopes />,
       },
@@ -522,20 +523,20 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'running-a-scope-server',
-        title: 'Hosting scopes',
+        title: 'Host a scope',
         component: <HostingScopes />,
       },
       {
         path: 'remote-scopes',
-        title: 'Remotes',
+        title: 'Link remote scopes',
         description: 'Connect scopes and workspace with remotes.',
         component: <RemoteScopes />,
       },
-      /*{
-        path: 'extending-scopes',
-        title: 'Extending Scopes',
-        component: <div />,
-      },*/
+      {
+        path: 'explore-scope-objects',
+        title: 'Explore scope objects',
+        component: <ScopeObjects />,
+      },
     ],
   },
   {

@@ -845,6 +845,13 @@
         "mainFile": "index.ts",
         "rootDir": "scope/content/scope-json"
     },
+    "content/scope-objects": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.scope",
+        "mainFile": "index.ts",
+        "rootDir": "scope/content/scope-objects"
+    },
     "content/scope-overview": {
         "scope": "teambit.scope",
         "version": "1.23.0",

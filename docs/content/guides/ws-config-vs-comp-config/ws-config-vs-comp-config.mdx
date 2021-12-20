@@ -12,7 +12,7 @@ One of this workspace's components is `ui/button`. As you can see, in both cases
 However, once the `ui/button` component is imported into a different workspace, one that does not have the `my-org.my-scope/snapshots` aspect in its Workspace configuration, it will no longer be affected by that Aspect.
 This will result in redefining the `button.snapshot.png` file as a standard file, instead of a dev file. This change will be persisted the next time this component is versioned.
 
-### `my-org.my-scope/snapshots` applied via the workspace config:
+#### `my-org.my-scope/snapshots` applied via the workspace config:
 
 ```json
 //
@@ -52,7 +52,7 @@ $ bit show ui/button
 
 Notice how the above output does not list the `my-org.my-scope/snapshots` aspect as one of the `extensions` used by that component.
 
-### `my-org.my-scope/snapshots` applied via the component config:
+#### `my-org.my-scope/snapshots` applied via the component config:
 
 ```json
 {
