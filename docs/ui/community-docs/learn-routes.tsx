@@ -302,11 +302,11 @@ export const learnDocsRoutes: DocsRoute[] = [
       component: <ComponentOverview />,
     },
     children: [
-      {
-        path: 'compose-components',
-        title: 'Compose a component',
-        component: <ComposeComponents />,
-      },
+      // {
+      //   path: 'compose-components',
+      //   title: 'Compose a component',
+      //   component: <ComposeComponents />,
+      // },
       {
         path: 'component-config',
         title: 'Component configuration',
