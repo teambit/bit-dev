@@ -211,6 +211,11 @@ export const learnDocsRoutes: DocsRoute[] = [
     },
     children: [
       {
+        path: 'workspace-configuration',
+        component: <WorkspaceConfiguration />,
+        title: 'Workspace Configuration',
+      },
+      {
         path: 'creating-workspaces',
         title: 'Create a workspace',
         component: <CreatingWorkspaces />,
@@ -313,6 +318,11 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <ComponentConfig />,
       },
       {
+        path: 'component-config',
+        title: 'Component Configuration',
+        component: <ComponentConfig />,
+      },
+      {
         path: 'component-id',
         title: 'Component ID',
         description:
@@ -325,6 +335,11 @@ export const learnDocsRoutes: DocsRoute[] = [
         description: 'How Bit manages all data on a component.',
         component: <ComponentAnatomy />,
       },
+      // {
+      //   path: 'inspecting-components',
+      //   title: 'Inspecting components',
+      //   component: <InspectingComponents />,
+      // },
       {
         path: 'component-main-file',
         title: 'Main file',
@@ -537,6 +552,11 @@ export const learnDocsRoutes: DocsRoute[] = [
         title: 'Explore scope objects',
         component: <ScopeObjects />,
       },
+      // {
+      //   path: 'extending-scopes',
+      //   title: 'Extending Scopes',
+      //   component: <div />,
+      // },
     ],
   },
   {

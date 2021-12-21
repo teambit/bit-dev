@@ -3,7 +3,7 @@ description: 'Source of truth for "what is bit?"'
 labels: ['content', 'mdx', 'bit', 'what']
 ---
 
-import { WhatIsBit } from './index';
+import { WhatIsBit, Size } from './index';
 
 ### Component usage
 ```js
@@ -13,11 +13,11 @@ import { WhatIsBit } from './index';
 ### Show the lenghty description of Bit
 
 ```tsx live
-<WhatIsBit size="LARGE" />
+<WhatIsBit size={Size.LARGE} />
 ```
 
 ### Show a short one
 
 ```tsx live
-<WhatIsBit size="MEDIUM" />
+<WhatIsBit size={Size.MEDIUM} />
 ```
