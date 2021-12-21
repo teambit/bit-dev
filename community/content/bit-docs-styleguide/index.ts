@@ -1,0 +1,1 @@
+export { default as BitDocsStyleguide, default } from './bit-docs-styleguide.mdx'

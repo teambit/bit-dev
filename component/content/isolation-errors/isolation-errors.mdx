@@ -1,0 +1,57 @@
+# Isolation errors
+
+Here are some common errors and their resolution when trying to isolate a component. Run `bit status` to check the status of components dependency resolution.
+
+### Untracked Dependencies
+
+When a component is importing local files (i.e. files with relative paths), Bit is attempting to find the components where those files exist. If the file is not yet tracked by any other components, Bit notifies about an untracked dependency.  
+Handling these files can be in one of two manners:
+
+- Add the file(s) as dependency to the same component.
+- Add the file(s) as new components.
+
+The decision between those two options is mostly contextual. Files that are shared between multiple components should reside as a separate component. Files that are local to the component, such as local styles, should be part of the same component.
+
+To add a file to the component run:
+
+```shell
+bit add FILENAME --id COMPONENT_ID
+```
+
+To add files as new component, use the [`bit add`](/docs/apis/cli#add) command. Bit automatically detects that the component was created and shows the updated status.
+
+### Missing package dependencies
+
+This error may occur in the following cases:
+
+- Some of the project's package dependencies are not installed
+- The project is using a Custom Module Definition, or `NODE_PATH` environment variable in your project and Bit is unaware of that.
+
+As described [above](#package-dependencies), Bit has different strategies to determine a package dependency version. If all of them fail, Bit prompts to install the missing package dependencies.  
+Use your package manager of choice to resolve the issue.
+
+```shell
+npm install
+```
+
+Alternatively, Bit issues a `missing package dependency` error for tracked components, in a project, that have file dependencies to absolute paths, using Custom Module Definition feature. See here how to configure Bit with your project's [custom paths resolution](/docs/dependencies#custom-paths).
+
+### Components with Relative Import Statements
+
+Bit expects the dependency tree of components to be defined using absolute `require` or `import` statements. This is because Bit create and manage a set of link files (bindings) between imported components. So when you are using an imported component from another tracked component, or modifying an imported component, and adding an `import` statement to another imported component, Bit will trigger this isolation issue.
+
+In order to resolve this, you need to understand that Bit creates a link file for each of the project's imported component within the `node_modules` directory. This allows you to require a component just as you would require a Bit package dependency with the same name, as [shown here](/docs/installing-components.html#package-naming-convention).
+
+To resolve this issue you will need to refactor the `import` or `require` statement in your code to the component dependencies, using Bit's package naming convention, and save the changes.
+
+```javascript
+require('@bit/<owner>.<scope>.<namespace>.<component-name>');
+```
+
+### Non-existing Dependency Files
+
+When Bit tracks files in your project, it evaluates their dependency tree. If one of the files in the component's dependency tree is not found within your project, Bit throws this isolation error. To resolve this issue, open the file, and ensure that the `import` or `require` statement points to the correct file.
+
+### Missing Links
+
+When Bit installs components, it creates a set of binding files to ensure that all imported component's dependency trees are working correctly. If any of these files is missing, Bit will prompt this isolation error. To fix this, you need to run the `bit link` command. Bit will ensure all link files are in place.

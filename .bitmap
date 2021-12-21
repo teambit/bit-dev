@@ -39,6 +39,13 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/buttons/button"
     },
+    "content/add-components": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.workspace",
+        "mainFile": "index.ts",
+        "rootDir": "workspace/content/add-components"
+    },
     "content/adding-components": {
         "scope": "teambit.component",
         "version": "1.23.1",
@@ -56,6 +63,12 @@
         "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "envs/content/available-services"
+    },
+    "content/bit-docs-styleguide": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/content/bit-docs-styleguide"
     },
     "content/bitmap": {
         "scope": "teambit.workspace",
@@ -200,6 +213,13 @@
         "version": "1.23.1",
         "mainFile": "index.ts",
         "rootDir": "component/content/component-overview"
+    },
+    "content/compose-components": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.component",
+        "mainFile": "index.ts",
+        "rootDir": "component/content/compose-components"
     },
     "content/composition-context": {
         "scope": "teambit.compositions",
@@ -628,6 +648,12 @@
         "mainFile": "index.ts",
         "rootDir": "dependencies/content/installing-dependencies"
     },
+    "content/isolation-errors": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "component/content/isolation-errors"
+    },
     "content/linter-overview": {
         "scope": "teambit.defender",
         "version": "1.23.0",
@@ -825,6 +851,13 @@
         "version": "1.23.1",
         "mainFile": "index.ts",
         "rootDir": "scope/content/scope-json"
+    },
+    "content/scope-objects": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.scope",
+        "mainFile": "index.ts",
+        "rootDir": "scope/content/scope-objects"
     },
     "content/scope-overview": {
         "scope": "teambit.scope",
@@ -1088,12 +1121,12 @@
         "mainFile": "index.ts",
         "rootDir": "bit/quick-start/wiki-quick-start"
     },
-    "relations-graph": {
-        "scope": "teambit.graph",
-        "version": "0.0.2",
-        "mainFile": "index.ts",
-        "rootDir": "graph/relations-graph"
-    },
+    // "relations-graph": {
+    //     "scope": "teambit.graph",
+    //     "version": "0.0.2",
+    //     "mainFile": "index.ts",
+    //     "rootDir": "graph/relations-graph"
+    // },
     "theme/create-theme": {
         "scope": "teambit.base-react",
         "version": "1.23.1",

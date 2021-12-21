@@ -1,13 +1,13 @@
 ---
-description: 'An MDX component.'
-labels: ['content', 'mdx']
+description: 'A community doc.'
+labels: ['content', 'mdx',]
 ---
 
-import { CreatingComponents } from './index';
+import BitDocsStyleguide from './index';
 
 ### Component usage
 ```js
-<CreatingComponents />
+<BitDocsStyleguide />
 ```
 
 ### Render with theme and MDX providers
@@ -15,11 +15,11 @@ import { CreatingComponents } from './index';
 ```js
 import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions'
 import { MDXLayout } from '@teambit/mdx.ui.mdx-layout'
-import { CreatingComponents } from './index'
+import { BitDocsStyleguide } from './index'
 
 <ThemeCompositions>
   <MDXLayout>
-    <CreatingComponents />
+    <BitDocsStyleguide />
   </MDXLayout>
 </ThemeCompositions>
 ```

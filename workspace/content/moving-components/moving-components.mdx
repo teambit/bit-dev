@@ -1,63 +1,54 @@
-# Moving Components
-
-To move a component you can use the `bit move` command. This command will move the component from the current directory to the new directory.
+# Moving and renaming components
 
 ## Move a component to a different directory
 
-```bash
-bit move ui/my-component design/my-component
+To move a component to another directory in the Workspace, run the following:
+
+```
+bit move CURRENT_COMPONENT_PATH NEW_COMPONENT_PATH
 ```
 
-:::tip
-This will only affect how your components are ordered in your workspace and not in your `.bitmap` file. If you want to move a component to a different namespace you will need to first remove it and then add it again with the correct namespace.
+For example, the following command moves the `company.demo/ui/text` Component from `demo/ui/text` to `demo/elements/text`:
+
+```
+bit move demo/ui/text demo/elements/text
+```
+
+:::note Moving a component does not change its namespaces.
 :::
 
-## Renaming a component
 
-Renaming a component
+## Rename a new component
 
-### Renaming a new component
-
-Renaming a new component can be done by untracking the original component and tracking it again with a new ID.
-
-Untracking a button component can be done with `bit untrack`.
+A new Component is a Component that has never been versioned. 
+To rename a new Component, first, untrack it:
 
 ```bash
-bit untrack teambit.design/ui/buttons/button
+bit untrack CURRENT_COMPONENT_ID
 ```
 
-Then, track back the component
+Then, track back the component using its new name:
 
 ```
-bit add design/ui/buttons/button --id ui/button
+bit add PATH_TO_COMPONENT --id COMPONENT_NAME
 ```
 
-### Renaming a used component
+### Rename a Component that has dependents
+
+An Component might have dependent Components. Changing its Component ID or removing the Component will break it them.
+
+To avoid that, set the Component as `deprecated` and create a new one (with the new name).
 
 ```bash
 bit deprecate teambit.design/ui/buttons/button
 ```
 
 ```bash
-bit remove teambit.design/ui/buttons/button
-```
-
-```bash
 bit add ui/buttons/button
 ```
 
-## Moving compoenents between repositories
+Once the previous component is not longer used by other Components (as they have been all updated to use the new one), it can be removed:
 
-Components can be migrated between different repositories with ease.
-
-In the origin repository, eject the component to be used as an external dependency.
-
-```bash
-$ bit eject teambit.design/ui/buttons/button
 ```
-
-Then, import the component into the target repository.
-
-```bash
-$ bit import teambit.design/ui/buttons/button
+bit remove teambit.design/ui/buttons/button
 ```

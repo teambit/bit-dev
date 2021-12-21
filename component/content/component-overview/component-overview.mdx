@@ -3,21 +3,126 @@ import scopeWorkspace from './workspace-scope.png';
 import workspaceScope from './workspaces-scopes'
 import componentImg from './component.png';
 
-# Component Overview
+# Component overview
 
-**Bit Component** is a container designed for single module or component, it allow you to decouple and version independent components.  
-It is the most fundamental building block of Bit and what enables component-driven software. Create, maintain and compose components to apps and systems.
+An _Independent Component_ (_Component_) is an [independently source-controlled](/components/component-objects) module that is stored in a [Scope](/scope/scope-overview) and maintained in a [Workspace](/workspace/workspace-overview).
 
-Each component has a unique [ID](/components/component-id) and contains [Source Code](/components/source-code), [Dependencies](/dependencies/overview), [Artifacts](/components/artifact), [Configuration](/components/component-config) and [Metadata](/components/metadata). Component generate and manage its own artifacts, like [Package](/packages/package), [Distribution](/compiler/dist), and even a [Preview](/preview/preview).  
-Components are connected together through dependencies, as Bit forms a complete dependency graph of your codebase.
+Components, decoupled from larger projects, are essential for effective component-driven development.
 
-<Image width="30%" src={componentImg} alt="Bit Components" />
+A Component contains the history of its [Source Code](/components/source-code), [Dependencies](/dependencies/overview) (packages and other Components), [Artifacts](/components/artifact) (including a consumable [package](/packages/packages-overview)), [Configuration](/components/component-config) and [Metadata](/components/metadata).
+Each Component has a unique [ID](/components/component-id) which is used by Scopes and Workspaces, to reference it.
 
-[Workspaces](/docs/workspace/workspace-overview) is where components are developed. You can [snap](/docs/components/snaps) a component to save changes for component, or [tag](/docs/components/tags) and use semver to version a set of changes. Bit persists these changes to builds the component history, and stores it for the workspace. Using [import](/docs/components/importing-components) and [export](/docs/components/exporting-components) to sync these changes to a remote scope.
 
-<Image width="50%" src={scopeWorkspace} />
+<Image src={componentImg} alt="Bit Components" style={{maxWidth: 800}} />
 
----
+## From files to Components
+
+A component, with a lowercase 'c', is any group of files that serve a single purpose.
+That can be a React component, a Vue component, a Node.JS module, a CSS component, and so on. Each of these can be of different levels of complexity and concreteness.
+
+For example, the following is a standard React component in a Bit Workspace. Although it is recognized as a component by you, it is still unrecognized as such by Bit (or by any other development tool, for that matter).
+Right now, it is no more than files in a directory.
+
+```
+...
+├── ui
+     └── card
+          ├── card.module.scss
+          ├── card.spec.tsx
+          ├── card.tsx
+          └── index.ts
+├── workspace.jsonc
+├── .bitmap
+```
+
+The following command tracks the above component. It provides it with a Component ID and registers this ID in the Workspace's `.bitmap` file:
+
+```
+$ bit add ui/card --id card
+ tracking component card:
+ added card.module.scss
+ added card.spec.tsx
+ added card.tsx
+ added index.ts
+```
+
+Since it is a component, it most likely has dependencies. These dependencies are detected and resolved by Bit. This Component is more than a set of source files.
+It has a dependency graph as well. 
+
+A Component uses different Bit Aspects for its development.
+These Aspects and their corresponding configurations are applied on this Component by various sources in the Workspace.
+The config for these Aspect is also part of this Component.
+
+The Component's data currently exists only in memory. It is not written into any file. The following command displays that data:
+
+```
+$ bit show card
+```
+The output contains information regarding this Component's ID, source files, main file, and dependencies (where some are components and some are packages).
+Under the 'aspects' label are listed the Aspects that this Component uses:
+
+```
+┌───────────────────┬──────────────────────────────────────────────────────────┐
+│ id                │ company.scope/card                                       │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ scope             │ company.scope                                            │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ name              │ card                                                     │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ env               │ teambit.harmony/node                                     │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ package name      │ @company/scope.card                                      │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ deprecated        │ false                                                    │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ main file         │ index.ts                                                 │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ files             │ card.module.scss                                         │
+│                   │ card.spec.tsx                                            │
+│                   │ card.tsx                                                 │
+│                   │ index.ts                                                 │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ dev files         │ card.spec.tsx (teambit.defender/tester)                  │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ aspects           │ teambit.component/dev-files                              │
+│                   │ teambit.compositions/compositions                        │
+│                   │ teambit.pkg/pkg                                          │
+│                   │ teambit.docs/docs                                        │
+│                   │ teambit.envs/envs                                        │
+│                   │ teambit.dependencies/dependency-resolver                 │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ dependencies      │ @company/scope.ui.text@0.0.2------------- (component)    │
+│                   │ @teambit/documenter.ui.copy-box@4.1.1---- (component)    │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ dev dependencies  │ @babel/runtime@7.12.18- (package)                        │
+│                   │ @types/node@12.20.4---- (package)                        │
+│                   │ @types/jest@26.0.20---- (package)                        │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ peer dependencies │ react@17.0.2------------------ (package)                 │
+│                   │ @testing-library/react@12.0.0- (package)                 │
+└───────────────────┴──────────────────────────────────────────────────────────┘
+```
+
+The following command runs this Component's build to test it and generate its artifacts (compiled code, package, etc).
+It also creates a snapshot of its current state and provides it with a specific sematic version:
+
+```
+bit tag card --ver 1.0.0
+```
+The output with the result of that process is the following:
+```
+1 component(s) tagged
+(use "bit export [collection]" to push these components to a remote")
+(use "bit untag" to unstage versions)
+
+new components
+(first version for components)
+     > card@1.0.0
+```
+
+The Component is stored in the Local Scope. It is ready to be exported to a Remote Scope where it will become available to other Workspaces.
+
+## Component synchronization workflow
 
 The following steps walk you through a basic component synchronization workflow.  
 Start with `import`ing a component to a Bit workspace:

@@ -1,30 +1,31 @@
-# Component Directory
+# Component directory
 
-A Component Directory is a directory for a Component in the [Workspace](/workspace/overview). The mapping of Components to their directories can be found in the [.bitmap](/workspace/bitmap) file (see the `rootDir` property).
+A Component Directory is a directory for a Component in the [Workspace](/workspace/overview).
+The mapping of Components to their directories can be found in the [.bitmap](/workspace/bitmap) file of your Workspace.
 
-Every component directory must include a [Main File](/components/main-file) (an entry file). The directory can be located anywhere in the Workspace (directory), excluding only the [node_modules](/workspace/node-modules) directory and other Component Directories.
+Every component directory must include _all_ its files, as well as a [Main File](/components/main-file) that exposes its API. The directory can be located anywhere in the Workspace, excluding only the [node_modules](/workspace/node-modules) directory and other Component Directories.
 
-A common example component for a directory can be as following:
+A Component Directory will often include the following files (with some variations, depending on the type of Component):
 
 ```bash
-└── ui/my-welcome # Component directory
-    ├── index.tsx # Main file.
-    ├── my-welcome.tsx # Test file.
+└── ui/hello-world # Component directory
+    ├── index.ts # Main file
+    ├── hello-world.tsx 
+    ├── hello-world.spec.tsx # Tests
     ├── my-welcome.composition.tsx # Compositions for simulating the component in different states and contexts.
-    └── my-welcome.docs.mdx # Docs file for the component.
+    └── my-welcome.docs.mdx # Documentation
 ```
 
 This structure has several benefits:
 
-- Directory structure is easily consumable by placing all the related files together.
-- File references become shorter and more read-friendly.
+- File references become shorter and more reader-friendly.
 - Easy to move components around in the workspace.
 - Simple refactoring workflow, as changes are consolidated to the same place.
 - `index` is a single point for consumers and maintainers to start from when doing any operation on the component.
 
-## Adding a directory as a Component
+## Adding a directory as a component
 
-Tracking a directory as a Component can be done with the `bit add` command.
+Tracking a directory as a Component can be done with the `bit add` command. For example:
 
 ```bash
 bit add path/to/component-dir --id ui/my-component

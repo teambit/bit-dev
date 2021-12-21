@@ -1,14 +1,15 @@
-Since Bit is composed of Aspects, configurations can only be set by applying an Aspect.
+Bit is composed of Aspects. It has no "core". For this reason, configurations can only be set on Aspects.
 
-Aspects configured in the [workspace config](/workspace/workspace-configuration) are applied on the workspace whereas, aspects configured in the [component config](/components/component-config) are applied on the component.
-They both may have a similar effect on the workspace components, but only in the context of that specific workspace.
+Aspects configured in the [Workspace configuration](/workspace/workspace-configuration) are applied on the workspace whereas, Aspects configured in the [Component configuration](/components/component-config) are applied on the component.
+The two configs may produce similar effects on components in that Workspace, but only in the context of that specific Workspace.
 
-Components [exported](/workspace/exporting-components) from one workspace and [imported](/workspace/importing-components) into another, will lose their configuration, since the new workspace does not have the same Aspects applied on it. This is not the case for aspects that are applied on components (i.e, via the component config).
+Components [exported](/workspace/exporting-components) from one Workspace and [imported](/workspace/importing-components) into another, will lose their configuration, since the new Workspace does not have the same Aspects applied on it.
+This is not the case for Aspects that are applied on Components (i.e, via the component config).
 
-The examples below show the `my-org.my-scope/snapshots` aspect being applied in either of the two ways. This Aspect uses the Dev Files API to set a certain set of component files (`**/snapshot.*`) as development files.
+The examples below show the (fictional) `my-org.my-scope/snapshots` aspect being configured and applied using both ways. This Aspect creates UI component snapshots. It also defines a certain set of component files (`**/snapshot.*`) as [development files](/components/dev-files).
 One of this workspace's components is `ui/button`. As you can see, in both cases `button.snapshot.png` is successfully defined as a development file. This will be persisted when the component is [tagged](/components/tags) or [snapped](/components/snaps).
 
-However, once the `ui/button` component is imported into a different workspace, one that does not have the `my-org.my-scope/snapshots` aspect in its [workspace] configuration, it will no longer be affected by that Aspect.
+However, once the `ui/button` component is imported into a different workspace, one that does not have the `my-org.my-scope/snapshots` aspect in its Workspace configuration, it will no longer be affected by that Aspect.
 This will result in redefining the `button.snapshot.png` file as a standard file, instead of a dev file. This change will be persisted the next time this component is versioned.
 
 #### `my-org.my-scope/snapshots` applied via the workspace config:
@@ -16,7 +17,7 @@ This will result in redefining the `button.snapshot.png` file as a standard file
 ```json
 //
 {
-  "teambit.component/examples/extensions/my-dev-files": {
+  "my-org.my-scope/snapshots": {
     "useDevFiles": true
   }
 }

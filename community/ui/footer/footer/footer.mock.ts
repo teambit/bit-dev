@@ -12,9 +12,10 @@ export const footerMock = [
     title: 'Open Source',
     links: [
       { text: 'Docs', href: '/docs/quick-start' },
-      { text: 'Getting Started', href: '/docs/getting-started/installing-bit' },
+      { text: 'Getting started', href: '/docs/getting-started/installing-bit' },
       { text: 'Contributing', href: 'https://github.com/teambit/bit', external: true },
-      { text: 'Privacy', href: '/docs/usage-analytics' },
+      { text: 'Docs style guide', href: '/docs/docs-style-guide', external: true },
+      { text: 'Privacy', href: '/docs/usage-analytics', external: false },
     ],
   },
   {
@@ -22,7 +23,7 @@ export const footerMock = [
     links: [
       { text: 'Platform', href: 'https://bit.cloud', external: true },
       { text: 'Enterprise', href: 'https://bit.cloud/enterprise', external: true },
-      { text: 'Book a Demo', href: 'https://bit.cloud/contact-sales', external: true },
+      { text: 'Book a demo', href: 'https://bit.cloud/contact-sales', external: true },
     ],
   },
   {
@@ -41,7 +42,7 @@ export const footerMock = [
     title: 'Get help',
     links: [
       { text: 'Issues', href: 'https://github.com/teambit/bit/issues', external: true },
-      { text: 'Contact Us', href: 'https://bit.cloud/support', external: true },
+      { text: 'Contact us', href: 'https://bit.cloud/support', external: true },
     ],
   },
 ];

@@ -2,14 +2,19 @@ import { Image } from '@teambit/docs.ui.zoomable-image';
 import envOverview from './env-overview.png';
 import envComposition from './env-composition.png';
 
-# Component Development Environment
+# Envs
 
-Component Development Environments (envs) contains simple and standard dev-workflows, like **compilation**. You may set different envs on different "types" of components. It means that a single command runs the same flow for all components in the workspace, regardless of specific tools or configs used.
+An Env is a complete component development environment encapsulated as a single Component.
+Envs provide development tools for your Components. These include tools for testing, compilation, documentation, visualization and more.
 
-<Image src={envOverview} width="60%" />
+Components in the same Workspace can use different Envs for their development.
+These can be Bit's official Envs like React Env and Angular Env, or they can be custom Envs, tailored specifically for your team.
 
-An env contain the definition for how a component is build and maintained. By setting a specific env on a component you define the component "type": React, Angular or Node, as each requires a different setup.  
-You can build envs to contain more granular configurations for having various flavors of components of the same "type". For example, keeping a different env just for React Hooks, which extends your base React configuration.
+<Image src={envOverview} />
+
+An Env's development tools are never used directly, but through intermediates that standardize they way these tools are operated.
+That way the same CLI commands and APIs can be used to generate similar results. 
+For example, a single command like `bit compile`, compiles all Components in the Workspace, regardless of the specific Compiler their Envs use.
 
 A component may only have a single env defined. Use the `env` command to see how components are configured:
 

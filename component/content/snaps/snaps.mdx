@@ -2,42 +2,41 @@ import firstSnapHistory from './first-snap-history.png';
 import snapOverview from './snap-overview.png';
 import { Image } from '@teambit/docs.ui.zoomable-image';
 
-# Component Snapshots
+# Snap version
 
 :::note Missing UI Capabilities
-
-`snap` is safe to use it in your workflow. However, snapshots are not represented well in the UI.  
+Snaps are safe to use, However, Snaps are not represented well in the UI.  
 This feature is still under development.
-
 :::
 
-Snaps allow recoding of changes on components alongside a message describing the change. Use snaps to share changes of a component to collaborate with your team on components. Snapshots are immutable, when they are saved to Bit and published, you can't change them, similar to a commit in Git.
+A Snap is an immutable and exportable Component version that is referenced using a hash (`2ec9427...`).
+Snaps are used for component collaboration - not for consumption. A snap has no semantic version to communicate how to use it safely. It also has no corresponding published package.
 
-In Bit you manage changes across connected components, this guide follows how snaping changes work for components that have dependencies on each other.  
-The guide follows sharing changes for `ui/text` and `ui/heading` in a worksapce with 4 connected components.
+The snap command runs the Component's Build and Snap pipelines before it creates a new version (which also includes the generated data and artifacts). The generated version is stored in the Local Scope, where it can be exported to a Remote Scope.
 
-<Image src={snapOverview} width="50%"/>
+## Snap a Component
 
-## Snap a Single Component
+To snap a single component run the following:
 
-To record our first snapshot we use the `snap` command
-
-```bash
-bit snap ui/text --message "a demo snapshot"
+```
+bit snap COMPONENT_ID [--message SNAP_MESSAGE]
 ```
 
-During the `snap` process, Bit runs the full component [build pipeline](/docs/dev-services/builder/build-pipelines#build-pipelines), as defined in its environment.  
-When done, can see the new revision in the component's **changelog** tab in the workspace-ui:
+For example:
+
+```bash
+bit snap company.scope/ui/text --message "a demo snapshot"
+```
+
+Once the Snap pipeline is done, the new snap can be seen in the Component's changelog, in the UI:
 
 <Image src={firstSnapHistory} />
 
-Use the CLI with the `log` command:
+To review a Component's changelog in the terminal, use the `bit log` command. For example:
 
 ```bash
-bit log ui/text
-```
+$ bit log company.scope/ui/text
 
-```
 snap 2ec9427e94b56bd3ed886b7eea42e84563001f5d
 author: itaymendel <itay@mydomain.com>
 date: 11/14/2021, 12:25:52 PM
@@ -45,126 +44,102 @@ date: 11/14/2021, 12:25:52 PM
       a demo snapshot
 ```
 
-We can also run `status` command.
+## Snap a dependent Component
+
+A Component may depend on another Component.
+When that happens, the latest snap version of a dependent Component will reference the latest snap version of the Component it depends on.
+
+For example, the following command snaps `company.scope/ui/heading`, which is depends on `company.scope/ui/text`:
 
 ```
-bit status
+$ bit snap company.scope/ui/heading
+
+...
+1 component(s) snapped
+(use "bit export" to push these components to a remote")
+(use "bit untag" to unstage versions)
+
+new components
+(first version for components)
+     > ui/heading@c8aa8acf00c855560443e5be9b8142c70a04c8b8
 ```
 
-We have a snapped component, which means we can either set a semantic version to it (more on that later), or export it to a remote scope.
+When the latest snap of `company.scope/ui/heading` is examined using `bit show`, it shows the latest snap version of `company.scope/ui/text` (`2ec9427e94b56bd3ed886b7eea42e84563001f5d`) as a dependency.
 
 ```
+$ bit show company.scope/ui/heading@c8aa8acf00c855560443e5be9b8142c70a04c8b8
+
+┌───────────────────┬──────────────────────────────────────────────────────────────────────────────┐
+│ id                │ company.scope/ui/heading@c8aa8acf00c855560443e5be9b8142c70a04c8b8            │
+├───────────────────┼──────────────────────────────────────────────────────────────────────────────┤
+│ ...               │ ...                                                                          │
+├───────────────────┼──────────────────────────────────────────────────────────────────────────────┤
+│ dependencies      │ @company/scope.ui.text@2ec9427e94b56bd3ed886b7eea42e84563001f5d- (component) │
+│                   │ classnames@2.3.1------------------------------------------------ (package)   │
+│                   │ core-js@^3.0.0-------------------------------------------------- (package)   │
+├───────────────────┼──────────────────────────────────────────────────────────────────────────────┤
+│ ...               │ ...                                                                          │
+└───────────────────┴──────────────────────────────────────────────────────────────────────────────┘
+```
+
+## Undo a snap
+
+Run the following to undo a Component snap:
+
+```
+bit untag COMPONENT_ID SNAP_VERSION
+```
+
+:::info
+`untag` reverts the latest versioning but does not restore changes to files.
+:::
+
+For example, `company.scop/ui/heading` has only one version `c8aa8acf00c855560443e5be9b8142c70a04c8b8` in the Workspace.
+This version has not been exported yet, which means it can be undone:
+
+```
+bit untag company.scop/ui/heading c8aa8acf00c855560443e5be9b8142c70a04c8b8
+```
+
+Since `company.scop/ui/heading` has only one version, undoing that versioning restores its status to `new`. This can be validated by running `bit status`:
+```
+$ bit status
+
 new components
 (use "bit tag --all [version]" to lock a version with all your changes)
 
-     > pages/welcome ... ok
-     > ui/card ... ok
      > ui/heading ... ok
                          
+
 snapped components
 (use "bit tag --all [version]" or "bit tag --snapped [version]" to lock a version)
 
      > ui/text ... ok
                          
-staged components
-(use "bit export <remote_scope> to push these components to a remote scope")
-
-     > ui/text. versions: 2ec9427e94b56bd3ed886b7eea42e84563001f5d ... ok
+...
 ```
 
-### Exporting Snaps
+## Snapshot all modified Components
 
-To share a state of a component with others we must first log it to the component history using `snap`. This makes a component to be staged for export.  
-Export snaps using `export` command:
+Use the `--all` flags to snap all modified Components in the Workspace. Dependent Components will reference, in their dependency graph, the new snap versions of their dependencies.
 
 ```bash
-bit export
+bit snap --all --message "update several components"
 ```
 
-Read more [here](docs/workspace/exporting-components).
+A versioned Component (either snapped or tagged) can be versioned again only if it has been modified since its last version.
 
-### Tracking New Changes
+A Component is considered modified if one or more of the following is true:
 
-As components are not only built from source code, there are various things that Bit considers as "changes" for a component:
+- One of its source files has been changed
+- A file has been added to it, or removed
+- Its dependency graph has been changed
+- Its Component configuration has been changed
 
-- Modification in any of the component files.
-- New file added.
-- File removed.
-- Dependenty version update.
-- Configuration changed.
+### Auto-snap dependents
 
-Change any of the files in `demo/ui/text`, and then run `snap` again:
+Use the `--auto-snap-dependents` option to snap a Component, as well as every direct and indirect dependent Component of it.
 
 ```bash
-bit snap ui/text --message "my second snapshot"
-```
-
-When we run `bit log` for `ui/text` again, we see the updated revision history:
-
-```
-snap 2ec9427e94b56bd3ed886b7eea42e84563001f5d
-author: itaymendel <itay@mydomain.com>
-date: 11/14/2021, 14:25:52 PM
-
-      my second snapshot
-
-snap 2ec9427e94b56bd3ed886b7eea42e84563001f5d
-author: itaymendel <itay@mydomain.com>
-date: 11/14/2021, 12:25:52 PM
-
-      a demo snapshot
-```
-
-## Snapshots with Linked Components
-
-Components may depend on each other. When this happens, Bit logs this relationship as part of the snapshot.  
-In this example, `ui/heading` depends on `ui/text`, so when we snap `ui/heading`, we link it to the snap made for `ui/text`.
-
-```bash
-bit snap ui/heading --message "see my dependency"
-```
-
-The snap for `ui/heading` now depends on `ui/text`'s snap.
-
-## Undoing Snapshots
-
-We can `reset` staged components, i.e., components that were snapped by not yet exported to a remote scope.  
-Bit `reset` reverts the component to its previous state, i.e., `new`, `modified` or `exported`.
-
-
-```bash
-bit reset ui/text # Use bit reset to remote all staged snapshots from a component
-bit reset --all # reset all versions from all components
-```
-
-This will remove all un-exported snapshots from the local component history. `reset` does not revert code changes made in the component.
-
-##  Snapshot in the Workspace
-
-Bit understands the internal dependency graph of your workspace, and how your components are connected. SO while you can use the `snap` command per component, it accepts several features that simplify the flow when working with many components.
-
-### Snapshot Modified Components
-
-Use the `--all` flags to snapshot all modified components in the workspace. Bit will create a snap for each component, and if there are components with dependency relationships between them, their recent snapshots will be connected.  
-With this feature, all snapshots will have the same log message.
-
-```bash
-bit snap --all --message "updating several components"
-```
-
-### Snapshot by Pattern
-
-If you need to set different log message according to component namespaces, use a pattern to select the components you want to snap.
-
-```bash
-bit snap ui/* --message "one message for my ui components"
-bit snap pages/* --message "another message for my pages"
-```
-
-### Auto-Snap Dependents
-
-When you run `bit snap`, Bit can automatically snap all dependents of the component you are working on. Snap will propagate through all the dependents, and create a new snapshot for each of them.
-
-```bash
-bit snap ui/heading --message "my heading" --auto-snap-dependents
+bit snap ui/heading --message "update my heading" --auto-snap-dependents
 ```

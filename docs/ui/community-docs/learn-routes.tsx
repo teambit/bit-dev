@@ -28,6 +28,7 @@ const ConfiguringRemoteScopes = lazy(() => import('@teambit/workspace.content.co
 const LocalScope = lazy(() => import('@teambit/workspace.content.local-scope'));
 const MovingComponents = lazy(() => import('@teambit/workspace.content.moving-components'));
 const Variants = lazy(() => import('@teambit/workspace.content.variants'));
+const AddComponents = lazy(() => import('@teambit/workspace.content.add-components'));
 
 /* Scope */
 const ScopeBitCloud = lazy(() => import('@teambit/scope.content.scope-bit-cloud'));
@@ -36,8 +37,10 @@ const ScopeOverview = lazy(() => import('@teambit/scope.content.scope-overview')
 const CreatingScopes = lazy(() => import('@teambit/scope.content.creating-scopes'));
 const ScopeJson = lazy(() => import('@teambit/scope.content.scope-json'));
 const HostingScopes = lazy(() => import('@teambit/scope.content.hosting-scopes'));
+const ScopeObjects = lazy(() => import('@teambit/scope.content.scope-objects'));
 
 /* Dev services */
+
 // const AvailableServices = lazy(() => import('@teambit/envs.content.available-services'));
 const DevServices = lazy(() => import('@teambit/envs.content.dev-services'));
 const DevServicesOverview = lazy(() => import('@teambit/envs.content.dev-services-overview'));
@@ -102,6 +105,9 @@ const MDX = lazy(() => import('@teambit/docs.content.mdx'));
 const DocTemplates = lazy(() => import('@teambit/docs.content.doc-templates'));
 const RenderingDocs = lazy(() => import('@teambit/docs.content.rendering-docs'));
 
+/* Community */
+const Styleguide = lazy(() => import('@teambit/community.content.bit-docs-styleguide'));
+
 /* Compositions */
 
 const CompositionsOverview = lazy(() => import('@teambit/compositions.content.compositions-overview'));
@@ -122,13 +128,14 @@ const ComponentConfig = lazy(() => import('@teambit/component.content.component-
 const ComponentJson = lazy(() => import('@teambit/component.content.component-json'));
 const ComponentObjects = lazy(() => import('@teambit/component.content.component-objects'));
 const DevFiles = lazy(() => import('@teambit/component.content.dev-files'));
-const InspectingComponents = lazy(() => import('@teambit/component.content.inspecting-components'));
 const Tags = lazy(() => import('@teambit/component.content.tags'));
 const Snaps = lazy(() => import('@teambit/component.content.snaps'));
 const ComponentAnatomy = lazy(() => import('@teambit/component.content.component-anatomy'));
-const AddingComponents = lazy(() => import('@teambit/component.content.adding-components'));
+const IsolationErrors = lazy(() => import('@teambit/component.content.isolation-errors'));
+const ComposeComponents = lazy(() => import('@teambit/component.content.compose-components'));
 
 /* Envs */
+
 const EnvsOverview = lazy(() => import('@teambit/envs.content.envs-overview'));
 const InspectingEnv = lazy(() => import('@teambit/envs.content.inspecting-env'));
 const ExtendingEnv = lazy(() => import('@teambit/envs.content.extending-env'));
@@ -187,13 +194,19 @@ export const learnDocsRoutes: DocsRoute[] = [
     component: <UsageAnalytics />,
   },
   {
+    path: 'docs-style-guide',
+    title: 'Docs style guide',
+    component: <Styleguide />,
+    displayInSidebar: false,
+  },
+  {
     path: 'workspace',
     title: 'Workspace',
     icon: 'workspace',
     open: false,
     overview: {
       path: 'workspace-overview',
-      title: 'Workspace Overview',
+      title: 'Workspace overview',
       component: <WorkspaceOverview />,
     },
     children: [
@@ -204,13 +217,25 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'creating-workspaces',
-        title: 'Creating Workspaces',
+        title: 'Creating a workspace',
         component: <CreatingWorkspaces />,
       },
       {
+        path: 'configuring-remote-scopes',
+        title: 'Configuring remote scopes',
+        component: <ConfiguringRemoteScopes />,
+      },
+      {
         path: 'creating-components',
-        title: 'Creating components',
-        component: <CreateComponents />,
+        title: 'Adding components',
+        component: <AddComponents />,
+      },
+      {
+        path: 'workspace-status',
+        title: 'Workspace status',
+        description:
+          "Bit' workspace track changes done to components, and shows the state of each in your project's workspace.",
+        component: <WorkspaceStatus />,
       },
       {
         path: 'workspace-configuration',
@@ -219,64 +244,52 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'directory-structure',
-        title: 'Directory Structure',
+        title: 'Workspace directory structure',
         description:
           'The Bit Workspace is flexible in directory structure to preserve a seamless dev experience for building distributed apps.',
         component: <DirectoryStructure />,
       },
       {
         path: 'component-directory',
-        title: 'Component Directory',
+        title: 'Component directories',
         description:
           'A Component Directory is a directory in the developer Workspace. Directories are mapped as Components using the .bitmap rootDir property which exist for every Component entry.',
         component: <ComponentDir />,
       },
       {
-        path: 'workspace-status',
-        title: 'Workspace Status',
-        description:
-          "Bit' workspace track changes done to components, and shows the state of each in your project's workspace.",
-        component: <WorkspaceStatus />,
-      },
-      {
         path: 'moving-components',
-        title: 'Moving Components',
+        title: 'Moving and renaming components',
         description: 'To move a component you can use the bit move command.',
         component: <MovingComponents />,
       },
       {
         path: 'variants',
-        title: 'Configuration Variants',
+        title: 'Configuring multiple components',
         description: 'Variants enables you to configure group of components with Component configuration.',
         component: <Variants />,
       },
       {
         path: 'bitmap',
-        title: 'bitmap',
+        title: 'Component mapping (.bitmap)',
         description:
           ".bitmap is a file auto-generated and managed by Bit in the Workspace for mapping component to their corresponding directory in the project's file system.",
         component: <Bitmap />,
       },
       {
         path: 'component-links',
-        title: 'Workspace Component Link',
+        title: 'Workspace component link',
         component: <WorkspaceLink />,
       },
       {
-        path: 'configuring-remote-scopes',
-        title: 'Configuring Remote Scopes',
-        component: <ConfiguringRemoteScopes />,
-      },
-      {
         path: 'local-scope',
-        title: 'Local Scope',
+        title: 'Local scope',
         description:
           'The Local Scope is located in the .bit or .git/bit directory at the root of the Workspace. It is where component versions (snapshots) are stored.',
         component: <LocalScope />,
       },
       {
         path: 'clearing-cache',
-        title: 'Clearing Cache',
+        title: 'Clearing cache',
         component: <ClearingCache />,
       },
     ],
@@ -294,15 +307,14 @@ export const learnDocsRoutes: DocsRoute[] = [
       component: <ComponentOverview />,
     },
     children: [
-      {
-        path: 'adding-components',
-        title: 'Adding Components',
-        description: 'Add a new component to be managed by Bit.',
-        component: <AddingComponents />,
-      },
+      // {
+      //   path: 'compose-components',
+      //   title: 'Compose a component',
+      //   component: <ComposeComponents />,
+      // },
       {
         path: 'component-config',
-        title: 'Component Configuration',
+        title: 'Component configuration',
         component: <ComponentConfig />,
       },
       {
@@ -314,7 +326,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'component-anatomy',
-        title: 'Component Anatomy',
+        title: 'Component anatomy',
         description: 'How Bit manages all data on a component.',
         component: <ComponentAnatomy />,
       },
@@ -338,21 +350,21 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'snaps',
-        title: 'Snapshot changes',
+        title: 'Snap versions',
         description: 'Record component history with snapshots.',
         component: <Snaps />,
       },
       {
         path: 'tags',
-        title: 'Versioning',
+        title: 'Tag versions',
         description: 'Manage component releases with semantic version.',
         component: <Tags />,
       },
-      {
-        path: 'navigating-history',
-        title: 'Navigating history',
-        component: <NavigateHistory />,
-      },
+      // {
+      //   path: 'navigating-history',
+      //   title: 'Navigating history',
+      //   component: <NavigateHistory />,
+      // },
       {
         path: 'exporting-components',
         title: 'Exporting components',
@@ -389,11 +401,17 @@ export const learnDocsRoutes: DocsRoute[] = [
           'A capsule is an isolated component environment. It is mainly implemented as a directory that hosts a component outside its workspace directory.',
         component: <Capsule />,
       },
+      // {
+      //   path: 'component-objects',
+      //   title: 'Component objects',
+      //   description: 'How Bit saves revision history for components',
+      //   component: <ComponentObjects />,
+      // },
       {
-        path: 'component-objects',
-        title: 'Component Objects',
-        description: 'How Bit saves revision history for components',
-        component: <ComponentObjects />,
+        path: 'isolation-errors',
+        title: 'Isolation errors',
+        displayInSidebar: false,
+        component: <IsolationErrors />,
       },
     ],
   },
@@ -404,64 +422,64 @@ export const learnDocsRoutes: DocsRoute[] = [
     icon: 'dependencies-icn',
     config: {
       path: 'dependencies-config',
-      title: 'Dependencies Configuration',
+      title: 'Dependencies configuration',
       component: <DependenciesConfiguration />,
     },
     children: [
       {
         path: 'dependencies-overview',
-        title: 'Dependencies Overview',
+        title: 'Dependencies overview',
         description:
           'Dependency management is a major concern for developers looking to build and deliver components independently.',
         component: <DependenciesOverview />,
       },
       {
         path: 'dependency-installation',
-        title: 'Dependency Installation',
+        title: 'Dependency installation',
         description:
           "Bit's dependency resolver ensures Workspace Components and External Dependencies are resolved and kept up to date.",
         component: <DependencyInstallation />,
       },
       {
         path: 'dependency-policies',
-        title: 'Dependency Policies',
+        title: 'Dependency policies',
         description:
           'Component dependnecies are defined in Bit through dependency policies. A dependency policy is definition of a set of dependencies, with a SemVer range, allowed to use from components in your development workspace.',
         component: <DependencyPolicies />,
       },
       {
         path: 'configuring-dependencies',
-        title: 'Configuring Dependencies',
+        title: 'Configuring dependencies',
         description: 'Control component dependency policies.',
         component: <ConfiguringDependencies />,
       },
       {
         path: 'inspecting-dependencies',
-        title: 'Inspecting Dependencies',
+        title: 'Inspecting dependencies',
         description: 'See your component dependencies',
         component: <InspectingDependencies />,
       },
       {
         path: 'updates',
-        title: 'Dependency Updates',
+        title: 'Dependency updates',
       },
       {
         path: 'package-managers',
-        title: 'Package Managers',
+        title: 'Package managers',
         description:
           "Bit's Package Manager Aspect encapsulates Yarn, pnpm, NPM or any other supported CommonJS package manager using the bit install command.",
         component: <PackageManagers />,
       },
       {
         path: 'external-dependencies',
-        title: 'External Dependencies',
+        title: 'External dependencies',
         description:
           "External dependencies are Components or packages, defined in your Workspace's Dependency Policy, and installed and resolved from the node_modules directory.",
         component: <ExternalDependencies />,
       },
       {
         path: 'node-modules',
-        title: 'node_modules',
+        title: 'Node modules (node_modules)',
         description:
           'The node_modules directory is a standard directory in which modules are resolved from initially by the NodeJS Module Resolution and as a result by other tools across the JS ecosystem such as Webpack, Rollup, TypeScript and others.',
         component: <NodeModules />,
@@ -473,11 +491,11 @@ export const learnDocsRoutes: DocsRoute[] = [
       // },
       {
         path: 'cyclic-dependencies',
-        title: 'Cyclic Dependencies',
+        title: 'Cyclic dependencies',
       },
       {
         path: 'lock-files',
-        title: 'Lock Files',
+        title: 'Lock files',
         description:
           'A lock file is a representation of the node_modules directory, written in a YAML format. It is automatically generated and updated, whenever the node_modules directory structure is modified by the package manager (when packages are either installed or removed).',
         component: <LockFiles />,
@@ -498,31 +516,36 @@ export const learnDocsRoutes: DocsRoute[] = [
     children: [
       {
         path: 'scope-bit-cloud',
-        title: 'Scopes on Bit.cloud',
+        title: 'Scopes on bit.cloud',
         description: 'Bit.cloud is a cloud hosting provider for Bit Scopes and Components.',
         component: <ScopeBitCloud />,
       },
       {
         path: 'creating-scopes',
-        title: 'Create bare scope',
+        title: 'Creating a scope',
         description: 'Base Scopes used as remote storage for components.',
         component: <CreatingScopes />,
       },
       {
         path: 'configure-scopes',
-        title: 'Configure scopes',
+        title: 'Configuring scopes',
         component: <ScopeJson />,
       },
       {
         path: 'running-a-scope-server',
-        title: 'Hosting scopes',
+        title: 'Hosting a scope',
         component: <HostingScopes />,
       },
       {
         path: 'remote-scopes',
-        title: 'Remotes',
+        title: 'Linking remote scopes',
         description: 'Connect scopes and workspace with remotes.',
         component: <RemoteScopes />,
+      },
+      {
+        path: 'explore-scope-objects',
+        title: 'Exploring scope objects',
+        component: <ScopeObjects />,
       },
       // {
       //   path: 'extending-scopes',
@@ -538,30 +561,30 @@ export const learnDocsRoutes: DocsRoute[] = [
     open: false,
     overview: {
       path: 'envs-overview',
-      title: 'Envs Overview',
+      title: 'Envs overview',
       component: <EnvsOverview />,
     },
     children: [
       {
         path: 'using-envs',
-        title: 'Using Envs',
+        title: 'Using envs',
         component: <UsingEnvs />,
       },
       {
         path: 'inspecting-env',
-        title: 'Inspecting an Env',
+        title: 'Inspecting an env',
         description: '',
         component: <InspectingEnv />,
       },
       {
         path: 'composing-env',
-        title: 'Composing an Env',
+        title: 'Extending an env',
         description: 'Extend existing envs to create your unique workflow.',
         component: <ExtendingEnv />,
       },
       {
         path: 'dev-services',
-        title: 'Dev Services',
+        title: 'Dev services',
         description: 'Development Services control various workflows and commands for components.',
         component: <DevServices />,
       },
@@ -574,7 +597,7 @@ export const learnDocsRoutes: DocsRoute[] = [
   },
   {
     path: 'dev-services-overview',
-    title: 'Dev Services',
+    title: 'Dev services',
     icon: 'compCI',
     open: false,
     overview: {
@@ -597,14 +620,14 @@ export const learnDocsRoutes: DocsRoute[] = [
           },
           {
             path: 'build-pipelines',
-            title: 'Build Pipelines',
+            title: 'Build pipelines',
             description:
               'The Builder runs three separate build pipelines, the basic build pipeline, the snap pipeline and the tag pipeline.',
             component: <BuildPipelines />,
           },
           {
             path: 'implement-build-task',
-            title: 'Implement a build task',
+            title: 'Implementing a build task',
             component: <BuildTasks />,
           },
           {
@@ -621,19 +644,19 @@ export const learnDocsRoutes: DocsRoute[] = [
           },
           {
             path: 'using-build-tasks',
-            title: 'Using Build Tasks',
+            title: 'Using build tasks',
             component: <UsingBuildTask />,
           },
           {
             path: 'build-artifacts',
-            title: 'Build Artifacts',
+            title: 'Build artifacts',
             description:
               'Artifacts are files that are generated by a build task, and persisted in the component objects (the component version).',
             component: <BuildArtifacts />,
           },
           {
             path: 'build-artifacts-api',
-            title: 'Build Artifacts API',
+            title: 'Build artifacts API',
             component: <BuildArtifactsApi />,
           },
           {
@@ -653,7 +676,7 @@ export const learnDocsRoutes: DocsRoute[] = [
         children: [
           {
             path: 'generator-overview',
-            title: 'Generator Overview',
+            title: 'Generator overview',
           },
         ],
       },
@@ -665,7 +688,7 @@ export const learnDocsRoutes: DocsRoute[] = [
         children: [
           {
             path: 'compiler-overview',
-            title: 'Compiler Overview',
+            title: 'Compiler overview',
             description: 'The Compiler aspect simplifies and standardizes the process of the compiling components.',
             component: <CompilerOverview />,
           },
@@ -681,13 +704,13 @@ export const learnDocsRoutes: DocsRoute[] = [
           },
           {
             path: 'using-a-compiler',
-            title: 'Using a Compiler',
+            title: 'Using a compiler',
             description: 'Learn how to configure an Env to use a different compiler.',
             component: <ConfigureEnvWithCompiler />,
           },
           {
             path: 'implement-compiler',
-            title: 'Implement a Compiler',
+            title: 'Implementing a compiler',
             description:
               'Standard compilers are integrated into Bit using a Bit Aspect. For example, Babel is integrated using the Babel Aspect and TypeScript is integrated using the TypeScript Aspect. These Aspects implement the Compiler interface. A compiler implementation should be able to provide compilation in the workspace as well as compilation during build.',
             component: <ImplementCompiler />,
@@ -699,7 +722,7 @@ export const learnDocsRoutes: DocsRoute[] = [
           },
           {
             path: 'multi-compiler',
-            title: 'Multi-Compiler',
+            title: 'Multi-compiler',
             description:
               'The multi-compiler aspect allows the configuration of multiple compilers on a component. This determines which compiler to apply on a component file using the isFileSupported() compiler API.',
             component: <MultiCompiler />,
@@ -714,7 +737,7 @@ export const learnDocsRoutes: DocsRoute[] = [
         children: [
           {
             path: 'tester-overview',
-            title: 'Tester Overview',
+            title: 'Tester overview',
             description: 'The Tester aspect simplifies and standardizes the process of component testing.',
             component: <TesterOverview />,
           },
@@ -733,12 +756,12 @@ export const learnDocsRoutes: DocsRoute[] = [
           },
           {
             path: 'configure-env-with-tester',
-            title: 'Configure an Env with a Tester',
+            title: 'Using a tester',
             component: <ConfigureEnvWithTester />,
           },
           {
             path: 'implement-tester',
-            title: 'Implement a Tester',
+            title: 'Implementing a tester',
             component: <ImplementTester />,
           },
         ],
@@ -751,7 +774,7 @@ export const learnDocsRoutes: DocsRoute[] = [
         children: [
           {
             path: 'docs-overview',
-            title: 'Docs Overview',
+            title: 'Docs overview',
             description:
               'The docs service simplifies the documentation process and provides components with visually rich, custom-made, documentation. It utilizes doc templates to present component docs using the technology and layout that best fits their type.',
             component: <DocsOverview />,
@@ -765,14 +788,14 @@ export const learnDocsRoutes: DocsRoute[] = [
           },
           {
             path: 'docs-templates',
-            title: 'Doc Templates',
+            title: 'Doc templates',
             description:
               'Doc templates display doc files content using a specific layout. This layout may also be enriched with additional data provided by the template. Templates are set by Envs to provide doc layout that best fits the Envs components.',
             component: <DocTemplates />,
           },
           {
             path: 'rendering-docs',
-            title: 'Rendering Docs',
+            title: 'Rendering docs',
             description:
               'The Docs aspect uses the Preview aspect to register its docs file and templates for bundling and for rendering in the browser.',
             component: <RenderingDocs />,
@@ -794,26 +817,26 @@ export const learnDocsRoutes: DocsRoute[] = [
           },
           {
             path: 'composition-format',
-            title: 'Composition Format',
+            title: 'Composition format',
             description:
               'Compositions use the Component Story Format (CSF), an open standard for component examples based on JavaScript ES6 modules.',
             component: <CompositionFormat />,
           },
           {
             path: 'composition-context',
-            title: 'Setting a Composition Context',
+            title: 'Setting a composition context',
             description:
               'Compositions often use the same context. One example of that is a common theme. Instead of manually wrapping each composition with providers, set your Env to inject a pre-configured set of provider components.',
             component: <CompositionContext />,
           },
           {
             path: 'mounting-compositions-to-dom',
-            title: 'Mounting Compositions to the DOM',
+            title: 'Mounting compositions to the DOM',
             component: <MountingCompositionsToDom />,
           },
           {
             path: 'compositions-and-stories',
-            title: 'Compositions and Stories',
+            title: 'Compositions and stories',
             description:
               'Compositions and Stories can appear quite similar. Almost like two sibling solutions that solve the same problem.',
             component: <CompositionsAndStories />,
@@ -828,21 +851,21 @@ export const learnDocsRoutes: DocsRoute[] = [
         children: [
           {
             path: 'overview',
-            title: 'Preview Overview',
+            title: 'Preview overview',
             description:
               'The Preview Aspect enables component visualizations to be displayed by the browser, in an isolated Preview environment that is agnostic to the way visualizations are implemented (their framework, etc).',
             component: <PreviewOverview />,
           },
           {
             path: 'preview-during-development',
-            title: 'Preview during Development',
+            title: 'Preview during development',
             description:
               'During development (in the workspace) component previews are generated using dedicated dev servers that run in parallel to the UI server.',
             component: <PreviewDuringDevelopment />,
           },
           {
             path: 'preview-during-build',
-            title: 'Preview during Build',
+            title: 'Preview during build',
             description:
               'The Preview Aspect registers its own Build Task to generate preview artifacts during build time (bit build).',
             component: <PreviewDuringBuild />,
@@ -862,30 +885,30 @@ export const learnDocsRoutes: DocsRoute[] = [
         children: [
           {
             path: 'linter-overview',
-            title: 'Linter Overview',
+            title: 'Linter overview',
             description:
               'Linting helps us maintain consistent code styling and avoid potential bugs by analyzing our source code, statically, before it is compiled and executed.',
             component: <LinterOverview />,
           },
           {
             path: 'linting-during-development',
-            title: 'Linting during Development',
+            title: 'Linting during development',
             description: 'During development, Bit lints your components using the bit lint.',
             component: <LintingDuringDevelopment />,
           },
           {
             path: 'linting-during-build',
-            title: 'Linting during Build',
+            title: 'Linting during build',
             component: <LintingDuringBuild />,
           },
           {
             path: 'configure-env-with-linter',
-            title: 'Configure an Env with a Linter',
+            title: 'Using a linter',
             component: <ConfigureEnvWithLinter />,
           },
           {
             path: 'implement-linter',
-            title: 'Implement a Linter',
+            title: 'Implementing a Linter',
             description:
               'Standard linter like Eslint are integrated into Bit using a Bit Aspect . For example, the Eslint Aspect.',
             component: <ImplementLinter />,
@@ -900,31 +923,31 @@ export const learnDocsRoutes: DocsRoute[] = [
         children: [
           {
             path: 'formatter-overview',
-            title: 'Formatter Overview',
+            title: 'Formatter overview',
             description:
               "Formatter helps you format your components' code according to a pre-defined set of styling rules.",
             component: <FormatterOverview />,
           },
           {
             path: 'formatting-during-development',
-            title: 'Formatting during Development',
+            title: 'Formatting during development',
             description:
               'During development, Bit formats your components using the bit format commands. This command provides a standard dev experience for formatting the code of any kind of Component, whether it is a NodeJS modules, a React component or anything else.',
             component: <FormattingDuringDevelopment />,
           },
           {
             path: 'formatting-during-build',
-            title: 'Formatting during Build',
+            title: 'Formatting during build',
             component: <FormattingDuringBuild />,
           },
           {
             path: 'configure-env-with-formatter',
-            title: 'Configure an Env with a Formatter',
+            title: 'Using a formatter',
             component: <ConfigureEnvWithFormatter />,
           },
           {
             path: 'implement-formatter',
-            title: 'Implement a Formatter',
+            title: 'Implementing a formatter',
             component: <ImplementFormatter />,
           },
         ],
@@ -939,27 +962,27 @@ export const learnDocsRoutes: DocsRoute[] = [
     children: [
       {
         path: 'apps-overview',
-        title: 'Apps Overview',
+        title: 'Apps overview',
         component: <div />,
       },
       {
         path: 'create-app',
-        title: 'Creating an App',
+        title: 'Creating an app',
         component: <div />,
       },
       {
         path: 'app-build',
-        title: 'App Build',
+        title: 'App build',
         component: <div />,
       },
       {
         path: 'app-deployment',
-        title: 'App Deployment',
+        title: 'App deployment',
         component: <div />,
       },
       {
         path: 'application-types',
-        title: 'Application Types',
+        title: 'Application types',
         component: <div />,
       },
     ],
@@ -972,7 +995,7 @@ export const learnDocsRoutes: DocsRoute[] = [
     children: [
       {
         path: 'packages-overview',
-        title: 'Packages Overview',
+        title: 'Packages overview',
         description:
           "Part of a Component's release process includes generating a standard node package. This ensures components are consumable in any project (Bit or non-Bit).",
         component: <PackagesOverview />,
@@ -991,33 +1014,33 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'package-name',
-        title: 'Package Name',
+        title: 'Package name',
         description:
           'The Package Name is the CommonJS compatible module name for the Component, used and linked from the Workspace node_modules directory. By default, package names are computed from the Component ID.',
         component: <PackageName />,
       },
       {
         path: 'packing-components',
-        title: 'Packing Components',
+        title: 'Packing components',
         description:
           'Component packages are generated during execution of the Component build pipeline and persisted as Artifacts upon component versioning.',
         component: <PackingComponents />,
       },
       {
         path: 'publishing-components-to-commonjs-registries',
-        title: 'Publishing to CommonJS Registries',
+        title: 'Publishing to commonJS registries',
         description:
           'Component packages are included in the component versions (snaps and tags). Components hosted on Bit Cloud will have their packages available to be installed by Bit, as well as by standard package managers like npm and Yarn.',
         component: <CommonjsPackageRegistries />,
       },
       {
         path: 'build-tasks',
-        title: 'Build Tasks',
+        title: 'Build tasks',
         component: <PkgBuildTasks />,
       },
       {
         path: 'npmrc',
-        title: 'Configuring Bit Cloud in NPM config',
+        title: 'Configuring bit.cloud in npm config',
         description:
           "npmrc's are npm config files (used by other package manager as well). npmrc can be configured per project, per user, or globally.",
         component: <Npmrc />,
@@ -1038,14 +1061,14 @@ export const learnDocsRoutes: DocsRoute[] = [
         children: [
           {
             path: 'configure-webpack',
-            title: 'Configure Webpack',
+            title: 'Configure webpack',
             description:
               'Depending on the Component Development Environments configured for components, a different default Webpack config is applied on each component.',
             component: <ConfigureWebpck />,
           },
           {
             path: 'module-federation',
-            title: 'Module Federation',
+            title: 'Module federation',
             component: <ConfigureWebpck />,
           },
         ],
@@ -1058,7 +1081,7 @@ export const learnDocsRoutes: DocsRoute[] = [
         children: [
           {
             path: 'configuring-typescript',
-            title: 'Configuring Typescript',
+            title: 'Configuring typescript',
           },
         ],
       },
@@ -1121,17 +1144,17 @@ export const learnDocsRoutes: DocsRoute[] = [
         children: [
           {
             path: 'react-overview',
-            title: 'React Overview',
+            title: 'React overview',
             component: <ReactOverview />,
           },
           {
             path: 'config-react-tools',
-            title: 'Configuring React Tools',
+            title: 'Configuring react tools',
             component: <ConfigReactTools />,
           },
           {
             path: 'replace-react-tools',
-            title: 'Replacing React Tools',
+            title: 'Replacing react tools',
             component: <ReplacingReactTools />,
           },
         ],
@@ -1150,7 +1173,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'lit-html',
-        title: 'Lit Element',
+        title: 'Lit element',
         open: false,
         children: [],
       },
@@ -1166,29 +1189,29 @@ export const learnDocsRoutes: DocsRoute[] = [
     path: 'extending-bit',
     open: false,
     icon: 'Extension',
-    title: 'Extending Bit',
+    title: 'Extending bit',
     children: [
       {
         path: 'aspect-overview',
-        title: 'Aspects Overview',
+        title: 'Aspects overview',
         description:
           'Bit is built entirely with Bit. This means that even Bit itself is built in a component-driven architecture. It uses Harmony which is a component-based framework for composing extensible features into apps.',
         component: <AspectsOverview />,
       },
       {
         path: 'using-aspects',
-        title: 'Using Aspects',
+        title: 'Using aspects',
         description:
           'Aspects can be used to extend Bit with simple configurations, to both the Scope and the Workspace. Aspects can also be composed into Harmony applications.',
         component: <UsingAspects />,
       },
       {
         path: 'create-aspect',
-        title: 'Creating Aspects',
+        title: 'Creating aspects',
       },
       {
         path: 'config',
-        title: 'Aspect Config',
+        title: 'Aspect config',
       },
       {
         path: 'slots',
@@ -1224,7 +1247,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'config-files',
-        title: 'Config Files',
+        title: 'Config files',
         open: false,
         component: <ConfigFiles />,
       },
@@ -1238,7 +1261,7 @@ export const learnDocsRoutes: DocsRoute[] = [
     children: [
       {
         path: 'cli-reference',
-        title: 'CLI Reference',
+        title: 'CLI reference',
         component: <CliReference />,
         icon: 'terminal',
       },

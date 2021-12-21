@@ -1,15 +1,18 @@
-# Inspecting an Env
+# Inspecting an env's configuration
 
-An env may be composed by various flows and their respected configs. It is also possible for one env to support more flows than another.  
-Get the actual setup for a component by running the `env` command:
+Understanding your Env's config can be crucial for predicable and bug-free outcomes. Getting the right the information, however, can be quite tricky as there could be multiple sources for a single config.
+
+For example, an extended Env's compiler will have the merged config of the compiler implementation (e.g, TypeScript Aspect), of the base (extended) Env, and of the Env extension. It is not always clear what the calculated result for this merge is.
+
+To get the final calculated configs for your Env, run the `env` command with the full name of the component using the inspected env.
 
 ```bash
-bit env teambit.base-ui/button
+bit env <component-full-name>
 ```
 
-The result output describes all applied services and their configs.
+The output will present you with the Env's build pipelines and integrated tools.
 
-## Build pipelines (build, snap, tag)
+### Build pipelines (build, snap, tag)
 
 The tasks set to run as part of the various build processes and their order of execution.
 
@@ -27,7 +30,7 @@ total 6 tasks are configured to be executed in the following order
 6. teambit.preview/preview:GeneratePreview
 ```
 
-## Integrated tools
+### Integrated tools
 
 An Env implements various dev services using specific Aspects, with specific configurations. These aspects often use third-party tools like Webpack, TypeScript, etc. The `env` command gives quick insight into all these tools.
 

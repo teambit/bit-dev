@@ -1,14 +1,23 @@
-# Directory Structure
+# Directory structure
 
-The Bit [Workspace](/workspace/overview) is flexible in directory structure to preserve a seamless dev experience for building distributed apps. It is flexible for teams to decide how they prefer to structure their [Workspace](/workspace/overview).
+The Workspace's directory structure is entirely up to you.
 
-Components can be tracked in any directory in the project's file system with the `bit add` command.
+Run the following to track any [Component Directory](/workspace/component-directory) inside your Workspace directory:
 
 ```bash
-bit add path/to/dir/button
+bit add RELATIVE_PATH_TO_COMPONENT_DIRECTORY
 ```
+When you create a new component (`bit create`) or import a component (`bit import`), that component is placed somewhere in your Workspace.
+You can define a pattern that describes the directory path (where these Components will be placed) using placeholders that reference different sections of the Component ID.
 
-The default directory structure for a Bit Workspace is defined in [workspace.json](/workspace/workspace-json). The default directory structure is as a pattern used by commands placing Components in the Workspace like `bit create` or `bit import`.
+The placeholders are as following:
+
+- `scope`: The scope name
+- `name`: The component full name, including its namespaces
+- `componentName`: The component name without its namespaces
+- `namespaces`: The component's Namespaces
+
+For example:
 
 ```json
 {
@@ -18,41 +27,27 @@ The default directory structure for a Bit Workspace is defined in [workspace.jso
 }
 ```
 
-Other available params for the pattern are: `{namespaces}` and `{componentName}`.
-
-By default, we configure `Scope` to be the top level directory to preserve team boundaries and ownership on Components in the Workspace.
+Say you imported a component by running the following command (while using the above configuration):
 
 ```bash
-├── base-ui --> `Scope` used to define team boundaries and ownership
-    ├── ui --> `Component Namespaces` to assist with organization and configuration of components used
-        ├── button --> `Component Directory` includes a specific Component implantation
-          ├── index.ts
-          ├── button.ts
-          ├── button.spec.ts
-          ├── button.docs.md
-          ├── ...
-    ├── hooks
-        ├── use-product
-          ├── index.ts
-          ├── use-product.ts
-          ├── button.spec.ts
-          ├── button.docs.md
-          ├── ...
-├── ecommerce
-    ├── ui
-        ├── button
-          ├── index.ts
-          ├── button.ts
-          ├── button.spec.ts
-          ├── button.docs.md
-          ├── ...
-├── ...
+bit import teambit.base-ui/theme/fonts/book
 ```
 
-```bash
-bit import
-```
+This component will be placed in the `base-ui/ui/inputs/button` path (where `button` is the component directory).
+
+It is recommended to maintain a symmetry between the components' namespaces and scopes on one side, and the directory structure, on the other.
+In this symmetry, scopes are the top-level directories. This sort of structure helps in preserving team boundaries and ownership over Components in your Workspace. 
+
+For example:
 
 ```bash
-bit create
+├── base-ui # corresponds to the 'teambit.base-ui' scope
+    ├── ui  # corresponds to the 'ui' namespace
+        ├── inputs # corresponds to the 'inputs' namespace ('ui/inputs')
+          ├── button # corresponds to the component name
+            ├── index.ts
+            ├── button.tsx
+            ├── button.spec.tsx
+            ├── button.docs.mdx
+            ├── ...
 ```

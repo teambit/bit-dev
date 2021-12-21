@@ -1,0 +1,18 @@
+# Compose components
+
+This page discusses how to compose a component from other components. To learn how to add a new component to the Workspace see [Add a component](/workspace/creating-components).
+
+## Require components
+
+### Require another Component's internal files
+
+It is not recommended to require JS files from
+Requiring internal JavaScript files from components is not recommended. Make sure to only `require` non-compiled assets like `scss`, `less` or `png` files.
+
+```ts
+import { Button } from '@teambit/base-ui.button'; // good!
+import { Button } from '@teambit/base-ui.button/button'; // bad! requires internal file of the component.
+import styles from '@teambit/base-ui.button/button.modules.scss'; // resources like `scss` and `png` since they are not compiled and handles by the consuming app.
+```
+
+JavaScript files are compiled, requiring them may cause inconsistencies for your application. Assets on the other hand are usually not compiled, and are expected to be handled by the consuming app.

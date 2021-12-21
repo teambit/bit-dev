@@ -1,17 +1,19 @@
 import { Image } from '@teambit/docs.ui.zoomable-image';
 import wsScreenshot from './ws-screenshot.png';
-import looseComponents from './loose-components.png';
+import workspaces from './workspaces.png';
 import multiRepo from './multi-repo.png';
 
-# Workspace Overview
+# Workspace overview
 
-You can use the Bit workspace to either create, use or import components, make changes to them, and export these changes back. 
-Workspaces are tech-agnonstic and allow development of components of all kinds. They can be used by a single developer maintaining few components, exist on top of 
-existing repositories or shared as a Workspace component.
+A Bit Workspace is where you build [Components](/components/component-overview) and compose them into services and apps. 
 
-<Image src={looseComponents} width="85%"/>
+Workspaces are usually source-controlled as "standard projects" using SCMs like git. However, once a Component in a Workspace is versioned and exported to a Remote Scope, it is no longer coupled to it in any way.
 
-Get started and generate a demo workspace:
+In that sense, a Workspace is best thought of as a temporary hub where Components are maintained, composed into more complex Components, and exported again.
+
+<Image src={workspaces} style={{maxWidth: 800}} />
+
+To get started with a demo Workspace, run the following command:
 
 ```bash
 bit new react demo
@@ -19,7 +21,7 @@ bit new react demo
 
 ## Component development server
 
-All components in your workspace are rendered and presented on a local development server. To start it, run the following command:
+Components in your workspace are displayed in the Workspace UI which is served by Bit's dev server. To start it, run the following command:
 
 ```sh
 bit start
@@ -29,7 +31,7 @@ bit start
 
 ## Simple, scalable dev experience
 
-Keeping a similar dev-experience across workspaces allows you to jump in and out from codebases. When you don't need to deal with a per-project setup or learn the workflow commands/scripts you simply focus on the code.
+Keeping a similar dev-experience across workspaces allows you to jump in and out of codebases. You don't need to learn each project's dev setup, workflows, or specific commands.
 
 Simple dev experience means you can **easily onboard** yourself to a workspace, thanks to:
 
@@ -42,20 +44,20 @@ This makes it easy to scale the amount of components in a workspace, scale the a
 
 ## Composition of components
 
-The workspace is a container for the components. You get a monolithic-like developer experience and ability to refactor many components in a single place. In this "container" a component manages its own implementation, history and config ([read more](/docs/components/component-overview)).  
-This allows you to be flexible with how you structure a workspace and its contents. For example, you can [import a component](/docs/components/importing-components):
+A Workspace provides a monolith-like developer experience, and enables you to refactor many components in a single "project". In this "project", each component manages its own implementation, history and config.  
+This allows you to be flexible with how you structure your Workspace. For example, you can [import a component](/docs/components/importing-components):
 
 ```bash
 bit import teambit.community/ui/graph/bubble-graph
 ```
 
-Bit adds the new component to the list of components in the workspace, pulls down the complete revision history, configs and dependencies. Now you can do local modifications, see the component when running `bit start`, and maintain it as if you implemented it in your own workspace.
+Bit adds the new component to the list of components in the workspace, pulls down the complete revision history, configs and dependencies. Now you're able to modify it locally, examine the component when running `bit start`, and maintain it as if that component was authored by you.
 
-In the same sense you can `export` and even `eject` any of your components from a workspace, and more it to another one. So if you started with building all components in the same place, you are not locked to that decision.
+In the same sense you can `export` and even `eject` Components from a Workspace, and more it to another one. So if you started with building all components in the same place, you are not locked to that decision.
 
 <Image src={multiRepo} width="85%"/>
 
-### Personalize your workspace
+## Personalize your workspace
 
 With composability in mind you can personalize your workspace on a per-feature basis or on the work you are currently focus on. You can start your flow by using `bit import` and fetch all required components, starting to modify and work on them as needed.  
 When done, you can version and eject unneeded components. Instead of you working in the boundaries of your workspace, have the workspace fit to your current work.
