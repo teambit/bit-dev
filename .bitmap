@@ -973,6 +973,20 @@
         "mainFile": "index.ts",
         "rootDir": "dependencies/content/yarn"
     },
+    "discovery/component-search": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.components",
+        "mainFile": "index.ts",
+        "rootDir": "components/discovery/component-search"
+    },
+    "discovery/hooks/use-component-search": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.components",
+        "mainFile": "index.ts",
+        "rootDir": "components/discovery/hooks/use-component-search"
+    },
     "docs/installation/setup-editor": {
         "scope": "",
         "version": "",
@@ -1100,12 +1114,19 @@
         "mainFile": "index.ts",
         "rootDir": "docs/plugins/next-page"
     },
-    // "relations-graph": {
-    //     "scope": "teambit.graph",
-    //     "version": "0.0.2",
-    //     "mainFile": "index.ts",
-    //     "rootDir": "graph/relations-graph"
-    // },
+    "quick-start/wiki-quick-start": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.bit",
+        "mainFile": "index.ts",
+        "rootDir": "bit/quick-start/wiki-quick-start"
+    },
+    "relations-graph": {
+        "scope": "teambit.graph",
+        "version": "0.0.2",
+        "mainFile": "index.ts",
+        "rootDir": "graph/relations-graph"
+    },
     "theme/create-theme": {
         "scope": "teambit.base-react",
         "version": "1.23.1",
