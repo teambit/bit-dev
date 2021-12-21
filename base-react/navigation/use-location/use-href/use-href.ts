@@ -1,1 +1,1 @@
-export { useNativeHref } from './native-use-href';
+export { useNativeHref as useHref } from './native-use-href';
