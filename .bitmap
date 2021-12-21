@@ -1100,12 +1100,12 @@
         "mainFile": "index.ts",
         "rootDir": "docs/plugins/next-page"
     },
-    "relations-graph": {
-        "scope": "teambit.graph",
-        "version": "0.0.2",
-        "mainFile": "index.ts",
-        "rootDir": "graph/relations-graph"
-    },
+    // "relations-graph": {
+    //     "scope": "teambit.graph",
+    //     "version": "0.0.2",
+    //     "mainFile": "index.ts",
+    //     "rootDir": "graph/relations-graph"
+    // },
     "theme/create-theme": {
         "scope": "teambit.base-react",
         "version": "1.23.1",
