@@ -4,10 +4,10 @@ import componentConfig from './comp-config.png';
 import devFilesConfig from './dev-files-config.png';
 import devFilesScreenShot from './dev-files-screenshot.png';
 
-# Component Configuration
+# Component configuration
 
-A Component's configuration determines the properties of a Component, like its package name, dependencies, dev files, and more.
-It is essentially, a list of Aspects that are applied on a Component and their corresponding configs. One very prominent Aspect is the specific Env a Component uses.
+A Component's configuration determines the properties of a [Component](/components/component-overview), like its [package name](/packages/package-name), [dependencies](/dependencies/configuring-dependencies), [dev files](/components/dev-files), and more.
+It is essentially, a list of [Aspects](/extending-bit/aspect-overview) that are applied on a Component and their corresponding configs. One very prominent Aspect is the specific [Env](/envs/envs-overview) a Component uses.
 
 For example, the following sets the React Env as this Component's Env, and defines this Component's test files as development files:
 
@@ -22,7 +22,7 @@ For example, the following sets the React Env as this Component's Env, and defin
 }
 ```
 
-Aspects are applied on a Component using its component.json and using Variants. Core Aspects are applied by default and will not be listed in either of the two.
+Aspects are applied on a Component using its [component.json](/components/component-json) and using [Variants](/workspace/variants). Core Aspects are applied by default and will not be listed in either of the two.
 Each Aspect's config can be configured manually in component.json and Variants, and programmatically, using that Aspect's API.
 These various Aspect configurations are calculated by Bit into a coherent list of configurations.
 

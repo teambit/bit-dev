@@ -227,7 +227,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'creating-components',
-        title: 'Adding a component',
+        title: 'Adding components',
         component: <AddComponents />,
       },
       {
@@ -318,11 +318,6 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <ComponentConfig />,
       },
       {
-        path: 'component-config',
-        title: 'Component configuration',
-        component: <ComponentConfig />,
-      },
-      {
         path: 'component-id',
         title: 'Component ID',
         description:
@@ -384,7 +379,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'importing-components',
-        title: 'Import components',
+        title: 'Importing components',
         description:
           'Importing is the process of copying Components from their Scope to the Local Scope, to use and maintain them in the Workspace.',
         component: <ImportingComponents />,
@@ -406,12 +401,12 @@ export const learnDocsRoutes: DocsRoute[] = [
           'A capsule is an isolated component environment. It is mainly implemented as a directory that hosts a component outside its workspace directory.',
         component: <Capsule />,
       },
-      {
-        path: 'component-objects',
-        title: 'Component objects',
-        description: 'How Bit saves revision history for components',
-        component: <ComponentObjects />,
-      },
+      // {
+      //   path: 'component-objects',
+      //   title: 'Component objects',
+      //   description: 'How Bit saves revision history for components',
+      //   component: <ComponentObjects />,
+      // },
       {
         path: 'isolation-errors',
         title: 'Isolation errors',
@@ -466,11 +461,11 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'updates',
-        title: 'Dependency Updates',
+        title: 'Dependency updates',
       },
       {
         path: 'package-managers',
-        title: 'Package Managers',
+        title: 'Package managers',
         description:
           "Bit's Package Manager Aspect encapsulates Yarn, pnpm, NPM or any other supported CommonJS package manager using the bit install command.",
         component: <PackageManagers />,
@@ -496,7 +491,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       // },
       {
         path: 'cyclic-dependencies',
-        title: 'Cyclic Dependencies',
+        title: 'Cyclic dependencies',
       },
       {
         path: 'lock-files',
@@ -583,7 +578,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'composing-env',
-        title: 'Composing an Env',
+        title: 'Extending an env',
         description: 'Extend existing envs to create your unique workflow.',
         component: <ExtendingEnv />,
       },
