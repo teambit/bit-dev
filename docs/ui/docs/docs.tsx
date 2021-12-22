@@ -4,8 +4,7 @@ import { DocsRoute, DocsRoutes } from '@teambit/docs.entities.docs-routes';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
 import { Sidebar as Tree } from '@teambit/docs.ui.sidebar.sidebar';
 import { DocPage } from '@teambit/docs.ui.pages.doc-page';
-import { useSidebar } from '@teambit/design.ui.sidebar.sidebar-context';
-import { Sidebar } from '@teambit/design.ui.sidebar.sidebar';
+// import { Sidebar } from '@teambit/design.ui.sidebar.sidebar';
 import { DocsPlugin } from '@teambit/docs.plugins.docs-plugin';
 import styles from './docs.module.scss';
 import { PrimaryLinks } from './primary-links';
@@ -52,7 +51,6 @@ export type DocsProps = {
 
 export function Docs({ contents, primaryLinks = [], baseUrl = '/', plugins = [], className, ...rest }: DocsProps) {
   const { path } = useRouteMatch();
-  const sidebar = useSidebar();
   const primaryRoutes = DocsRoutes.from(primaryLinks, baseUrl || path);
   const contentRoutes = contents?.map((category) => {
     return {

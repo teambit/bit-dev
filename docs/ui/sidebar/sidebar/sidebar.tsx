@@ -1,35 +1,25 @@
-import React, { useState, ReactNode } from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
-import { TreeNode, TreeNodeContext } from '@teambit/base-ui.graph.tree.recursive-tree';
+import { TreeNodeContext } from '@teambit/base-ui.graph.tree.recursive-tree';
 // TODO: check with Uri why sidebar is distributed to many components and not documented.
 import { TreeContextProvider } from '@teambit/base-ui.graph.tree.tree-context';
 import { indentStyle } from '@teambit/base-ui.graph.tree.indent';
 import { RootNode } from '@teambit/base-ui.graph.tree.root-node';
 import { SidebarNode } from './sidebar-node';
+import { SidebarSection } from './sidebar-section';
 import styles from './sidebar.module.scss';
-
-export type SidebarPayload = {
-  open?: boolean;
-  icon?: string | ReactNode;
-  title: string;
-  path?: string;
-  configPath?: string;
-  overviewPath?: string;
-  displayInSidebar?: boolean;
-};
-
-export type SidebarTreeNode = TreeNode<SidebarPayload>;
+import { PrimarySection } from './primary-section';
 
 export type SidebarProps = {
   /**
-   * an optional title for the sidebar.
+   * primary links.
    */
-  displayTitle?: string;
+  primaryLinks: PrimarySection[];
 
   /**
-   * a nested tree node, which includes children for tree nesting.
+   * sections of the sidebar. each section includes a title and a tree of nodes.
    */
-  tree: SidebarTreeNode;
+  sections: SidebarSection[];
 
   /**
    * prefix for all rendered links in the sidebar.
@@ -37,11 +27,12 @@ export type SidebarProps = {
   linkPrefix?: string;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-export function Sidebar({ displayTitle, tree, linkPrefix, className, ...rest }: SidebarProps) {
+export function Sidebar({ linkPrefix, className, ...rest }: SidebarProps) {
   const links = tree && tree.children;
   if (!links || links.length === 0) return null;
   const [active, setToActive] = useState(tree.id);
 
+  // support primary links.
   return (
     <div style={{ ...indentStyle(0), ...rest.style }} className={classNames(styles.sidebar, className)} {...rest}>
       {displayTitle && <span className={styles.sidebarTitle}>{displayTitle}</span>}
