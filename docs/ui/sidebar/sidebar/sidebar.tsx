@@ -1,25 +1,23 @@
 import React, { useState } from 'react';
-import classNames from 'classnames';
-import { TreeNodeContext } from '@teambit/base-ui.graph.tree.recursive-tree';
-// TODO: check with Uri why sidebar is distributed to many components and not documented.
-import { TreeContextProvider } from '@teambit/base-ui.graph.tree.tree-context';
-import { indentStyle } from '@teambit/base-ui.graph.tree.indent';
-import { RootNode } from '@teambit/base-ui.graph.tree.root-node';
-import { SidebarNode } from './sidebar-node';
+import type { SidebarTreeNode } from './sidebar-section';
+
+import { Sidebar as SidebarWrapper } from '@teambit/design.ui.sidebar.sidebar';
+import { Collapser } from '@teambit/ui-foundation.ui.buttons.collapser';
 import { SidebarSection } from './sidebar-section';
+import { Tree } from './tree';
 import styles from './sidebar.module.scss';
-import { PrimarySection } from './primary-section';
+import { PrimaryLinks } from './primary-links';
 
 export type SidebarProps = {
   /**
    * primary links.
    */
-  primaryLinks: PrimarySection[];
+  primaryLinks: SidebarTreeNode;
 
   /**
    * sections of the sidebar. each section includes a title and a tree of nodes.
    */
-  sections: SidebarSection[];
+  sections?: SidebarSection[];
 
   /**
    * prefix for all rendered links in the sidebar.
@@ -27,20 +25,24 @@ export type SidebarProps = {
   linkPrefix?: string;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-export function Sidebar({ linkPrefix, className, ...rest }: SidebarProps) {
-  const links = tree && tree.children;
-  if (!links || links.length === 0) return null;
-  const [active, setToActive] = useState(tree.id);
-
-  // support primary links.
+export function Sidebar({ primaryLinks, sections, linkPrefix }: SidebarProps) {
+  const [isOpen, setIsOpen] = useState(false);
   return (
-    <div style={{ ...indentStyle(0), ...rest.style }} className={classNames(styles.sidebar, className)} {...rest}>
-      {displayTitle && <span className={styles.sidebarTitle}>{displayTitle}</span>}
-      <TreeNodeContext.Provider value={SidebarNode}>
-        <TreeContextProvider onSelect={(id) => setToActive(id)} selected={active}>
-          <RootNode node={tree} depth={1} />
-        </TreeContextProvider>
-      </TreeNodeContext.Provider>
-    </div>
+    <SidebarWrapper isOpen={isOpen} toggle={() => setIsOpen(!isOpen)} className={styles.sidebar}>
+      <PrimaryLinks links={primaryLinks} />
+      {sections?.map((category) => {
+        if (!category) return null;
+        return (
+          <Tree
+            key={category.title}
+            displayTitle={category.title}
+            tree={category?.routes?.toSideBarTree()}
+            // linkPrefix={linkPrefix}
+            className={category?.className}
+          />
+        );
+      })}
+      <Collapser isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} placement="right" className={styles.collapser} />
+    </SidebarWrapper>
   );
 }

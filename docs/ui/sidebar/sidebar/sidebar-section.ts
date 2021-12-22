@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { TreeNode } from '@teambit/base-ui.graph.tree.recursive-tree';
+import { DocsRoutes } from '@teambit/docs.entities.docs-routes';
 
 export type SidebarTreeNode = TreeNode<SidebarPayload>;
 
@@ -17,10 +18,16 @@ export type SidebarSection = {
   /**
    * title of the section.
    */
-  title: string;
+  title?: string;
   
   /**
    * tree of the section.
    */
-  tree: SidebarTreeNode;
+  // routes: SidebarTreeNode;
+  routes?: DocsRoutes;
+
+  /**
+   * tree custom styles
+   */
+  className?: string
 };
