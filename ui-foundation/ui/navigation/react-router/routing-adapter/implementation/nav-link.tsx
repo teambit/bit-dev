@@ -33,5 +33,9 @@ export const ReactRouterNavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(fu
   const to = useMemo(() => ({ ...parsePath(href), state }), [href, state]);
   const isActive = useMemo(() => (active === undefined ? undefined : () => active), [active]);
 
-  return <BaseNavLink to={to} isActive={isActive} ref={ref} {...rest} children={children} />;
+  return (
+    <BaseNavLink to={to} isActive={isActive} ref={ref} {...rest}>
+      {children}
+    </BaseNavLink>
+  );
 });

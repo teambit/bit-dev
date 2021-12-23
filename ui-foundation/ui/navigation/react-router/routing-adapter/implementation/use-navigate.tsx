@@ -5,7 +5,7 @@ import { Navigator } from '@teambit/base-react.navigation.router-context';
 export function useNavigate(): Navigator {
   const history = useHistory();
 
-  const navigatorV5: Navigator = useMemo(
+  const navigator: Navigator = useMemo(
     () => (to: string | number, options?: { replace?: boolean }) => {
       if (typeof to === 'number') {
         return history.go(to);
@@ -18,5 +18,5 @@ export function useNavigate(): Navigator {
     [history]
   );
 
-  return navigatorV5;
+  return navigator;
 }

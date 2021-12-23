@@ -6,7 +6,6 @@
   },
   "propagate": true,
   "extensions": {
-    "teambit.community/envs/community-react": "-",
     "teambit.dependencies/dependency-resolver": {
       "policy": {
         "dependencies": {

@@ -6,15 +6,12 @@
   },
   "propagate": true,
   "extensions": {
-    "teambit.community/envs/community-react": "-",
     "teambit.dependencies/dependency-resolver": {
       "policy": {
         "dependencies": {
-          "@teambit/base-ui.routing.routing-provider": "-",
           "@teambit/base-react.navigation.router-context": "-"
         },
         "peerDependencies": {
-          "@teambit/base-ui.routing.routing-provider": "^1.0.0",
           "@teambit/base-react.navigation.router-context": "^1.0.0"
         }
       }
