@@ -70,9 +70,7 @@ export const BasicDocs = () => (
     <RoutingProvider value={routing}>
       <SidebarProvider>
         <MemoryRouter>
-          <ReactRouterRoutingProvider>
-            <Docs baseUrl="/" contents={[{ routes }]} primaryLinks={primaryRoutes} />
-          </ReactRouterRoutingProvider>
+          <Docs baseUrl="/" contents={[{ routes }]} primaryLinks={primaryRoutes} />
         </MemoryRouter>
       </SidebarProvider>
     </RoutingProvider>
