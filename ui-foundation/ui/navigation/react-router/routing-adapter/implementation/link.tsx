@@ -2,7 +2,6 @@ import React, { forwardRef, useMemo } from 'react';
 import { Link as BaseLink } from 'react-router-dom';
 import { parsePath } from 'history';
 import type { LinkProps } from '@teambit/base-react.navigation.router-context';
-import { Link as DefaultLink } from '@teambit/base-react.navigation.link';
 
 export type { LinkProps };
 
@@ -22,12 +21,6 @@ export const ReactRouterLink = forwardRef<HTMLAnchorElement, LinkProps>(function
   ref
 ) {
   const to = useMemo(() => ({ ...parsePath(href), state }), [href, state]);
-
-  // support legacy routing - which doesn't handle external / native
-  if (external || native) {
-    const existingProps = { external, native, href, state };
-    return <DefaultLink {...existingProps} ref={ref} {...rest} />;
-  }
 
   // @ts-ignore (https://github.com/teambit/bit/issues/4401)
   return <BaseLink to={to} {...rest} ref={ref} />;
