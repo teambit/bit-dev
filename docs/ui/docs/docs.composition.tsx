@@ -65,16 +65,16 @@ const routes: DocsRoute[] = [
 ];
 
 export const BasicDocs = () => (
-  <MemoryRouter>
-    <ReactRouterRoutingProvider>
-      {/* TODO - replace with Legacy Routing Adapter, and remove once we remove all legacy links */}
-      <RoutingProvider value={routing}>
-        <SidebarProvider>
+  <ReactRouterRoutingProvider>
+    {/* TODO - replace with Legacy Routing Adapter, and remove once we remove all legacy links */}
+    <RoutingProvider value={routing}>
+      <SidebarProvider>
+        <MemoryRouter>
           <ReactRouterRoutingProvider>
             <Docs baseUrl="/" contents={[{ routes }]} primaryLinks={primaryRoutes} />
           </ReactRouterRoutingProvider>
-        </SidebarProvider>
-      </RoutingProvider>
-    </ReactRouterRoutingProvider>
-  </MemoryRouter>
+        </MemoryRouter>
+      </SidebarProvider>
+    </RoutingProvider>
+  </ReactRouterRoutingProvider>
 );
