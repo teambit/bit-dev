@@ -1353,18 +1353,6 @@
         "mainFile": "index.ts",
         "rootDir": "design/ui/navigation/menu"
     },
-    "ui/navigation/react-router/link": {
-        "scope": "teambit.ui-foundation",
-        "version": "1.23.1",
-        "mainFile": "index.ts",
-        "rootDir": "ui-foundation/ui/navigation/react-router/link"
-    },
-    "ui/navigation/react-router/link-anchor": {
-        "scope": "teambit.ui-foundation",
-        "version": "1.23.1",
-        "mainFile": "index.ts",
-        "rootDir": "ui-foundation/ui/navigation/react-router/link-anchor"
-    },
     "ui/navigation/react-router/routing-adapter": {
         "scope": "teambit.ui-foundation",
         "version": "1.23.1",

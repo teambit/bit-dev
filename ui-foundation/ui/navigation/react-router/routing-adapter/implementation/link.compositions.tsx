@@ -1,8 +1,8 @@
 import React from 'react';
 import { MemoryRouter, Route, useLocation } from 'react-router-dom';
-import { ReactRouterLink } from './link';
+import { ReactRouterNavLink } from './nav-link';
 
-export const Preview = () => (
+export const ReactRouterLinkPreview = () => (
   <MemoryRouter>
     <SomeLinks />
   </MemoryRouter>
@@ -17,11 +17,11 @@ function SomeLinks() {
 
       <div>
         link:{' '}
-        <ReactRouterLink href="/path/one?what=is" state={{ some: 'state' }}>
+        <ReactRouterNavLink href="/path/one?what=is" state={{ some: 'state' }}>
           link1
-        </ReactRouterLink>
+        </ReactRouterNavLink>
         <br />
-        link: <ReactRouterLink href="/path/two">link2</ReactRouterLink>
+        link: <ReactRouterNavLink href="/path/two">link2</ReactRouterNavLink>
       </div>
 
       <Route path="/path/one">First path</Route>

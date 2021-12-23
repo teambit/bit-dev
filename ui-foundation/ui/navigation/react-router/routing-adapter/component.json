@@ -1,0 +1,23 @@
+{
+  "componentId": {
+    "scope": "teambit.ui-foundation",
+    "name": "ui/navigation/react-router/routing-adapter",
+    "version": "1.23.1"
+  },
+  "propagate": true,
+  "extensions": {
+    "teambit.dependencies/dependency-resolver": {
+      "policy": {
+        "dependencies": {
+          "@teambit/base-react.navigation.router-context": "-",
+          "react-router-dom": "-"
+        },
+        "peerDependencies": {
+          "react-router-dom": "^5.0.0",
+          "@types/react-router-dom": "^5.0.0",
+          "@teambit/base-react.navigation.router-context": "^1.0.0"
+        }
+      }
+    }
+  }
+}
