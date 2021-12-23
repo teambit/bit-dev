@@ -5,7 +5,6 @@ import { HighlightComponent } from './highlight-component';
 export const BasicHighlightComponent = () => {
   return (
     <HighlightComponent title="Product card breakdown">
-      {/* TODO - upgrade, product card is using incorrect React Router link */}
       <ProductCard
         title="Nike Air"
         text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi quos quidem sequi illum facere recusandae voluptatibus"

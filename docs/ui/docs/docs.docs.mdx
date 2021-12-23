@@ -3,12 +3,12 @@ description: 'A component-based documentation section'
 labels: ['docs', 'page', 'routes']
 ---
 
-import {
-  ReactRouterRoutingProvider,
-  reactRouterAdapter,
-} from '@teambit/ui-foundation.ui.navigation.react-router.routing-adapter';
+import { RoutingProvider } from '@teambit/base-ui.routing.routing-provider';
+import { ReactRouterRoutingProvider } from '@teambit/ui-foundation.ui.navigation.react-router.routing-adapter';
 import { SidebarProvider } from '@teambit/design.ui.sidebar.sidebar-context';
-import { MemoryRouter } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { Link } from '@teambit/ui-foundation.ui.react-router.link';
+import { NavLink } from '@teambit/ui-foundation.ui.react-router.nav-link';
 import { Docs } from './docs';
 
 `Docs` is a component-based documentation section built in React. It is a React component you can use in your website's components.
@@ -20,6 +20,8 @@ This component receives and renders all the Routes and makes them available in R
 
 ```js live
 () => {
+  const routing = { Link, NavLink, useLocation };
+
   const primaryRoutes = [
     {
       path: 'quick-start',
@@ -68,15 +70,14 @@ This component receives and renders all the Routes and makes them available in R
   ];
 
   return (
-    <MemoryRouter>
-      <ReactRouterRoutingProvider>
-        <RoutingProvider value={reactRouterAdapter}>
-          <SidebarProvider>
-            <Docs baseUrl="/" contents={[{ routes }]} primaryLinks={primaryRoutes} />
-          </SidebarProvider>
-        </RoutingProvider>
-      </ReactRouterRoutingProvider>
-    </MemoryRouter>
+    <ReactRouterRoutingProvider>
+      {/* TODO - replace with Legacy Routing Adapter, and remove once we remove all legacy links */}
+      <RoutingProvider value={routing}>
+        <SidebarProvider>
+          <Docs baseUrl="/" contents={[{ routes }]} primaryLinks={primaryRoutes} />
+        </SidebarProvider>
+      </RoutingProvider>
+    </ReactRouterRoutingProvider>
   );
 };
 ```
