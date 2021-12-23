@@ -1,13 +1,8 @@
-import React from 'react';
+import { createTheme } from '@teambit/base-react.theme.create-theme';
+import { BaseThemeType, baseThemeDefaults } from './base-theme-type';
 
-export type BaseThemeProps = {
-  /**
-   * a text to be rendered in the component.
-   */
-  backgroundColor?: string,
-};
+const { useTheme, ThemeProvider, ThemeContext } = createTheme<BaseThemeType>({
+  theme: baseThemeDefaults,
+});
 
-export function BaseTheme() {
-  // return createTheme();
-  return <div></div>;
-}
+export { useTheme, ThemeProvider as BaseTheme, ThemeContext as BaseThemeContext };

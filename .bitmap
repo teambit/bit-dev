@@ -1094,9 +1094,9 @@
         "mainFile": "index.ts",
         "rootDir": "graph/relations-graph"
     },
-    "theme/create-theme": {
-        "scope": "teambit.base-react",
-        "version": "1.23.1",
+    "theme/theme-provider": {
+        "scope": "",
+        "version": "",
         "mainFile": "index.ts",
         "rootDir": "base-react/theme/create-theme"
     },
