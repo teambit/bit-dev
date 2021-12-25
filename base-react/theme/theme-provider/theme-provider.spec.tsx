@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { BasicCreateTheme } from './create-theme.composition';
+import { BasicCreateTheme } from './theme-provider.composition';
 
 it('should render with the correct text', () => {
   const { getByText } = render(<BasicCreateTheme />);

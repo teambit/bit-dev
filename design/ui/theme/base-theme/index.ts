@@ -1,2 +1,3 @@
-export { BaseThemeType, baseThemeDefaults } from './base-theme-type';
-export { useTheme, BaseThemeContext, BaseTheme } from './base-theme';
+export { baseThemeDefaults } from './base-theme-type';
+export type { BaseThemeType } from './base-theme-type';
+export { useTheme, BaseTheme } from './base-theme';

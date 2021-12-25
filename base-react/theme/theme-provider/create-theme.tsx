@@ -22,7 +22,6 @@ export type CreateThemeOptions<T> = {
  * Type of a Theme instance.
  */
 export type ThemeType<T> = {
-  ThemeContext: React.Context<T>;
   ThemeProvider: ThemeProviderType<T>;
   useTheme: () => T;
 };
@@ -44,7 +43,6 @@ export function createTheme<T>({ theme, prefix, withoutCssVars }: CreateThemeOpt
   };
 
   return {
-    ThemeContext,
     ThemeProvider,
     useTheme,
   };
