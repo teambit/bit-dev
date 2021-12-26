@@ -2,13 +2,19 @@ import { useEffect, useState, useReducer, useMemo } from 'react';
 import { useDebouncedCallback } from 'use-debounce';
 import { getElements } from './get-elements';
 
+export type elementsOnFoldOptions = {
+  disabled?: boolean;
+  /* time to wait between dom updates, before refreshing the list of elements. There is no debounce on the active element */
+  debounceUpdates?: number;
+};
+
 export const useElementOnFold = (
   ref?: React.MutableRefObject<HTMLElement>,
   selectors?: string,
-  { disabled, debounceDuration = 300 }: { disabled?: boolean; debounceDuration?: number } = {}
+  { disabled, debounceUpdates = 300 }: elementsOnFoldOptions = {}
 ) => {
   const [idx, update] = useReducer((x) => x + 1, 0);
-  const debouncedUpdate = useDebouncedCallback(update, debounceDuration);
+  const debouncedUpdate = useDebouncedCallback(update, debounceUpdates);
 
   const elements = useMemo(
     () => (disabled ? [] : getElements({ ref, selectors })),
