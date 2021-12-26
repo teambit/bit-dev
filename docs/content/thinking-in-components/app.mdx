@@ -1,0 +1,52 @@
+
+## Step 1: Define the component you need
+
+So in our case, the definition was very simple, we wanted a Wiki in the new internal website we are building for our company called `.bit`. Our first decision was the decide
+the name for the component. No worries! Even if you won't get it right on the get go, you can always fix later! 
+
+Naming the component is defining the component responsbility.
+
+```
+bit create react-app apps/wiki
+```
+```
+1 component(s) were created
+
+ranm8.wiki/apps/wiki
+    location: wiki/apps/wiki
+    env:      teambit.react/react
+```
+
+Prior to creating any component it is recommended to see if a component was already created before.
+
+We have now created the first node of the graph.
+
+## Step 2: Think which components you wish you had
+
+Now that we have created the component we need it is time to think which components we wish we had now. 
+In our case, we needed a Wiki with staright foward header and footer for useful links, so we to build the following components:
+
+- Header block. 
+- Wiki section.
+- Footer block. (bonus)
+
+We will need to either create each of these components or use existing ones we have.
+
+We will start with the header. 
+
+## Step 3: Use components
+Use the components.
+
+```bash
+bit install @teambit/design.blocks.header
+```
+
+
+```bash
+bit install @teambit/docs.sections.docs
+```
+
+## Step 4: Create components
+Let's start with the header. 
+
+Repeat the process done here. (Go back to step one.)

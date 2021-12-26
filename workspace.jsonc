@@ -92,6 +92,7 @@
         "@teambit/design.ui.input.icon-text": "0.0.7",
         "@teambit/design.ui.input.toggle": "1.0.7",
         "@teambit/design.ui.message-card": "1.0.6",
+        "@teambit/design.ui.panels.tabs": "1.0.6",
         "@teambit/design.ui.sidebar.sidebar": "1.9.57",
         "@teambit/design.ui.styles.ellipsis": "0.0.346",
         "@teambit/design.ui.surfaces.menu.link-item": "0.0.374",
@@ -104,6 +105,7 @@
         "@teambit/evangelist.surfaces.tooltip": "1.0.1",
         "@teambit/explorer.ui.gallery.component-card": "0.0.470",
         "@teambit/explorer.ui.gallery.component-grid": "0.0.435",
+        "@teambit/graphql.hooks.use-query": "0.0.1",
         "@teambit/harmony": "0.2.11",
         "@teambit/mdx.modules.mdx-loader": "0.0.466",
         "@teambit/mdx.ui.mdx-layout": "0.0.479",
@@ -113,8 +115,10 @@
         "@teambit/ui-foundation.ui.buttons.collapser": "0.0.144",
         "@teambit/ui-foundation.ui.react-router.link": "0.0.441",
         "@teambit/ui-foundation.ui.react-router.nav-link": "0.0.441",
+        "@teambit/ui-foundation.ui.tree.drawer": "0.0.476",
         "@teambit/ui-foundation.ui.tree.folder-tree-node": "0.0.453",
         "@teambit/ui-foundation.ui.tree.tree-node": "0.0.453",
+        "@teambit/wiki.apps.wiki": "0.0.5",
         "@testing-library/react-hooks": "7.0.1",
         "@types/history": "^4.0.0",
         "@types/loadable__component": "5.13.4",
@@ -134,6 +138,8 @@
         "eslint-plugin-prettier": "4.0.0",
         "eslint-plugin-react": "7.22.0",
         "eslint-plugin-react-hooks": "4.2.0",
+        "graphql": "14.7.0",
+        "graphql-tag": "2.12.1",
         "history": "^5.0.0",
         "lodash.compact": "3.0.1",
         "millify": "4.0.0",
@@ -150,7 +156,9 @@
         "use-debounce": "7.0.1"
       },
       "peerDependencies": {
+        "@apollo/client": "3.3.7",
         "@testing-library/react": "12.0.0",
+        "graphql": "^14.3.0",
         "react": "16.13.1",
         "react-dom": "16.13.1"
       }
