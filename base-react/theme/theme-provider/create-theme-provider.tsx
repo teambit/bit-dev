@@ -2,7 +2,7 @@ import React from 'react';
 import type { CreateThemeOptions } from './create-theme';
 
 export type ThemeProviderProps<T> = {
-  overrides?: T;
+  overrides?: Partial<T>;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export type ThemeProviderType<T> = React.ComponentType<ThemeProviderProps<T>>;
@@ -30,7 +30,8 @@ export function createThemeProvider<T>(
 export function computeCssVars<T>(theme: T, prefix?: string): React.CSSProperties {
   return Object.entries(theme)
     .map(([key, val]) => {
-      const varKey = prefix ? `--${prefix}-${key}` : `--${key}`;
+      const varName = key.replace(/[A-Z]/g, '-$&').toLowerCase();
+      const varKey = prefix ? `--${prefix}-${varName}` : `--${varName}`;
       return [varKey, val];
     })
     .reduce((acc, [key, val]) => {

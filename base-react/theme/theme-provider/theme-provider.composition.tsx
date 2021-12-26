@@ -1,19 +1,35 @@
 import React from 'react';
 import { createTheme } from './create-theme';
 
-export const BasicCreateTheme = () => {
-  const MyThemeSchema = {
-    backgroundColor: 'red',
-  };
-  const { ThemeProvider, useTheme } = createTheme<typeof MyThemeSchema>({
-    theme: MyThemeSchema,
-  });
+const BaseThemeSchema = {
+  backgroundColor: 'white',
+  textColor: 'navy',
+};
 
-  const theme = useTheme();
+const { ThemeProvider } = createTheme<typeof BaseThemeSchema>({
+  theme: BaseThemeSchema,
+});
 
+export const BaseTheme = () => {
   return (
     <ThemeProvider>
-      <div style={{ backgroundColor: theme.backgroundColor }}>hi there</div>
+      <div style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)' }}>Hello World!</div>
+    </ThemeProvider>
+  );
+};
+
+export const LightTheme = () => {
+  return (
+    <ThemeProvider overrides={{ textColor: 'black' }}>
+      <div style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)' }}>Hello World!</div>
+    </ThemeProvider>
+  );
+};
+
+export const DarkTheme = () => {
+  return (
+    <ThemeProvider overrides={{ textColor: 'white', backgroundColor: 'black' }}>
+      <div style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)' }}>Hello World!</div>
     </ThemeProvider>
   );
 };
