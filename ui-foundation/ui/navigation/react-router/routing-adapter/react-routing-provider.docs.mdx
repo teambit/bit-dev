@@ -5,8 +5,6 @@ labels: ['ui', 'react-router', 'link']
 
 import { MemoryRouter } from 'react-router-dom';
 import { Link, NavLink } from '@teambit/base-react.navigation.link';
-import { useLocation } from '@teambit/base-react.navigation.use-location';
-import { ReactRouterRoutingProvider } from './react-routing-provider';
 
 A React Router adapter for our routing system. Any `<Link>` rendered under this will have the React Router implementation!
 
@@ -20,7 +18,7 @@ function AppContext({ children }) {
 
 Try it out!
 
-```tsx live
+```tsx
 () => {
   const Example = () => {
     const location = useLocation();

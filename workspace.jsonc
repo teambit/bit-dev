@@ -95,6 +95,7 @@
         "@teambit/design.ui.panels.tabs": "1.0.6",
         "@teambit/design.ui.sidebar.sidebar": "1.9.57",
         "@teambit/design.ui.styles.ellipsis": "0.0.346",
+        "@teambit/design.ui.surfaces.menu.item": "0.0.350",
         "@teambit/design.ui.surfaces.menu.link-item": "0.0.374",
         "@teambit/documenter.markdown.heading": "0.1.6",
         "@teambit/documenter.theme.theme-compositions": "4.1.1",

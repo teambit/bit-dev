@@ -1,20 +1,23 @@
-import React, { ReactNode } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useMemo } from 'react';
+import { useLocation, Link, NavLink } from 'react-router-dom';
+import { RouterContextType, LinkProps, NavLinkProps } from '@teambit/base-react.navigation.router-context';
 
-import { RouterProvider, RouterContextType } from '@teambit/base-react.navigation.router-context';
-import { Link, NavLink } from '@teambit/ui-foundation.ui.navigation.react-router.link';
+export function RouterLink(props: LinkProps) {
+  return <Link to={props.href || ''} {...props} />;
+}
+
+export function RouterNavLink(props: NavLinkProps) {
+  const isActive = useMemo(() => {
+    if (props.active === undefined) return undefined;
+
+    return () => Boolean(props.active);
+  }, [props.active]);
+
+  return <NavLink to={props.href || ''} isActive={isActive} {...props} />;
+}
 
 export const reactRouterAdapter: RouterContextType = {
-  Link,
-  NavLink,
+  Link: RouterLink,
+  NavLink: RouterNavLink,
   useLocation,
 };
-
-type ReactRouterRoutingProviderProps = {
-  children: ReactNode;
-};
-
-/** wrap your code with this adapter to use React Router 5 as your Routing system */
-export function ReactRouterRoutingProvider({ children }: ReactRouterRoutingProviderProps) {
-  return <RouterProvider value={reactRouterAdapter}>{children}</RouterProvider>;
-}

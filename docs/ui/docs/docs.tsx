@@ -2,14 +2,11 @@ import React, { useMemo } from 'react';
 import classNames from 'classnames';
 import { DocsRoute, DocsRoutes } from '@teambit/docs.entities.docs-routes';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
-import { Sidebar as Tree } from '@teambit/docs.ui.sidebar.sidebar';
+import { Sidebar } from '@teambit/docs.ui.sidebar.sidebar';
 import { DocPage } from '@teambit/docs.ui.pages.doc-page';
-import { useSidebar } from '@teambit/design.ui.sidebar.sidebar-context';
-import { Sidebar } from '@teambit/design.ui.sidebar.sidebar';
 import { DocsPlugin } from '@teambit/docs.plugins.docs-plugin';
-import styles from './docs.module.scss';
-import { PrimaryLinks } from './primary-links';
 import { DocsContext } from './docs-context';
+import styles from './docs.module.scss';
 
 export type ContentCategory = {
   /**
@@ -52,7 +49,6 @@ export type DocsProps = {
 
 export function Docs({ contents, primaryLinks = [], baseUrl = '/', plugins = [], className, ...rest }: DocsProps) {
   const { path } = useRouteMatch();
-  const sidebar = useSidebar();
   const primaryRoutes = DocsRoutes.from(primaryLinks, baseUrl || path);
   const contentRoutes = contents?.map((category) => {
     return {
@@ -80,18 +76,7 @@ export function Docs({ contents, primaryLinks = [], baseUrl = '/', plugins = [],
       }}
     >
       <div {...rest} className={classNames(styles.main, className)}>
-        <Sidebar isOpen={sidebar.isOpen} toggle={sidebar.setIsOpen}>
-          <PrimaryLinks tree={primaryRoutes.toSideBarTree()} />
-          {contentRoutes?.map((category) => (
-            <Tree
-              key={category.title}
-              displayTitle={category.title}
-              tree={category.routes.toSideBarTree()}
-              linkPrefix={baseUrl}
-              className={category.className}
-            />
-          ))}
-        </Sidebar>
+        <Sidebar primaryLinks={primaryRoutes.toSideBarTree()} sections={contentRoutes} linkPrefix={baseUrl} />
         <div className={styles.content}>
           <Switch>
             {routeArray.map((route, key) => {
