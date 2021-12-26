@@ -13,7 +13,9 @@ const { ThemeProvider } = createTheme<typeof BaseThemeSchema>({
 export const BaseTheme = () => {
   return (
     <ThemeProvider>
-      <div style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)' }}>Hello World!</div>
+      <div data-testid="base-theme" style={{ backgroundColor: 'var(--background-color)', color: 'var(--text-color)' }}>
+        Hello World!
+      </div>
     </ThemeProvider>
   );
 };
