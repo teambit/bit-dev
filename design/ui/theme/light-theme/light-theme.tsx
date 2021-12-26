@@ -1,14 +1,16 @@
 import React, { ReactNode } from 'react';
+import { BaseTheme } from '@teambit/design.ui.theme.base-theme';
+import { lightTheme } from './variables';
 
 export type LightThemeProps = {
   /**
-   * a text to be rendered in the component.
+   * modify the color.
    */
-  backgroundColor?: string
+  backgroundColor?: string;
 
-  children?: ReactNode
+  children?: ReactNode;
 };
 
-export function LightTheme({ backgroundColor, children }: LightThemeProps) {
-  return <div>{children}</div>;
+export function LightTheme({ children }: LightThemeProps) {
+  return <BaseTheme theme={lightTheme}>{children}</BaseTheme>;
 }

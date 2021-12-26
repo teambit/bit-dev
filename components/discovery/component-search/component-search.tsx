@@ -19,10 +19,5 @@ export type ComponentFilter = {
 
 export function ComponentSearch({ children }: ComponentSearchProps) {
   const results = useComponentSearch();
-  
-  return (
-    <div>
-      {children}
-    </div>
-  );
+  return <div>{children}</div>;
 }

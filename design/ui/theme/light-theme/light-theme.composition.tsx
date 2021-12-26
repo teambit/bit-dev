@@ -3,6 +3,6 @@ import { LightTheme } from './light-theme';
 
 export const BasicLightTheme = () => (
   <LightTheme>
-    <div></div>
+    <div />
   </LightTheme>
 );

@@ -57,6 +57,7 @@ importers:
       '@teambit/design.ui.panels.tabs': 1.0.6
       '@teambit/design.ui.sidebar.sidebar': 1.9.57
       '@teambit/design.ui.styles.ellipsis': 0.0.346
+      '@teambit/design.ui.surfaces.menu.item': 0.0.350
       '@teambit/design.ui.surfaces.menu.link-item': 0.0.374
       '@teambit/documenter.markdown.heading': 0.1.6
       '@teambit/documenter.theme.theme-compositions': 4.1.1
@@ -190,6 +191,7 @@ importers:
       '@teambit/design.ui.panels.tabs': registry.npmjs.org/@teambit/design.ui.panels.tabs/1.0.6_react-dom@16.13.1+react@16.13.1
       '@teambit/design.ui.sidebar.sidebar': 1.9.57_react-dom@16.13.1+react@16.13.1
       '@teambit/design.ui.styles.ellipsis': registry.npmjs.org/@teambit/design.ui.styles.ellipsis/0.0.346_react-dom@16.13.1+react@16.13.1
+      '@teambit/design.ui.surfaces.menu.item': registry.npmjs.org/@teambit/design.ui.surfaces.menu.item/0.0.350_react-dom@16.13.1+react@16.13.1
       '@teambit/design.ui.surfaces.menu.link-item': registry.npmjs.org/@teambit/design.ui.surfaces.menu.link-item/0.0.374_react-dom@16.13.1+react@16.13.1
       '@teambit/documenter.markdown.heading': registry.npmjs.org/@teambit/documenter.markdown.heading/0.1.6_react-dom@16.13.1+react@16.13.1
       '@teambit/documenter.theme.theme-compositions': registry.npmjs.org/@teambit/documenter.theme.theme-compositions/4.1.1_react-dom@16.13.1+react@16.13.1
