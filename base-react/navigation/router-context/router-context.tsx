@@ -1,5 +1,5 @@
 import React from 'react';
-import { LinkType } from './link.type';
+import { LinkType, NavLinkType } from './link.type';
 
 // export function useLocation<S = H.LocationState>(): H.Location<S>;
 export type Location<StateType = {}> = {
@@ -28,7 +28,7 @@ export type RouterContextType = {
   /**
    * link implementation.
    */
-  NavLink?: LinkType;
+  NavLink?: NavLinkType;
 
   /**
    * useLocation implementation.

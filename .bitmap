@@ -1388,6 +1388,12 @@
         "mainFile": "index.ts",
         "rootDir": "design/ui/navigation/icon-link"
     },
+    "ui/navigation/legacy-routing-adapter": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "ui-foundation/ui/navigation/legacy-routing-adapter"
+    },
     "ui/navigation/link": {
         "scope": "teambit.design",
         "version": "1.23.1",

@@ -1,0 +1,26 @@
+{
+  "componentId": {
+    "name": "navigation/legacy-routing-adapter",
+    "scope": "teambit.ui-foundation"
+  },
+  "propagate": true,
+  "extensions": {
+    "teambit.dependencies/dependency-resolver": {
+      "policy": {
+        "dependencies": {
+          "@teambit/base-ui.routing.native-nav-link": "^1.0.0",
+          "@teambit/base-ui.routing.native-link": "^1.0.0",
+          "@teambit/base-ui.routing.routing-provider": "-",
+          "@teambit/base-react.navigation.router-context": "-"
+        },
+        "devDependencies": {
+          "@teambit/base-ui.routing.link": "^1.0.0"
+        },
+        "peerDependencies": {
+          "@teambit/base-ui.routing.routing-provider": "^1.0.0",
+          "@teambit/base-react.navigation.router-context": "^1.0.0"
+        }
+      }
+    }
+  }
+}
