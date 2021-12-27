@@ -5,11 +5,6 @@ import { Button } from '@teambit/design.ui.buttons.button';
 import { Logo } from '@teambit/design.ui.brand.logo';
 import { ComponentCards } from '@teambit/community.entity.component-cards';
 import { Price } from '@learn-bit-react/ecommerce.ui.product.price';
-import { ProductCard } from '@learn-bit-react/ecommerce.ui.product.product-card';
-import { ProductCardGrid } from '@learn-bit-react/ecommerce.ui.product.product-card-grid';
-import { mockProductList } from '@learn-bit-react/ecommerce.entity.product';
-import { Header } from '@learn-bit-react/ecommerce.ui.header';
-import { StoreHero } from '@learn-bit-react/ecommerce.ui.store-hero';
 import styles from './component-card-grid.module.scss';
 
 export type ComponentCardGridProps = {
@@ -19,10 +14,7 @@ export type ComponentCardGridProps = {
   componentCards: ComponentCards[];
 } & React.HTMLAttributes<HTMLDivElement>;
 
-export function ComponentCardGrid({
-  componentCards,
-  className
-}: ComponentCardGridProps) {
+export function ComponentCardGrid({ /* componentCards, */ className }: ComponentCardGridProps) {
   return (
     <div className={classNames(styles.componentCardGrid, className)}>
       <ComponentCard
