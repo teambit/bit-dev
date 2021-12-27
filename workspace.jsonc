@@ -141,7 +141,6 @@
         "react-helmet": "6.1.0",
         "react-json-view": "1.21.3",
         "react-medium-image-zoom": "4.3.5",
-        "react-router-dom": "^6.0.0",
         "react-terminal": "1.2.1",
         "react-xarrows": "2.0.2",
         "typescript": "4.4.2",
