@@ -19,7 +19,7 @@ export type DocsTreeNodeProps = {} & TreeNodeProps<FolderPayload>;
 
 export function DocsTreeNode({ node, depth }: DocsTreeNodeProps) {
   const location = useLocation();
-  const isActive = location?.pathname.includes(`/${node.payload?.path}/`);
+  const isActive = node.payload?.path ? location?.pathname.includes(node.payload?.path) : undefined;
   const autoOpen = node.payload?.open || isActive;
   const [manuallyOpen, setOpen] = useState(autoOpen ?? true);
 

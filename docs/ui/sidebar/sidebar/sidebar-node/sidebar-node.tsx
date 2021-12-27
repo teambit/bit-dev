@@ -1,5 +1,6 @@
 import React from 'react';
 import { DocsTreeNode } from '@teambit/docs.ui.sidebar.docs-tree-node';
+import type { TreeNode as TreeNodeType } from '@teambit/base-ui.graph.tree.recursive-tree';
 import { TreeNode } from './tree-node';
 import type { TreeNodeComponentProps } from './tree-node';
 
@@ -15,8 +16,6 @@ export type SidebarNodeProps = {
   active?: string;
 } & TreeNodeComponentProps<any>;
 
-import { TreeNode as TreeNodeType } from '@teambit/base-ui.graph.tree.recursive-tree';
-
 export type WidgetProps<Payload> = {
   node: TreeNodeType<Payload>;
 };
@@ -30,14 +29,7 @@ export function SidebarNode(props: SidebarNodeProps) {
     }
     return (
       // TODO: migrate to use the new base-react link with React Router.
-      <TreeNode
-        node={{ id: node.payload.title }}
-        icon={node.payload?.icon}
-        depth={depth}
-        // TODO - update TreeNode to fix activity, when this is merged -> https://github.com/teambit/bit/pull/5152
-        // isActive={isNodeActive}
-        href={node.payload?.path}
-      />
+      <TreeNode node={{ id: node.payload.title }} icon={node.payload?.icon} depth={depth} href={node.payload?.path} />
     );
   }
 
