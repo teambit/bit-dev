@@ -1,5 +1,4 @@
 export { reactRouterAdapter, useLocation } from './react-routing-provider';
-export type { ReactRouterRoutingProviderProps } from './react-routing-provider';
 
 // components
 export { ReactRouterLink } from './components/link';

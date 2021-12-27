@@ -6,6 +6,7 @@ import { NavLink } from '@teambit/base-react.navigation.link';
 import { reactRouterAdapter } from './react-routing-provider';
 import { ReactRouterNavLink } from './components/nav-link';
 
+// this verifies Links from RouterProvider are working correctly
 export const RoutingAdapterPreview = () => (
   <MemoryRouter>
     <RouterProvider value={reactRouterAdapter}>
@@ -25,6 +26,7 @@ export const RoutingAdapterPreview = () => (
   </MemoryRouter>
 );
 
+// this verifies the implementation of the react react links behaves as expected
 export const ReactRouterLinkPreview = () => (
   <MemoryRouter>
     <div>

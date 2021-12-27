@@ -15,10 +15,6 @@ export const ReactRouterNavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(fu
     active,
 
     exact,
-    activeClassName,
-    activeStyle,
-    className,
-    style,
     children = null,
 
     // props we should not get, and should not pass to RR link:

@@ -1,6 +1,6 @@
 import React, { useMemo, forwardRef } from 'react';
 import classNames from 'classnames';
-import { compareUrl } from '@teambit/base-ui.routing.compare-url';
+import { compareUrl } from '@teambit/ui-foundation.urls.compare-url';
 import { useLocation } from '@teambit/base-react.navigation.use-location';
 import type { LinkProps, NavLinkProps } from '@teambit/base-react.navigation.router-context';
 

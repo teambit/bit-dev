@@ -1,4 +1,3 @@
-import type { ReactNode } from 'react';
 import { useLocation } from 'react-router-dom';
 
 import type { RouterContextType } from '@teambit/base-react.navigation.router-context';
@@ -14,8 +13,4 @@ export const reactRouterAdapter: RouterContextType = {
   NavLink: ReactRouterNavLink,
   useLocation,
   useNavigate,
-};
-
-export type ReactRouterRoutingProviderProps = {
-  children: ReactNode;
 };
