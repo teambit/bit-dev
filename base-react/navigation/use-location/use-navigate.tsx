@@ -1,0 +1,26 @@
+import { useRouter, Navigator } from '@teambit/base-react.navigation.router-context';
+
+export type { Navigator };
+
+export function useNavigate(): Navigator {
+  const router = useRouter();
+  return router.useNavigate || nativeNavigator;
+}
+
+function nativeNavigator(target: string | number, { replace }: { replace?: boolean } = {}) {
+  if (typeof window === 'undefined')
+    throw new Error(
+      'base-react.navigation.use-location - cannot use native navigator outside of browser. ' +
+        'Inject a custom useNavigate, or use navigation after mount'
+    );
+
+  const { location, history } = window;
+
+  if (typeof target === 'number') {
+    history.go(target);
+  } else if (replace) {
+    location.replace(target);
+  } else {
+    location.assign(target);
+  }
+}

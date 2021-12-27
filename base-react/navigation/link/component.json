@@ -1,0 +1,20 @@
+{
+  "componentId": {
+    "scope": "teambit.base-react",
+    "name": "navigation/link",
+    "version": "1.23.1"
+  },
+  "propagate": true,
+  "extensions": {
+    "teambit.dependencies/dependency-resolver": {
+      "policy": {
+        "dependencies": {
+          "@teambit/base-react.navigation.router-context": "-"
+        },
+        "peerDependencies": {
+          "@teambit/base-react.navigation.router-context": "^1.0.0"
+        }
+      }
+    }
+  }
+}

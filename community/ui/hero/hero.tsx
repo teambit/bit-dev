@@ -34,7 +34,7 @@ export type HeroProps = {
 
 const defaultTitle = 'Build anything in components';
 const defaultTeaser =
-  'Bit is a toolchain for component-driven development. Forget monolithic apps and distribute to component-driven software. ';
+  'Bit is an open-source toolchain for component-driven development. Forget monolithic apps and distribute to component-driven software. ';
 
 export function Hero({ title = defaultTitle, teaser = defaultTeaser, bubbles }: HeroProps) {
   const { heroState, setStateFromTime } = useHeroState();

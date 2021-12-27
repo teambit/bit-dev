@@ -1,5 +1,5 @@
 import React from 'react';
-import { LinkType } from './link.type';
+import { LinkType, NavLinkType } from './link.type';
 
 // export function useLocation<S = H.LocationState>(): H.Location<S>;
 export type Location<StateType = {}> = {
@@ -17,7 +17,12 @@ export type Location<StateType = {}> = {
 };
 
 export type UseLocation<StateType extends {} = {}> = () => Location<StateType>;
-export type UseHistory = () => {};
+export interface Navigator {
+  (to: string, options?: { replace?: boolean }): void;
+  (delta: number): void;
+}
+
+export type UseNavigate = () => Navigator;
 
 export type RouterContextType = {
   /**
@@ -28,12 +33,17 @@ export type RouterContextType = {
   /**
    * link implementation.
    */
-  NavLink?: LinkType;
+  NavLink?: NavLinkType;
 
   /**
    * useLocation implementation.
    */
   useLocation?: UseLocation;
+
+  /**
+   * useNavigate implementation
+   */
+  useNavigate?: UseNavigate;
 };
 
 export const RouterContext = React.createContext<RouterContextType>({});

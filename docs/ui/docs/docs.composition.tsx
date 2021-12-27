@@ -1,11 +1,6 @@
 import React from 'react';
 import { DocsRoute } from '@teambit/docs.entities.docs-routes';
-import { RoutingProvider } from '@teambit/base-ui.routing.routing-provider';
-import { SidebarProvider } from '@teambit/design.ui.sidebar.sidebar-context';
-import {
-  ReactRouterRoutingProvider,
-  reactRouterAdapter,
-} from '@teambit/ui-foundation.ui.navigation.react-router.routing-adapter';
+import { MemoryRouter } from '@teambit/community.ui.router.router-provider';
 import { lazy } from '@loadable/component';
 import { Docs } from './docs';
 
@@ -63,7 +58,7 @@ const routes: DocsRoute[] = [
 ];
 
 export const BasicDocs = () => (
-  <SidebarProvider>
+  <MemoryRouter>
     <Docs /* baseUrl="/" */ contents={[{ routes }]} primaryLinks={primaryRoutes} />
-  </SidebarProvider>
+  </MemoryRouter>
 );

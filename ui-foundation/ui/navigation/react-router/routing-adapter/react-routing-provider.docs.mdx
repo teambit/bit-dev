@@ -4,17 +4,18 @@ labels: ['ui', 'react-router', 'link']
 ---
 
 import { MemoryRouter } from 'react-router-dom';
+import { RouterProvider } from '@teambit/base-react.navigation.router-context';
 import { Link, NavLink } from '@teambit/base-react.navigation.link';
 import { useLocation } from '@teambit/base-react.navigation.use-location';
-import { ReactRouterRoutingProvider } from './react-routing-provider';
+import { reactRouterAdapter } from './react-routing-provider';
 
 A React Router adapter for our routing system. Any `<Link>` rendered under this will have the React Router implementation!
 
-Simply wrap you app with `<ReactRouterRoutingProvider>`, like so:
+Simply wrap you app with `reactRouterAdapter`, like so:
 
 ```tsx
 function AppContext({ children }) {
-  return <ReactRouterRoutingProvider>{children}</ReactRouterRoutingProvider>;
+  return <RouterProvider value={reactRouterAdapter}>{children}</RouterProvider>;
 }
 ```
 
@@ -22,28 +23,26 @@ Try it out!
 
 ```tsx live
 () => {
-  const Example = () => {
-    const location = useLocation();
-
-    return (
-      <div>
-        <div>current location is: {JSON.stringify(location, undefined, 1)}</div>
-        <Link href="/some/link">/some/link</Link>
+  return (
+    // a router is required by React Router (in this case - in memory router)
+    <MemoryRouter>
+      <RouterProvider value={reactRouterAdapter}>
+        <CurrentLocation />
+        <NavLink href="/some/link" activeStyle={{ fontWeight: 'bold' }}>
+          /some/link
+        </NavLink>
         <br />
-        <NavLink href="/some/link" activeStyle={{ fontWeigth: 'bold' }}>
+        <NavLink href="/another/link" activeStyle={{ fontWeight: 'bold' }}>
           /another/link
         </NavLink>
-      </div>
-    );
-  };
-
-  return (
-    <MemoryRouter> {/* <- required by React Router */}
-      <ReactRouterRoutingProvider>
-        <Example />
-      </ReactRouterRoutingProvider>
+      </RouterProvider>
     </MemoryRouter>
   );
+
+  function CurrentLocation() {
+    const location = useLocation();
+
+    return <div>current location is: {JSON.stringify(location, undefined, 1)}</div>;
+  }
 };
 ```
-

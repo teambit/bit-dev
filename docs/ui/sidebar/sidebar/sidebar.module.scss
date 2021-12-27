@@ -1,5 +1,17 @@
+@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
+
 .sidebar {
   padding: 16px 0px;
+  position: relative;
+  .collapser {
+    display: none;
+    right: -32px;
+    top: 40px;
+    bottom: unset;
+    @media screen and (max-width: $br-md) {
+      display: unset;
+    }
+  }
 }
 .sidebarTitle {
   color: var(--bit-text-inactive-heavy, #878c9a);
