@@ -14,6 +14,7 @@ export const footerMock = [
       { text: 'Docs', href: '/docs/quick-start' },
       { text: 'Getting Started', href: '/docs/getting-started/installing-bit' },
       { text: 'Contributing', href: 'https://github.com/teambit/bit', external: true },
+      { text: 'Privacy', href: '/docs/usage-analytics' },
     ],
   },
   {

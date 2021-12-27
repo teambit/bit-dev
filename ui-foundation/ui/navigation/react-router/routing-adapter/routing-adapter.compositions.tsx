@@ -4,7 +4,7 @@ import { RouterProvider } from '@teambit/base-react.navigation.router-context';
 import { useLocation } from '@teambit/base-react.navigation.use-location';
 import { NavLink } from '@teambit/base-react.navigation.link';
 import { reactRouterAdapter } from './react-routing-provider';
-import { ReactRouterNavLink } from './implementation/nav-link';
+import { ReactRouterNavLink } from './components/nav-link';
 
 export const RoutingAdapterPreview = () => (
   <MemoryRouter>

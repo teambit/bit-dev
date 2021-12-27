@@ -7,16 +7,26 @@ const UseDependencies = lazy(() => import('@teambit/docs.content.getting-started
 const CreateWorkspace = lazy(() => import('@teambit/docs.content.getting-started.create-workspace'));
 const CreateComponents = lazy(() => import('@teambit/community.content.getting-started.composing.create-components'));
 
+const InstallingBit = lazy(() => import('@teambit/docs.content.getting-started.installing-bit'));
+
+// const NamingComponents = loadable(() => import('@teambit/docs.content.getting-started.version-components'));
+// const WhatIsScope = loadable(() => import('@teambit/docs.content.getting-started.what-is-scope'));
+// const HostBitCloud = loadable(() => import('@teambit/docs.content.getting-started.host-bit-cloud'));
+// const SelfHostScope = loadable(() => import('@teambit/docs.content.getting-started.self-host-scope'));
+const AddToExistingProject = lazy(() => import('@teambit/docs.content.installation.add-to-existing-project'));
+
+const InstallComponents = lazy(() => import('@teambit/docs.content.getting-started.install-components'));
+const ImportComponents = lazy(() => import('@teambit/docs.content.getting-started.import-components'));
+const EditorSetup = lazy(() => import('@teambit/bit.docs.installation.setup-editor'));
+const UpdateComponents = lazy(() => import('@teambit/docs.content.getting-started.update-components'));
+const CiExport = lazy(() => import('@teambit/docs.content.getting-started.ci-export'));
+// const CiInstall = loadable(() => import('@teambit/docs.content.getting-started.ci-install'));
 const VersionComponents = lazy(() => import('@teambit/docs.content.getting-started.version-components'));
 // const NamingComponents = lazy(() => import('@teambit/docs.content.getting-started.version-components'));
 // const WhatIsScope = lazy(() => import('@teambit/docs.content.getting-started.what-is-scope'));
 // const HostBitCloud = lazy(() => import('@teambit/docs.content.getting-started.host-bit-cloud'));
 // const SelfHostScope = lazy(() => import('@teambit/docs.content.getting-started.self-host-scope'));
 const ShareComponents = lazy(() => import('@teambit/docs.content.getting-started.share-components'));
-const InstallComponents = lazy(() => import('@teambit/docs.content.getting-started.install-components'));
-const ImportComponents = lazy(() => import('@teambit/docs.content.getting-started.import-components'));
-const UpdateComponents = lazy(() => import('@teambit/docs.content.getting-started.update-components'));
-const CiExport = lazy(() => import('@teambit/docs.content.getting-started.ci-export'));
 // const CiInstall = lazy(() => import('@teambit/docs.content.getting-started.ci-install'));
 
 export const gettingStartedDocsRoutes: DocsRoute[] = [
@@ -29,6 +39,13 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
     // component: <InstallingBit />,
     children: [
       {
+        path: 'installing-bit',
+        title: 'Installing Bit',
+        // description:
+        //   'A Bit Workspace is where components are built and composed. Workspaces can be generated with the bit new command or initialized on an existing project.',
+        component: <InstallingBit />,
+      },
+      {
         path: 'start-bit-workspace',
         title: 'Start a new Bit Workspace',
         description:
@@ -38,10 +55,12 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
       {
         path: 'add-to-existing-project',
         title: 'Add to existing project',
+        component: <AddToExistingProject />,
       },
       {
         path: 'editor-setup',
         title: 'Editor Setup',
+        component: <EditorSetup />,
       },
       {
         path: 'getting-started/setup-ci',

@@ -4,7 +4,6 @@ import { Card, CardProps } from '@teambit/base-ui.surfaces.card';
 import { Icon } from '@teambit/design.elements.icon';
 import { H4 } from '@teambit/design.ui.heading';
 import { Paragraph } from '@teambit/base-ui.text.paragraph';
-import { NativeNavLink } from '@teambit/base-ui.routing.native-nav-link';
 import { Image } from '@teambit/base-react.content.image';
 
 import styles from './use-cases-card.module.scss';
@@ -44,7 +43,6 @@ export function UseCasesCard({
   ...rest
 }: UseCasesCardProps) {
   return (
-    <NativeNavLink href={href} className={classNames(styles.link, className)}>
       <Card
         {...rest}
         elevation={elevation}
@@ -68,6 +66,5 @@ export function UseCasesCard({
           {children}
         </div>
       </Card>
-    </NativeNavLink>
   );
 }

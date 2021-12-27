@@ -1,18 +1,56 @@
+import { ComponentID } from '@teambit/component-id';
+import { MemoryRouter } from 'react-router-dom';
+import { ComponentCardGroup } from '@teambit/explorer.ui.gallery.component-card-group';
 import { Subtitle } from '@teambit/docs.ui.subtitle';
 import { TopInventions } from '@learnbit/inventions.blocks.top-inventions';
-import { ArchitectureBreakdown } from '@teambit/docs.blocks.component.architecture-breakdown';
+import { BubbleHighlighter } from '@teambit/community.ui.bubble-highlighter';
+import { ExcludeHighlighter } from '@teambit/react.ui.component-highlighter';
 import WhatIsBit from '@teambit/bit.content.what-is-bit';
+import { DrawerUI } from '@teambit/ui-foundation.ui.tree.drawer';
+import { WikiApp } from '@teambit/wiki.apps.wiki';
+import { ArchitectureBreakdown } from '@teambit/docs.blocks.component.architecture-breakdown';
+import { ComponentThinkingProcess } from '@teambit/docs.ui.component-thinking-process';
+import App from './app.mdx';
+import Header from './header.mdx';
+import { wikiComponents } from './wiki';
+import { WikiGraph } from './graph';
 import styles from './quick-start.module.scss';
 
-# Quick start
+<!-- Quick start featured -->
 
-<Subtitle>Welcome to the Bit documantation site! This site is built with Bit.</Subtitle>
+# Quick start
+<!-- 
+<Subtitle>Welcome to the Bit documantation site! This site is composable.</Subtitle> -->
+
+Welcome to the Bit documantation site! This site is a composition of independent components, built and maintained by the [Docs](https://bit.dev/teambit/docs), 
+[Design](https://bit.dev/teambit/design) and [Community](https://bit.dev/teambit/community) teams here at Bit! It is built from React, Markdown and 
+Node components we have crafted specifically for the purpose and needs of this app.
 
 ## Introduction
 
-This is a simple app, built with Bit.
+During this quick start, you will create your own **personal component-driven app**. We will show you how simple it is, to build even a complex app like a wiki when built from components!
+In this example, we will use the components built for this documantation app.
 
-<ArchitectureBreakdown />
+<!-- stronger understanding for bottom-up thinking early on -->
+
+<!-- Below is a **component-driven wiki** app that we composed from the components we used to build this documentation app. During this quick start, you will 
+create your own component-driven personal app from and learn how to use components to build to poissibly anything. -->
+<!-- During this quick start, you will build your first Bit building blocks and compose your first **component-driven personal app**. We will learn that components can help us
+build better apps.  -->
+
+Here is an example of what you will get:
+
+<br />
+
+<!-- TODO: Kutner add dark theme -->
+
+<ExcludeHighlighter>
+  <BubbleHighlighter componentId={ComponentID.fromString('teambit.wiki/apps/wiki')} showId>
+    <MemoryRouter>
+      <WikiApp />
+    </MemoryRouter>
+  </BubbleHighlighter>
+</ExcludeHighlighter>
 
 <WhatIsBit />
 
@@ -20,40 +58,47 @@ This is a simple app, built with Bit.
 
 There are few ways to get started with Bit.
 
-- If you feel like **quickly learning what Bit is about**, head over to the [Thinking in Components](/thinking-in-components). This tutorial won't get you to understand
-  all the technical details of Bit, but will get you a good feeling of what it is like building component-driven software with Bit.
+- If you feel like **learning to use Bit without getting technical**, head over to the [Thinking in Components](/thinking-in-components). This will give you a good feeling of what 
+is the thought behind building a component-driven software with Bit.
 - If you are **familiar with Bit and its concepts**, and want to dive deep into a specific topic, head over to the different chapters on the Learn section.
+<!-- TODO: add a link to the learn section -->
+<!-- TODO: think of a way to direct non-technical people to thinking in components earliar on -->
 
 The rest of this page, will guide you step by step through the different concepts of Bit and will help navigate through the docs and decide
 which concepts to dive deeper into.
 
-During this quick start, you will build choose your own favourite inventions, and build them into a component with a simple search functionallity. Here is the product
-spec.
+<!-- During this quick start, you will build choose your own favourite inventions, and build them into a component with a simple search functionallity. Here is the product
+spec. -->
+
+
 
 ## Installation
-
 To get started, we would first have to make sure the `bit` binary is installed on your machine and configured to your `PATH`. 
 
 ```bash
-$ npx @teambit/bvm install
+npx @teambit/bvm install
 ```
 
-// NodeJS installation is required.
+For a more advanced installation guide, [head to our installation section](/getting-started/installing-bit/installing-bit).
 
 ### Creating the workspace
 
-The first step in the Bit journey is to create a [component development workspace](/workspaces).
-Workspaces allow the creation and maintanance of isolated and independent pieces called ["components"](/components). Since every component is isolated, the workspace is tech agnostic and allows
-for components, with a different tech stack to co-exist. A single workspace might include React components, general purpose node modules, Angular modules 
-and even backend services. 
+The first step in the Bit journey is to create a [component development workspace](/workspaces). You can use the Bit workspace to either create, use or import components, 
+make changes to them, and export these changes back. Workspaces are tech-agnonstic and allow development of components of all kinds. They can be used by a single developer
+maintaining few components for a certain scope of work and exist on top of existing repositories or shared as a [Workspace component](/workspace/workspace-component).
+
+:::tip
+It is recommended to [create a bit.cloud account](https://bit.cloud/signup) prior to creating the workspace to ensure the right owner name for your components.
+You can choose to host the Bit yourself, choose a name for the remote scope in which the component you be hosted.
+:::
 
 To create a new workspace, run:
 ```bash
-bit new great-inventions
+bit new my-wiki --default-scope my-org.wiki
 ```
 
 ```bash
-cd my-workspace
+cd my-wiki
 ```
 
 Start the Workspace UI console:
@@ -65,48 +110,115 @@ bit start
 It is recommended to open an editor like VSCode on the workspace to start editing the components source code. To learn more on [editor setup head here](/editor-setup).
 :::
 
-The workspace was designed for gradual adoption and has a minimal footprint. Since components are isolated, Bit can easily co-exist next to other development tools, 
-across different projects. This tutorial demonstrates creating a new workspace, to [start from an existing project head here](/add-to-existing-project).
+Bit was designed for gradual adoption and has a minimal footprint. Since components are isolated, Bit can easily co-exist next to other development tools, 
+across different projects. This tutorial demonstrates creating a new workspace, to [start from an existing project head here](/getting-started/installing-bit/add-to-existing-project).
 
 In depth: Learn more about [Workspaces](/workspace/overview).
 
-## Create the first component
-With Bit, applications are built from isolated and independent pieces of source-code called ["components"](/components). A Bit component is a group of files in a workspace' directory, 
-tracked for changes and isolated using a [development environment](/envs). A development environment is a set of dev tools, composed together to fit the build of a specific kind 
-of component. This way, a React component can use the [React environment](/envs/node), Node modules could use the [Node environment](/envs/node), and new environments 
-can be easily created to fit any type of component! 
+## Components
+A component as an **independent, reusable product with an interface for using it**. You design the component interface for your own needs, 
+and iterate over time to increase support for needs as they come. Every component could serves you, teammates, fellow product teams, or even open source it for the use of 
+entire world. 
 
-Components are like small, and isolated repositories of source code that work symmetrically. 
-Components are like repositories, which can work in symmetery from any Bit workspace. Components can be imported and exported from Scopes.
+Components are described by names and APIs, and contain source code implementation. They can be of different kinds like apps, pages, UI components, backend services and even content. 
+You can think of almost anything in components.
+
+These are the components used for the wiki app example above. In the next steps, you will build your own components and use these component as a reference and example.
+
+<!-- TODO: Oded component display and search -->
+<ComponentCardGroup components={wikiComponents} />
 
 <!-- 
-Components have metadata and configuration as well and they are identified by a unique ID called ["Component ID"](/components/component-id). 
+[Thinking in components](/thinking-in-components) is a recursive process that starts at defining and the **immediate component we need**. Upon the definition of this 
+component, **think which components you wish you had now**. Search for these components, try to **use or collaborte on something that exists**, 
+otherwise **repeat the process with a new component that fulfills this exact need**. -->
 
-Components can be anything as simple as a module or as large as an entire app. 
-Building components starts bottom up. That means, you should only create the component you actually need to use now and implement the things required for your most
-burning need. If you have a target application for the component, start with the component you would actually consume. -->
+## Create the component you need
+Choosing the first component is an important step in the process in building a component-driven design. When choosing the first comopnent, focus on choosing the most 
+tengible component, the one you can ideally use now. When building a component someone else is expected to use, try and agree on a clear API contract early on to minimize
+the amount of uncertainty. Using components as a consumer early on the development process helps avoid uncertainty and achieve faster and more accurate results.
 
-### Name the component
+The usage occurences there is for a component, the better.
 
-[Naming the component](/) is the first challenge for building any component, and the most important one. When naming your component you are actually defining its 
-goal.
+Building in components is a recursive process.
 
-- **Ownership.** Who will own the component?
-- **Responsibility.** What is the goal of the component?
-- **Kind.** Which kind of a component is that? UI? Node? Backend service? 
+<WikiGraph />
+
+<ComponentThinkingProcess steps={[
+  {
+    id: ComponentID.fromString('teambit.wiki/apps/wiki'),
+    content: <App />
+  },
+  {
+    id: ComponentID.fromString('teambit.wiki/blocks/header'),
+    content: <Header />
+  },
+  {
+    id: ComponentID.fromString('teambit.wiki/blocks/footer'),
+    content: <App />
+  },
+  {
+    id: ComponentID.fromString('teambit.wiki/sections/wiki'),
+    content: <App />
+  },
+  {
+    id: ComponentID.fromString('teambit.wiki/content/welcome'),
+    content: <App />
+  }
+]} />
+
+
+<!-- ### Define the component -->
+
+<!-- [Naming the component](/) is the first challenge for building any component, and the most important one. When naming your component you are actually defining its owner, 
+responsbility and goal.
+
+- **Ownership.** Who will own the component. 
+- **Kind.** Which kind of a component is that? UI? Module? Backend service? Applet?
+- **Responsibility.** What kind this component is? What is the responsibility of the component?
+
+Earliar we decided to give the ownership over the component to the `wiki` scope on the `my-org` organization in Bit Cloud and now we decided to name 
+our first component: `apps / wiki`.
+
+| Ownership      | Responsibility           |
+|----------------|--------------------------|
+| my-org.wiki    | apps / wiki-worldwide    |
 
 Components are identified and named using a unique identifier called ["Component ID"](/components/component-id).
 
-### Create a skeleton component
+### Genrate a component skeleton
 
 ```bash
-bit create blocks/amazing-inventions
+bit create react-app apps/wiki-worldwide
+```
+
+:::note
+TODO: Support compile after create, and dependencies in templates. UNTIL THEN:
+```bash
+bit compile
+bit install react-router@^5.0.0 @types/react-router@^5.0.0 react-router-dom@^5.0.0 @types/react-router-dom@^5.0.0
+```
+:::
+
+Configure the app on your workspace configuration, via `workspace.json`:
+```json
+{
+  "my-org.wiki/apps/wiki-worldwide": {},
+}
 ```
 
 Alternatively, you can `fork` the component from the demo above in to your project and start from there! 
 ```bash
-bit import learnbit.inventions/blocks/amazing-inventions
+bit import teambit.wiki/apps/wiki
 ```
+
+Run the app:
+```bash
+bit run wiki-worldwide
+```
+
+### Think which components you wish you had
+
 
 ### Design the API
 
@@ -117,9 +229,9 @@ his requirements? The more consumers there are, the better the API design would 
 Think about the requirements of your consumers, what do they need?
 
 - API first. Think of the API as the user interface of your component.
-- 
 - Build only the API you need.
 - Extendability.
+
 
 
 ## Implement the component
@@ -127,15 +239,15 @@ Think about the requirements of your consumers, what do they need?
 You can build the component in isolation, or import any component you want to test it againsts! 
 Let's say we would like to use this component on Bit docs, adding here to this section here!
 
-### Implement your logic from the ground up
 
-### Use the API
-
-```bash
-$ bit import learnbit.inventions/ui/bit-dev
+```
+bit import teambit.wiki/apps/wiki
 ```
 
-### Compose components
+### Implement your logic from the ground up
+
+
+### Use components
 
 ```bash
 $ bit install @learnbit/inventions.ui.invention-grid
@@ -158,11 +270,11 @@ Compose the `invention-grid` component into `amazing-inventions`.
 import { InventionGrid } from '@learnbit/inventions.ui.invention-grid';
 ```
 
-Now we create create 
+Now we create create  -->
 
 
 ## Collaborate
-Now that we have done our work and all seems to be working locally, its time to share our changes and collaborate with others.
+Now that we have done our work and all seems to be working locally, its time to share our changes and collaborate with others.  
 Bit tells you exacly which components has changed.
 
 ```
@@ -179,7 +291,7 @@ Earlier we have chosen a default Scope for our workspace. We need to either host
 $ bit lane create my-feature
 ```
 
-### Share the components
+### Export changes to a remote scope
 
 ```
 bit export
@@ -190,17 +302,12 @@ bit export
 ### Merge
 
 
-## Deploy an App
-
-```
-bit create react-app 
-```
 
 ## Think your "Quick Start" is better than ours?
 If you think your quick start is better than ours, or just shows the same on a different tech stack or product. Feel free to  
+
 
 ## What's next?
 
 - Read [Thinking in Components](/) 
 - Dive deeper into any of the topics.
-

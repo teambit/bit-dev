@@ -1,11 +1,6 @@
 import React from 'react';
 import { DocsRoute } from '@teambit/docs.entities.docs-routes';
-import { RoutingProvider } from '@teambit/base-ui.routing.routing-provider';
-import { SidebarProvider } from '@teambit/design.ui.sidebar.sidebar-context';
-import { useLocation, MemoryRouter } from 'react-router-dom';
-import { Link } from '@teambit/ui-foundation.ui.react-router.link';
-import { NavLink } from '@teambit/ui-foundation.ui.react-router.nav-link';
-import { ReactRouterRoutingProvider } from '@teambit/ui-foundation.ui.navigation.react-router.routing-adapter';
+import { MemoryRouter } from '@teambit/community.ui.router.router-provider';
 import { lazy } from '@loadable/component';
 import { Docs } from './docs';
 
@@ -14,8 +9,6 @@ const ThinkingInComponents = lazy(() => import('@teambit/docs.content.thinking-i
 const CreateWorkspace = lazy(() => import('@teambit/docs.content.getting-started.create-workspace'));
 const CreateComponents = lazy(() => import('@teambit/community.content.getting-started.composing.create-components'));
 const ComponentConfig = lazy(() => import('@teambit/component.content.component-config'));
-
-const routing = { Link, NavLink, useLocation };
 
 const primaryRoutes: DocsRoute[] = [
   {
@@ -65,14 +58,7 @@ const routes: DocsRoute[] = [
 ];
 
 export const BasicDocs = () => (
-  <ReactRouterRoutingProvider>
-    {/* TODO - replace with Legacy Routing Adapter, and remove once we remove all legacy links */}
-    <RoutingProvider value={routing}>
-      <SidebarProvider>
-        <MemoryRouter>
-          <Docs baseUrl="/" contents={[{ routes }]} primaryLinks={primaryRoutes} />
-        </MemoryRouter>
-      </SidebarProvider>
-    </RoutingProvider>
-  </ReactRouterRoutingProvider>
+  <MemoryRouter>
+    <Docs baseUrl="/" contents={[{ routes }]} primaryLinks={primaryRoutes} />
+  </MemoryRouter>
 );

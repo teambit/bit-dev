@@ -1,13 +1,14 @@
-import React, { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { RouterProvider, RouterContextType } from '@teambit/base-react.navigation.router-context';
-import { ReactRouterLink } from './implementation/link';
-import { ReactRouterNavLink } from './implementation/nav-link';
-import { useNavigate } from './implementation/use-navigate';
+import type { RouterContextType } from '@teambit/base-react.navigation.router-context';
+import { ReactRouterLink } from './components/link';
+import { ReactRouterNavLink } from './components/nav-link';
+import { useNavigate } from './components/use-navigate';
 
 export { useLocation };
 
+/** React Router 5 implementation of our abstract routing system */
 export const reactRouterAdapter: RouterContextType = {
   Link: ReactRouterLink,
   NavLink: ReactRouterNavLink,
@@ -18,8 +19,3 @@ export const reactRouterAdapter: RouterContextType = {
 export type ReactRouterRoutingProviderProps = {
   children: ReactNode;
 };
-
-/** wrap your code with this adapter to use React Router 5 as your Routing system */
-export function ReactRouterRoutingProvider({ children }: ReactRouterRoutingProviderProps) {
-  return <RouterProvider value={reactRouterAdapter}>{children}</RouterProvider>;
-}

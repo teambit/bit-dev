@@ -615,6 +615,13 @@
         "mainFile": "index.ts",
         "rootDir": "envs/content/inspecting-env"
     },
+    "content/installation/add-to-existing-project": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.docs",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/installation/add-to-existing-project"
+    },
     "content/installing-dependencies": {
         "scope": "teambit.dependencies",
         "version": "1.23.0",
@@ -899,7 +906,7 @@
     },
     "content/what-is-bit": {
         "scope": "teambit.bit",
-        "version": "1.23.5",
+        "version": "1.23.4",
         "mainFile": "index.ts",
         "rootDir": "bit/content/what-is-bit"
     },
@@ -932,6 +939,27 @@
         "version": "1.23.0",
         "mainFile": "index.ts",
         "rootDir": "dependencies/content/yarn"
+    },
+    "discovery/component-search": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.components",
+        "mainFile": "index.ts",
+        "rootDir": "components/discovery/component-search"
+    },
+    "discovery/hooks/use-component-search": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.components",
+        "mainFile": "index.ts",
+        "rootDir": "components/discovery/hooks/use-component-search"
+    },
+    "docs/installation/setup-editor": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.bit",
+        "mainFile": "index.ts",
+        "rootDir": "bit/docs/installation/setup-editor"
     },
     "entities/docs-routes": {
         "scope": "teambit.docs",
@@ -1053,11 +1081,24 @@
         "mainFile": "index.ts",
         "rootDir": "docs/plugins/next-page"
     },
-    "theme/create-theme": {
-        "scope": "teambit.base-react",
-        "version": "1.23.1",
+    "quick-start/wiki-quick-start": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.bit",
         "mainFile": "index.ts",
-        "rootDir": "base-react/theme/create-theme"
+        "rootDir": "bit/quick-start/wiki-quick-start"
+    },
+    "relations-graph": {
+        "scope": "teambit.graph",
+        "version": "0.0.2",
+        "mainFile": "index.ts",
+        "rootDir": "graph/relations-graph"
+    },
+    "theme/theme-provider": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "base-react/theme/theme-provider"
     },
     "ui/brand/logo": {
         "scope": "teambit.design",
@@ -1118,6 +1159,12 @@
         "version": "1.23.1",
         "mainFile": "index.ts",
         "rootDir": "community/ui/component-card-grid"
+    },
+    "ui/component-thinking-process": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/ui/component-thinking-process"
     },
     "ui/content/caption": {
         "scope": "teambit.design",
@@ -1418,6 +1465,12 @@
         "version": "1.23.1",
         "mainFile": "index.ts",
         "rootDir": "community/ui/plugins/explore-section"
+    },
+    "ui/router/router-provider": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/router/router-provider"
     },
     "ui/search/search-input": {
         "scope": "teambit.explorer",

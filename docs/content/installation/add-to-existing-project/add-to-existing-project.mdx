@@ -1,0 +1,60 @@
+# Add to an existing project
+
+You can use Bit to start liberating components in existing projects. To start liberating components head over to your project root directory:
+
+```bash
+cd my-project
+```
+
+Initialize Bit on your project.
+```bash
+bit init
+```
+
+This adds three files to your project, [`workspace.json`](/docs/workspace/workspace-config), [`.bitmap`](/docs/workspace/bitmap) and the hidden `.bit` (or `.git/bit` when
+initialized on a git repository) directory which includes the Workspace's [local Scope](/scope/local-scope). Once Bit is initialized on your project, you can start 
+liberating components.
+
+Start Bit:
+```
+bit start
+```
+
+## Installing dependencies
+
+We recommend using Bit to install dependnecies on your workspace. It makes sure every components gets the right dependencies and their corrosponding versions to resolve.
+
+```bash
+bit install
+```
+
+:::note
+To keep using pnpm, npm or yarn directly, configure Bit to fetch updates on post-install, learn more on [using package
+managers directly here](/dependencies/package-managers#using-package-managers-directly).
+:::
+
+## Liberating components
+
+Liberating components is the process for taking an existing component, coupled to a specific app and transforming it to be independent.  
+
+- Decide which component you are liberating.
+- See how the component is used.
+- Create the component. -> Create a component -> Go to quick start.
+
+Wrapping dependencies
+
+components/design/
+
+
+## Common use cases
+Bit can be used side to side with tools like NextJS, CRA or anything else.
+
+### NextJS
+
+<!-- TODO: Eden -->
+
+### Create React App
+
+<!-- TODO: Eden -->
+
+Create 

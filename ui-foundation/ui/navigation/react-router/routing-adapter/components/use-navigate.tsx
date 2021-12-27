@@ -7,13 +7,11 @@ export function useNavigate(): Navigator {
 
   const navigator: Navigator = useMemo(
     () => (to: string | number, options?: { replace?: boolean }) => {
-      if (typeof to === 'number') {
-        return history.go(to);
-      } else if (options?.replace) {
-        return history.replace(to);
-      } else {
-        return history.push(to);
-      }
+      if (typeof to === 'number') return history.go(to);
+
+      if (options?.replace) return history.replace(to);
+
+      return history.push(to);
     },
     [history]
   );
