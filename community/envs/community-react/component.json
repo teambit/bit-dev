@@ -1,0 +1,20 @@
+{
+  "componentId": {
+    "scope": "teambit.community",
+    "name": "envs/community-react",
+    "version": "1.23.1"
+  },
+  "propagate": true,
+  "extensions": {
+    "teambit.dependencies/dependency-resolver": {
+      "policy": {
+        "dependencies": {
+          "react-router-dom": "6.2.1"
+        },
+        "peerDependencies": {
+          "react-router-dom": "-"
+        }
+      }
+    }
+  }
+}
