@@ -12,9 +12,12 @@
           "@teambit/base-react.navigation.router-context": "-",
           "react-router-dom": "-"
         },
+        "devDependencies": {
+          "react-router-dom": "-",
+          "@types/react-router-dom": "-"
+        },
         "peerDependencies": {
-          "react-router-dom": "^5.0.0",
-          "@types/react-router-dom": "^5.0.0",
+          "react-router-dom": "^6.0.0",
           "@teambit/base-react.navigation.router-context": "^1.0.0"
         }
       }
