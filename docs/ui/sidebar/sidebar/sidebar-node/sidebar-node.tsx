@@ -25,7 +25,7 @@ export function SidebarNode(props: SidebarNodeProps) {
 
   if (!node.children) {
     if (node.payload.displayInSidebar === false) {
-      return <div />; // todo - allow null in tree node
+      return <div />;
     }
     return (
       // TODO: migrate to use the new base-react link with React Router.
