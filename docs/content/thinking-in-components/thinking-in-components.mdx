@@ -41,7 +41,7 @@ To demonstarate thinking in components we would use the following simple product
     {/* @HACK, cannot nest MemoryRouter inside another router - see https://github.com/remix-run/react-router/issues/7375 */}
     <UNSAFE_LocationContext.Provider value={null}>
       <MemoryRouter>
-        <WikiApp />
+        {/* <WikiApp /> */}
       </MemoryRouter>
     </UNSAFE_LocationContext.Provider>
   </BubbleHighlighter>
