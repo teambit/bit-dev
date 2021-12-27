@@ -1,5 +1,8 @@
 import React from 'react';
-import { MenuLinkItem } from '@teambit/design.ui.surfaces.menu.link-item';
+import classNames from 'classnames';
+import { NavLink } from '@teambit/base-react.navigation.link';
+import { classes } from '@teambit/design.ui.surfaces.menu.item';
+import { Icon } from '@teambit/design.elements.icon';
 
 import type { SidebarTreeNode } from '../sidebar-section';
 import styles from './primary-links.module.scss';
@@ -12,12 +15,19 @@ export function PrimaryLinks({ links }: { links: SidebarTreeNode }) {
       {linkArr.map((link) => {
         // TODO: oded fix that
         const icon = typeof link.payload?.icon === 'string' ? link.payload?.icon : undefined;
+        const href = link.payload?.path;
 
+        // TODO - use @teambit/design.ui.surfaces.menu.link-item when it uses the new navigation system
         return (
-          // TODO! using legacy link
-          <MenuLinkItem key={link.id} href={link.payload?.path} icon={icon}>
+          <NavLink
+            key={link.id}
+            href={href}
+            className={classNames(classes.menuItem, !!href && classes.interactive)}
+            activeClassName={classes.active}
+          >
+            {icon && <Icon of={icon} className={classes.icon} />}
             {link.payload?.title}
-          </MenuLinkItem>
+          </NavLink>
         );
       })}
     </div>
