@@ -1,0 +1,77 @@
+# Creating an app
+
+## Create a component to serve as the app
+
+Check your Env's documentation to see if it offers an app template that suits your needs.
+If a suitable app template is not available, create a regular Component.
+
+For example, create a regular React component:
+
+```
+bit create react apps/my-app
+```
+
+In the next step, you'll add the necessary app file to make that Component deployable.
+
+## Choose an app type
+
+An app type is an Aspect that determines how to generate and deploy you Component's artifacts.
+
+In this example, you will use the html-firebase app type. This app type uses Webpack to generate and bundle artifacts for vanilla JS Components. It deploys the generated artifacts to Firebase.
+
+### Add the app type to your component config
+
+Apps that are not part of Bit's core aspects, will not be loaded by default in your Workspace. To make the app type loadable wherever your Component is used, add it to the Component's config.
+
+For example:
+
+```json
+{
+  "teambit.workspace/variants": {
+    "{apps/**}": {
+      "teambit.apps/react-firebase": {}
+    }
+  }
+}
+```
+
+Run `bit show` to validate the app was added to the component configuration:
+
+```
+$ bit show company.scope/apps/my-app
+
+...
+```
+
+## Add an app type file to your component
+
+:::note
+To learn how to configure the app type file for your Component, head over to the (specific) app type's documentation.
+:::
+Add an app configuration file to your Component. This file needs to be named with the app type's corresponding filename extension.
+For example, react-firebase loads all files that use the `*.html-firebase.js` extension. To provide react-firebase with a configuration file, create a file with that extension.
+For example:
+
+```
+touch scope/apps/my-app/my-app.react-firebase.ts
+```
+
+### Set the app type configuration
+
+Add the information your app type needs for its build and deployment. For example, the app's entry file, cloud provider authentication token, and so on.
+
+## Run your app in development
+
+To run your app in development use the `bit run` command. For example:
+
+```
+bit run company.scope/apps/my-app
+```
+
+The output should contain the port for this development server:
+
+```
+https://localhost:3002
+```
+
+## Build and deploy your app

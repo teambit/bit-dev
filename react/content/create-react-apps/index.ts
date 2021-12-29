@@ -1,0 +1,1 @@
+export { default as CreateReactApps, default } from './create-react-apps.mdx'

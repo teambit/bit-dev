@@ -177,9 +177,15 @@ const ConfigFiles = lazy(() => import('@teambit/docs.content.guides.config-files
 const ReactOverview = lazy(() => import('@teambit/react.content.react-overview'));
 const ReplacingReactTools = lazy(() => import('@teambit/react.content.replace-react-tools'));
 const ConfigReactTools = lazy(() => import('@teambit/react.content.config-react-tools'));
+const CreateReactApps = lazy(() => import('@teambit/react.content.create-react-apps'));
 
 /* Misc */
 const UsageAnalytics = lazy(() => import('@teambit/docs.content.guides.usage-analytics'));
+
+/* Apps */
+const AppsOverview = lazy(() => import('@teambit/apps.content.apps-overview'));
+const CreateApp = lazy(() => import('@teambit/apps.content.create-app'));
+const DefineAppType = lazy(() => import('@teambit/apps.content.define-app-type'));
 
 export const learnDocsRoutes: DocsRoute[] = [
   {
@@ -288,14 +294,13 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Components',
     icon: 'comps',
     open: false,
-    overview:
-      {
-        path: 'component-overview',
-        title: 'Component Overview',
-        description:
-          'Component is a decoupled, versioned source-code container designed for the purpose of containing a single module or component.',
-        component: <ComponentOverview />,
-      },
+    overview: {
+      path: 'component-overview',
+      title: 'Component Overview',
+      description:
+        'Component is a decoupled, versioned source-code container designed for the purpose of containing a single module or component.',
+      component: <ComponentOverview />,
+    },
     children: [
       {
         path: 'adding-components',
@@ -329,8 +334,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'component-main-file',
         title: 'Main file',
-        description:
-          'Main file exposes the Component API.',
+        description: 'Main file exposes the Component API.',
         component: <MainFile />,
       },
       {
@@ -496,23 +500,20 @@ export const learnDocsRoutes: DocsRoute[] = [
     overview: {
       path: 'scope-overview',
       title: 'Scope Overview',
-      description:
-        'Scope is a server for hosting components.',
+      description: 'Scope is a server for hosting components.',
       component: <ScopeOverview />,
     },
     children: [
       {
         path: 'scope-bit-cloud',
         title: 'Scopes on Bit.cloud',
-        description:
-          'Bit.cloud is a cloud hosting provider for Bit Scopes and Components.',
-          component: <ScopeBitCloud />
+        description: 'Bit.cloud is a cloud hosting provider for Bit Scopes and Components.',
+        component: <ScopeBitCloud />,
       },
       {
         path: 'creating-scopes',
         title: 'Create bare scope',
-        description:
-          'Base Scopes used as remote storage for components.',
+        description: 'Base Scopes used as remote storage for components.',
         component: <CreatingScopes />,
       },
       {
@@ -528,8 +529,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'remote-scopes',
         title: 'Remotes',
-        description:
-          'Connect scopes and workspace with remotes.',
+        description: 'Connect scopes and workspace with remotes.',
         component: <RemoteScopes />,
       },
       /*{
@@ -944,31 +944,21 @@ export const learnDocsRoutes: DocsRoute[] = [
     path: 'apps',
     icon: 'app',
     open: false,
+    overview: {
+      path: 'apps-overview',
+      title: 'Apps overview',
+      component: <AppsOverview />,
+    },
     children: [
       {
-        path: 'apps-overview',
-        title: 'Apps Overview',
-        component: <div />,
-      },
-      {
         path: 'create-app',
-        title: 'Creating an App',
-        component: <div />,
-      },
-      {
-        path: 'app-build',
-        title: 'App Build',
-        component: <div />,
-      },
-      {
-        path: 'app-deployment',
-        title: 'App Deployment',
-        component: <div />,
+        title: 'Creating apps',
+        component: <CreateApp />,
       },
       {
         path: 'application-types',
-        title: 'Application Types',
-        component: <div />,
+        title: 'Defining app types',
+        component: <DefineAppType />,
       },
     ],
   },
@@ -1129,18 +1119,23 @@ export const learnDocsRoutes: DocsRoute[] = [
         children: [
           {
             path: 'react-overview',
-            title: 'React Overview',
+            title: 'React overview',
             component: <ReactOverview />,
           },
           {
             path: 'config-react-tools',
-            title: 'Configuring React Tools',
+            title: 'Configuring React tools',
             component: <ConfigReactTools />,
           },
           {
             path: 'replace-react-tools',
-            title: 'Replacing React Tools',
+            title: 'Replacing React tools',
             component: <ReplacingReactTools />,
+          },
+          {
+            path: 'creating-react-apps',
+            title: 'Creating React apps',
+            component: <CreateReactApps />,
           },
         ],
       },

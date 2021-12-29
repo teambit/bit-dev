@@ -263,6 +263,9 @@
     },
     "pkg": {
       "defaultScope": "teambit.pkg"
+    },
+    "apps": {
+      "defaultScope": "teambit.apps"
     }
   }
 }

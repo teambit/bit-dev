@@ -1,0 +1,1 @@
+export { default as DefineAppType, default } from './define-app-type.mdx'
