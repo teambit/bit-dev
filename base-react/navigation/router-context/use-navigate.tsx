@@ -1,4 +1,5 @@
-import { useRouter, Navigator } from '@teambit/base-react.navigation.router-context';
+import type { Navigator } from './router-context';
+import { useRouter } from './use-router';
 
 export type { Navigator };
 

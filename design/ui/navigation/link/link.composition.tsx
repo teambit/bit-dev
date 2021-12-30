@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation } from '@teambit/base-react.navigation.use-location';
+import { useLocation } from '@teambit/base-react.navigation.router-context';
 import { Link } from './link';
 import { NavLink } from './nav-link';
 
