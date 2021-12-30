@@ -1,5 +1,5 @@
 import { ComponentID } from '@teambit/component-id';
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter, UNSAFE_LocationContext } from 'react-router-dom';
 import { ComponentCardGroup } from '@teambit/explorer.ui.gallery.component-card-group';
 import { Subtitle } from '@teambit/docs.ui.subtitle';
 import { TopInventions } from '@learnbit/inventions.blocks.top-inventions';
@@ -46,9 +46,12 @@ Here is an example of what you will get:
 
 <ExcludeHighlighter>
   <BubbleHighlighter componentId={ComponentID.fromString('teambit.wiki/apps/wiki')} showId>
+    {/* @HACK, cannot nest MemoryRouter inside another router - see https://github.com/remix-run/react-router/issues/7375 */}
+    <UNSAFE_LocationContext.Provider value={null}>
     <MemoryRouter>
       {/* <WikiApp /> */}
     </MemoryRouter>
+    </UNSAFE_LocationContext.Provider>
   </BubbleHighlighter>
 </ExcludeHighlighter>
 
