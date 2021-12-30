@@ -3,7 +3,7 @@ description: 'React router context adapter for our abstract routing system'
 labels: ['ui', 'react-router', 'link']
 ---
 
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter, UNSAFE_LocationContext } from 'react-router-dom';
 import { Link, NavLink } from '@teambit/base-react.navigation.link';
 import { RouterProvider, useLocation } from '@teambit/base-react.navigation.router-context';
 import { reactRouterAdapter } from './react-routing-provider';
@@ -23,19 +23,20 @@ Try it out!
 ```tsx live
 () => {
   return (
-    // a router is required by React Router (in this case - in memory router)
-    <MemoryRouter>
-      <RouterProvider value={reactRouterAdapter}>
-        <CurrentLocation />
-        <NavLink href="/some/link" activeStyle={{ fontWeight: 'bold' }}>
-          /some/link
-        </NavLink>
-        <br />
-        <NavLink href="/another/link" activeStyle={{ fontWeight: 'bold' }}>
-          /another/link
-        </NavLink>
-      </RouterProvider>
-    </MemoryRouter>
+    <UNSAFE_LocationContext.Provider value={null}> {/* <-- used to allow nested router, not needed in your app */}
+      <MemoryRouter> {/* <-- required by react-router*/}
+        <RouterProvider value={reactRouterAdapter}>
+          <CurrentLocation />
+          <NavLink href="/some/link" activeStyle={{ fontWeight: 'bold' }}>
+            /some/link
+          </NavLink>
+          <br />
+          <NavLink href="/another/link" activeStyle={{ fontWeight: 'bold' }}>
+            /another/link
+          </NavLink>
+        </RouterProvider>
+      </MemoryRouter>
+    </UNSAFE_LocationContext.Provider>
   );
 
   function CurrentLocation() {

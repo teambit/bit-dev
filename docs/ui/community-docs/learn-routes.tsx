@@ -212,11 +212,11 @@ export const learnDocsRoutes: DocsRoute[] = [
         title: 'Creating components',
         component: <CreateComponents />,
       },
-      {
-        path: 'workspace-configuration',
-        component: <WorkspaceConfiguration />,
-        title: 'Workspace configuration',
-      },
+      // {
+      //   path: 'workspace-configuration',
+      //   component: <WorkspaceConfiguration />,
+      //   title: 'Workspace configuration',
+      // },
       {
         path: 'directory-structure',
         title: 'Directory Structure',
