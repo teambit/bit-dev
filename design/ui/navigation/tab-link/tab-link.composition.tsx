@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLocation } from '@teambit/base-react.navigation.use-location';
+import { useLocation } from '@teambit/base-react.navigation.router-context';
 import { TabLink } from './tab-link';
 
 export const BasicTabLink = () => <TabLink>basic link</TabLink>;

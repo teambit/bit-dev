@@ -1051,12 +1051,6 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/navigation/router-context"
     },
-    "navigation/use-location": {
-        "scope": "teambit.base-react",
-        "version": "1.23.1",
-        "mainFile": "index.ts",
-        "rootDir": "base-react/navigation/use-location"
-    },
     "pages/page": {
         "scope": "teambit.base-react",
         "version": "1.23.1",
