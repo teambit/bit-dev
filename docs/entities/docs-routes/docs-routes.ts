@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+// commented out because of cyclic dep. we should make sure this component won't depend on sidebar.
 // import type { SidebarTreeNode, SidebarPayload } from '@teambit/docs.ui.sidebar.sidebar';
 import { DocsRoute } from './docs-route';
 
