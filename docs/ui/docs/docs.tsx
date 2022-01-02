@@ -54,7 +54,7 @@ export function Docs({ contents, primaryLinks = [], baseUrl, plugins = [], class
   const contentRoutes = contents?.map((category) => {
     return {
       title: category.title,
-      routes: DocsRoutes.from(category.routes || []),
+      routes: DocsRoutes.from(category.routes || [], baseUrl || path),
       className: category.className,
     };
   });
@@ -81,15 +81,11 @@ export function Docs({ contents, primaryLinks = [], baseUrl, plugins = [], class
           <Switch>
             {routeArray.map((route, key) => {
               return (
-                <Route
-                  key={route.absPath}
-                  path={route.absPath}
-                  element={
-                    <DocPage index={key} route={route} plugins={plugins}>
-                      {route.component}
-                    </DocPage>
-                  }
-                />
+                <Route key={route.absPath} path={route.absPath}>
+                  <DocPage index={key} route={route} plugins={plugins}>
+                    {route.component}
+                  </DocPage>
+                </Route>
               );
             })}
             {/* default catch all */}

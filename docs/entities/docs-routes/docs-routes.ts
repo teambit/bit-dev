@@ -14,7 +14,7 @@ export type Route = {
 };
 
 export class DocsRoutes {
-  constructor(readonly tree: DocsRoute[], readonly basePath: string = '/') {}
+  constructor(readonly tree: DocsRoute[], readonly basePath?: string) {}
 
   /**
    * get the list of routes to include.
@@ -129,7 +129,7 @@ export class DocsRoutes {
     ];
   }
 
-  static from(routes: DocsRoute[]) {
-    return new DocsRoutes(routes);
+  static from(routes: DocsRoute[], basePath: string = '/') {
+    return new DocsRoutes(routes, basePath);
   }
 }

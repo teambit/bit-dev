@@ -59,6 +59,6 @@ const routes: DocsRoute[] = [
 
 export const BasicDocs = () => (
   <MemoryRouter>
-    <Docs baseUrl="/" contents={[{ routes }]} primaryLinks={primaryRoutes} />
+    <Docs /* baseUrl="/" */ contents={[{ routes }]} primaryLinks={primaryRoutes} />
   </MemoryRouter>
 );

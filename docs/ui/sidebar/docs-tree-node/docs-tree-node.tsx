@@ -1,6 +1,5 @@
 import React, { ReactNode, useEffect, useState } from 'react';
-// TODO
-import { useLocation } from '@teambit/base-react.navigation.router-context';
+import { useLocation } from '@teambit/base-react.navigation.use-location';
 import { CollapsableTreeNode } from '@teambit/base-ui.graph.tree.collapsable-tree-node';
 import type { TreeNodeProps } from '@teambit/base-ui.graph.tree.recursive-tree';
 import { NodeTitle } from '@teambit/docs.ui.sidebar.node-title';
