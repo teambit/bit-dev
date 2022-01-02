@@ -5,6 +5,7 @@ import { Switch, Route, useRouteMatch } from 'react-router-dom';
 import { Sidebar } from '@teambit/docs.ui.sidebar.sidebar';
 import { DocPage } from '@teambit/docs.ui.pages.doc-page';
 import { DocsPlugin } from '@teambit/docs.plugins.docs-plugin';
+import { NotFound } from '@teambit/community.ui.pages.errors.not-found';
 import { DocsContext } from './docs-context';
 import styles from './docs.module.scss';
 
@@ -85,12 +86,16 @@ export function Docs({ contents, primaryLinks = [], baseUrl, plugins = [], class
                   path={route.absPath}
                   element={
                     <DocPage index={key} route={route} plugins={plugins}>
-                    {route.component}
-                  </DocPage>
+                      {route.component}
+                    </DocPage>
                   }
                 />
               );
             })}
+            {/* default catch all */}
+            <Route path="*">
+              <NotFound />
+            </Route>
           </Switch>
         </div>
       </div>
