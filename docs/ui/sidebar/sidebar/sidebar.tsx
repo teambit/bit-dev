@@ -17,11 +17,6 @@ export type SidebarProps = {
    * sections of the sidebar. each section includes a title and a tree of nodes.
    */
   sections?: SidebarSection[];
-
-  /**
-   * prefix for all rendered links in the sidebar.
-   */
-  linkPrefix?: string;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export function Sidebar({ primaryLinks, sections }: SidebarProps) {
@@ -36,7 +31,6 @@ export function Sidebar({ primaryLinks, sections }: SidebarProps) {
             key={category.title}
             displayTitle={category.title}
             tree={category?.routes?.toSideBarTree()}
-            // linkPrefix={linkPrefix}
             className={category?.className}
           />
         );

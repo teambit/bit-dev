@@ -23,11 +23,6 @@ export type DocPageProps = {
    */
   index: number;
 
-  /**
-   * base url to use for docs section.
-   */
-  baseUrl?: string;
-
   plugins?: DocsPlugin<any>[];
 };
 
@@ -36,7 +31,7 @@ const scrollToRef = (ref) => {
   return window.scrollTo(0, -ref.current.offsetTop);
 };
 
-export function DocPage({ route, index, children, baseUrl = '/docs', plugins = [] }: DocPageProps) {
+export function DocPage({ route, index, children, plugins = [] }: DocPageProps) {
   const myRef = useRef(null);
   const contentRef = useRef() as React.MutableRefObject<HTMLDivElement>;
 
