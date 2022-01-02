@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import type { SidebarTreeNode } from './sidebar-section';
-
 import { Sidebar as SidebarWrapper } from '@teambit/design.ui.sidebar.sidebar';
 import { Collapser } from '@teambit/ui-foundation.ui.buttons.collapser';
 import { SidebarSection } from './sidebar-section';
 import { Tree } from './tree';
 import styles from './sidebar.module.scss';
 import { PrimaryLinks } from './primary-links';
+import type { SidebarTreeNode } from './sidebar-section';
 
 export type SidebarProps = {
   /**
@@ -25,7 +24,7 @@ export type SidebarProps = {
   linkPrefix?: string;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-export function Sidebar({ primaryLinks, sections, linkPrefix }: SidebarProps) {
+export function Sidebar({ primaryLinks, sections }: SidebarProps) {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <SidebarWrapper isOpen={isOpen} toggle={() => setIsOpen(!isOpen)} className={styles.sidebar}>
