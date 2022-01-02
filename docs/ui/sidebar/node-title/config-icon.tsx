@@ -1,22 +1,19 @@
 import React from 'react';
-import classNames from 'classnames';
 import { Icon } from '@teambit/design.elements.icon';
-import { Link } from '@teambit/design.ui.navigation.link';
+import { NavLink } from '@teambit/design.ui.navigation.link';
 import styles from './node-title.module.scss';
 
 export function ConfigIcon({ configPath }: { configPath: string | undefined }) {
   if (!configPath) return null;
   return (
-    <Link
+    <NavLink
       href={configPath}
       className={styles.configLink}
+      activeClassName={styles.active}
       // This prevent open/close when clicking on the icon.
       onClick={(e) => e.stopPropagation()}
     >
-      <Icon
-        className={classNames(styles.configIcon, configPath === window?.location.pathname && styles.active)}
-        of="settings"
-      />
-    </Link>
+      <Icon className={styles.configIcon} of="settings" />
+    </NavLink>
   );
 }
