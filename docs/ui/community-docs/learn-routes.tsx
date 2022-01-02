@@ -213,11 +213,6 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <CreateComponents />,
       },
       {
-        path: 'workspace-configuration',
-        component: <WorkspaceConfiguration />,
-        title: 'Workspace configuration',
-      },
-      {
         path: 'directory-structure',
         title: 'Directory Structure',
         description:
