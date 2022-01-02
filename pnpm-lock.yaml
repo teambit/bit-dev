@@ -305,6 +305,9 @@ importers:
   base-react/theme/create-theme:
     specifiers: {}
 
+  base-react/theme/theme-provider:
+    specifiers: {}
+
   base-react/ui/layout/graph-node:
     specifiers: {}
 
