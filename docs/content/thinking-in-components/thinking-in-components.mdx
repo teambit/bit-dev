@@ -7,7 +7,8 @@ import { ComponentCardGroup } from '@teambit/explorer.ui.gallery.component-card-
 import { ArchitectureBreakdown } from '@teambit/docs.blocks.component.architecture-breakdown';
 import { BubbleHighlighter } from '@teambit/community.ui.bubble-highlighter';
 import { ExcludeHighlighter } from '@teambit/react.ui.component-highlighter';
-import { WikiApp } from '@teambit/wiki.apps.wiki';
+//TODO: Ran: you have cycles with WikiApp using ui/docs  => teambit.wiki/sections/wiki@0.0.7 => ui/docs
+// import { WikiApp } from '@teambit/wiki.apps.wiki';
 // import { Graph } from './graph';
 import { HighlightComponent } from '@teambit/docs.ui.highlighter.highlight-component';
 import { TopInventions } from '@learnbit/inventions.blocks.top-inventions';
@@ -39,7 +40,7 @@ To demonstarate thinking in components we would use the following simple product
 <ExcludeHighlighter>
   <BubbleHighlighter componentId={ComponentID.fromString('teambit.wiki/apps/wiki')} showId>
     <MemoryRouter>
-      <WikiApp />
+      {/* <WikiApp /> */}
     </MemoryRouter>
   </BubbleHighlighter>
 </ExcludeHighlighter>
