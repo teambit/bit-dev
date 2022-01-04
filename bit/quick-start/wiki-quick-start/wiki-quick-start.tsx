@@ -8,9 +8,5 @@ export type WikiQuickStartProps = {
 };
 
 export function WikiQuickStart({ children }: WikiQuickStartProps) {
-  return (
-    <div>
-      {children}
-    </div>
-  );
+  return <div>{children}</div>;
 }
