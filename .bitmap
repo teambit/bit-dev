@@ -1513,13 +1513,23 @@
         "scope": "teambit.docs",
         "version": "1.23.9",
         "mainFile": "index.ts",
-        "rootDir": "docs/ui/sidebar/docs-tree-node"
+        "rootDir": "docs/ui/sidebar/docs-tree-node",
+        "config": {
+            "teambit.component/deprecation": {
+                "deprecate": true
+            }
+        }
     },
     "ui/sidebar/node-title": {
         "scope": "teambit.docs",
         "version": "1.23.9",
         "mainFile": "index.ts",
-        "rootDir": "docs/ui/sidebar/node-title"
+        "rootDir": "docs/ui/sidebar/node-title",
+        "config": {
+            "teambit.component/deprecation": {
+                "deprecate": true
+            }
+        }
     },
     "ui/sidebar/sidebar": {
         "scope": "teambit.docs",
@@ -1531,7 +1541,12 @@
         "scope": "teambit.design",
         "version": "1.23.9",
         "mainFile": "index.ts",
-        "rootDir": "design/ui/sidebar/sidebar-context"
+        "rootDir": "design/ui/sidebar/sidebar-context",
+        "config": {
+            "teambit.component/deprecation": {
+                "deprecate": true
+            }
+        }
     },
     "ui/sticky-menu": {
         "scope": "teambit.community",
