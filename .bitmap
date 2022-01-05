@@ -33,6 +33,12 @@
         "mainFile": "index.ts",
         "rootDir": "design/blocks/header"
     },
+    "blocks/sidebar": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/blocks/sidebar"
+    },
     "buttons/button": {
         "scope": "teambit.base-react",
         "version": "1.23.1",

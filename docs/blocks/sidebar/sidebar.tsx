@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import type { SidebarTreeNode } from './sidebar-section';
+import classNames from 'classnames';
 
 import { Sidebar as SidebarWrapper } from '@teambit/design.ui.sidebar.sidebar';
 import { Collapser } from '@teambit/ui-foundation.ui.buttons.collapser';
+import type { SidebarTreeNode } from './sidebar-section';
 import { SidebarSection } from './sidebar-section';
 import { Tree } from './tree';
 import styles from './sidebar.module.scss';
@@ -25,12 +26,12 @@ export type SidebarProps = {
   linkPrefix?: string;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-export function Sidebar({ primaryLinks, sections, linkPrefix }: SidebarProps) {
+export function Sidebar({ primaryLinks, sections, className, linkPrefix, ...rest }: SidebarProps) {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className={styles.sidebar}>
+    <div {...rest} className={classNames(styles.sidebar, className)}>
       <SidebarWrapper isOpen={isOpen} toggle={() => setIsOpen(!isOpen)} className={styles.sidebarContent}>
-        <div className={styles.bla}>
+        <div className={styles.content}>
           {primaryLinks && <PrimaryLinks links={primaryLinks} />}
           {sections?.map((category) => {
             if (!category) return null;
@@ -46,7 +47,7 @@ export function Sidebar({ primaryLinks, sections, linkPrefix }: SidebarProps) {
           })}
         </div>
       </SidebarWrapper>
-      <Collapser isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} placement="right" className={styles.collapser} />
+      <Collapser tooltipContent="Open sidebar" isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} placement="right" className={styles.collapser} />
     </div>
   );
 }

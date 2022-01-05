@@ -12,9 +12,14 @@
     overflow-y: hidden;
     height: 100%;
     border-right: 1px solid var(--bit-border-color-lightest, #ededed);
-    // @media screen and (max-width: $br-md) {
-    //   position: relative;
-    // }
+  }
+}
+
+.content {
+  overflow-y: auto;
+  height: calc(100% - var(--bit-header-height, 40px));
+  @media screen and (max-width: $br-md) {
+    height: 100%;
   }
 }
 
@@ -24,14 +29,10 @@
 
 .collapser {
   display: none;
-  // right: -12px;
-  // top: 7px;
-  // right: -32px;
-  z-index: 99999999999999;
-  left: 240px;
-  top: 42px;
+  position: fixed;
+  left: 0;
+  top: 40px;
   bottom: unset;
-  // z-index: 1;
   @media screen and (max-width: $br-md) {
     display: unset;
   }
@@ -43,10 +44,4 @@
   display: flex;
   align-items: center;
   padding-left: 16px;
-}
-
-.bla {
-  overflow-y: auto;
-  position: relative;
-  height: 100%;
 }
