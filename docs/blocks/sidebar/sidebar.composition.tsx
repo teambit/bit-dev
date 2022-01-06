@@ -1,9 +1,24 @@
 import React from 'react';
-import { sidebarMock, sidebarCategoryMock } from './sidebar.mock';
+import { DocsRoutes } from '@teambit/docs.entities.docs-routes';
+import { gettingStartedDocsRoutes, primaryRoutes } from './sidebar.mock';
 import { Sidebar } from './sidebar';
 
-// export const BasicSidebar = () => <Sidebar style={{ width: 300 }} tree={sidebarMock} />;
 
-// export const CategorySidebar = () => (
-//   <Sidebar displayTitle="GETTING STARTED" style={{ width: 300 }} tree={sidebarCategoryMock} />
-// );
+const sections = [
+  {
+    title: 'GETTING STARTED',
+    routes: DocsRoutes.from(gettingStartedDocsRoutes, '/'),
+  },
+  {
+    title: 'LEARN',
+    routes: DocsRoutes.from(gettingStartedDocsRoutes, '/'),
+  },
+];
+const primary = DocsRoutes.from(primaryRoutes, '').toSideBarTree();
+
+export const SidebarExample = () => <Sidebar data-testid="sidebar-example" style={{ width: 300 }} primaryLinks={primary} sections={sections} />;
+
+SidebarExample.canvas = {
+    width: 300,
+    height: 500
+}

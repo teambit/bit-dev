@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { FolderNodeExample } from './docs-tree-node.composition';
+import { FolderNodeExample } from './docs-tree-node.examples';
 
 describe('should render Folder tree node', () => {
   it('should render with the title text', () => {

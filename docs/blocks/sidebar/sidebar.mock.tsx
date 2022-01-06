@@ -1,188 +1,149 @@
 import React from 'react';
+import { DocsRoute, DocsRoutes } from '@teambit/docs.entities.docs-routes';
 
-const CustomImg = (
-  <img
-    style={{ width: 16, marginRight: 8 }}
-    src="https://bitsrc.imgix.net/bf5970b9b97dfb045867dd2842eaefd1e623e328.png?size=35&w=70&h=70&crop=faces&fit=crop&bg=fff"
-    alt=""
-  />
-);
-
-export const sidebarMock = {
-  id: '',
-  children: [
-    {
-      id: 'quick-start',
-      payload: {
-        title: 'Quick Start',
-        path: '/docs/quick-start',
-      },
-    },
-    {
-      id: 'getting-started',
-      payload: {
-        icon: 'https://static.bit.dev/bit-logo.svg',
-        title: 'Getting Started',
-        path: '/docs/getting-started/getting-started',
-      },
-      children: [
-        {
-          id: 'installing-bit',
-          payload: {
-            open: false,
-            icon: 'workspace',
-            title: 'Installing Bit',
-            path: '/docs/getting-started/installing-bit',
-          },
-          children: [
-            {
-              id: 'installing-bit',
-              payload: {
-                title: 'Installing Bit',
-                path: '/docs/getting-started/installing-bit',
-              },
-            },
-            {
-              id: 'create-new-workspace',
-              payload: {
-                title: 'Create a new Workspace',
-                path: '/docs/getting-started/create-new-workspace',
-              },
-            },
-            {
-              id: 'composing',
-              children: [
-                {
-                  id: 'creating-components',
-                  payload: {
-                    title: 'Creating Components',
-                    path: '/docs/getting-started/composing/creating-components',
-                  },
-                },
-                {
-                  id: 'dev-environments',
-                  payload: {
-                    title: 'Dev environments',
-                    path: '/docs/getting-started/composing/dev-environments',
-                  },
-                },
-                {
-                  id: 'use-dependencies',
-                  payload: {
-                    title: 'Use dependencies',
-                    path: '/docs/getting-started/composing/use-dependencies',
-                  },
-                },
-              ],
-              payload: {
-                open: false,
-                title: 'Composing',
-                path: '/docs/getting-started/composing/composing',
-              },
-            },
-          ],
-        },
-        {
-          id: 'create-new-workspace',
-          payload: {
-            title: 'Create a new Workspace',
-            path: '/docs/getting-started/create-new-workspace',
-          },
-        },
-        {
-          id: 'composing',
-          payload: {
-            open: false,
-            icon: CustomImg,
-            title: 'Composing',
-            path: '/docs/getting-started/composing/composing',
-            configPath: 'https://bit.dev',
-          },
-          children: [
-            {
-              id: 'creating-components',
-              payload: {
-                title: 'Creating Components',
-                path: '/docs/getting-started/composing/creating-components',
-              },
-            },
-            {
-              id: 'dev-environments',
-              payload: {
-                title: 'Dev environments',
-                path: '/docs/getting-started/composing/dev-environments',
-              },
-            },
-            {
-              id: 'use-dependencies',
-              payload: {
-                title: 'Use dependencies',
-                path: '/docs/getting-started/composing/use-dependencies',
-              },
-            },
-          ],
-        },
-      ],
-    },
-  ],
-};
-
-export const sidebarCategoryMock = {
-  id: '',
-  children: [
-    {
-      id: 'installing-bit',
-      payload: {
-        open: false,
-        icon: 'workspace',
+export const gettingStartedDocsRoutes: DocsRoute[] = [
+  {
+    path: 'getting-started/installing-bit',
+    title: 'Installation',
+    icon: 'install',
+    open: false,
+    children: [
+      {
+        path: 'installing-bit',
         title: 'Installing Bit',
-        path: '/docs/getting-started/installing-bit',
+        component: <div />,
       },
-      children: [
-        {
-          id: 'installing-bit',
-          payload: {
-            title: 'Installing Bit',
-            path: '/docs/getting-started/installing-bit',
-          },
-        },
-      ],
-    },
-    {
-      id: 'composing',
-      payload: {
-        open: false,
-        icon: 'compose',
-        title: 'Composing',
-        path: '/docs/getting-started/composing/composing',
+      {
+        path: 'start-bit-workspace',
+        title: 'Start a new Bit Workspace',
+        description:
+          'A Bit Workspace is where components are built and composed. Workspaces can be generated with the bit new command or initialized on an existing project.',
+        component: <div />,
       },
-      children: [
-        {
-          id: 'creating-components',
-          payload: {
-            title: 'Creating Components',
-            path: '/docs/getting-started/composing/creating-components',
-          },
-        },
-      ],
-    },
-    {
-      id: 'collaborate',
-      payload: {
-        open: false,
-        icon: 'collaborate',
-        title: 'Collaborate',
-        path: '/docs/getting-started/collaborate/snap-component-changes',
+      {
+        path: 'add-to-existing-project',
+        title: 'Add to existing project',
+        component: <div />,
       },
-      children: [
-        {
-          id: 'snap-component-changes',
-          payload: {
-            title: 'Creating Components',
-            path: '/docs/getting-started/collaborate/snap-component-changes',
-          },
-        },
-      ],
-    },
-  ],
-};
+      {
+        path: 'editor-setup',
+        title: 'Editor Setup',
+        component: <div />,
+      },
+      {
+        path: 'getting-started/setup-ci',
+        title: 'Setup CI',
+        component: <div />,
+      },
+    ],
+  },
+  {
+    path: 'getting-started/composing',
+    title: 'Compose',
+    icon: 'compose',
+    open: false,
+    children: [
+      {
+        path: 'spec-breakdown',
+        title: 'Creating components',
+        description:
+          'Bit makes it simple to build each Component independently, and compose it to others with Dependencies.',
+        component: <div />,
+      },
+      {
+        path: 'naming-components',
+        title: 'Naming components',
+      },
+      {
+        path: 'design-api',
+        title: 'Design the component API',
+      },
+      {
+        path: 'dev-environments',
+        title: 'Development environments',
+        description:
+          'Component development is simplified and standardized using Component Development Environments (or envs in short). An env is a compositions of several Services.',
+        component: <div />,
+      },
+      {
+        path: 'use-dependencies',
+        title: 'Use dependencies',
+        description: 'Dependencies allow us to compose components out of other components.',
+        component: <div />,
+      },
+    ],
+  },
+  {
+    path: 'getting-started/collaborate',
+    title: 'Collaborate',
+    icon: 'collaborate',
+    open: false,
+    children: [
+      {
+        path: 'snap-component-changes',
+        title: 'Versioning components',
+        component: <div />,
+      },
+      {
+        path: 'remote-scope',
+        title: 'Create a remote scope',
+      },
+      {
+        path: 'importing-components',
+        title: 'Importing components',
+        component: <div />,
+      },
+      {
+        path: 'exporting-components',
+        title: 'Exporting components',
+        component: <div />,
+      },
+    ],
+  },
+  {
+    path: 'getting-started/use',
+    title: 'Use',
+    icon: 'use',
+    open: false,
+    children: [
+      {
+        path: 'install-components',
+        title: 'Install Components',
+        description:
+          'Components once exported to a remote scope can be consumed in any other project/app with the package manager of your choice.',
+        component: <div />,
+      },
+      {
+        path: 'import-components',
+        title: 'Import Components',
+        description: 'A fundamental feature of a Bit workspace is the ability to vendor components.',
+        component: <div />,
+      },
+      {
+        path: 'update-components',
+        title: 'Update Components',
+        component: <div />,
+      },
+    ],
+  },
+];
+
+export const primaryRoutes: DocsRoute[] = [
+  {
+    path: 'quick-start',
+    icon: 'lightning',
+    title: 'Quick Start',
+    description:
+      'Bit is a component build and collaboration framework. It helps teams build components together, and compose them into various features and apps. This allows to build anything in a component-driven architecture, from UI applications, backend services and even CLI tools.',
+    component: <div />,
+  },
+  {
+    path: 'thinking-in-components',
+    icon: 'Lightbulb-thinking',
+    title: 'Thinking in Components',
+    description:
+      'Bit can change how think about software design and the apps you build. Where you used in thinking in applications, you will appreciate component trees and dependency graphs. Bit makes it easier to implement independent components and compose them into systems.',
+    component: <div />,
+    
+  },
+];
