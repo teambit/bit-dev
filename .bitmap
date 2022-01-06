@@ -1535,7 +1535,12 @@
         "scope": "teambit.docs",
         "version": "1.23.13",
         "mainFile": "index.ts",
-        "rootDir": "docs/ui/sidebar/sidebar"
+        "rootDir": "docs/ui/sidebar/sidebar",
+        "config": {
+            "teambit.component/deprecation": {
+                "deprecate": true
+            }
+        }
     },
     "ui/sidebar/sidebar-context": {
         "scope": "teambit.design",
