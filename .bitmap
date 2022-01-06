@@ -1520,17 +1520,6 @@
             }
         }
     },
-    "ui/sidebar/node-title": {
-        "scope": "teambit.docs",
-        "version": "1.23.13",
-        "mainFile": "index.ts",
-        "rootDir": "docs/ui/sidebar/node-title",
-        "config": {
-            "teambit.component/deprecation": {
-                "deprecate": true
-            }
-        }
-    },
     "ui/sidebar/sidebar": {
         "scope": "teambit.docs",
         "version": "1.23.14",
