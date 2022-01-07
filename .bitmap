@@ -1045,7 +1045,38 @@
         "scope": "teambit.base-react",
         "version": "1.23.2",
         "mainFile": "index.ts",
-        "rootDir": "base-react/navigation/router-context"
+        "rootDir": "base-react/navigation/router-context",
+        "config": {
+            "teambit.component/deprecation": {
+                "deprecate": true,
+                "newId": {
+                    "name": "navigation/routing-provider",
+                    "scope": "teambit.community"
+                }
+            }
+        }
+    },
+    "navigation/routing-provider": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "base-react/navigation/routing-provider",
+        "config": {
+            "teambit.community/envs/community-react@1.23.6": {},
+            "teambit.component/dev-files": {},
+            "teambit.compositions/compositions": {},
+            "teambit.docs/docs": {},
+            "teambit.envs/envs": {},
+            "teambit.dependencies/dependency-resolver": {},
+            "teambit.pipelines/builder": {},
+            "teambit.component/renaming": {
+                "renamedFrom": {
+                    "scope": "teambit.base-react",
+                    "name": "navigation/router-context",
+                    "version": "1.23.2"
+                }
+            }
+        }
     },
     "navigation/use-location": {
         "scope": "teambit.base-react",

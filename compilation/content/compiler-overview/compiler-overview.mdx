@@ -1,37 +1,30 @@
-# Compiler Overview
+# Compiler overview
 
-The Compiler aspect simplifies and standardizes the process of the compiling components.
 
-Modern JS apps are usually compiled, using compilers like [Babel](https://babeljs.io/) and [TypeScript](https://www.typescriptlang.org/), into standard formats that are compatible with browsers, bundlers (such as [Webpack](https://webpack.js.org/) and [Rollup](https://rollupjs.org)) and JS execution engines such as [NodeJS](https://nodejs.org) and [Deno](https://deno.land/).
-Compilation standards include [ES2015](https://262.ecma-international.org/6.0/), [ESM](https://nodejs.org/api/esm.html), [CommonsJS](https://nodejs.org/docs/latest/api/modules.html) and others.
+The *Compiler* provides a unified interface for compiling components regardless of the specific compiler they use.
 
-The role of the Compiler Aspect is to standardize this process across different components, by providing a simple and standard dev experience for compilation during development and build.
+## Compiling during development
 
-Compiled code is generated in the components' corresponding package (in development, this package can be found in the workspace `node_modules` directory). By default, the Compiler sets the `main` property of each component's `package.json` to `dist/{main}.js` (the component's main file, inside the `dist` directory).
+<!-- During development, you can compile all components using a unified command line interface: -->
 
-```bash
-├── node_modules
-    ├── @my-org
-        ├── ui.button
-          ├── dist
-              ├── index.js -> `package.json` points here if `index.js` is the main file.
-              ├── index.js.map
-              ├── button.js
-              ├── button.js.map
-          ├── ...
-```
-
-## Compiling for development
-
-The Compiler Aspect standardizes compilation during development in the development Workspace by providing the `bit compile` command, to compile all components, regardless of the specific compiler set by their corresponding Envs.
-
-Compilation of components in the [Workspace](/workspace/overview) is configured to deliver a great dev experience by by optimizing performance and debugging.
-
-This means Source Maps <!-- TODO [Source Maps](/) --> are generated and components are only transpiled (without types), into in the `node_modules` directory.
+To compile all Components, whether they use Babel, TypeScript or any other compiler, run:
 
 ```bash
 bit compile
 ```
+
+The compilation process results in a single standardized output to the terminal, similar to the following:
+
+```bash
+  STATUS        COMPONENT ID
+✔ SUCCESS       apps/bit-dev
+✔ SUCCESS       blocks/component/architecture-breakdown
+✔ SUCCESS       blocks/footer
+✔ SUCCESS       blocks/header
+✔ SUCCESS       buttons/button
+✔ SUCCESS       content/adding-components
+```
+
 
 Components can be watched for changes and recompiled with a single command as well.
 
@@ -41,7 +34,7 @@ bit watch
 
 To learn more on compilation during development, please refer to [Workspace Compilation](/compiler/workspace-compilation).
 
-## Compiling for distribution
+## Compiling during build
 
 Compiling components for distribution is done in a Capsule, as part of the [Build Pipeline](/builder/build-pipelines).
 
