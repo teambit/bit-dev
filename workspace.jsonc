@@ -120,7 +120,7 @@
         "@teambit/ui-foundation.ui.tree.drawer": "0.0.476",
         "@teambit/ui-foundation.ui.tree.folder-tree-node": "0.0.453",
         "@teambit/ui-foundation.ui.tree.tree-node": "0.0.453",
-        "@teambit/wiki.apps.wiki": "0.0.5",
+        "@teambit/wiki.apps.wiki": "0.0.9",
         "@testing-library/react-hooks": "7.0.1",
         "@types/history": "^4.0.0",
         "@types/loadable__component": "5.13.4",
