@@ -47,7 +47,7 @@
     },
     "content/aspects-overview": {
         "scope": "teambit.harmony",
-        "version": "1.23.14",
+        "version": "1.23.15",
         "mainFile": "index.ts",
         "rootDir": "harmony/content/aspects-overview"
     },
@@ -1354,7 +1354,7 @@
     },
     "ui/layout/graph-node": {
         "scope": "teambit.base-react",
-        "version": "1.23.13",
+        "version": "1.23.14",
         "mainFile": "index.ts",
         "rootDir": "base-react/ui/layout/graph-node"
     },
