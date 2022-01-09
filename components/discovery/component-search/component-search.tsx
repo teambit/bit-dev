@@ -1,5 +1,5 @@
-import React, { ReactNode } from 'react';
-import { useComponentSearch } from '@teambit/components.discovery.hooks.use-component-search';
+import React from 'react';
+// import { useComponentSearch } from '@teambit/components.discovery.hooks.use-component-search';
 
 export type ComponentSearchProps = {
   /**
@@ -7,17 +7,11 @@ export type ComponentSearchProps = {
    */
   queryString: string;
 
-  filters: ComponentFilter[];
+  // filters: ComponentFilter[];
 };
 
-/**
- * refactor to Discovery's component filter.
- */
-export type ComponentFilter = {
-  
-};
-
-export function ComponentSearch({ children }: ComponentSearchProps) {
-  const results = useComponentSearch();
-  return <div>{children}</div>;
+export function ComponentSearch({ queryString }: ComponentSearchProps) {
+  // const results = useComponentSearch();
+  // return <div>{children}</div>;
+  return <div>{queryString}</div>;
 }

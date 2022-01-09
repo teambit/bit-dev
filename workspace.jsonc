@@ -76,6 +76,7 @@
         "@teambit/base-ui.routing.routing-provider": "1.0.0",
         "@teambit/base-ui.surfaces.card": "1.0.1",
         "@teambit/base-ui.text.paragraph": "1.0.3",
+        "@teambit/community.entity.graph.bubble-graph": "1.23.11",
         "@teambit/component-id": "0.0.369",
         "@teambit/component.modules.component-url": "0.0.71",
         "@teambit/component.ui.graph.component-node-container": "0.0.33",

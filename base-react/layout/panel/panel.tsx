@@ -11,7 +11,6 @@ export type PanelProps = {
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export function Panel({ plugins }: PanelProps) {
-  // TODO: Ran need to set type
   const sortedPlugins = plugins?.sort((a: any, b: any) => a.weight - b.weight) || [];
 
   return (

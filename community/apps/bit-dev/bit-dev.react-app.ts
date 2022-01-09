@@ -7,7 +7,9 @@ export const BitDevApp: ReactAppOptions = {
   name: 'bit-dev',
   entry: [require.resolve('./bit-dev.app-root')],
   deploy: netlify.deploy.bind(netlify),
-  prerenderRoutes: ['/plugins'],
+  prerender: {
+    routes: ['/plugins'],
+  },
 };
 
 export default BitDevApp;

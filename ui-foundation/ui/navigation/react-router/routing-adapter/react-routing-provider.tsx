@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { useLocation, Link, NavLink } from 'react-router-dom';
-import { RouterContextType, LinkProps, NavLinkProps } from '@teambit/base-react.navigation.router-context';
+import { RouterContextType, LinkProps, NavLinkProps } from '@teambit/base-react.navigation.routing-provider';
 
 export function RouterLink(props: LinkProps) {
   return <Link to={props.href || ''} {...props} />;
