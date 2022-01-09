@@ -13,7 +13,6 @@ The sidebar is fixed on the page and allows to scroll if the content overflows.
 
 When the page becomes too small to display the sidebar it collapses and allows to open the sidebar with an overlay behind it.
 
-
 ```js live
 () => {
   const sections = [
@@ -22,9 +21,9 @@ When the page becomes too small to display the sidebar it collapses and allows t
       routes: DocsRoutes.from(gettingStartedDocsRoutes, '/'),
     },
     {
-    title: 'LEARN',
-    routes: DocsRoutes.from(gettingStartedDocsRoutes, '/'),
-  },
+      title: 'LEARN',
+      routes: DocsRoutes.from(gettingStartedDocsRoutes, '/'),
+    },
   ];
   const primary = DocsRoutes.from(primaryRoutes, '').toSideBarTree();
 
