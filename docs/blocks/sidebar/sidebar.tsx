@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
-
+import { Scrollbar } from '@teambit/design.ui.styles.scrollbar';
 import { Sidebar as SidebarWrapper } from '@teambit/design.ui.sidebar.sidebar';
 import { Collapser } from '@teambit/ui-foundation.ui.buttons.collapser';
 import type { SidebarTreeNode } from './sidebar-section';
@@ -31,7 +31,7 @@ export function Sidebar({ primaryLinks, sections, className, linkPrefix, ...rest
   return (
     <div {...rest} className={classNames(styles.sidebar, className)}>
       <SidebarWrapper isOpen={isOpen} toggle={() => setIsOpen(!isOpen)} className={styles.sidebarContent}>
-        <div className={styles.content}>
+        <Scrollbar className={styles.content}>
           {primaryLinks && <PrimaryLinks links={primaryLinks} />}
           {sections?.map((category) => {
             if (!category) return null;
@@ -45,9 +45,15 @@ export function Sidebar({ primaryLinks, sections, className, linkPrefix, ...rest
               />
             );
           })}
-        </div>
+        </Scrollbar>
       </SidebarWrapper>
-      <Collapser tooltipContent="Open sidebar" isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} placement="right" className={styles.collapser} />
+      <Collapser
+        tooltipContent="Open sidebar"
+        isOpen={isOpen}
+        onClick={() => setIsOpen(!isOpen)}
+        placement="right"
+        className={styles.collapser}
+      />
     </div>
   );
 }
