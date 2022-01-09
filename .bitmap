@@ -1509,39 +1509,6 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/sections/top-down"
     },
-    "ui/sidebar/docs-tree-node": {
-        "scope": "teambit.docs",
-        "version": "1.23.13",
-        "mainFile": "index.ts",
-        "rootDir": "docs/ui/sidebar/docs-tree-node",
-        "config": {
-            "teambit.component/deprecation": {
-                "deprecate": true
-            }
-        }
-    },
-    "ui/sidebar/sidebar": {
-        "scope": "teambit.docs",
-        "version": "1.23.14",
-        "mainFile": "index.ts",
-        "rootDir": "docs/ui/sidebar/sidebar",
-        "config": {
-            "teambit.component/deprecation": {
-                "deprecate": true
-            }
-        }
-    },
-    "ui/sidebar/sidebar-context": {
-        "scope": "teambit.design",
-        "version": "1.23.13",
-        "mainFile": "index.ts",
-        "rootDir": "design/ui/sidebar/sidebar-context",
-        "config": {
-            "teambit.component/deprecation": {
-                "deprecate": true
-            }
-        }
-    },
     "ui/sticky-menu": {
         "scope": "teambit.community",
         "version": "1.23.13",
