@@ -40,7 +40,7 @@ const HostingScopes = lazy(() => import('@teambit/scope.content.hosting-scopes')
 /* Dev services */
 // const AvailableServices = lazy(() => import('@teambit/envs.content.available-services'));
 const DevServices = lazy(() => import('@teambit/envs.content.dev-services'));
-const DevServicesOverview = lazy(() => import('@teambit/envs.content.dev-services-overview'));
+// const DevServicesOverview = lazy(() => import('@teambit/envs.content.dev-services-overview'));
 
 /* Preview */
 
@@ -577,11 +577,11 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Dev Services',
     icon: 'compCI',
     open: false,
-    overview: {
-      path: 'dev-services-overview',
-      title: 'Dev services overview',
-      component: <DevServicesOverview />,
-    },
+    // overview: {
+    //   path: 'dev-services-overview',
+    //   title: 'Dev services overview',
+    //   component: <DevServicesOverview />,
+    // },
     children: [
       {
         path: 'builder',

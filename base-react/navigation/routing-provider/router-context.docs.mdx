@@ -1,0 +1,50 @@
+---
+description: 'Isomorphic link provder.'
+labels: ['react', 'routing', 'context']
+---
+
+import { RouterProvider } from './router-context';
+// import { Link } from '@teambit/base-react.navigation.link';
+
+Defines the structure of our routing system,  
+and provides the underlying implementation of links in the project.
+
+As simple as:
+
+```tsx
+import { reactRouterAdapter } from '@teambit/ui-foundation.ui.navigation.react-router.routing-adapter'
+import { RoutingProvider } from '@teambit/base-react.navigation.router-context';
+
+function App() {
+  return (
+    <RoutingProvider value={reactRouterAdapter}>
+      {children}
+    </RoutingProvider>
+    );
+}
+```
+
+Try it out!
+
+```tsx live
+() => {
+  const routingA = {
+    Link: ({ children, ...props }) => <a {...props}>{children} 🔗</a>,
+  };
+
+  const routingB = {
+    Link: ({ style, ...props }) => <a {...props} style={{ textDecoration: 'none', fontWeight: 'bolder', ...style }} />,
+  };
+
+  return (
+    <div>
+      <RouterProvider value={routingA}>
+      </RouterProvider>
+      <br />
+      <RouterProvider value={routingB}>
+      </RouterProvider>
+      <br />
+    </div>
+  );
+};
+```

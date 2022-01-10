@@ -1,5 +1,4 @@
 import { useLocation } from 'react-router-dom';
-
 import type { RouterContextType } from '@teambit/base-react.navigation.router-context';
 import { ReactRouterLink } from './components/link';
 import { ReactRouterNavLink } from './components/nav-link';

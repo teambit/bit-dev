@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
-import type { SidebarTreeNode, SidebarPayload } from '@teambit/docs.ui.sidebar.sidebar';
+// commented out because of cyclic dep. we should make sure this component won't depend on sidebar.
+// import type { SidebarTreeNode, SidebarPayload } from '@teambit/docs.ui.sidebar.sidebar';
 import { DocsRoute } from './docs-route';
 
 export type Route = {
@@ -26,14 +27,14 @@ export class DocsRoutes {
   /**
    * create a sidebar tree.
    */
-  toSideBarTree(): SidebarTreeNode {
+  toSideBarTree(): any {
     return {
       id: '',
       children: this.tree.map((node) => this.computeTreeNode(node)),
     };
   }
 
-  private computePayload(docRoute: DocsRoute, parentPath?: string): SidebarPayload {
+  private computePayload(docRoute: DocsRoute, parentPath?: string): any {
     return {
       icon: docRoute.icon,
       open: docRoute.open,
