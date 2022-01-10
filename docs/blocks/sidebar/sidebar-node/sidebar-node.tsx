@@ -1,5 +1,5 @@
 import React from 'react';
-import { DocsTreeNode } from '@teambit/docs.ui.sidebar.docs-tree-node';
+import { DocsTreeNode } from '../docs-tree-node';
 import { TreeNode } from './tree-node';
 import type { TreeNodeComponentProps } from './tree-node';
 
@@ -31,7 +31,6 @@ export function SidebarNode(props: SidebarNodeProps) {
       return <div />;
     }
     return (
-      // TODO: migrate to use the new base-react link with React Router.
       <TreeNode
         node={{ id: node.payload.title }}
         icon={node.payload?.icon}

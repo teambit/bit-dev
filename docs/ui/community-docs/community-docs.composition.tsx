@@ -1,16 +1,16 @@
 import React from 'react';
-import { SidebarProvider } from '@teambit/design.ui.sidebar.sidebar-context';
-import { MemoryRouter } from 'react-router-dom';
-import { RouterProvider } from '@teambit/base-react.navigation.router-context';
-import { reactRouterAdapter } from '@teambit/ui-foundation.ui.navigation.react-router.routing-adapter';
+import { RoutingProvider } from '@teambit/base-ui.routing.routing-provider';
+import { useLocation, MemoryRouter } from 'react-router-dom';
+import { Link } from '@teambit/ui-foundation.ui.react-router.link';
+import { NavLink } from '@teambit/ui-foundation.ui.react-router.nav-link';
 import { CommunityDocs } from './community-docs';
 
+const routing = { Link, NavLink, useLocation };
+
 export const BasicCommunityDocs = () => (
-  <RouterProvider value={reactRouterAdapter}>
-    <SidebarProvider>
-      <MemoryRouter>
-        <CommunityDocs />
-      </MemoryRouter>
-    </SidebarProvider>
-  </RouterProvider>
+  <RoutingProvider value={routing}>
+    <MemoryRouter>
+      <CommunityDocs />
+    </MemoryRouter>
+  </RoutingProvider>
 );
