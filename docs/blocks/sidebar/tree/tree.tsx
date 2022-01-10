@@ -20,7 +20,7 @@ export function Tree({ displayTitle, tree, className, ...rest }: TreeProps) {
   const [active, setToActive] = useState(tree.id);
 
   return (
-    <div style={{ ...indentStyle(0), ...rest.style }} className={classNames(styles.sidebar, className)} {...rest}>
+    <div style={{ ...indentStyle(0), ...rest.style }} className={classNames(styles.tree, className)} {...rest}>
       {displayTitle && <span className={styles.sidebarTitle}>{displayTitle}</span>}
       <TreeNodeContext.Provider value={SidebarNode}>
         <TreeContextProvider onSelect={(id) => setToActive(id)} selected={active}>

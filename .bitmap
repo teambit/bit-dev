@@ -33,6 +33,12 @@
         "mainFile": "index.ts",
         "rootDir": "design/blocks/header"
     },
+    "blocks/sidebar": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "docs/blocks/sidebar"
+    },
     "buttons/button": {
         "scope": "teambit.base-react",
         "version": "1.23.13",
@@ -940,14 +946,14 @@
         "rootDir": "dependencies/content/yarn"
     },
     "discovery/component-search": {
-        "scope": "teambit.components",
-        "version": "0.0.12",
+        "scope": "",
+        "version": "",
         "mainFile": "index.ts",
         "rootDir": "components/discovery/component-search"
     },
     "discovery/hooks/use-component-search": {
-        "scope": "teambit.components",
-        "version": "0.0.12",
+        "scope": "",
+        "version": "",
         "mainFile": "index.ts",
         "rootDir": "components/discovery/hooks/use-component-search"
     },
@@ -1523,30 +1529,6 @@
         "version": "1.23.13",
         "mainFile": "index.ts",
         "rootDir": "community/ui/sections/top-down"
-    },
-    "ui/sidebar/docs-tree-node": {
-        "scope": "teambit.docs",
-        "version": "1.23.13",
-        "mainFile": "index.ts",
-        "rootDir": "docs/ui/sidebar/docs-tree-node"
-    },
-    "ui/sidebar/node-title": {
-        "scope": "teambit.docs",
-        "version": "1.23.13",
-        "mainFile": "index.ts",
-        "rootDir": "docs/ui/sidebar/node-title"
-    },
-    "ui/sidebar/sidebar": {
-        "scope": "teambit.docs",
-        "version": "1.23.14",
-        "mainFile": "index.ts",
-        "rootDir": "docs/ui/sidebar/sidebar"
-    },
-    "ui/sidebar/sidebar-context": {
-        "scope": "teambit.design",
-        "version": "1.23.13",
-        "mainFile": "index.ts",
-        "rootDir": "design/ui/sidebar/sidebar-context"
     },
     "ui/sticky-menu": {
         "scope": "teambit.community",

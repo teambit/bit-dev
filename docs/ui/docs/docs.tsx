@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import classNames from 'classnames';
 import { DocsRoute, DocsRoutes } from '@teambit/docs.entities.docs-routes';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
-import { Sidebar } from '@teambit/docs.ui.sidebar.sidebar';
+import { Sidebar } from '@teambit/docs.blocks.sidebar';
 import { DocPage } from '@teambit/docs.ui.pages.doc-page';
 import { DocsPlugin } from '@teambit/docs.plugins.docs-plugin';
 import { NotFound } from '@teambit/community.ui.pages.errors.not-found';

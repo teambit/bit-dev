@@ -2,7 +2,7 @@ import React, { ReactNode, useEffect, useState } from 'react';
 import { useLocation } from '@teambit/base-react.navigation.use-location';
 import { CollapsableTreeNode } from '@teambit/base-ui.graph.tree.collapsable-tree-node';
 import type { TreeNodeProps } from '@teambit/base-ui.graph.tree.recursive-tree';
-import { NodeTitle } from '@teambit/docs.ui.sidebar.node-title';
+import { NodeTitle } from '../node-title';
 
 export type FolderPayload = {
   icon?: string | ReactNode;

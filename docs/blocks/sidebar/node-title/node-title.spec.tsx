@@ -5,7 +5,7 @@ import {
   NodeTitleWithIcon,
   NodeTitleWithConfigurationIcon,
   NodeTitleWithOverviewActive,
-} from './node-title.composition';
+} from './node-title.examples';
 
 describe('should render basic folder', () => {
   it('should have folder id', () => {
