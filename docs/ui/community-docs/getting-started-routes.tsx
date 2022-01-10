@@ -170,8 +170,8 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
     ],
   },
   {
-    path: 'getting-started/use',
-    title: 'Use',
+    path: 'getting-started/update',
+    title: 'Update',
     icon: 'use',
     open: false,
     children: [

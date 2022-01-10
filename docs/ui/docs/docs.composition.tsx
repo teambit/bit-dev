@@ -1,8 +1,9 @@
 import React from 'react';
 import { DocsRoute } from '@teambit/docs.entities.docs-routes';
-import { MemoryRouter } from '@teambit/community.ui.router.router-provider';
+// TODO: Oded
+// import { MemoryRouter } from '@teambit/community.ui.router.router-provider';
 import { lazy } from '@loadable/component';
-import { Docs } from './docs';
+// import { Docs } from './docs';
 
 const QuickStart = lazy(() => import('@teambit/docs.content.quick-start'));
 const ThinkingInComponents = lazy(() => import('@teambit/docs.content.thinking-in-components'));
@@ -57,8 +58,8 @@ const routes: DocsRoute[] = [
   },
 ];
 
-export const BasicDocs = () => (
-  <MemoryRouter>
-    <Docs /* baseUrl="/" */ contents={[{ routes }]} primaryLinks={primaryRoutes} />
-  </MemoryRouter>
-);
+// export const BasicDocs = () => (
+//   <MemoryRouter>
+//     <Docs baseUrl="/" contents={[{ routes }]} primaryLinks={primaryRoutes} />
+//   </MemoryRouter>
+// );

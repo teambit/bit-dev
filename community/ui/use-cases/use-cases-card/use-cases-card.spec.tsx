@@ -10,9 +10,7 @@ it('should render with a title', () => {
 
 it('should render with a text', () => {
   const { getByText } = render(<BasicUseCasesCard />);
-  const rendered = getByText(
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis semper, quam sed.'
-  );
+  const rendered = getByText('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis semper, quam sed.');
   expect(rendered).toBeTruthy();
 });
 
@@ -28,8 +26,8 @@ it('image should contain an alt tag', () => {
   expect(rendered).toBeTruthy();
 });
 
-it('image should contain a link', () => {
-  const { getByAltText } = render(<BasicUseCasesCard />);
-  const displayedImage = document.querySelector('a') as HTMLAnchorElement;
-  expect(displayedImage.href).toContain('/react');
-});
+// it('image should contain a link', () => {
+//   const { getByAltText } = render(<BasicUseCasesCard />);
+//   const displayedImage = document.querySelector('a') as HTMLAnchorElement;
+//   expect(displayedImage.href).toContain('/react');
+// });
