@@ -946,14 +946,14 @@
         "rootDir": "dependencies/content/yarn"
     },
     "discovery/component-search": {
-        "scope": "teambit.components",
-        "version": "0.0.12",
+        "scope": "",
+        "version": "",
         "mainFile": "index.ts",
         "rootDir": "components/discovery/component-search"
     },
     "discovery/hooks/use-component-search": {
-        "scope": "teambit.components",
-        "version": "0.0.12",
+        "scope": "",
+        "version": "",
         "mainFile": "index.ts",
         "rootDir": "components/discovery/hooks/use-component-search"
     },
