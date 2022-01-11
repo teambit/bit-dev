@@ -23,7 +23,8 @@ export function TableOfContent({ className, children, title, rootRef, selectors,
   const { activeElement, elements } = useElementOnFold(rootRef, selectors);
   const anchors = useMemo(() => getLinks(elements), [elements]);
 
-  if (!anchors) return null;
+  if (anchors.length < 1) return null;
+
   return (
     <div {...rest} className={classNames(styles.tableOfContent, className)}>
       {title && <div className={styles.title}>{title}</div>}
@@ -46,7 +47,6 @@ export function TableOfContent({ className, children, title, rootRef, selectors,
 }
 
 function getLinks(links: Element[]) {
-  if (!links) return undefined;
   return Object.values(links).map((link) => {
     const linkText = link?.textContent;
     if (!linkText) return undefined;
