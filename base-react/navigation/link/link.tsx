@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { useRouter, LinkProps } from '@teambit/base-react.navigation.router-context';
+import { useRouter, LinkProps } from '@teambit/base-react.navigation.routing-provider';
 import { NativeLink } from './native-link';
 
 export type { LinkProps };

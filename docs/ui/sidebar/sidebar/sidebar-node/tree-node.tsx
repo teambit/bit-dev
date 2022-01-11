@@ -1,10 +1,9 @@
 import React, { ComponentType } from 'react';
 import classNames from 'classnames';
 import { NavLink } from '@teambit/base-react.navigation.link';
-import styles from './sidebar-node.module.scss';
-
 import { indentClass } from '@teambit/base-ui.graph.tree.indent';
 import { TreeNodeProps, TreeNode as TreeNodeType } from '@teambit/base-ui.graph.tree.recursive-tree';
+import styles from './sidebar-node.module.scss';
 
 export type WidgetProps<Payload> = {
   node: TreeNodeType<Payload>;

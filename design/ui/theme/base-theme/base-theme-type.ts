@@ -1,6 +1,6 @@
 /**
- * design tokens go here!
- * maintained by the designer.
+ * maintained by * design tokens go here!
+ the designer.
  */
 export const baseThemeDefaults: BaseThemeType = {
   primaryColor: 'navy',

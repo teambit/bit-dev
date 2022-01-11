@@ -1,5 +1,6 @@
 import React from 'react';
 import { DocsTreeNode } from '@teambit/docs.ui.sidebar.docs-tree-node';
+import { TreeNode as TreeNodeType } from '@teambit/base-ui.graph.tree.recursive-tree';
 import { TreeNode } from './tree-node';
 import type { TreeNodeComponentProps } from './tree-node';
 
@@ -15,7 +16,6 @@ export type SidebarNodeProps = {
   active?: string;
 } & TreeNodeComponentProps<any>;
 
-import { TreeNode as TreeNodeType } from '@teambit/base-ui.graph.tree.recursive-tree';
 
 export type WidgetProps<Payload> = {
   node: TreeNodeType<Payload>;
