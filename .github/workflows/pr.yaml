@@ -20,8 +20,8 @@ jobs:
         run: bit install
       - name: Bit compile
         run: bit compile
-      - name: Bit build
-        run: bit check-types --all
+      - name: Bit check-types
+        run: bit check-types --all --strict
       - name: Bit build
         run: bit build --all
       - uses: actions/upload-artifact@v2

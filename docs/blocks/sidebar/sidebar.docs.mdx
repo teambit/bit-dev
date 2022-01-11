@@ -1,0 +1,32 @@
+---
+description: 'A responsive sidebar for the docs page'
+labels: ['docs', 'sidebar']
+---
+
+import { Sidebar } from './sidebar';
+import { DocsRoutes } from '@teambit/docs.entities.docs-routes';
+import { gettingStartedDocsRoutes, primaryRoutes } from './sidebar.mock';
+
+A sidebar that presents sections of collapsable `DocRoutes`. It also presents a section of `primaryLinks` to be displayed at the top.
+
+The sidebar is fixed on the page and allows to scroll if the content overflows.
+
+When the page becomes too small to display the sidebar it collapses and allows to open the sidebar with an overlay behind it.
+
+```js live
+() => {
+  const sections = [
+    {
+      title: 'GETTING STARTED',
+      routes: DocsRoutes.from(gettingStartedDocsRoutes, '/'),
+    },
+    {
+      title: 'LEARN',
+      routes: DocsRoutes.from(gettingStartedDocsRoutes, '/'),
+    },
+  ];
+  const primary = DocsRoutes.from(primaryRoutes, '').toSideBarTree();
+
+  return <Sidebar style={{ width: 300, height: 420 }} primaryLinks={primary} sections={sections} />;
+};
+```

@@ -16,7 +16,6 @@ export type SidebarNodeProps = {
   active?: string;
 } & TreeNodeComponentProps<any>;
 
-
 export type WidgetProps<Payload> = {
   node: TreeNodeType<Payload>;
 };
@@ -31,7 +30,6 @@ export function SidebarNode(props: SidebarNodeProps) {
       return <div />;
     }
     return (
-      // TODO: migrate to use the new base-react link with React Router.
       <TreeNode
         node={{ id: node.payload.title }}
         icon={node.payload?.icon}

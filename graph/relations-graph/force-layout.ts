@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { d3adaptor } from 'webcola';
 import * as d3Force from 'd3-force';
 import * as d3Dispatch from 'd3-dispatch';

@@ -4,7 +4,6 @@ labels: ['docs', 'page', 'routes']
 ---
 
 import { RoutingProvider } from '@teambit/base-ui.routing.routing-provider';
-import { SidebarProvider } from '@teambit/design.ui.sidebar.sidebar-context';
 import { useLocation, MemoryRouter } from 'react-router-dom';
 import { Link } from '@teambit/ui-foundation.ui.react-router.link';
 import { NavLink } from '@teambit/ui-foundation.ui.react-router.nav-link';
@@ -69,11 +68,9 @@ This component receives and renders all the Routes and makes them available in R
 
   return (
     <RoutingProvider value={routing}>
-      <SidebarProvider>
-        <MemoryRouter>
-          <Docs baseUrl="/" contents={[{ routes }]} primaryLinks={primaryRoutes} />
-        </MemoryRouter>
-      </SidebarProvider>
+      <MemoryRouter>
+        <Docs baseUrl="/" contents={[{ routes }]} primaryLinks={primaryRoutes} />
+      </MemoryRouter>
     </RoutingProvider>
   );
 };

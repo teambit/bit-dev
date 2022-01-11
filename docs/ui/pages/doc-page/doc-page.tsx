@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, ReactNode, Suspense } from 'react';
+import React, { useRef, useEffect, ReactNode, Suspense, MutableRefObject } from 'react';
 import { MDXLayout } from '@teambit/mdx.ui.mdx-layout';
 import { Page } from '@teambit/base-react.pages.page';
 import { DocsPlugin } from '@teambit/docs.plugins.docs-plugin';
@@ -32,8 +32,10 @@ export type DocPageProps = {
 };
 
 const components = mdxComponents('/docs', 'docs-heading');
-const scrollToRef = (ref) => {
-  return window.scrollTo(0, -ref.current.offsetTop);
+const scrollToRef = (ref: MutableRefObject<HTMLElement | null>) => {
+  if (typeof window === 'undefined' || !ref.current) return;
+
+  window.scrollTo(0, -ref.current.offsetTop);
 };
 
 export function DocPage({ route, index, children, baseUrl = '/docs', plugins = [] }: DocPageProps) {
