@@ -1,3 +1,4 @@
+// @ts-nocheck - TODO use types
 import { hierarchy, stratify, pack } from 'd3-hierarchy';
 
 const NODE_SIZE = 120;
