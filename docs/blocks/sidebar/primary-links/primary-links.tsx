@@ -24,6 +24,7 @@ export function PrimaryLinks({ links }: { links: SidebarTreeNode }) {
             href={href}
             className={classNames(classes.menuItem, !!href && classes.interactive)}
             activeClassName={classes.active}
+            exact
           >
             {icon && <Icon of={icon} className={classes.icon} />}
             {link.payload?.title}

@@ -12,6 +12,7 @@ export function ConfigIcon({ configPath }: { configPath: string | undefined }) {
       activeClassName={styles.active}
       // This prevent open/close when clicking on the icon.
       onClick={(e) => e.stopPropagation()}
+      exact
     >
       <Icon className={styles.configIcon} of="settings" />
     </NavLink>
