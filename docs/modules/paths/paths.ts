@@ -1,4 +1,4 @@
-
+// @ts-nocheck - TODO - use types
 
 export class Paths {
   constructor(
