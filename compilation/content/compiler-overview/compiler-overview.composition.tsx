@@ -7,7 +7,16 @@ export const BasicCompilerOverview = () => {
   return (
     <ThemeCompositions>
       <MDXLayout>
-        <CompilerOverview />
+        <div
+          style={{
+            maxWidth: 860,
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            paddingBottom: 50,
+          }}
+        >
+          <CompilerOverview />
+        </div>
       </MDXLayout>
     </ThemeCompositions>
   );

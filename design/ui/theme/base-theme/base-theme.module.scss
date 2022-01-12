@@ -1,0 +1,15 @@
+
+.example {
+  background-color: var(--primary-color);
+  color: var(--on-primary-color);
+  
+  ::before {
+    background-color: var(--primary-color);
+    opacity: var(--hover-opacity);
+  }
+
+  ::after {
+    width: 100%;
+    height: 100%;
+  }
+}

@@ -1,19 +1,21 @@
 # Compiler overview
 
+The Compiler aspect provides a single interface for Component compilation, [during development](/) and [during build](/).
+It enables you to use the same commands and APIs to compile any Component, regardless of the specific compiler it uses.
 
-The *Compiler* provides a unified interface for compiling components regardless of the specific compiler they use.
+:::info
+The specific compiler used by a Component ([Babel](/), [TypeScript](/), and so on) is set by the Component's Env.
+:::
 
 ## Compiling during development
 
-<!-- During development, you can compile all components using a unified command line interface: -->
-
-To compile all Components, whether they use Babel, TypeScript or any other compiler, run:
+Run the following to compile all your Workspace Components:
 
 ```bash
 bit compile
 ```
 
-The compilation process results in a single standardized output to the terminal, similar to the following:
+The following output lists the compilation results in a single format:
 
 ```bash
   STATUS        COMPONENT ID
@@ -25,29 +27,99 @@ The compilation process results in a single standardized output to the terminal,
 ✔ SUCCESS       content/adding-components
 ```
 
+To 'watch' Components for changes, and to auto-compile modified Components, run:
 
-Components can be watched for changes and recompiled with a single command as well.
-
-```bash
+```
 bit watch
 ```
 
-To learn more on compilation during development, please refer to [Workspace Compilation](/compiler/workspace-compilation).
+The compiled code is written into each Component's corresponding package, in the [`node_modules` directory](/dependencies/node-modules) of your workspace.
+For example, the compiled code for `company.scope/ui/text` will be found in the `./node_modules/@company/scope.ui.text/dist` directory (inside your workspace).
+
+To learn more about compilation in the Workspace, see ['Compiling during development'](/).
 
 ## Compiling during build
 
-Compiling components for distribution is done in a Capsule, as part of the [Build Pipeline](/builder/build-pipelines).
-
-Component build can be simulated with `bit build` and done through [Tag](/components/tags) or [Snap](/components/snaps)
+Run the following to compile Components as part of the [build pipeline](/) (which prepares Components for distribution):
 
 ```bash
 bit build
 ```
 
-By default, Bit includes a [Build Task](/) for compiling components in the [Build Pipeline](/builder/build-pipelines) using the Compiler of your choice which is configured in the [Env](/envs/overview). Compilation for distribution is optimized for runtime performance, consistency and reusability. This means Source Maps <!--TODO [Source Maps](/)  -->are not being generated, target is preferred to be compatible with vast majority of browsers, bundlers and JS execution engines and Types are generated for the component, which can be costly in performance.
+The output to the terminal details the specific compilers being used, as well as the Envs that use them:
 
-<!--TODO To learn more on compilation for distribution, please refer to [Compiling for distribution](/). -->
+```bash
+...
+✔ env "teambit.harmony/aspect", task "teambit.compilation/compiler:BabelCompiler (compile components for artifact dist)" has completed successfully in 363ms
+✔ env "teambit.react/react", task "teambit.compilation/compiler:TSCompiler (compile components for artifact dist)" has completed successfully in 1s
+✔ env "teambit.mdx/mdx", task "teambit.compilation/compiler:MDXCompiler (compile components)" has completed successfully in 879ms
+...
+the build has been completed. total: 19 tasks
+```
 
-## Configuring and Implementing Compilers
+The compiled code is written into the [Component's Capsule](/). Run [`bit snap`](/) or [`bit tag`](/) to execute the build pipeline (as well as other pipelines), and have the compiled code persisted in the [Component version](/), and included in the [Component's package](/).
 
-Compilers are configured in the [Env](/envs/overview) which is configured on your [Component](/components/overview). Customizing the Compiler can be done by [customizing an existing env with your compiler](/compiler/configure-env) or by [implementing your own Env](/).
+To learn more about compilation in the Workspace, see ['Compiling during build'](/).
+
+## Compilation strategies and standards
+
+The Compiler aspect does not set specific compilation strategies as these are defined by the [specific compilers](/) themselves (and are often configurable by the Envs that use them).
+
+However, all official Bit compilers are configured to favor dev experience when compiling during development, and to favor runtime performance and code universality, when compiling for distribution (during build).
+
+For example, Bit's [TypeScript compiler](/) performs type-checking when compiling during build but skips it when compiling during development.
+This enables faster compilation and better dev experience.
+
+To examine a Component's specific compiler config, run the following:
+
+```
+bit env get COMPONENT_ID
+```
+
+For example:
+
+```
+bit env get company.demo/ui/card
+```
+
+The output details the Component's env config which includes the compiler config:
+
+```bash
+Environment: teambit.react/react
+...
+teambit.compilation/compiler
+
+configured compiler: teambit.typescript/typescript (TypeScript @ 4.4.2)
+compiler config:
+{
+  "compilerOptions": {
+    "lib": [
+      "es2019",
+      "DOM",
+      "ES6",
+      "DOM.Iterable"
+    ],
+    "target": "es2015",
+    "module": "commonjs",
+    "jsx": "react",
+    "declaration": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "outDir": "dist"
+  },
+  "exclude": [
+    "dist"
+  ]
+}
+
+```
+
+## Setting a Component with a specific compiler
+
+Specific compilers are applied on Components via the Components' Envs. For example, the `company.demo/ui/card` Component examined earlier, is applied with
+the [TypeScript](/) compiler by its Env, the React Env.
+
+To learn how to use a specific compiler, see ['Using compilers'](/).
