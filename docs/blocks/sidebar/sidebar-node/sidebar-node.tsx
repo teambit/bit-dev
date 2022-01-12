@@ -1,6 +1,6 @@
 import React from 'react';
-import { DocsTreeNode } from '@teambit/docs.ui.sidebar.docs-tree-node';
 import { TreeNode as TreeNodeType } from '@teambit/base-ui.graph.tree.recursive-tree';
+import { DocsTreeNode } from '../docs-tree-node';
 import { TreeNode } from './tree-node';
 import type { TreeNodeComponentProps } from './tree-node';
 

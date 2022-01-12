@@ -11,7 +11,7 @@
 {
     "apps/bit-dev": {
         "scope": "teambit.community",
-        "version": "1.17.0",
+        "version": "1.23.17",
         "mainFile": "index.ts",
         "rootDir": "community/apps/bit-dev"
     },
@@ -34,8 +34,8 @@
         "rootDir": "design/blocks/header"
     },
     "blocks/sidebar": {
-        "scope": "",
-        "version": "",
+        "scope": "teambit.docs",
+        "version": "0.0.1",
         "mainFile": "index.ts",
         "rootDir": "docs/blocks/sidebar"
     },
@@ -77,7 +77,7 @@
     },
     "content/build-artifacts-api": {
         "scope": "teambit.pipelines",
-        "version": "1.17.0",
+        "version": "1.23.17",
         "mainFile": "index.ts",
         "rootDir": "pipelines/content/build-artifacts-api"
     },
@@ -89,7 +89,7 @@
     },
     "content/build-task-api": {
         "scope": "teambit.pipelines",
-        "version": "1.17.0",
+        "version": "1.23.17",
         "mainFile": "index.ts",
         "rootDir": "pipelines/content/build-task-api"
     },
@@ -233,7 +233,7 @@
     },
     "content/config-react-tools": {
         "scope": "teambit.react",
-        "version": "1.17.0",
+        "version": "1.23.17",
         "mainFile": "index.ts",
         "rootDir": "react/content/config-react-tools"
     },
@@ -329,7 +329,7 @@
     },
     "content/dev-services": {
         "scope": "teambit.envs",
-        "version": "1.17.0",
+        "version": "1.17.1",
         "mainFile": "index.ts",
         "rootDir": "envs/content/dev-services"
     },
@@ -365,7 +365,7 @@
     },
     "content/envs-api": {
         "scope": "teambit.envs",
-        "version": "1.17.0",
+        "version": "1.17.1",
         "mainFile": "index.ts",
         "rootDir": "envs/content/envs-api"
     },
@@ -533,7 +533,7 @@
     },
     "content/guides/usage-analytics": {
         "scope": "teambit.docs",
-        "version": "1.17.0",
+        "version": "1.17.1",
         "mainFile": "index.ts",
         "rootDir": "docs/content/guides/usage-analytics"
     },
@@ -785,7 +785,7 @@
     },
     "content/react-overview": {
         "scope": "teambit.react",
-        "version": "1.17.0",
+        "version": "1.23.17",
         "mainFile": "index.ts",
         "rootDir": "react/content/react-overview"
     },
@@ -815,7 +815,7 @@
     },
     "content/replace-react-tools": {
         "scope": "teambit.react",
-        "version": "1.17.0",
+        "version": "1.23.17",
         "mainFile": "index.ts",
         "rootDir": "react/content/replace-react-tools"
     },
@@ -887,7 +887,7 @@
     },
     "content/using-build-task": {
         "scope": "teambit.pipelines",
-        "version": "1.17.0",
+        "version": "1.23.17",
         "mainFile": "index.ts",
         "rootDir": "pipelines/content/using-build-task"
     },
@@ -1025,7 +1025,7 @@
     },
     "modules/paths": {
         "scope": "teambit.docs",
-        "version": "1.17.0",
+        "version": "1.23.12",
         "mainFile": "index.ts",
         "rootDir": "docs/modules/paths"
     },
@@ -1073,7 +1073,7 @@
     },
     "plugins/next-page": {
         "scope": "teambit.docs",
-        "version": "1.17.0",
+        "version": "1.23.17",
         "mainFile": "index.ts",
         "rootDir": "docs/plugins/next-page"
     },
@@ -1085,7 +1085,7 @@
     },
     "relations-graph": {
         "scope": "teambit.graph",
-        "version": "1.17.0",
+        "version": "1.17.1",
         "mainFile": "index.ts",
         "rootDir": "graph/relations-graph"
     },
@@ -1139,7 +1139,7 @@
     },
     "ui/community-docs": {
         "scope": "teambit.docs",
-        "version": "1.17.0",
+        "version": "1.23.17",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/community-docs"
     },
@@ -1181,7 +1181,7 @@
     },
     "ui/docs": {
         "scope": "teambit.docs",
-        "version": "1.17.0",
+        "version": "1.23.17",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/docs"
     },
@@ -1265,7 +1265,7 @@
     },
     "ui/header/header": {
         "scope": "teambit.community",
-        "version": "1.17.0",
+        "version": "1.23.17",
         "mainFile": "index.ts",
         "rootDir": "community/ui/header/header"
     },
@@ -1373,7 +1373,7 @@
     },
     "ui/mocks/bit-dev": {
         "scope": "teambit.community",
-        "version": "1.17.0",
+        "version": "1.23.18",
         "mainFile": "index.ts",
         "rootDir": "community/ui/mocks/bit-dev"
     },
@@ -1427,7 +1427,7 @@
     },
     "ui/pages/doc-page": {
         "scope": "teambit.docs",
-        "version": "1.17.0",
+        "version": "1.23.16",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/pages/doc-page"
     },
@@ -1439,7 +1439,7 @@
     },
     "ui/pages/guides": {
         "scope": "teambit.docs",
-        "version": "1.17.0",
+        "version": "1.23.17",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/pages/guides"
     },
