@@ -154,7 +154,8 @@
         "react-xarrows": "2.0.2",
         "typescript": "4.4.2",
         "url-join": "4.0.1",
-        "url-parse": "1.5.3"
+        "url-parse": "1.5.3",
+        "use-debounce": "7.0.1"
       },
       "peerDependencies": {
         "@apollo/client": "3.3.7",
