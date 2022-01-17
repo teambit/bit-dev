@@ -1,21 +1,53 @@
 ---
-description: 'A CreateTheme component.'
-labels: ['label1', 'label2', 'label3']
+description: 'A standard Theme Provider component'
+labels: ['theme', 'design-tokens', 'design', 'collboration', 'standardization']
 ---
 
-Theme 
+Theme Provider helps product teams collaborate on design tokens and variables and get them to agree on a single, unified schema.
 
 
 ### Component Usage
 
-```js
-<CreateTheme text="hello from CreateTheme" />
+```ts
+const ThemeTokens = {
+  backgroundColor: 'white'
+};
+
+const { ThemeProvider, useTheme } = createTheme(ThemeTokens);
 ```
 
-### Using props to customize the text
+### Create a basic theme
 
 Modify the text to see it change live:
 
 ```js
-<CreateTheme text="hello from CreateTheme" />
+const themeTokens = {
+  backgroundColor: 'white'
+};
+
+const { ThemeProvider, useTheme } = createTheme(themeTokens);
+```
+
+### Create a light theme
+
+Modify the text to see it change live:
+
+```js
+const lightTokens = {
+  backgroundColor: 'black'
+};
+
+const { ThemeProvider, useTheme } = createTheme(ThemeTokens);
+```
+
+### Create a dark theme
+
+Modify the text to see it change live:
+
+```js
+const darkTokens = {
+  backgroundColor: 'white'
+};
+
+const { ThemeProvider, useTheme } = createTheme(ThemeTokens);
 ```
