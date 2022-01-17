@@ -64,6 +64,9 @@ const nodeWithCustomIcon = {
 
 const node = {
   id: 'folder-example',
+  payload: {
+    title: 'folder-example',
+  },
   children: [
     { id: 'child1', children: undefined },
     { id: 'child2', children: undefined },
