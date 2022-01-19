@@ -35,12 +35,6 @@ export class UseCases {
   ) {}
 
   static fromApiObject(object: UseCasesFromApi) {
-    return new UseCases(
-      object.image,
-      object.alt,
-      object.title,
-      object.text,
-      object.href
-    );
+    return new UseCases(object.image, object.alt, object.title, object.text, object.href);
   }
 }
