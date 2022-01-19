@@ -17,5 +17,5 @@ export const BasicExploreSection = () => (
 );
 
 export const ExploreBubbleGraph = () => (
-  <BubbleGraph Node={ComponentBubbleNonInteractive} nodes={mockBubbleGraph()} data-testid="explore-graph" />
+  <BubbleGraph Node={ComponentBubbleNonInteractive} nodes={mockBubbleGraph} data-testid="explore-graph" />
 );

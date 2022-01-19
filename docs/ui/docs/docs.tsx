@@ -5,6 +5,7 @@ import { Switch, Route, useRouteMatch } from 'react-router-dom';
 import { Sidebar } from '@teambit/docs.blocks.sidebar';
 import { DocPage } from '@teambit/docs.ui.pages.doc-page';
 import { DocsPlugin } from '@teambit/docs.plugins.docs-plugin';
+import { NotFound } from '@teambit/community.ui.pages.errors.not-found';
 import { DocsContext } from './docs-context';
 import styles from './docs.module.scss';
 
@@ -47,7 +48,7 @@ export type DocsProps = {
   plugins?: DocsPlugin<any, any>[];
 } & React.HtmlHTMLAttributes<HTMLDivElement>;
 
-export function Docs({ contents, primaryLinks = [], baseUrl = '/', plugins = [], className, ...rest }: DocsProps) {
+export function Docs({ contents, primaryLinks = [], baseUrl, plugins = [], className, ...rest }: DocsProps) {
   const { path } = useRouteMatch();
   const primaryRoutes = DocsRoutes.from(primaryLinks, baseUrl || path);
   const contentRoutes = contents?.map((category) => {
@@ -59,11 +60,10 @@ export function Docs({ contents, primaryLinks = [], baseUrl = '/', plugins = [],
   });
 
   const routeArray = useMemo(() => {
-    const memoArray = [...primaryRoutes.getRoutes()];
-    if (contentRoutes) {
-      contentRoutes.forEach((category) => memoArray.push(...category.routes.getRoutes()));
-    }
-    return memoArray;
+    const pRoutes = primaryRoutes.getRoutes();
+    const cRoutes = contentRoutes?.map((category) => category.routes.getRoutes()) || [];
+
+    return pRoutes.concat(...cRoutes);
   }, [primaryRoutes, contentRoutes]);
 
   return (
@@ -76,18 +76,22 @@ export function Docs({ contents, primaryLinks = [], baseUrl = '/', plugins = [],
       }}
     >
       <div {...rest} className={classNames(styles.main, className)}>
-        <Sidebar primaryLinks={primaryRoutes.toSideBarTree()} sections={contentRoutes} linkPrefix={baseUrl} />
+        <Sidebar primaryLinks={primaryRoutes.toSideBarTree()} sections={contentRoutes} />
         <div className={styles.content}>
           <Switch>
             {routeArray.map((route, key) => {
               return (
-                <Route key={route.title} path={route.absPath}>
-                  <DocPage index={key} route={route} baseUrl={baseUrl} plugins={plugins}>
+                <Route key={route.absPath} path={route.absPath}>
+                  <DocPage index={key} route={route} plugins={plugins}>
                     {route.component}
                   </DocPage>
                 </Route>
               );
             })}
+            {/* default catch all */}
+            <Route path="*">
+              <NotFound />
+            </Route>
           </Switch>
         </div>
       </div>

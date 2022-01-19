@@ -1,15 +1,21 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import { BasicTableOfContent, TableOfContentWithTitle } from './table-of-content.composition';
 
-it.skip('should render with the correctly', () => {
+it('should render with the correctly', async () => {
   const { getByTestId } = render(<BasicTableOfContent />);
-  const rendered = getByTestId('basic-table');
-  expect(rendered).toBeTruthy();
+
+  await waitFor(() => {
+    const rendered = getByTestId('basic-table');
+    expect(rendered).toBeTruthy();
+  });
 });
 
-it.skip('should render with the title', () => {
+it('should render with the title', async () => {
   const { getByText } = render(<TableOfContentWithTitle />);
-  const rendered = getByText('table of content');
-  expect(rendered).toBeTruthy();
+
+  await waitFor(() => {
+    const rendered = getByText('table of content');
+    expect(rendered).toBeTruthy();
+  });
 });
