@@ -1,4 +1,5 @@
 import React, { ReactNode, useEffect, useState } from 'react';
+import { useLocation } from '@teambit/base-react.navigation.use-location';
 import { CollapsableTreeNode } from '@teambit/base-ui.graph.tree.collapsable-tree-node';
 import type { TreeNodeProps } from '@teambit/base-ui.graph.tree.recursive-tree';
 import { NodeTitle } from '../node-title';
@@ -8,28 +9,37 @@ export type FolderPayload = {
   open?: boolean;
   configPath?: string;
   overviewPath?: string;
+  /** @example 'getting-started/installing-bit'; */
+  path?: string;
+  /** folder display name */
+  title?: string;
 };
 
 export type DocsTreeNodeProps = {} & TreeNodeProps<FolderPayload>;
 
 export function DocsTreeNode({ node, depth }: DocsTreeNodeProps) {
-  const [open, setOpen] = useState(node.payload?.open ?? true);
+  const location = useLocation();
+  const isActive = node.payload?.path ? location?.pathname.includes(node.payload?.path) : undefined;
+  const autoOpen = node.payload?.open || isActive;
+  const [manuallyOpen, setOpen] = useState(autoOpen ?? true);
 
+  // reset manualOpen when autoOpen changes
   useEffect(() => {
-    // allow node model to override open state
-    if (node?.payload?.open !== undefined) setOpen(node?.payload?.open);
-  }, [node?.payload?.open]);
+    if (autoOpen !== undefined) {
+      setOpen(autoOpen);
+    }
+  }, [autoOpen]);
 
-  const Title = node.id && (
+  const Title = node.payload?.title && (
     <NodeTitle
-      id={node.id}
+      id={node.payload?.title}
       icon={node.payload?.icon}
-      open={open}
+      open={manuallyOpen}
       configPath={node.payload?.configPath}
       overviewPath={node.payload?.overviewPath}
       setOpen={setOpen}
     />
   );
 
-  return <CollapsableTreeNode title={Title} isOpen={open} node={node} depth={depth} />;
+  return <CollapsableTreeNode title={Title} isOpen={manuallyOpen} node={node} depth={depth} />;
 }

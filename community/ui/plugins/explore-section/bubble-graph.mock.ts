@@ -3,7 +3,7 @@ import { createRow } from '@teambit/community.ui.graph.create-row';
 
 const staticBaseUrl = 'https://static.bit.dev/brands/';
 
-export function mockBubbleGraph() {
+function makeBubbleGraph() {
   const rowOne = [
     `${staticBaseUrl}logo-auth0.svg`,
     `${staticBaseUrl}logo-tailwindcss.svg`,
@@ -55,3 +55,5 @@ export function mockBubbleGraph() {
     ...createRow(5, 1, rowFive),
   ]);
 }
+
+export const mockBubbleGraph = makeBubbleGraph();

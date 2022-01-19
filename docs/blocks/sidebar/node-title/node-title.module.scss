@@ -20,9 +20,6 @@
   cursor: pointer;
   &:hover {
     background: var(--bit-bg-heavy, #f6f6f6);
-    .configIcon {
-      display: inline-block;
-    }
   }
   &.active {
     background: var(--bit-accent-bg, #eceaff);
@@ -53,13 +50,20 @@
   }
 }
 .configLink {
-  color: unset;
-}
-.configIcon {
-  display: none;
+  color: inherit;
+  text-decoration: none;
+
+  opacity: 0;
+  transition: color 180ms, opacity 80ms;
+
   &:hover,
   &.active {
-    display: inline-block;
+    text-decoration: none;
     color: var(--bit-accent-color, #6c5ce7);
+  }
+
+  .folder:hover &,
+  &.active {
+    opacity: 1;
   }
 }
