@@ -1,41 +1,52 @@
 import React, { useMemo, forwardRef } from 'react';
 import classNames from 'classnames';
 import { compareUrl } from '@teambit/ui-foundation.urls.compare-url';
-import { useLocation } from '@teambit/base-react.navigation.use-location';
-import type { LinkProps, NavLinkProps } from '@teambit/base-react.navigation.router-context';
+import { useLocation } from './use-location';
+import type { LinkProps } from './link.type';
 
 const externalLinkAttributes = { rel: 'noopener', target: '_blank' };
-export const isBrowser = typeof window !== 'undefined';
 
-export const NativeLink = forwardRef<HTMLAnchorElement, LinkProps>(function NativeLink(
-  { external, native, state, ...rest }: LinkProps,
-  ref
-) {
-  const externalProps = external ? externalLinkAttributes : {};
+export const NativeLink = forwardRef<HTMLAnchorElement, LinkProps>(function NativeNavLink(
+  {
+    className,
+    style,
+    activeClassName,
+    activeStyle,
+    active,
+    strict,
+    exact,
+    href,
+    external,
 
-  return <a {...rest} {...externalProps} ref={ref} />;
-});
+    // unused, but excluded from ...rest:
+    native,
+    state,
 
-export const NativeNavLink = forwardRef<HTMLAnchorElement, NavLinkProps>(function NativeNavLink(
-  { className, style, activeClassName, activeStyle, active, strict, exact, href, ...rest }: NavLinkProps,
+    ...rest
+  }: LinkProps,
   ref
 ) {
   const location = useLocation();
+  // skip url compare when is irrelevant
+  const shouldCalcActive = !!className && !!style;
 
   const isActive = useMemo(() => {
+    if (!shouldCalcActive) return false;
     if (typeof active === 'boolean') return active;
     if (!location || !href) return false;
 
     return compareUrl(location.pathname, href, { exact, strict });
-  }, [active, href, location]);
+  }, [active, href, location, shouldCalcActive]);
 
+  const externalProps = external ? externalLinkAttributes : {};
   const combinedStyles = useMemo(
     () => (isActive && activeStyle ? { ...style, ...activeStyle } : style),
     [isActive, style]
   );
 
   return (
-    <NativeLink
+    <a
+      {...externalProps}
       {...rest}
       ref={ref}
       href={href}

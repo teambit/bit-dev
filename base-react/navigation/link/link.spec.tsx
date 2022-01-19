@@ -13,7 +13,7 @@ describe('native html link', () => {
     const { getByText } = render(<BasicLink />);
     const rendered = getByText('bit.dev');
     expect(rendered.tagName).toEqual('A');
-    expect(rendered).toHaveProperty('href', 'https://bit.dev/')
+    expect(rendered).toHaveProperty('href', 'https://bit.dev/');
   });
 
   it('should open in new tab/window, when external=true', () => {
@@ -24,4 +24,3 @@ describe('native html link', () => {
     expect(rendered).toHaveProperty('rel', 'noopener');
   });
 });
-

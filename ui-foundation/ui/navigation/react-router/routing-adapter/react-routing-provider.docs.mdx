@@ -4,7 +4,7 @@ labels: ['ui', 'react-router', 'link']
 ---
 
 import { MemoryRouter } from 'react-router-dom';
-import { Link, NavLink } from '@teambit/base-react.navigation.link';
+import { Link } from '@teambit/base-react.navigation.link';
 
 A React Router adapter for our routing system. Any `<Link>` rendered under this will have the React Router implementation!
 
@@ -28,9 +28,9 @@ Try it out!
         <div>current location is: {JSON.stringify(location, undefined, 1)}</div>
         <Link href="/some/link">/some/link</Link>
         <br />
-        <NavLink href="/some/link" activeStyle={{ fontWeigth: 'bold' }}>
+        <Link href="/some/link" activeStyle={{ fontWeigth: 'bold' }}>
           /another/link
-        </NavLink>
+        </Link>
       </div>
     );
   };

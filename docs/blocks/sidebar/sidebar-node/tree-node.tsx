@@ -1,6 +1,6 @@
 import React, { ComponentType } from 'react';
 import classNames from 'classnames';
-import { NavLink } from '@teambit/base-react.navigation.link';
+import { Link } from '@teambit/base-react.navigation.link';
 import { indentClass } from '@teambit/base-ui.graph.tree.indent';
 import { TreeNodeProps, TreeNode as TreeNodeType } from '@teambit/base-ui.graph.tree.recursive-tree';
 import styles from './sidebar-node.module.scss';
@@ -20,7 +20,7 @@ export function TreeNode<T>(props: TreeNodeComponentProps<T>) {
   const { node, icon, onClick, widgets, href } = props;
 
   return (
-    <NavLink
+    <Link
       href={href}
       exact
       strict
@@ -38,6 +38,6 @@ export function TreeNode<T>(props: TreeNodeComponentProps<T>) {
           <Widget key={index} node={node} />
         ))}
       </div>
-    </NavLink>
+    </Link>
   );
 }

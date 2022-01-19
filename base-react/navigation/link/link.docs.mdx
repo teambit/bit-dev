@@ -1,98 +1,145 @@
 ---
-description: A standard and router-agnostic Link.
-labels: ['link', 'router', 'nav']
+description: 'A standard, cross routing system Link'
+labels: ['react', 'routing', 'link', 'context', 'nav']
 ---
 
+import { RouterProvider } from './router-context';
 import { Link } from './link';
-import { NavLink } from './nav-link';
 
-A standard link with an important beneifit:  
-It gets its underlying implementation from context, so it can work in any component and any application.
+Routing systems have different approaches to routing, and each provide their own Link. If you use this link in your component,
+it will lock the component into to that specifc routing framework.  
+For example, a Card component could use a Link to direct users to a certain page.
+Using a [NextJS Link](https://nextjs.org/docs/api-reference/next/link) would prevent the card from being used in an React Router application,
+because expects a [React Router Link](https://v5.reactrouter.com/web/api/Link).
 
-Simply use it like you would use an `<a>` tag.
-The link will get the implementation from context, or default to a regular `<a>` tag:
+To allow components to work accross applications, simply use this link and inject the relevant implementation at the app level.
 
-```tsx
-function Component() {
-  return (
-    // this always works
-    <Link href="/pricing">pricing page</Link>
-  );
-}
-```
+## Basic usage
 
-In our projects, we've found that _links_ are much more common than routes, and at much lower levels.
-**Using a single link in a large page forced all of it to use a specific routing system** (in our legacy site, it was `react-router: ^3.0.1`),
-or use a native link, or get links by as props. None of these were good options.
-That's why we chose to inject the link from context, which allowed our link to move between projects with ease, and plug into the existing routing mechanism.
-
-You can easily provide a _Routing Adapter_, like so:
+When the Routing Provider is absent, the Link defaults to a native `a` tag.  
+This way, components using this Link will always work, even without context.
 
 ```tsx
 import { Link } from '@teambit/base-react.navigation.link';
-import { RouterContextProvider } from '@teambit/base-react.navigation.routing-provider';
 
-const routingSystem = { Link };
-
-function Page() {
+function App() {
   return (
-    <div>
-      <h1>Awesome page</h1>
-
-      {/* this link will render ReactRouter link */}
-      <RouterContextProvider value={ReactRouterSystem}>
-        <Link href="/account">account</Link>
-      </RouterContextProvider>
-
-      {/* this link will render Wouter link */}
-      <RouterContextProvider value={wouterRoutingSystem}>
-        <Link href="/account">account</Link>
-      </RouterContextProvider>
-
-      {/* this link will default to a NativeLink */}
-      <Link href="/legals">legals</Link>
-    </div>
+    <>
+      {/* this will render <a href="plguins">Click me!</a> */}
+      <Link href="/plugins">Click me!</Link>
+    </>
   );
 }
 ```
 
-## NavLink
+### Using the link with React Router
 
-Like ReactRouter, we provide a `NavLink` component. It is a regular link, that also applies the provided styles when the `href` prop matches the current url. For example:
+For using `react-router`, use our existing implementation - [React Router Adapter](https://bit.dev/teambit/ui-foundation/ui/navigation/react-router/routing-adapter).  
+Note that you will have to provide the context needed for React Router, and perform routing the with the tools provided by react-router.
 
-```tsx live
-<>
-  <div>
-    current path:
-    <span style={{ textDecoration: 'underline' }}>"{typeof window !== 'undefined' && window.location.pathname}"</span>
-  </div>
-  <br />
-  (active links should be orange)
-  <br />
-  local link:{' '}
-  <NavLink href={typeof window !== 'undefined' && window.location.pathname} activeStyle={{ color: 'darkorange' }}>
-    {typeof window !== 'undefined' ? window.location.pathname : '?'}
-  </NavLink>
-  <br />
-  other link:{' '}
-  <NavLink href="/some/site/" activeStyle={{ color: 'darkorange' }}>
-    /some/site/
-  </NavLink>
-</>
+```tsx
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { RoutingProvider, Link } from '@teambit/base-react.navigation.link';
+import { reactRouterAdapter } from '@teambit/ui-foundation.ui.navigation.react-router-adapter';
+
+export function App() {
+  return (
+    <BrowserRouter>
+      <RoutingProvider implementation={reactRouterAdapter}>
+        {/* this link won't refresh the entire page, and will use the React Router link. */}
+        <Link href="/plugins">Click me!</Link>
+
+        <Switch>
+          <Route path="/plugins">plugins</Route>
+        </Switch>
+      </RoutingProvider>
+    </BrowserRouter>
+  );
+}
 ```
 
-## Additional props:
+### Using with NextJS
 
-These non-standard props allow extra funcitonality:
+Coming soon..
 
-- `external` - open the link in a new tab (uses a native link).
-- `native` - don't use the routing system, and just render a regular link.
-- `state` - includes History state in the link, compatible with the native [pushState](https://developer.mozilla.org/en-US/docs/Web/API/History/pushState) api.  
-  This needs to be supported by the routing sytem, and currently ignored in the native implementation.
+### Custom usage
 
-`NavLink` also has the following props:
+To tailor an implementation to your needs, declare these variables:
 
-- `activeClassName`, `activeStyles` - styles to apply when href matches the current location.
-- `active` - explicitly apply active styles. (leave `undefined` for automatic value).
-- `exact` - match url exactly, and don't include subpaths.
-- `strict` - include trailing slash when matching location.
+```tsx
+import { RouterContextType, useRouter } from '@teambit/base-react.navigation.link';
+
+const externalAttr = { rel: 'noopener', target: '_blank' };
+
+const vanillaRouting: RouterContextType = {
+  Link: ({ href, children, active, activeClassName, activeStyle }) => {
+    const location = vanillaRouting.useLocation();
+    const isActive = active ?? (href && location?.pathname && href.includes(location.pathname));
+
+    return <a href={href} className={isActive && activeClassName} style={isActive && activeStyle}>{children}</a>
+  }
+  useLocation: () => {
+    return typeof window === 'undefined' ? undefined : window.location;
+  },
+};
+```
+
+This is obviously, a naive implementation, but you can now use it in your code:
+
+```tsx
+import { vanillaRouting } from '@org/core-react.navigation.vanilla-routing';
+import { RouterProvider, Link, LinkProps, useLocation } from '@teambit/base-react.navigation.link';
+
+function App() {
+  return (
+    <RouterProvider implementation={vanillaRouting}>
+      <NavTab href="/plugins">plugins</NavTab>
+      <PluginsPage />
+    </RouterProvider>
+  );
+}
+
+function NavTab(props: LinkProps) {
+  return <Link activeStyle={{ background: 'lightblue' }} {...props} />;
+}
+
+function PluginsPage() {
+  const { pathname } = useLocation() || {};
+
+  if (pathname != '/plugins') return null;
+  return <div>Settings page</div>;
+}
+```
+
+Try it out!
+
+```tsx live
+() => {
+  const routingA = {
+    Link: ({ children, ...props }) => <a {...props}>{children} 🔗</a>,
+  };
+
+  const routingB = {
+    Link: ({ style, children, ...props }) => (
+      <a {...props} style={{ textDecoration: 'underline', fontWeight: 'bolder', cursor: 'pointer', ...style }}>
+        {children} ✦
+      </a>
+    ),
+  };
+
+  return (
+    <div>
+      <RouterProvider implementation={routingA}>
+        <Link>A Link</Link>
+      </RouterProvider>
+
+      <br />
+
+      <RouterProvider implementation={routingB}>
+        <Link>B Link</Link>
+      </RouterProvider>
+      <br />
+    </div>
+  );
+};
+```
