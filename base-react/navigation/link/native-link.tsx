@@ -28,7 +28,7 @@ export const NativeLink = forwardRef<HTMLAnchorElement, LinkProps>(function Nati
 ) {
   const location = useLocation();
   // skip url compare when is irrelevant
-  const shouldCalcActive = !!className || !!style;
+  const shouldCalcActive = !!activeClassName || !!activeStyle;
 
   const isActive = useMemo(() => {
     if (!shouldCalcActive) return false;

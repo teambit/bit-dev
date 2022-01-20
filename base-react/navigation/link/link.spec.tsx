@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { BasicLink, ExternalLink } from './link.composition';
+import { NativeLink } from './native-link';
 
 describe('native html link', () => {
   it('should render', () => {
@@ -22,5 +23,49 @@ describe('native html link', () => {
     expect(rendered).toHaveProperty('target', '_blank');
     // security - rel='noopener' prevents the opened page to gain any kind of access to the original page.
     expect(rendered).toHaveProperty('rel', 'noopener');
+  });
+
+  it('should pass active styles when explicitly active', () => {
+    const { getByText } = render(
+      <NativeLink href="/" activeClassName="active" activeStyle={{ fontWeight: 'bold' }} active>
+        click here
+      </NativeLink>
+    );
+    const rendered = getByText('click here');
+    expect(rendered).toHaveClass('active');
+    expect(rendered).toHaveStyle({ fontWeight: 'bold' });
+  });
+
+  it('should not pass active styles when explicitly not active', () => {
+    const { getByText } = render(
+      <NativeLink href="/" activeClassName="active" activeStyle={{ fontWeight: 'bold' }} active={false}>
+        click here
+      </NativeLink>
+    );
+    const rendered = getByText('click here');
+    expect(rendered).not.toHaveClass('active');
+    expect(rendered).not.toHaveStyle({ fontWeight: 'bold' });
+  });
+
+  it('should automatically pass active style when matching location', () => {
+    const { getByText } = render(
+      <NativeLink href="/" activeClassName="active" activeStyle={{ fontWeight: 'bold' }}>
+        click here
+      </NativeLink>
+    );
+    const rendered = getByText('click here');
+    expect(rendered).toHaveClass('active');
+    expect(rendered).toHaveStyle({ fontWeight: 'bold' });
+  });
+
+  it('should automatically skip active style when not matching location', () => {
+    const { getByText } = render(
+      <NativeLink href="/other-path" activeClassName="active" activeStyle={{ fontWeight: 'bold' }}>
+        click here
+      </NativeLink>
+    );
+    const rendered = getByText('click here');
+    expect(rendered).not.toHaveClass('active');
+    expect(rendered).not.toHaveStyle({ fontWeight: 'bold' });
   });
 });
