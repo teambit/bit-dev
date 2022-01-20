@@ -59,7 +59,7 @@ export function ExploreSection({ heading, subtitle, className, ...rest }: Explor
         </div>
         <BubbleGraph
           Node={ComponentBubbleNonInteractive}
-          nodes={mockBubbleGraph()}
+          nodes={mockBubbleGraph}
           className={classNames(styles.right, styles.gridGraph)}
         />
       </div>
