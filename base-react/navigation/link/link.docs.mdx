@@ -3,7 +3,7 @@ description: 'A standard, cross routing system Link'
 labels: ['react', 'routing', 'link', 'context', 'nav']
 ---
 
-import { RouterProvider } from './router-context';
+import { RouterProvider } from './routing-provider';
 import { Link } from './link';
 
 Routing systems have different approaches to routing, and each provide their own Link. If you use this link in your component,
@@ -34,13 +34,13 @@ function App() {
 
 ### Using the link with React Router
 
-For using `react-router`, use our existing implementation - [React Router Adapter](https://bit.dev/teambit/ui-foundation/ui/navigation/react-router/routing-adapter).  
+For using `react-router`, use our existing implementation - [React Router Adapter](https://bit.dev/teambit/ui-foundation/ui/navigation/react-router-adapter).  
 Note that you will have to provide the context needed for React Router, and perform routing the with the tools provided by react-router.
 
 ```tsx
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { RoutingProvider, Link } from '@teambit/base-react.navigation.link';
-import { reactRouterAdapter } from '@teambit/ui-foundation.ui.navigation.react-router.routing-adapter';
+import { reactRouterAdapter } from '@teambit/ui-foundation.ui.navigation.react-router-adapter';
 
 export function App() {
   return (
