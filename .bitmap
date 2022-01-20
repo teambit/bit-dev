@@ -1399,47 +1399,6 @@
             }
         }
     },
-    "ui/navigation/react-router/link": {
-        "scope": "teambit.ui-foundation",
-        "version": "1.60.0",
-        "mainFile": "index.ts",
-        "rootDir": "ui-foundation/ui/navigation/react-router/link",
-        "config": {
-            "teambit.component/deprecation": {
-                "deprecate": true,
-                "newId": {
-                    "scope": "teambit.ui-foundation",
-                    "name": "ui/navigation/react-router-adapter"
-                }
-            }
-        }
-    },
-    "ui/navigation/react-router/link-anchor": {
-        "scope": "teambit.ui-foundation",
-        "version": "1.60.0",
-        "mainFile": "index.ts",
-        "rootDir": "ui-foundation/ui/navigation/react-router/link-anchor",
-        "config": {
-            "teambit.component/deprecation": {
-                "deprecate": true
-            }
-        }
-    },
-    "ui/navigation/react-router/routing-adapter": {
-        "scope": "teambit.ui-foundation",
-        "version": "1.60.0",
-        "mainFile": "index.ts",
-        "rootDir": "ui-foundation/ui/navigation/react-router/routing-adapter",
-        "config": {
-            "teambit.component/deprecation": {
-                "deprecate": true,
-                "newId": {
-                    "name": "ui/navigation/react-router-adapter",
-                    "scope": "teambit.ui-foundation"
-                }
-            }
-        }
-    },
     "ui/navigation/tab-link": {
         "scope": "teambit.design",
         "version": "1.60.0",
