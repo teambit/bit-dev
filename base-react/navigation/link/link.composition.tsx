@@ -1,5 +1,5 @@
 import React from 'react';
-import { RouterProvider, RouterContextType } from './router-context';
+import { RouterProvider, RouterContextType } from './routing-provider';
 import { Link } from './link';
 
 export const BasicLink = () => <Link href="https://bit.dev">bit.dev</Link>;

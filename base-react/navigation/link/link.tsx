@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { useRouter } from './router-context';
+import { useRouter } from './routing-provider';
 import type { LinkProps } from './link.type';
 import { NativeLink } from './native-link';
 

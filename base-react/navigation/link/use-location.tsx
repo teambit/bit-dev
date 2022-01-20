@@ -1,4 +1,4 @@
-import { useRouter } from './router-context';
+import { useRouter } from './routing-provider';
 import { Location } from './link.type';
 
 export function useLocation(): Location | undefined {
