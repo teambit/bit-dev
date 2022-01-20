@@ -6,7 +6,7 @@ import type { LinkProps } from './link.type';
 
 const externalLinkAttributes = { rel: 'noopener', target: '_blank' };
 
-export const NativeLink = forwardRef<HTMLAnchorElement, LinkProps>(function NativeNavLink(
+export const NativeLink = forwardRef<HTMLAnchorElement, LinkProps>(function NativeLink(
   {
     className,
     style,
@@ -28,7 +28,7 @@ export const NativeLink = forwardRef<HTMLAnchorElement, LinkProps>(function Nati
 ) {
   const location = useLocation();
   // skip url compare when is irrelevant
-  const shouldCalcActive = !!className && !!style;
+  const shouldCalcActive = !!className || !!style;
 
   const isActive = useMemo(() => {
     if (!shouldCalcActive) return false;
