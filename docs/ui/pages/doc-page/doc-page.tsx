@@ -58,9 +58,9 @@ export function DocPage({ route, index, children, baseUrl = '/docs', plugins = [
   }, [window?.location.hash]);
 
   return (
-    <Suspense fallback={<div />}>
-      <DocPageContext.Provider value={{ index, route }}>
-        <Page title={`${route.title} | Bit`} description={pageDescription} className={styles.docsPage}>
+    <Page title={`${route.title} | Bit`} description={pageDescription} className={styles.docsPage}>
+      <Suspense fallback={<div />}>
+        <DocPageContext.Provider value={{ index, route }}>
           <div ref={myRef} id="content" className={styles.content}>
             <MDXLayout components={components}>
               <div className={styles.mdxLayout} ref={contentRef}>
@@ -79,8 +79,8 @@ export function DocPage({ route, index, children, baseUrl = '/docs', plugins = [
               return <Plugin {...route.plugins[plugin.name]} key={plugin.name} contentRef={contentRef} />;
             });
           })}
-        </Page>
-      </DocPageContext.Provider>
-    </Suspense>
+        </DocPageContext.Provider>
+      </Suspense>
+    </Page>
   );
 }
