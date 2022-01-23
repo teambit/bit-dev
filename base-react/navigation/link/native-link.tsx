@@ -2,7 +2,7 @@ import React, { useMemo, forwardRef } from 'react';
 import classNames from 'classnames';
 import { compareUrl } from '@teambit/ui-foundation.urls.compare-url';
 import { useLocation } from '@teambit/base-react.navigation.use-location';
-import type { LinkProps, NavLinkProps } from '@teambit/base-react.navigation.router-context';
+import type { LinkProps, NavLinkProps } from '@teambit/base-react.navigation.routing-provider';
 
 const externalLinkAttributes = { rel: 'noopener', target: '_blank' };
 export const isBrowser = typeof window !== 'undefined';
