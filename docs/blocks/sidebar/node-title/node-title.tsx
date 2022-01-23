@@ -25,6 +25,11 @@ export type NodeTitleProps = {
   open?: boolean;
 
   /**
+   * show title as active
+   */
+  active?: boolean;
+
+  /**
    * configuration path for this docs section.
    */
   configPath?: string;
@@ -40,13 +45,12 @@ export type NodeTitleProps = {
   setOpen: (value: React.SetStateAction<boolean>) => void;
 };
 
-export function NodeTitle({ id, icon, open, configPath, overviewPath, setOpen }: NodeTitleProps) {
+export function NodeTitle({ id, icon, open, configPath, overviewPath, active, setOpen }: NodeTitleProps) {
   const displayName = id.replace(/\/$/, '').split('/').pop();
   const CustomIcon = getCustomIcon(icon);
   const handleOnFolderClick = () => {
-    if (!overviewPath) setOpen(!open);
-    // This prevent the folder to be closed when is open and the folder is active.
-    if (overviewPath !== window?.location.pathname && !open) setOpen(!open);
+    if (active) return;
+    setOpen((x) => !x);
   };
 
   const content = (
@@ -58,10 +62,7 @@ export function NodeTitle({ id, icon, open, configPath, overviewPath, setOpen }:
   );
 
   const Title = (
-    <div
-      className={classNames(indentClass, styles.folder, overviewPath === window?.location.pathname && styles.active)}
-      onClick={handleOnFolderClick}
-    >
+    <div className={classNames(indentClass, styles.folder, active && styles.active)} onClick={handleOnFolderClick}>
       {overviewPath ? (
         <Link href={overviewPath} className={classNames(styles.folderLink)}>
           {content}
