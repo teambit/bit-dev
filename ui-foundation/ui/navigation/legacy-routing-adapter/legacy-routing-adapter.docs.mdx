@@ -1,0 +1,25 @@
+import { RouterProvider } from '@teambit/base-react.navigation.router-context';
+import { Link } from '@teambit/base-ui.routing.link';
+import { LegacyNavigationAdapter } from './legacy-routing-adapter';
+
+This bridge component allows components still using legacy routes to continue working,  
+By adapting navigation components from the new `RouterProvider` (`base-react`), to the legacy `RoutingProvider` (`base-ui`).
+
+Try it out!
+
+```tsx live
+() => {
+  return (
+    <RouterProvider value={{ Link: NewLink }}>
+      <Link>[legacy] links outside the adapter will not get the new implementation</Link>
+      <LegacyNavigationAdapter>
+        <Link>links inside the adapater will receive the new implementation</Link>
+      </LegacyNavigationAdapter>
+    </RouterProvider>
+  );
+
+  function NewLink(props) {
+    return <a>[new link] {props.children}</a>;
+  }
+};
+```
