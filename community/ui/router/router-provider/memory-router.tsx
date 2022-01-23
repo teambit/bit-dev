@@ -1,10 +1,7 @@
 import React, { ReactNode } from 'react';
-import { useLocation, MemoryRouter as ReactMemoryRouter } from 'react-router-dom';
-import { RoutingProvider } from '@teambit/base-ui.routing.routing-provider';
-import { NavLink } from '@teambit/ui-foundation.ui.react-router.nav-link';
-import { Link } from '@teambit/ui-foundation.ui.react-router.link';
-
-const routing = { Link, NavLink, useLocation };
+import { RouterProvider } from '@teambit/base-react.navigation.link';
+import { reactRouterAdapter } from '@teambit/ui-foundation.ui.navigation.react-router-adapter';
+import { MemoryRouter as ReactMemoryRouter } from 'react-router-dom';
 
 export type MemoryRouterProps = {
   children: ReactNode;
@@ -12,8 +9,8 @@ export type MemoryRouterProps = {
 
 export function MemoryRouter({ children }: MemoryRouterProps) {
   return (
-    <RoutingProvider value={routing}>
+    <RouterProvider implementation={reactRouterAdapter}>
       <ReactMemoryRouter>{children}</ReactMemoryRouter>
-    </RoutingProvider>
+    </RouterProvider>
   );
 }

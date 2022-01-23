@@ -1,4 +1,4 @@
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter, UNSAFE_LocationContext } from 'react-router-dom';
 import { ComponentID } from '@teambit/component-id';
 import { Heading, Elements } from '@teambit/community.ui.heading';
 import { LeftRight } from '@teambit/design.ui.layouts.sections.left-right';
@@ -39,9 +39,9 @@ To demonstarate thinking in components we would use the following simple product
 
 <ExcludeHighlighter>
   <BubbleHighlighter componentId={ComponentID.fromString('teambit.wiki/apps/wiki')} showId>
-    <MemoryRouter>
-      {/* <WikiApp /> */}
-    </MemoryRouter>
+    <UNSAFE_LocationContext.Provider value={null}>
+      <MemoryRouter>{/* <WikiApp /> */}</MemoryRouter>
+    </UNSAFE_LocationContext.Provider>
   </BubbleHighlighter>
 </ExcludeHighlighter>
 
