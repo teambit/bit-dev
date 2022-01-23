@@ -18,3 +18,4 @@ export function WhatIsBit({ size }: WhatIsBitProps) {
   if (size === Size.MEDIUM) return <WhatIsBitShort />;
   return <WhatIsBitLong />;
 }
+

@@ -17,7 +17,9 @@ const AddToExistingProject = lazy(() => import('@teambit/docs.content.installati
 
 const InstallComponents = lazy(() => import('@teambit/docs.content.getting-started.install-components'));
 const ImportComponents = lazy(() => import('@teambit/docs.content.getting-started.import-components'));
+
 const EditorSetup = lazy(() => import('@teambit/bit.docs.installation.setup-editor'));
+
 const UpdateComponents = lazy(() => import('@teambit/docs.content.getting-started.update-components'));
 const CiExport = lazy(() => import('@teambit/docs.content.getting-started.ci-export'));
 // const CiInstall = loadable(() => import('@teambit/docs.content.getting-started.ci-install'));
