@@ -1,5 +1,5 @@
 export { Link } from './link';
-export type { LinkProps, LinkType, Location } from './link.type';
+export type { LinkProps, LinkType, Location, UseLocation } from './link.type';
 export { useLocation } from './use-location';
 
 // rename file
