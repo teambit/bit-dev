@@ -68,7 +68,6 @@
         "@teambit/base-ui.layout.grid-component": "1.0.1",
         "@teambit/base-ui.layout.page-frame": "1.0.1",
         "@teambit/base-ui.loaders.skeleton": "1.0.1",
-        "@teambit/base-ui.routing.native-nav-link": "1.0.0",
         "@teambit/base-ui.routing.routing-provider": "1.0.0",
         "@teambit/base-ui.surfaces.card": "1.0.1",
         "@teambit/base-ui.text.paragraph": "1.0.3",
@@ -111,8 +110,6 @@
         "@teambit/react.templates.themes.theme": "0.0.3",
         "@teambit/react.ui.component-highlighter": "0.0.496",
         "@teambit/ui-foundation.ui.buttons.collapser": "0.0.144",
-        "@teambit/ui-foundation.ui.react-router.link": "0.0.441",
-        "@teambit/ui-foundation.ui.react-router.nav-link": "0.0.441",
         "@teambit/ui-foundation.ui.tree.drawer": "0.0.476",
         "@teambit/ui-foundation.ui.tree.folder-tree-node": "0.0.453",
         "@teambit/ui-foundation.ui.tree.tree-node": "0.0.453",
@@ -121,7 +118,6 @@
         "@types/history": "^4.0.0",
         "@types/loadable__component": "5.13.4",
         "@types/react-helmet": "6.1.2",
-        "@types/react-router-dom": "^5.0.0",
         "@types/url-join": "4.0.1",
         "@typescript-eslint/eslint-plugin": "4.30.0",
         "@typescript-eslint/parser": "4.30.0",
@@ -145,7 +141,7 @@
         "react-helmet": "6.1.0",
         "react-json-view": "1.21.3",
         "react-medium-image-zoom": "4.3.5",
-        "react-router-dom": "^5.0.0",
+        "react-router-dom": "6.2.1", // install this specific version in workspace
         "react-terminal": "1.2.1",
         "react-xarrows": "2.0.2",
         "typescript": "4.4.2",
@@ -158,7 +154,8 @@
         "@testing-library/react": "12.0.0",
         "graphql": "^14.3.0",
         "react": "16.13.1",
-        "react-dom": "16.13.1"
+        "react-dom": "16.13.1",
+        "react-router-dom": "^6.0.0" // define React Router as peer dep
       }
     },
     "packageManagerArgs": [],
