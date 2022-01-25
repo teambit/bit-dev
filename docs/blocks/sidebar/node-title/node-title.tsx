@@ -42,14 +42,14 @@ export type NodeTitleProps = {
   /**
    * function that run on folder click.
    */
-  setOpen: (value: React.SetStateAction<boolean>) => void;
+  setOpen?: (value: React.SetStateAction<boolean>) => void;
 };
 
 export function NodeTitle({ id, icon, open, configPath, overviewPath, active, setOpen }: NodeTitleProps) {
   const displayName = id.replace(/\/$/, '').split('/').pop();
   const CustomIcon = getCustomIcon(icon);
   const handleOnFolderClick = () => {
-    if (active) return;
+    if (active || !setOpen) return;
     setOpen((x) => !x);
   };
 
