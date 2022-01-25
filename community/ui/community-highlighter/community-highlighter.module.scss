@@ -21,10 +21,3 @@
     display: none;
   }
 }
-
-.container {
-  > * {
-    // TODO - fix sidebar z-index
-    z-index: 1000000;
-  }
-}

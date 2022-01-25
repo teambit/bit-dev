@@ -20,7 +20,6 @@ export function CommunityHighlighter({ children }: CommunityHighlighterProps) {
         className={styles.highlighter}
         placement="top"
         highlightStyle={{ fontSize: 14 }}
-        classes={{ container: styles.container }}
         disabled={disabled}
       >
         {children}
