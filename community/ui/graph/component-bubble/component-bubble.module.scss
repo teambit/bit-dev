@@ -9,7 +9,7 @@
   height: 58px;
   position: relative;
   // make sure to improve transition
-  transition: width 0.5s, opacity 0.5s, border-color 0.5s, border-radius 0.5s ease-in-out;
+  transition: width 0.5s, opacity 0.5s ease-in-out;
   opacity: 0.4;
 
   svg {
