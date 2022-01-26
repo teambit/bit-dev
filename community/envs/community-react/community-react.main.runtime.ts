@@ -24,6 +24,14 @@ export class CommunityReactMain {
 
   static async provider([react, envs, generator]: [ReactMain, EnvsMain, GeneratorMain]) {
     const templatesReactEnv = envs.compose(react.reactEnv, [
+      envs.override({
+        getPreviewConfig: () => {
+          return {
+            strategyName: 'component',
+            splitComponentBundle: true,
+          };
+        },
+      }),
       /**
        * Uncomment to override the config files for TypeScript, Webpack or Jest
        * Your config gets merged with the defaults
