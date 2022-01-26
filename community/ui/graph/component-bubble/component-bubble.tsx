@@ -51,11 +51,6 @@ export type ComponentBubbleProps = {
   className?: string;
 
   showScope?: boolean;
-
-  /**
-   * color of the bubble
-   */
-  color?: string;
 } & BubbleCardProps;
 
 export function ComponentBubble({
@@ -68,21 +63,16 @@ export function ComponentBubble({
   allowHover = true,
   forceActive = false,
   nonInteractive = false,
-  // color = '#EDEDED',
   ...rest
 }: ComponentBubbleProps) {
   if (nonInteractive) {
     showVersion = false;
     allowHover = false;
   }
+
   return (
     <BubbleCard
-      className={classNames(
-        styles.bubble,
-        className,
-        forceActive && styles.active,
-        allowHover ? styles.allowHover : styles.noHoverAllowed
-      )}
+      className={classNames(styles.bubble, className, forceActive && styles.active, allowHover && styles.interactive)}
       {...rest}
     >
       {icon && <Image src={icon} className={styles.icon} />}
@@ -96,7 +86,7 @@ export function ComponentBubble({
           <Ellipsis className={styles.name}>{componentId.name}</Ellipsis>
         </div>
       )}
-      {componentId && showVersion && <Label className={styles.versionLabel}>{componentId?.version}</Label>}
+      {componentId?.version && showVersion && <Label className={styles.versionLabel}>{componentId.version}</Label>}
     </BubbleCard>
   );
 }

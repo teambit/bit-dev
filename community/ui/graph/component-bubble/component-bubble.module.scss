@@ -2,18 +2,16 @@
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  border: 2px solid #ededed;
-  border-radius: 50%;
+
+  transition: width 0.5s, opacity 0.5s ease-in-out;
+
+  border-width: 2px;
+  border-radius: 29px / 50%;
   padding: 10px 14px;
   width: 58px;
   height: 58px;
-  position: relative;
-  // make sure to improve transition
-  transition: width 0.5s, opacity 0.5s, border-color 0.5s, border-radius 0.5s ease-in-out;
-  opacity: 0.4;
 
-  svg {
-    position: absolute;
+  > svg {
     top: 5px;
     left: 5px;
   }
@@ -22,13 +20,15 @@
     visibility: hidden;
   }
 
-  &.active,
-  &.allowHover:hover {
+  .interactive {
+    opacity: 0.4;
     cursor: pointer;
-    width: 190px;
-    border-radius: 100px;
+  }
+
+  &.active,
+  &.interactive:hover {
     opacity: 1;
-    // change to color pallette
+    width: 190px;
 
     .id {
       // make the text appear only after bubble opens up
@@ -38,13 +38,6 @@
     .name {
       display: block;
     }
-  }
-  &.noHoverAllowed {
-    opacity: 1;
-  }
-
-  &:hover {
-    transition: width 0.5s, opacity 0.5s, border-color 0.5s, border-radius 0.5s ease-in-out;
   }
 }
 
