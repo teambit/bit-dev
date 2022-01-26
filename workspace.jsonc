@@ -169,6 +169,9 @@
     "installFromBitDevRegistry": true,
     "savePrefix": ""
   },
+  "teambit.preview/preview": {
+    "bundlingStrategy": "component"
+  },
   // "teambit.community/envs/community-react": {},
   /**
    * workspace variants allow to set different subsets of configuration for components in your
