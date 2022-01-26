@@ -8,7 +8,7 @@ import { ExcludeHighlighter } from '@teambit/react.ui.component-highlighter';
 import { WhatIsBit } from '@teambit/bit.content.what-is-bit';
 import { DrawerUI } from '@teambit/ui-foundation.ui.tree.drawer';
 //TODO: Ran: you have cycles with WikiApp using ui/docs  => teambit.wiki/sections/wiki@0.0.7 => ui/docs
-import { WikiApp } from '@teambit/wiki.apps.wiki';
+// import { WikiApp } from '@teambit/wiki.apps.wiki';
 import { ArchitectureBreakdown } from '@teambit/docs.blocks.component.architecture-breakdown';
 import { ComponentThinkingProcess } from '@teambit/docs.ui.component-thinking-process';
 import App from './app.mdx';
@@ -16,8 +16,6 @@ import Header from './header.mdx';
 import { wikiComponents } from './wiki';
 // import { WikiGraph } from './graph';
 import styles from './quick-start.module.scss';
-
-<!-- Quick start featured -->
 
 # Quick start
 
@@ -48,9 +46,9 @@ Here is an example of what you will get:
 
 <ExcludeHighlighter>
   <BubbleHighlighter componentId={ComponentID.fromString('teambit.wiki/apps/wiki')} showId>
-    <MemoryRouter>
+    {/* <MemoryRouter>
       <WikiApp />
-    </MemoryRouter>
+    </MemoryRouter> */}
   </BubbleHighlighter>
 </ExcludeHighlighter>
 
