@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions';
-import { RouterProvider } from '@teambit/base-react.navigation.router-context';
+import { RouterProvider } from '@teambit/base-react.navigation.routing-provider';
 // rename the below component to teambit.react/react-router/routing-provider.
 import { reactRouterAdapter } from '@teambit/ui-foundation.ui.navigation.react-router.routing-adapter';
 import { CommunityHighlighter } from '@teambit/community.ui.community-highlighter';
