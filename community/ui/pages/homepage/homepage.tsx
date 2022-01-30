@@ -28,13 +28,16 @@ const logoList = [...clientLogos, ...clientLogos];
 const pageDescription =
   'Bit is the leading toolchain for component-driven development. Forget monolithic apps and distribute to component-driven software. Build like the world’s best teams.';
 
+// must be static!
+const bubbles = mockBubbleGraph();
+
 export function Homepage({ ...rest }: HomepageProps) {
   return (
     <Page title="Component driven development - Bit" description={pageDescription} {...rest}>
       <section>
         <div className={styles.grid}>
           <ExcludeHighlighter>
-            <Hero bubbles={mockBubbleGraph()} />
+            <Hero bubbles={bubbles} />
           </ExcludeHighlighter>
           <ComponentDistributionSection title="From monoliths to component-driven" components={componentsMock()} />
           <FeaturesSection features={features} title="Better software is built in components" />
