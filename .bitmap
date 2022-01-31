@@ -1378,7 +1378,7 @@
         "rootDir": "design/ui/navigation/menu"
     },
     "ui/navigation/react-router-adapter": {
-        "scope": "",
+        "scope": "teambit.ui-foundation",
         "version": "5.0.0",
         "mainFile": "index.ts",
         "rootDir": "ui-foundation/ui/navigation/react-router-adapter"
