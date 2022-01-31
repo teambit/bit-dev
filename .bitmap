@@ -1031,57 +1031,27 @@
     },
     "navigation/link": {
         "scope": "teambit.base-react",
-        "version": "1.80.4",
+        "version": "2.0.0",
         "mainFile": "index.ts",
         "rootDir": "base-react/navigation/link"
     },
     "navigation/router-context": {
         "scope": "teambit.base-react",
-        "version": "1.80.4",
+        "version": "1.80.5",
         "mainFile": "index.ts",
-        "rootDir": "base-react/navigation/router-context",
-        "config": {
-            "teambit.component/deprecation": {
-                "deprecate": true,
-                "newId": {
-                    "scope": "teambit.base-react",
-                    "name": "navigation/link",
-                    "version": "1.55.0"
-                }
-            }
-        }
+        "rootDir": "base-react/navigation/router-context"
     },
     "navigation/routing-provider": {
         "scope": "teambit.base-react",
-        "version": "1.80.4",
+        "version": "1.80.5",
         "mainFile": "index.ts",
-        "rootDir": "base-react/navigation/routing-provider",
-        "config": {
-            "teambit.component/deprecation": {
-                "deprecate": true,
-                "newId": {
-                    "scope": "teambit.base-react",
-                    "name": "navigation/link",
-                    "version": "1.55.0"
-                }
-            }
-        }
+        "rootDir": "base-react/navigation/routing-provider"
     },
     "navigation/use-location": {
         "scope": "teambit.base-react",
-        "version": "1.80.4",
+        "version": "1.80.5",
         "mainFile": "index.ts",
-        "rootDir": "base-react/navigation/use-location",
-        "config": {
-            "teambit.component/deprecation": {
-                "deprecate": true,
-                "newId": {
-                    "scope": "teambit.base-react",
-                    "name": "navigation/link",
-                    "version": "1.55.0"
-                }
-            }
-        }
+        "rootDir": "base-react/navigation/use-location"
     },
     "pages/page": {
         "scope": "teambit.base-react",
