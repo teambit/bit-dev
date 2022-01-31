@@ -19,3 +19,5 @@ export function WhatIsBit({ size }: WhatIsBitProps) {
   return <WhatIsBitLong />;
 }
 
+
+

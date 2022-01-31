@@ -2,6 +2,5 @@ export { Link } from './link';
 export type { LinkProps, LinkType, Location, UseLocation } from './link.type';
 export { useLocation } from './use-location';
 
-// rename file
-export { useRouter, RouterProvider } from './routing-provider';
-export type { RouterContextType } from './routing-provider';
+export { useNavigation, NavigationProvider } from './navigation-provider';
+export type { RouterContextType } from './navigation-provider';
