@@ -1,5 +1,5 @@
 import React from 'react';
-import { RouterProvider, RouterContextType } from './routing-provider';
+import { NavigationProvider, RouterContextType } from './navigation-provider';
 import { Link } from './link';
 
 export const BasicLink = () => <Link href="https://bit.dev">bit.dev</Link>;
@@ -45,23 +45,23 @@ export const ActiveLink = () => (
   </div>
 );
 
-const routingA: RouterContextType = {
+const navA: RouterContextType = {
   Link: ({ children, ...props }) => <a {...props}>{children} 🔗</a>,
 };
 
-const routingB: RouterContextType = {
+const navB: RouterContextType = {
   Link: ({ style, ...props }) => <a {...props} style={{ textDecoration: 'none', fontWeight: 'bolder', ...style }} />,
 };
 
 export const MultipleRoutingSystems = () => (
   <div>
-    <RouterProvider implementation={routingA}>
+    <NavigationProvider implementation={navA}>
       <span>System 1</span> <Link href="https://bit.dev">Link</Link>
-    </RouterProvider>
+    </NavigationProvider>
     <br />
-    <RouterProvider implementation={routingB}>
+    <NavigationProvider implementation={navB}>
       <span>System 2</span> <Link href="https://bit.dev">Link</Link>
-    </RouterProvider>
+    </NavigationProvider>
     <br />
     <br />
     Default <Link href="https://bit.cloud">Link</Link>

@@ -3,7 +3,8 @@ description: 'A component-based documentation section'
 labels: ['docs', 'page', 'routes']
 ---
 
-import { RouterProvider } from '@teambit/base-react.navigation.link';
+import { MemoryRouter, UNSAFE_LocationContext } from 'react-router-dom';
+import { NavigationProvider } from '@teambit/base-react.navigation.link';
 import { reactRouterAdapter } from '@teambit/ui-foundation.ui.navigation.react-router-adapter';
 import { Docs } from './docs';
 
@@ -64,9 +65,13 @@ This component receives and renders all the Routes and makes them available in R
   ];
 
   return (
-    <RouterProvider implementation={reactRouterAdapter}>
-      <Docs baseUrl="/" contents={[{ routes }]} primaryLinks={primaryRoutes} />
-    </RouterProvider>
+    <UNSAFE_LocationContext.Provider value={null}>
+      <MemoryRouter>
+        <NavigationProvider implementation={reactRouterAdapter}>
+          <Docs baseUrl="/" contents={[{ routes }]} primaryLinks={primaryRoutes} />
+        </NavigationProvider>
+      </MemoryRouter>
+    </UNSAFE_LocationContext.Provider>
   );
 };
 ```

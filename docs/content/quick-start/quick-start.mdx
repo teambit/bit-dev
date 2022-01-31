@@ -17,8 +17,6 @@ import { wikiComponents } from './wiki';
 // import { WikiGraph } from './graph';
 import styles from './quick-start.module.scss';
 
-<!-- Quick start featured -->
-
 # Quick start
 
 <!--
@@ -48,9 +46,11 @@ Here is an example of what you will get:
 
 <ExcludeHighlighter>
   <BubbleHighlighter componentId={ComponentID.fromString('teambit.wiki/apps/wiki')} showId>
-    <UNSAFE_LocationContext.Provider value={null}>
-      <MemoryRouter>{/* <WikiApp /> */}</MemoryRouter>
-    </UNSAFE_LocationContext.Provider>
+    {/* <UNSAFE_LocationContext.Provider value={null}>
+      <MemoryRouter>
+        <WikiApp />
+      </MemoryRouter>
+    </UNSAFE_LocationContext.Provider> */}
   </BubbleHighlighter>
 </ExcludeHighlighter>
 

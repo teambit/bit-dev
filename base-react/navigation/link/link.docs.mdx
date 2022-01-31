@@ -1,22 +1,51 @@
 ---
-description: 'A standard, cross routing system Link'
-labels: ['react', 'routing', 'link', 'context', 'nav']
+description: 'A standard, cross routing-system Link'
+labels: ['react', 'routing', 'navigation', 'link', 'context', 'nav']
 ---
 
-import { RouterProvider } from './routing-provider';
+import { NavigationProvider } from './navigation-provider';
 import { Link } from './link';
 
-Routing systems have different approaches to routing, and each provide their own Link. If you use this link in your component,
-it will lock the component into to that specifc routing framework.  
-For example, a Card component could use a Link to direct users to a certain page.
-Using a [NextJS Link](https://nextjs.org/docs/api-reference/next/link) would prevent the card from being used in an React Router application,
-because expects a [React Router Link](https://v5.reactrouter.com/web/api/Link).
+An injected link that will work across different applications and routing systems.
+Simply inject your relevant implementation using the `<NavigationProvider>`, and the link is good to go.
 
-To allow components to work accross applications, simply use this link and inject the relevant implementation at the app level.
+### Motivation
+
+If you to create a reusable component, say a `<Card>`, and embed it with a link,
+you might run into trouble trying to use it outside your original application.
+
+```tsx
+import Link from 'next/link'
+
+const Card = (person) => <Link href={person.homepage}>{person.name}<Link>;
+```
+
+This is because different routing systems have different approaches to routing, and they are incompatible with each other:
+a [NextJS Link](https://nextjs.org/docs/api-reference/next/link) would not work in a React Router application, since it is expecting a [React Router Link](https://v5.reactrouter.com/web/api/Link), and vice versa.
+
+<div style={{display: 'flex', flexWrap: 'wrap', gap: 8}}>
+
+```tsx
+function NextjsApp() {
+  // this will work fine
+  return <Card person={person} />;
+}
+```
+
+```tsx
+function ReactRouterApp() {
+  // this will throw an error
+  return <Card person={person} />;
+}
+```
+
+</div>
+
+This component solves this incompatibility by providing an abstract link, and lets the consuming application provide the actual implementation.
 
 ## Basic usage
 
-When the Routing Provider is absent, the Link defaults to a native `a` tag.  
+When the Navigation Provider is absent, the Link defaults to a native `a` tag.  
 This way, components using this Link will always work, even without context.
 
 ```tsx
@@ -35,28 +64,27 @@ function App() {
 ### Using the link with React Router
 
 For using `react-router`, use our existing implementation - [React Router Adapter](https://bit.dev/teambit/ui-foundation/ui/navigation/react-router-adapter).  
-Note that you will have to provide the context needed for React Router, and perform routing the with the tools provided by react-router.
+Note that you will have to provide the context needed for React Router, and perform navigation the with the tools provided by react-router.
 
-```tsx
+````tsx
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { RoutingProvider, Link } from '@teambit/base-react.navigation.link';
+import { NavigationProvider, Link } from '@teambit/base-react.navigation.link';
 import { reactRouterAdapter } from '@teambit/ui-foundation.ui.navigation.react-router-adapter';
 
 export function App() {
   return (
     <BrowserRouter>
-      <RoutingProvider implementation={reactRouterAdapter}>
+      <NavigationProvider implementation={reactRouterAdapter}>
         {/* this link won't refresh the entire page, and will use the React Router link. */}
         <Link href="/plugins">Click me!</Link>
 
         <Routes>
           <Route path="/plugins">plugins</Route>
         </Routes>
-      </RoutingProvider>
+      </NavigationProvider>
     </BrowserRouter>
   );
 }
-```
 
 ### Using with NextJS
 
@@ -71,9 +99,9 @@ import { RouterContextType, useRouter } from '@teambit/base-react.navigation.lin
 
 const externalAttr = { rel: 'noopener', target: '_blank' };
 
-const vanillaRouting: RouterContextType = {
+const vanillaNav: RouterContextType = {
   Link: ({ href, children, active, activeClassName, activeStyle }) => {
-    const location = vanillaRouting.useLocation();
+    const location = vanillaNav.useLocation();
     const isActive = active ?? (href && location?.pathname && href.includes(location.pathname));
 
     return <a href={href} className={isActive && activeClassName} style={isActive && activeStyle}>{children}</a>
@@ -82,20 +110,20 @@ const vanillaRouting: RouterContextType = {
     return typeof window === 'undefined' ? undefined : window.location;
   },
 };
-```
+````
 
 This is obviously, a naive implementation, but you can now use it in your code:
 
 ```tsx
-import { vanillaRouting } from '@org/core-react.navigation.vanilla-routing';
-import { RouterProvider, Link, LinkProps, useLocation } from '@teambit/base-react.navigation.link';
+import { vanillaNav } from '@org/core-react.navigation.vanilla-navigation';
+import { NavigationProvider, Link, LinkProps, useLocation } from '@teambit/base-react.navigation.link';
 
 function App() {
   return (
-    <RouterProvider implementation={vanillaRouting}>
+    <NavigationProvider implementation={vanillaNav}>
       <NavTab href="/plugins">plugins</NavTab>
       <PluginsPage />
-    </RouterProvider>
+    </NavigationProvider>
   );
 }
 
@@ -115,11 +143,11 @@ Try it out!
 
 ```tsx live
 () => {
-  const routingA = {
+  const navA = {
     Link: ({ children, ...props }) => <a {...props}>{children} 🔗</a>,
   };
 
-  const routingB = {
+  const navB = {
     Link: ({ style, children, ...props }) => (
       <a {...props} style={{ textDecoration: 'underline', fontWeight: 'bolder', cursor: 'pointer', ...style }}>
         {children} ✦
@@ -129,15 +157,15 @@ Try it out!
 
   return (
     <div>
-      <RouterProvider implementation={routingA}>
+      <NavigationProvider implementation={navA}>
         <Link>A Link</Link>
-      </RouterProvider>
+      </NavigationProvider>
 
       <br />
 
-      <RouterProvider implementation={routingB}>
+      <NavigationProvider implementation={navB}>
         <Link>B Link</Link>
-      </RouterProvider>
+      </NavigationProvider>
       <br />
     </div>
   );

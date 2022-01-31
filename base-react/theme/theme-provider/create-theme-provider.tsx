@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import type { CreateThemeOptions } from './create-theme';
 
 export type ThemeProviderProps<T> = {
@@ -11,16 +11,20 @@ export function createThemeProvider<T>(
   ThemeContext: React.Context<T>,
   options: CreateThemeOptions<T>
 ): ThemeProviderType<T> {
-  return ({ children, overrides, ...rest }: ThemeProviderProps<T>) => {
-    const theme = {
-      ...options.theme,
-      ...overrides,
-    };
+  return ({ children, overrides, style, ...rest }: ThemeProviderProps<T>) => {
+    const theme = useMemo(
+      () => ({
+        ...options.theme,
+        ...overrides,
+      }),
+      [options.theme, overrides]
+    );
+
     if (options.withoutCssVars) return <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>;
     const cssVars = computeCssVars<T>(theme, options.prefix);
 
     return (
-      <div style={{ ...cssVars }} {...rest}>
+      <div style={{ ...cssVars, ...style }} {...rest}>
         <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>
       </div>
     );
