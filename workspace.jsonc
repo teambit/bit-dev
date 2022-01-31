@@ -1,7 +1,7 @@
 /**
  * this is the main configuration file of your bit workspace.
  * for full documentation, please see: https://harmony-docs.bit.dev/workspace/configurations
- **/{
+ **/ {
   "$schema": "https://static.bit.dev/teambit/schemas/schema.json",
   /**
    * main configuration of the Bit workspace.
@@ -53,7 +53,6 @@
         "@react-aria/button": "3.3.3",
         "@react-types/button": "3.4.1",
         "@teambit/apps.netlify": "3.0.1",
-        "@teambit/base-react.navigation.router-context": "1.60.0",
         "@teambit/base-ui.constants.storage": "1.0.0",
         "@teambit/base-ui.elements.image": "1.0.0",
         "@teambit/base-ui.elements.label": "1.0.0",
@@ -69,7 +68,6 @@
         "@teambit/base-ui.layout.grid-component": "1.0.1",
         "@teambit/base-ui.layout.page-frame": "1.0.1",
         "@teambit/base-ui.loaders.skeleton": "1.0.1",
-        "@teambit/base-ui.routing.native-nav-link": "1.0.0",
         "@teambit/base-ui.routing.routing-provider": "1.0.0",
         "@teambit/base-ui.surfaces.card": "1.0.1",
         "@teambit/base-ui.text.paragraph": "1.0.3",
@@ -112,8 +110,6 @@
         "@teambit/react.templates.themes.theme": "0.0.3",
         "@teambit/react.ui.component-highlighter": "0.0.506",
         "@teambit/ui-foundation.ui.buttons.collapser": "0.0.144",
-        "@teambit/ui-foundation.ui.react-router.link": "0.0.441",
-        "@teambit/ui-foundation.ui.react-router.nav-link": "0.0.441",
         "@teambit/ui-foundation.ui.tree.drawer": "0.0.476",
         "@teambit/ui-foundation.ui.tree.folder-tree-node": "0.0.453",
         "@teambit/ui-foundation.ui.tree.tree-node": "0.0.453",
