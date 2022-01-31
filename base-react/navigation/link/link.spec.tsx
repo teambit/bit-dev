@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { BasicLink, ExternalLink } from './link.composition';
-import { NativeLink } from './native-link';
+import { Link } from './link';
 
 describe('native html link', () => {
   it('should render', () => {
@@ -27,9 +27,9 @@ describe('native html link', () => {
 
   it('should pass active styles when explicitly active', () => {
     const { getByText } = render(
-      <NativeLink href="/" activeClassName="active" activeStyle={{ fontWeight: 'bold' }} active>
+      <Link href="/" activeClassName="active" activeStyle={{ fontWeight: 'bold' }} active>
         click here
-      </NativeLink>
+      </Link>
     );
     const rendered = getByText('click here');
     expect(rendered).toHaveClass('active');
@@ -38,9 +38,9 @@ describe('native html link', () => {
 
   it('should not pass active styles when explicitly not active', () => {
     const { getByText } = render(
-      <NativeLink href="/" activeClassName="active" activeStyle={{ fontWeight: 'bold' }} active={false}>
+      <Link href="/" activeClassName="active" activeStyle={{ fontWeight: 'bold' }} active={false}>
         click here
-      </NativeLink>
+      </Link>
     );
     const rendered = getByText('click here');
     expect(rendered).not.toHaveClass('active');
@@ -49,9 +49,9 @@ describe('native html link', () => {
 
   it('should automatically pass active style when matching location', () => {
     const { getByText } = render(
-      <NativeLink href="/" activeClassName="active" activeStyle={{ fontWeight: 'bold' }}>
+      <Link href="/" activeClassName="active" activeStyle={{ fontWeight: 'bold' }}>
         click here
-      </NativeLink>
+      </Link>
     );
     const rendered = getByText('click here');
     expect(rendered).toHaveClass('active');
@@ -60,9 +60,9 @@ describe('native html link', () => {
 
   it('should automatically skip active style when not matching location', () => {
     const { getByText } = render(
-      <NativeLink href="/other-path" activeClassName="active" activeStyle={{ fontWeight: 'bold' }}>
+      <Link href="/other-path" activeClassName="active" activeStyle={{ fontWeight: 'bold' }}>
         click here
-      </NativeLink>
+      </Link>
     );
     const rendered = getByText('click here');
     expect(rendered).not.toHaveClass('active');
