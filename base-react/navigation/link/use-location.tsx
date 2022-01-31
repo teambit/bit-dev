@@ -1,9 +1,9 @@
-import { useRouter } from './routing-provider';
+import { useNavigation } from './navigation-provider';
 import { Location } from './link.type';
 
 export function useLocation(): Location | undefined {
-  const router = useRouter();
-  const actualUseLocation = router.useLocation || NativeUseLocation;
+  const nav = useNavigation();
+  const actualUseLocation = nav.useLocation || NativeUseLocation;
 
   return actualUseLocation();
 }

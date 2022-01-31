@@ -21,12 +21,12 @@ export type BubbleCardProps = {
   /**
    * override corner svg size
    */
-   cornerSvgSize?: number;
+  cornerSvgSize?: number;
 
   /**
    * override corner svg position. [height, wi]
    */
-   cornerSvgClassName?: string;
+  cornerSvgClassName?: string;
 } & CardProps;
 
 export function BubbleCard({
@@ -39,26 +39,31 @@ export function BubbleCard({
 }: BubbleCardProps) {
   return (
     <Card className={classNames(styles.bubbleCard, className)} {...rest}>
-      {CornerSvg ? (
-        <CornerSvg />
-      ) : (
-        <svg
-          width={cornerSvgSize}
-          height={cornerSvgSize}
-          className={cornerSvgClassName}
-          viewBox="0 0 15 15"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M13.1937 1.83337C8.09096 4.06476 3.9981 8.17609 1.79077 13.2917"
-            stroke={'#EDEDED'}
-            strokeWidth="2"
-            strokeLinecap="round"
-          />
-        </svg>
-      )}
+      {CornerSvg ? <CornerSvg /> : <BubbleSpark size={cornerSvgSize} className={cornerSvgClassName} />}
       {children}
     </Card>
+  );
+}
+
+/**
+ * The bubble's [catch-light](https://en.wikipedia.org/wiki/Catch_light)
+ */
+function BubbleSpark({ size, className }: { size: number; className?: string }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      className={className}
+      viewBox="0 0 15 15"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M13.1937 1.83337C8.09096 4.06476 3.9981 8.17609 1.79077 13.2917"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+    </svg>
   );
 }

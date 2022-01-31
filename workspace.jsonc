@@ -91,7 +91,7 @@
         "@teambit/design.ui.input.toggle": "1.0.7",
         "@teambit/design.ui.message-card": "1.0.6",
         "@teambit/design.ui.panels.tabs": "1.0.6",
-        "@teambit/design.ui.sidebar.sidebar": "1.9.57",
+        "@teambit/design.ui.sidebar.sidebar": "1.10.0",
         "@teambit/design.ui.styles.ellipsis": "0.0.346",
         "@teambit/design.ui.surfaces.menu.item": "0.0.350",
         "@teambit/design.ui.surfaces.menu.link-item": "0.0.374",
@@ -110,7 +110,7 @@
         "@teambit/mdx.ui.mdx-layout": "0.0.479",
         "@teambit/react.eslint-config-bit-react": "0.0.451",
         "@teambit/react.templates.themes.theme": "0.0.3",
-        "@teambit/react.ui.component-highlighter": "0.0.496",
+        "@teambit/react.ui.component-highlighter": "0.0.506",
         "@teambit/ui-foundation.ui.buttons.collapser": "0.0.144",
         "@teambit/ui-foundation.ui.react-router.link": "0.0.441",
         "@teambit/ui-foundation.ui.react-router.nav-link": "0.0.441",
@@ -169,6 +169,9 @@
     "strictPeerDependencies": true,
     "installFromBitDevRegistry": true,
     "savePrefix": ""
+  },
+  "teambit.preview/preview": {
+    "bundlingStrategy": "component"
   },
   // "teambit.community/envs/community-react": {},
   /**

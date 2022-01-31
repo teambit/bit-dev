@@ -1,7 +1,7 @@
 import React, { forwardRef, useMemo } from 'react';
 import { NavLink as BaseNavLink } from 'react-router-dom';
 import { parsePath } from 'history';
-import { NavLinkProps } from '@teambit/base-react.navigation.router-context';
+import { NavLinkProps } from '@teambit/base-react.navigation.routing-provider';
 import { LinkAnchor, useLinkContext } from '@teambit/ui-foundation.ui.navigation.react-router.link-anchor';
 
 export type { NavLinkProps };
