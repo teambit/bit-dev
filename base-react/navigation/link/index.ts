@@ -1,4 +1,6 @@
 export { Link } from './link';
-export type { LinkProps } from './link';
-export { NavLink } from './nav-link';
-export type { NavLinkProps } from './nav-link';
+export type { LinkProps, LinkType, Location, UseLocation } from './link.type';
+export { useLocation } from './use-location';
+
+export { useNavigation, NavigationProvider } from './navigation-provider';
+export type { RouterContextType } from './navigation-provider';

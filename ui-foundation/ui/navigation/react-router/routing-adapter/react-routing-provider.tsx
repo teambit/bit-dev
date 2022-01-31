@@ -1,23 +1,25 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, forwardRef } from 'react';
 import { useLocation, Link, NavLink } from 'react-router-dom';
-import { RouterContextType, LinkProps, NavLinkProps } from '@teambit/base-react.navigation.routing-provider';
+import { parsePath } from 'history';
+import { RouterContextType, LinkProps } from '@teambit/base-react.navigation.link';
 
-export function RouterLink(props: LinkProps) {
-  return <Link to={props.href || ''} {...props} />;
-}
+const ReactRouterLink = forwardRef<HTMLAnchorElement, LinkProps>(function LinkWithRef(
+  { href = '', state, active, native, external, ...props }: LinkProps,
+  ref
+) {
+  const to = useMemo(() => ({ ...parsePath(href), state }), [href, state]);
+  const isActive = useMemo(() => (active === undefined ? undefined : () => active), [active]);
 
-export function RouterNavLink(props: NavLinkProps) {
-  const isActive = useMemo(() => {
-    if (props.active === undefined) return undefined;
+  if (props.activeClassName || props.activeStyle) {
+    // @ts-ignore (https://github.com/teambit/bit/issues/4401)
+    return <NavLink {...props} isActive={isActive} to={to} ref={ref} />;
+  }
 
-    return () => Boolean(props.active);
-  }, [props.active]);
-
-  return <NavLink to={props.href || ''} isActive={isActive} {...props} />;
-}
+  // @ts-ignore (https://github.com/teambit/bit/issues/4401)
+  return <Link {...props} to={to} ref={ref} />;
+});
 
 export const reactRouterAdapter: RouterContextType = {
-  Link: RouterLink,
-  NavLink: RouterNavLink,
+  Link: ReactRouterLink,
   useLocation,
 };
