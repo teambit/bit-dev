@@ -3,51 +3,175 @@ description: 'A standard Theme Provider component'
 labels: ['theme', 'design-tokens', 'design', 'collboration', 'standardization']
 ---
 
-Theme Provider helps product teams collaborate on design tokens and variables and get them to agree on a single, unified schema.
+import { useState } from 'react';
+import { createTheme } from './create-theme';
 
+Theme Provider helps product teams collaborate on design tokens and variables, and get them to agree on a single, unified schema.
 
 ### Component Usage
 
-```ts
-const ThemeTokens = {
-  backgroundColor: 'white'
+Here you can see a basic theme decleration, with two tokens - `backgrondColor`, and `textColor`.
+
+```tsx
+// (1) define the schema, with default values:
+export const MyThemeDefaults = {
+  backgroundColor: '#c4e3ed',
+  textColor: '#94472e',
 };
 
-const { ThemeProvider, useTheme } = createTheme(ThemeTokens);
+// we can later use this type to define concrete theme values
+export type MyThemeSchema = typeof MyThemeDefaults;
+
+// (2) create the theme
+export const MyTheme = createTheme({ theme: MyThemeDefaults });
 ```
 
-### Create a basic theme
+To consume the theme, first apply it to your context:
 
-Modify the text to see it change live:
+```tsx
+import { MyTheme } from '@mycorp/design.my-theme';
 
-```js
-const themeTokens = {
-  backgroundColor: 'white'
-};
-
-const { ThemeProvider, useTheme } = createTheme(themeTokens);
+export function App() {
+  return (
+    // (3) apply the theme:
+    <MyTheme.ThemeProvider>
+      <div>Regular content</div>
+      <Content>Themed content</Content>
+    </MyTheme.ThemeProvider>
+  );
+}
 ```
 
-### Create a light theme
+Now, you can consume it in any decendant component.  
+It is available both as css vars (usually in `*.css` file), or as javascript vars, from react context.
 
-Modify the text to see it change live:
+```tsx
+import { MyTheme } from '@mycorp/design.my-theme';
 
-```js
-const lightTokens = {
-  backgroundColor: 'black'
-};
+// (4) consumtion of theme:
 
-const { ThemeProvider, useTheme } = createTheme(ThemeTokens);
+export function Content({ children }) {
+  const { textColor } = MyTheme.useTheme();
+  const contentStyles = {
+    background: 'var(--background-color)', // as css variable
+    color: textColor, // as react context variable
+  };
+
+  return <div style={contentStyles}>{children}</div>;
+}
 ```
 
-### Create a dark theme
+Try it out!
 
-Modify the text to see it change live:
+```tsx live
+() => {
+  // (1) define the schema, with default values:
+  const themeTokens = {
+    backgroundColor: '#c4e3ed',
+    textColor: '#94472e',
+  };
 
-```js
-const darkTokens = {
-  backgroundColor: 'white'
+  // (2) create the theme:
+  const MyTheme = createTheme({ theme: themeTokens });
+
+  // (3) apply the theme:
+  function App() {
+    return (
+      <MyTheme.ThemeProvider>
+        <div>Regular content</div>
+        <Content>Themed content</Content>
+      </MyTheme.ThemeProvider>
+    );
+  }
+
+  // (4) consume the theme:
+
+  function Content({ children }) {
+    const { textColor } = MyTheme.useTheme();
+    const contentStyles = {
+      padding: 8,
+      transition: 'all 180ms',
+      background: 'var(--background-color)',
+      color: textColor,
+    };
+
+    return <div style={contentStyles}>{children}</div>;
+  }
+
+  return <App />;
+};
+```
+
+### Creating concrete themes
+
+In the previous step, you created the theme schema.  
+Let's compose that schema and create concrete light and dark implementations.
+
+```tsx
+import { MyThemeSchema } from '@mycorp/design.my-theme';
+
+export const lightTheme: MyThemeSchema = {
+  backgroundColor: '#ffffff',
+  textColor: '#414141',
 };
 
-const { ThemeProvider, useTheme } = createTheme(ThemeTokens);
+export const darkTheme: MyThemeSchema = {
+  backgroundColor: '#202125',
+  textColor: '#e8eaed',
+};
+```
+
+Then, plug these values into the theme provider:
+
+```tsx
+import { MyTheme, lightTheme, darkTheme } from '@mycorp/design.my-theme';
+
+export function App({ light }: { light: boolean }) {
+  return (
+    <MyTheme.ThemeProvider overrides={light ? lightTheme : darkTheme}>
+      <div>Regular content</div>
+      <Content>Themed content</Content>
+    </MyTheme.ThemeProvider>
+  );
+}
+```
+
+Try it out:
+
+```tsx live
+() => {
+  const themeTokens = { backgroundColor: '#c4e3ed', textColor: '#94472e' };
+  const MyTheme = createTheme({ theme: themeTokens });
+
+  const lightTheme = { backgroundColor: '#f6f6f6', textColor: '#414141' };
+  const darkTheme = { backgroundColor: '#202125', textColor: '#e8eaed' };
+
+  function App() {
+    const [light, setLight] = useState(true);
+    return (
+      <MyTheme.ThemeProvider overrides={light ? lightTheme : darkTheme}>
+        <div>Regular content</div>
+        <button onClick={() => setLight((x) => !x)}>toggle theme</button>
+
+        <br />
+        <br />
+        <Content>Themed content</Content>
+      </MyTheme.ThemeProvider>
+    );
+  }
+
+  function Content({ children }) {
+    const { textColor } = MyTheme.useTheme();
+    const contentStyles = {
+      padding: 8,
+      transition: 'all 180ms',
+      background: 'var(--background-color)',
+      color: textColor,
+    };
+
+    return <div style={contentStyles}>{children}</div>;
+  }
+
+  return <App />;
+};
 ```

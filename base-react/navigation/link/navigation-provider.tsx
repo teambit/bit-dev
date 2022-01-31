@@ -13,23 +13,23 @@ export type RouterContextType = {
   useLocation?: UseLocation;
 };
 
-export const RouterContext = React.createContext<RouterContextType>({});
+export const NavigationContext = React.createContext<RouterContextType>({});
 
 /**
  * Gets routing components from context.
  * (defaults to native components)
  */
-export function useRouter() {
-  const routerContext = useContext(RouterContext);
+export function useNavigation() {
+  const routerContext = useContext(NavigationContext);
   return routerContext;
 }
 
-export function RouterProvider({
+export function NavigationProvider({
   children,
   implementation,
 }: {
   children: ReactNode;
   implementation: RouterContextType;
 }) {
-  return <RouterContext.Provider value={implementation}>{children}</RouterContext.Provider>;
+  return <NavigationContext.Provider value={implementation}>{children}</NavigationContext.Provider>;
 }
