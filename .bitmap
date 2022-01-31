@@ -1379,25 +1379,9 @@
     },
     "ui/navigation/react-router-adapter": {
         "scope": "",
-        "version": "",
+        "version": "5.0.0",
         "mainFile": "index.ts",
-        "rootDir": "ui-foundation/ui/navigation/react-router-adapter",
-        "config": {
-            "teambit.community/envs/community-react@1.55.0": {},
-            "teambit.component/dev-files": {},
-            "teambit.compositions/compositions": {},
-            "teambit.docs/docs": {},
-            "teambit.envs/envs": {},
-            "teambit.dependencies/dependency-resolver": {},
-            "teambit.pipelines/builder": {},
-            "teambit.component/renaming": {
-                "renamedFrom": {
-                    "scope": "teambit.ui-foundation",
-                    "name": "ui/navigation/react-router/routing-adapter",
-                    "version": "1.55.0"
-                }
-            }
-        }
+        "rootDir": "ui-foundation/ui/navigation/react-router-adapter"
     },
     "ui/navigation/react-router/link": {
         "scope": "teambit.ui-foundation",
