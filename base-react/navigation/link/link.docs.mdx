@@ -66,7 +66,7 @@ function App() {
 For using `react-router`, use our existing implementation - [React Router Adapter](https://bit.dev/teambit/ui-foundation/ui/navigation/react-router-adapter).  
 Note that you will have to provide the context needed for React Router, and perform navigation the with the tools provided by react-router.
 
-````tsx
+```tsx
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { NavigationProvider, Link } from '@teambit/base-react.navigation.link';
 import { reactRouterAdapter } from '@teambit/ui-foundation.ui.navigation.react-router-adapter';
@@ -85,6 +85,7 @@ export function App() {
     </BrowserRouter>
   );
 }
+```
 
 ### Using with NextJS
 
@@ -110,7 +111,7 @@ const vanillaNav: RouterContextType = {
     return typeof window === 'undefined' ? undefined : window.location;
   },
 };
-````
+```
 
 This is obviously, a naive implementation, but you can now use it in your code:
 
