@@ -1,6 +1,6 @@
 import React from 'react';
+import { NavigationProvider, RouterContextType } from './navigation-provider';
 import { Link } from './link';
-import { NavLink } from './nav-link';
 
 export const BasicLink = () => <Link href="https://bit.dev">bit.dev</Link>;
 export const ExternalLink = () => (
@@ -26,21 +26,44 @@ export const ActiveLink = () => (
 
     <div>
       local link:{' '}
-      <NavLink href="/preview/teambit.react/react" activeStyle={{ color: 'darkorange' }}>
+      <Link href="/preview/teambit.react/react" activeStyle={{ color: 'darkorange' }}>
         /preview/teambit.react/react
-      </NavLink>
+      </Link>
     </div>
     <div>
       base-react scope link{' '}
-      <NavLink href="/api/teambit.base-react" activeStyle={{ color: 'darkorange' }}>
+      <Link href="/api/teambit.base-react" activeStyle={{ color: 'darkorange' }}>
         /api/teambit.base-react
-      </NavLink>
+      </Link>
     </div>
     <div>
       another link:
-      <NavLink href="inactive/link" activeStyle={{ color: 'darkorange' }}>
+      <Link href="inactive/link" activeStyle={{ color: 'darkorange' }}>
         inactive/link
-      </NavLink>
+      </Link>
     </div>
+  </div>
+);
+
+const routingA: RouterContextType = {
+  Link: ({ children, ...props }) => <a {...props}>{children} 🔗</a>,
+};
+
+const routingB: RouterContextType = {
+  Link: ({ style, ...props }) => <a {...props} style={{ textDecoration: 'none', fontWeight: 'bolder', ...style }} />,
+};
+
+export const MultipleRoutingSystems = () => (
+  <div>
+    <NavigationProvider implementation={routingA}>
+      <span>System 1</span> <Link href="https://bit.dev">Link</Link>
+    </NavigationProvider>
+    <br />
+    <NavigationProvider implementation={routingB}>
+      <span>System 2</span> <Link href="https://bit.dev">Link</Link>
+    </NavigationProvider>
+    <br />
+    <br />
+    Default <Link href="https://bit.cloud">Link</Link>
   </div>
 );

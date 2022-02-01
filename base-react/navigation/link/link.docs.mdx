@@ -1,98 +1,174 @@
 ---
-description: A standard and router-agnostic Link.
-labels: ['link', 'router', 'nav']
+description: 'A standard, cross routing-system Link'
+labels: ['react', 'routing', 'navigation', 'link', 'context', 'nav']
 ---
 
+import { NavigationProvider } from './navigation-provider';
 import { Link } from './link';
-import { NavLink } from './nav-link';
 
-A standard link with an important beneifit:  
-It gets its underlying implementation from context, so it can work in any component and any application.
+An injected link that will work across different applications and routing systems.
+Simply inject your relevant implementation using the `<NavigationProvider>`, and the link is good to go.
 
-Simply use it like you would use an `<a>` tag.
-The link will get the implementation from context, or default to a regular `<a>` tag:
+### Motivation
+
+If you to create a reusable component, say a `<Card>`, and embed it with a link,
+you might run into trouble trying to use it outside your original application.
 
 ```tsx
-function Component() {
-  return (
-    // this always works
-    <Link href="/pricing">pricing page</Link>
-  );
+import Link from 'next/link'
+
+const Card = (person) => <Link href={person.homepage}>{person.name}<Link>;
+```
+
+This is because different routing systems have different approaches to routing, and they are incompatible with each other:
+a [NextJS Link](https://nextjs.org/docs/api-reference/next/link) would not work in a React Router application, since it is expecting a [React Router Link](https://v5.reactrouter.com/web/api/Link), and vice versa.
+
+<div style={{display: 'flex', flexWrap: 'wrap', gap: 8}}>
+
+```tsx
+function NextjsApp() {
+  // this will work fine
+  return <Card person={person} />;
 }
 ```
 
-In our projects, we've found that _links_ are much more common than routes, and at much lower levels.
-**Using a single link in a large page forced all of it to use a specific routing system** (in our legacy site, it was `react-router: ^3.0.1`),
-or use a native link, or get links by as props. None of these were good options.
-That's why we chose to inject the link from context, which allowed our link to move between projects with ease, and plug into the existing routing mechanism.
+```tsx
+function ReactRouterApp() {
+  // this will throw an error
+  return <Card person={person} />;
+}
+```
 
-You can easily provide a _Routing Adapter_, like so:
+</div>
+
+This component solves this incompatibility by providing an abstract link, and lets the consuming application provide the actual implementation.
+
+## Basic usage
+
+When the Navigation Provider is absent, the Link defaults to a native `a` tag.  
+This way, components using this Link will always work, even without context.
 
 ```tsx
 import { Link } from '@teambit/base-react.navigation.link';
-import { RouterContextProvider } from '@teambit/base-react.navigation.routing-provider';
 
-const routingSystem = { Link };
-
-function Page() {
+function App() {
   return (
-    <div>
-      <h1>Awesome page</h1>
-
-      {/* this link will render ReactRouter link */}
-      <RouterContextProvider value={ReactRouterSystem}>
-        <Link href="/account">account</Link>
-      </RouterContextProvider>
-
-      {/* this link will render Wouter link */}
-      <RouterContextProvider value={wouterRoutingSystem}>
-        <Link href="/account">account</Link>
-      </RouterContextProvider>
-
-      {/* this link will default to a NativeLink */}
-      <Link href="/legals">legals</Link>
-    </div>
+    <>
+      {/* this will render <a href="plguins">Click me!</a> */}
+      <Link href="/plugins">Click me!</Link>
+    </>
   );
 }
 ```
 
-## NavLink
+### Using the link with React Router
 
-Like ReactRouter, we provide a `NavLink` component. It is a regular link, that also applies the provided styles when the `href` prop matches the current url. For example:
+For using `react-router`, use our existing implementation - [React Router Adapter](https://bit.dev/teambit/ui-foundation/ui/navigation/react-router-adapter).  
+Note that you will have to provide the context needed for React Router, and perform navigation the with the tools provided by react-router.
 
-```tsx live
-<>
-  <div>
-    current path:
-    <span style={{ textDecoration: 'underline' }}>"{typeof window !== 'undefined' && window.location.pathname}"</span>
-  </div>
-  <br />
-  (active links should be orange)
-  <br />
-  local link:{' '}
-  <NavLink href={typeof window !== 'undefined' && window.location.pathname} activeStyle={{ color: 'darkorange' }}>
-    {typeof window !== 'undefined' ? window.location.pathname : '?'}
-  </NavLink>
-  <br />
-  other link:{' '}
-  <NavLink href="/some/site/" activeStyle={{ color: 'darkorange' }}>
-    /some/site/
-  </NavLink>
-</>
+```tsx
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { NavigationProvider, Link } from '@teambit/base-react.navigation.link';
+import { reactRouterAdapter } from '@teambit/ui-foundation.ui.navigation.react-router-adapter';
+
+export function App() {
+  return (
+    <BrowserRouter>
+      <NavigationProvider implementation={reactRouterAdapter}>
+        {/* this link won't refresh the entire page, and will use the React Router link. */}
+        <Link href="/plugins">Click me!</Link>
+
+        <Routes>
+          <Route path="/plugins">plugins</Route>
+        </Routes>
+      </NavigationProvider>
+    </BrowserRouter>
+  );
+}
 ```
 
-## Additional props:
+### Using with NextJS
 
-These non-standard props allow extra funcitonality:
+Coming soon..
 
-- `external` - open the link in a new tab (uses a native link).
-- `native` - don't use the routing system, and just render a regular link.
-- `state` - includes History state in the link, compatible with the native [pushState](https://developer.mozilla.org/en-US/docs/Web/API/History/pushState) api.  
-  This needs to be supported by the routing sytem, and currently ignored in the native implementation.
+### Custom usage
 
-`NavLink` also has the following props:
+To tailor an implementation to your needs, declare these variables:
 
-- `activeClassName`, `activeStyles` - styles to apply when href matches the current location.
-- `active` - explicitly apply active styles. (leave `undefined` for automatic value).
-- `exact` - match url exactly, and don't include subpaths.
-- `strict` - include trailing slash when matching location.
+```tsx
+import { RouterContextType, useRouter } from '@teambit/base-react.navigation.link';
+
+const externalAttr = { rel: 'noopener', target: '_blank' };
+
+const vanillaNav: RouterContextType = {
+  Link: ({ href, children, active, activeClassName, activeStyle }) => {
+    const location = vanillaNav.useLocation();
+    const isActive = active ?? (href && location?.pathname && href.includes(location.pathname));
+
+    return <a href={href} className={isActive && activeClassName} style={isActive && activeStyle}>{children}</a>
+  }
+  useLocation: () => {
+    return typeof window === 'undefined' ? undefined : window.location;
+  },
+};
+```
+
+This is obviously, a naive implementation, but you can now use it in your code:
+
+```tsx
+import { vanillaNav } from '@org/core-react.navigation.vanilla-navigation';
+import { NavigationProvider, Link, LinkProps, useLocation } from '@teambit/base-react.navigation.link';
+
+function App() {
+  return (
+    <NavigationProvider implementation={vanillaNav}>
+      <NavTab href="/plugins">plugins</NavTab>
+      <PluginsPage />
+    </NavigationProvider>
+  );
+}
+
+function NavTab(props: LinkProps) {
+  return <Link activeStyle={{ background: 'lightblue' }} {...props} />;
+}
+
+function PluginsPage() {
+  const { pathname } = useLocation() || {};
+
+  if (pathname != '/plugins') return null;
+  return <div>Settings page</div>;
+}
+```
+
+Try it out!
+
+```tsx live
+() => {
+  const navA = {
+    Link: ({ children, ...props }) => <a {...props}>{children} 🔗</a>,
+  };
+
+  const navB = {
+    Link: ({ style, children, ...props }) => (
+      <a {...props} style={{ textDecoration: 'underline', fontWeight: 'bolder', cursor: 'pointer', ...style }}>
+        {children} ✦
+      </a>
+    ),
+  };
+
+  return (
+    <div>
+      <NavigationProvider implementation={navA}>
+        <Link>A Link</Link>
+      </NavigationProvider>
+
+      <br />
+
+      <NavigationProvider implementation={navB}>
+        <Link>B Link</Link>
+      </NavigationProvider>
+      <br />
+    </div>
+  );
+};
+```

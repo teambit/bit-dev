@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { NavLink } from '@teambit/base-react.navigation.link';
+import { Link } from '@teambit/base-react.navigation.link';
 import { classes } from '@teambit/design.ui.surfaces.menu.item';
 import { Icon } from '@teambit/design.elements.icon';
 
@@ -19,7 +19,7 @@ export function PrimaryLinks({ links }: { links: SidebarTreeNode }) {
 
         // TODO - use @teambit/design.ui.surfaces.menu.link-item when it uses the new navigation system
         return (
-          <NavLink
+          <Link
             key={link.id}
             href={href}
             className={classNames(classes.menuItem, !!href && classes.interactive)}
@@ -28,7 +28,7 @@ export function PrimaryLinks({ links }: { links: SidebarTreeNode }) {
           >
             {icon && <Icon of={icon} className={classes.icon} />}
             {link.payload?.title}
-          </NavLink>
+          </Link>
         );
       })}
     </div>

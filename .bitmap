@@ -1031,27 +1031,9 @@
     },
     "navigation/link": {
         "scope": "teambit.base-react",
-        "version": "1.80.4",
+        "version": "2.0.0",
         "mainFile": "index.ts",
         "rootDir": "base-react/navigation/link"
-    },
-    "navigation/router-context": {
-        "scope": "teambit.base-react",
-        "version": "1.80.4",
-        "mainFile": "index.ts",
-        "rootDir": "base-react/navigation/router-context"
-    },
-    "navigation/routing-provider": {
-        "scope": "teambit.base-react",
-        "version": "1.80.4",
-        "mainFile": "index.ts",
-        "rootDir": "base-react/navigation/routing-provider"
-    },
-    "navigation/use-location": {
-        "scope": "teambit.base-react",
-        "version": "1.80.4",
-        "mainFile": "index.ts",
-        "rootDir": "base-react/navigation/use-location"
     },
     "pages/page": {
         "scope": "teambit.base-react",
@@ -1395,23 +1377,11 @@
         "mainFile": "index.ts",
         "rootDir": "design/ui/navigation/menu"
     },
-    "ui/navigation/react-router/link": {
+    "ui/navigation/react-router-adapter": {
         "scope": "teambit.ui-foundation",
-        "version": "1.80.4",
+        "version": "5.0.0",
         "mainFile": "index.ts",
-        "rootDir": "ui-foundation/ui/navigation/react-router/link"
-    },
-    "ui/navigation/react-router/link-anchor": {
-        "scope": "teambit.ui-foundation",
-        "version": "1.80.4",
-        "mainFile": "index.ts",
-        "rootDir": "ui-foundation/ui/navigation/react-router/link-anchor"
-    },
-    "ui/navigation/react-router/routing-adapter": {
-        "scope": "teambit.ui-foundation",
-        "version": "1.80.4",
-        "mainFile": "index.ts",
-        "rootDir": "ui-foundation/ui/navigation/react-router/routing-adapter"
+        "rootDir": "ui-foundation/ui/navigation/react-router-adapter"
     },
     "ui/navigation/tab-link": {
         "scope": "teambit.design",

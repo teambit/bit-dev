@@ -15,8 +15,11 @@ it('should render with the correct text', () => {
 });
 
 it('should show as active', () => {
-  const { container } = render(<ActiveTabLink />);
-  expect(container.getElementsByClassName('active').length).toBe(1);
+  const { getByText } = render(<ActiveTabLink />);
+  const target = getByText('active link');
+
+  // todo - why do we need a div in the middle?
+  expect(target.parentElement).toHaveClass('active');
 });
 
 it('should show bottom border by default, if position isnt specified', () => {
