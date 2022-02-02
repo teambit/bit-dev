@@ -49,6 +49,7 @@ a component of type `env` will most probably also register its own build tasks. 
 - Third party providers used by the component. for example, `Netlify`, `Cloudflare`, `Zappier`, etc.
 
 - Frameworks and runtime environments used by the component. For example, `React`, `NodeJS`, `Angular`, `Deno`, etc. -->
+
 # Documentation style guide
 
  - Focus on the usage
@@ -154,48 +155,12 @@ Example:
 bit show company.demo/ui/text
 ```
 
-<!-- ## Comments in code
-
-- Use code blocks (`/** */`) for describing property .
-- Use `//` for code that is commented-out so as to provide the user with the option to use it.
-
-For example:
-
-```ts
-/**
- * uncomment the code below to remove react and react-dom from the bundle.
- * this option is preferable when react/react-dom (version ^17.0.0) are dependencies
- * of other modules in the hosting app (i.e, 'shared dependencies')
- * for performance optimization, shared dependencies should be loaded only once.
- * to load react using script tags, see here: https://reactjs.org/docs/add-react-to-a-website.html#step-2-add-the-script-tags
- */
-// configMutator.addExternals({
-//   react: 'react',
-//   'react-dom': 'reactDOM',
-// });
-``` -->
-
 <!-- 
 TODO: What does this means?
 
 ## Code snippets
 
 ### Static codeblocks
+ 
 
-```ts
-import { LeftRight } from '@teambit/design.ui.layouts.sections.left-right';
-import { BubbleHighlighter } from '@teambit/community.ui.bubble-highlighter';
-import { ComponentID } from '@teambit/component-id';
-
-<LeftRight
-  left={<Snippet />}
-  right={
-    <BubbleHighlighter
-      componentId={ComponentID.fromString('learnbit.apps/react/umd-target')}
-      showId
-    >
-      <IncludeUmd />
-    </BubbleHighlighter>
-  }
-/>;
-``` -->
+-->

@@ -2,12 +2,12 @@ import React from 'react';
 import { Heading } from '@teambit/community.ui.heading';
 import classNames from 'classnames';
 // TODO: move to be in `design` owned by @amir.
-import { Edge } from '@teambit/community.ui.graph.edge';
+// import { Edge } from '@teambit/community.ui.graph.edge';
 import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 import { Button } from '@teambit/design.ui.buttons.button';
 import { Subtitle } from '@teambit/design.ui.content.subtitle';
 import { BubbleNode } from '@teambit/community.entity.graph.bubble-graph';
-import { GridNode } from '@teambit/community.entity.graph.grid-graph';
+// import { GridNode } from '@teambit/community.entity.graph.grid-graph';
 import { CopyBox } from '@teambit/documenter.ui.copy-box';
 import { ComponentID } from '@teambit/component-id';
 import { BubbleHighlighter } from '@teambit/community.ui.bubble-highlighter';
@@ -34,10 +34,10 @@ export type HeroProps = {
 
 const defaultTitle = 'Build anything in components';
 const defaultTeaser =
-  'Bit is an open-source toolchain for component-driven development. Forget monolithic apps and distribute to component-driven software. ';
+  'Bit is an open-source toolchain for component-driven software. Forget monolithic apps and distribute to component-driven software. ';
 
 export function Hero({ title = defaultTitle, teaser = defaultTeaser, bubbles }: HeroProps) {
-  const { heroState, setStateFromTime } = useHeroState();
+  const { heroState } = useHeroState();
   // const headingClass = heroState === HeroState.HEADING_UPDATED ? styles.highlight : '';
 
   return (
