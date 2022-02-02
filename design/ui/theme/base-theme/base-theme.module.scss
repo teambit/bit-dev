@@ -13,3 +13,80 @@
     height: 100%;
   }
 }
+
+$staticStorageUrl: 'https://static.bit.dev';
+
+/**
+ * Define `@font-face` rules for font-family Circular Pro Book, including bold and italic.  
+ * Provides a handy class name to add to root component.
+ */
+
+// default
+@font-face {
+	font-family: "CircularXX";
+	src: url($staticStorageUrl + '/circular-xx/CircularXXWeb-Regular.woff2');
+}
+
+// bold
+@font-face {
+	font-family: "CircularXX";
+	src: url($staticStorageUrl + '/circular-xx/CircularXXWeb-Bold.woff2');
+	font-weight: bold;
+}
+
+// // bold-er
+@font-face {
+	font-family: "CircularXX";
+	src: url($staticStorageUrl + '/circular-xx/CircularXXWeb-Black.woff2');
+	font-weight: 800;
+}
+
+// italic
+@font-face {
+	font-family: "CircularXX";
+	src: url($staticStorageUrl + '/circular-xx/CircularXXWeb-Italic.woff2');
+	font-style: italic;
+}
+
+// bold + italic
+@font-face {
+	font-family: "CircularXX";
+	src: url($staticStorageUrl + '/circular-xx/CircularXXWeb-BoldItalic.woff2');
+	font-style: italic;
+	font-weight: bold;
+}
+
+// bold-er + italic
+@font-face {
+	font-family: "CircularXX";
+	src: url($staticStorageUrl + '/circular-xx/CircularXXWeb-BlackItalic.woff2');
+	font-style: italic;
+	font-weight: 800;
+}
+
+// add medium here.
+// @font-face {
+// 	font-family: "CircularXX";
+// 	src: url($staticStorageUrl + '/circular-xx/CircularXXWeb-BlackItalic.woff2');
+// 	font-style: italic;
+// 	font-weight: 800;
+// }
+
+// // bold-er + italic
+// @font-face {
+// 	font-family: "CircularXX";
+// 	src: url($staticStorageUrl + '/circular-xx/CircularXXWeb-BlackItalic.woff2');
+// 	font-style: italic;
+// 	font-weight: 800;
+// }
+
+.bookFont {
+	font-family: "CircularXX", "Gill Sans", "Gill Sans MT", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.dark {
+  color: var(--on-background-color);
+  background: var(--background-color);
+  // @TODO: move to 100%
+  min-height: 100vh;
+}
