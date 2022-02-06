@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
+import { useLocation } from '@teambit/base-react.navigation.link';
 import { indentClass } from '@teambit/base-ui.graph.tree.indent';
 import { Icon } from '@teambit/design.elements.icon';
 import { Link } from '@teambit/design.ui.navigation.link';
@@ -46,6 +47,9 @@ export type NodeTitleProps = {
 };
 
 export function NodeTitle({ id, icon, open, configPath, overviewPath, active, setOpen }: NodeTitleProps) {
+  const location = useLocation();
+  const isActivePath = !!overviewPath && location?.pathname === overviewPath;
+
   const displayName = id.replace(/\/$/, '').split('/').pop();
   const CustomIcon = getCustomIcon(icon);
   const handleOnFolderClick = () => {
@@ -62,7 +66,10 @@ export function NodeTitle({ id, icon, open, configPath, overviewPath, active, se
   );
 
   const Title = (
-    <div className={classNames(indentClass, styles.folder, active && styles.active)} onClick={handleOnFolderClick}>
+    <div
+      className={classNames(indentClass, styles.folder, isActivePath && styles.active)}
+      onClick={handleOnFolderClick}
+    >
       {overviewPath ? (
         <Link href={overviewPath} className={classNames(styles.folderLink)}>
           {content}
