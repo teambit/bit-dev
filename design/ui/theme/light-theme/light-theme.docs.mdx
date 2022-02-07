@@ -5,20 +5,16 @@ labels: ['label1', 'label2', 'label3']
 
 import { LightTheme } from './light-theme';
 
-## React Component for rendering text
+Light theme values for our [Bit theming system](https://bit.dev/teambit/design/ui/theme/base-theme).
 
-A basic div that renders some text
-
-### Component Usage
+### Component usage
 
 ```js
-<LightTheme text="hello from LightTheme" />
+<LightTheme>
+  <div>...</div>
+</LightTheme>
 ```
 
-### Using props to customize the text
+### Render a component in light
 
-Modify the text to see it change live:
-
-```js live
-<LightTheme text="hello from LightTheme" />
-```
+<LightTheme style={{ padding: 8 }}>Hello world!</LightTheme>

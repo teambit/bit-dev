@@ -1,28 +1,7 @@
-
-/**
- * maintained by design tokens go here!
- * the designer.
- */
-export const baseThemeDefaults: BaseThemeType = {
-  primaryColor: '#6C5CE7',
-  onPrimaryColor: '#FFFFFF',
-  focusOpacity: '.12',
-  hoverOpacity: '.08',
-  backgroundColor: '#FFFFFF',
-  onBackgroundColor: '#2B2B2B',
-  onBackgroundColorMedium: '#707279',
-  onBackgroundColorHigh: '#9598A1',
-  borderColor: '#E3E5E9',
-  surfaceColor: '#FFFFFF',
-  onSurfaceColor: '#2B2B2B',
-  surfaceHoverColor: '#707279',
-  surfaceActiveColor: '#DDDDDD',
-};
-
 /**
  * a point for agreement between designers and developers.
  */
-export interface BaseThemeType {
+export interface BaseThemeSchema {
   /**
    * primary color.
    */
@@ -51,7 +30,12 @@ export interface BaseThemeType {
   /**
    * color to use on top of a `backgroundColor`.
    */
-  onBackgroundColor: string;
+   onBackgroundColor: string;
+
+  /**
+   * color to use on top of a `onBackgroundColor`.
+   */
+  onBackgroundColorLow: string;
 
   /**
    * a color to be used on top of a `onBackgroundColorMedium`
@@ -70,12 +54,12 @@ export interface BaseThemeType {
 
   /**
    * color to be used for surface on top of 'backgroundColor'
-   * surface color.
+   * surface color
    */
   surfaceColor: string;
 
   /**
-   * a color to be used on top of the surfaceColor
+   * a color to be used on top of the surfaceColor (for texts, icons, etc)
    */
   onSurfaceColor: string;
 
@@ -88,4 +72,9 @@ export interface BaseThemeType {
    * color to be used as active on top of a `surfaceColor`.
    */
   surfaceActiveColor: string;
+
+  /**
+   * color to be used as focus on top of a `surfaceColor`.
+   */
+  surfaceFocusColor: string;
 }

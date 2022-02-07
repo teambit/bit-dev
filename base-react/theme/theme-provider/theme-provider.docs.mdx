@@ -1,177 +1,33 @@
 ---
-description: 'A standard Theme Provider component'
-labels: ['theme', 'design-tokens', 'design', 'collboration', 'standardization']
+description: 'A React theme provider generator'
+labels: ['theme', 'design tokens', 'design system', 'react', 'css custom props']
 ---
 
-import { useState } from 'react';
-import { createTheme } from './create-theme';
+Theme Provider generates a theme out of design tokens (for example: `{ colorText: '#cab854' }`).
+Maintaining design tokens in a component makes collaboration between designers and developers easier, and ensures a scalable and consistent design system.
 
-Theme Provider helps product teams collaborate on design tokens and variables, and get them to agree on a single, unified schema.
+## Basic usage
 
-### Component Usage
+To create your own theme using the theme provider, fork this demo theme component into your workspace:
 
-Here you can see a basic theme decleration, with two tokens - `backgrondColor`, and `textColor`.
-
-```tsx
-// (1) define the schema, with default values:
-export const MyThemeDefaults = {
-  backgroundColor: '#c4e3ed',
-  textColor: '#94472e',
-};
-
-// we can later use this type to define concrete theme values
-export type MyThemeSchema = typeof MyThemeDefaults;
-
-// (2) create the theme
-export const MyTheme = createTheme({ theme: MyThemeDefaults });
+```bash
+bit fork learnbit.base-react/theme/my-default-theme
 ```
 
-To consume the theme, first apply it to your context:
+- Check the [`my-default-theme.ts`](https://bit.dev/learnbit/base-react/theme/my-default-theme/~code/my-default-theme.ts) file (of your newly-created component), to see how to create a new theme using Theme Provider's `createTheme` function.
 
-```tsx
-import { MyTheme } from '@mycorp/design.my-theme';
+- Check the [`my-default-theme.compositions.tsx`](https://bit.dev/learnbit/base-react/theme/my-default-theme/~code/my-default-theme.composition.tsx) file, to see how components are styled using the generated theme.
+  Notice how the components can be themed using JS variables as well as [CSS props](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
 
-export function App() {
-  return (
-    // (3) apply the theme:
-    <MyTheme.ThemeProvider>
-      <div>Regular content</div>
-      <Content>Themed content</Content>
-    </MyTheme.ThemeProvider>
-  );
-}
+## Extending a theme
+
+Fork this dark-theme component to learn how to customize the previously generated theme:
+
+```bash
+bit fork learnbit.base-react/theme/my-dark-theme
 ```
 
-Now, you can consume it in any decendant component.  
-It is available both as css vars (usually in `*.css` file), or as javascript vars, from react context.
+- Check the [`my-dark-theme.ts`](https://bit.dev/learnbit/base-react/theme/my-dark-theme/~code/my-dark-theme.ts) file to learn how to define new design token values.
+  Notice how the `ThemeSchema` type provided by the default theme, is used here to ensure consistency in the way design tokens are used.
 
-```tsx
-import { MyTheme } from '@mycorp/design.my-theme';
-
-// (4) consumtion of theme:
-
-export function Content({ children }) {
-  const { textColor } = MyTheme.useTheme();
-  const contentStyles = {
-    background: 'var(--background-color)', // as css variable
-    color: textColor, // as react context variable
-  };
-
-  return <div style={contentStyles}>{children}</div>;
-}
-```
-
-Try it out!
-
-```tsx live
-() => {
-  // (1) define the schema, with default values:
-  const themeTokens = {
-    backgroundColor: '#c4e3ed',
-    textColor: '#94472e',
-  };
-
-  // (2) create the theme:
-  const MyTheme = createTheme({ theme: themeTokens });
-
-  // (3) apply the theme:
-  function App() {
-    return (
-      <MyTheme.ThemeProvider>
-        <div>Regular content</div>
-        <Content>Themed content</Content>
-      </MyTheme.ThemeProvider>
-    );
-  }
-
-  // (4) consume the theme:
-
-  function Content({ children }) {
-    const { textColor } = MyTheme.useTheme();
-    const contentStyles = {
-      padding: 8,
-      transition: 'all 180ms',
-      background: 'var(--background-color)',
-      color: textColor,
-    };
-
-    return <div style={contentStyles}>{children}</div>;
-  }
-
-  return <App />;
-};
-```
-
-### Creating concrete themes
-
-In the previous step, you created the theme schema.  
-Let's compose that schema and create concrete light and dark implementations.
-
-```tsx
-import { MyThemeSchema } from '@mycorp/design.my-theme';
-
-export const lightTheme: MyThemeSchema = {
-  backgroundColor: '#ffffff',
-  textColor: '#414141',
-};
-
-export const darkTheme: MyThemeSchema = {
-  backgroundColor: '#202125',
-  textColor: '#e8eaed',
-};
-```
-
-Then, plug these values into the theme provider:
-
-```tsx
-import { MyTheme, lightTheme, darkTheme } from '@mycorp/design.my-theme';
-
-export function App({ light }: { light: boolean }) {
-  return (
-    <MyTheme.ThemeProvider overrides={light ? lightTheme : darkTheme}>
-      <div>Regular content</div>
-      <Content>Themed content</Content>
-    </MyTheme.ThemeProvider>
-  );
-}
-```
-
-Try it out:
-
-```tsx live
-() => {
-  const themeTokens = { backgroundColor: '#c4e3ed', textColor: '#94472e' };
-  const MyTheme = createTheme({ theme: themeTokens });
-
-  const lightTheme = { backgroundColor: '#f6f6f6', textColor: '#414141' };
-  const darkTheme = { backgroundColor: '#202125', textColor: '#e8eaed' };
-
-  function App() {
-    const [light, setLight] = useState(true);
-    return (
-      <MyTheme.ThemeProvider overrides={light ? lightTheme : darkTheme}>
-        <div>Regular content</div>
-        <button onClick={() => setLight((x) => !x)}>toggle theme</button>
-
-        <br />
-        <br />
-        <Content>Themed content</Content>
-      </MyTheme.ThemeProvider>
-    );
-  }
-
-  function Content({ children }) {
-    const { textColor } = MyTheme.useTheme();
-    const contentStyles = {
-      padding: 8,
-      transition: 'all 180ms',
-      background: 'var(--background-color)',
-      color: textColor,
-    };
-
-    return <div style={contentStyles}>{children}</div>;
-  }
-
-  return <App />;
-};
-```
+- Check the [`my-dark-theme.compositions.tsx`](https://bit.dev/learnbit/base-react/theme/my-dark-theme/~code/my-dark-theme.composition.tsx) file to learn how to theme components using the above overriding design token values.

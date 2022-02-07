@@ -1,18 +1,16 @@
 import React, { ReactNode } from 'react';
-import { BaseTheme } from '@teambit/design.ui.theme.base-theme';
-import { lightTheme } from './variables';
+import { BaseTheme, baseThemeDefaults, BaseThemeProps } from '@teambit/design.ui.theme.base-theme';
+import { LightThemeIcon } from './light-theme.icon';
 
 export type LightThemeProps = {
-  /**
-   * modify the color.
-   */
-  backgroundColor?: string;
-
   children?: ReactNode;
 };
 
-export function LightTheme({ children }: LightThemeProps) {
-  // TODO: oded fix that please
-  // @ts-ignore
-  return <BaseTheme theme={lightTheme}>{children}</BaseTheme>;
+export const lightThemeValues = baseThemeDefaults;
+export function LightTheme(props: BaseThemeProps) {
+  return <BaseTheme {...props} />;
 }
+
+// theme metadata
+LightTheme.Icon = LightThemeIcon;
+LightTheme.themeName = 'light';

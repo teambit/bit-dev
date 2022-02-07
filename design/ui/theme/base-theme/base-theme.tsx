@@ -1,25 +1,31 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 import { createTheme } from '@teambit/base-react.theme.theme-provider';
-import { BaseThemeType, baseThemeDefaults } from './base-theme-type';
+// TODO: remove this after replacing icon fonts with components and deprecate this.
+import { IconFont } from '@teambit/design.theme.icons-font';
+import { BaseThemeSchema } from './base-theme-schema';
+import { baseThemeDefaults } from './theme-default.values';
 import { getLegacyTokens } from './legacy-tokens';
+import { circularFont } from './circular-font';
 import styles from './base-theme.module.scss';
 
-const { useTheme, ThemeProvider } = createTheme<BaseThemeType>({
+const ICON_MOON_VERSION = 'mxd7i0';
+
+const { useTheme, ThemeProvider } = createTheme<BaseThemeSchema>({
   theme: baseThemeDefaults,
 });
 
-export type BaseThemeProps = {
-  overrides?: Partial<BaseThemeType>;
+export interface BaseThemeProps extends React.HTMLAttributes<HTMLDivElement> {
+  overrides?: Partial<BaseThemeSchema>;
   children?: ReactNode;
-};
+}
 
-export function BaseTheme({ overrides, children }: BaseThemeProps) {
+export function BaseTheme({ children, className, ...props }: BaseThemeProps) {
   return (
-    <ThemeProvider className={classNames(styles.bookFont, styles.dark)} overrides={overrides}>
-      <LegacyThemeProvider>
-        {children}
-      </LegacyThemeProvider>
+    <ThemeProvider {...props} className={classNames(circularFont, styles.theme, className)}>
+      <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet" />
+      <IconFont query={ICON_MOON_VERSION} />
+      <LegacyThemeProvider>{children}</LegacyThemeProvider>
     </ThemeProvider>
   );
 }

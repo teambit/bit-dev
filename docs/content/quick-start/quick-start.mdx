@@ -47,7 +47,9 @@ Here is an example of what you will get:
 <ExcludeHighlighter>
   <BubbleHighlighter componentId={ComponentID.fromString('teambit.wiki/apps/wiki')} showId>
     <MemoryRouter>
-      <WikiApp />
+      <div className={styles.wiki}>
+        <WikiApp />
+      </div>
     </MemoryRouter>
   </BubbleHighlighter>
 </ExcludeHighlighter>
