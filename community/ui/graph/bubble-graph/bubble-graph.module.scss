@@ -1,6 +1,7 @@
 .bubble {
   position: absolute;
-  background-color: white;
+  background: var(--surface01-color);
+
   &:hover {
     z-index: 1;
   }
