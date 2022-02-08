@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { DarkTheme } from '@teambit/design.themes.dark-theme';
 import { CommunityHighlighter } from '@teambit/community.ui.community-highlighter';
-import { ThemeSwitcher } from '@teambit/design.ui.theme.theme-toggler';
+import { ThemeSwitcher } from '@teambit/design.themes.theme-toggler';
 import { Header } from '@teambit/wiki.blocks.header';
 import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 import { Footer } from '@teambit/wiki.blocks.footer';

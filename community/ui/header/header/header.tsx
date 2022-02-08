@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { Icon } from '@teambit/design.elements.icon';
 import { GithubStars } from '@teambit/community.ui.github-stars';
 import { ExternalLink } from '@teambit/design.ui.external-link';
-import { ThemeToggler } from '@teambit/design.ui.theme.theme-toggler';
+import { ThemeToggler } from '@teambit/design.themes.theme-toggler';
 import { Header as BaseHeader, HeaderProps as BaseHeaderProps } from '@teambit/design.blocks.header';
 import { Toggler } from '@teambit/community.ui.community-highlighter';
 import { headerContent } from './header-links';
