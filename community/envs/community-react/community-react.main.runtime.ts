@@ -23,8 +23,11 @@ export class CommunityReactMain {
   static runtime = MainRuntime;
 
   static async provider([react, envs, generator]: [ReactMain, EnvsMain, GeneratorMain]) {
-    const { devDependencies, dependencies } = react.env.getDependencies();
+    const { devDependencies, dependencies }: any = react.env.getDependencies();
     // console.log(dependencies, devDependencies);
+    const deps = {
+      'core-js': dependencies['core-js'],
+    };
     const templatesReactEnv = envs.compose(react.reactEnv, [
       envs.override({
         getPreviewConfig: () => {
@@ -38,7 +41,7 @@ export class CommunityReactMain {
       envs.override({
         getDependencies: () => {
           return {
-            // dependencies,
+            dependencies: deps,
             devDependencies,
             peers: [
               {
