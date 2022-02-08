@@ -1089,12 +1089,6 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/theme/theme-provider"
     },
-    "themes/dark-theme": {
-        "scope": "teambit.design",
-        "version": "0.0.23",
-        "mainFile": "index.ts",
-        "rootDir": "design/themes/dark-theme"
-    },
     "ui/brand/logo": {
         "scope": "teambit.design",
         "version": "1.80.12",
@@ -1520,24 +1514,6 @@
         "version": "1.80.12",
         "mainFile": "index.ts",
         "rootDir": "community/ui/terminal"
-    },
-    "ui/theme/base-theme": {
-        "scope": "teambit.design",
-        "version": "1.80.22",
-        "mainFile": "index.ts",
-        "rootDir": "design/ui/theme/base-theme"
-    },
-    "ui/theme/light-theme": {
-        "scope": "teambit.design",
-        "version": "1.80.17",
-        "mainFile": "index.ts",
-        "rootDir": "design/ui/theme/light-theme"
-    },
-    "ui/theme/theme-toggler": {
-        "scope": "teambit.design",
-        "version": "0.0.20",
-        "mainFile": "index.ts",
-        "rootDir": "design/ui/theme/theme-toggler"
     },
     "ui/use-cases/use-cases-card": {
         "scope": "teambit.community",
