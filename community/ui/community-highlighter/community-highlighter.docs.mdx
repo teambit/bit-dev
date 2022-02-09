@@ -1,18 +1,28 @@
 ---
-description: A CommunityHighlighter component.
+description: Enables visual inspection of React components
+labels: ['react', 'component discoverability', 'open-source contribution']
 ---
 
+import { LeftRight } from '@teambit/design.ui.layouts.sections.left-right';
+import { Example } from './example/example-component';
+import ExampleSnippet from './example/example-snippet.mdx';
 import { CommunityHighlighter } from './community-highlighter';
 
-A component that does something special and renders text in a div.
+Community Highlighter enables you to visually inspect React components so as to reveal the component IDs of their descendant components.
+It makes public components more discoverable and promotes open-source contributions in the Bit community.
+The data retrieved and displayed by Community Highlighter was injected into the _preview_ bundle of the (inspected) component by [Bit's babel plugin](https://bit.dev/teambit/react/babel/bit-react-transformer).
 
-### Component usage
-```js
-<CommunityHighlighter>Hello world!</CommunityHighlighter>
-```
+## Basic usage
 
-### Render hello world!
+Wrap your components with Community Highlighter to enable inspection:
 
-```js live
-<CommunityHighlighter>Hello world!</CommunityHighlighter>
-```
+<LeftRight
+  left={<ExampleSnippet />}
+  right={<Example />}
+  style={{ marginTop: '2em', marginBottom: '2em' }}
+/>
+
+## Disabling the highlighter
+
+You can disable the highlighter using the highlighter's [`Toggler`](https://bit.dev/learnbit/community/ui/highlighter-example/~code/toggler.composition.tsx) component, or using its [`useHighlighter`](https://bit.dev/learnbit/community/ui/highlighter-example/~code/use-highlighter.composition.tsx) hook.
+The highlighter's state (`disable = true/false`) is persisted in the local storage.
