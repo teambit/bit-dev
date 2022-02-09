@@ -1037,7 +1037,7 @@
     },
     "navigation/link": {
         "scope": "teambit.base-react",
-        "version": "1.90.3",
+        "version": "2.0.13",
         "mainFile": "index.ts",
         "rootDir": "base-react/navigation/link"
     },
@@ -1391,7 +1391,7 @@
     },
     "ui/navigation/react-router-adapter": {
         "scope": "teambit.ui-foundation",
-        "version": "1.90.3",
+        "version": "5.0.11",
         "mainFile": "index.ts",
         "rootDir": "ui-foundation/ui/navigation/react-router-adapter"
     },

@@ -69,6 +69,7 @@
         "@teambit/base-ui.layout.grid-component": "1.0.1",
         "@teambit/base-ui.layout.page-frame": "1.0.1",
         "@teambit/base-ui.loaders.skeleton": "1.0.1",
+        "@teambit/base-ui.routing.compare-url": "1.0.0",
         "@teambit/base-ui.routing.routing-provider": "1.0.0",
         "@teambit/base-ui.surfaces.card": "1.0.1",
         "@teambit/base-ui.text.paragraph": "1.0.3",
@@ -271,6 +272,9 @@
       "teambit.community/envs/community-react": "-",
       "teambit.react/react": {},
       "defaultScope": "teambit.explorer"
+    },
+    "{navigation/link}, {ui/navigation/react-router-adapter}": {
+      "teambit.community/envs/community-react": "-"
     },
     "pkg": {
       "defaultScope": "teambit.pkg"
