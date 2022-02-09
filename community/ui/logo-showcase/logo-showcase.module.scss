@@ -9,7 +9,7 @@
     padding: 24px;
 
     border-radius: 100%; //prevent 'square' shadow
-    background: var(--surface-color);
+    background: var(--surface-color, #ffffff);
     box-shadow: 0px 8px 20px rgba(30, 30, 30, 0.1);
 
     image-rendering: optimizeSpeed;

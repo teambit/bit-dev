@@ -1,4 +1,4 @@
 .heading {
-  color: var(--bit-text-color);
+  color: var(--bit-text-color, #414141);
   font-weight: 800;
 }

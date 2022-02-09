@@ -22,7 +22,7 @@ export function Edge({ node, dependency, ...rest }: EdgeProps) {
         end={dependency.attrId}
         animateDrawing={!!dependency.edge?.animate}
         strokeWidth={dependency.edge?.strokeWidth || 2}
-        color={dependency.edge?.color || 'var(--surface-hover-color)'}
+        color={dependency.edge?.color || 'var(--surface-hover-color, #edebfc)'}
         {...anchors}
         {...direction}
       />
