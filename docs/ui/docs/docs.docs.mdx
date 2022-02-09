@@ -3,9 +3,6 @@ description: 'A component-based documentation section'
 labels: ['docs', 'page', 'routes']
 ---
 
-import { MemoryRouter } from 'react-router-dom';
-import { NavigationProvider } from '@teambit/base-react.navigation.link';
-import { reactRouterAdapter } from '@teambit/ui-foundation.ui.navigation.react-router-adapter';
 import { Docs } from './docs';
 
 `Docs` is a component-based documentation section built in React. It is a React component you can use in your website's components.
@@ -64,12 +61,6 @@ This component receives and renders all the Routes and makes them available in R
     },
   ];
 
-  return (
-    <MemoryRouter>
-      <NavigationProvider implementation={reactRouterAdapter}>
-        <Docs baseUrl="/" contents={[{ routes }]} primaryLinks={primaryRoutes} />
-      </NavigationProvider>
-    </MemoryRouter>
-  );
+  return <Docs baseUrl="/" contents={[{ routes }]} primaryLinks={primaryRoutes} />;
 };
 ```
