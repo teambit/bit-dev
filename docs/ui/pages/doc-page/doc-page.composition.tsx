@@ -5,7 +5,7 @@ import { DocPage } from './doc-page';
 export const BasicDocPage = () => (
   <DocPage
     index={0}
-    route={{ title: 'Create a new Workspace', component: <CreateWorkspace />, absPath: '/', plugins: [] }}
+    route={{ title: 'Create a new Workspace', component: <CreateWorkspace />, absPath: '/', path: '/', plugins: [] }}
   >
     <CreateWorkspace />
   </DocPage>

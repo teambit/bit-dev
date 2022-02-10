@@ -8,11 +8,7 @@
   "extensions": {
     "teambit.dependencies/dependency-resolver": {
       "policy": {
-        "dependencies": {
-          "@types/react-router-dom": "5.1.7",
-          "react-router-dom": "5.2.0",
-          "history": "^5.0.1"
-        }
+        "dependencies": {}
       }
     }
   }

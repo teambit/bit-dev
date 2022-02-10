@@ -90,6 +90,6 @@ describe('should render an active folder with left icon and configuration icon',
   it('folder link should be active', () => {
     const { container } = render(<NodeTitleWithOverviewActive />);
     const folderElement = container.getElementsByClassName('folder')[0];
-    expect(folderElement.classList.contains('active')).toBeTruthy();
+    expect(folderElement).toHaveClass('active');
   });
 });

@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import classNames from 'classnames';
 import { DocsRoute, DocsRoutes } from '@teambit/docs.entities.docs-routes';
-import { Switch, Route, useRouteMatch } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { Sidebar } from '@teambit/docs.blocks.sidebar';
 import { DocPage } from '@teambit/docs.ui.pages.doc-page';
 import { DocsPlugin } from '@teambit/docs.plugins.docs-plugin';
@@ -49,12 +49,11 @@ export type DocsProps = {
 } & React.HtmlHTMLAttributes<HTMLDivElement>;
 
 export function Docs({ contents, primaryLinks = [], baseUrl, plugins = [], className, ...rest }: DocsProps) {
-  const { path } = useRouteMatch();
-  const primaryRoutes = DocsRoutes.from(primaryLinks, baseUrl || path);
+  const primaryRoutes = DocsRoutes.from(primaryLinks, baseUrl);
   const contentRoutes = contents?.map((category) => {
     return {
       title: category.title,
-      routes: DocsRoutes.from(category.routes || [], baseUrl || path),
+      routes: DocsRoutes.from(category.routes || [], baseUrl),
       className: category.className,
     };
   });
@@ -78,21 +77,23 @@ export function Docs({ contents, primaryLinks = [], baseUrl, plugins = [], class
       <div {...rest} className={classNames(styles.main, className)}>
         <Sidebar primaryLinks={primaryRoutes.toSideBarTree()} sections={contentRoutes} />
         <div className={styles.content}>
-          <Switch>
+          <Routes>
             {routeArray.map((route, key) => {
               return (
-                <Route key={route.absPath} path={route.absPath}>
-                  <DocPage index={key} route={route} plugins={plugins}>
-                    {route.component}
-                  </DocPage>
-                </Route>
+                <Route
+                  key={route.absPath}
+                  path={route.path}
+                  element={
+                    <DocPage index={key} route={route} plugins={plugins}>
+                      {route.component}
+                    </DocPage>
+                  }
+                />
               );
             })}
             {/* default catch all */}
-            <Route path="*">
-              <NotFound />
-            </Route>
-          </Switch>
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </div>
       </div>
     </DocsContext.Provider>
