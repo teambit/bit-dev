@@ -7,7 +7,7 @@ import { useHighlighter } from '../use-highlighter';
 export const ExampleComponent = () => (
   <FeaturesCard
     title="Hover over me!"
-    text="Hover over me to inspect my composition. Click on the scope name/component name labels to visit their pages. "
+    text="Click on the scope name/component name labels to visit their pages. "
     image="https://static.bit.dev/Community/features/distributed.svg"
     alt="an example component"
   />

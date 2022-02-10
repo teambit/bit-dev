@@ -8,21 +8,26 @@ import { Example } from './example/example-component';
 import ExampleSnippet from './example/example-snippet.mdx';
 import { CommunityHighlighter } from './community-highlighter';
 
-Community Highlighter enables you to visually inspect React components so as to reveal the component IDs of their descendant components.
-It makes public components more discoverable and promotes open-source contributions in the Bit community.
-The data retrieved and displayed by Community Highlighter was injected into the _preview_ bundle of the (inspected) component by [Bit's babel plugin](https://bit.dev/teambit/react/babel/bit-react-transformer).
+Community Highlighter helps you discover components by revealing the component IDs of UI elements in a page.
+The highlighter data is injected into the component's bundle <!-- TODO: change the link to the relevant page in the docs --> using [Bit's babel plugin](https://bit.dev/teambit/react/babel/bit-react-transformer).
+This plugin is used by default in application built with the [React app-type](https://bit.dev/teambit/react/react).
 
 ## Basic usage
 
 Wrap your components with Community Highlighter to enable inspection:
 
-<LeftRight
-  left={<ExampleSnippet />}
-  right={<Example />}
-  style={{ marginTop: '2em', marginBottom: '2em' }}
-/>
+<LeftRight left={<ExampleSnippet />} right={<Example />} />
+
+Fork this demo component, to try the highlighter in your workspace:
+
+```bash
+bit fork learnbit.community/ui/highlighter-example
+```
 
 ## Disabling the highlighter
 
-You can disable the highlighter using the highlighter's [`Toggler`](https://bit.dev/learnbit/community/ui/highlighter-example/~code/toggler.composition.tsx) component, or using its [`useHighlighter`](https://bit.dev/learnbit/community/ui/highlighter-example/~code/use-highlighter.composition.tsx) hook.
-The highlighter's state (`disable = true/false`) is persisted in the local storage.
+You can disable the highlighter using the highlighter's `Toggler` component, or using its `useHighlighter` hook.
+The highlighter's state (`disable: boolean`) is persisted in the local storage.
+
+- Check the [`example-with-toggler.tsx`](https://bit.dev/learnbit/community/ui/highlighter-example/~code/example-with-toggler.tsx) file to learn how to use the Toggler component
+- Check the [`example-with-use-highlighter.tsx`](https://bit.dev/learnbit/community/ui/highlighter-example/~code/example-with-use-highlighter.tsx) file to learn how to use the use-highlighter hook

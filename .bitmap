@@ -17,7 +17,7 @@
     },
     "apps/wiki": {
         "scope": "teambit.wiki",
-        "version": "1.90.7",
+        "version": "1.90.9",
         "mainFile": "index.ts",
         "rootDir": "wiki/apps/wiki"
     },
@@ -1139,13 +1139,16 @@
     },
     "ui/community-highlighter": {
         "scope": "teambit.community",
-        "version": "1.90.6",
+        "version": "1.90.7",
         "mainFile": "index.ts",
         "rootDir": "community/ui/community-highlighter",
         "config": {
-            "teambit.community/envs/community-react": {},
+            "teambit.community/envs/community-react": {
+                "__specific": true
+            },
             "teambit.envs/envs": {
-                "env": "teambit.community/envs/community-react"
+                "env": "teambit.community/envs/community-react",
+                "__specific": true
             }
         }
     },
