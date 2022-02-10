@@ -61,8 +61,8 @@ export class CommunityReactMain {
               // },
               {
                 name: 'react-router-dom',
-                supportedRange: '^5.0.0',
-                version: '^5.0.0',
+                supportedRange: '^6.0.0',
+                version: '^6.0.0',
               },
               {
                 name: 'graphql',

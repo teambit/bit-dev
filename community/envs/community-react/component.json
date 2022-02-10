@@ -7,14 +7,7 @@
   "propagate": true,
   "extensions": {
     "teambit.dependencies/dependency-resolver": {
-      "policy": {
-        "dependencies": {
-          "react-router-dom": "6.2.1"
-        },
-        "peerDependencies": {
-          "react-router-dom": "-"
-        }
-      }
+      "policy": {}
     }
   }
 }
