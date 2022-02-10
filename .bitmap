@@ -1013,7 +1013,7 @@
     },
     "envs/community-react": {
         "scope": "teambit.community",
-        "version": "1.90.3",
+        "version": "1.90.4",
         "mainFile": "index.ts",
         "rootDir": "community/envs/community-react"
     },

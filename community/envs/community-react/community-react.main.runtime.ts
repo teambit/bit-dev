@@ -157,7 +157,7 @@ export class CommunityReactMain {
 
     envs.registerEnv(templatesReactEnv);
 
-    generator.registerComponentTemplate([myReactTemplate, myEntityTemplate, bitDevDocs]);
+    generator.registerComponentTemplate([myReactTemplate, myEntityTemplate]);
 
     return new CommunityReactMain(templatesReactEnv);
   }
