@@ -166,7 +166,7 @@
         "graphql": "^14.3.0",
         "react": "16.13.1",
         "react-dom": "16.13.1",
-        "react-router-dom": "^6.0.0" // define React Router as peer dep
+        "react-router-dom": "^6.0.0"
       }
     },
     "packageManagerArgs": [],
