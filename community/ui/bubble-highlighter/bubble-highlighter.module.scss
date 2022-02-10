@@ -9,13 +9,16 @@
   right: 50%;
   > a {
     padding: 2px 8px;
-    background-color: #f6f6f6;
+    background-color: var(--surface-hover-color, #edebfc);
     white-space: nowrap;
-    color: #2b2b2b;
+    color: var(--on-surface-color, #2b2b2b);
     transition: background-color 300ms ease-in-out;
     &:hover {
       text-decoration: none;
-      background-color: #ededed;
+      background-color: var(--surface-focus-color, #e2defa);
+    }
+    &:active {
+      background-color: var(--surface-active-color, #dcd8f9);
     }
   }
 

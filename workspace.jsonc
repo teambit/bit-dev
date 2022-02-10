@@ -146,12 +146,14 @@
         "history": "5.2.0",
         "lodash.compact": "3.0.1",
         "millify": "4.0.0",
+        "postcss": "8.4.6",
         "prettier": "2.4.1",
         "react-helmet": "6.1.0",
         "react-json-view": "1.21.3",
         "react-medium-image-zoom": "4.3.5",
         "react-terminal": "1.2.1",
         "react-xarrows": "2.0.2",
+        "stylelint-config-recommended-scss": "5.0.2",
         "typescript": "4.4.2",
         "url-join": "4.0.1",
         "url-parse": "1.5.3",
@@ -267,6 +269,9 @@
       "teambit.community/envs/community-react": "-",
       "teambit.react/react": {},
       "defaultScope": "teambit.explorer"
+    },
+    "{navigation/link}, {ui/navigation/react-router-adapter}": {
+      "teambit.community/envs/community-react": "-"
     },
     "pkg": {
       "defaultScope": "teambit.pkg"

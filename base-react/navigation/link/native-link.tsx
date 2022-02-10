@@ -1,6 +1,6 @@
 import React, { useMemo, forwardRef } from 'react';
 import classNames from 'classnames';
-import { compareUrl } from '@teambit/ui-foundation.urls.compare-url';
+import { compareUrl } from '@teambit/base-ui.routing.compare-url';
 import { useLocation } from './use-location';
 import type { LinkProps } from './link.type';
 

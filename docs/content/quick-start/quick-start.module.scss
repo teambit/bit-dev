@@ -22,5 +22,6 @@
 }
 
 .wiki {
+  // prevent absolute/fixed items from overflowing
   transform: translateZ(0);
 }

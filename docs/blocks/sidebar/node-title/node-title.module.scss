@@ -15,7 +15,7 @@
   font-weight: bold;
   font-size: inherit;
   padding-right: 8px;
-  font-size: var(--bit-p-xs);
+  font-size: var(--bit-p-xs, 14px);
   user-select: none;
   cursor: pointer;
   &:hover {
