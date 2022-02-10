@@ -3,7 +3,7 @@ import { MemoryRouter } from 'react-router-dom';
 import { PreviewRuntime } from '@teambit/preview';
 import { ReactAspect, ReactPreview } from '@teambit/react';
 
-import { LightTheme } from '@teambit/design.themes.light-theme';
+import { ThemeSwitcher } from '@teambit/design.themes.theme-toggler';
 import { NavigationProvider } from '@teambit/base-react.navigation.link';
 import { reactRouterAdapter } from '@teambit/ui-foundation.ui.navigation.react-router-adapter';
 
@@ -28,7 +28,7 @@ export class CommunityReactPreview {
     react.registerProvider([
       (props: { children: React.ReactNode }) => <NavigationProvider {...props} implementation={reactRouterAdapter} />,
       MemoryRouter,
-      LightTheme,
+      ThemeSwitcher,
     ]);
 
     return communityReactPreview;
