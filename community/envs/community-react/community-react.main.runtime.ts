@@ -1,11 +1,10 @@
 import { MainRuntime } from '@teambit/cli';
-import { ReactAspect, ReactMain } from '@teambit/react';
+import { ReactAspect, ReactMain, ReactEnv } from '@teambit/react';
 import { GeneratorMain, GeneratorAspect } from '@teambit/generator';
 import { EnvsAspect, EnvsMain } from '@teambit/envs';
 import { CommunityReactAspect } from './community-react.aspect';
 import { myReactTemplate } from './templates/my-react-template';
 import { myEntityTemplate } from './templates/my-entity-template';
-import { bitDevDocs } from './templates/bitdev-docs';
 import { transformTsConfig } from './typescript/transform-tsconfig';
 
 // import { previewConfigTransformer, devServerConfigTransformer } from './webpack/webpack-transformers';
@@ -16,6 +15,8 @@ import { transformTsConfig } from './typescript/transform-tsconfig';
 // const tsconfig = require('./typescript/tsconfig');
 
 export class CommunityReactMain {
+  constructor(readonly communityReactEnv: ReactEnv) {}
+
   static slots = [];
 
   static dependencies = [ReactAspect, EnvsAspect, GeneratorAspect];
@@ -24,7 +25,6 @@ export class CommunityReactMain {
 
   static async provider([react, envs, generator]: [ReactMain, EnvsMain, GeneratorMain]) {
     const { devDependencies, dependencies }: any = react.env.getDependencies();
-    // console.log(dependencies, devDependencies);
     const deps = {
       'core-js': dependencies['core-js'],
     };
@@ -153,12 +153,13 @@ export class CommunityReactMain {
       //     // '@types/react': '17.0.3'
       //   },
       // }),
-    ]);
+    ]) as ReactEnv;
+
     envs.registerEnv(templatesReactEnv);
 
     generator.registerComponentTemplate([myReactTemplate, myEntityTemplate, bitDevDocs]);
 
-    return new CommunityReactMain();
+    return new CommunityReactMain(templatesReactEnv);
   }
 }
 
