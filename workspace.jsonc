@@ -69,6 +69,7 @@
         "@teambit/base-ui.layout.grid-component": "1.0.1",
         "@teambit/base-ui.layout.page-frame": "1.0.1",
         "@teambit/base-ui.loaders.skeleton": "1.0.1",
+        "@teambit/base-ui.routing.compare-url": "1.0.0",
         "@teambit/base-ui.routing.routing-provider": "1.0.0",
         "@teambit/base-ui.surfaces.card": "1.0.1",
         "@teambit/base-ui.text.paragraph": "1.0.3",
@@ -83,10 +84,10 @@
         "@teambit/design.elements.icon": "1.0.6",
         "@teambit/design.embeds.figma": "0.0.6",
         "@teambit/design.theme.icons-font": "1.0.8",
-        "@teambit/design.themes.base-theme": "0.0.1",
-        "@teambit/design.themes.dark-theme": "1.90.6",
-        "@teambit/design.themes.light-theme": "0.0.2",
-        "@teambit/design.themes.theme-toggler": "0.0.2",
+        "@teambit/design.themes.base-theme": "0.0.2",
+        "@teambit/design.themes.dark-theme": "1.90.8",
+        "@teambit/design.themes.light-theme": "0.0.4",
+        "@teambit/design.themes.theme-toggler": "0.0.4",
         "@teambit/design.ui.cli-snippet": "0.0.349",
         "@teambit/design.ui.dropdown": "1.0.10",
         "@teambit/design.ui.error-page": "0.0.351",
@@ -121,7 +122,7 @@
         "@teambit/ui-foundation.ui.tree.drawer": "0.0.476",
         "@teambit/ui-foundation.ui.tree.folder-tree-node": "0.0.453",
         "@teambit/ui-foundation.ui.tree.tree-node": "0.0.453",
-        "@teambit/wiki.blocks.header": "0.0.34",
+        "@teambit/wiki.blocks.header": "0.0.40",
         "@testing-library/jest-dom": "5.16.2",
         "@testing-library/react": "12.0.0",
         "@testing-library/react-hooks": "7.0.1",
@@ -270,6 +271,9 @@
       "teambit.community/envs/community-react": "-",
       "teambit.react/react": {},
       "defaultScope": "teambit.explorer"
+    },
+    "{navigation/link}, {ui/navigation/react-router-adapter}": {
+      "teambit.community/envs/community-react": "-"
     },
     "pkg": {
       "defaultScope": "teambit.pkg"

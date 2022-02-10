@@ -1,8 +1,12 @@
+import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
 import { PreviewRuntime } from '@teambit/preview';
 import { ReactAspect, ReactPreview } from '@teambit/react';
-// import { GqlServerProvider } from '@teambit/base-ui.hooks.use-graphql-light';
-import { MemoryRouter } from 'react-router-dom';
-// import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions';
+
+import { ThemeSwitcher } from '@teambit/design.themes.theme-toggler';
+import { NavigationProvider } from '@teambit/base-react.navigation.link';
+import { reactRouterAdapter } from '@teambit/ui-foundation.ui.navigation.react-router-adapter';
+
 import { CommunityReactConfig, CommunityReactAspect } from './community-react.aspect';
 
 export class CommunityReactPreview {
@@ -22,16 +26,9 @@ export class CommunityReactPreview {
   static async provider([react]: [ReactPreview], config: CommunityReactConfig) {
     const communityReactPreview = new CommunityReactPreview(config);
     react.registerProvider([
-      // ({ children }: { children?: ReactNode }) => {
-      //   // creating a new instance of the Bit graphQL provider with my URL.
-      //   return (
-      //     // <GqlServerProvider value={config.baseUrl}>
-      //       {children}
-      //     // </GqlServerProvider>
-      //   );
-      // },
+      (props: { children: React.ReactNode }) => <NavigationProvider {...props} implementation={reactRouterAdapter} />,
       MemoryRouter,
-      // ThemeCompositions,
+      ThemeSwitcher,
     ]);
 
     return communityReactPreview;

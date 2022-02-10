@@ -1,9 +1,9 @@
 @import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
 
 .highlighter {
-  --bit-highlighter-color: var(--bit-bg-heavy, #f6f6f6);
-  --bit-highlighter-color-hover: var(--bit-bg-heaviest, #ededed);
-  --bit-highlighter-color-active: var(--bit-bg-heaviest, #ededed);
+  --bit-highlighter-color: var(--surface-hover-color, #edebfc);
+  --bit-highlighter-color-hover: var(--surface-focus-color, #e2defa);
+  --bit-highlighter-color-active: var(--surface-active-color, #dcd8f9);
 }
 
 .inspect {
