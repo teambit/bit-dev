@@ -1,7 +1,7 @@
 /**
  * this is the main configuration file of your bit workspace.
  * for full documentation, please see: https://harmony-docs.bit.dev/workspace/configurations
- **/ {
+ **/{
   "$schema": "https://static.bit.dev/teambit/schemas/schema.json",
   /**
    * main configuration of the Bit workspace.
@@ -30,6 +30,7 @@
     "defaultScope": "teambit.community"
   },
   "teambit.community/apps/bit-dev": {},
+  "teambit.wiki/apps/wiki": {},
   // "teambit.generator/generator": {
   //   "aspects": ["teambit.community/envs/community-react"]
   // },
@@ -71,6 +72,8 @@
         "@teambit/base-ui.routing.routing-provider": "1.0.0",
         "@teambit/base-ui.surfaces.card": "1.0.1",
         "@teambit/base-ui.text.paragraph": "1.0.3",
+        "@teambit/cloud-providers.deployers.netlify": "0.0.7",
+        "@teambit/cloud.cloud-provider": "0.0.2",
         "@teambit/community.entity.graph.bubble-graph": "1.23.11",
         "@teambit/component-id": "0.0.369",
         "@teambit/component.modules.component-url": "0.0.71",
@@ -79,7 +82,11 @@
         "@teambit/dependencies.modules.packages-excluder": "0.0.44",
         "@teambit/design.elements.icon": "1.0.6",
         "@teambit/design.embeds.figma": "0.0.6",
-        "@teambit/design.themes.dark-theme": "0.0.1",
+        "@teambit/design.theme.icons-font": "1.0.8",
+        "@teambit/design.themes.base-theme": "0.0.1",
+        "@teambit/design.themes.dark-theme": "1.90.6",
+        "@teambit/design.themes.light-theme": "0.0.2",
+        "@teambit/design.themes.theme-toggler": "0.0.2",
         "@teambit/design.ui.cli-snippet": "0.0.349",
         "@teambit/design.ui.dropdown": "1.0.10",
         "@teambit/design.ui.error-page": "0.0.351",
@@ -87,7 +94,7 @@
         "@teambit/design.ui.heading": "1.0.7",
         "@teambit/design.ui.icon-button": "1.0.10",
         "@teambit/design.ui.input.icon-text": "0.0.7",
-        "@teambit/design.ui.input.toggle": "1.0.7",
+        "@teambit/design.ui.input.toggle": "1.0.10",
         "@teambit/design.ui.message-card": "1.0.6",
         "@teambit/design.ui.panels.tabs": "1.0.6",
         "@teambit/design.ui.sidebar.sidebar": "1.10.0",
@@ -114,7 +121,9 @@
         "@teambit/ui-foundation.ui.tree.drawer": "0.0.476",
         "@teambit/ui-foundation.ui.tree.folder-tree-node": "0.0.453",
         "@teambit/ui-foundation.ui.tree.tree-node": "0.0.453",
-        "@teambit/wiki.apps.wiki": "0.0.22",
+        "@teambit/wiki.blocks.header": "0.0.34",
+        "@testing-library/jest-dom": "5.16.2",
+        "@testing-library/react": "12.0.0",
         "@testing-library/react-hooks": "7.0.1",
         "@types/history": "^4.0.0",
         "@types/loadable__component": "5.13.4",
@@ -138,13 +147,14 @@
         "history": "^5.0.0",
         "lodash.compact": "3.0.1",
         "millify": "4.0.0",
+        "postcss": "8.4.6",
         "prettier": "2.4.1",
         "react-helmet": "6.1.0",
         "react-json-view": "1.21.3",
         "react-medium-image-zoom": "4.3.5",
-        "react-router-dom": "6.2.1", // install this specific version in workspace
         "react-terminal": "1.2.1",
         "react-xarrows": "2.0.2",
+        "stylelint-config-recommended-scss": "5.0.2",
         "typescript": "4.4.2",
         "url-join": "4.0.1",
         "url-parse": "1.5.3",
@@ -152,7 +162,6 @@
       },
       "peerDependencies": {
         "@apollo/client": "3.3.7",
-        "@testing-library/react": "12.0.0",
         "graphql": "^14.3.0",
         "react": "16.13.1",
         "react-dom": "16.13.1",
@@ -204,14 +213,7 @@
       "defaultScope": "teambit.design"
     },
     "community": {
-      "defaultScope": "teambit.community",
-      "teambit.dependencies/dependency-resolver": {
-        "policy": {
-          "devDependencies": {
-            "@teambit/design.embeds.figma": "0.0.6"
-          }
-        }
-      }
+      "defaultScope": "teambit.community"
     },
     "docs": {
       "defaultScope": "teambit.docs"

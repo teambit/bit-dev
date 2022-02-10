@@ -1,0 +1,1 @@
+export { WikiApp } from './app';

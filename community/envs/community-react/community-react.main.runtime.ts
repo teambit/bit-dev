@@ -23,6 +23,11 @@ export class CommunityReactMain {
   static runtime = MainRuntime;
 
   static async provider([react, envs, generator]: [ReactMain, EnvsMain, GeneratorMain]) {
+    const { devDependencies, dependencies }: any = react.env.getDependencies();
+    // console.log(dependencies, devDependencies);
+    const deps = {
+      'core-js': dependencies['core-js'],
+    };
     const templatesReactEnv = envs.compose(react.reactEnv, [
       envs.override({
         getPreviewConfig: () => {
@@ -32,9 +37,56 @@ export class CommunityReactMain {
           };
         },
       }),
+
+      envs.override({
+        getDependencies: () => {
+          return {
+            dependencies: deps,
+            devDependencies,
+            peers: [
+              {
+                name: 'react',
+                supportedRange: '^16.8.0 || ^17.0.0',
+                version: '^17.0.0',
+              },
+              {
+                name: 'react-dom',
+                supportedRange: '^16.8.0 || ^17.0.0',
+                version: '^17.0.0',
+              },
+              // {
+              //   name: '@testing-library/jest-dom',
+              //   supportedVersion: '^5.16.2',
+              //   version: '^5.16.2',
+              // },
+              {
+                name: 'react-router-dom',
+                supportedRange: '^5.0.0',
+                version: '^5.0.0',
+              },
+              {
+                name: 'graphql',
+                version: '^14.3.0',
+                supportedRange: '^14.3.0',
+              },
+              {
+                name: '@apollo/client',
+                version: '^3.3.7',
+                supportedRange: '^3.3.7',
+              },
+              {
+                name: 'subscriptions-transport-ws',
+                version: '^0.11.0',
+                supportedRange: '^0.11.0',
+              },
+            ],
+          };
+        },
+      }),
+
       /**
-       * Uncomment to override the config files for TypeScript, Webpack or Jest
-       * Your config gets merged with the defaults
+       * Uncomment to override the config files for TypeScript, Webpack or Jest.
+       * Your config gets merged with the defaults.
        */
       react.useTypescript({
         devConfig: [transformTsConfig],
@@ -96,11 +148,11 @@ export class CommunityReactMain {
        * @example
        * Uncomment types to include version 17.0.3 of the types package
        */
-      react.overrideDependencies({
-        devDependencies: {
-          // '@types/react': '17.0.3'
-        },
-      }),
+      // react.overrideDependencies({
+      //   devDependencies: {
+      //     // '@types/react': '17.0.3'
+      //   },
+      // }),
     ]);
     envs.registerEnv(templatesReactEnv);
 

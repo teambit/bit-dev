@@ -1,5 +1,5 @@
 import { ReactAppOptions } from '@teambit/react';
-import { NetlifyOptions, Netlify } from '@teambit/apps.netlify';
+import { NetlifyOptions, Netlify } from '@teambit/cloud-providers.deployers.netlify';
 
 const netlify: NetlifyOptions = {
   accessToken: process.env.NETLIFY_AUTH_TOKEN as string,

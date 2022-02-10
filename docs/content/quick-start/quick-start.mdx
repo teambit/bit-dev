@@ -48,7 +48,9 @@ Here is an example of what you will get:
   <BubbleHighlighter componentId={ComponentID.fromString('teambit.wiki/apps/wiki')} showId>
     <UNSAFE_LocationContext.Provider value={null}>
       <MemoryRouter>
-        <WikiApp />
+        <div className={styles.wiki}>
+          <WikiApp />
+        </div>
       </MemoryRouter>
     </UNSAFE_LocationContext.Provider>
   </BubbleHighlighter>

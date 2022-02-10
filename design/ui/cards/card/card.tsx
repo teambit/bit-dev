@@ -1,16 +1,17 @@
-import React, { ReactNode } from 'react';
-import styles from './card.module.scss';
+import React, { ReactNode } from "react";
+import classNames from "classnames";
+import styles from "./card.module.scss";
 
 export type CardProps = {
   /**
    * children to be rendered within the card.
    */
-  children?: ReactNode
+  children?: ReactNode;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-export function Card({ children, ...rest }: CardProps) {
+export function Card({ children, className, ...rest }: CardProps) {
   return (
-    <div className={styles.card} {...rest}>
+    <div className={classNames(styles.card, className)} {...rest}>
       {children}
     </div>
   );
