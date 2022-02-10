@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
+import { useLocation } from '@teambit/base-react.navigation.link';
 import { indentClass } from '@teambit/base-ui.graph.tree.indent';
 import { Icon } from '@teambit/design.elements.icon';
 import { Link } from '@teambit/design.ui.navigation.link';
@@ -25,6 +26,11 @@ export type NodeTitleProps = {
   open?: boolean;
 
   /**
+   * show title as active
+   */
+  active?: boolean;
+
+  /**
    * configuration path for this docs section.
    */
   configPath?: string;
@@ -37,16 +43,18 @@ export type NodeTitleProps = {
   /**
    * function that run on folder click.
    */
-  setOpen: (value: React.SetStateAction<boolean>) => void;
+  setOpen?: (value: React.SetStateAction<boolean>) => void;
 };
 
-export function NodeTitle({ id, icon, open, configPath, overviewPath, setOpen }: NodeTitleProps) {
+export function NodeTitle({ id, icon, open, configPath, overviewPath, active, setOpen }: NodeTitleProps) {
+  const location = useLocation();
+  const isActivePath = !!overviewPath && location?.pathname === overviewPath;
+
   const displayName = id.replace(/\/$/, '').split('/').pop();
   const CustomIcon = getCustomIcon(icon);
   const handleOnFolderClick = () => {
-    if (!overviewPath) setOpen(!open);
-    // This prevent the folder to be closed when is open and the folder is active.
-    if (overviewPath !== window?.location.pathname && !open) setOpen(!open);
+    if (active || !setOpen) return;
+    setOpen((x) => !x);
   };
 
   const content = (
@@ -59,7 +67,7 @@ export function NodeTitle({ id, icon, open, configPath, overviewPath, setOpen }:
 
   const Title = (
     <div
-      className={classNames(indentClass, styles.folder, overviewPath === window?.location.pathname && styles.active)}
+      className={classNames(indentClass, styles.folder, isActivePath && styles.active)}
       onClick={handleOnFolderClick}
     >
       {overviewPath ? (

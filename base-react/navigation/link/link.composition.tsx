@@ -45,21 +45,21 @@ export const ActiveLink = () => (
   </div>
 );
 
-const routingA: RouterContextType = {
+const navA: RouterContextType = {
   Link: ({ children, ...props }) => <a {...props}>{children} 🔗</a>,
 };
 
-const routingB: RouterContextType = {
+const navB: RouterContextType = {
   Link: ({ style, ...props }) => <a {...props} style={{ textDecoration: 'none', fontWeight: 'bolder', ...style }} />,
 };
 
 export const MultipleRoutingSystems = () => (
   <div>
-    <NavigationProvider implementation={routingA}>
+    <NavigationProvider implementation={navA}>
       <span>System 1</span> <Link href="https://bit.dev">Link</Link>
     </NavigationProvider>
     <br />
-    <NavigationProvider implementation={routingB}>
+    <NavigationProvider implementation={navB}>
       <span>System 2</span> <Link href="https://bit.dev">Link</Link>
     </NavigationProvider>
     <br />

@@ -7,6 +7,9 @@ import { DocsRoute } from './docs-route';
 export type Route = {
   title: string;
   description?: string;
+  /** relative path */
+  path: string;
+  /** absolute path (including baseUrl) */
   absPath: string;
   component: ReactNode;
   plugins: Record<string, unknown>[];
@@ -21,7 +24,7 @@ export class DocsRoutes {
    */
   getRoutes(): Route[] {
     return this.tree.flatMap((route) => {
-      return this.computeRoutes(route, this.basePath);
+      return this.computeRoutes(route);
     });
   }
 
@@ -71,6 +74,11 @@ export class DocsRoutes {
     };
   }
 
+  private toAbs(path: string) {
+    if (!this.basePath) return path;
+    return urlJoin(this.basePath, path);
+  }
+
   private computeRoutes(currentRoute: DocsRoute, parentPath?: string): Route[] {
     const thisPath = this.accumulatePath(currentRoute.path, parentPath);
 
@@ -80,9 +88,9 @@ export class DocsRoutes {
         ? [
             {
               title: currentRoute.title,
-              path: currentRoute.path,
               component: currentRoute.component,
-              absPath: this.accumulatePath(currentRoute.path, thisPath),
+              path: this.accumulatePath(currentRoute.path, thisPath),
+              absPath: this.toAbs(this.accumulatePath(currentRoute.path, thisPath)),
               description: currentRoute.description,
               plugins: currentRoute.plugins || ([] as any),
             },
@@ -93,7 +101,8 @@ export class DocsRoutes {
             {
               title: config.title,
               description: config.description,
-              absPath: this.accumulatePath(config.path, thisPath),
+              path: this.accumulatePath(config.path, thisPath),
+              absPath: this.toAbs(this.accumulatePath(config.path, thisPath)),
               component: config.component,
               plugins: currentRoute.plugins || ([] as any),
             },
@@ -104,7 +113,8 @@ export class DocsRoutes {
             {
               title: overview.title,
               description: overview.description,
-              absPath: this.accumulatePath(overview.path, thisPath),
+              path: this.accumulatePath(overview.path, thisPath),
+              absPath: this.toAbs(this.accumulatePath(overview.path, thisPath)),
               component: overview.component,
               plugins: currentRoute.plugins || ([] as any),
             },
@@ -122,7 +132,8 @@ export class DocsRoutes {
         title: currentRoute.title,
         description: currentRoute.description,
         displayInSidebar: currentRoute.displayInSidebar,
-        absPath: thisPath,
+        path: thisPath,
+        absPath: this.toAbs(thisPath),
         component: currentRoute.component,
         plugins: currentRoute.plugins || ([] as any),
       },

@@ -34,6 +34,7 @@ export function DocsTreeNode({ node, depth }: DocsTreeNodeProps) {
     <NodeTitle
       id={node.payload?.title}
       icon={node.payload?.icon}
+      active={isActive}
       open={manuallyOpen}
       configPath={node.payload?.configPath}
       overviewPath={node.payload?.overviewPath}
