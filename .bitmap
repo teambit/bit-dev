@@ -955,7 +955,13 @@
         "scope": "teambit.bit",
         "version": "1.90.3",
         "mainFile": "index.ts",
-        "rootDir": "bit/docs/installation/setup-editor"
+        "rootDir": "bit/docs/installation/setup-editor",
+        "config": {
+            "teambit.community/envs/community-mdx": {},
+            "teambit.envs/envs": {
+                "env": "teambit.community/envs/community-mdx"
+            }
+        }
     },
     "entities/docs-routes": {
         "scope": "teambit.docs",
@@ -1010,6 +1016,12 @@
         "version": "1.90.3",
         "mainFile": "index.ts",
         "rootDir": "community/entity/use-cases"
+    },
+    "envs/community-mdx": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/envs/community-mdx"
     },
     "envs/community-react": {
         "scope": "teambit.community",
