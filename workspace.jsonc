@@ -162,6 +162,7 @@
         "use-debounce": "7.0.1"
       },
       "peerDependencies": {
+        "@testing-library/react": "12.0.0",
         "@apollo/client": "3.3.7",
         "graphql": "^14.3.0",
         "react": "16.13.1",
