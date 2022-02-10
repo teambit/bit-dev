@@ -1141,7 +1141,13 @@
         "scope": "teambit.community",
         "version": "1.90.6",
         "mainFile": "index.ts",
-        "rootDir": "community/ui/community-highlighter"
+        "rootDir": "community/ui/community-highlighter",
+        "config": {
+            "teambit.community/envs/community-react": {},
+            "teambit.envs/envs": {
+                "env": "teambit.community/envs/community-react"
+            }
+        }
     },
     "ui/component-card-grid": {
         "scope": "teambit.community",
