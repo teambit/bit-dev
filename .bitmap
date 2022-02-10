@@ -17,7 +17,7 @@
     },
     "apps/wiki": {
         "scope": "teambit.wiki",
-        "version": "1.90.6",
+        "version": "1.90.9",
         "mainFile": "index.ts",
         "rootDir": "wiki/apps/wiki"
     },
@@ -1013,7 +1013,7 @@
     },
     "envs/community-react": {
         "scope": "teambit.community",
-        "version": "1.90.3",
+        "version": "1.90.4",
         "mainFile": "index.ts",
         "rootDir": "community/envs/community-react"
     },
@@ -1037,7 +1037,7 @@
     },
     "navigation/link": {
         "scope": "teambit.base-react",
-        "version": "1.90.3",
+        "version": "2.0.13",
         "mainFile": "index.ts",
         "rootDir": "base-react/navigation/link"
     },
@@ -1085,7 +1085,7 @@
     },
     "theme/theme-provider": {
         "scope": "teambit.base-react",
-        "version": "1.90.3",
+        "version": "1.90.4",
         "mainFile": "index.ts",
         "rootDir": "base-react/theme/theme-provider"
     },
@@ -1139,9 +1139,18 @@
     },
     "ui/community-highlighter": {
         "scope": "teambit.community",
-        "version": "1.90.3",
+        "version": "1.90.7",
         "mainFile": "index.ts",
-        "rootDir": "community/ui/community-highlighter"
+        "rootDir": "community/ui/community-highlighter",
+        "config": {
+            "teambit.community/envs/community-react": {
+                "__specific": true
+            },
+            "teambit.envs/envs": {
+                "env": "teambit.community/envs/community-react",
+                "__specific": true
+            }
+        }
     },
     "ui/component-card-grid": {
         "scope": "teambit.community",
@@ -1391,7 +1400,7 @@
     },
     "ui/navigation/react-router-adapter": {
         "scope": "teambit.ui-foundation",
-        "version": "1.90.3",
+        "version": "5.0.11",
         "mainFile": "index.ts",
         "rootDir": "ui-foundation/ui/navigation/react-router-adapter"
     },
