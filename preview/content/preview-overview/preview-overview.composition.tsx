@@ -1,12 +1,4 @@
 import React from 'react';
-import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions';
-import { MDXLayout } from '@teambit/mdx.ui.mdx-layout';
 import { PreviewOverview } from './index';
 
-export const BasicPreviewOverview = () => (
-  <ThemeCompositions>
-    <MDXLayout>
-      <PreviewOverview />
-    </MDXLayout>
-  </ThemeCompositions>
-);
+export const BasicPreviewOverview = () => <PreviewOverview />;
