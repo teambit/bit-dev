@@ -26,7 +26,7 @@ export const NodeTitleWithOverviewActive = () => {
       configPath="config-path"
       overviewPath={window?.location.pathname}
       open={false}
-      setOpen={() => {}}
+      active
     />
   );
 };

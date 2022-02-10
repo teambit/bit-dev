@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { CommunityHighlighter } from '@teambit/community.ui.community-highlighter';
 import { ThemeSwitcher } from '@teambit/design.themes.theme-toggler';
 import { Header } from '@teambit/wiki.blocks.header';
@@ -14,12 +14,9 @@ export function WikiApp() {
         {/* header component */}
         <Header />
         <WideColumn>
-          <Switch>
-            <Route path="/">
-              <Wiki />
-              {/* home page component */}
-            </Route>
-          </Switch>
+          <Routes>
+            <Route path="/" element={<Wiki />} />
+          </Routes>
           <Footer />
         </WideColumn>
         {/* footer component */}

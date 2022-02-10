@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { lazy } from '@loadable/component';
 import { Guides } from '@teambit/docs.ui.pages.guides';
 import { Header } from '@teambit/community.ui.header.header';
@@ -19,30 +19,26 @@ export function BitDevApp() {
   return (
     <AppContext>
       <Header />
-      <Switch>
-        <Redirect exact from="/docs" to="/docs/quick-start" />
-        <Route path="/docs">
-          <div className={wideColumn}>
-            <CommunityDocs />
-          </div>
-        </Route>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
 
-        <Redirect exact from="/guides" to="/guides/micro-frontends/overview" />
-        <Route path="/guides">
-          <div className={wideColumn}>
-            <Guides />
-          </div>
-        </Route>
-        <Route exact path="/plugins">
-          <Suspense fallback={<div />}>
-            <Plugins />
-          </Suspense>
-        </Route>
-        <Route exact path="/">
-          <Homepage />
-        </Route>
-        <Route component={NotFound} />
-      </Switch>
+        <Route path="docs" element={<Navigate replace to="/docs/quick-start" />} />
+        <Route path="docs/*" element={<CommunityDocs className="WideColumn" />} />
+
+        <Route path="/guides" element={<Navigate replace to="/guides/micro-frontends/overview" />} />
+        <Route path="/guides/*" element={<Guides className={wideColumn} />} />
+
+        <Route
+          path="/plugins"
+          element={
+            <Suspense fallback={<div />}>
+              <Plugins />
+            </Suspense>
+          }
+        />
+
+        <Route path="*" element={<NotFound />} />
+      </Routes>
       <div className={wideColumn}>
         <Footer categoryList={footerMock} />
       </div>
