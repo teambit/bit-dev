@@ -23,7 +23,7 @@ export function BitDevApp() {
         <Route path="/" element={<Homepage />} />
 
         <Route path="docs" element={<Navigate replace to="/docs/quick-start" />} />
-        <Route path="docs/*" element={<CommunityDocs className="WideColumn" />} />
+        <Route path="docs/*" element={<CommunityDocs />} />
 
         <Route path="/guides" element={<Navigate replace to="/guides/micro-frontends/overview" />} />
         <Route path="/guides/*" element={<Guides className={wideColumn} />} />
