@@ -1400,7 +1400,7 @@
     },
     "ui/navigation/react-router-adapter": {
         "scope": "teambit.ui-foundation",
-        "version": "5.0.11",
+        "version": "6.0.0",
         "mainFile": "index.ts",
         "rootDir": "ui-foundation/ui/navigation/react-router-adapter"
     },
