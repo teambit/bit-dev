@@ -19,16 +19,27 @@ export type BubbleHighlighterProps = {
    * show highlighter label
    */
   showId?: boolean;
+
+  /**
+   * className for the display label
+   */
+  labelClass?: string;
 } & BubbleCardProps;
 
-export function BubbleHighlighter({ children, componentId, showId = false, ...rest }: BubbleHighlighterProps) {
+export function BubbleHighlighter({
+  children,
+  componentId,
+  labelClass,
+  showId = false,
+  ...rest
+}: BubbleHighlighterProps) {
   const id = componentId.toString({ ignoreVersion: true }).replace(/[.\/]/g, '-');
 
   return (
     // TODO: refactor id stringify to a valid HTML ID to a component.
     // make sure to use this here and from Hero.
     <BubbleCard className={styles.bubbleHighlighter} id={id} {...rest}>
-      {showId && <Label componentId={componentId} />}
+      {showId && <Label className={labelClass} componentId={componentId} />}
       {children}
     </BubbleCard>
   );
