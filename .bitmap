@@ -1101,7 +1101,7 @@
     },
     "ui/bubble-highlighter": {
         "scope": "teambit.community",
-        "version": "1.90.4",
+        "version": "1.90.5",
         "mainFile": "index.ts",
         "rootDir": "community/ui/bubble-highlighter"
     },
