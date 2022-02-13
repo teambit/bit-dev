@@ -13,12 +13,6 @@
         "mainFile": "index.ts",
         "rootDir": "community/apps/bit-dev"
     },
-    "apps/wiki": {
-        "scope": "teambit.wiki",
-        "version": "1.90.10",
-        "mainFile": "index.ts",
-        "rootDir": "wiki/apps/wiki"
-    },
     "blocks/component/architecture-breakdown": {
         "scope": "teambit.docs",
         "version": "1.90.4",
@@ -1086,12 +1080,6 @@
         "version": "1.90.3",
         "mainFile": "index.ts",
         "rootDir": "graph/relations-graph"
-    },
-    "sections/wiki": {
-        "scope": "teambit.wiki",
-        "version": "1.90.5",
-        "mainFile": "index.ts",
-        "rootDir": "wiki/sections/wiki"
     },
     "theme/theme-provider": {
         "scope": "teambit.base-react",
