@@ -1,14 +1,6 @@
 import React from 'react';
-import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions';
-import { MDXLayout } from '@teambit/mdx.ui.mdx-layout';
 import { BitConfig } from './index';
 
 export const BasicBitConfig = () => {
-  return (
-    <ThemeCompositions>
-      <MDXLayout>
-        <BitConfig />
-      </MDXLayout>
-    </ThemeCompositions>
-  );
+  return <BitConfig />;
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions';
+import { ThemeSwitcher } from '@teambit/design.themes.theme-toggler';
 import { RelationsGraph } from './relations-graph';
 
 const scopes = [
@@ -13,7 +13,7 @@ const scopes = [
 ];
 
 export const BasicRelationsGraph = () => (
-  <ThemeCompositions style={{ width: '100%', height: '100%' }}>
+  <ThemeSwitcher style={{ width: '100%', height: '100%' }}>
     <RelationsGraph scopes={scopes} />
-  </ThemeCompositions>
+  </ThemeSwitcher>
 );
