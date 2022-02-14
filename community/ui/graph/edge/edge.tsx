@@ -1,12 +1,12 @@
 import React from 'react';
-import XArrow from 'react-xarrows';
+import XArrow, { xarrowPropsType } from 'react-xarrows';
 import { GridNode, DependencyEdge } from '@teambit/community.entity.graph.grid-graph';
 import { getDirection } from './get-direction';
 
 export type EdgeProps = {
   node: GridNode<unknown>;
   dependency: DependencyEdge;
-} & React.HTMLAttributes<HTMLDivElement>;
+} & Omit<xarrowPropsType, 'start' | 'end'>;
 
 export function Edge({ node, dependency, ...rest }: EdgeProps) {
   const anchors: any = {};
@@ -16,16 +16,15 @@ export function Edge({ node, dependency, ...rest }: EdgeProps) {
   if (dependency.edge?.end) anchors.endAnchor = dependency.edge.end;
 
   return (
-    <div {...rest}>
-      <XArrow
-        start={node.attrId}
-        end={dependency.attrId}
-        animateDrawing={!!dependency.edge?.animate}
-        strokeWidth={dependency.edge?.strokeWidth || 2}
-        color={dependency.edge?.color || 'var(--surface-hover-color, #edebfc)'}
-        {...anchors}
-        {...direction}
-      />
-    </div>
+    <XArrow
+      start={node.attrId}
+      end={dependency.attrId}
+      animateDrawing={!!dependency.edge?.animate}
+      strokeWidth={dependency.edge?.strokeWidth || 2}
+      color={dependency.edge?.color || 'var(--surface-hover-color, #edebfc)'}
+      {...anchors}
+      {...direction}
+      {...rest}
+    />
   );
 }
