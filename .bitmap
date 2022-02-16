@@ -949,13 +949,7 @@
         "scope": "teambit.bit",
         "version": "1.90.6",
         "mainFile": "index.ts",
-        "rootDir": "bit/docs/installation/setup-editor",
-        "config": {
-            "teambit.community/envs/community-mdx": {},
-            "teambit.envs/envs": {
-                "env": "teambit.community/envs/community-mdx"
-            }
-        }
+        "rootDir": "bit/docs/installation/setup-editor"
     },
     "entities/docs-routes": {
         "scope": "teambit.docs",
