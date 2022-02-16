@@ -4,19 +4,23 @@ labels: ['react', 'component discoverability', 'open-source contribution']
 ---
 
 import { LeftRight } from '@teambit/design.ui.layouts.sections.left-right';
-import { Example } from './example/example-component';
+import { Example } from './example/example-component.demo';
 import ExampleSnippet from './example/example-snippet.mdx';
 import { CommunityHighlighter } from './community-highlighter';
 
 Community Highlighter helps you discover components by revealing the component IDs of UI elements in a page.
 The highlighter data is injected into the component's bundle <!-- TODO: change the link to the relevant page in the docs --> using [Bit's babel plugin](https://bit.dev/teambit/react/babel/bit-react-transformer).
-This plugin is used by default in application built with the [React app-type](https://bit.dev/teambit/react/react).
+This plugin is used by default in applications built with the [React app-type](https://bit.dev/teambit/react/react).
 
 ## Basic usage
 
-Wrap your components with Community Highlighter to enable inspection:
+Install the Community Highlighter and wrap your components with it to enable inspection:
 
-<LeftRight left={<ExampleSnippet />} right={<Example />} />
+<LeftRight
+  left={<ExampleSnippet />}
+  right={<Example />}
+  style={{ marginTop: '1rem' }}
+/>
 
 Fork this demo component, to try the highlighter in your workspace:
 

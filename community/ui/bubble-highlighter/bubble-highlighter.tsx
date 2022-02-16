@@ -48,7 +48,12 @@ export function BubbleHighlighter({
     // TODO: refactor id stringify to a valid HTML ID to a component.
     // make sure to use this here and from Hero.
     <BubbleCard className={styles.bubbleHighlighter} id={id} {...rest}>
-      {showId && <Label className={styles.label} componentId={componentId} />}
+      {showId && (
+        <Label
+          className={classNames(styles.label, labelClass)}
+          componentId={componentId}
+        />
+      )}
       {children}
     </BubbleCard>
   );

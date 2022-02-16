@@ -951,12 +951,9 @@
         "mainFile": "index.ts",
         "rootDir": "bit/docs/installation/setup-editor",
         "config": {
-            "teambit.community/envs/community-mdx": {
-                "__specific": true
-            },
+            "teambit.community/envs/community-mdx": {},
             "teambit.envs/envs": {
-                "env": "teambit.community/envs/community-mdx",
-                "__specific": true
+                "env": "teambit.community/envs/community-mdx"
             }
         }
     },
@@ -1010,7 +1007,7 @@
     },
     "entity/use-cases": {
         "scope": "teambit.community",
-        "version": "1.90.3",
+        "version": "1.90.5",
         "mainFile": "index.ts",
         "rootDir": "community/entity/use-cases"
     },
@@ -1106,7 +1103,7 @@
     },
     "ui/bubble-highlighter": {
         "scope": "teambit.community",
-        "version": "1.90.6",
+        "version": "1.90.7",
         "mainFile": "index.ts",
         "rootDir": "community/ui/bubble-highlighter"
     },
@@ -1142,7 +1139,7 @@
     },
     "ui/community-highlighter": {
         "scope": "teambit.community",
-        "version": "1.90.8",
+        "version": "1.90.10",
         "mainFile": "index.ts",
         "rootDir": "community/ui/community-highlighter"
     },
@@ -1478,19 +1475,19 @@
     },
     "ui/sections/left-right": {
         "scope": "teambit.community",
-        "version": "1.90.4",
+        "version": "1.90.5",
         "mainFile": "index.ts",
         "rootDir": "community/ui/sections/left-right"
     },
     "ui/sections/top-down": {
         "scope": "teambit.community",
-        "version": "1.90.4",
+        "version": "1.90.6",
         "mainFile": "index.ts",
         "rootDir": "community/ui/sections/top-down"
     },
     "ui/sticky-menu": {
         "scope": "teambit.community",
-        "version": "1.90.4",
+        "version": "1.90.6",
         "mainFile": "index.ts",
         "rootDir": "community/ui/sticky-menu"
     },
@@ -1514,25 +1511,25 @@
     },
     "ui/terminal": {
         "scope": "teambit.community",
-        "version": "1.90.4",
+        "version": "1.90.6",
         "mainFile": "index.ts",
         "rootDir": "community/ui/terminal"
     },
     "ui/use-cases/use-cases-card": {
         "scope": "teambit.community",
-        "version": "1.90.4",
+        "version": "1.90.5",
         "mainFile": "index.ts",
         "rootDir": "community/ui/use-cases/use-cases-card"
     },
     "ui/use-cases/use-cases-card-grid": {
         "scope": "teambit.community",
-        "version": "1.90.4",
+        "version": "1.90.6",
         "mainFile": "index.ts",
         "rootDir": "community/ui/use-cases/use-cases-card-grid"
     },
     "ui/use-cases/use-cases-section": {
         "scope": "teambit.community",
-        "version": "1.90.4",
+        "version": "1.90.6",
         "mainFile": "index.ts",
         "rootDir": "community/ui/use-cases/use-cases-section"
     },
