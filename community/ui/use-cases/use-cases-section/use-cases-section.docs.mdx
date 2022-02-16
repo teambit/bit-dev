@@ -1,35 +1,17 @@
 ---
-description: 'Secction for Use Cases'
-labels: ['section', 'use case']
+description: 'A section displaying Bit use-cases.'
+labels: ['section', 'ui', 'landing page']
 ---
 
 import { UseCasesSection } from './use-cases-section';
 import { FigmaEmbed } from '@teambit/design.embeds.figma';
-import { useCases } from '@teambit/community.entity.use-cases';
 
-Complete section component for the Use Cases to be used in a page component. This component contains:
+This component displays in a page section, use-cases for using Bit, 
 
-- the section title
-- a link to see more
-- a grid of use case cards
+## Basic usage
 
-### Section showing Use Cases with imported Json
-
-Imports mock data in json format from the entity component which contains an array of use cases.
-
-```js
-import { useCases } from '@teambit/community.entity.use-cases';
-
-<UseCasesSection
-  useCases={useCases}
-  title="These are no longer a challenge"
-  href="/"
-  linkText="See more use cases"
-/>;
-```
-
-### Section showing Use Cases with array of objects
-
+Pass an array of [UseCase](https://bit.dev/teambit/community/entity/use-cases) objects (containing use-cases info) to the `useCases` prop.
+Pass a title (`title`) to describe this section and a link (`linkText`, `href`) to a page with more use cases.
 ```js live
 <UseCasesSection
   useCases={[

@@ -1,22 +1,18 @@
 ---
-description: 'A LeftRight component.'
-labels: ['label1', 'label2', 'label3']
+description: 'A section with a title, a paragraph, and other elements, from left to right.'
+labels: ['section', 'ui',]
 ---
-
 import { LeftRight } from './left-right';
 
-## React Component for rendering text
+'Left Right' is a page section that renders a title, a paragraph, and other elements, from left to right.
 
-A basic div that renders some text
+## Basic usage
 
-### Component usage
-```js
-<LeftRight text="hello from LeftRight" />
-```
-
-### Using props to customize the text
-
-Modify the text to see it change live:
-```js live
-<LeftRight text="hello from LeftRight" />
+```jsx live
+  <LeftRight
+    title="Create. Collaborate"
+    text="Create new components quickly and compose them with others."
+  >
+    <button>a custom button</button>
+  </LeftRight>
 ```

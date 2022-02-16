@@ -1,5 +1,5 @@
 import React from 'react';
-import { ExampleComponent } from './example/example-component';
+import { ExampleComponent } from './example/example-component.demo';
 import { useHighlighter } from './use-highlighter';
 import { CommunityHighlighter } from './community-highlighter';
 import { Toggler } from './toggler';

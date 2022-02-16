@@ -25,9 +25,3 @@ it('image should contain an alt tag', () => {
   const rendered = getByAltText('Library of Frameworks');
   expect(rendered).toBeTruthy();
 });
-
-// it('image should contain a link', () => {
-//   const { getByAltText } = render(<BasicUseCasesCard />);
-//   const displayedImage = document.querySelector('a') as HTMLAnchorElement;
-//   expect(displayedImage.href).toContain('/react');
-// });

@@ -1,5 +1,5 @@
 import React from 'react';
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter, UNSAFE_LocationContext } from 'react-router-dom';
 import { PreviewRuntime } from '@teambit/preview';
 import { ReactAspect, ReactPreview } from '@teambit/react';
 
@@ -27,7 +27,16 @@ export class CommunityReactPreview {
     const communityReactPreview = new CommunityReactPreview(config);
     react.registerProvider([
       (props: { children: React.ReactNode }) => <NavigationProvider {...props} implementation={reactRouterAdapter} />,
-      MemoryRouter,
+      (props: { children: React.ReactNode }) => {
+        // TODO - should only apply the providers from the current env
+        // getting error because more than one env is trying to set MemoryRouter
+        return (
+          // @ts-ignore
+          <UNSAFE_LocationContext.Provider value={null}>
+            <MemoryRouter {...props} />
+          </UNSAFE_LocationContext.Provider>
+        );
+      },
       ThemeSwitcher,
     ]);
 

@@ -204,6 +204,7 @@
       "teambit.community/envs/community-react": {}
     },
     "{content/**}": {
+      "teambit.mdx/mdx": "-",
       "teambit.community/envs/community-mdx": {}
     },
     "{envs/**}, {extensions/*}, {apps/*}, {aspects/*}, {generator/*}": {

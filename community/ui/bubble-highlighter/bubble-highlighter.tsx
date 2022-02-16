@@ -1,9 +1,16 @@
-import React, { ReactNode } from 'react';
-import { ComponentID } from '@teambit/component-id';
-import { BubbleCard, BubbleCardProps } from '@teambit/design.ui.cards.bubble-card';
-import { Link } from '@teambit/design.ui.navigation.link';
-import { ComponentUrl, ScopeUrl } from '@teambit/component.modules.component-url';
-import styles from './bubble-highlighter.module.scss';
+import React, { ReactNode } from "react";
+import { ComponentID } from "@teambit/component-id";
+import {
+  BubbleCard,
+  BubbleCardProps,
+} from "@teambit/design.ui.cards.bubble-card";
+import { Link } from "@teambit/design.ui.navigation.link";
+import {
+  ComponentUrl,
+  ScopeUrl,
+} from "@teambit/component.modules.component-url";
+import classNames from "classnames";
+import styles from "./bubble-highlighter.module.scss";
 
 export type BubbleHighlighterProps = {
   /**
@@ -33,13 +40,20 @@ export function BubbleHighlighter({
   showId = false,
   ...rest
 }: BubbleHighlighterProps) {
-  const id = componentId.toString({ ignoreVersion: true }).replace(/[.\/]/g, '-');
+  const id = componentId
+    .toString({ ignoreVersion: true })
+    .replace(/[.\/]/g, "-");
 
   return (
     // TODO: refactor id stringify to a valid HTML ID to a component.
     // make sure to use this here and from Hero.
     <BubbleCard className={styles.bubbleHighlighter} id={id} {...rest}>
-      {showId && <Label className={labelClass} componentId={componentId} />}
+      {showId && (
+        <Label
+          className={classNames(styles.label, labelClass)}
+          componentId={componentId}
+        />
+      )}
       {children}
     </BubbleCard>
   );
@@ -49,15 +63,15 @@ type LabelProps = {
   componentId: ComponentID;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-function Label({ componentId, ...rest }: LabelProps) {
+function Label({ componentId, className, ...rest }: LabelProps) {
   const componentLink = ComponentUrl.toUrl(componentId);
   const scopeLink = ScopeUrl.toUrl(componentId.scope);
   const componentName =
-    !!componentId.version && componentId.version !== 'latest'
+    !!componentId.version && componentId.version !== "latest"
       ? `${componentId.fullName}@${componentId.version}`
       : componentId.fullName;
   return (
-    <div {...rest} className={styles.label}>
+    <div {...rest} className={classNames(styles.label, className)}>
       <Link href={scopeLink} className={styles.left}>
         {componentId.scope}
       </Link>
