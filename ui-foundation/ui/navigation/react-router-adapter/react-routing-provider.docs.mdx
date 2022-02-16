@@ -6,42 +6,35 @@ labels: ['ui', 'react-router', 'link']
 import { MemoryRouter } from 'react-router-dom';
 import { Link } from '@teambit/base-react.navigation.link';
 
-A React Router adapter for our routing system. Any `<Link>` rendered under this will have the React Router implementation!
+A [React Router (v6)](https://reactrouter.com/) adapter for the Bit's generic [Link](https://bit.dev/teambit/base-react/navigation/link) component.
 
-Simply wrap you app with `<ReactRouterRoutingProvider>`, like so:
-
-```tsx
-function AppContext({ children }) {
-  return <ReactRouterRoutingProvider>{children}</ReactRouterRoutingProvider>;
-}
-```
-
-Try it out!
+## Basic usage
 
 ```tsx
-() => {
-  const Example = () => {
-    const location = useLocation();
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { NavigationProvider, Link } from '@teambit/base-react.navigation.link';
+import { reactRouterAdapter } from '@teambit/ui-foundation.ui.navigation.react-router-adapter';
+import { IndexPage, AboutPage } from './example-pages';
 
-    return (
-      <div>
-        <div>current location is: {JSON.stringify(location, undefined, 1)}</div>
-        <Link href="/some/link">/some/link</Link>
-        <br />
-        <Link href="/some/link" activeStyle={{ fontWeigth: 'bold' }}>
-          /another/link
-        </Link>
-      </div>
-    );
-  };
-
+export function ReactRouterAdapterExample() {
   return (
-    <MemoryRouter> {/* <- required by React Router */}
-      <ReactRouterRoutingProvider>
-        <Example />
-      </ReactRouterRoutingProvider>
-    </MemoryRouter>
+    <BrowserRouter>
+      <NavigationProvider implementation={reactRouterAdapter}>
+        {/* this link won't refresh the entire page, and will use the React Router link. */}
+        <Link href="/">Home </Link>
+        <Link href="/about"> About</Link>
+        <Routes>
+          <Route path="/" element={<IndexPage />} />
+          <Route path="/about" element={<AboutPage />} />
+        </Routes>
+      </NavigationProvider>
+    </BrowserRouter>
   );
-};
 ```
 
+Fork [this demo component](https://bit.dev/learnbit/base-react/navigation/react-router-adapter-example) to try it in your workspace:
+
+```bash
+bit fork learnbit.base-react/navigation/react-router-adapter-example
+```

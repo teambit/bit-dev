@@ -1,5 +1,4 @@
 import React from 'react';
-import { Terminal } from '@teambit/community.ui.terminal';
 import { TopDown } from './top-down';
 
 export const BasicTopDown = () => (
@@ -7,6 +6,6 @@ export const BasicTopDown = () => (
     title="Create. Compose. Collaborate"
     subtitle="Create new components quickly and compose them with others, based on pre-made community templates, or build templates of your own to accelerate your component development workflow."
   >
-    <Terminal content="Content" />
+    <button style={{padding: 20, backgroundColor: '#2B2B2B', borderRadius: 5, color: '#FFFFFF', fontWeight: 700}}>Learn more</button>
   </TopDown>
 );

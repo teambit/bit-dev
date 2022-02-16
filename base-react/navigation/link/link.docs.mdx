@@ -1,71 +1,41 @@
 ---
-description: 'A standard, cross routing-system Link'
+description: 'A universal Link component.'
 labels: ['react', 'routing', 'navigation', 'link', 'context', 'nav']
 ---
 
 import { NavigationProvider } from './navigation-provider';
+import { LeftRight } from '@teambit/design.ui.layouts.sections.left-right';
 import { Link } from './link';
+import { MyRouterAdapter } from './example/my-router-adapter.demo';
+import MyRouterAdapterSnippet from './example/snippet.mdx';
 
+A universal Link component that provides compatibility across React frameworks and routing systems.
 
-An injected link that will work across different applications and routing systems.
-Simply inject your relevant implementation using the `<NavigationProvider>`, and the link is good to go.
+Components containing non-native links fail when consumed in apps that do not use the proper routing system.
+For example, a [React Router Link](https://v5.reactrouter.com/web/api/Link) will fail when used in a [NextJS](https://nextjs.org/learn/basics/navigate-between-pages/link-component) application, or even when used in a legacy version of React Router.
 
-### Motivation
-
-If you to create a reusable component, say a `<Card>`, and embed it with a link,
-you might run into trouble trying to use it outside your original application.
-
-```tsx
-import Link from 'next/link'
-
-const Card = (person) => <Link href={person.homepage}>{person.name}<Link>;
-```
-
-This is because different routing systems have different approaches to routing, and they are incompatible with each other:
-a [NextJS Link](https://nextjs.org/docs/api-reference/next/link) would not work in a React Router application, since it is expecting a [React Router Link](https://v5.reactrouter.com/web/api/Link), and vice versa.
-
-<div style={{display: 'flex', flexWrap: 'wrap', gap: 8}}>
-
-```tsx
-function NextjsApp() {
-  // this will work fine
-  return <Card person={person} />;
-}
-```
-
-```tsx
-function ReactRouterApp() {
-  // this will throw an error
-  return <Card person={person} />;
-}
-```
-
-</div>
-
-This component solves this incompatibility by providing an abstract link, and lets the consuming application provide the actual implementation.
+Link solves that by injecting a link implementation that fits its hosting routing system. If no system is defined, Link defaults to a standard anchor tag (`<a href=""></a>`).
 
 ## Basic usage
 
-When the Navigation Provider is absent, the Link defaults to a native `a` tag.  
-This way, components using this Link will always work, even without context.
+Use this generic Link instead of the concrete one provided by your routing system.
+Once it is consumed in an app, wrap it with the Navigation Provider and set it with the proper router adapter (this would be the adapter that matches the routing system of the hosting app)
 
-```tsx
-import { Link } from '@teambit/base-react.navigation.link';
+<LeftRight left={<MyRouterAdapterSnippet />} right={<MyRouterAdapter />} />
 
-function App() {
-  return (
-    <>
-      {/* this will render <a href="plguins">Click me!</a> */}
-      <Link href="/plugins">Click me!</Link>
-    </>
-  );
-}
+Fork this component to learn how to use the link component with your own router adapter:
+
+```bash
+bit fork learnbit.base-react/navigation/my-router-adapter
 ```
 
-### Using the link with React Router
+- Check the [`my-router-adapter.composition.tsx`](https://bit.dev/learnbit/base-react/navigation/my-router-adapter/~code/my-router-adapter.composition.tsx) file to learn how to use Link with a custom adapter
+- Check the [`my-link.tsx`](https://bit.dev/learnbit/base-react/navigation/my-router-adapter/~code/my-link.tsx) file to learn how to create a custom Link implementation
+- Check the [`my-router-adapter.tsx`](https://bit.dev/learnbit/base-react/navigation/my-router-adapter/~code/my-router-adapter.tsx) file to learn how to create a custom router adapter (that uses the above Link implementation)
 
-For using `react-router`, use our existing implementation - [React Router Adapter](https://bit.dev/teambit/ui-foundation/ui/navigation/react-router-adapter).  
-Note that you will have to provide the context needed for React Router, and perform navigation the with the tools provided by react-router.
+## Using Link with React Router
+
+Use Bit's [React Router Adapter](https://bit.dev/teambit/ui-foundation/ui/navigation/react-router-adapter) to have the Link components implemented as React Router Links version 6.0.0.
 
 ```tsx
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -88,88 +58,8 @@ export function App() {
 }
 ```
 
-### Using with NextJS
+Fork this demo component to try it in your workspace:
 
-Coming soon..
-
-### Custom usage
-
-To tailor an implementation to your needs, declare these variables:
-
-```tsx
-import { RouterContextType, useRouter } from '@teambit/base-react.navigation.link';
-
-const externalAttr = { rel: 'noopener', target: '_blank' };
-
-const vanillaNav: RouterContextType = {
-  Link: ({ href, children, active, activeClassName, activeStyle }) => {
-    const location = vanillaNav.useLocation();
-    const isActive = active ?? (href && location?.pathname && href.includes(location.pathname));
-
-    return <a href={href} className={isActive && activeClassName} style={isActive && activeStyle}>{children}</a>
-  }
-  useLocation: () => {
-    return typeof window === 'undefined' ? undefined : window.location;
-  },
-};
-```
-
-This is obviously, a naive implementation, but you can now use it in your code:
-
-```tsx
-import { vanillaNav } from '@org/core-react.navigation.vanilla-navigation';
-import { NavigationProvider, Link, LinkProps, useLocation } from '@teambit/base-react.navigation.link';
-
-function App() {
-  return (
-    <NavigationProvider implementation={vanillaNav}>
-      <NavTab href="/plugins">plugins</NavTab>
-      <PluginsPage />
-    </NavigationProvider>
-  );
-}
-
-function NavTab(props: LinkProps) {
-  return <Link activeStyle={{ background: 'lightblue' }} {...props} />;
-}
-
-function PluginsPage() {
-  const { pathname } = useLocation() || {};
-
-  if (pathname != '/plugins') return null;
-  return <div>Settings page</div>;
-}
-```
-
-Try it out!
-
-```tsx live
-() => {
-  const navA = {
-    Link: ({ children, ...props }) => <a {...props}>{children} 🔗</a>,
-  };
-
-  const navB = {
-    Link: ({ style, children, ...props }) => (
-      <a {...props} style={{ textDecoration: 'underline', fontWeight: 'bolder', cursor: 'pointer', ...style }}>
-        {children} ✦
-      </a>
-    ),
-  };
-
-  return (
-    <div>
-      <NavigationProvider implementation={navA}>
-        <Link>A Link</Link>
-      </NavigationProvider>
-
-      <br />
-
-      <NavigationProvider implementation={navB}>
-        <Link>B Link</Link>
-      </NavigationProvider>
-      <br />
-    </div>
-  );
-};
+```bash
+bit fork learnbit.base-react/navigation/react-router-adapter-example
 ```

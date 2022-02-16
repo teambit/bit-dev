@@ -3,30 +3,28 @@ description: 'Entity component for Use Cases'
 labels: ['mock', 'data', 'entity', 'types']
 ---
 
-import { UseCases } from './use-cases';
+This component describes and demonstrates the use-case object. It serves as the source of truth for components sending and receiving that data.
 
-Array of types for a use case.
+### Create a new use-case object
+Use this component to create a new use-case and validate it follows the right schema:
 
-```js
-title?: string;
-text?: string;
-image?: string;
-alt?: string;
-href?: string;
+```ts
+import { UseCases } from '@teambit/community.entity.use-cases';
+import { title, text, image, alt, href } from './my-use-case-info';
+
+const myUseCase = new UseCases(title, text, image, alt, href);
 ```
 
-## Mock Json
+### Type data transferred via network requests
 
-Mock data for use Cases.
+```ts
+import type { UseCasesFromApi } from '@teambit/community.entity.use-cases';
 
-```json
-export const useCases = [
-  {
-    title: 'Component Library',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis semper, quam sed.',
-    image: 'brands/logo-react.svg',
-    alt: 'react logo',
-    href: "/"
-  }
-];
+async function fetchUseCase(): Promise<UseCasesFromApi> {
+  // ...
+}
 ```
+
+### Test components with mock data
+
+Use the mock data provided by this component to test your components (without performing network requests). See an example in [this composition](https://bit.dev/teambit/community/ui/use-cases/use-cases-card-grid/~code/use-cases-card-grid.composition.tsx).
