@@ -1,22 +1,17 @@
 ---
-description: 'A Browser component.'
-labels: ['label1', 'label2', 'label3']
+description: 'A Browser wrapper image.'
+labels: ['browser', 'image']
 ---
 
 import { Browser } from './browser';
+import scopeUi from './scope-ui.png';
 
-A basic div that renders some text
+A basic div that renders a browser wrapper image on top and the `children` element after it.
 
 ### Component Usage
 
-```js
-<Browser />
-```
-
-### Using props to customize the text
-
-Modify the text to see it change live:
-
 ```js live
-<Browser />
+<Browser style={{ width: 400 }}>
+  <img src={scopeUi} width="100%" />
+</Browser>
 ```

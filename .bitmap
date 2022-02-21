@@ -911,7 +911,7 @@
     },
     "content/what-is-bit": {
         "scope": "teambit.bit",
-        "version": "1.90.7",
+        "version": "1.90.9",
         "mainFile": "index.ts",
         "rootDir": "bit/content/what-is-bit"
     },
@@ -1001,7 +1001,7 @@
     },
     "entity/use-cases": {
         "scope": "teambit.community",
-        "version": "1.90.7",
+        "version": "1.90.10",
         "mainFile": "index.ts",
         "rootDir": "community/entity/use-cases"
     },
@@ -1019,7 +1019,7 @@
     },
     "layout/grid": {
         "scope": "teambit.base-react",
-        "version": "1.90.6",
+        "version": "1.90.7",
         "mainFile": "index.ts",
         "rootDir": "base-react/layout/grid"
     },
@@ -1079,7 +1079,7 @@
     },
     "theme/theme-provider": {
         "scope": "teambit.base-react",
-        "version": "1.90.7",
+        "version": "1.90.8",
         "mainFile": "index.ts",
         "rootDir": "base-react/theme/theme-provider"
     },
@@ -1091,13 +1091,13 @@
     },
     "ui/browser": {
         "scope": "teambit.community",
-        "version": "1.90.6",
+        "version": "1.90.7",
         "mainFile": "index.ts",
         "rootDir": "community/ui/browser"
     },
     "ui/bubble-highlighter": {
         "scope": "teambit.community",
-        "version": "1.90.9",
+        "version": "1.90.10",
         "mainFile": "index.ts",
         "rootDir": "community/ui/bubble-highlighter"
     },
@@ -1319,7 +1319,7 @@
     },
     "ui/hooks/use-local-storage": {
         "scope": "teambit.community",
-        "version": "1.90.6",
+        "version": "1.90.8",
         "mainFile": "index.ts",
         "rootDir": "community/ui/hooks/use-local-storage"
     },
@@ -1469,13 +1469,13 @@
     },
     "ui/sections/left-right": {
         "scope": "teambit.community",
-        "version": "1.90.7",
+        "version": "1.90.8",
         "mainFile": "index.ts",
         "rootDir": "community/ui/sections/left-right"
     },
     "ui/sections/top-down": {
         "scope": "teambit.community",
-        "version": "1.90.8",
+        "version": "1.90.9",
         "mainFile": "index.ts",
         "rootDir": "community/ui/sections/top-down"
     },

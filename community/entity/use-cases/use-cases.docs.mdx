@@ -1,11 +1,24 @@
 ---
-description: 'Entity component for Use Cases'
+description: 'Entity component for Bit use-cases.'
 labels: ['mock', 'data', 'entity', 'types']
 ---
 
-This component describes and demonstrates the use-case object. It serves as the source of truth for components sending and receiving that data.
+import { LeftRight } from '@teambit/design.ui.layouts.sections.left-right';
+import { RenderUseCaseCodeSnippet } from './example/render-use-case-snippet.demo';
+// import { UseCasesCardGrid } from '@teambit/community.ui.use-cases.use-cases-card-grid';
+// import { useCases } from './use-cases.mocks';
+import { RenderUseCasesMock } from './use-cases.compositions';
+
+This component describes and demonstrates the "use-case" object. It serves as the source of truth for components sending and receiving "use-cases" data.
+
+### Test components with mock data
+
+Use the mock data provided by this component to test your components:
+
+<LeftRight left={<RenderUseCaseCodeSnippet />} right={<RenderUseCasesMock />} />
 
 ### Create a new use-case object
+
 Use this component to create a new use-case and validate it follows the right schema:
 
 ```ts
@@ -24,7 +37,3 @@ async function fetchUseCase(): Promise<UseCasesFromApi> {
   // ...
 }
 ```
-
-### Test components with mock data
-
-Use the mock data provided by this component to test your components (without performing network requests). See an example in [this composition](https://bit.dev/teambit/community/ui/use-cases/use-cases-card-grid/~code/use-cases-card-grid.composition.tsx).

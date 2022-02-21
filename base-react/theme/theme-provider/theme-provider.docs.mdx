@@ -3,31 +3,55 @@ description: 'A React theme provider generator'
 labels: ['theme', 'design tokens', 'design system', 'react', 'css custom props']
 ---
 
+import { LeftRight } from '@teambit/design.ui.layouts.sections.left-right';
+import DefaultThemeSnippet from './docs/theme-default-snippet.mdx';
+import DarkThemeSnippet from './docs/theme-dark-snippet.mdx';
+import { DefaultThemeExample, DarkThemeExample } from './docs/theme.demo';
+
 Theme Provider generates a theme out of design tokens (for example: `{ colorText: '#cab854' }`).
-Maintaining design tokens in a component makes collaboration between designers and developers easier, and ensures a scalable and consistent design system.
+The generated theme component styles all descendant components of it.
 
 ## Basic usage
 
-To create your own theme using the theme provider, fork this demo theme component into your workspace:
+Use `createTheme` to generate a new theme out of a list of design tokens:
 
-```bash
-bit fork learnbit.base-react/theme/my-default-theme
+```ts
+import { createTheme } from '@teambit/base-react.theme.theme-provider';
+
+/* describe the theme's design tokens and set their default values */
+export const defaultDesignTokenValues = {
+  colorBackground: '#ffffff',
+  colorText: '#cab854',
+};
+
+/* generate a theme with the above default values */
+export const Theme = createTheme({
+  theme: defaultTokenValues,
+});
+
+/* create a theme schema to standardize future customized themes */
+export type ThemeSchema = typeof defaultDesignTokenValues;
 ```
 
-- Check the [`my-default-theme.ts`](https://bit.dev/learnbit/base-react/theme/my-default-theme/~code/my-default-theme.ts) file (of your newly-created component), to see how to create a new theme using Theme Provider's `createTheme` function.
+The generated theme can be used to theme [components styled with CSS](https://bit.dev/teambit/base-react/theme/theme-provider/~code/examples/button-styled-with-css.demo.tsx) as well as [components styled with CSS-in-JS](https://bit.dev/teambit/base-react/theme/theme-provider/~code/examples/button-styled-with-js.demo.tsx).
+For example:
 
-- Check the [`my-default-theme.compositions.tsx`](https://bit.dev/learnbit/base-react/theme/my-default-theme/~code/my-default-theme.composition.tsx) file, to see how components are styled using the generated theme.
-  Notice how the components can be themed using JS variables as well as [CSS props](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
+<LeftRight left={<DefaultThemeSnippet />} right={<DefaultThemeExample />} />
 
-## Extending a theme
+## Composing a new theme
 
-Fork this dark-theme component to learn how to customize the previously generated theme:
+Create an object with new design token values:
 
-```bash
-bit fork learnbit.base-react/theme/my-dark-theme
+```ts
+/* the theme schema is used to maintain consistency in the way design tokens are used */
+import type { ThemeSchema } from './examples/default-theme.demo';
+
+export const darkThemeOverrides: ThemeSchema = {
+  colorBackground: '#474747',
+  colorBorder: '#30302e',
+};
 ```
 
-- Check the [`my-dark-theme.ts`](https://bit.dev/learnbit/base-react/theme/my-dark-theme/~code/my-dark-theme.ts) file to learn how to define new design token values.
-  Notice how the `ThemeSchema` type provided by the default theme, is used here to ensure consistency in the way design tokens are used.
+Use the design tokens object to override the default theme:
 
-- Check the [`my-dark-theme.compositions.tsx`](https://bit.dev/learnbit/base-react/theme/my-dark-theme/~code/my-dark-theme.composition.tsx) file to learn how to theme components using the above overriding design token values.
+<LeftRight left={<DarkThemeSnippet />} right={<DarkThemeExample />} />
