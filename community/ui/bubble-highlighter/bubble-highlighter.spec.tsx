@@ -10,10 +10,8 @@ describe('Bubble highlighter', () => {
   });
   it('should render with bubble highlighter holder', () => {
     const { container } = render(<BasicBubbleHighlighter />);
-    const bubbleEl = container.querySelector(
-      '#teambit-design-ui-buttons-button'
-    );
-    const buttonEl = bubbleEl.querySelector('button');
+    const bubbleEl = container.querySelector('#teambit-design-ui-buttons-button');
+    const buttonEl = bubbleEl?.querySelector('button');
 
     expect(bubbleEl).toBeInTheDocument();
     expect(buttonEl).toBeInTheDocument();
