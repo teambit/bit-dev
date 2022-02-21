@@ -11,7 +11,7 @@
 {
     "apps/bit-dev": {
         "scope": "teambit.community",
-        "version": "1.90.9",
+        "version": "1.90.10",
         "mainFile": "index.ts",
         "rootDir": "community/apps/bit-dev"
     },
@@ -779,7 +779,7 @@
     },
     "content/quick-start": {
         "scope": "teambit.docs",
-        "version": "1.90.9",
+        "version": "1.90.10",
         "mainFile": "index.ts",
         "rootDir": "docs/content/quick-start"
     },
@@ -875,7 +875,7 @@
     },
     "content/thinking-in-components": {
         "scope": "teambit.docs",
-        "version": "1.90.7",
+        "version": "1.90.8",
         "mainFile": "index.ts",
         "rootDir": "docs/content/thinking-in-components"
     },
@@ -1097,7 +1097,7 @@
     },
     "ui/bubble-highlighter": {
         "scope": "teambit.community",
-        "version": "1.90.10",
+        "version": "1.90.11",
         "mainFile": "index.ts",
         "rootDir": "community/ui/bubble-highlighter"
     },
@@ -1127,7 +1127,7 @@
     },
     "ui/community-docs": {
         "scope": "teambit.docs",
-        "version": "1.90.9",
+        "version": "1.90.10",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/community-docs"
     },
@@ -1271,7 +1271,7 @@
     },
     "ui/hero": {
         "scope": "teambit.community",
-        "version": "1.90.7",
+        "version": "1.90.8",
         "mainFile": "index.ts",
         "rootDir": "community/ui/hero"
     },
@@ -1421,7 +1421,7 @@
     },
     "ui/pages/homepage": {
         "scope": "teambit.community",
-        "version": "1.90.7",
+        "version": "1.90.8",
         "mainFile": "index.ts",
         "rootDir": "community/ui/pages/homepage"
     },
