@@ -30,7 +30,7 @@
     "defaultScope": "teambit.community"
   },
   "teambit.community/apps/bit-dev": {},
-  "teambit.wiki/apps/wiki": {},
+  // "teambit.wiki/apps/wiki": {},
   // "teambit.generator/generator": {
   //   "aspects": ["teambit.community/envs/community-react"]
   // },
