@@ -1,4 +1,6 @@
-export const useCases = [
+import { UseCases } from './use-cases';
+
+export const useCases: UseCases[] = [
   {
     title: 'Component Library',
     text: 'Successfully share components and get adoption for your design system.',

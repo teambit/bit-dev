@@ -4,7 +4,7 @@ import { NetlifyOptions, Netlify } from '@teambit/cloud-providers.deployers.netl
 const netlify: NetlifyOptions = {
   accessToken: process.env.NETLIFY_AUTH_TOKEN as string,
   siteName: 'teambit-community-apps-bit-dev',
-  team: 'yona',
+  team: 'teambit',
 };
 
 export const BitDevApp: ReactAppOptions = {
