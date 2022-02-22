@@ -1,0 +1,23 @@
+```tsx
+import { CommunityHighlighter, useHighlighter } from '@teambit/community.ui.community-highlighter';
+import { MyApp } from './my-app';
+
+const HighlighterSwitch = () => {
+  const { disabled, setDisabled } = useHighlighter();
+
+  return (
+    <button onClick={() => setDisabled(!disabled)}>
+      Click to disable/enable highlighter
+    </button>
+  );
+};
+
+const MyHighlightedAppWithSwitch = () => {
+  return (
+    <CommunityHighlighter>
+      <HighlighterSwitch />
+      <MyApp />
+    </CommunityHighlighter>
+  );
+};
+```

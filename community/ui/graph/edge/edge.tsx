@@ -16,7 +16,7 @@ export function Edge({ node, dependency, ...rest }: EdgeProps) {
   if (dependency.edge?.end) anchors.endAnchor = dependency.edge.end;
 
   // disable xarrow in jest process because of this issue: https://github.com/Eliav2/react-xarrows/issues/110.
-  if (process.env.JEST_WORKER_ID !== undefined) return null;
+  if (process !== undefined && process.env.JEST_WORKER_ID !== undefined) return null;
   return (
     <XArrow
       start={node.attrId}

@@ -7,7 +7,7 @@ import { StickyMenu } from './sticky-menu';
 import { FigmaEmbed } from '@teambit/design.embeds.figma';
 import { LeftRight } from '@teambit/design.ui.layouts.sections.left-right';
 
-A "sticky" menu that stays on the screen as you scroll down ("sticks" to the top when its offset position meets the viewport).
+A horizontal menu that "sticks" to the top when you scroll down.
 
 ## Basic usage
 
@@ -19,19 +19,20 @@ Pass the `links` prop with an array of links. Use the `className` prop to custom
   links={[
     {
       href: '#compose',
-      text: 'Compose'
+      text: 'Compose',
     },
     {
       href: '#collaborate',
-      text: 'Collaborate'
+      text: 'Collaborate',
     },
     {
       href: '#release',
-      text: 'Release'
+      text: 'Release',
     },
   ]}
 />
 ```
+
 ### Design
 
 <FigmaEmbed src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FctC1w9YhJvqaO1EZ08gLOV%2FCommunity%3Fnode-id%3D9%253A1027" />

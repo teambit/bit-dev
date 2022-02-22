@@ -197,7 +197,6 @@ importers:
       '@teambit/design.ui.error-page': registry.npmjs.org/@teambit/design.ui.error-page/0.0.351_react-dom@16.13.1+react@16.13.1
       '@teambit/design.ui.external-link': registry.npmjs.org/@teambit/design.ui.external-link/0.0.346_react-dom@16.13.1+react@16.13.1
       '@teambit/design.ui.heading': registry.npmjs.org/@teambit/design.ui.heading/1.0.9_react-dom@16.13.1+react@16.13.1
-      '@teambit/design.ui.icon-button': registry.npmjs.org/@teambit/design.ui.icon-button/1.0.12_react-dom@16.13.1+react@16.13.1
       '@teambit/design.ui.input.icon-text': registry.npmjs.org/@teambit/design.ui.input.icon-text/0.0.7_react-dom@16.13.1+react@16.13.1
       '@teambit/design.ui.input.toggle': registry.npmjs.org/@teambit/design.ui.input.toggle/1.0.10_react-dom@16.13.1+react@16.13.1
       '@teambit/design.ui.message-card': registry.npmjs.org/@teambit/design.ui.message-card/1.0.10_react-dom@16.13.1+react@16.13.1
@@ -278,6 +277,7 @@ importers:
       '@learnbit/base-react.navigation.my-router': 0.0.3_8bea2159e6cd5f1e2e43db9fc3829767
       '@learnbit/base-react.navigation.my-router-adapter': 0.0.3_8bea2159e6cd5f1e2e43db9fc3829767
       '@teambit/design.embeds.figma': registry.npmjs.org/@teambit/design.embeds.figma/0.0.6_react-dom@16.13.1+react@16.13.1
+      '@teambit/design.ui.icon-button': registry.npmjs.org/@teambit/design.ui.icon-button/1.0.12_react-dom@16.13.1+react@16.13.1
       '@teambit/documenter.ui.code-snippet': registry.npmjs.org/@teambit/documenter.ui.code-snippet/4.1.5_react-dom@16.13.1+react@16.13.1
       '@teambit/react.ui.highlighter.component-metadata.bit-component-meta': registry.npmjs.org/@teambit/react.ui.highlighter.component-metadata.bit-component-meta/0.0.20_react-dom@16.13.1+react@16.13.1
       '@testing-library/jest-dom': registry.npmjs.org/@testing-library/jest-dom/5.16.2
@@ -3254,7 +3254,7 @@ packages:
       core-js: registry.npmjs.org/core-js/3.21.0
       react: registry.npmjs.org/react/16.13.1
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
-    dev: false
+    dev: true
 
   registry.npmjs.org/@teambit/base-ui.elements.icon/0.6.11_react-dom@16.13.1+react@16.13.1:
     resolution: {integrity: sha512-tODitOCOKz7D+GLFpb67TgNspIFyILRRRAIx35i2Okyx414C1XXu6cXws66mmK2bwZYAb0ILZetcgfuJ39FdtA==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/base-ui.elements.icon/-/base-ui.elements.icon-0.6.11.tgz}
@@ -3463,7 +3463,7 @@ packages:
       core-js: registry.npmjs.org/core-js/3.21.0
       react: registry.npmjs.org/react/16.13.1
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
-    dev: false
+    dev: true
 
   registry.npmjs.org/@teambit/base-ui.input.checkbox.hidden/1.0.1_react-dom@16.13.1+react@16.13.1:
     resolution: {integrity: sha512-gGUqZs+n0F2EeJaSryGkNfE1MOslKdKqNveI6jgphoYhhQ2WEOiZaDtsxTKIAzi/tbnEe5kZlC+uAk0q7jo6Ug==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/base-ui.input.checkbox.hidden/-/base-ui.input.checkbox.hidden-1.0.1.tgz}
@@ -4464,7 +4464,7 @@ packages:
       core-js: registry.npmjs.org/core-js/3.21.0
       react: registry.npmjs.org/react/16.13.1
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
-    dev: false
+    dev: true
 
   registry.npmjs.org/@teambit/design.ui.input.icon-text/0.0.7_react-dom@16.13.1+react@16.13.1:
     resolution: {integrity: sha512-IoALAlzmDx/kyku5U+aR3qn53RXitDKkexOGY508+ZeOyP2XECRWRDpa/iE7wM+2Z241o2kel+HqPFKUn2WTDg==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/design.ui.input.icon-text/-/design.ui.input.icon-text-0.0.7.tgz}

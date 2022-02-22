@@ -1,5 +1,5 @@
 ---
-description: Enables visual inspection of React components
+description: 'Enables visual inspection of React components'
 labels: ['react', 'component discoverability', 'open-source contribution']
 ---
 
@@ -7,6 +7,10 @@ import { LeftRight } from '@teambit/design.ui.layouts.sections.left-right';
 import { Example } from './example/example-component.demo';
 import ExampleSnippet from './example/example-snippet.mdx';
 import { CommunityHighlighter } from './community-highlighter';
+import TogglerSnippet from './example/toggler-snippet.mdx';
+import { ExampleWithToggler } from './example/toggler.demo';
+import UseHighlighterSnippet from './example/use-highlighter-snippet.mdx';
+import { ExampleWithUseHighlighterHook } from './example/use-highlighter.demo';
 
 Community Highlighter helps you discover components by revealing the component IDs of UI elements in a page.
 The highlighter data is injected into the component's bundle <!-- TODO: change the link to the relevant page in the docs --> using [Bit's babel plugin](https://bit.dev/teambit/react/babel/bit-react-transformer).
@@ -14,7 +18,7 @@ This plugin is used by default in applications built with the [React app-type](h
 
 ## Basic usage
 
-Install the Community Highlighter and wrap your components with it to enable inspection:
+Install the Community Highlighter and wrap your components with it to enable inspection.
 
 <LeftRight
   left={<ExampleSnippet />}
@@ -22,16 +26,24 @@ Install the Community Highlighter and wrap your components with it to enable ins
   style={{ marginTop: '1rem' }}
 />
 
-Fork this demo component, to try the highlighter in your workspace:
+## Disabling the highlighter using the toggler component
 
-```bash
-bit fork learnbit.community/ui/highlighter-example
-```
+Place the Toggler anywhere, nested inside the Community highlighter. The highlighter's state (`disable: boolean`) is persisted in the local storage.
 
-## Disabling the highlighter
+<LeftRight
+  left={<TogglerSnippet />}
+  right={<ExampleWithToggler />}
+  style={{ marginTop: '1rem' }}
+/>
 
-You can disable the highlighter using the highlighter's `Toggler` component, or using its `useHighlighter` hook.
-The highlighter's state (`disable: boolean`) is persisted in the local storage.
+The highlighter's state (disable: boolean) is persisted in the local storage.
 
-- Check the [`example-with-toggler.tsx`](https://bit.dev/learnbit/community/ui/highlighter-example/~code/example-with-toggler.tsx) file to learn how to use the Toggler component
-- Check the [`example-with-use-highlighter.tsx`](https://bit.dev/learnbit/community/ui/highlighter-example/~code/example-with-use-highlighter.tsx) file to learn how to use the use-highlighter hook
+### Disabling the highlighter using the useHighlighter hook
+
+Use the `useHighlighter` in a component nested inside the Community highlighter. The highlighter's state (`disable: boolean`) is persisted in the local storage.
+
+<LeftRight
+  left={<UseHighlighterSnippet />}
+  right={<ExampleWithUseHighlighterHook />}
+  style={{ marginTop: '1rem' }}
+/>
