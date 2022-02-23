@@ -1,17 +1,14 @@
 ---
-description: 'A Browser wrapper image.'
+description: 'Displays screenshots in a browser mockup'
 labels: ['browser', 'image']
 ---
 
-import { Browser } from './browser';
-import scopeUi from './scope-ui.png';
+import { LeftRight } from '@teambit/design.ui.layouts.sections.left-right';
+import { BrowserExample } from './browser-example/browser.demo';
+import { BrowserSnippet } from './browser-example/browser-snippet.demo';
 
-A basic div that renders a browser wrapper image on top and the `children` element after it.
+This component displays screenshots in a browser mockup.
 
-### Component Usage
+## Basic usage
 
-```js live
-<Browser style={{ width: 400 }}>
-  <img src={scopeUi} width="100%" />
-</Browser>
-```
+<LeftRight left={<BrowserSnippet />} right={<BrowserExample />} />
