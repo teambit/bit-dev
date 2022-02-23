@@ -1121,7 +1121,7 @@
     },
     "ui/cards/next-page": {
         "scope": "teambit.community",
-        "version": "1.90.7",
+        "version": "1.90.8",
         "mainFile": "index.ts",
         "rootDir": "community/ui/cards/next-page"
     },
