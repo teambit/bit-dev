@@ -256,6 +256,18 @@
     "envs": {
       "defaultScope": "teambit.envs"
     },
+    "community/envs/community-mdx, community/envs/community-react": {
+      "teambit.dependencies/dependency-resolver": {
+        "policy": {
+          "dependencies": {
+            "react-router-dom": "^6.0.0"
+          },
+          "peerDependencies": {
+            "react-router-dom": "^6.0.0"
+          }
+        }
+      }
+    },
     "pipelines": {
       "defaultScope": "teambit.pipelines"
     },
