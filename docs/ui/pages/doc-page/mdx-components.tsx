@@ -7,8 +7,9 @@ import { Link } from '@teambit/design.ui.navigation.link';
 const getTextLink = (element: ReactNode) =>
   typeof element === 'string' ? element.trim().toLowerCase().replace(/ /g, '-') : undefined;
 
-export const mdxComponents = (baseUrl: string, selectorClassName?: string): MDXProviderComponents => {
+export const mdxComponents = (baseUrl?: string, selectorClassName?: string): MDXProviderComponents => {
   return {
+    wrapper: 'div',
     h1: ({ children, className, ...rest }: HTMLAttributes<HTMLHeadingElement>) => (
       <H1 className={classNames(selectorClassName, className)} link={getTextLink(children)} {...rest}>
         {children}
@@ -26,7 +27,8 @@ export const mdxComponents = (baseUrl: string, selectorClassName?: string): MDXP
     ),
     a: ({ href, ...rest }: AnchorHTMLAttributes<HTMLAnchorElement>) => {
       const isExternal = href?.startsWith('http') ? true : undefined;
-      return <Link href={isExternal ? href : `${baseUrl}${href}`} external={isExternal} {...rest} />;
+      const target = isExternal && baseUrl ? `${baseUrl}${href}` : href;
+      return <Link href={target} external={isExternal} {...rest} />;
     },
   };
 };
