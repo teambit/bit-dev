@@ -3,12 +3,18 @@ import { MemoryRouter, UNSAFE_LocationContext } from 'react-router-dom';
 import { PreviewRuntime } from '@teambit/preview';
 import { ReactAspect, ReactPreview } from '@teambit/react';
 import { MDXLayout } from '@teambit/mdx.ui.mdx-layout';
+import type { MDXProviderComponents } from '@teambit/mdx.ui.mdx-layout';
 
 import { ThemeSwitcher } from '@teambit/design.themes.theme-toggler';
-import { NavigationProvider } from '@teambit/base-react.navigation.link';
+import { NavigationProvider, Link, LinkProps } from '@teambit/base-react.navigation.link';
 import { reactRouterAdapter } from '@teambit/ui-foundation.ui.navigation.react-router-adapter';
 
 import { CommunityMdxAspect } from './community-mdx.aspect';
+
+const mdxComponents: MDXProviderComponents = {
+  wrapper: 'div',
+  a: (props: LinkProps) => <Link {...props} external />,
+};
 
 export class CommunityMdxPreview {
   static runtime = PreviewRuntime;
