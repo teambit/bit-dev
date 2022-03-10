@@ -24,15 +24,23 @@ export class CommunityMdxPreview {
   static async provider([react]: [ReactPreview]) {
     const communityMdxPreview = new CommunityMdxPreview();
     react.registerProvider([
-      MDXLayout as any, // TODO: kutner fix this type error.
-      (props: { children: React.ReactNode }) => <NavigationProvider {...props} implementation={reactRouterAdapter} />,
-      (props: { children: React.ReactNode }) => {
+      ({ children, ...rest }) => (
+        <MDXLayout {...rest} components={mdxComponents}>
+          {children}
+        </MDXLayout>
+      ),
+      ({ children, ...rest }) => (
+        <NavigationProvider {...rest} implementation={reactRouterAdapter}>
+          {children}
+        </NavigationProvider>
+      ),
+      ({ children, ...rest }) => {
         // TODO - should only apply the providers from the current env
         // getting error because more than one env is trying to set MemoryRouter
         return (
           // @ts-ignore
           <UNSAFE_LocationContext.Provider value={null}>
-            <MemoryRouter {...props} />
+            <MemoryRouter {...rest} />
           </UNSAFE_LocationContext.Provider>
         );
       },
