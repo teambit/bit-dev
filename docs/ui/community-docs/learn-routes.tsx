@@ -191,20 +191,20 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Workspace',
     icon: 'workspace',
     open: false,
-    overview: {
-      path: 'workspace-overview',
-      title: 'Workspace Overview',
-      component: <WorkspaceOverview />,
-    },
+    // overview: {
+    //   path: 'workspace-overview',
+    //   title: 'Workspace Overview',
+    //   component: <WorkspaceOverview />,
+    // },
     children: [
       {
         path: 'workspace-configuration',
         component: <WorkspaceConfiguration />,
-        title: 'Workspace Configuration',
+        title: 'Workspace configuration',
       },
       {
         path: 'creating-workspaces',
-        title: 'Creating Workspaces',
+        title: 'Creating workspaces',
         component: <CreatingWorkspaces />,
       },
       {
@@ -214,34 +214,34 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'directory-structure',
-        title: 'Directory Structure',
+        title: 'Directory structure',
         description:
           'The Bit Workspace is flexible in directory structure to preserve a seamless dev experience for building distributed apps.',
         component: <DirectoryStructure />,
       },
       {
         path: 'component-directory',
-        title: 'Component Directory',
+        title: 'Component directory',
         description:
           'A Component Directory is a directory in the developer Workspace. Directories are mapped as Components using the .bitmap rootDir property which exist for every Component entry.',
         component: <ComponentDir />,
       },
       {
         path: 'workspace-status',
-        title: 'Workspace Status',
+        title: 'Workspace status',
         description:
           "Bit' workspace track changes done to components, and shows the state of each in your project's workspace.",
         component: <WorkspaceStatus />,
       },
       {
         path: 'moving-components',
-        title: 'Moving Components',
+        title: 'Moving components',
         description: 'To move a component you can use the bit move command.',
         component: <MovingComponents />,
       },
       {
         path: 'variants',
-        title: 'Configuration Variants',
+        title: 'Configuration variants',
         description: 'Variants enables you to configure group of components with Component configuration.',
         component: <Variants />,
       },
@@ -254,24 +254,24 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'component-links',
-        title: 'Workspace Component Link',
+        title: 'Workspace component link',
         component: <WorkspaceLink />,
       },
       {
         path: 'configuring-remote-scopes',
-        title: 'Configuring Remote Scopes',
+        title: 'Configuring remote scopes',
         component: <ConfiguringRemoteScopes />,
       },
       {
         path: 'local-scope',
-        title: 'Local Scope',
+        title: 'Local scope',
         description:
           'The Local Scope is located in the .bit or .git/bit directory at the root of the Workspace. It is where component versions (snapshots) are stored.',
         component: <LocalScope />,
       },
       {
         path: 'clearing-cache',
-        title: 'Clearing Cache',
+        title: 'Clearing cache',
         component: <ClearingCache />,
       },
     ],
@@ -281,13 +281,13 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Components',
     icon: 'comps',
     open: false,
-    overview: {
-      path: 'component-overview',
-      title: 'Component Overview',
-      description:
-        'Component is a decoupled, versioned source-code container designed for the purpose of containing a single module or component.',
-      component: <ComponentOverview />,
-    },
+    // overview: {
+    //   path: 'component-overview',
+    //   title: 'Component Overview',
+    //   description:
+    //     'Component is a decoupled, versioned source-code container designed for the purpose of containing a single module or component.',
+    //   component: <ComponentOverview />,
+    // },
     children: [
       {
         path: 'adding-components',
@@ -484,16 +484,17 @@ export const learnDocsRoutes: DocsRoute[] = [
     open: false,
     title: 'Scope',
     icon: 'collection',
-    overview: {
-      path: 'scope-overview',
-      title: 'Scope Overview',
-      description: 'Scope is a server for hosting components.',
-      component: <ScopeOverview />,
-    },
+    // overview:
     children: [
       {
+        path: 'scope-overview',
+        title: 'Scope overview',
+        description: 'Scope is a server for hosting components.',
+        component: <ScopeOverview />,
+      },
+      {
         path: 'scope-bit-cloud',
-        title: 'Scopes on Bit.cloud',
+        title: 'Scopes on bit.cloud',
         description: 'Bit.cloud is a cloud hosting provider for Bit Scopes and Components.',
         component: <ScopeBitCloud />,
       },
@@ -531,12 +532,13 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Envs',
     icon: 'env',
     open: false,
-    overview: {
-      path: 'envs-overview',
-      title: 'Envs Overview',
-      component: <EnvsOverview />,
-    },
+    // overview:
     children: [
+      {
+        path: 'envs-overview',
+        title: 'Envs Overview',
+        component: <EnvsOverview />,
+      },
       {
         path: 'using-envs',
         title: 'Using Envs',
@@ -967,7 +969,7 @@ export const learnDocsRoutes: DocsRoute[] = [
     children: [
       {
         path: 'packages-overview',
-        title: 'Packages Overview',
+        title: 'Packages overview',
         description:
           "Part of a Component's release process includes generating a standard node package. This ensures components are consumable in any project (Bit or non-Bit).",
         component: <PackagesOverview />,
@@ -1019,90 +1021,90 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
     ],
   },
-  {
-    path: 'tools',
-    title: 'Tools',
-    open: false,
-    icon: 'sort',
-    children: [
-      {
-        path: 'webpack',
-        title: 'Webpack',
-        icon: 'webpack',
-        open: false,
-        children: [
-          {
-            path: 'configure-webpack',
-            title: 'Configure Webpack',
-            description:
-              'Depending on the Component Development Environments configured for components, a different default Webpack config is applied on each component.',
-            component: <ConfigureWebpck />,
-          },
-          {
-            path: 'module-federation',
-            title: 'Module Federation',
-            component: <ConfigureWebpck />,
-          },
-        ],
-      },
-      {
-        title: 'TypeScript',
-        path: 'typescript',
-        icon: 'typescript',
-        open: false,
-        children: [
-          {
-            path: 'configuring-typescript',
-            title: 'Configuring Typescript',
-          },
-        ],
-      },
-      {
-        title: 'Babel',
-        path: 'babel',
-        open: false,
-        icon: 'babel',
-        children: [],
-      },
-      {
-        title: 'Jest',
-        path: 'jest',
-        icon: 'Jest',
-        open: false,
-        children: [],
-      },
-      {
-        path: 'pnpm',
-        title: 'pnpm',
-        icon: 'pnpm',
-        open: false,
-        children: [
-          {
-            path: 'pnpm',
-            title: 'pnpm',
-            description:
-              'The pnpm aspect integrates the pnpm package manager, into Bit. This aspect can be used by the Dependency Resolver for dependency installation.',
-            component: <Pnpm />,
-          },
-        ],
-      },
-      {
-        path: 'yarn',
-        open: false,
-        title: 'Yarn',
-        icon: 'yarn-logo',
-        children: [
-          {
-            path: 'yarn',
-            title: 'Yarn',
-            description:
-              'Yarn is an aspect that integrates Yarn v2 package manager into Bit. This aspect can be used by the Dependency Resolver, for dependency installation.',
-            component: <Yarn />,
-          },
-        ],
-      },
-    ],
-  },
+  // {
+  //   path: 'tools',
+  //   title: 'Tools',
+  //   open: false,
+  //   icon: 'sort',
+  //   children: [
+  //     {
+  //       path: 'webpack',
+  //       title: 'Webpack',
+  //       icon: 'webpack',
+  //       open: false,
+  //       children: [
+  //         {
+  //           path: 'configure-webpack',
+  //           title: 'Configure Webpack',
+  //           description:
+  //             'Depending on the Component Development Environments configured for components, a different default Webpack config is applied on each component.',
+  //           component: <ConfigureWebpck />,
+  //         },
+  //         {
+  //           path: 'module-federation',
+  //           title: 'Module Federation',
+  //           component: <ConfigureWebpck />,
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       title: 'TypeScript',
+  //       path: 'typescript',
+  //       icon: 'typescript',
+  //       open: false,
+  //       children: [
+  //         {
+  //           path: 'configuring-typescript',
+  //           title: 'Configuring Typescript',
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       title: 'Babel',
+  //       path: 'babel',
+  //       open: false,
+  //       icon: 'babel',
+  //       children: [],
+  //     },
+  //     {
+  //       title: 'Jest',
+  //       path: 'jest',
+  //       icon: 'Jest',
+  //       open: false,
+  //       children: [],
+  //     },
+  //     {
+  //       path: 'pnpm',
+  //       title: 'pnpm',
+  //       icon: 'pnpm',
+  //       open: false,
+  //       children: [
+  //         {
+  //           path: 'pnpm',
+  //           title: 'pnpm',
+  //           description:
+  //             'The pnpm aspect integrates the pnpm package manager, into Bit. This aspect can be used by the Dependency Resolver for dependency installation.',
+  //           component: <Pnpm />,
+  //         },
+  //       ],
+  //     },
+  //     {
+  //       path: 'yarn',
+  //       open: false,
+  //       title: 'Yarn',
+  //       icon: 'yarn-logo',
+  //       children: [
+  //         {
+  //           path: 'yarn',
+  //           title: 'Yarn',
+  //           description:
+  //             'Yarn is an aspect that integrates Yarn v2 package manager into Bit. This aspect can be used by the Dependency Resolver, for dependency installation.',
+  //           component: <Yarn />,
+  //         },
+  //       ],
+  //     },
+  //   ],
+  // },
   {
     path: 'frameworks',
     title: 'Frameworks',
@@ -1219,7 +1221,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'config-files',
-        title: 'Config Files',
+        title: 'Config files',
         open: false,
         component: <ConfigFiles />,
       },
@@ -1235,13 +1237,13 @@ export const learnDocsRoutes: DocsRoute[] = [
         path: 'cli-reference',
         title: 'CLI Reference',
         component: <CliReference />,
-        icon: 'terminal',
+        // icon: 'terminal',
       },
       {
         path: 'using-bvm',
         title: 'Using BVM',
         component: <UsingBVM />,
-        icon: 'terminal',
+        // icon: 'terminal',
       },
     ],
   },

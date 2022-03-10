@@ -6,5 +6,4 @@ import type { ThemeSchema } from './default-theme.demo';
 export const darkThemeOverrides: Partial<ThemeSchema> = {
   colorText: '#749bd6',
   colorBackground: '#474747',
-  colorBorder: '#30302e',
 };

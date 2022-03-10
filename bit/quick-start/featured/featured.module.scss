@@ -1,0 +1,16 @@
+.featured {
+  background: url(bg.svg);
+  background-color: var(----background-color, #ffffff);
+  overflow: hidden;
+  background-size: cover;
+  margin-left: 0;
+
+  padding: 24px;
+  padding-bottom: 96px;
+}
+
+.heading {
+  position: sticky;
+  margin: 0 0 0 0 !important;
+}
+

@@ -4,7 +4,6 @@ labels: ['react', 'hook', 'local storage']
 ---
 
 import { useLocalStorage } from './use-local-storage';
-import localStorageScreenShot from './local-storage_screenshot.png';
 
 This hook sets and retrieves data from the local storage.
 
@@ -18,7 +17,3 @@ Initialize this hook by setting a key and a default value. The default value is 
   return <input value={value} onChange={(e) => setValue(e.target.value)} />;
 };
 ```
-
-Check your Chrome dev tools to see the value in the local storage:
-
-<img src={localStorageScreenShot} alt="a screenshot of the local storage" />

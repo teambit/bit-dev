@@ -10,14 +10,16 @@
 ## General notes
 
 - Aim to guide the reader to use the documented component as quickly as possible
-- Use templates and demo components instead of verbose instructions and long snippets of code
+- Simple examples should start by demonstrating a standard use-case, statically. The code snippet for this should include import statements.
+- Follow the above with live examples showcasing other forms of usages. Live examples should not include import statements.
+- Complicated components should be explained via templates and demo components instead of verbose instructions and long snippets of code
 - Think of the documentation as a list of atomic instructions, each aim to introduce a separate value. Order instructions according to ROI.
 - Information that is hard to makes sense of before using the demo component, should be included in the template/demo component docs as well as in comments, inside the component's code.
 - As a rule of thumb, try to avoid using templates as they often require additional configuration in the `workspace.jsonc` file. Instead, use `bit fork`, to fork a demo component.
 
 ## Introduction section
 
-An introduction section always include an explanatation of what, why and how.
+An introduction section always include an explanation of what, why and how.
 
 - **What** what it is.
 - **Why** why it is needed.
@@ -26,6 +28,7 @@ An introduction section always include an explanatation of what, why and how.
 For example:
 
 <!-- NEED: change to a simpler example here -->
+
 > The UMD target component demonstrates the bundling of a React component into a `<script>` target.  
 > Having the app consumable using a `<script>` tag allows you to integrate it into any other app, regardless of the specific tech used by that app.
 > To achieve that, the UMD target component uses a [Webpack transformer](https://bit.dev/teambit/webpack/content/configure-webpack/~compositions) that sets the target output for the bundler to a [UMD library](https://webpack.com/libraries).
@@ -52,13 +55,13 @@ a component of type `env` will most probably also register its own build tasks. 
 
 # Documentation style guide
 
- - Focus on the usage
- - P
- 
+- Focus on the usage
+- P
 
 ## Links
+
 - Link from Github to Bit.
-- Do not avoid linking from a Bit to Github. 
+- Do not avoid linking from a Bit to Github.
 
 ## Titles
 
@@ -151,17 +154,17 @@ Always use the description of the link as the link text.
 When referencing a component use its full component ID.
 
 Example:
+
 ```
 bit show company.demo/ui/text
 ```
 
-
-<!-- 
+<!--
 TODO: What does this means?
 
 ## Code snippets
 
 ### Static codeblocks
- 
+
 
 -->

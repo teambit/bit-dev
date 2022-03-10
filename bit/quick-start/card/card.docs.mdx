@@ -1,0 +1,43 @@
+---
+description: "A Newsletter component for the blog."
+labels: ["Newsletter", "blog"]
+---
+
+import { Card } from "./card";
+import { cardsMock } from "./card.mock";
+
+A card component that is used to in the featured carousel.
+
+### Component usage
+
+```js
+<Card
+  heading="Featured"
+  description="This is a featured card."
+  frameworkLogos={[
+    {
+      src: "https://static.bit.dev/extensions-icons/react.svg",
+      inactiveSrc: "https://static.bit.dev/extensions-icons/react_grey.svg",
+      alt: "React",
+      href: "/",
+    },
+  ]}
+/>
+```
+
+### Change the values of the props to see the component in action.
+
+```js live
+<Card
+  heading="Featured"
+  description="This is a featured card."
+  frameworkLogos={[
+    {
+      src: "https://static.bit.dev/extensions-icons/react.svg",
+      inactiveSrc: "https://static.bit.dev/extensions-icons/react_grey.svg",
+      alt: "React",
+      href: "/",
+    },
+  ]}
+/>
+```

@@ -1,10 +1,11 @@
 import { ComponentCardGroup } from '@teambit/explorer.ui.gallery.component-card-group';
 import WhatIsBitSmall from './what-is-bit-small.mdx';
 import { bitComponent } from './bit-component';
+import styles from './what-is-bit.module.scss';
 
-Bit is an open-source tool for composing component-driven software.
+Bit is an open-source tool for composing software.
 
-<ComponentCardGroup components={bitComponent} />
+<ComponentCardGroup components={bitComponent} className={styles.bitCard} />
 <br />
 
 <!-- Every independent component built, compounds in value and becomes an asset

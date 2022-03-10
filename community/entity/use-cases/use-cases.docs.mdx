@@ -3,11 +3,9 @@ description: 'Entity component for Bit use-cases.'
 labels: ['mock', 'data', 'entity', 'types']
 ---
 
-import { LeftRight } from '@teambit/design.ui.layouts.sections.left-right';
-import { RenderUseCaseCodeSnippet } from './example/render-use-case-snippet.demo';
-// import { UseCasesCardGrid } from '@teambit/community.ui.use-cases.use-cases-card-grid';
-// import { useCases } from './use-cases.mocks';
-import { RenderUseCasesMock } from './use-cases.compositions';
+import { UsageExample } from '@teambit/community.ui.usage-example';
+import { usingMock } from './docs/snippets';
+import { RenderUseCasesMock } from './docs/using-mocks.demo';
 
 This component describes and demonstrates the "use-case" object. It serves as the source of truth for components sending and receiving "use-cases" data.
 
@@ -15,7 +13,7 @@ This component describes and demonstrates the "use-case" object. It serves as th
 
 Use the mock data provided by this component to test your components:
 
-<LeftRight left={<RenderUseCaseCodeSnippet />} right={<RenderUseCasesMock />} />
+<UsageExample code={usingMock} output={<RenderUseCasesMock />} />
 
 ### Create a new use-case object
 

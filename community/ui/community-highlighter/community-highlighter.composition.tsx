@@ -1,5 +1,5 @@
 import React from 'react';
-import { ExampleComponent } from './example/example-component.demo';
+import { FeaturesCard } from './example/example.demo';
 import { useHighlighter } from './use-highlighter';
 import { CommunityHighlighter } from './community-highlighter';
 import { Toggler } from './toggler';
@@ -7,7 +7,7 @@ import { Toggler } from './toggler';
 export const BasicUsage = () => {
   return (
     <CommunityHighlighter>
-      <ExampleComponent />
+      <FeaturesCard />
     </CommunityHighlighter>
   );
 };
@@ -17,7 +17,7 @@ export const DisableWithToggler = () => {
   return (
     <CommunityHighlighter>
       <Toggler />
-      <ExampleComponent />
+      <FeaturesCard />
     </CommunityHighlighter>
   );
 };
@@ -26,7 +26,7 @@ export const DisableWithUseHighlighterHook = () => {
   return (
     <CommunityHighlighter>
       <DisableHighlighter />
-      <ExampleComponent />
+      <FeaturesCard />
     </CommunityHighlighter>
   );
 };

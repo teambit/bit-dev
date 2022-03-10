@@ -2,9 +2,12 @@ import React from 'react';
 import classNames from 'classnames';
 import { ExploreSection } from '@teambit/community.ui.plugins.explore-section';
 import { CreateSection } from '@teambit/community.ui.plugins.create-section';
+import { WideColumn } from '@teambit/base-ui.layout.page-frame';
+import { ComponentCardGroup } from '@teambit/explorer.ui.gallery.component-card-group';
 // import { ComponentSearch } from '@teambit/components.discovery.component-search';
 import { highlightClass } from '@teambit/community.ui.heading';
 import { Page } from '@teambit/base-react.pages.page';
+import { appsMock, devEnvsMock, compilingMock, testingMock, lintingFormatingMock } from './plugins.mock';
 import styles from './plugins.module.scss';
 
 export type PluginsProps = React.HTMLAttributes<HTMLDivElement>;
@@ -25,13 +28,13 @@ export function Plugins({ ...props }: PluginsProps) {
       />
 
       {/* <ComponentSearch queryString="" filters={[{ packageDependencies: ['@teambit/harmony'] }]}  /> */}
-      {/* <WideColumn>
+      <WideColumn>
         <ComponentCardGroup title="Dev environments" components={devEnvsMock} />
         <ComponentCardGroup title="Compiling" components={compilingMock} />
         <ComponentCardGroup title="Testing" components={testingMock} />
         <ComponentCardGroup title="Linting and Formatting" components={lintingFormatingMock} />
-        <ComponentCardGroup title="Apps" components={appsMock} />
-      </WideColumn> */}
+        <ComponentCardGroup title="Deployment" components={appsMock} />
+      </WideColumn>
       <CreateSection
         heading={
           <>

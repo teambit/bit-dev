@@ -18,6 +18,21 @@
     max-width: unset;
   }
 
+  p, h1, h2, h3, h4, h5, ul, ol, table {
+    max-width: 80%;
+    margin-left: 9%;
+  }
+
+  pre {
+    // max-width: 80%;
+    margin-left: 9%;
+  }
+
+  // div {
+  //   max-width: 80%;
+  //   margin-left: 9%;
+  // }
+
   img {
     max-width: 100%;
   }
@@ -38,4 +53,8 @@
   @media screen and (max-width: $br-lg) {
     display: none;
   }
+}
+
+.heading {
+  border-bottom: none !important;
 }
