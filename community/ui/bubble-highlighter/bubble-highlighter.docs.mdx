@@ -18,6 +18,9 @@ The bubble-highlighter highlights components using a bubble-like border. Optiona
 
 ### Basic highlighting
 
+Wrap the component to be highlighted with the bubble highlighter.  
+Pass a [`componentId`](https://bit.dev/teambit/component/component-id/~code/component-id.ts) object to provide the bubble highlighter with information regarding the highlighted component.
+
 <LeftRight
   left={<HighlightButtonSnippet />}
   right={<BasicBubbleHighlighterExample />}
@@ -25,8 +28,9 @@ The bubble-highlighter highlights components using a bubble-like border. Optiona
 
 ### Highlight with labels
 
-Pass a [`componentId`](https://bit.dev/teambit/component/component-id/~code/component-id.ts) object to add labels that display the component name and scope.  
-Try clicking on the labels to load the component/scope page.
+Pass the `showId` prop (boolean) to display the scope and name of the component being highlighted.
+
+(Try clicking on the labels to load the component/scope page.)
 
 <LeftRight
   left={<HighlightButtonWithLabelSnippet />}

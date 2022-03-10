@@ -18,7 +18,7 @@ export class CommunityMdxPreview {
   static async provider([react]: [ReactPreview]) {
     const communityMdxPreview = new CommunityMdxPreview();
     react.registerProvider([
-      MDXLayout,
+      MDXLayout as any, // TODO: kutner fix this type error.
       (props: { children: React.ReactNode }) => <NavigationProvider {...props} implementation={reactRouterAdapter} />,
       (props: { children: React.ReactNode }) => {
         // TODO - should only apply the providers from the current env

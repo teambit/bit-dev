@@ -1,16 +1,13 @@
 ```tsx
-import React from 'react';
 import { BubbleHighlighter } from '@teambit/community.ui.bubble-highlighter';
 import { Button } from '@teambit/design.ui.buttons.button';
 import { ComponentID } from '@teambit/component-id';
 
 export const BubbleHighlighterWithLabel = () => {
-  /* generate a ComponentId object out of a componentId string */
   const componentId = ComponentID.fromString(
     'teambit.design/ui/buttons/button'
   );
   return (
-    /* set showId to 'true' to display labels */
     <BubbleHighlighter componentId={componentId} showId>
       <Button>Getting Started</Button>
     </BubbleHighlighter>

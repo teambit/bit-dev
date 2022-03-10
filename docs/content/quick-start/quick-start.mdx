@@ -1,21 +1,21 @@
-import { ComponentID } from '@teambit/component-id';
-import { MemoryRouter, UNSAFE_LocationContext } from 'react-router-dom';
-import { ComponentCardGroup } from '@teambit/explorer.ui.gallery.component-card-group';
-import { Subtitle } from '@teambit/docs.ui.subtitle';
-import { TopInventions } from '@learnbit/inventions.blocks.top-inventions';
-import { BubbleHighlighter } from '@teambit/community.ui.bubble-highlighter';
-import { ExcludeHighlighter } from '@teambit/react.ui.component-highlighter';
-import { WhatIsBit } from '@teambit/bit.content.what-is-bit';
-import { DrawerUI } from '@teambit/ui-foundation.ui.tree.drawer';
+import { ComponentID } from "@teambit/component-id";
+import { MemoryRouter, UNSAFE_LocationContext } from "react-router-dom";
+import { ComponentCardGroup } from "@teambit/explorer.ui.gallery.component-card-group";
+import { Subtitle } from "@teambit/docs.ui.subtitle";
+import { TopInventions } from "@learnbit/inventions.blocks.top-inventions";
+import { BubbleHighlighter } from "@teambit/community.ui.bubble-highlighter";
+import { ExcludeHighlighter } from "@teambit/react.ui.component-highlighter";
+import { WhatIsBit } from "@teambit/bit.content.what-is-bit";
+import { DrawerUI } from "@teambit/ui-foundation.ui.tree.drawer";
 //TODO: Ran: you have cycles with WikiApp using ui/docs  => teambit.wiki/sections/wiki@0.0.7 => ui/docs
-import { WikiApp } from '@teambit/wiki.apps.wiki';
-import { ArchitectureBreakdown } from '@teambit/docs.blocks.component.architecture-breakdown';
-import { ComponentThinkingProcess } from '@teambit/docs.ui.component-thinking-process';
-import App from './app.mdx';
-import Header from './header.mdx';
-import { wikiComponents } from './wiki';
+import { WikiApp } from "@teambit/wiki.apps.wiki";
+import { ArchitectureBreakdown } from "@teambit/docs.blocks.component.architecture-breakdown";
+import { ComponentThinkingProcess } from "@teambit/docs.ui.component-thinking-process";
+import App from "./app.mdx";
+import Header from "./header.mdx";
+import { wikiComponents } from "./wiki";
 // import { WikiGraph } from './graph';
-import styles from './quick-start.module.scss';
+import styles from "./quick-start.module.scss";
 
 # Quick start
 
@@ -45,7 +45,10 @@ Here is an example of what you will get:
 <!-- TODO: Kutner add dark theme -->
 
 <ExcludeHighlighter>
-  <BubbleHighlighter componentId={ComponentID.fromString('teambit.wiki/apps/wiki')} showId>
+  <BubbleHighlighter
+    componentId={ComponentID.fromString("teambit.wiki/apps/wiki")}
+    showId
+  >
     <UNSAFE_LocationContext.Provider value={null}>
       <MemoryRouter>
         <div className={styles.wiki}>
@@ -155,23 +158,23 @@ Building in components is a recursive process.
 <ComponentThinkingProcess
   steps={[
     {
-      id: ComponentID.fromString('teambit.wiki/apps/wiki'),
+      id: ComponentID.fromString("teambit.wiki/apps/wiki"),
       content: <App />,
     },
     {
-      id: ComponentID.fromString('teambit.wiki/blocks/header'),
+      id: ComponentID.fromString("teambit.wiki/blocks/header"),
       content: <Header />,
     },
     {
-      id: ComponentID.fromString('teambit.wiki/blocks/footer'),
+      id: ComponentID.fromString("teambit.wiki/blocks/footer"),
       content: <App />,
     },
     {
-      id: ComponentID.fromString('teambit.wiki/sections/wiki'),
+      id: ComponentID.fromString("teambit.wiki/sections/wiki"),
       content: <App />,
     },
     {
-      id: ComponentID.fromString('teambit.wiki/content/welcome'),
+      id: ComponentID.fromString("teambit.wiki/content/welcome"),
       content: <App />,
     },
   ]}
