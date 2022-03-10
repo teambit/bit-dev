@@ -1,5 +1,5 @@
 import React, { useContext, ReactNode } from 'react';
-import { LinkType, UseLocation } from './link.type';
+import { LinkType, UseLocation, UseNavigate } from './link.type';
 
 export type RouterContextType = {
   /**
@@ -11,6 +11,11 @@ export type RouterContextType = {
    * useLocation implementation.
    */
   useLocation?: UseLocation;
+
+  /**
+   * navigate to another page
+   */
+  useNavigate?: UseNavigate;
 };
 
 export const NavigationContext = React.createContext<RouterContextType>({});

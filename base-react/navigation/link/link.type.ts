@@ -53,3 +53,10 @@ export type Location<StateType = {}> = {
 };
 
 export type UseLocation<StateType extends {} = {}> = () => Location<StateType>;
+
+export interface Navigator {
+  (to: string, options?: { replace?: boolean }): void;
+  (delta: number): void;
+}
+
+export type UseNavigate = () => Navigator;
