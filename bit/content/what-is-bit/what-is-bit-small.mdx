@@ -3,7 +3,9 @@ Bit stands at the intersection between product and engineering. **It helps you t
 and reusable pieces called ["components"](/components)**. It allows you to create components and compose them with each other. Components are described by names and APIs, and contain source code implementation. 
 They can be of different kinds like apps, pages, UI components, backend services and even content. You can [think of almost anything in components](/thinking-in-components).
 
-People tend to think of components like apps as "bigger" and components like a button as "smaller", but for us they are the same size. "Button" and "App" are equal components. However, they vary in the number of dependencies and dependents. While "Button" is likely to have more dependent components and is therefore more abstract and reusable, an "App" component is likely to have more dependencies than dependents and is more concrete. They have different responsibilities but they are equal in size and importance.
+People tend to think of components like apps as "bigger" and components like a button as "smaller", but for us they are the same size. Both Button and App are 
+components, with different responsibilities. An App is the most "concrete" component with a depenendecy graph and minor amount of dependents, and button is the most "abstract" 
+component with just few dependencies and a lot of dependents, indecating higher reusability. They have different responsibilities but they are equal in size and importance.
 
 <!-- 
 People tend to think of components like apps as "bigger" and components like a button as "smaller", but for us they are just in the same size. Both Button and App are 

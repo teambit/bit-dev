@@ -1,8 +1,13 @@
 # Extending an Env
 
-Any env in Bit is composable and extendable. This means that instead of starting from scratch, you take an existing env and compose your workflow and configs using it. The base env will be a dependency for yours, so you can start iterating on the specific settings you need. The scope of changes and complexity is up to you: adding a single lint rule, changing the build pipeline or even adding a completely new workflow, and anything is between is possible.
+Envs in Bit are designed to be extendable and composable. When you want to define your workflow you don't need to start from scratch. Take any existing env and use it's programmatic APIs to tune it to your needs. The scope of changes and complexity is up to you: adding a single lint rule, changing the build pipeline or even adding a completely new workflow, and anything is between is possible.  
+The env you extended will become a dependency for your setup, so you can keep get updates from it.
 
-Your custom env will be versioned and managed just like any other component, allowing you a single-point of control for how components are managed.
+:::tip Just like any other component
+
+A custom env is versioned and managed just like any other component. This allows a single-point of control for how you manage the build pipeline and workflow for other components.
+
+:::
 
 Envs provide templates to get started quickly with composing on top of them. To see list of available templates:
 
@@ -33,39 +38,23 @@ scope/my-env
     └── webpack-transformers.ts
 ```
 
-To get started with your local env, you first need to configure it as an [aspect](/docs/extending-bit/aspect-overview) using the `teambit.harmony/aspect` env. Once this is set, you can apply the env you now have in your workspace to be applied on any component.  
-Both tasks are handled by configuring `workspace.jsonc` file:
-
-```javascript
-{
-  "teambit.workspace/variants": {
-    "envs/my-env": {
-      "teambit.harmony/aspect": {}
-    },
-    "{pages/**}": {
-      "company.scope/envs/my-env": {}
-    }
-  }
-}
-```
-
-Validate the configuration by running `env`:
+All env-templates define the generated envs with configuration for "being" a Component Development Environment. Validate by running `show` for the component.
 
 ```bash
-bit env
+bit show company.scope/envs/my-env
 ```
+
+Look for the `teambit.envs/env` setting.
 
 ```bash
-┌──────────────────────────────────┬─────────────────────────────────┐
-│ component                        │ env                             │
-├──────────────────────────────────┼─────────────────────────────────┤
-│ company.scope/envs/my-env        │ teambit.harmony/aspect          │
-├──────────────────────────────────┼─────────────────────────────────┤
-│ company.scope/pages/welcome      │ company.scope/envs/my-env       │
-└──────────────────────────────────┴─────────────────────────────────┘
+┌───────┬───────────────────────────┐
+│ id    │ company.scope/envs/my-env │
+├───────┼───────────────────────────┤
+│ ...   │ ...                       │
+├───────┼───────────────────────────┤
+│ env   │ teambit.envs/env          │
+└───────┴───────────────────────────┘
 ```
-
-Now when you run `compile` and any other command, the component `company.scope/pages/welcome` will use the configuration from `company.scope/envs/my-env`.
 
 Get started with optimizing your flow by editing `*.main.ts`:
 
@@ -100,14 +89,14 @@ bit tag company.scope/envs/my-env --message "first version"
 bit export
 ```
 
-Using a customized env works just the same as any other env. In any Bit workspace open the `workspace.jsonc` file and apply your env via `variants`:
+## Using custom envs
 
-```javascript
-{
-  "teambit.workspace/variants": {
-    "{pages/**}": {
-      "company.scope/envs/my-env": {}
-    }
-  }
-}
+Using custom envs is done just the same as pre-built envs, with the `bit env set` command:
+
+```bash
+bit env set acme.demo/welcome company.scope/envs/my-env      # define the component a custom env.
 ```
+
+## Extending a custom env
+
+The ability to extend a custom env is determined by the developer of the custom env, and if they added any API to customize their envs.
