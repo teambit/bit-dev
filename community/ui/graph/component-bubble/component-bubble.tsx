@@ -1,10 +1,12 @@
 import React from 'react';
+import classNames from 'classnames';
 import { ComponentID } from '@teambit/component-id';
 import { Image } from '@teambit/base-react.content.image';
 import { Label } from '@teambit/documenter.ui.label';
 import { Caption } from '@teambit/design.ui.content.caption';
-import classNames from 'classnames';
+import { Link } from '@teambit/base-react.navigation.link';
 import { BubbleCard, BubbleCardProps } from '@teambit/design.ui.cards.bubble-card';
+import { ComponentUrl } from '@teambit/component.modules.component-url';
 import { Ellipsis, ellipsis } from '@teambit/design.ui.styles.ellipsis';
 import { getScopeName } from './get-scope-name';
 import styles from './component-bubble.module.scss';
@@ -49,6 +51,10 @@ export type ComponentBubbleProps = {
    * classname to inject the element.
    */
   className?: string;
+  /**
+   * link the component bubble to its component page
+   */
+  isLinkable?: boolean;
 
   showScope?: boolean;
 } & BubbleCardProps;
@@ -63,6 +69,7 @@ export function ComponentBubble({
   allowHover = true,
   forceActive = false,
   nonInteractive = false,
+  isLinkable = true,
   ...rest
 }: ComponentBubbleProps) {
   if (nonInteractive) {
@@ -70,7 +77,9 @@ export function ComponentBubble({
     allowHover = false;
   }
 
-  return (
+  const link = componentId && isLinkable && ComponentUrl.toUrl(componentId, { includeVersion: false });
+
+  const bubble = (
     <BubbleCard
       className={classNames(styles.bubble, className, forceActive && styles.active, allowHover && styles.interactive)}
       {...rest}
@@ -88,6 +97,14 @@ export function ComponentBubble({
       )}
       {componentId?.version && showVersion && <Label className={styles.versionLabel}>{componentId.version}</Label>}
     </BubbleCard>
+  );
+
+  if (!link) return bubble;
+
+  return (
+    <Link href={link} className={styles.link} external>
+      {bubble}
+    </Link>
   );
 }
 

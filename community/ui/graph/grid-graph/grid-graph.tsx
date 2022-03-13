@@ -1,9 +1,15 @@
 import React, { ComponentType, useMemo } from 'react';
 import { ComponentID } from '@teambit/component-id';
 import classNames from 'classnames';
-import { GridNode, DependencyEdge } from '@teambit/community.entity.graph.grid-graph';
+import {
+  GridNode,
+  DependencyEdge,
+} from '@teambit/community.entity.graph.grid-graph';
 import { Edge as DefaultEdge } from '@teambit/community.ui.graph.edge';
-import { graphNodeLayout, Sizes } from '@teambit/base-react.ui.layout.graph-node';
+import {
+  graphNodeLayout,
+  Sizes,
+} from '@teambit/base-react.ui.layout.graph-node';
 import { DefaultNode } from './default-node';
 import { getValidId } from './utils';
 import type { PositionsType } from './utils';
@@ -91,7 +97,15 @@ function GraphNode<T>({
   Edge = DefaultEdge,
   nodeLayout = graphNodeLayout,
 }: GridGraphNodeProps<T>) {
-  const { id, attrId, dependencies, position = '', sizes, col, row } = nodeContent || {};
+  const {
+    id,
+    attrId,
+    dependencies,
+    position = '',
+    sizes,
+    col,
+    row,
+  } = nodeContent || {};
   const cellLayout = useMemo(() => {
     return nodeLayout(sizes, row, col);
   }, [sizes]);
@@ -105,7 +119,13 @@ function GraphNode<T>({
       <Node id={attrId} node={nodeContent} />
 
       {dependencies.map((dependency) => {
-        return <Edge key={`${attrId}->${dependency.attrId}`} node={nodeContent} dependency={dependency} />;
+        return (
+          <Edge
+            key={`${attrId}->${dependency.attrId}`}
+            node={nodeContent}
+            dependency={dependency}
+          />
+        );
       })}
     </div>
   );

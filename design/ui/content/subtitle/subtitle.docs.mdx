@@ -1,24 +1,16 @@
 ---
-description: 'A Subtitle component.'
-labels: ['label1', 'label2', 'label3']
+description: Renders text in Bit's subtitle format
+labels: ['text', 'ui']
 ---
 
 import { Subtitle } from './subtitle';
 
-## React Component for rendering text
-
-A basic div that renders some text
+A component that renders text using Bit's format for subtitles.
 
 ### Component Usage
 
-```js
-<Subtitle text="hello from Subtitle" />
-```
-
-### Using props to customize the text
-
-Modify the text to see it change live:
-
-```js live
-<Subtitle text="hello from Subtitle" />
+```jsx live
+() => (
+  <Subtitle>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Subtitle>
+);
 ```

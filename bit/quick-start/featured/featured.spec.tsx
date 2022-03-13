@@ -12,7 +12,7 @@ describe('featured', () => {
   it('checks main header exists with the correct text', () => {
     render(<BasicFeatured />);
     const heading = screen.getAllByRole('heading')[0];
-    expect(heading).toHaveTextContent('Learn Bit by building a...');
+    expect(heading).toHaveTextContent('Start by building your own composable...');
   });
   it('renders all the cards', () => {
     render(<BasicFeatured />);

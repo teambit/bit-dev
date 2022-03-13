@@ -15,8 +15,8 @@
   padding: 16px 16px;
   display: flex;
   justify-content: space-between;
-  background: #ffffff;
-  border: 1px solid #c7bfff;
+  background: var(--surface01-color, #ffffff);
+  border: 1px solid var(--border-high-color, #babec9);
   box-sizing: border-box;
   border-radius: 8px;
   .image {
