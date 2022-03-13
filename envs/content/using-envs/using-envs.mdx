@@ -1,6 +1,6 @@
 # Using Envs
 
-Each Bit component has a Component Development Environment defined. This is required for Bit to know how to manage the component's lifecycle.  
+Each Bit component has an env. This is required for Bit to know how to manage the component's lifecycle.  
 The same workspace may have components from different Envs, where an Env can define a more specific configuration for sub-set of components or define a completely different build pipeline and stack.
 
 By default Bit sets an env for a component. Use the `bit env` command to control the env for a component.
@@ -65,7 +65,7 @@ Rerun `env set` with either a specific vesion or none to upgrade to the latest, 
 bit env set acme.demo/welcome acme.envs/react@4.0.0
 ```
 
-## Manage envs for many components
+## Control envs for multiple components
 
 A single workpsace may contain many components where components may have different envs. See a full list of which env is set for a component:
 
