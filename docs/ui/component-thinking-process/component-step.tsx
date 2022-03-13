@@ -18,15 +18,22 @@ export type ComponentStepProps = {
    * should step be opened or closed.
    */
   open?: boolean;
+
+  stepNum: number;
 };
 
-export function ComponentStep({ id, content, open }: ComponentStepProps) {
+export function ComponentStep({ id, content, open, stepNum }: ComponentStepProps) {
   const [isOpen, onToggle] = useState(open || false);
 
   return (
     <DrawerUI
       className={styles.componentStep}
-      name={id.toStringWithoutVersion()}
+      name={
+        <>
+          <div className={styles.stepContents}>{stepNum}</div>
+          {id.toStringWithoutVersion()}
+        </>
+      }
       isOpen={isOpen}
       onToggle={() => onToggle(!isOpen)}
     >
