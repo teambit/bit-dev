@@ -53,12 +53,12 @@ export function NodeTitle({ id, icon, open, configPath, overviewPath, active, se
   const displayName = id.replace(/\/$/, '').split('/').pop();
   const CustomIcon = getCustomIcon(icon);
   const handleOnFolderClick = () => {
-    if (active || !setOpen) return;
+    if (!setOpen) return;
     setOpen((x) => !x);
   };
 
   const content = (
-    <div className={styles.left}>
+    <div className={classNames(styles.left, active && !open && styles.collapsedActive)}>
       <Icon className={classNames(styles.icon, !open && styles.collapsed)} of="fat-arrow-down" />
       {CustomIcon}
       <span className={classNames(styles.name, ellipsis)}>{displayName}</span>

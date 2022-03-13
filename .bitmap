@@ -35,7 +35,7 @@
     },
     "blocks/sidebar": {
         "scope": "teambit.docs",
-        "version": "1.95.0",
+        "version": "1.95.2",
         "mainFile": "index.ts",
         "rootDir": "docs/blocks/sidebar"
     },
