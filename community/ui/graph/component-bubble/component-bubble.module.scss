@@ -22,7 +22,6 @@
 
   &.interactive {
     opacity: 0.4;
-    cursor: pointer;
   }
 
   &.active,
@@ -53,4 +52,8 @@
   right: -10px;
   font-size: 10px;
   pointer-events: none; // prevents weird behavior when hovering label
+}
+
+.noLink {
+  cursor: auto;
 }
