@@ -42,8 +42,8 @@ export type CardProps = {
 } & DesignCardProps;
 
 export function Card({ heading, description, frameworkLogos, selected, children, className, ...rest }: CardProps) {
-  const [selectedFramework, setSelectedFramework] = useState(frameworkLogos[0]);
-  const [logoSrc, setLogoSrc] = useState(null);
+  const [selectedFramework, setSelectedFramework] = useState(frameworkLogos?.[0]);
+  const [logoSrc, setLogoSrc] = useState<null | string>(null);
 
   const handleLogo = (logo: { alt: string; src: string; inactiveSrc: string }) => {
     if (logo === selectedFramework && selected) return selectedFramework.src;

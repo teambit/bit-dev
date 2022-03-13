@@ -33,7 +33,9 @@ export function Featured({ cards = [], className, ...rest }: FeaturedProps) {
           {cards.map((card, index) => (
             <Card
               data-testid={`card-${index}`}
-              onClick={() => handleClick(index, card.path || card.heading || '', card.frameworkLogos[0]?.componentId)}
+              onClick={() =>
+                handleClick(index, card.path || card.heading || '', card.frameworkLogos?.[0]?.componentId || '')
+              }
               selected={selected === index}
               key={card?.heading}
               className={styles.card}

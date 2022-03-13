@@ -18,7 +18,7 @@ interface ScopeConfig {
 export type RelationsGraphProps = {
   seeders?: ComponentID[];
   scopes: ScopeConfig[];
-  owners: string[];
+  // owners: string[];
 };
 
 const nodeTypes = {
