@@ -1,0 +1,244 @@
+# Custom Workspace Generator
+
+Creating your own custom workspace generators allows you to quickly ramp up complete projects according to your standards. Workspace is the key part that controls your component-workflow and where components are managed. Standardizing it can help with onboarding and delivery of new apps and components.
+
+Use the base workspace generator template followed by the name you want to give your generator.
+
+```bash
+bit create workspace-generator my-workspace
+```
+
+```bash
+1 component(s) were created
+
+company.scope/my-workspace
+    location: scope/my-workspace
+    env:      teambit.harmony/aspect
+```
+
+This will give you a collection of files inside the my-workspace namespace.
+
+```bash
+├── index.ts
+├── my-workspace.aspect.ts
+├── my-workspace.docs.mdx
+├── my-workspace.main.runtime.ts
+└── template
+    ├── files
+    │   ├── git-ignore.ts
+    │   ├── readme-file.ts
+    │   └── workspace-config.ts
+    └── index.ts
+```
+
+## Customize the template
+
+In the templates folder we have a folder of files that will get generated such as the `git-ignore` and `readme` file which can be modified to how you like. The `workspace-config` file is how you can configure your workspace, more on this later. The `index` file is the one that registers all these files with the correct name, path and which contents to return.
+
+```jsx title="index.ts"
+generateFiles: async (context: WorkspaceContext) => {
+    return [
+      {
+        relativePath: 'workspace.jsonc',
+        content: await workspaceConfig(context)
+      },
+      {
+        relativePath: '.gitignore',
+        content: gitIgnore()
+      },
+      {
+        relativePath: 'README.md',
+        content: readme()
+      }
+    ];
+  },
+```
+
+In this file you will also see an array of components that you can add to be generated in your workspace. You can import any component here for developers to modify it to their liking. In the generated workspace the component will no longer be tied to the scope we are cloning it from.
+
+```jsx title="index.ts"
+importComponents: () => {
+  return [
+    {
+      id: 'learn-bit-react.ecommerce/entity/product',
+      path: 'ecommerce/entity/product',
+    },
+  ];
+};
+```
+
+We can also change the name of our template and description:
+
+```jsx title="index.ts"
+export const workspaceTemplate: WorkspaceTemplate = {
+  name: 'learn-bit-workspace',
+  description: 'workspace template for learn bit',
+```
+
+We are now ready to modify our template and we can test it out by adding something very simple to see if it works. Let's modify the readme to include a new line at the top.
+
+```jsx title="readme-file.ts"
+export function readme() {
+  return `hello world from my workspace generator`;
+}
+```
+
+## Testing generator locally
+
+As we have modified our generator we will need to compile it
+
+```bash
+bit compile
+```
+
+Now if we use our generator to generate a new workspace we will get one with our custom text in the ReadMe. We want to test this locally and not export our workspace template yet as we are still developing it. Open a **new terminal window separate from this workspace** and typing a command that includes the following:
+
+```bash
+bit new <templateName> <workspaceName> --load-from <localProjectPath> --aspect <workspaceGeneratorID>
+```
+
+- The `<templateName>` is taken from the name in the template index file. It can be changed to anything you like. If you do change it just remember to run `bit compile` before using it.
+- The `<workspaceName>` is the name you want to call your workspace
+- The `<localProjectPath>` is where the path is to the project that holds the template generator. Type `pwd` in the terminal to get the correct path.
+- `<workspaceGeneratorID>` is the id of the workspace generator
+
+Full example should look something like this.
+
+```bash
+bit new learn-bit-workspace sports-store --load-from /Users/me/path/to/this/dir --aspect learn-bit-react.base-ui/workspace-generator
+```
+
+This will now create a new workspace for us in the directory sports-store.
+
+```bash
+cd sports-store
+```
+
+If we then open it in our editor and inspect it we will see the custom message we added in the readMe file. Great.
+
+## Exporting workspace generator
+
+Once we have finished all customizations and our generator is ready to be exported for other teams to use we can then tag a new version of this component and export it to our organization's repo.
+
+```bash
+bit tag --all --message "my workspace generator"
+```
+
+Once tagging has finished you can export it to your remote scope.
+
+```bash
+bit export
+```
+
+## Using a custom generator
+
+Once it has been exported you can now generate a new workspace with the following:
+
+- `bit new` `<templateName>`
+- `<workspaceName>`
+- `--aspect` flag
+- your full `<workspaceGeneratorID>`
+
+Example:
+
+```bash
+bit new learn-bit-workspace shoe-store --aspect learn-bit-react.base-ui/workspace-generator
+```
+
+## Further customizing the workspace
+
+Ok now it's time to really put this to use. The `workspace.json` file is the file that we will configure the most as this will set up our workspace for all projects across our organization. We want different teams to own different features and have their own workspaces but we want to have standards across all of them and this is how we can do it. Let's take a look at some of the things we can configure, however you really can configure anything you want.
+
+### Add a logo
+
+Put your team's logo in the workspace.
+
+```jsx {8,9} title="workspace-config.ts"
+...
+export async function workspaceConfig({
+  name,
+  defaultScope
+}: WorkspaceContext) {
+  const configParsed = await getWorkspaceConfigTemplateParsed();
+  configParsed['teambit.workspace/workspace'].name = name;
+  configParsed['teambit.workspace/workspace'].icon =
+    'https://my-organization/my-logo.svg';
+  ...
+
+  return stringifyWorkspaceConfig(configParsed);
+}
+```
+
+### Set a `defaultScope`
+
+The default scope can be added when we generate our workspace but if users forget to add the `--default-scope <myScope>` flag then we can set a default scope for them.
+
+```jsx {9,10} title="workspace-config.ts"
+...
+export async function workspaceConfig({
+  name,
+  defaultScope
+}: WorkspaceContext) {
+  const configParsed = await getWorkspaceConfigTemplateParsed();
+  configParsed['teambit.workspace/workspace'].name = name;
+  ...
+  configParsed['teambit.workspace/workspace'].defaultScope =
+    defaultScope || 'my organization';
+  ...
+
+  return stringifyWorkspaceConfig(configParsed);
+}
+```
+
+### Add a component generator
+
+It is more than likely that you have already created your own component generator to generate components to you organization's liking that include the correct styling method, docs etc. We can register this component generator aspect so that it will be available for our workspace to use.
+
+```jsx {9-12} title="workspace-config.ts"
+...
+export async function workspaceConfig({
+  name,
+  defaultScope
+}: WorkspaceContext) {
+  const configParsed = await getWorkspaceConfigTemplateParsed();
+  configParsed['teambit.workspace/workspace'].name = name;
+  ...
+  configParsed['teambit.generator/generator'] = {
+    aspects: ['learn-bit-react.base-ui/component-generator']
+  };
+  configParsed['learn-bit-react.base-ui/component-generator'] = {};
+  ...
+
+  return stringifyWorkspaceConfig(configParsed);
+}
+```
+
+### Add dependencies
+
+You may need to add some components as `dependencies` to your workspace or you may need to add `peerDependencies`.
+
+```jsx {9-16} title="workspace-config.ts"
+...
+export async function workspaceConfig({
+  name,
+  defaultScope
+}: WorkspaceContext) {
+  const configParsed = await getWorkspaceConfigTemplateParsed();
+  configParsed['teambit.workspace/workspace'].name = name;
+  ...
+  configParsed['teambit.dependencies/dependency-resolver'].policy = {
+    "dependencies": {
+      "@company/scope.namespace.component": "0.0.1",
+    },
+    "peerDependencies": {
+      "react": "^16.8.0 || ^17.0.2",
+      "react-dom": "^16.8.0 || ^17.0.2"
+    }
+  ...
+ return stringifyWorkspaceConfig(configParsed);
+}
+```
+
+### Additional configuration
+
+You can add any config to the `workspace.json` file using `configParse[...].keyName ={}`

@@ -1,16 +1,20 @@
-@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
+@import "~@teambit/base-ui.layout.breakpoints/_breakpoints.scss";
 
 .tableOfContent {
   position: sticky;
   flex-shrink: 0;
   margin-left: 32px;
-  top: 56px;
+  top: 120px;
   bottom: 0;
   right: 8px;
-  [data-element-type='H3'] {
+  [data-element-type="H3"] {
     padding-left: 16px;
   }
+
   @media screen and (max-width: $br-lg) {
     display: none;
   }
+}
+.closedStickyBanner {
+  top: 56px;
 }

@@ -3,7 +3,7 @@ import React from 'react';
 // import { RelationsGraph } from '@teambit/graph.relations-graph';
 import { PreviewPlugin } from '@teambit/explorer.plugins.preview-plugin';
 import { ComponentID } from '@teambit/component-id';
-import { ComponentDescriptor, AspectMap } from '@teambit/component-descriptor';
+import { ComponentDescriptor, AspectList } from '@teambit/component-descriptor';
 import classNames from 'classnames';
 import { GraphIcon } from './graph-icon';
 import { CodeIcon } from './code-icon';
@@ -14,13 +14,13 @@ export type ComponentShowcaseProps = {
   /**
    * The components' id to showcase.
    */
-  componentId?: string;
+  componentId: string;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export function ComponentShowcase({ componentId, className, ...rest }: ComponentShowcaseProps) {
   const [selectedTab, setSelectedTab] = React.useState<'preview' | 'graph' | 'code'>('preview');
-  const id = ComponentID.fromString(componentId);
-  const component = new ComponentDescriptor(id, {} as AspectMap);
+  const id = ComponentID.fromString(componentId || '');
+  const component = new ComponentDescriptor(id, {} as AspectList);
 
   return (
     <div className={classNames(styles.container, className)} {...rest}>
@@ -47,6 +47,7 @@ export function ComponentShowcase({ componentId, className, ...rest }: Component
       </div>
 
       <div className={styles.tabContent}>
+        {/* @ts-ignore - update ComponentDescriptor in preview-plugin */}
         {selectedTab === 'preview' && <PreviewPlugin component={component} />}
         {/* {selectedTab === "graph" && <RelationsGraph seeders={[component]} />} */}
       </div>

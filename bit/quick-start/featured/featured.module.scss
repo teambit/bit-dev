@@ -1,11 +1,11 @@
 .featured {
   background: url(bg.svg);
-  background-color: var(----background-color, #ffffff);
   overflow: hidden;
   background-size: cover;
   margin-left: 0;
 
   padding: 24px;
+  padding-top: 72px;
   padding-bottom: 96px;
 }
 

@@ -18,6 +18,19 @@
     max-width: unset;
   }
 
+  // this is.. less than ideal
+  :global(.admonition) {
+    max-width: 80%;
+    margin-left: 9%;
+
+    // this is.. far from ideal.
+    // We need to find a better place to put the top level indent.
+    p, h1, h2, h3, h4, h5, ul, ol, table {
+      max-width: none;
+      margin-left: 0;
+    }
+  }
+
   p, h1, h2, h3, h4, h5, ul, ol, table {
     max-width: 80%;
     margin-left: 9%;
