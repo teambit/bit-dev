@@ -7,6 +7,7 @@ import { demoGraph } from '../demo-graph';
 
 export function InventionsGraph() {
   return (
+    // @ts-ignore - incompatible component-id
     <BubbleGraph className={styles.innovatorGrid} nodeClassName={styles.bubbleWrapper} nodes={demoGraph}>
       <div className={styles.dotsBackground} />
       <Label color="#0984E3" className={styles.designLabel}>
