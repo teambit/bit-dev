@@ -1,8 +1,6 @@
-import React from 'react';
-import { QuickStart } from './quick-start';
+// import React from 'react';
+// import { QuickStartLobby } from './quick-start-lobby';
 
 export const BasicQuickStart = () => {
-  return (
-    <QuickStart>hello world!</QuickStart>
-  );
-}
+  // return <QuickStart>hello world!</QuickStart>;
+};

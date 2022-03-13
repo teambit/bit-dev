@@ -1095,6 +1095,12 @@
         "mainFile": "index.ts",
         "rootDir": "bit/quick-start/featured"
     },
+    "quick-start/learn-crossroad": {
+        "scope": "teambit.bit",
+        "version": "0.0.6",
+        "mainFile": "index.ts",
+        "rootDir": "bit/quick-start/learn-crossroad"
+    },
     "quick-start/wiki-quick-start": {
         "scope": "teambit.bit",
         "version": "1.95.0",

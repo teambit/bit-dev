@@ -55,6 +55,7 @@ importers:
       '@teambit/design.content.carousel': 0.0.14
       '@teambit/design.elements.icon': ^1.0.6
       '@teambit/design.embeds.figma': 0.0.6
+      '@teambit/design.graph.edge': 0.0.2
       '@teambit/design.theme.icons-font': ^1.0.8
       '@teambit/design.themes.base-theme': 0.0.3
       '@teambit/design.themes.dark-theme': 1.90.8
@@ -140,6 +141,7 @@ importers:
       graphql-tag: 2.12.1
       history: 5.2.0
       lodash.compact: 3.0.1
+      lodash.head: 4.0.1
       millify: 4.0.0
       postcss: 8.4.6
       prettier: 2.4.1
@@ -192,10 +194,10 @@ importers:
       '@teambit/base-ui.routing.routing-provider': registry.npmjs.org/@teambit/base-ui.routing.routing-provider/1.0.0_react-dom@16.13.1+react@16.13.1
       '@teambit/base-ui.surfaces.card': registry.npmjs.org/@teambit/base-ui.surfaces.card/1.0.3_react-dom@16.13.1+react@16.13.1
       '@teambit/base-ui.text.paragraph': registry.npmjs.org/@teambit/base-ui.text.paragraph/1.0.3_react-dom@16.13.1+react@16.13.1
-      '@teambit/bit.quick-start.learn-crossroad': 0.0.6_8bea2159e6cd5f1e2e43db9fc3829767
+      '@teambit/bit.quick-start.learn-crossroad': link:bit/quick-start/learn-crossroad
       '@teambit/cloud-providers.deployers.netlify': 0.0.8
       '@teambit/cloud.cloud-provider': 0.0.2_41d93ae2141268db5ea0e8b166c96d66
-      '@teambit/community.entity.graph.bubble-graph': link:community/entity/graph/bubble-graph
+      '@teambit/community.entity.graph.bubble-graph': 1.95.4_react-dom@16.13.1+react@16.13.1
       '@teambit/community.ui.sticky-banner': 0.0.4_08996d9b048963006e0d71241013fb8b
       '@teambit/component-descriptor': registry.npmjs.org/@teambit/component-descriptor/0.0.5_react-dom@16.13.1+react@16.13.1
       '@teambit/component-id': registry.npmjs.org/@teambit/component-id/0.0.369_react-dom@16.13.1+react@16.13.1
@@ -205,6 +207,7 @@ importers:
       '@teambit/dependencies.modules.packages-excluder': registry.npmjs.org/@teambit/dependencies.modules.packages-excluder/0.0.44_react@16.13.1
       '@teambit/design.content.carousel': 0.0.14_38be8bd4da9847dd67147ce9a129e815
       '@teambit/design.elements.icon': registry.npmjs.org/@teambit/design.elements.icon/1.0.8_react-dom@16.13.1+react@16.13.1
+      '@teambit/design.graph.edge': 0.0.2_38be8bd4da9847dd67147ce9a129e815
       '@teambit/design.theme.icons-font': registry.npmjs.org/@teambit/design.theme.icons-font/1.0.8_react-dom@16.13.1+react@16.13.1
       '@teambit/design.themes.base-theme': 0.0.3_8bea2159e6cd5f1e2e43db9fc3829767
       '@teambit/design.themes.dark-theme': 1.90.8_8bea2159e6cd5f1e2e43db9fc3829767
@@ -277,6 +280,7 @@ importers:
       graphql-tag: registry.npmjs.org/graphql-tag/2.12.1_graphql@14.7.0
       history: registry.npmjs.org/history/5.2.0
       lodash.compact: registry.npmjs.org/lodash.compact/3.0.1
+      lodash.head: registry.npmjs.org/lodash.head/4.0.1
       millify: registry.npmjs.org/millify/4.0.0
       postcss: registry.npmjs.org/postcss/8.4.6
       prettier: registry.npmjs.org/prettier/2.4.1
@@ -357,6 +361,9 @@ importers:
     specifiers: {}
 
   bit/quick-start/featured:
+    specifiers: {}
+
+  bit/quick-start/learn-crossroad:
     specifiers: {}
 
   bit/quick-start/quick-start:
@@ -1363,18 +1370,6 @@ packages:
       react: registry.npmjs.org/react/16.13.1
     dev: false
 
-  /@teambit/base-react.content.image/1.90.6_38be8bd4da9847dd67147ce9a129e815:
-    resolution: {integrity: sha1-WozT1x7EJeFBiGAinGniikRjmpo=, tarball: '@teambit/base-react.content.image/-/@teambit-base-react.content.image-1.90.6.tgz'}
-    peerDependencies:
-      '@testing-library/react': 12.0.0
-      react: ^16.8.0 || ^17.0.0
-    dependencies:
-      '@testing-library/react': registry.npmjs.org/@testing-library/react/12.0.0_react-dom@16.13.1+react@16.13.1
-      classnames: registry.npmjs.org/classnames/2.3.1
-      core-js: registry.npmjs.org/core-js/3.21.1
-      react: registry.npmjs.org/react/16.13.1
-    dev: false
-
   /@teambit/base-react.navigation.link/1.23.0_8bea2159e6cd5f1e2e43db9fc3829767:
     resolution: {integrity: sha1-dkmFy935I+/7kialZCzjASBEjs0=, tarball: '@teambit/base-react.navigation.link/-/@teambit-base-react.navigation.link-1.23.0.tgz'}
     peerDependencies:
@@ -1450,6 +1445,7 @@ packages:
       core-js: registry.npmjs.org/core-js/3.21.1
       react: registry.npmjs.org/react/16.13.1
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    dev: true
 
   /@teambit/base-react.navigation.link/2.0.1_8bea2159e6cd5f1e2e43db9fc3829767:
     resolution: {integrity: sha1-JdOMdo+tWpNi7oJelZIwmTQdpkY=, tarball: '@teambit/base-react.navigation.link/-/@teambit-base-react.navigation.link-2.0.1.tgz'}
@@ -1547,26 +1543,6 @@ packages:
       - '@testing-library/react'
     dev: false
 
-  /@teambit/bit.quick-start.learn-crossroad/0.0.6_8bea2159e6cd5f1e2e43db9fc3829767:
-    resolution: {integrity: sha1-npk32wqVjyNpc/XQJVHUZ9VGFy4=, tarball: '@teambit/bit.quick-start.learn-crossroad/-/@teambit-bit.quick-start.learn-crossroad-0.0.6.tgz'}
-    peerDependencies:
-      '@testing-library/react': 12.1.3
-      react: ^16.8.0 || ^17.0.0
-    dependencies:
-      '@teambit/base-react.content.image': 1.90.6_38be8bd4da9847dd67147ce9a129e815
-      '@teambit/base-react.navigation.link': 2.0.18_8bea2159e6cd5f1e2e43db9fc3829767
-      '@teambit/base-ui.layout.page-frame': registry.npmjs.org/@teambit/base-ui.layout.page-frame/1.0.2_react-dom@16.13.1+react@16.13.1
-      '@teambit/base-ui.text.paragraph': registry.npmjs.org/@teambit/base-ui.text.paragraph/1.0.3_react-dom@16.13.1+react@16.13.1
-      '@teambit/design.graph.edge': 0.0.2_38be8bd4da9847dd67147ce9a129e815
-      '@teambit/design.ui.heading': registry.npmjs.org/@teambit/design.ui.heading/1.0.9_react-dom@16.13.1+react@16.13.1
-      '@testing-library/react': registry.npmjs.org/@testing-library/react/12.0.0_react-dom@16.13.1+react@16.13.1
-      classnames: registry.npmjs.org/classnames/2.3.1
-      core-js: registry.npmjs.org/core-js/3.21.1
-      react: registry.npmjs.org/react/16.13.1
-    transitivePeerDependencies:
-      - react-dom
-    dev: false
-
   /@teambit/cloud-providers.deployers.netlify/0.0.7:
     resolution: {integrity: sha1-PwqH5bGmFjNF32uT1F5HwJDMLFw=, tarball: '@teambit/cloud-providers.deployers.netlify/-/@teambit-cloud-providers.deployers.netlify-0.0.7.tgz'}
     dependencies:
@@ -1598,6 +1574,27 @@ packages:
       core-js: registry.npmjs.org/core-js/3.21.1
       react: registry.npmjs.org/react/16.13.1
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    dev: false
+
+  /@teambit/community.entity.graph.bubble-graph/1.95.4_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha1-JdgfRnXMnl7J0hm3NES/+376r0U=, tarball: '@teambit/community.entity.graph.bubble-graph/-/@teambit-community.entity.graph.bubble-graph-1.95.4.tgz'}
+    dependencies:
+      '@teambit/community.entity.graph.grid-graph': 1.95.1_react-dom@16.13.1+react@16.13.1
+    transitivePeerDependencies:
+      - '@teambit/legacy'
+      - react
+      - react-dom
+    dev: false
+
+  /@teambit/community.entity.graph.grid-graph/1.95.1_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha1-zPDMjmf/hDvat1I4HozNFtePVec=, tarball: '@teambit/community.entity.graph.grid-graph/-/@teambit-community.entity.graph.grid-graph-1.95.1.tgz'}
+    dependencies:
+      '@teambit/component-id': registry.npmjs.org/@teambit/component-id/0.0.369_react-dom@16.13.1+react@16.13.1
+      react-xarrows: registry.npmjs.org/react-xarrows/2.0.2_react@16.13.1
+    transitivePeerDependencies:
+      - '@teambit/legacy'
+      - react
+      - react-dom
     dev: false
 
   /@teambit/community.envs.community-react/1.90.7_08996d9b048963006e0d71241013fb8b:
@@ -11073,6 +11070,12 @@ packages:
     name: lodash.flow
     version: 3.5.0
     dev: true
+
+  registry.npmjs.org/lodash.head/4.0.1:
+    resolution: {integrity: sha1-4qoyLT7EDNaq4YYIKXfZk7NU7Zw=, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/lodash.head/-/lodash.head-4.0.1.tgz}
+    name: lodash.head
+    version: 4.0.1
+    dev: false
 
   registry.npmjs.org/lodash.isempty/4.4.0:
     resolution: {integrity: sha1-b4bL7di+TsmHvpqvM8loTbGzHn4=, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/lodash.isempty/-/lodash.isempty-4.4.0.tgz}

@@ -10,7 +10,7 @@ const ThinkingInComponents = lazy(() => import('@teambit/docs.content.thinking-i
 
 export const primaryRoutes: DocsRoute[] = [
   {
-    path: 'quick-start',
+    path: 'quick-start/*',
     icon: 'lightning',
     title: 'Quick Start',
     description:

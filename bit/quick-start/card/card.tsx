@@ -18,6 +18,8 @@ export type CardProps = {
    */
   heading?: string;
 
+  path?: string;
+
   /**
    *  Description of the card
    *  */

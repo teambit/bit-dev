@@ -1,4 +1,6 @@
 import React, { ReactNode } from 'react';
+import { ComponentID } from '@teambit/component-id';
+import { QuickStart } from '@teambit/bit.quick-start';
 
 export type WikiQuickStartProps = {
   /**
@@ -8,5 +10,7 @@ export type WikiQuickStartProps = {
 };
 
 export function WikiQuickStart({ children }: WikiQuickStartProps) {
-  return <div>{children}</div>;
+  const id = ComponentID.fromString('teambit.wiki/apps/wiki@1.90.3');
+  console.log(id);
+  return <QuickStart id={id}>{children}</QuickStart>;
 }

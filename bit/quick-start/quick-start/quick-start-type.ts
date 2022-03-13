@@ -5,6 +5,8 @@ export type QuickStartType = {
 
   displayName: string;
 
+  description: string;
+
   /**
    * component .
    */

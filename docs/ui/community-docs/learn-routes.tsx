@@ -291,13 +291,13 @@ export const learnDocsRoutes: DocsRoute[] = [
     children: [
       {
         path: 'adding-components',
-        title: 'Adding Components',
+        title: 'Adding components',
         description: 'Add a new component to be managed by Bit.',
         component: <AddingComponents />,
       },
       {
         path: 'component-config',
-        title: 'Component Configuration',
+        title: 'Component configuration',
         component: <ComponentConfig />,
       },
       {
@@ -309,7 +309,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'component-anatomy',
-        title: 'Component Anatomy',
+        title: 'Component anatomy',
         description: 'How Bit manages all data on a component.',
         component: <ComponentAnatomy />,
       },
@@ -386,7 +386,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'component-objects',
-        title: 'Component Objects',
+        title: 'Component objects',
         description: 'How Bit saves revision history for components',
         component: <ComponentObjects />,
       },

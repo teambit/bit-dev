@@ -39,7 +39,7 @@ export function Homepage({ ...rest }: HomepageProps) {
           <ExcludeHighlighter>
             <Hero bubbles={bubbles} />
           </ExcludeHighlighter>
-          <ComponentDistributionSection title="From monoliths to component-driven" components={componentsMock()} />
+          <ComponentDistributionSection title="From monolithic to composable software" components={componentsMock()} />
           <FeaturesSection features={features} title="Better software is built in components" />
           <UseCasesSection
             useCases={useCases}

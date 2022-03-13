@@ -1,0 +1,85 @@
+.thinkingInComponents {
+  display: flex;
+  min-height: 200px;
+  margin-top: 48px;
+  // align-items: center;
+}
+.arrows {
+  position: relative;
+  width: 40%;
+}
+.content {
+  text-decoration: none;
+  color: inherit;
+  align-self: flex-end;
+  padding: 16px 16px;
+  display: flex;
+  justify-content: space-between;
+  background: #ffffff;
+  border: 1px solid #c7bfff;
+  box-sizing: border-box;
+  border-radius: 8px;
+  .image {
+    height: 116px;
+    width: 136px;
+    align-self: center;
+  }
+  .heading {
+    margin-bottom: 4px;
+    margin-top: 0;
+  }
+  .paragraph {
+    margin: 0;
+
+    border-radius: nullpx;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: left;
+  }
+}
+
+.round {
+  position: absolute;
+  margin-bottom: 20px;
+  width: 16px;
+  height: 16px;
+  background: #ffffff;
+  border-radius: 50%;
+  border: 4px solid #a79df1;
+  box-sizing: border-box;
+  left: 10%;
+}
+
+.anchorStart {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 10%;
+  top: 8px;
+}
+
+.anchorEnd {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  left: 10%;
+  bottom: -40%;
+}
+
+.anchorEndB {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  right: 10%;
+  top: 70%;
+}
+
+.link {
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: 20px;
+  color: inherit;
+  &:hover {
+    text-decoration: underline;
+  }
+}

@@ -1,22 +1,22 @@
-import React, { Suspense } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
-import { lazy } from "@loadable/component";
-import { useGoogleTagManager } from "@teambit/analytics.data.google-tag-manager";
-import { useGoogleAnalytics } from "@teambit/analytics.data.google-analytics";
-import { Guides } from "@teambit/docs.ui.pages.guides";
-import { Header } from "@teambit/community.ui.header.header";
-import { StickyBanner } from "@teambit/community.ui.sticky-banner";
-import { Homepage } from "@teambit/community.ui.pages.homepage";
-import { NotFound } from "@teambit/community.ui.pages.errors.not-found";
-import { CommunityDocs } from "@teambit/docs.ui.community-docs";
-import { wideColumn } from "@teambit/base-ui.layout.page-frame";
-import { Footer, footerMock } from "@teambit/community.ui.footer.footer";
-import { AppContext } from "./app-context";
+import React, { Suspense } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { lazy } from '@loadable/component';
+import { useGoogleTagManager } from '@teambit/analytics.data.google-tag-manager';
+import { useGoogleAnalytics } from '@teambit/analytics.data.google-analytics';
+import { Guides } from '@teambit/docs.ui.pages.guides';
+import { Header } from '@teambit/community.ui.header.header';
+import { StickyBanner } from '@teambit/community.ui.sticky-banner';
+import { Homepage } from '@teambit/community.ui.pages.homepage';
+import { NotFound } from '@teambit/community.ui.pages.errors.not-found';
+import { CommunityDocs } from '@teambit/docs.ui.community-docs';
+import { wideColumn } from '@teambit/base-ui.layout.page-frame';
+import { Footer, footerMock } from '@teambit/community.ui.footer.footer';
+import { AppContext } from './app-context';
 
 /**
  * Load pages dynamically to enable code splitting.
  */
-const Plugins = lazy(() => import("@teambit/community.ui.pages.plugins"));
+const Plugins = lazy(() => import('@teambit/community.ui.pages.plugins'));
 
 export function BitDevApp() {
   useGoogleAnalytics();
