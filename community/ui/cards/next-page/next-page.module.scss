@@ -3,6 +3,9 @@
 }
 
 .nextPageCard {
+  border: 1px solid var(--border-medium-color);
+  background: var(--surface01-color);
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
