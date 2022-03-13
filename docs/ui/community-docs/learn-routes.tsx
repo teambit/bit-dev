@@ -656,17 +656,17 @@ export const learnDocsRoutes: DocsRoute[] = [
         children: [
           {
             path: 'generator-overview',
-            title: 'Generator Overview',
+            title: 'Overview',
             component: <GeneratorOverview />,
           },
           {
             path: 'generate-component',
-            title: 'Component Generator',
+            title: 'Custom component generator',
             component: <GenerateComponent />,
           },
           {
             path: 'generate-workspace',
-            title: 'Workspace Generator',
+            title: 'Custom workspace generator',
             component: <GenerateWorkspace />,
           },
         ],
