@@ -19,7 +19,7 @@ export function ComponentThinkingProcess({ children, steps, ...rest }: Component
   return (
     <div className={classNames(styles.componentThinkingProcess, rest.className)} {...rest}>
       {steps.map((step, key) => {
-        return <ComponentStep open={key === 0} key={step.id.toString()} {...step} />;
+        return <ComponentStep open={key === 0} key={step.id.toString()} {...step} stepNum={key + 1} />;
       })}
     </div>
   );

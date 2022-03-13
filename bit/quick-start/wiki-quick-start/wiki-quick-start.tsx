@@ -10,7 +10,7 @@ export type WikiQuickStartProps = {
 };
 
 export function WikiQuickStart({ children }: WikiQuickStartProps) {
-  const id = ComponentID.fromString('teambit.wiki/apps/wiki@1.90.3');
+  const id = ComponentID.fromString('teambit.wiki/apps/wiki@1.90.13');
   const components = [
     'teambit.wiki/sections/wiki@1.90.3',
     'teambit.wiki/blocks/header@0.0.40',
