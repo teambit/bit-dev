@@ -28,6 +28,7 @@ const VersionComponents = lazy(() => import('@teambit/docs.content.getting-start
 // const WhatIsScope = lazy(() => import('@teambit/docs.content.getting-started.what-is-scope'));
 // const HostBitCloud = lazy(() => import('@teambit/docs.content.getting-started.host-bit-cloud'));
 // const SelfHostScope = lazy(() => import('@teambit/docs.content.getting-started.self-host-scope'));
+const CreateRemoteScope = lazy(() => import('@teambit/docs.content.getting-started.create-remote-scope'));
 const ShareComponents = lazy(() => import('@teambit/docs.content.getting-started.share-components'));
 // const CiInstall = lazy(() => import('@teambit/docs.content.getting-started.ci-install'));
 
@@ -142,6 +143,7 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
       {
         path: 'remote-scope',
         title: 'Create a remote scope',
+        component: <CreateRemoteScope />,
         // open: false,
         // children: [
         //   {
