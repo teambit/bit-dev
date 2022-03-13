@@ -7,7 +7,7 @@ export const darkThemeValues: Partial<BaseThemeSchema> = {
   onBackgroundMediumColor: '#A3A3A2',
   onBackgroundHighColor: '#EDEDED',
 
-  primaryColor: '#5F55C4',
+  primaryColor: '#6A57FD',
   onPrimaryColor: '#FFFFFF',
 
   borderMediumColor: '#3D3D3C',
@@ -54,4 +54,14 @@ export const darkThemeValues: Partial<BaseThemeSchema> = {
   onSurfaceNeutralHighColor: '#FFFBFF',
   onSurfaceNeutralMediumColor: '#A3A3A2',
   onSurfaceNeutralLowColor: '#282828',
+
+  positiveColor: '#378751',
+  negativeColor: '#B6344F',
+  warningColor: '#BB8C25',
+  processColor: '#2174C6',
+  primarySurfaceColor: '#252338', // WIP TODO
+  positiveSurfaceColor: '#0C1E12',
+  negativeSurfaceColor: '#280B11',
+  warningSurfaceColor: '#291F08',
+  processSurfaceColor: '#071A2C',
 };

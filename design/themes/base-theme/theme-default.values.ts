@@ -73,4 +73,15 @@ export const baseThemeDefaults: BaseThemeSchema = {
   // surface02NeutralHover: '#E5E5E7',
   // surface02NeutralFocus: '#E3E3E6',
   // surface02NeutralActive: '#E1E2E4',
+
+  // primaryColor: string;
+  positiveColor: '#37B26C',
+  negativeColor: '#E62E5C',
+  warningColor: '#FFC640',
+  processColor: '#0984E3',
+  primarySurfaceColor: '#F6F5FE', // WIP TODO
+  positiveSurfaceColor: '#F3FAF6',
+  negativeSurfaceColor: '#FDF2F5',
+  warningSurfaceColor: '#FFFCF4',
+  processSurfaceColor: '#F0F8FD',
 };

@@ -79,5 +79,17 @@ export function getLegacyTokens(theme: BaseThemeSchema): React.CSSProperties {
     '--bit-h-lg': '36px',
     '--bit-h-xl': '40px',
     '--bit-h-xxl': '50px',
+
+    // accents:
+
+    '--bit-accent-primary-color': theme.primaryColor,
+    '--bit-accent-primary-bg': theme.primarySurfaceColor,
+    '--bit-accent-hunger-color': theme.warningColor,
+    '--bit-accent-hunger-bg': theme.warningSurfaceColor,
+    '--bit-accent-impulsive-color': theme.negativeColor,
+    '--bit-accent-impulsive-bg': theme.negativeSurfaceColor,
+    '--bit-accent-process-color': theme.processColor,
+    '--bit-accent-success-color': theme.positiveColor,
+    '--bit-accent-success-bg': theme.positiveSurfaceColor,
   } as React.CSSProperties;
 }

@@ -181,4 +181,16 @@ export interface BaseThemeSchema {
    * low emphesis color to be used on top of the surfacePrimary (for texts, icons, etc)
    */
   onSurfaceNeutralLowColor: string;
+
+  // // intents: //
+  // primaryColor: string;
+  positiveColor: string;
+  negativeColor: string;
+  warningColor: string;
+  processColor: string;
+  primarySurfaceColor: string; // WIP
+  positiveSurfaceColor: string;
+  negativeSurfaceColor: string;
+  warningSurfaceColor: string;
+  processSurfaceColor: string;
 }
