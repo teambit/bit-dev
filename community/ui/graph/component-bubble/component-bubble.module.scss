@@ -54,6 +54,7 @@
   pointer-events: none; // prevents weird behavior when hovering label
 }
 
-.noLink {
-  cursor: auto;
+.link {
+  color: inherit;
+  text-decoration: inherit;
 }

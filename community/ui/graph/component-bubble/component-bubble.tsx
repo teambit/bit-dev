@@ -1,13 +1,11 @@
 import React from 'react';
+import classNames from 'classnames';
 import { ComponentID } from '@teambit/component-id';
 import { Image } from '@teambit/base-react.content.image';
 import { Label } from '@teambit/documenter.ui.label';
 import { Caption } from '@teambit/design.ui.content.caption';
-import classNames from 'classnames';
-import {
-  BubbleCard,
-  BubbleCardProps,
-} from '@teambit/design.ui.cards.bubble-card';
+import { Link } from '@teambit/base-react.navigation.link';
+import { BubbleCard, BubbleCardProps } from '@teambit/design.ui.cards.bubble-card';
 import { ComponentUrl } from '@teambit/component.modules.component-url';
 import { Ellipsis, ellipsis } from '@teambit/design.ui.styles.ellipsis';
 import { getScopeName } from './get-scope-name';
@@ -78,44 +76,35 @@ export function ComponentBubble({
     showVersion = false;
     allowHover = false;
   }
-  const isLinked = componentId && isLinkable;
-  return (
-    <a
-      href={
-        isLinked
-          ? ComponentUrl.toUrl(componentId as any, { includeVersion: false })
-          : 'javascript:void(0)'
-      }
-      target={isLinked ? '_blank' : '_self'}
+
+  const link = componentId && isLinkable && ComponentUrl.toUrl(componentId, { includeVersion: false });
+
+  const bubble = (
+    <BubbleCard
+      className={classNames(styles.bubble, className, forceActive && styles.active, allowHover && styles.interactive)}
+      {...rest}
     >
-      <BubbleCard
-        className={classNames(
-          styles.bubble,
-          className,
-          forceActive && styles.active,
-          allowHover && styles.interactive,
-          !isLinked && styles.noLink
-        )}
-        {...rest}
-      >
-        {icon && <Image src={icon} className={styles.icon} />}
-        {componentId && (
-          <div className={classNames(styles.id)}>
-            <Caption className={ellipsis}>
-              {showScope
-                ? `${getScopeName(componentId.scope, showOwner)}/${
-                    componentId.namespace
-                  }`
-                : componentId.namespace}
-            </Caption>
-            <Ellipsis className={styles.name}>{componentId.name}</Ellipsis>
-          </div>
-        )}
-        {componentId?.version && showVersion && (
-          <Label className={styles.versionLabel}>{componentId.version}</Label>
-        )}
-      </BubbleCard>
-    </a>
+      {icon && <Image src={icon} className={styles.icon} />}
+      {componentId && (
+        <div className={classNames(styles.id)}>
+          <Caption className={ellipsis}>
+            {showScope
+              ? `${getScopeName(componentId.scope, showOwner)}/${componentId.namespace}`
+              : componentId.namespace}
+          </Caption>
+          <Ellipsis className={styles.name}>{componentId.name}</Ellipsis>
+        </div>
+      )}
+      {componentId?.version && showVersion && <Label className={styles.versionLabel}>{componentId.version}</Label>}
+    </BubbleCard>
+  );
+
+  if (!link) return bubble;
+
+  return (
+    <Link href={link} className={styles.link} external>
+      {bubble}
+    </Link>
   );
 }
 
