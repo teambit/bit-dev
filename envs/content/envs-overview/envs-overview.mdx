@@ -38,29 +38,11 @@ Different envs may use the same flows but with different configuration. For exam
 
 <Image src={envComposition} width="80%" />
 
-:::info Bit applies [component thinking](/docs/thinking-in-components) to managing your dev-workflow.
-:::
-
 ## Envs in your workspace
 
 A Bit workspace helps you focus on components and removes all other noise such as configuration files. This is critical when working with many components, as this can quickly pollute your workspace with many config files.
 
 An env encapsulates all the "noise" to single component. You then apply the env on a component for all flows and configs to apply for that specific component. In the same sense, you may also set vastly different envs on components in the same workspace.
 
-```javascript
-"teambit.workspace/variants": {
-    "{utility-functions/**}": {    // Match any component name starts with utility-functions
-        "teambit.harmony/node": {} // Set "node" workflow and configs for components
-    },
-    "{pages/**}": {                // Match any component name starts with pages
-        "teambit.react/react": {}  // Set "react" workflow and configs for components
-    },
-}
-```
-
-:::tip Learn more about [workspace variants](/docs/workspace/variants).
-:::
-
 When you run different commands like `start`, `compile`, `test`, `lint`, `format` or `build`, the operation will run per-component, according to how it is set in the env applied to it.  
 Checkout all available services [here](/docs/dev-services/available-services). And if you need to create your own, follow this [guide](/docs/envs/creating-your-own-services).
-
