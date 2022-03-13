@@ -10,6 +10,7 @@ import DefaultInstallation from './installation.mdx';
 import Components from './components.mdx';
 import { CreateWorkspace } from './create-workspace';
 import { ThinkingProcess } from './component-thinking-process';
+import Collaborate from './collaborate.mdx';
 import styles from './quick-start.module.scss';
 
 export type QuickStartProps = {
@@ -51,6 +52,7 @@ export function QuickStart({ id, intro, defaultScopeName, defaultWorkspaceName, 
       <ComponentCardDisplay componentIds={allComponents} />
       <H3>Building the components</H3>
       <ThinkingProcess componentIds={allComponents} />
+      <Collaborate />
     </>
   );
 }
