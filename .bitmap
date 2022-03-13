@@ -1119,6 +1119,30 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/theme/theme-provider"
     },
+    "themes/base-theme": {
+        "scope": "teambit.design",
+        "version": "0.0.3",
+        "mainFile": "index.ts",
+        "rootDir": "design/themes/base-theme"
+    },
+    "themes/dark-theme": {
+        "scope": "teambit.design",
+        "version": "1.90.8",
+        "mainFile": "index.ts",
+        "rootDir": "design/themes/dark-theme"
+    },
+    "themes/light-theme": {
+        "scope": "teambit.design",
+        "version": "0.0.4",
+        "mainFile": "index.ts",
+        "rootDir": "design/themes/light-theme"
+    },
+    "themes/theme-toggler": {
+        "scope": "teambit.design",
+        "version": "0.0.4",
+        "mainFile": "index.ts",
+        "rootDir": "design/themes/theme-toggler"
+    },
     "ui/brand/logo": {
         "scope": "teambit.design",
         "version": "1.95.0",
