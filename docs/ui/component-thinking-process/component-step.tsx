@@ -19,7 +19,7 @@ export type ComponentStepProps = {
    */
   open?: boolean;
 
-  stepNum: number;
+  stepNum?: number;
 };
 
 export function ComponentStep({ id, content, open, stepNum }: ComponentStepProps) {
@@ -30,7 +30,7 @@ export function ComponentStep({ id, content, open, stepNum }: ComponentStepProps
       className={styles.componentStep}
       name={
         <>
-          <div className={styles.stepContents}>{stepNum}</div>
+          {stepNum && <div className={styles.stepContents}>{stepNum}</div>}
           {id.toStringWithoutVersion()}
         </>
       }

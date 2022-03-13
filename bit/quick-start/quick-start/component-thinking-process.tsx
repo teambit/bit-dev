@@ -25,7 +25,6 @@ export function ThinkingProcess({ componentIds }: ThinkingProcessProps) {
               </div>
             ),
             open: false,
-            stepNum: idx,
           };
         })}
       />
