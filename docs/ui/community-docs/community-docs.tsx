@@ -1,7 +1,6 @@
 import React from 'react';
 import { Docs } from '@teambit/docs.ui.docs';
 import type { DocsProps, ContentCategory } from '@teambit/docs.ui.docs';
-import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 import { NextPagePlugin } from '@teambit/docs.plugins.next-page';
 import { TableOfContentsPlugin } from '@teambit/docs.plugins.docs.table-of-contents';
 // import { ContributingDocs } from '@teambit/docs.content.contributing-docs';
@@ -23,15 +22,13 @@ export function CommunityDocs({ baseUrl = '/docs', ...rest }: CommunityDocsProps
     { title: 'LEARN', routes: learnDocsRoutes },
   ];
   return (
-    <WideColumn>
-      <Docs
-        {...rest}
-        primaryLinks={primaryRoutes}
-        contents={routesCategories}
-        baseUrl={baseUrl}
-        plugins={[new NextPagePlugin(), new TableOfContentsPlugin()]}
-        // contribution={<ContributingDocs/>}
-      />
-    </WideColumn>
+    <Docs
+      {...rest}
+      primaryLinks={primaryRoutes}
+      contents={routesCategories}
+      baseUrl={baseUrl}
+      plugins={[new NextPagePlugin(), new TableOfContentsPlugin()]}
+      // contribution={<ContributingDocs/>}
+    />
   );
 }

@@ -116,7 +116,7 @@
         "@teambit/graphql.hooks.use-query": "^0.0.1",
         "@teambit/harmony": "0.2.11",
         "@teambit/mdx.modules.mdx-loader": "^0.0.466",
-        "@teambit/mdx.ui.mdx-layout": "^0.0.479",
+        "@teambit/mdx.ui.mdx-layout": "^0.0.496",
         "@teambit/react.eslint-config-bit-react": "^0.0.451",
         "@teambit/react.templates.themes.theme": "^0.0.3",
         "@teambit/react.ui.component-highlighter": "^0.0.506",
