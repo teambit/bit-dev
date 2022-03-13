@@ -417,6 +417,27 @@
         "mainFile": "index.ts",
         "rootDir": "defender/content/formatting-during-development"
     },
+    "content/generate-component": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.generator",
+        "mainFile": "index.ts",
+        "rootDir": "generator/content/generate-component"
+    },
+    "content/generate-workspace": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.generator",
+        "mainFile": "index.ts",
+        "rootDir": "generator/content/generate-workspace"
+    },
+    "content/generator-overview": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.generator",
+        "mainFile": "index.ts",
+        "rootDir": "generator/content/generator-overview"
+    },
     "content/getting-started/ci-export": {
         "scope": "teambit.docs",
         "version": "1.95.0",

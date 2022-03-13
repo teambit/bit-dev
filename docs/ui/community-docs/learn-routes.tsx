@@ -42,6 +42,12 @@ const HostingScopes = lazy(() => import('@teambit/scope.content.hosting-scopes')
 const DevServices = lazy(() => import('@teambit/envs.content.dev-services'));
 // const DevServicesOverview = lazy(() => import('@teambit/envs.content.dev-services-overview'));
 
+/* Generator */
+const GeneratorOverview = lazy(() => import('@teambit/generator.content.generator-overview'));
+const GenerateComponent = lazy(() => import('@teambit/generator.content.generate-component'));
+const GenerateWorkspace = lazy(() => import('@teambit/generator.content.generate-workspace'));
+
+
 /* Preview */
 
 const PreviewOverview = lazy(() => import('@teambit/preview.content.preview-overview'));
@@ -651,6 +657,17 @@ export const learnDocsRoutes: DocsRoute[] = [
           {
             path: 'generator-overview',
             title: 'Generator Overview',
+            component: <GeneratorOverview />,
+          },
+          {
+            path: 'generate-component',
+            title: 'Component Generator',
+            component: <GenerateComponent />,
+          },
+          {
+            path: 'generate-workspace',
+            title: 'Workspace Generator',
+            component: <GenerateWorkspace />,
           },
         ],
       },
