@@ -4720,23 +4720,6 @@ packages:
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
     dev: false
 
-  registry.npmjs.org/@teambit/component-descriptor/0.0.2_react-dom@16.13.1+react@16.13.1:
-    resolution: {integrity: sha512-Mgp8AD0elrPdaqaV3uT5xPv2b61KmsCE6LcGl3oMMC/lqg6+tggD+CBYxsEfhXKsCcwQeP8xpggY8R8tHtT9gQ==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/component-descriptor/-/component-descriptor-0.0.2.tgz}
-    id: registry.npmjs.org/@teambit/component-descriptor/0.0.2
-    name: '@teambit/component-descriptor'
-    version: 0.0.2
-    engines: {node: '>=12.22.0'}
-    peerDependencies:
-      '@teambit/legacy': 1.0.220
-      react: ^16.8.0 || ^17.0.0
-      react-dom: ^16.8.0 || ^17.0.0
-    dependencies:
-      '@babel/runtime': registry.npmjs.org/@babel/runtime/7.12.18
-      core-js: registry.npmjs.org/core-js/3.21.1
-      react: registry.npmjs.org/react/16.13.1
-      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
-    dev: false
-
   registry.npmjs.org/@teambit/component-descriptor/0.0.13_react-dom@16.13.1+react@16.13.1:
     resolution: {integrity: sha512-naUdtJtTybgstGKdWUmeAY8rcoyzdXSc8feVrux0jbEsZpTm5ssdO7gZht9bZIHOli2g1PHlJWf/E8TI8djoGg==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/component-descriptor/-/component-descriptor-0.0.13.tgz}
     id: registry.npmjs.org/@teambit/component-descriptor/0.0.13
@@ -4762,6 +4745,23 @@ packages:
     engines: {node: '>=12.22.0'}
     peerDependencies:
       '@teambit/legacy': 1.0.220
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    dependencies:
+      '@babel/runtime': registry.npmjs.org/@babel/runtime/7.12.18
+      core-js: registry.npmjs.org/core-js/3.21.1
+      react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    dev: false
+
+  registry.npmjs.org/@teambit/component-descriptor/0.0.3_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha512-/OEPdA80xS76HvGaSlZqNTyvQ/WlO3lERzUNnPnldLye2OWST69vhga8tefBRKMeNpPsITck6adfiLm1DH8m6g==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/component-descriptor/-/component-descriptor-0.0.3.tgz}
+    id: registry.npmjs.org/@teambit/component-descriptor/0.0.3
+    name: '@teambit/component-descriptor'
+    version: 0.0.3
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      '@teambit/legacy': 1.0.223
       react: ^16.8.0 || ^17.0.0
       react-dom: ^16.8.0 || ^17.0.0
     dependencies:
