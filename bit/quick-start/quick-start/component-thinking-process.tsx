@@ -15,7 +15,7 @@ export function ThinkingProcess({ componentIds }: ThinkingProcessProps) {
       <PostComponents />
       <ComponentThinkingProcess
         style={{ maxWidth: '80%', marginLeft: '9%' }}
-        steps={ids.map((id) => {
+        steps={ids.map((id, idx) => {
           return {
             id,
             content: (
@@ -25,6 +25,7 @@ export function ThinkingProcess({ componentIds }: ThinkingProcessProps) {
               </div>
             ),
             open: false,
+            stepNum: idx,
           };
         })}
       />
