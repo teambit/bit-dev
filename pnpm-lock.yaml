@@ -42,8 +42,6 @@ importers:
       '@teambit/cloud.cloud-provider': ^0.0.2
       '@teambit/community.entity.graph.bubble-graph': ^1.23.11
       '@teambit/community.envs.community-react': 1.90.7
-      '@teambit/community.ui.graph.bubble-graph': 1.95.0
-      '@teambit/community.ui.heading': 1.95.0
       '@teambit/community.ui.sticky-banner': 0.0.4
       '@teambit/community.ui.text-tooltip': 0.0.4
       '@teambit/community.ui.usage-example': 0.0.3
@@ -199,8 +197,6 @@ importers:
       '@teambit/cloud-providers.deployers.netlify': 0.0.8
       '@teambit/cloud.cloud-provider': 0.0.2_41d93ae2141268db5ea0e8b166c96d66
       '@teambit/community.entity.graph.bubble-graph': link:community/entity/graph/bubble-graph
-      '@teambit/community.ui.graph.bubble-graph': 1.95.0_8bea2159e6cd5f1e2e43db9fc3829767
-      '@teambit/community.ui.heading': 1.95.0_38be8bd4da9847dd67147ce9a129e815
       '@teambit/community.ui.sticky-banner': 0.0.4_08996d9b048963006e0d71241013fb8b
       '@teambit/component-descriptor': registry.npmjs.org/@teambit/component-descriptor/0.0.13_react-dom@16.13.1+react@16.13.1
       '@teambit/component-id': registry.npmjs.org/@teambit/component-id/0.0.401
@@ -1377,18 +1373,6 @@ packages:
       react: registry.npmjs.org/react/16.13.1
     dev: false
 
-  /@teambit/base-react.content.image/1.95.0_38be8bd4da9847dd67147ce9a129e815:
-    resolution: {integrity: sha1-8wTlRKMsGMH0ZVBxkykRshMBkS4=, tarball: '@teambit/base-react.content.image/-/@teambit-base-react.content.image-1.95.0.tgz'}
-    peerDependencies:
-      '@testing-library/react': 12.0.0
-      react: ^16.8.0 || ^17.0.0
-    dependencies:
-      '@testing-library/react': registry.npmjs.org/@testing-library/react/12.0.0_react-dom@16.13.1+react@16.13.1
-      classnames: registry.npmjs.org/classnames/2.3.1
-      core-js: registry.npmjs.org/core-js/3.21.1
-      react: registry.npmjs.org/react/16.13.1
-    dev: false
-
   /@teambit/base-react.navigation.link/1.23.0_8bea2159e6cd5f1e2e43db9fc3829767:
     resolution: {integrity: sha1-dkmFy935I+/7kialZCzjASBEjs0=, tarball: '@teambit/base-react.navigation.link/-/@teambit-base-react.navigation.link-1.23.0.tgz'}
     peerDependencies:
@@ -1571,16 +1555,6 @@ packages:
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
     dev: false
 
-  /@teambit/base-react.ui.layout.graph-node/1.95.0_react-dom@16.13.1+react@16.13.1:
-    resolution: {integrity: sha1-Pz2Q73vmCTDpA1rNpzb81YBkVZk=, tarball: '@teambit/base-react.ui.layout.graph-node/-/@teambit-base-react.ui.layout.graph-node-1.95.0.tgz'}
-    dependencies:
-      '@teambit/base-ui.layout.breakpoints': registry.npmjs.org/@teambit/base-ui.layout.breakpoints/1.0.0_react-dom@16.13.1+react@16.13.1
-      core-js: registry.npmjs.org/core-js/3.21.1
-    transitivePeerDependencies:
-      - react
-      - react-dom
-    dev: false
-
   /@teambit/bit.content.what-is-bit/1.90.5_8bea2159e6cd5f1e2e43db9fc3829767:
     resolution: {integrity: sha1-FTZvvYLGVMTKQsXD89YDQjz5zpI=, tarball: '@teambit/bit.content.what-is-bit/-/@teambit-bit.content.what-is-bit-1.90.5.tgz'}
     peerDependencies:
@@ -1629,17 +1603,6 @@ packages:
       core-js: registry.npmjs.org/core-js/3.21.1
       react: registry.npmjs.org/react/16.13.1
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
-    dev: false
-
-  /@teambit/community.entity.graph.grid-graph/1.95.0_react-dom@16.13.1+react@16.13.1:
-    resolution: {integrity: sha1-/SO0DWAyqn76HbmhRfTxwsE/2BA=, tarball: '@teambit/community.entity.graph.grid-graph/-/@teambit-community.entity.graph.grid-graph-1.95.0.tgz'}
-    dependencies:
-      '@teambit/component-id': registry.npmjs.org/@teambit/component-id/0.0.369_react-dom@16.13.1+react@16.13.1
-      react-xarrows: registry.npmjs.org/react-xarrows/2.0.2_react@16.13.1
-    transitivePeerDependencies:
-      - '@teambit/legacy'
-      - react
-      - react-dom
     dev: false
 
   /@teambit/community.envs.community-react/1.90.7_08996d9b048963006e0d71241013fb8b:
@@ -1734,24 +1697,6 @@ packages:
       - react-dom
     dev: false
 
-  /@teambit/community.ui.graph.bubble-graph/1.95.0_8bea2159e6cd5f1e2e43db9fc3829767:
-    resolution: {integrity: sha1-1vkjylVReNObdbmry6tTjqAjFNc=, tarball: '@teambit/community.ui.graph.bubble-graph/-/@teambit-community.ui.graph.bubble-graph-1.95.0.tgz'}
-    peerDependencies:
-      '@testing-library/react': 12.0.0
-      react: ^16.8.0 || ^17.0.0
-    dependencies:
-      '@teambit/community.entity.graph.grid-graph': 1.95.0_react-dom@16.13.1+react@16.13.1
-      '@teambit/community.ui.graph.component-bubble': 1.95.0_8bea2159e6cd5f1e2e43db9fc3829767
-      '@teambit/community.ui.graph.grid-graph': 1.95.0_8bea2159e6cd5f1e2e43db9fc3829767
-      '@testing-library/react': registry.npmjs.org/@testing-library/react/12.0.0_react-dom@16.13.1+react@16.13.1
-      classnames: registry.npmjs.org/classnames/2.3.1
-      core-js: registry.npmjs.org/core-js/3.21.1
-      react: registry.npmjs.org/react/16.13.1
-    transitivePeerDependencies:
-      - '@teambit/legacy'
-      - react-dom
-    dev: false
-
   /@teambit/community.ui.graph.component-bubble/1.13.0_8bea2159e6cd5f1e2e43db9fc3829767:
     resolution: {integrity: sha1-YTYFLJb7yObRqWNPdv+V+x/kxnc=, tarball: '@teambit/community.ui.graph.component-bubble/-/@teambit-community.ui.graph.component-bubble-1.13.0.tgz'}
     peerDependencies:
@@ -1772,76 +1717,6 @@ packages:
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
     transitivePeerDependencies:
       - '@teambit/legacy'
-    dev: false
-
-  /@teambit/community.ui.graph.component-bubble/1.95.0_8bea2159e6cd5f1e2e43db9fc3829767:
-    resolution: {integrity: sha1-yuLL8XkXNkNf2r3912eQ9uQA148=, tarball: '@teambit/community.ui.graph.component-bubble/-/@teambit-community.ui.graph.component-bubble-1.95.0.tgz'}
-    peerDependencies:
-      '@testing-library/react': 12.0.0
-      react: ^16.8.0 || ^17.0.0
-    dependencies:
-      '@teambit/base-react.content.image': 1.95.0_38be8bd4da9847dd67147ce9a129e815
-      '@teambit/component-id': registry.npmjs.org/@teambit/component-id/0.0.369_react-dom@16.13.1+react@16.13.1
-      '@teambit/design.ui.cards.bubble-card': 1.95.0_38be8bd4da9847dd67147ce9a129e815
-      '@teambit/design.ui.content.caption': 1.95.0_38be8bd4da9847dd67147ce9a129e815
-      '@teambit/design.ui.styles.ellipsis': registry.npmjs.org/@teambit/design.ui.styles.ellipsis/0.0.346_react-dom@16.13.1+react@16.13.1
-      '@teambit/documenter.ui.label': registry.npmjs.org/@teambit/documenter.ui.label/4.0.6_react-dom@16.13.1+react@16.13.1
-      '@testing-library/react': registry.npmjs.org/@testing-library/react/12.0.0_react-dom@16.13.1+react@16.13.1
-      classnames: registry.npmjs.org/classnames/2.3.1
-      core-js: registry.npmjs.org/core-js/3.21.1
-      react: registry.npmjs.org/react/16.13.1
-    transitivePeerDependencies:
-      - '@teambit/legacy'
-      - react-dom
-    dev: false
-
-  /@teambit/community.ui.graph.edge/1.95.0_8bea2159e6cd5f1e2e43db9fc3829767:
-    resolution: {integrity: sha1-pMIvz0Q+e56JKKkv6yvhA0wWD6g=, tarball: '@teambit/community.ui.graph.edge/-/@teambit-community.ui.graph.edge-1.95.0.tgz'}
-    peerDependencies:
-      '@testing-library/react': 12.0.0
-      react: ^16.8.0 || ^17.0.0
-    dependencies:
-      '@teambit/community.entity.graph.grid-graph': 1.95.0_react-dom@16.13.1+react@16.13.1
-      '@testing-library/react': registry.npmjs.org/@testing-library/react/12.0.0_react-dom@16.13.1+react@16.13.1
-      core-js: registry.npmjs.org/core-js/3.21.1
-      react: registry.npmjs.org/react/16.13.1
-      react-xarrows: registry.npmjs.org/react-xarrows/2.0.2_react@16.13.1
-    transitivePeerDependencies:
-      - '@teambit/legacy'
-      - react-dom
-    dev: false
-
-  /@teambit/community.ui.graph.grid-graph/1.95.0_8bea2159e6cd5f1e2e43db9fc3829767:
-    resolution: {integrity: sha1-17z/g7yF5dAS2Bl7g6SP8IUJsBU=, tarball: '@teambit/community.ui.graph.grid-graph/-/@teambit-community.ui.graph.grid-graph-1.95.0.tgz'}
-    peerDependencies:
-      '@testing-library/react': 12.0.0
-      react: ^16.8.0 || ^17.0.0
-    dependencies:
-      '@teambit/base-react.ui.layout.graph-node': 1.95.0_react-dom@16.13.1+react@16.13.1
-      '@teambit/community.entity.graph.grid-graph': 1.95.0_react-dom@16.13.1+react@16.13.1
-      '@teambit/community.ui.graph.edge': 1.95.0_8bea2159e6cd5f1e2e43db9fc3829767
-      '@teambit/component-id': registry.npmjs.org/@teambit/component-id/0.0.369_react-dom@16.13.1+react@16.13.1
-      '@teambit/design.ui.cards.card': 1.95.0_38be8bd4da9847dd67147ce9a129e815
-      '@testing-library/react': registry.npmjs.org/@testing-library/react/12.0.0_react-dom@16.13.1+react@16.13.1
-      classnames: registry.npmjs.org/classnames/2.3.1
-      core-js: registry.npmjs.org/core-js/3.21.1
-      react: registry.npmjs.org/react/16.13.1
-    transitivePeerDependencies:
-      - '@teambit/legacy'
-      - react-dom
-    dev: false
-
-  /@teambit/community.ui.heading/1.95.0_38be8bd4da9847dd67147ce9a129e815:
-    resolution: {integrity: sha1-ROYEnqSRNW+Y9UMlMLfEcuPlfe4=, tarball: '@teambit/community.ui.heading/-/@teambit-community.ui.heading-1.95.0.tgz'}
-    peerDependencies:
-      '@testing-library/react': 12.0.0
-      react: ^16.8.0 || ^17.0.0
-    dependencies:
-      '@teambit/design.ui.content.heading': 1.95.0_38be8bd4da9847dd67147ce9a129e815
-      '@testing-library/react': registry.npmjs.org/@testing-library/react/12.0.0_react-dom@16.13.1+react@16.13.1
-      classnames: registry.npmjs.org/classnames/2.3.1
-      core-js: registry.npmjs.org/core-js/3.21.1
-      react: registry.npmjs.org/react/16.13.1
     dev: false
 
   /@teambit/community.ui.hooks.use-local-storage/1.80.5_8bea2159e6cd5f1e2e43db9fc3829767:
@@ -2293,19 +2168,6 @@ packages:
       react: registry.npmjs.org/react/16.13.1
     dev: true
 
-  /@teambit/design.ui.cards.bubble-card/1.95.0_38be8bd4da9847dd67147ce9a129e815:
-    resolution: {integrity: sha1-T9XCYwNq9/SGrLtDIWWyJ/INrNQ=, tarball: '@teambit/design.ui.cards.bubble-card/-/@teambit-design.ui.cards.bubble-card-1.95.0.tgz'}
-    peerDependencies:
-      '@testing-library/react': 12.0.0
-      react: ^16.8.0 || ^17.0.0
-    dependencies:
-      '@teambit/design.ui.cards.card': 1.95.0_38be8bd4da9847dd67147ce9a129e815
-      '@testing-library/react': registry.npmjs.org/@testing-library/react/12.0.0_react-dom@16.13.1+react@16.13.1
-      classnames: registry.npmjs.org/classnames/2.3.1
-      core-js: registry.npmjs.org/core-js/3.21.1
-      react: registry.npmjs.org/react/16.13.1
-    dev: false
-
   /@teambit/design.ui.cards.card/1.13.0_8bea2159e6cd5f1e2e43db9fc3829767:
     resolution: {integrity: sha1-ucMxmjeYGFjKveI0X3JpIexWMJY=, tarball: '@teambit/design.ui.cards.card/-/@teambit-design.ui.cards.card-1.13.0.tgz'}
     peerDependencies:
@@ -2357,18 +2219,6 @@ packages:
       react: registry.npmjs.org/react/16.13.1
     dev: true
 
-  /@teambit/design.ui.cards.card/1.95.0_38be8bd4da9847dd67147ce9a129e815:
-    resolution: {integrity: sha1-ibb9jh4udcBiEsBOrxemYOzRJIw=, tarball: '@teambit/design.ui.cards.card/-/@teambit-design.ui.cards.card-1.95.0.tgz'}
-    peerDependencies:
-      '@testing-library/react': 12.0.0
-      react: ^16.8.0 || ^17.0.0
-    dependencies:
-      '@testing-library/react': registry.npmjs.org/@testing-library/react/12.0.0_react-dom@16.13.1+react@16.13.1
-      classnames: registry.npmjs.org/classnames/2.3.1
-      core-js: registry.npmjs.org/core-js/3.21.1
-      react: registry.npmjs.org/react/16.13.1
-    dev: false
-
   /@teambit/design.ui.content.caption/1.13.0_8bea2159e6cd5f1e2e43db9fc3829767:
     resolution: {integrity: sha1-tEJ2Ln3f4fjMMDxwcEn1nr0a2S8=, tarball: '@teambit/design.ui.content.caption/-/@teambit-design.ui.content.caption-1.13.0.tgz'}
     peerDependencies:
@@ -2383,18 +2233,6 @@ packages:
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
     dev: false
 
-  /@teambit/design.ui.content.caption/1.95.0_38be8bd4da9847dd67147ce9a129e815:
-    resolution: {integrity: sha1-tukNl4NpyiFtnQ2OU+zFgWx+zD0=, tarball: '@teambit/design.ui.content.caption/-/@teambit-design.ui.content.caption-1.95.0.tgz'}
-    peerDependencies:
-      '@testing-library/react': 12.0.0
-      react: ^16.8.0 || ^17.0.0
-    dependencies:
-      '@testing-library/react': registry.npmjs.org/@testing-library/react/12.0.0_react-dom@16.13.1+react@16.13.1
-      classnames: registry.npmjs.org/classnames/2.3.1
-      core-js: registry.npmjs.org/core-js/3.21.1
-      react: registry.npmjs.org/react/16.13.1
-    dev: false
-
   /@teambit/design.ui.content.heading/1.9.57_8bea2159e6cd5f1e2e43db9fc3829767:
     resolution: {integrity: sha1-F/sBudzdiKk9vIZ4DQSFrrRfW+Y=, tarball: '@teambit/design.ui.content.heading/-/@teambit-design.ui.content.heading-1.9.57.tgz'}
     peerDependencies:
@@ -2407,18 +2245,6 @@ packages:
       core-js: registry.npmjs.org/core-js/3.21.1
       react: registry.npmjs.org/react/16.13.1
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
-    dev: false
-
-  /@teambit/design.ui.content.heading/1.95.0_38be8bd4da9847dd67147ce9a129e815:
-    resolution: {integrity: sha1-ppBhqBFzJ94TPE4OWgSLJQzTwdg=, tarball: '@teambit/design.ui.content.heading/-/@teambit-design.ui.content.heading-1.95.0.tgz'}
-    peerDependencies:
-      '@testing-library/react': 12.0.0
-      react: ^16.8.0 || ^17.0.0
-    dependencies:
-      '@testing-library/react': registry.npmjs.org/@testing-library/react/12.0.0_react-dom@16.13.1+react@16.13.1
-      classnames: registry.npmjs.org/classnames/2.3.1
-      core-js: registry.npmjs.org/core-js/3.21.1
-      react: registry.npmjs.org/react/16.13.1
     dev: false
 
   /@teambit/design.ui.content.subtitle/1.80.6_8bea2159e6cd5f1e2e43db9fc3829767:
