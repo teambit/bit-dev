@@ -78,7 +78,7 @@
     },
     "community/blog-quick-start": {
         "scope": "teambit.blog",
-        "version": "0.0.8",
+        "version": "0.0.9",
         "mainFile": "index.ts",
         "rootDir": "blog/community/blog-quick-start"
     },
@@ -1153,7 +1153,7 @@
     },
     "quick-start": {
         "scope": "teambit.bit",
-        "version": "0.0.8",
+        "version": "0.0.9",
         "mainFile": "index.ts",
         "rootDir": "bit/quick-start/quick-start",
         "config": {
@@ -1291,7 +1291,7 @@
     },
     "ui/content/heading": {
         "scope": "teambit.design",
-        "version": "1.95.5",
+        "version": "1.95.6",
         "mainFile": "index.ts",
         "rootDir": "design/ui/content/heading"
     },

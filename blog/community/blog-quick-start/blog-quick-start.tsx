@@ -1,6 +1,6 @@
-import React, { ReactNode } from 'react';
-import { ComponentID } from '@teambit/component-id';
-import { QuickStart } from '@teambit/bit.quick-start';
+import React, { ReactNode } from "react";
+import { ComponentID } from "@teambit/component-id";
+import { QuickStart } from "@teambit/bit.quick-start";
 
 export type BlogQuickStartProps = {
   /**
@@ -10,17 +10,16 @@ export type BlogQuickStartProps = {
 };
 
 export function BlogQuickStart({ children }: BlogQuickStartProps) {
-  // TODO: app showcasing a design system.
-  const id = ComponentID.fromString('teambit.blog/starter/starter-blog');
+  const id = ComponentID.fromString("teambit.blog/starter/starter-blog");
   const components = [
-    // TODO: app showcasing a design system.
-    'teambit.blog/starter/starter-blog',
-    'teambit.blog/blog',
-    'teambit.blog/pages/lobby',
-    'teambit.blog/pages/blog-post',
+    "teambit.blog/blog",
+    "teambit.blog/blog",
+    "teambit.blog/pages/lobby",
+    "teambit.blog/pages/blog-post",
   ];
 
   return (
+    // @ts-ignore
     <QuickStart name="blog" id={id} components={components}>
       {children}
     </QuickStart>

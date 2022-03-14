@@ -1,17 +1,18 @@
-import React, { ReactNode } from 'react';
-import { WhatIsBit } from '@teambit/bit.content.what-is-bit';
-import { ComponentID } from '@teambit/component-id';
-import { centerColumn, wideColumn } from '@teambit/base-ui.layout.page-frame';
-import { ComponentShowcase } from '@teambit/community.component-showcase';
-import { LearnCrossroad } from '@teambit/bit.quick-start.learn-crossroad';
-import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-display';
-import DefaultIntro from './intro.mdx';
-import DefaultInstallation from './installation.mdx';
-import Components from './components.mdx';
-import { CreateWorkspace } from './create-workspace';
-import { ThinkingProcess } from './component-thinking-process';
-import Collaborate from './collaborate.mdx';
-import styles from './quick-start.module.scss';
+import React, { ReactNode } from "react";
+import { WhatIsBit } from "@teambit/bit.content.what-is-bit";
+import { ComponentID } from "@teambit/component-id";
+import { centerColumn, wideColumn } from "@teambit/base-ui.layout.page-frame";
+import { ComponentShowcase } from "@teambit/community.component-showcase";
+import { LearnCrossroad } from "@teambit/bit.quick-start.learn-crossroad";
+import { GraphqlProvider } from "@teambit/graphql.contexts.graphql-provider";
+import { ComponentCardDisplay } from "@teambit/components.blocks.component-card-display";
+import DefaultIntro from "./intro.mdx";
+import DefaultInstallation from "./installation.mdx";
+import Components from "./components.mdx";
+import { CreateWorkspace } from "./create-workspace";
+import { ThinkingProcess } from "./component-thinking-process";
+import Collaborate from "./collaborate.mdx";
+import styles from "./quick-start.module.scss";
 
 export type QuickStartComponent = {
   id: string;
@@ -77,7 +78,7 @@ export function QuickStart({
   const scopeName = defaultScopeName || `my-org.${name}`;
   const workspaceName = defaultWorkspaceName || `my-${name}`;
   const targetComponents = components?.map((component) => {
-    if (typeof component === 'string') {
+    if (typeof component === "string") {
       return {
         id: component,
       };
@@ -85,34 +86,43 @@ export function QuickStart({
     return component;
   });
   const ids = targetComponents.map((component) => component.id.toString());
+  const API_URL = "https://symphony.bit.dev/graphql";
 
+  const SUBSCRIPTION_URL = "wss://symphony.bit.dev/subscriptions";
+
+  const client = GraphqlProvider.getClient({
+    API_URL,
+    subscriptionUri: SUBSCRIPTION_URL,
+  });
   return (
     <div>
-      <div className={styles.sectionMargin}>{intro || <DefaultIntro />}</div>
-      <ComponentShowcase className={wideColumn} componentId={id.toString()} />
-      <div className={styles.showcase}>
-        <WhatIsBit />
-        {/* <H3>Learn Bit</H3> */}
-        <LearnCrossroad
-          className={centerColumn}
-          title="Thinking in components"
-          description="Don't have time to give Bit a try? Not a developer? Understand component thinking quickly here!"
-          link="/docs/thinking-in-components"
+      <GraphqlProvider.clientProvider client={client}>
+        <div className={styles.sectionMargin}>{intro || <DefaultIntro />}</div>
+        <ComponentShowcase className={wideColumn} componentId={id.toString()} />
+        <div className={styles.showcase}>
+          <WhatIsBit />
+          {/* <H3>Learn Bit</H3> */}
+          <LearnCrossroad
+            className={centerColumn}
+            title="Thinking in components"
+            description="Don't have time to give Bit a try? Not a developer? Understand component thinking quickly here!"
+            link="/docs/thinking-in-components"
+          />
+        </div>
+        <DefaultInstallation />
+        <CreateWorkspace
+          defaultScopeName={scopeName}
+          defaultWorkspaceName={workspaceName}
+          workspaceTemplateName="react"
         />
-      </div>
-      <DefaultInstallation />
-      <CreateWorkspace
-        defaultScopeName={scopeName}
-        defaultWorkspaceName={workspaceName}
-        workspaceTemplateName="react"
-      />
-      <Components />
-      <ComponentCardDisplay componentIds={ids} />
-      {/* <H3>Building the components</H3> */}
-      {beforeThinking}
-      <ThinkingProcess components={targetComponents} />
-      {children}
-      <Collaborate />
+        <Components />
+        <ComponentCardDisplay componentIds={ids} />
+        {/* <H3>Building the components</H3> */}
+        {beforeThinking}
+        <ThinkingProcess components={targetComponents} />
+        {children}
+        <Collaborate />
+      </GraphqlProvider.clientProvider>
     </div>
   );
 }
