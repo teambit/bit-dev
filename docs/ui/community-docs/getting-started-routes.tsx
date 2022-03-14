@@ -62,7 +62,7 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'editor-setup',
-        title: 'Editor Setup',
+        title: 'Code editor setup',
         component: <EditorSetup />,
       },
       {
