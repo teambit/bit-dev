@@ -3,8 +3,8 @@
 Bit's dependency resolver ensures Workspace Components and [External Dependencies](/docs/dependencies/) are resolved and kept up to date. It makes sure all components and external 
 dependencies are resolved from the [`node_modules`](/docs/dependencies/node_modules) directory.
 
-It fetches [component objects](/docs/components/component-objects) and uses modern package package managers such as pnpm and Yarn to make sure each inepdendent component is resolved with the correct dependencies and their corrosponding versions.
-Updating and resolving components and external dependencies in the Workspace is done with `bit install`.
+It fetches [component objects](/docs/components/component-objects) and uses modern package package managers such as [pnpm](https://pnpm.io/) and [Yarn](https://yarnpkg.com/) to make sure each independent component is resolved with the correct dependencies and their corresponding versions.
+Updating and resolving components and external dependencies in the Workspace is done by running `bit install`.
 
 
 ```bash
@@ -30,15 +30,15 @@ dependencies:
 Successfully resolved dependencies for 6 component(s) in 11.036 seconds
 ```
 
-Dependencies are resolved for each component in the Workspace, according to configuration provided by the Workspace dependency policy, component dependencies or Aspects used by
+Dependencies are resolved for each component in the Workspace, according to configuration provided by the Workspace Dependency Policy, component dependencies or Aspects used by
 your components. 
-To inspect which dependencies are expected to be resolved for each component, use `bit show` or `bit dependencies` or head over to 
+To inspect which dependencies are expected to be resolved for each component, use `bit show` or `bit dependencies`. For more information, head over to 
 [Inspecting Dependencies](/docs/dependencies/inspecting-dependencies).
 
 ## Add an external dependency
-Adding an external dependency, which can be either a Component or a package is done by configuring the Workspace [Dependency policy](/docs/dependencies/dependency-policy).
-`bit install <component-id>` automate this process by resolving the latest version of the requested dependency, configuring it on the Workspace dependency policy and
-eventually make sure the Bit workspace is up to date with `bit install`.
+Adding an external dependency (which can be either a Component or a package) is done by configuring the Workspace [Dependency Policy](/docs/dependencies/dependency-policy).
+Running `bit install <component-id>` will automate this process by resolving the latest version of the requested dependency, configuring it on the Workspace Dependency Policy, and
+eventually making sure the Bit workspace is up to date.
 
 ```bash
 bit install @teambit/design.ui.buttons.button
@@ -62,10 +62,10 @@ dependencies:
 Successfully resolved dependencies for 6 component(s) in 8.815 seconds
 ```
 
-Since bit install only fetches outdated or unresolved dependencies, the installation process ended by installing the newly added `@teambit/design.ui.buttons.button`.
+Since `bit install` only fetches outdated or unresolved dependencies. Therefore, the installation process ended in the above example by installing the newly added `@teambit/design.ui.buttons.button`.
 
 ## Install a specific version of a package
-Dependencies can be also added with a specific version. SemVer ranges can also be set on the Workspace [dependency policy](/docs/dependencies/dependency-policy).
+Dependencies can also be added with a specific version. [SemVer](https://semver.org/) ranges can also be set on the Workspace [Dependency Policy](/docs/dependencies/dependency-policy).
 
 ```shell
 bit use lodash@1.0.0
@@ -73,8 +73,7 @@ bit use lodash@1.0.0
 
 ## Updating a specific component or a package
 
-When trying to install a specific package that is already listed in the Dependency Resolver policies, an error will be thrown.  
-To override it:
+When trying to install a specific package that is already listed in the Dependency Resolver policies, an error will be thrown. You can override this by running either of the following:
 
 ```shell
 bit install <package> --update-existing
