@@ -181,6 +181,9 @@ const ReactOverview = lazy(() => import('@teambit/react.content.react-overview')
 const ReplacingReactTools = lazy(() => import('@teambit/react.content.replace-react-tools'));
 const ConfigReactTools = lazy(() => import('@teambit/react.content.config-react-tools'));
 
+/* ReactNative */
+const ReactNativeOverview = lazy(() => import('@teambit/react.content.react-native-overview'));
+
 /* node */
 const NodeOverview = lazy(() => import('@teambit/harmony.content.node-overview'));
 
@@ -1151,6 +1154,18 @@ export const learnDocsRoutes: DocsRoute[] = [
             path: 'replace-react-tools',
             title: 'Replacing React tools',
             component: <ReplacingReactTools />,
+          },
+        ],
+      },
+      {
+        path: 'react-native',
+        title: 'React Native',
+        open: false,
+        children: [
+          {
+            path: 'react-native-overview',
+            title: 'React Native overview',
+            component: <ReactNativeOverview />,
           },
         ],
       },
