@@ -93,7 +93,7 @@ importers:
       '@teambit/graphql.hooks.use-query': ^0.0.1
       '@teambit/harmony': 0.2.11
       '@teambit/mdx.modules.mdx-loader': ^0.0.466
-      '@teambit/mdx.ui.mdx-layout': ^0.0.479
+      '@teambit/mdx.ui.mdx-layout': ^0.0.496
       '@teambit/mdx.ui.mdx-scope-context': 0.0.368
       '@teambit/react.eslint-config-bit-react': ^0.0.451
       '@teambit/react.templates.themes.theme': ^0.0.3
@@ -245,7 +245,7 @@ importers:
       '@teambit/graphql.hooks.use-query': 0.0.1_41d93ae2141268db5ea0e8b166c96d66
       '@teambit/harmony': registry.npmjs.org/@teambit/harmony/0.2.11
       '@teambit/mdx.modules.mdx-loader': registry.npmjs.org/@teambit/mdx.modules.mdx-loader/0.0.466_react@16.13.1
-      '@teambit/mdx.ui.mdx-layout': registry.npmjs.org/@teambit/mdx.ui.mdx-layout/0.0.479_a83b4fd1170d6176415f71b89ce5b026
+      '@teambit/mdx.ui.mdx-layout': registry.npmjs.org/@teambit/mdx.ui.mdx-layout/0.0.496_a83b4fd1170d6176415f71b89ce5b026
       '@teambit/mdx.ui.mdx-scope-context': registry.npmjs.org/@teambit/mdx.ui.mdx-scope-context/0.0.368_react-dom@16.13.1+react@16.13.1
       '@teambit/react.eslint-config-bit-react': registry.npmjs.org/@teambit/react.eslint-config-bit-react/0.0.451_50175ae77453b2176918ddf70404d166
       '@teambit/react.templates.themes.theme': 0.0.3_8bea2159e6cd5f1e2e43db9fc3829767
@@ -792,6 +792,9 @@ importers:
     specifiers: {}
 
   docs/content/getting-started/ci-install:
+    specifiers: {}
+
+  docs/content/getting-started/create-remote-scope:
     specifiers: {}
 
   docs/content/getting-started/create-workspace:
@@ -6409,6 +6412,22 @@ packages:
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
     dev: false
 
+  registry.npmjs.org/@teambit/mdx.ui.docs.link/0.0.488_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha512-4oS9ooQ+DZIfXXIOTAzbMyhKQpR68AsdXN/MmIUmjckaTtve2YsJ8q79U33o3hHNuUtNKnQUJShSsEqdSUnEHQ==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/mdx.ui.docs.link/-/mdx.ui.docs.link-0.0.488.tgz}
+    id: registry.npmjs.org/@teambit/mdx.ui.docs.link/0.0.488
+    name: '@teambit/mdx.ui.docs.link'
+    version: 0.0.488
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    dependencies:
+      '@teambit/base-ui.routing.link': registry.npmjs.org/@teambit/base-ui.routing.link/1.0.0_react-dom@16.13.1+react@16.13.1
+      core-js: registry.npmjs.org/core-js/3.21.1
+      react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    dev: false
+
   registry.npmjs.org/@teambit/mdx.ui.docs.snippet/0.0.473_a83b4fd1170d6176415f71b89ce5b026:
     resolution: {integrity: sha512-TqSmCJ6GsuFCXy+Fe0IgCeaboIgBjh9nUkYHhZ7fK6NRoasH6xoDnjoogub9MUOUGYWVc8oYdBlV8SRpZB54nw==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/mdx.ui.docs.snippet/-/mdx.ui.docs.snippet-0.0.473.tgz}
     id: registry.npmjs.org/@teambit/mdx.ui.docs.snippet/0.0.473
@@ -6431,6 +6450,27 @@ packages:
       - typescript
     dev: false
 
+  registry.npmjs.org/@teambit/mdx.ui.docs.snippet/0.0.488_a83b4fd1170d6176415f71b89ce5b026:
+    resolution: {integrity: sha512-7jbcabzvqFIe/k7tKuJxXr67FUvWPWkEf6z5X/Bg1FqIM2xzVkCIaAu0nPhrGx7f+cLWbhlyaOIiCCNiZnopTQ==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/mdx.ui.docs.snippet/-/mdx.ui.docs.snippet-0.0.488.tgz}
+    id: registry.npmjs.org/@teambit/mdx.ui.docs.snippet/0.0.488
+    name: '@teambit/mdx.ui.docs.snippet'
+    version: 0.0.488
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    dependencies:
+      '@mdx-js/react': registry.npmjs.org/@mdx-js/react/1.6.22_react@16.13.1
+      '@teambit/documenter.markdown.hybrid-live-code-snippet': registry.npmjs.org/@teambit/documenter.markdown.hybrid-live-code-snippet/0.1.3_a83b4fd1170d6176415f71b89ce5b026
+      '@teambit/mdx.ui.mdx-scope-context': registry.npmjs.org/@teambit/mdx.ui.mdx-scope-context/0.0.487_react-dom@16.13.1+react@16.13.1
+      core-js: registry.npmjs.org/core-js/3.21.1
+      react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    transitivePeerDependencies:
+      - '@types/react'
+      - typescript
+    dev: false
+
   registry.npmjs.org/@teambit/mdx.ui.mdx-layout/0.0.479_a83b4fd1170d6176415f71b89ce5b026:
     resolution: {integrity: sha512-CqL3dotrGqI8lEoHPglg8Lz1UcDzt7pGTD1/s1yg6yKQUBt3bq9IBpZ35KCzFgtESKr0/+qY9BFM7K9QLOqKkw==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/mdx.ui.mdx-layout/-/mdx.ui.mdx-layout-0.0.479.tgz}
     id: registry.npmjs.org/@teambit/mdx.ui.mdx-layout/0.0.479
@@ -6445,6 +6485,27 @@ packages:
       '@teambit/documenter.markdown.mdx': registry.npmjs.org/@teambit/documenter.markdown.mdx/0.1.7_a83b4fd1170d6176415f71b89ce5b026
       '@teambit/mdx.ui.docs.link': registry.npmjs.org/@teambit/mdx.ui.docs.link/0.0.473_react-dom@16.13.1+react@16.13.1
       '@teambit/mdx.ui.docs.snippet': registry.npmjs.org/@teambit/mdx.ui.docs.snippet/0.0.473_a83b4fd1170d6176415f71b89ce5b026
+      core-js: registry.npmjs.org/core-js/3.21.1
+      react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    transitivePeerDependencies:
+      - '@types/react'
+      - typescript
+    dev: false
+
+  registry.npmjs.org/@teambit/mdx.ui.mdx-layout/0.0.496_a83b4fd1170d6176415f71b89ce5b026:
+    resolution: {integrity: sha512-y3XD1W0D0wX23IcpIF7alAsm0bsZkORs9/jOE/EdkWCSbE+ot+vxjyEUYF0dGs5mrIEssOcJNvmknjUsci7I5g==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/mdx.ui.mdx-layout/-/mdx.ui.mdx-layout-0.0.496.tgz}
+    id: registry.npmjs.org/@teambit/mdx.ui.mdx-layout/0.0.496
+    name: '@teambit/mdx.ui.mdx-layout'
+    version: 0.0.496
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    dependencies:
+      '@teambit/documenter.markdown.mdx': registry.npmjs.org/@teambit/documenter.markdown.mdx/0.1.7_a83b4fd1170d6176415f71b89ce5b026
+      '@teambit/mdx.ui.docs.link': registry.npmjs.org/@teambit/mdx.ui.docs.link/0.0.488_react-dom@16.13.1+react@16.13.1
+      '@teambit/mdx.ui.docs.snippet': registry.npmjs.org/@teambit/mdx.ui.docs.snippet/0.0.488_a83b4fd1170d6176415f71b89ce5b026
       core-js: registry.npmjs.org/core-js/3.21.1
       react: registry.npmjs.org/react/16.13.1
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
@@ -6490,6 +6551,21 @@ packages:
     id: registry.npmjs.org/@teambit/mdx.ui.mdx-scope-context/0.0.486
     name: '@teambit/mdx.ui.mdx-scope-context'
     version: 0.0.486
+    engines: {node: '>=12.22.0'}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    dependencies:
+      core-js: registry.npmjs.org/core-js/3.21.1
+      react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    dev: false
+
+  registry.npmjs.org/@teambit/mdx.ui.mdx-scope-context/0.0.487_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha512-To72nuqmH6icX/LgZFtdO/JPIGXewIZz6RqcVHk+P3a0pcOBXg/RiY6CFMQSfs31oJdHmsOVqoo0iUqf5OY/HQ==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/mdx.ui.mdx-scope-context/-/mdx.ui.mdx-scope-context-0.0.487.tgz}
+    id: registry.npmjs.org/@teambit/mdx.ui.mdx-scope-context/0.0.487
+    name: '@teambit/mdx.ui.mdx-scope-context'
+    version: 0.0.487
     engines: {node: '>=12.22.0'}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0

@@ -1,12 +1,13 @@
 # Create a Remote Scope
 
-Scope is a server for hosting for components. Bit uses Scopes to save versions of Bit Components and access them as needed. Set Remote scopes on Bit.cloud or self-hosted Bit servers to share components.
+Scope is a collboration server for components. Bit uses Scopes to allow for collboration of components wherever they are used.  
+Set Remote scopes on Bit.cloud or self-hosted Bit servers to share components.
 
-Each scope is a dedicated container with storage for components, GraphQL API as an API layer and Web UI for browsing components.
+Each scope acts as a repostiory for components and exposes GraphQL API and Web UI and can be extended through with [Scope Aspects](/).
 
-Regardless of how you choose to host and manage your scope, the local Bit flow remains the same.
+You can choose whether to host your Scope on bit.cloud or on your own.
 
-## Host scope on Bit.cloud
+## Host scope on bit.cloud
 
 Bit is connected to [bit.cloud](https://bit.cloud) as its default hosting provider. Run the `login` command for Bit to open a login/sign-up form for a new personal account.
 
@@ -17,7 +18,6 @@ bit login
 Once an account has been created successfully, your terminal will greet you with the following message:
 
 ```bash
-successfully added @bit as a scoped registry at /Users/<account>/.npmrc
 success! logged in as <account name>
 ```
 
