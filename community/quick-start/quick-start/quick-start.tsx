@@ -9,6 +9,7 @@ export type QuickStartQuickStartProps = {
   children?: ReactNode;
 };
 
+// naming here is not a mistake - this is actually the dogfooding paradox that always repeats.
 export function QuickStartQuickStart({ children }: QuickStartQuickStartProps) {
   const id = ComponentID.fromString('teambit.wiki/community/wiki-quick-start');
   const components = [

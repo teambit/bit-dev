@@ -51,6 +51,31 @@
         "mainFile": "index.ts",
         "rootDir": "community/cloud/create-account"
     },
+    "community/analytics-quick-start": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.analytics",
+        "mainFile": "index.ts",
+        "rootDir": "analytics/community/analytics-quick-start",
+        "config": {
+            "teambit.envs/envs": {
+                "env": "teambit.community/envs/community-react"
+            },
+            "teambit.community/envs/community-react@1.95.3": {},
+            "teambit.component/dev-files": {},
+            "teambit.compositions/compositions": {},
+            "teambit.docs/docs": {},
+            "teambit.dependencies/dependency-resolver": {},
+            "teambit.pipelines/builder": {},
+            "teambit.component/forking": {
+                "forkedFrom": {
+                    "scope": "teambit.blog",
+                    "name": "community/blog-quick-start",
+                    "version": "0.0.8"
+                }
+            }
+        }
+    },
     "community/blog-quick-start": {
         "scope": "teambit.blog",
         "version": "0.0.8",

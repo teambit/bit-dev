@@ -23,13 +23,44 @@ export type QuickStartComponent = {
 export type QuickStartNodeDesc = QuickStartComponent | string;
 
 export type QuickStartProps = {
+  /**
+   * main component ID.
+   */
   id: ComponentID;
+
+  /**
+   * intro node.
+   */
   intro?: ReactNode;
+
+  /**
+   * children render below thinking process.
+   */
   children?: ReactNode;
+
+  /**
+   * name of the quick start.
+   */
   name: string;
+
+  /**
+   * default workspace name to use.
+   */
   defaultWorkspaceName?: string;
+
+  /**
+   * default scope name to use.
+   */
   defaultScopeName?: string;
+
+  /**
+   * array of components to show through the quick start.
+   */
   components: QuickStartNodeDesc[];
+
+  /**
+   * add a react Node before component creation steps.
+   */
   beforeThinking?: ReactNode;
 };
 
