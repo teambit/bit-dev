@@ -38,7 +38,7 @@ export function QuickStart({ id, intro, defaultScopeName, defaultWorkspaceName, 
         <LearnCrossroad
           style={{ maxWidth: '80%', marginLeft: '9%' }}
           title="Thinking in components"
-          description="Don't have time to give Bit a try? Not a developer? Learn quickly about component thinking here"
+          description="Don't have time to give Bit a try? Not a developer? Understand component thinking quickly here!"
           link="/docs/thinking-in-components"
         />
       </div>
