@@ -50,7 +50,7 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'start-bit-workspace',
-        title: 'Start a new Bit Workspace',
+        title: 'Start a new Bit workspace',
         description:
           'A Bit Workspace is where components are built and composed. Workspaces can be generated with the bit new command or initialized on an existing project.',
         component: <CreateWorkspace />,
