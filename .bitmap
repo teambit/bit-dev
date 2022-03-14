@@ -456,6 +456,13 @@
         "mainFile": "index.ts",
         "rootDir": "docs/content/getting-started/ci-install"
     },
+    "content/getting-started/create-remote-scope": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.docs",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/getting-started/create-remote-scope"
+    },
     "content/getting-started/composing/create-components": {
         "scope": "teambit.community",
         "version": "1.95.1",

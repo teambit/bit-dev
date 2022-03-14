@@ -3,7 +3,7 @@ import pipelinesImg from './pipelines.png';
 
 # Build Pipelines
 
-The Builder runs three separate build pipelines, the basic build pipeline, the snap pipeline and the tag pipeline.
+Each component has three different compositions of build tasks that makes a total of three build pipelines:
 
 <Image src={pipelinesImg} />
 
@@ -36,7 +36,7 @@ Snap Pipeline Tasks:
 teambit.pkg/pkg:PackComponents
 ```
 
-## Build (the basic build pipeline)
+## Build pipeline
 
 Components can be built without committing changes using the `bit build` command. This is often used to test the build process.
 `bit build` runs only the build's build pipeline which mainly includes:
@@ -49,8 +49,9 @@ Components can be built without committing changes using the `bit build` command
 
 ## Snap
 
-`bit snap` executes the basic pipeline before it runs its own build pipeline. The snap build pipeline consists, mainly, of packing <!--TODO [packing](#) --> the component without publishing it (since it is a snap and not a release version).
+`bit snap` executes the **basic pipeline**, then it adds an additional steps for creating an immutable snapshot for the component.
 
 ## Tag
 
-`bit tag` executes the basic pipeline before it runs its own build pipeline. The snap build pipeline consists, mainly, of packing <!--TODO [packing](#) -->the component and publishing it.
+`bit snap` executes the **basic pipeline**, then it adds an additional steps for creating an immutable snapshot for the component. After the snapshot is created, a semantic version is created for that snapshot.  
+`tag` will also run the publish task for the components.

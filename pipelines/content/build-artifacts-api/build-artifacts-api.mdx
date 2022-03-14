@@ -1,42 +1,42 @@
-# Build Artifacts Api
+## Build Artifacts Api
 
-## getArtifacts
+### `getArtifacts`
 
 ```ts
 getArtifacts(component: Component): ArtifactObject[] | undefined
 ```
 
-## getArtifactsVinylByExtension
+### `getArtifactsVinylByExtension`
 
 ```ts
 getArtifactsVinylByExtension(component: Component, aspectName: string): Promise<ArtifactVinyl[]>
 ```
 
-## getArtifactsVinylByExtensionAndName
+### `getArtifactsVinylByExtensionAndName`
 
 ```ts
 getArtifactsVinylByExtensionAndName(component: Component, aspectName: string, name: string): Promise<ArtifactVinyl[]>
 ```
 
-## getArtifactsByName
+### `getArtifactsByName`
 
 ```ts
 getArtifactsByName(component: Component, name: string): ArtifactObject[] | undefined
 ```
 
-## getArtifactsByExtension
+### `getArtifactsByExtension`
 
 ```ts
 getArtifactsByExtension(component: Component, aspectName: string): ArtifactObject[] | undefined
 ```
 
-## getArtifactsByExtensionAndName
+### `getArtifactsByExtensionAndName`
 
 ```ts
 getArtifactsByExtensionAndName(component: Component, aspectName: string, name: string): ArtifactObject[] | undefined
 ```
 
-## getDataByAspect
+### `getDataByAspect`
 
 ```ts
 getDataByAspect(component: Component, aspectName: string): Serializable | undefined

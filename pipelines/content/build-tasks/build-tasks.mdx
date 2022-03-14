@@ -1,8 +1,9 @@
+import BuildTaskApi from '@teambit/pipelines.content.build-task-api';
+
 # Build Tasks
 
-Build tasks are component development operations that are executed in sequence, in one or more build pipelines (build pipeline, snap pipeline, or tag pipeline).
-
-Build tasks are registered to the build pipelines, either by Envs using the [Builder service handlers](build-pipelines#add-a-build-task-from-an-env), or by Aspects (in general), using the [Builder registration API](build-pipelines#add-a-build-task-from-any-aspect).
+Build tasks are operations that are during the component build pipeline. A build task can either be built as part of an env or an aspect, or as a standalone component.  
+When used as a standalone component (such as this guide), you may manage and version the build task just like any other component. You can even use it in various aspects.
 
 The easiest way to start implementing a Build Task is by using the 'build-task' template:
 
@@ -10,17 +11,19 @@ The easiest way to start implementing a Build Task is by using the 'build-task' 
 bit create build-task modules/my-task
 ```
 
-Alternatively, you can import an example build task component (and edit it in your own workspace):
+:::tip Fork a complete example
+
+Fork an example build task component and edit it in your workspace:
 
 ```bash
-bit import teambit.pipelines/examples/modules/loc-stats
+bit fork teambit.pipelines/examples/modules/loc-stats
 ```
 
-## Provide the Build Task with Identification
+:::
 
-To identify your build task in various outputs and logs, provide it with a task name (`name`) and with the Aspect ID (`aspectId`) of the aspect that registered it.
+## Name and register build task
 
-Since the Aspect ID may change (based on the aspect registering the build task), it is best to set it only when the build task is instantiated.
+To identify your build task in various outputs and logs, set task name (`name`). Since there may be various Aspects that may register the build task, we allow for instantiating it with an Aspect ID (`aspectId`) of the aspect that registered the task.
 
 ```ts
 export class MyTask implements BuildTask {
@@ -29,16 +32,13 @@ export class MyTask implements BuildTask {
 }
 ```
 
-## Process the Relevant Components
+## Process relevant components
 
-The build task receives the Build context (`context`) from the Builder aspect. It provides data regarding all the Capsules that were generated in this build process.
+The build task receives the Build context (`context`) from the Builder aspect. The context provides data on all generated capsules in this instance of the build process.
 
-In most cases, the Capsules you should care about are the 'Seeder Capsules' (`seedersCapsules`).
-These are the Capsules that are intentionally being built (in contrast to those that are only needed by the build process as dependencies of the components intentionally being built).
+Build tasks run on components, grouped by their Envs. This means that depending on the env, you will get different instance of capsules. For example, when the task runs over `teambit.react/react` Env's components, the capsules will only be for components that have the `teambit.react/react` Env configured.
 
-Build tasks run on sets of components which are grouped by their Env. That means a different set of 'Seeder Capsules' will be available for different instances of the build task, depending on the Env (for example, when the task runs over React Env's components, the seeders capsules will only be component using the React Env)
-
-Iterate over each Component Capsule to process its files.
+Iterate over each capsule and run any operation for the component in the capsule.
 
 ```ts
   async execute(context: BuildContext): Promise<BuiltTaskResult> {
@@ -52,10 +52,16 @@ Iterate over each Component Capsule to process its files.
   }
 ```
 
-## Save New Data in the Component Metadata
+:::tip About seeder capsules
 
-Build tasks must return data regarding the components they processed (`componentsResults`). The 'component results' can also be used to include data regarding the build execution such as errors, start and end timestamps, etc.
-When tasks are executed as part of the snap or tag processes, this data gets persisted in the component version (as component metadata).
+In most cases, the Capsules you should care about are the 'Seeder Capsules' (`seedersCapsules`). These are the Capsules that are intentionally being built (others are for the dependent-components).
+
+:::
+
+## Store component metadata
+
+Build tasks must return data about the components they processed (`componentsResults`). This may be used for errors, start and end timestamps, etc.
+When tasks are executed as part of the `snap` or `tag` processes, Bit persists the data as part of the snapshot.
 
 ```ts
   async execute(context: BuildContext): Promise<BuiltTaskResult> {
@@ -73,10 +79,9 @@ When tasks are executed as part of the snap or tag processes, this data gets per
 
 ## Save New Artifacts in the Component Artifacts
 
-Artifacts generated (in each component's capsule) can be persisted in the component version (when the task is executed as part of the tag or snap processes).
-This is done by selecting the relevant artifacts using a glob pattern, and providing them with a description (artifacts that are not selected will not be persisted).
+The artifacts your build task generates can be persisted in the component version. Select the relevant artifacts using a glob pattern, and set a description for them (non-selected artifacts will not be persisted).
 
-Note that a single task may return more than a single set of artifacts. In that case, the name (`name`) given for them should distinguish one set of artifacts from another (for example, a single compilation task that generates code transpiled to 'ES2015' and 'ES2020' standards)
+A single task may return more than a single set of artifacts. In that case, the name (`name`) given for them should distinguish one set of artifacts from another (for example, a single compilation task that generates code transpiled to 'ES2015' and 'ES2020' standards)
 
 ```ts
   async execute(context: BuildContext): Promise<BuiltTaskResult> {
@@ -93,3 +98,5 @@ Note that a single task may return more than a single set of artifacts. In that 
     };
   }
 ```
+
+<BuildTaskApi />
