@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import { WhatIsBit } from '@teambit/bit.content.what-is-bit';
 import { ComponentID } from '@teambit/component-id';
+import { centerColumn, wideColumn } from '@teambit/base-ui.layout.page-frame';
 // import { H3 } from '@teambit/design.ui.heading';
 import { ComponentShowcase } from '@teambit/community.component-showcase';
 import { LearnCrossroad } from '@teambit/bit.quick-start.learn-crossroad';
@@ -56,14 +57,14 @@ export function QuickStart({
   const ids = targetComponents.map((component) => component.id.toString());
 
   return (
-    <>
+    <div>
       <div className={styles.sectionMargin}>{intro || <DefaultIntro />}</div>
-      <ComponentShowcase componentId={id.toString()} />
+      <ComponentShowcase className={wideColumn} componentId={id.toString()} />
       <div className={styles.showcase}>
         <WhatIsBit />
         {/* <H3>Learn Bit</H3> */}
         <LearnCrossroad
-          style={{ maxWidth: '80%', marginLeft: '9%' }}
+          className={centerColumn}
           title="Thinking in components"
           description="Don't have time to give Bit a try? Not a developer? Understand component thinking quickly here!"
           link="/docs/thinking-in-components"
@@ -82,6 +83,6 @@ export function QuickStart({
       <ThinkingProcess components={targetComponents} />
       {children}
       <Collaborate />
-    </>
+    </div>
   );
 }

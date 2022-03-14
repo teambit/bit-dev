@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 import { Heading, Elements } from '@teambit/community.ui.heading';
 import { Paragraph } from '@teambit/base-ui.text.paragraph';
 import { Button } from '@teambit/design.ui.buttons.button';
@@ -7,9 +8,9 @@ import styles from './create-account.module.scss';
 
 export type CreateAccountProps = {} & React.HTMLAttributes<HTMLDivElement>;
 
-export function CreateAccount({ ...rest }: CreateAccountProps) {
+export function CreateAccount({ className, ...rest }: CreateAccountProps) {
   return (
-    <div className={styles.container} {...rest}>
+    <div className={classnames(styles.container, className)} {...rest}>
       <Insightful className={styles.insightful} />
       <Heading className={styles.heading} data-testid="heading" element={Elements.H3}>
         Create your free bit.cloud account
