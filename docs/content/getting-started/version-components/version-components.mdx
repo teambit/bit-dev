@@ -2,19 +2,17 @@ import changelog from './changelog.png';
 import versionPicker from './version-picker.png';
 import { Image } from '@teambit/docs.ui.zoomable-image';
 
-# Component Revisions
+# Snapping components
 
-A component in Bit has its own revision history. This history contains code, dependencies and configuration changes. This reversion history can be shared through a remote Bit server.
+A component in Bit has its own history. This history contains code, dependencies and configuration changes, together they form the [Component Snapshot](docs/components/snaps). Snapshots are shared using a remove Bit scope.
 
-Each revision has to be completely isolated from the workspace. To evaluate if a state of a component can be saved, run:
+Each snap has to be completely isolated from the workspace. To evaluate if a state of a component can be saved, run:
 
 ```bash
 bit status
 ```
 
 If you see all component status as `ok`, Bit can save that state for the component.
-
-## Component snapshots
 
 Snapshots (snaps) are point in time for a component which you want to keep or share for various reasons. Each snapshot is immutable, meaning that once set, similar to a git-commit, it can't be changed.
 
@@ -24,11 +22,67 @@ To record our first snapshot we use the `snap` command:
 bit snap ui/text --message "a demo snapshot"
 ```
 
-During the snap process Bit runs the component's build pipeline to ensure it's fully functional. A snapshot will have it's own unique hash to be used when referring to that state in time.
+When creating a snapshot, Bit performs the actions below:
+
+- Create an isolated environment for the component (capsule).
+- Run the build pipeline (`bit build`) as defined in each component's env in the capsule.
+- Locking dependencies versions for the components.
+- Setting a snapshot of the component.
+
+At the end of the process, Bit creates an immutable snapshot of the component, containing:
+
+- Implementation of the component.
+- Component configuration and env.
+- Full dependency graph.
+- Generated artifacts from the build pipeline.
+
+The scope is located in `.git/bit` directory for each workspace. When exporting components to remote The process of sharing components to remote Bit servers is about exporting staged versions to a remote Bit server (that hosts a remote scope).
 
 Read more about [snapshots](/docs/components/snaps) and how to use them.
 
-## Versioning components
+## Component history
+
+With each component having it's own versioning and history you get a time-machine for components. You can see it in past working states, run diffs and even checkout a past version of a component to your workspace for maintenance.  
+
+<Image alt="changelog" src={changelog} />
+
+And by running the `log` command:
+
+```bash
+bit log ui/my-welcome
+```
+
+Read more about [navigating history](/docs/components/navigating-history).
+
+### View past revisions
+
+The workspace UI features a dropdown list of the component version history. You can pick any of the past versions and explore all the changes that happened in that version. This works like having a time-machine for your components.
+
+<Image alt="version picker" src={versionPicker} />
+
+### Comparing with past implementation
+
+You may compare the current state of a component with past snap or version. To do so, run:
+
+```bash
+bit diff ui/my-welcome 1.0.0
+```
+
+## Untag snapshots
+
+We can untag staged components, i.e., components that were tagged by not yet exported to a remote scope.  
+Bit untag reverts the component to its previous state, i.e., `new`, `modified` or `exported`.
+
+> Untag does not revert code changes made in the component.
+
+Use `bit untag` to untag a component:
+
+```bash title="examples for untag"
+bit untag teambit.base-ui/button # untag a specific component
+bit untag --all # untag all staged components
+```
+
+## Apply a semantic version
 
 You can tag a state of a component with a semantic version. Behind the scenes Bit will create a snap which will then be marked with a version, so you are not required to create a snap and then apply a version for it.  
 A component's version is set according to the [semantic versioning](https://semver.org/) specs. Meaning - version is MAJOR.MINOR.PATCH. By default, tagging a component without specifying a version bumps a patch version.
@@ -55,77 +109,3 @@ Read more on [versioning components](/docs/components/tags).
 
 Bit understands the dependency graph of all components in a workspace. When tagging a component, it will also tag all components that are affected by the change. This means that you not only make sure all dependents get updated, you also do it in the most efficient way possible where the minimal amount of code gets rebuilt.  
 Dependent components will get promoted by a semantic patch version.
-
-## Component history
-
-With each component having it's own versioning and history you get a time-machine for components. You can see it in past working states, run diffs and even checkout a past version of a component to your workspace for maintenance.  
-Component tags is what building this history. The workspace UI builds a changelog for each component and even lets you view past versions. Each component has a changelog tab:
-
-<Image alt="changelog" src={changelog} />
-
-And by running the `log` command:
-
-```bash
-bit log ui/my-welcome
-```
-
-## View past revisions
-
-The workspace UI features a dropdown list of the component version history. You can pick any of the past versions and explore all the changes that happened in that version. This works like having a time-machine for your components.
-
-<Image alt="version picker" src={versionPicker} />
-
-### Comparing with past implementation
-
-You may compare the current state of a component with past snap or version. To do so, run:
-
-```bash
-bit diff ui/my-welcome 1.0.0
-```
-
-### Checkout a specific state
-
-While the UI lets you view a component version from the past, using the CLI you can checkout a snap or a version of a component to your workspace. To do so, run:
-
-```bash
-bit checkout 0.0.1 ui/my-welcome
-```
-
-Bit will then revert the entire component directory to a past state.
-
-## Untag versions
-
-We can untag staged components, i.e., components that were tagged by not yet exported to a remote scope.  
-Bit untag reverts the component to its previous state, i.e., `new`, `modified` or `exported`.
-
-> Untag does not revert code changes made in the component.
-
-Use `bit untag` to untag a component:
-
-```bash title="examples for untag"
-bit untag foo/bar # untag a specific component
-bit untag foo/bar 1.0.0 # untag a specific version of a component
-bit untag --all 0.11.4 # untag a specific version from all components that has that version
-bit untag --all # untag all staged components
-```
-
-## Versioning Process
-
-When tagging a component or multiple components, Bit performs the actions below:
-
-- Create an isolated environment for the component (capsule).
-- Run the build pipeline (`bit build`) as defined in each component's env in the capsule.
-- Locking dependencies versions for the components.
-- Setting a version of the component.
-
-### Staged Components
-
-When a version is tagged it becomes **staged** to be exported. All staged versions are logged and managed in a local storage called **scope**.  
-For each staged version Bit keeps:
-
-- Implementation of the component.
-- Component configuration and env.
-- Full dependency graph.
-- Generated artifacts from the build pipeline.
-
-The scope is located in `.git/bit` directory for each workspace. When exporting components to remote The process of sharing components to remote Bit servers is about exporting staged versions to a remote Bit server (that hosts a remote scope).
