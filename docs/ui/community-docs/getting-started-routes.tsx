@@ -164,7 +164,7 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
       {
         path: 'importing-components',
         title: 'Importing components',
-        component: <ShareComponents />,
+        component: <ImportComponents />,
       },
       {
         path: 'exporting-components',
