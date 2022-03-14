@@ -45,6 +45,12 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/buttons/button"
     },
+    "cloud/create-account": {
+        "scope": "teambit.community",
+        "version": "0.0.2",
+        "mainFile": "index.ts",
+        "rootDir": "community/cloud/create-account"
+    },
     "component-showcase": {
         "scope": "teambit.community",
         "version": "0.0.18",

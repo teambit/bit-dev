@@ -21,11 +21,12 @@ export function CreateWorkspace({
   return (
     <>
       <WorkspacePre />
-      <div style={{ maxWidth: '80%', marginLeft: '9%' }}>
+      <div style={{ maxWidth: '80%', marginLeft: '9%', marginBottom: '10px' }}>
         <CodeSnippet language="bash">{bitNew}</CodeSnippet>
         <br />
         <CodeSnippet language="bash">{changeDir}</CodeSnippet>
-        <br />
+        {/* <br /> */}
+        {/* <CodeSnippet language="bash">bit start</CodeSnippet> */}
       </div>
       <WorkspacePost />
     </>

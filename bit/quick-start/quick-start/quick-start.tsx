@@ -50,7 +50,7 @@ export function QuickStart({ id, intro, defaultScopeName, defaultWorkspaceName, 
       />
       <Components />
       <ComponentCardDisplay componentIds={allComponents} />
-      <H3>Building the components</H3>
+      {/* <H3>Building the components</H3> */}
       <ThinkingProcess componentIds={allComponents} />
       <Collaborate />
     </>

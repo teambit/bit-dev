@@ -79,6 +79,7 @@ importers:
       '@teambit/documenter.ui.code-snippet': 4.1.5
       '@teambit/documenter.ui.copy-box': ^4.1.1
       '@teambit/documenter.ui.label': ^4.0.4
+      '@teambit/documenter.ui.paragraph': 4.1.4
       '@teambit/documenter.ui.sub-title': ^4.1.1
       '@teambit/evangelist.surfaces.tooltip': ^1.0.1
       '@teambit/explorer.plugins.preview-plugin': 0.0.2
@@ -230,6 +231,7 @@ importers:
       '@teambit/documenter.ui.code-snippet': registry.npmjs.org/@teambit/documenter.ui.code-snippet/4.1.5_react-dom@16.13.1+react@16.13.1
       '@teambit/documenter.ui.copy-box': registry.npmjs.org/@teambit/documenter.ui.copy-box/4.1.5_react-dom@16.13.1+react@16.13.1
       '@teambit/documenter.ui.label': registry.npmjs.org/@teambit/documenter.ui.label/4.0.6_react-dom@16.13.1+react@16.13.1
+      '@teambit/documenter.ui.paragraph': registry.npmjs.org/@teambit/documenter.ui.paragraph/4.1.4_react-dom@16.13.1+react@16.13.1
       '@teambit/documenter.ui.sub-title': registry.npmjs.org/@teambit/documenter.ui.sub-title/4.1.4_react-dom@16.13.1+react@16.13.1
       '@teambit/evangelist.surfaces.tooltip': registry.npmjs.org/@teambit/evangelist.surfaces.tooltip/1.0.2_react-dom@16.13.1+react@16.13.1
       '@teambit/explorer.plugins.preview-plugin': 0.0.2_react-dom@16.13.1+react@16.13.1
@@ -374,6 +376,12 @@ importers:
 
   community/apps/bit-dev:
     specifiers: {}
+
+  community/cloud/create-account:
+    specifiers:
+      '@teambit/community.envs.community-react': 1.90.5
+    devDependencies:
+      '@teambit/community.envs.community-react': 1.90.5_08996d9b048963006e0d71241013fb8b
 
   community/community/ui/pages/page:
     specifiers: {}
@@ -942,6 +950,15 @@ importers:
   explorer/ui/search/search-input:
     specifiers: {}
 
+  generator/content/generate-component:
+    specifiers: {}
+
+  generator/content/generate-workspace:
+    specifiers: {}
+
+  generator/content/generator-overview:
+    specifiers: {}
+
   graph/relations-graph:
     specifiers: {}
 
@@ -1433,7 +1450,6 @@ packages:
       core-js: registry.npmjs.org/core-js/3.21.1
       react: registry.npmjs.org/react/16.13.1
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
-    dev: false
 
   /@teambit/base-react.navigation.link/2.0.16_8bea2159e6cd5f1e2e43db9fc3829767:
     resolution: {integrity: sha1-SkZ1x25HMugHM5A469XOVshSxck=, tarball: '@teambit/base-react.navigation.link/-/@teambit-base-react.navigation.link-2.0.16.tgz'}
@@ -1604,6 +1620,28 @@ packages:
       react: registry.npmjs.org/react/16.13.1
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
     dev: false
+
+  /@teambit/community.envs.community-react/1.90.5_08996d9b048963006e0d71241013fb8b:
+    resolution: {integrity: sha1-T8msUlHKWi8u6cXaj8Z0Shk+SSM=, tarball: '@teambit/community.envs.community-react/-/@teambit-community.envs.community-react-1.90.5.tgz'}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+      react-router-dom: ^6.0.0
+    dependencies:
+      '@babel/runtime': registry.npmjs.org/@babel/runtime/7.12.18
+      '@teambit/base-react.navigation.link': 2.0.14_8bea2159e6cd5f1e2e43db9fc3829767
+      '@teambit/dependencies.modules.packages-excluder': registry.npmjs.org/@teambit/dependencies.modules.packages-excluder/0.0.44_react@16.13.1
+      '@teambit/design.themes.theme-toggler': 0.0.4_8bea2159e6cd5f1e2e43db9fc3829767
+      '@teambit/harmony': registry.npmjs.org/@teambit/harmony/0.2.11
+      '@teambit/ui-foundation.ui.navigation.react-router-adapter': 6.0.1_08996d9b048963006e0d71241013fb8b
+      core-js: registry.npmjs.org/core-js/3.21.1
+      react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+      react-router-dom: registry.npmjs.org/react-router-dom/6.2.1_react-dom@16.13.1+react@16.13.1
+    transitivePeerDependencies:
+      - '@teambit/legacy'
+      - '@testing-library/react'
+    dev: true
 
   /@teambit/community.envs.community-react/1.90.7_08996d9b048963006e0d71241013fb8b:
     resolution: {integrity: sha1-LgRXuJXwWnAH6QwplcDjOpBnXAU=, tarball: '@teambit/community.envs.community-react/-/@teambit-community.envs.community-react-1.90.7.tgz'}
@@ -2815,7 +2853,6 @@ packages:
       react-router-dom: registry.npmjs.org/react-router-dom/6.2.1_react-dom@16.13.1+react@16.13.1
     transitivePeerDependencies:
       - '@testing-library/react'
-    dev: false
 
   /@teambit/ui-foundation.ui.navigation.react-router-adapter/6.0.5_08996d9b048963006e0d71241013fb8b:
     resolution: {integrity: sha1-lK33NgTYpgK6y5seTLuXMCMMLcw=, tarball: '@teambit/ui-foundation.ui.navigation.react-router-adapter/-/@teambit-ui-foundation.ui.navigation.react-router-adapter-6.0.5.tgz'}

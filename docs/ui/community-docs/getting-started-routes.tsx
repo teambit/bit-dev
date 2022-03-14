@@ -100,14 +100,14 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
           'Bit makes it simple to build each Component independently, and compose it to others with Dependencies.',
         component: <CreateComponents />,
       },
-      {
-        path: 'naming-components',
-        title: 'Naming components',
-      },
-      {
-        path: 'design-api',
-        title: 'Design the component API',
-      },
+      // {
+      //   path: 'naming-components',
+      //   title: 'Naming components',
+      // },
+      // {
+      //   path: 'design-api',
+      //   title: 'Design the component API',
+      // },
       {
         path: 'dev-environments',
         title: 'Development environments',

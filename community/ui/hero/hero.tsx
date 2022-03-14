@@ -34,13 +34,9 @@ export type HeroProps = {
 
 const defaultTitle = 'Build anything in components';
 const defaultTeaser =
-  'Bit is an open-source toolchain for component-driven development. Forget monolithic apps and distribute to component-driven software. ';
+  'Bit is an open-source toolchain for component-driven development. Forget monolithic apps and distribute to composable software. ';
 
-export function Hero({
-  title = defaultTitle,
-  teaser = defaultTeaser,
-  bubbles,
-}: HeroProps) {
+export function Hero({ title = defaultTitle, teaser = defaultTeaser, bubbles }: HeroProps) {
   const { heroState } = useHeroState();
   // const headingClass = heroState === HeroState.HEADING_UPDATED ? styles.highlight : '';
 
@@ -55,10 +51,7 @@ export function Hero({
             className={classNames(styles.titleHighlighter)}
             componentId={ComponentID.fromString('teambit.community/ui/heading')}
           >
-            <Heading
-              className={styles.marginZero}
-              highlight={heroState === HeroState.HEADING_UPDATED}
-            >
+            <Heading className={styles.marginZero} highlight={heroState === HeroState.HEADING_UPDATED}>
               {title}
             </Heading>
           </BubbleHighlighter>
@@ -69,36 +62,19 @@ export function Hero({
             cornerSvgClassName={styles.subtitleSvg}
             showId
             className={classNames(styles.subtitleHighlighter)}
-            componentId={ComponentID.fromString(
-              'teambit.design/ui/content/subtitle'
-            )}
+            componentId={ComponentID.fromString('teambit.design/ui/content/subtitle')}
           >
             <Subtitle className={styles.marginZero}>{teaser}</Subtitle>
           </BubbleHighlighter>
         </div>
         <div className={styles.getStarted}>
-          <BubbleHighlighter
-            componentId={ComponentID.fromString(
-              'teambit.design/ui/buttons/button'
-            )}
-            showId
-          >
-            <Button
-              className={styles.getStartedAction}
-              href="/docs/quick-start"
-            >
+          <BubbleHighlighter componentId={ComponentID.fromString('teambit.design/ui/buttons/button')} showId>
+            <Button className={styles.getStartedAction} href="/docs/quick-start">
               Getting Started
             </Button>
           </BubbleHighlighter>
-          <BubbleHighlighter
-            componentId={ComponentID.fromString(
-              'teambit.documenter/ui/copy-box'
-            )}
-            showId
-          >
-            <CopyBox className={styles.copyBox}>
-              npx @teambit/bvm install
-            </CopyBox>
+          <BubbleHighlighter componentId={ComponentID.fromString('teambit.documenter/ui/copy-box')} showId>
+            <CopyBox className={styles.copyBox}>npx @teambit/bvm install</CopyBox>
           </BubbleHighlighter>
         </div>
       </BubbleGraph>

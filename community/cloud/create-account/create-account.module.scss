@@ -1,0 +1,46 @@
+.container {
+  padding: 32px;
+  width: 80%;
+  // TODO: kutner fix important here!
+  margin-left: 9% !important;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 32px;
+  background: #ebf7f0;
+  border-radius: 16px;
+}
+
+.insightful {
+  justify-self: flex-start;
+}
+
+.heading {
+  // TODO: kutner fix important here!
+  margin: 16px 0 !important;
+  font-size: 24px;
+  font-weight: 700; 
+  line-height: 40px;
+}
+
+.paragraph {
+  // TODO: kutner fix important here!
+  margin: 0 !important;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 32px;
+}
+
+.button {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  margin-top: 16px;
+  > a {
+    text-decoration: none;
+    color: inherit;
+  }
+}

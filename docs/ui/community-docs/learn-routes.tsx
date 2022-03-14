@@ -47,7 +47,6 @@ const GeneratorOverview = lazy(() => import('@teambit/generator.content.generato
 const GenerateComponent = lazy(() => import('@teambit/generator.content.generate-component'));
 const GenerateWorkspace = lazy(() => import('@teambit/generator.content.generate-workspace'));
 
-
 /* Preview */
 
 const PreviewOverview = lazy(() => import('@teambit/preview.content.preview-overview'));
@@ -295,6 +294,13 @@ export const learnDocsRoutes: DocsRoute[] = [
     //   component: <ComponentOverview />,
     // },
     children: [
+      {
+        path: 'component-overview',
+        title: 'Component overview',
+        description:
+          'Component is a decoupled, versioned source-code container designed for the purpose of containing a single module or component.',
+        component: <ComponentOverview />,
+      },
       {
         path: 'adding-components',
         title: 'Adding components',

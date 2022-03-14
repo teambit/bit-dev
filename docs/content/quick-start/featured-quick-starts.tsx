@@ -28,6 +28,12 @@ export const quickStarts: QuickStartType[] = [
     component: <WikiQuickStart />,
   },
   {
+    name: 'basic-cli',
+    displayName: 'Basic CLI',
+    description: 'Build basic component-driven and composable CLI apps',
+    component: <WikiQuickStart />,
+  },
+  {
     name: 'blog',
     displayName: 'Blog',
     description: 'Scale and collaborate on component-driven content.',
@@ -49,6 +55,12 @@ export const quickStarts: QuickStartType[] = [
     name: 'slides',
     description: 'Build reusable and limitless presentation slides',
     displayName: 'Slides',
+    component: <div />,
+  },
+  {
+    name: 'analytics',
+    description: 'Build composable analytics solution',
+    displayName: 'Analytics',
     component: <div />,
   },
   // {
