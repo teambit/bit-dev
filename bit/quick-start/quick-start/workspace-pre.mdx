@@ -1,4 +1,5 @@
 import { CreateAccount } from '@teambit/community.cloud.create-account';
+import { centerColumn } from '@teambit/base-ui.layout.page-frame';
 
 ## Create workspace
 <!-- 
@@ -16,7 +17,7 @@ It is recommended to [create a bit.cloud account](https://bit.cloud/signup) prio
 You can choose to host the Bit yourself, choose a name for the remote scope in which the component you be hosted.
 ::: -->
 
-<CreateAccount />
+<CreateAccount className={centerColumn} />
+
 
 To create a new workspace, run:
-

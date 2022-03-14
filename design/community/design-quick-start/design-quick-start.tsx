@@ -14,6 +14,7 @@ export function DesignQuickStart({ children }: DesignQuickStartProps) {
   const id = ComponentID.fromString('learn-bit-react.theming/example/button');
   const components = [
     // TODO: app showcasing a design system.
+    'learn-bit-react.theming/example/button',
     'learn-bit-react.theming/themes/theme-provider',
     'learn-bit-react.theming/themes/light-theme',
     'learn-bit-react.theming/themes/dark-theme',

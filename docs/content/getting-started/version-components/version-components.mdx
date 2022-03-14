@@ -8,6 +8,7 @@ A component in Bit has its own history. This history contains code, dependencies
 
 Each snap has to be completely isolated from the workspace. To evaluate if a state of a component can be saved, run:
 
+
 ```bash
 bit status
 ```
@@ -54,13 +55,13 @@ bit log ui/my-welcome
 
 Read more about [navigating history](/docs/components/navigating-history).
 
-### View past revisions
+### View past snaps
 
 The workspace UI features a dropdown list of the component version history. You can pick any of the past versions and explore all the changes that happened in that version. This works like having a time-machine for your components.
 
 <Image alt="version picker" src={versionPicker} />
 
-### Comparing with past implementation
+### Comparing with past snaps
 
 You may compare the current state of a component with past snap or version. To do so, run:
 
@@ -68,7 +69,7 @@ You may compare the current state of a component with past snap or version. To d
 bit diff ui/my-welcome 1.0.0
 ```
 
-## Untag snapshots
+## Undo snapshots
 
 We can untag staged components, i.e., components that were tagged by not yet exported to a remote scope.  
 Bit untag reverts the component to its previous state, i.e., `new`, `modified` or `exported`.

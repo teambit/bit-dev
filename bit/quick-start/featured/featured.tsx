@@ -23,29 +23,27 @@ export function Featured({ cards = [], className, ...rest }: FeaturedProps) {
   };
 
   return (
-    <>
-      <div data-testid="featured-container" {...rest} className={classNames(styles.featured, className)}>
-        <H3 data-testid="featured heading" className={styles.heading}>
-          Start by building your own composable...
-        </H3>
+    <div data-testid="featured-container" {...rest} className={classNames(styles.featured, className)}>
+      <H3 data-testid="featured heading" className={styles.heading}>
+        Start by building your own composable...
+      </H3>
 
-        <Carousel animation={false} className={styles.carousel} buttonGroupPosition="topRight">
-          {cards.map((card, index) => (
-            <Card
-              data-testid={`card-${index}`}
-              onClick={() =>
-                handleClick(index, card.path || card.heading || '', card.frameworkLogos?.[0]?.componentId || '')
-              }
-              selected={selected === index}
-              key={card?.heading}
-              className={styles.card}
-              heading={card?.heading}
-              description={card?.description}
-              frameworkLogos={card.frameworkLogos}
-            />
-          ))}
-        </Carousel>
-      </div>
-    </>
+      <Carousel animation={false} className={styles.carousel} buttonGroupPosition="topRight">
+        {cards.map((card, index) => (
+          <Card
+            data-testid={`card-${index}`}
+            onClick={() =>
+              handleClick(index, card.path || card.heading || '', card.frameworkLogos?.[0]?.componentId || '')
+            }
+            selected={selected === index}
+            key={card?.heading}
+            className={styles.card}
+            heading={card?.heading}
+            description={card?.description}
+            frameworkLogos={card.frameworkLogos}
+          />
+        ))}
+      </Carousel>
+    </div>
   );
 }

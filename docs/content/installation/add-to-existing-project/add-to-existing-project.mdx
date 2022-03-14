@@ -1,61 +1,77 @@
 # Add to an existing project
 
-You can use Bit to start liberating components in existing projects. To start liberating components head over to your project root directory:
+You can intialize Bit on any exsiting workspace to start sharing components. Bit has a minimal footprint on your project and can run alongside existing tools.  
+Start sharing components by heading over to your project root:
 
 ```bash
 cd my-project
 ```
 
-Initialize Bit on your project.
+Initialize Bit in your project.
+
 ```bash
 bit init
 ```
 
-This adds three files to your project, [`workspace.json`](/docs/workspace/workspace-config), [`.bitmap`](/docs/workspace/bitmap) and the hidden `.bit` (or `.git/bit` when
-initialized on a git repository) directory which includes the Workspace's [local Scope](/scope/local-scope). Once Bit is initialized on your project, you can start 
-liberating components.
+`init` will not use any of the templates for [creating a workspace](/docs/getting-started/installing-bit/start-bit-workspace), so not to override any of your previous configurations. Instead `init` is a lightweight command that only create the following:
 
-Start Bit:
-```
+- [`workspace.json`](/docs/workspace/workspace-config) file, with base configuration.
+- [`.bitmap`](/docs/workspace/bitmap) to point to any component you share.
+- A hidden `.bit` (or `.git/bit`) directory to store local scope <!-- [local scope](/docs/scope/local-scope) --> for your components.
+
+Once Bit is initialized on your project, you can run Bit commands and start the local dev server. <!-- [local dev server](/docs/workspace/ui) -->
+
+```bash
 bit start
 ```
 
 ## Installing dependencies
 
-We recommend using Bit to install dependnecies on your workspace. It makes sure every components gets the right dependencies and their corrosponding versions to resolve.
+We recommend using Bit to install dependencies on your workspace. This way you can use the component-specific dependency management capabilities Bit offers.
 
 ```bash
 bit install
 ```
 
-:::note
-To keep using pnpm, npm or yarn directly, configure Bit to fetch updates on post-install, learn more on [using package
-managers directly here](/dependencies/package-managers#using-package-managers-directly).
+The `install` command reads and respects all dependencies defined in your `package.json` as well as the `workspace.jsonc` file.  
+
+:::info When using package managers directly
+
+If you choose not to use Bit to manage dependencies in the project, ensure to add `bit compile && bit link` to your `package.json` as `post-install` scripts.
+
 :::
 
-## Liberating components
+## Sharing components
 
-Liberating components is the process for taking an existing component, coupled to a specific app and transforming it to be independent.  
+The process for taking an existing component, which is currently coupled your project, and add it to be a Bit component has several additional steps than just using the `create` command.  
 
-- Decide which component you are liberating.
-- See how the component is used.
-- Create the component. -> Create a component -> Go to quick start.
+First of all, decide which component you aim to share and decouple from the project. Know that here, if the component has any dependencies, you will likely to need to share them as well, or have them as part of the component. Once you had a target in mind, create a new Bit component:
 
-Wrapping dependencies
+Follow the steps for [creating a new component](docs/getting-started/composing/spec-breakdown):
 
-components/design/
+```bash
+ther```
 
+When you have the Bit component created, port over the implementation to the newly created component. Now that you have the component's functionality decoupled from the project, use the various features Bit offers to ensure it's fully functional.
 
-## Common use cases
-Bit can be used side to side with tools like NextJS, CRA or anything else.
+```bash
+bit start       # to see the component rendered in isolation
+bit compile     # to ensure compilation is successful
+bit test        # run all tests in isolation
+bit check-types # validate type script types
+```
 
-<!-- ### NextJS -->
+When the component is isolated and functioning, the next step is to replace the implementation in your project and simply add an `import` statement to your the new component.
 
+:::tip Alternate path
 
-<!-- TODO: Eden -->
+Alternatively, you can use the `bit add` command to share components. Note that you will still have to decouple the component and ensure all dependencies are Bit components.
 
-<!-- ### Create React App -->
+:::
 
-<!-- TODO: Eden -->
+## Bit inside a monorepo
 
-<!-- Create  -->
+If your project is using any monorepo tool, ensure you still run `bit init` at the root directory of your project. Not in any of the sub-projects of the monorepo.  
+It is recommended to use Bit to track components from any sub-project, keep a single `.bitmap` and `workspace.jsonc` files for managing configuration and workflow.
+
+<!-- TODO, add more tools - storybook, next, gatsby, CRA, angular... -->
