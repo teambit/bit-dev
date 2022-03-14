@@ -1,0 +1,34 @@
+# Cyclic Dependencies
+
+A cyclic/circular dependency is a relation between two or more components or modules which depend on each other to function properly.
+
+While the introduction of cyclic dependencies is often unintentional, it can become problematic from a software design point of view. 
+
+Circular dependencies can cause many unwanted effects in software programs, one of which is tight coupling of separate components. 
+
+## An example
+
+Let's imagine we have two components: `ui/button` and `ui/form`. Our Form component is using our Button component - makes sense. 
+
+But for some reason, we decided to reference the Form component inside of our Button component. Maybe we decided to display an example of the Button being used in the Form inside of `button.docs.mdx`
+
+While our intention was not to create a cyclic dependency, we have created one as both components are now dependencies for each other.
+
+## Bit insights
+
+The Bit CLI provides the `bit insights` command which can be used to analyze components and find unwanted circular dependencies.
+
+Using our earlier example, let's see what `bit insights` would show:
+
+```bash
+bit insights
+
+Found 1 cycle.
+  
+Cyclic dependency
+-----------------
+- my-scope/ui/button
+- my-scope/ui/form
+```
+
+From here, we can now review each component and quickly find and fix the issue. While our example only contained two components, a real world example might contain many hundreds of components, making the issue of manually finding cyclic dependencies time-consuming and tedious.
