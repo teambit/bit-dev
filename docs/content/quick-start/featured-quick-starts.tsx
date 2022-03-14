@@ -26,16 +26,16 @@ export const quickStarts: QuickStartType[] = [
     component: <BlogQuickStart />,
   },
   {
-    name: 'basic-react',
-    displayName: 'Basic React',
-    description: 'Build a basic component-driven React application',
-    component: <BasicReact />,
-  },
-  {
     name: 'basic-backend',
     displayName: 'Basic Backend',
     description: 'Build a basic component-driven and composable backend',
     component: <WikiQuickStart />,
+  },
+  {
+    name: 'basic-react',
+    displayName: 'Basic React',
+    description: 'Build a basic component-driven React application',
+    component: <BasicReact />,
   },
   {
     name: 'basic-cli',

@@ -85,7 +85,6 @@ export function QuickStart({
     return component;
   });
   const ids = targetComponents.map((component) => component.id.toString());
-
   return (
     <div>
       <div className={styles.sectionMargin}>{intro || <DefaultIntro />}</div>

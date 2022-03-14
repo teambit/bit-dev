@@ -17,6 +17,7 @@
   align-items: center;
   margin-right: auto;
   margin-left: 16px;
+  text-decoration: none;
   min-width: 201px;
   padding: 0 8px;
   height: 32px;
@@ -24,6 +25,10 @@
   border-radius: 8px 8px 0px 0px;
   font-size: 14px;
   color: white;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .tabLinks {

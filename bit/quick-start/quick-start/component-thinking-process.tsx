@@ -17,6 +17,7 @@ export function ThinkingProcess({ components }: ThinkingProcessProps) {
       <PostComponents />
       <ComponentThinkingProcess
         className={styles.thinkingProcess}
+        // @ts-ignore
         steps={components.map((component) => {
           const id = ComponentID.fromString(component.id);
           return {
