@@ -537,6 +537,13 @@
         "mainFile": "index.ts",
         "rootDir": "docs/content/getting-started/update-components"
     },
+    "content/getting-started/update-dependencies": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.docs",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/getting-started/update-dependencies"
+    },
     "content/getting-started/use-dependencies": {
         "scope": "teambit.docs",
         "version": "1.95.5",
