@@ -125,7 +125,7 @@
         "@teambit/ui-foundation.ui.tree.drawer": "^0.0.476",
         "@teambit/ui-foundation.ui.tree.folder-tree-node": "^0.0.453",
         "@teambit/ui-foundation.ui.tree.tree-node": "^0.0.453",
-        "@teambit/wiki.apps.wiki": "~1.90.10",
+        "@teambit/wiki.apps.wiki": "1.90.14",
         "@teambit/wiki.blocks.header": "^0.0.34",
         "@testing-library/jest-dom": "5.16.2",
         "@testing-library/react": "12.0.0",

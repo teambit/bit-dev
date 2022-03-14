@@ -17,7 +17,7 @@ const InstallingBit = lazy(() => import('@teambit/docs.content.getting-started.i
 const AddToExistingProject = lazy(() => import('@teambit/docs.content.installation.add-to-existing-project'));
 
 const InstallComponents = lazy(() => import('@teambit/docs.content.getting-started.install-components'));
-const ImportComponents = lazy(() => import('@teambit/docs.content.getting-started.import-components'));
+// const ImportComponents = lazy(() => import('@teambit/docs.content.getting-started.import-components'));
 
 const EditorSetup = lazy(() => import('@teambit/bit.docs.installation.setup-editor'));
 

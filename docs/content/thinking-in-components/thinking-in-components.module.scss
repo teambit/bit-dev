@@ -19,3 +19,8 @@
     list-style: none;
   }
 }
+
+.wiki {
+  // prevent absolute/fixed items from overflowing
+  transform: translateZ(0);
+}

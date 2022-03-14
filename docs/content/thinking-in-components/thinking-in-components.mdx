@@ -8,7 +8,7 @@ import { ComponentCardGroup } from '@teambit/explorer.ui.gallery.component-card-
 import { BubbleHighlighter } from '@teambit/community.ui.bubble-highlighter';
 import { ExcludeHighlighter } from '@teambit/react.ui.component-highlighter';
 //TODO: Ran: you have cycles with WikiApp using ui/docs  => teambit.wiki/sections/wiki@0.0.7 => ui/docs
-// import { WikiApp } from '@teambit/wiki.apps.wiki';
+import { WikiApp } from '@teambit/wiki.apps.wiki';
 // import { Graph } from './graph';
 import { HighlightComponent } from '@teambit/docs.ui.highlighter.highlight-component';
 import { TopInventions } from '@learnbit/inventions.blocks.top-inventions';
@@ -21,67 +21,73 @@ import { wikiComponents } from './wiki';
 
 # Thinking in components
 
+
+<ExcludeHighlighter>
+  <BubbleHighlighter
+    componentId={ComponentID.fromString("teambit.wiki/apps/wiki")}
+    showId
+  >
+    <UNSAFE_LocationContext.Provider value={null}>
+      <MemoryRouter>
+        <div className={styles.wiki}>
+          <WikiApp />
+        </div>
+      </MemoryRouter>
+    </UNSAFE_LocationContext.Provider>
+  </BubbleHighlighter>
+</ExcludeHighlighter>
+
 Thinking of this simple product as one piece, keeps us further away from initial value creation. This approach focuses on a single point of value that can only ever serve a single purpose; the bigger the piece gets, the bigger the problem becomes.
 
 Persisting with this pattern of thinking compounds the problem; work is repeated infinitely. As more people join a team and continue this pattern, even more repetition takes place.
 
 This amounts to unnecessary amounts of duplicated code, design sketches and product specs, with slight differences that makes them a lesser whole together. This is an ever growing debt that decreases the pace of value creation and the quality of work produced.
-  
+
 Even worse, repeating work is repeating decisions, reducing productivity, ending up with teams diverging to different paths for similar problems. Diverged decisions pile up to a growing burden that divides teams further apart, where collaboration is discouraged and morale deteriorates.
 
-This leads us to a dangerous equation; the more we invest in value creation, the more damage is caused. At this point, it might be better if teams stopped working - for the sake of the company. 
+This leads us to a dangerous equation; the more we invest in value creation, the more damage is caused. At this point, it might be better if teams stopped working - for the sake of the company.
 
-Value creation is exponentially decaying over time, ending up in silos of stagnation. 
+Value creation is exponentially decaying over time, ending up in silos of stagnation.
 For a startup, that means bounding yourself to just a few paths, creating very specific value, limiting a company's ability to pivot or adapt to change.
 
-For an enterprise, that means every dollar spent in value creation is decreasing the value of total dollars invested. The more the enterprise invests, the less value it can create. 
+For an enterprise, that means every dollar spent in value creation is decreasing the value of total dollars invested. The more the enterprise invests, the less value it can create.
 This equation applies on the entire range, from the smallest system all the way up to the biggest one.
-
 
 <!-- As you might have noticed, this site was built in components. As we built the new documentation we started hiring more people to work for our company and we needed
 an internal wiki site to be a single source of truth for all information internal at Bit to keep everyone in sync. We decided to document the process to demonstarate
-thinking in components. 
+thinking in components.
 
-Thinking in components is a recursive process that starts at defining and the **immediate component we need**. Upon the definition of this component, **think which components you wish you had now**. 
+Thinking in components is a recursive process that starts at defining and the **immediate component we need**. Upon the definition of this component, **think which components you wish you had now**.
 Search for these components, try to **use or collaborte on something that exists**, otherwise **repeat the process with a new component that fulfills this exact need**.
 
 Below is the [wiki application](/) component we ended up building. Next sections will cover how we built the wiki website based on the work we have done for this documentation
 website. -->
 <!-- Thinking in components is a different mindset. It is about understanding and capitalizing on smaller, reusable portions of value in the mutual work we do that compose together to
-a greater whole. 
+a greater whole.
 This could apply on almost anything we create from software development, to content creation, design, product management or even organization structure and anything you might imagine.
 
 To demonstarate thinking in components we would use the following simple product that show a list of top inventions: -->
-<!-- 
+<!-- <Graph /> -->
+
 <br />
 
-<ExcludeHighlighter>
-  <BubbleHighlighter componentId={ComponentID.fromString('teambit.wiki/apps/wiki')} showId>
-    <UNSAFE_LocationContext.Provider value={null}>
-      <MemoryRouter>{/* <WikiApp /> */}</MemoryRouter>
-    </UNSAFE_LocationContext.Provider>
-  </BubbleHighlighter>
-</ExcludeHighlighter>
-
-<br /> -->
-
-<!-- <Graph /> -->
+<br />
 
 Before we will dive into the process of thinking and composing this app. Let's start with a component.
 
 ## Components
 
-A component as an independent, reusable product with an interface for using it. A component serve a single purpose. You design the component interface for your own needs, 
+A component as an independent, reusable product with an interface for using it. A component serve a single purpose. You design the component interface for your own needs,
 then expand over time to support the needs of other teammates, other product teams and eventually to entire world.
 
-Components are described by names and APIs, and contain source code implementation. They can be of different kinds like apps, pages, UI components, backend services and even content. 
+Components are described by names and APIs, and contain source code implementation. They can be of different kinds like apps, pages, UI components, backend services and even content.
 You can think of almost anything in components.
 
 In the example above we have used this components:
-<!-- 
+
+<!--
 <ComponentCardGroup components={wikiComponents} />
 <br /> -->
-
 
 <!-- ```ts
 export type ComponentDef = {
@@ -95,20 +101,20 @@ function createComponent(def: ComponentDef) { // Step one
   const id: ComponentID = ComponentID.fromDef(def);
   const componentsToUse: ComponentDef[] = defineComponentsToUse(); // Step 2
   const componentsToCreate: ComponentDef[] = defineComponentsToCreate(); // Step 3
-  
+
   const componentsCreated = componentsToCreate.map((def) => {
     return createComponent(def); // Step 4
   });
 
   // Step 5
-  const dependencies: Component[] = componentsCreated.concat(componentsToUse); 
-  const sourceCode: SourceCode = implementComponent(dependencies); 
+  const dependencies: Component[] = componentsCreated.concat(componentsToUse);
+  const sourceCode: SourceCode = implementComponent(dependencies);
 
   // Step 6
   return new Component(id, sourceCode, def.env);
 }
 ``` -->
-<!-- 
+<!--
 <Tabs tabs={['App', 'Header', 'Wiki', 'About']}>
   {[
     <AppContent />
@@ -119,24 +125,24 @@ function createComponent(def: ComponentDef) { // Step one
  -->
 
 <!-- ## Step 5: Merge -->
-<!-- 
+<!--
 
 
-Upon in the implementation of each of these components try and search for solutions at bit.cloud, try to use the component. 
+Upon in the implementation of each of these components try and search for solutions at bit.cloud, try to use the component.
 This way, you can easily replace the implementation of your header and keep your other components agnostic to it.
 
 For each of these components, create your own components and search for useful components with team mates and on [bit.cloud](https://bit.cloud).
 
 We goun
 
-For each of these components, search for useful components on bit.cloud or implement 
+For each of these components, search for useful components on bit.cloud or implement
 For each of these components, Search for useful components  inspiration of [bit.cloud](https://bit.cloud/components), collaborate with a product manager
-like designers and product managers  or create new ones. 
+like designers and product managers  or create new ones.
 
 We will start with the header.
 We have found a component Bit used to build this website and decided to use it. It is flexiable enough to our needs and we are looking for a simple menu to start with.
 
-We have decided to create our own header, and use the header we have built for 
+We have decided to create our own header, and use the header we have built for
 
 ```bash
 bit create react wiki
@@ -147,34 +153,34 @@ Use the header we found. -->
 <!-- Thinking of this simple product in one-piece, keeps us longer away from initial value creation, and ends up creating a single point of value. We ended up creating something
 very specific that ever serves a single purpose, ignoring the smaller details. The bigger the one-piece is, the bigger the problem gets.
 
-Repeating this pattern of thinking, ends up with even a worse equation; work is repeated infinitely, and the more people doing work, the more work is repeated. 
+Repeating this pattern of thinking, ends up with even a worse equation; work is repeated infinitely, and the more people doing work, the more work is repeated.
 Repeating work is ever increasing the amount of duplicated code, design sketches and product specs with slight differences that makes them a lesser whole together;
-An ever growing burdon that decreases the pace of value creation and the quality of work produced.  
+An ever growing burdon that decreases the pace of value creation and the quality of work produced.
 
 Even worse, repeating work is repeating decisions, ending up with people constantly diverging to different paths on similiar problems. Diverged decisions pile up to a growing burdon,
 that constantly divides us further a part. Politics arise, collaboration is discouraged and unhealty competition emerge, that makes us a lesser whole; and the bigger the system
 becomes, the more we are a part.
 
-This sums down to a dangerous equation; the more we invest in value creation, the bigger the damage becomes, to the point it might be better if people just won't do any work. 
-Value creation is exponentially slowing down over time, ending up in silos of stagnation. 
+This sums down to a dangerous equation; the more we invest in value creation, the bigger the damage becomes, to the point it might be better if people just won't do any work.
+Value creation is exponentially slowing down over time, ending up in silos of stagnation.
 
 For a startup, that means bounding yourself to few paths, creating very specific value, limiting the business ability to adapt to changes. Ending up in increased down-side
-and decreased up-side. 
+and decreased up-side.
 
 For an enteprise, that means every dollar spent in value creation is decreasing the value of total dollars invested. The more invested, the less value the enterprise can
-create. 
+create.
 
 This equation applies on the entire range, all the way from smallest system to the biggest one. -->
 
 <!-- Planning and building this product as a whole, without breaking it down to smaller pieces of value is prone to cause the organization to repeat the same again, and again,
-which results in an exponentially  
+which results in an exponentially
 
 Building this simple product, usually starts with a spec built by a product manager, design sketch in a tool like Sketch or Figma from the designer, and engineers
 that do the development work. These stake holders build their own "worlds" that include variaty of components, products, symbols, which cases them to misunderstanding the reality
 and constraints of each other. Over time the misunderstanding grows and product managers are frustrated with engineers and designers not delivering fast enough. Sides get more defensive.
 There are more decsions made than what we can possibly communicate. and delivery gets expodentially slower over time (more code to maintain, more inconsistency). As a result, digital
 assets developed has very and limited value, which makes it very hard to react to changes quickly. Reacting to change is slow. Downside is not protected. Upside is limited. Work thrown
-to garbage. 
+to garbage.
 
 Problems all of these stake holders are working in different methods and work on different "realities".
 
@@ -188,22 +194,22 @@ Problems all of these stake holders are working in different methods and work on
 - Bad user experience.
 - Inconsistency.
 - Motivates to work alone. -->
-<!-- 
+<!--
 
-A component has a purpose, defined by its name. For example: 
+A component has a purpose, defined by its name. For example:
 
-Like any product, components are consumer-centric, and aims at increasing adoption from a target audience. Components are built from the ground up, 
-driven by pragmatic needs we have. Defining a need as a component, which rises further needs. 
+Like any product, components are consumer-centric, and aims at increasing adoption from a target audience. Components are built from the ground up,
+driven by pragmatic needs we have. Defining a need as a component, which rises further needs.
 
-It is important to use components as early as possible and keep the development iterative, adding frequent and smaller portions of value. 
+It is important to use components as early as possible and keep the development iterative, adding frequent and smaller portions of value.
 Needs push us to think what is the role of the problem in our lives, but not just but also the life of others around us. The more
 components are built, the easier it is to scale the process to further people.
 
-Thinking in components is a recursive process that starts at defining and the **immediate component we need**. Upon the definition of this component, **think which components you wish you had now**. 
+Thinking in components is a recursive process that starts at defining and the **immediate component we need**. Upon the definition of this component, **think which components you wish you had now**.
 Search for these components, try to **use or collaborte on something that exists**, otherwise **create a new component that fulfills this exact need** and share it with everyone. -->
 
-<!-- 
-Thinking on bit.dev, the first component to start thinking from is bit-dev. Then, I should think what I need in order to build bit.dev. 
+<!--
+Thinking on bit.dev, the first component to start thinking from is bit-dev. Then, I should think what I need in order to build bit.dev.
 
 1. Think which components you wish you had.
 2. Search for these components. Collaborate with others in the process.
@@ -213,7 +219,7 @@ Thinking on bit.dev, the first component to start thinking from is bit-dev. Then
 6. Be the first user of the components you needed.
 
 Doing this for every component
-emphesize the need, and allow the development of great products. This way, every component is immedaidaly 
+emphesize the need, and allow the development of great products. This way, every component is immedaidaly
 Which kind of responsibilities I want them to own? -->
 
 <!-- Here is an example to the same sample product above, thought and built in components:
@@ -221,29 +227,29 @@ Which kind of responsibilities I want them to own? -->
 <ArchitectureBreakdown />
 <br />
 
-Thinking of this simple product in components, ever shortens path to value creation, and ending by creating five new assets of value for our system, 
-taking leverage of two existing ones. We ended up creating five new responsibilities in the system we all understand. 
+Thinking of this simple product in components, ever shortens path to value creation, and ending by creating five new assets of value for our system,
+taking leverage of two existing ones. We ended up creating five new responsibilities in the system we all understand.
 The smaller details become an asset instead of a burdon.
 
-Repeating this pattern of thinking, ends up with a positive equation; the more value is created, the easier it gets to create value. 
+Repeating this pattern of thinking, ends up with a positive equation; the more value is created, the easier it gets to create value.
 
-Component naming should be done in collaboration with all stake holders, designer, product manager and designer. 
+Component naming should be done in collaboration with all stake holders, designer, product manager and designer.
 
 We ended up with creating
 something specific, yet flexible. We created a business responsbility for something that we all agree on. We made a decision. We collaborated. Respecting the smaller details.
 We created an area of indepedent ownership we can measure and improve. Everyone know about them. They are used already. Asset of value.
 
-Repeating this way of thinking, 
+Repeating this way of thinking,
 
 Thinking of this in components, is like walking in a path, where you think of see problems in reality, and you are looking at them from the bottom up.
 
-Thinking of this product in components, ends up with a shorter path to value, collaboration, and in the end.  
+Thinking of this product in components, ends up with a shorter path to value, collaboration, and in the end.
 
-It is about understanding and capitalizing on smaller, reusable portions of value in the mutual work we do that compose together to a greater whole. 
+It is about understanding and capitalizing on smaller, reusable portions of value in the mutual work we do that compose together to a greater whole.
 
 Thinking of this product in component  -->
 
-<!-- 
+<!--
 Transparency.
 Small portions of value.
 In creating 5 portions of value, pieces we can hold on to in our system.
@@ -260,15 +266,15 @@ Create more assets of value
 Adaptive
 Flexiable for changes
 Everyone understand each other
-Asyncrouneous 
+Asyncrouneous
 Value delivery -->
 
 <!-- Rules of good component thinking:
 
-- Bottom up. 
+- Bottom up.
 - Balance short term and long term.
 
-We used this kind of thinking to build Bit and Bit Cloud with about 7 developers. Some people expect so much to be built by dozens of people if not more. 
+We used this kind of thinking to build Bit and Bit Cloud with about 7 developers. Some people expect so much to be built by dozens of people if not more.
 Today Bit is used by dozens of enterprises and tousneds of organization world wide and help a lot of people build software faster!
 
 For a startup, that means building stronger assets to help protect your downside, and increases the pace of value creation over time, which translates to upside.
@@ -298,8 +304,7 @@ uncertainty
 
 ## Step 4: Keep itereating on them -->
 
-
-<!-- 
+<!--
 ## Think bottom up
 
 ## Think composable
@@ -310,7 +315,7 @@ This creates transparency between engineering, product and business people. Once
 use in product specs, and designers can name components the same on Figma.
 
 ## Pragmatism
-Do the next thing required for you to be successful. 
+Do the next thing required for you to be successful.
 
 ## Build only what you can use
 Build only the APIs and comonents you need to accomplish your next goal. If you are finding yourself building an API or a component for the sake of future you, remember that
@@ -323,7 +328,7 @@ You should ideally use your own components, in case where a component can't be u
 ## Rationality
 
 ## Components
-Components are the core concept and the building block of component-driven software. Components can be anything from a general purpose modules, UI components, frontend applications, 
+Components are the core concept and the building block of component-driven software. Components can be anything from a general purpose modules, UI components, frontend applications,
 backend services and even content! You can think of anything in components, even outside the world of software.
 Components sometime mean different things to different stakeholders of a modern product team.
 
@@ -334,14 +339,14 @@ For a developer, using components means building reusable, independent pieces of
 Thinking in components has a lot of benefits.
 
 - **Speed.** There might be a steep curve in the short term, but over the long run, well established components will likely to help speed up development
-of future releases. 
+of future releases.
 
 - **User experience.** User experience tends to become inconsistent over time and you start facing problems like a settings page with variaty of different drop downs
-or buttons that look differently across different product sections. Inconsistent designs and behaviours consfuse users and is the opposite from crafting a 
+or buttons that look differently across different product sections. Inconsistent designs and behaviours consfuse users and is the opposite from crafting a
 delightful product experience.
 
-- **Adaptability.** Every component built, is a component you iterate on and improve over time. Using components helps to adapt to product changes and business requirements quickly. 
-Every change drives more value. 
+- **Adaptability.** Every component built, is a component you iterate on and improve over time. Using components helps to adapt to product changes and business requirements quickly.
+Every change drives more value.
 
 Successful component thinking is done in collaboration with others in a top down process. Implementation is bottom up.
 
@@ -352,7 +357,7 @@ help tackle real-life constraints early on the development process and results i
 
 <TopInventions />
 
-   
+
 ## Collaborate on breaking the product specification to components
 A product specification is a blueprint that outlines the product you will be building, what it is going to look like, and specific requirements and behaviours. Usually
 a product spec comes in the shape of a design sketch using tools like Figma or Sketch and a set rules defining the product expected behavior.
@@ -366,7 +371,7 @@ to decide if to create a function or class. Disribute things that get bigger int
 - **Design.** - Bring the design constraints. Think of every component as a symbol or a Figma component.
 - **Business.** Think of the business responsbility of the component. Drive balanced decision making.
 
-The process of breaking down a product spec to components starts by defining which components are required and searching for existing ones that might fit our requirements. We might need 
+The process of breaking down a product spec to components starts by defining which components are required and searching for existing ones that might fit our requirements. We might need
 to adjust some of our existing components to support new capabilities.
 
 Lets take the example below and start breaking it to component together. Every breakdown starts with the most concerete component. In this case we are building a
@@ -380,6 +385,7 @@ Try and define the following:
 
 Not always we get it perfect from the get go but no worries! You can always iterate and change as you evolve your feature. -->
 <!-- TODO: force nav blue highlithing on all components in the below. -->
+
 <!-- Where there are components, there is light, where there is a monolith, there is dark.
 
 <ArchitectureBreakdown />
