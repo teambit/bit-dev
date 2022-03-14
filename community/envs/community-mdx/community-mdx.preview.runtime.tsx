@@ -12,6 +12,7 @@ import { reactRouterAdapter } from '@teambit/ui-foundation.ui.navigation.react-r
 import { CommunityMdxAspect } from './community-mdx.aspect';
 
 const mdxComponents: MDXProviderComponents = {
+  // @ts-ignore check with kutner
   wrapper: 'div',
   a: (props: LinkProps) => <Link {...props} external />,
 };

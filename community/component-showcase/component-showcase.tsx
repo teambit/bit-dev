@@ -20,7 +20,7 @@ export type ComponentShowcaseProps = {
 export function ComponentShowcase({ componentId, className, ...rest }: ComponentShowcaseProps) {
   const [selectedTab, setSelectedTab] = React.useState<'preview' | 'graph' | 'code'>('preview');
   const id = ComponentID.fromString(componentId || '');
-  const component = new ComponentDescriptor(id, {} as AspectList);
+  const component = new ComponentDescriptor(id as any, {} as AspectList);
 
   return (
     <div className={classNames(styles.container, className)} {...rest}>

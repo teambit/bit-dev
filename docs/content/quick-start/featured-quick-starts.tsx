@@ -48,6 +48,13 @@ export const quickStarts: QuickStartType[] = [
     component: <div />,
   },
   {
+    name: 'quick-start',
+    displayName: 'Quick start',
+    description: 'Learn how to contribute your own composable Quick start!',
+    // dogfooding paradox - have to export before creating the component.
+    component: <div />,
+  },
+  {
     name: 'docs',
     displayName: 'Docs',
     description: 'Create component-driven documentation',

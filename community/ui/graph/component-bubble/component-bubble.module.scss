@@ -1,8 +1,12 @@
+.linkWrapper {
+  color: inherit;
+}
 .bubble {
+  color: black;
   display: flex;
   align-items: center;
   box-sizing: border-box;
-
+  color: inherit;
   transition: width 0.5s, opacity 0.5s ease-in-out;
 
   border-width: 2px;

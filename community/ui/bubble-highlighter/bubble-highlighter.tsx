@@ -72,7 +72,7 @@ function Label({ componentId, className, ...rest }: LabelProps) {
       : componentId.fullName;
   return (
     <div {...rest} className={classNames(styles.label, className)}>
-      <Link href={scopeLink} className={styles.left}>
+      <Link external href={scopeLink} className={styles.left}>
         {componentId.scope}
       </Link>
       <Link external href={componentLink} className={styles.right}>
