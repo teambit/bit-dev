@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react';
 import { WhatIsBit } from '@teambit/bit.content.what-is-bit';
 import { ComponentID } from '@teambit/component-id';
-// import { H3 } from '@teambit/design.ui.heading';
 import { ComponentShowcase } from '@teambit/community.component-showcase';
 import { LearnCrossroad } from '@teambit/bit.quick-start.learn-crossroad';
 import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-display';

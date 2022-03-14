@@ -13,7 +13,7 @@ const AspectsOverview = lazy(() => import('@teambit/harmony.content.aspects-over
 const UsingAspects = lazy(() => import('@teambit/harmony.content.using-aspects'));
 
 /* Workspace */
-const WorkspaceOverview = lazy(() => import('@teambit/workspace.content.workspace-overview'));
+// const WorkspaceOverview = lazy(() => import('@teambit/workspace.content.workspace-overview'));
 const Bitmap = lazy(() => import('@teambit/workspace.content.bitmap'));
 const WorkspaceLink = lazy(() => import('@teambit/workspace.content.workspace-link'));
 const DirectoryStructure = lazy(() => import('@teambit/workspace.content.directory-structure'));
@@ -87,7 +87,7 @@ const ConfigureEnvWithCompiler = lazy(() => import('@teambit/compilation.content
 const ImplementCompiler = lazy(() => import('@teambit/compilation.content.implement-compiler'));
 const CompilerAPI = lazy(() => import('@teambit/compilation.content.compiler-api'));
 const MultiCompiler = lazy(() => import('@teambit/compilation.content.multi-compiler'));
-const ConfigureWebpck = lazy(() => import('@teambit/webpack.content.configure-webpack'));
+// const ConfigureWebpck = lazy(() => import('@teambit/webpack.content.configure-webpack'));
 
 /* Builder */
 
@@ -96,8 +96,8 @@ const BuildPipelines = lazy(() => import('@teambit/pipelines.content.build-pipel
 const BuildTasks = lazy(() => import('@teambit/pipelines.content.build-tasks'));
 const BuildArtifacts = lazy(() => import('@teambit/pipelines.content.build-artifacts'));
 const Capsule = lazy(() => import('@teambit/component.content.capsule'));
-//const BuildTaskApi = lazy(() => import('@teambit/pipelines.content.build-task-api'));
-//const BuildArtifactsApi = lazy(() => import('@teambit/pipelines.content.build-artifacts-api'));
+// const BuildTaskApi = lazy(() => import('@teambit/pipelines.content.build-task-api'));
+// const BuildArtifactsApi = lazy(() => import('@teambit/pipelines.content.build-artifacts-api'));
 const UsingBuildTask = lazy(() => import('@teambit/pipelines.content.using-build-task'));
 
 /* Docs */
@@ -127,7 +127,7 @@ const ComponentConfig = lazy(() => import('@teambit/component.content.component-
 const ComponentJson = lazy(() => import('@teambit/component.content.component-json'));
 const ComponentObjects = lazy(() => import('@teambit/component.content.component-objects'));
 const DevFiles = lazy(() => import('@teambit/component.content.dev-files'));
-const InspectingComponents = lazy(() => import('@teambit/component.content.inspecting-components'));
+// const InspectingComponents = lazy(() => import('@teambit/component.content.inspecting-components'));
 const Tags = lazy(() => import('@teambit/component.content.tags'));
 const Snaps = lazy(() => import('@teambit/component.content.snaps'));
 const ComponentAnatomy = lazy(() => import('@teambit/component.content.component-anatomy'));
@@ -151,8 +151,8 @@ const DependenciesConfiguration = lazy(() => import('@teambit/dependencies.conte
 const DependencyInstallation = lazy(() => import('@teambit/dependencies.content.installing-dependencies'));
 // const DependencyResolution = lazy(() => import('@teambit/dependencies.content.dependency-resolution'));
 const LockFiles = lazy(() => import('@teambit/dependencies.content.lock-files'));
-const Pnpm = lazy(() => import('@teambit/dependencies.content.pnpm'));
-const Yarn = lazy(() => import('@teambit/dependencies.content.yarn'));
+// const Pnpm = lazy(() => import('@teambit/dependencies.content.pnpm'));
+// const Yarn = lazy(() => import('@teambit/dependencies.content.yarn'));
 const NodeModules = lazy(() => import('@teambit/dependencies.content.node-modules'));
 const PackageManagers = lazy(() => import('@teambit/dependencies.content.package-managers'));
 

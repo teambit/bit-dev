@@ -1,8 +1,11 @@
 import React from 'react';
 import { QuickStartType } from '@teambit/bit.quick-start';
 import { WikiQuickStart } from '@teambit/bit.quick-start.wiki-quick-start';
+import { DocsQuickStart } from '@teambit/docs.community.docs-quick-start';
 import { DesignQuickStart } from '@teambit/design.community.design-quick-start';
 import { BlogQuickStart } from '@teambit/blog.community.blog-quick-start';
+import { QuickStartQuickStart } from '@teambit/community.quick-start.quick-start';
+import { BasicReact } from '@teambit/community.quick-start.basic-react';
 
 export const quickStarts: QuickStartType[] = [
   {
@@ -27,7 +30,7 @@ export const quickStarts: QuickStartType[] = [
     name: 'basic-react',
     displayName: 'Basic React',
     description: 'Build a basic component-driven React application',
-    component: <WikiQuickStart />,
+    component: <BasicReact />,
   },
   {
     name: 'basic-backend',
@@ -41,24 +44,24 @@ export const quickStarts: QuickStartType[] = [
     description: 'Build basic component-driven and composable CLI apps',
     component: <WikiQuickStart />,
   },
-  {
-    name: 'authentication',
-    description: 'Create a standard and unified authentication solution',
-    displayName: 'Authentication',
-    component: <div />,
-  },
+  // {
+  //   name: 'authentication',
+  //   description: 'Create a standard and unified authentication solution',
+  //   displayName: 'Authentication',
+  //   component: <div />,
+  // },
   {
     name: 'quick-start',
     displayName: 'Quick start',
     description: 'Learn how to contribute your own composable Quick start!',
     // dogfooding paradox - have to export before creating the component.
-    component: <div />,
+    component: <QuickStartQuickStart />,
   },
   {
     name: 'docs',
     displayName: 'Docs',
     description: 'Create component-driven documentation',
-    component: <div />,
+    component: <DocsQuickStart />,
   },
   {
     name: 'slides',
