@@ -4,7 +4,7 @@ import { Image } from '@teambit/docs.ui.zoomable-image';
 
 # Snapping components
 
-A component in Bit has its own history. This history contains code, dependencies and configuration changes, together they form the [Component Snapshot](docs/components/snaps). Snapshots are shared using a remove Bit scope.
+A component in Bit has its own history. This history contains code, dependencies and configuration changes, together they form the [Component Snap](docs/components/snaps). Snaps are shared using a remove Bit scope.
 
 Each snap has to be completely isolated from the workspace. To evaluate if a state of a component can be saved, run:
 
@@ -14,23 +14,23 @@ bit status
 
 If you see all component status as `ok`, Bit can save that state for the component.
 
-Snapshots (snaps) are point in time for a component which you want to keep or share for various reasons. Each snapshot is immutable, meaning that once set, similar to a git-commit, it can't be changed.
+Snaps are point in time for a component which you want to keep or share for various reasons. Each snap is immutable, meaning that once set, similar to a git-commit, it can't be changed.
 
-To record our first snapshot we use the `snap` command:
+To record our first snap we use the `snap` command:
 
 ```bash
-bit snap ui/text --message "a demo snapshot"
+bit snap ui/text --message "a demo snap"
 ```
 
 The `tag` command creates a snap that has a unique semantic version pointer:
 
 ```bash
-bit tag ui/my-welcome --message "my changelog message"
+bit tag ui/my-welcome --message "my changelog message" --patch
 ```
 
 All snaps are stored in the local scope. The process of sharing components to remote Bit scopes is about exporting staged snaps from the local store to the remote.
 
-Read more about [snapshots](/docs/components/snaps) or [tags](/docs/components/tags) and how to use them.
+Read more about [snaps](/docs/components/snaps) or [tags](/docs/components/tags) and how to use them.
 
 ## Component history
 
