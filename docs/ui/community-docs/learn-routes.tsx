@@ -181,6 +181,15 @@ const ReactOverview = lazy(() => import('@teambit/react.content.react-overview')
 const ReplacingReactTools = lazy(() => import('@teambit/react.content.replace-react-tools'));
 const ConfigReactTools = lazy(() => import('@teambit/react.content.config-react-tools'));
 
+/* node */
+const NodeOverview = lazy(() => import('@teambit/harmony.content.node-overview'));
+
+/* lit html */
+const LitOverview = lazy(() => import('@teambit/web-components.content.lit-overview'));
+
+/* html */
+const HtmlOverview = lazy(() => import('@teambit/html.content.html-overview'));
+
 /* Misc */
 const UsageAnalytics = lazy(() => import('@teambit/docs.content.guides.usage-analytics'));
 
@@ -1155,13 +1164,37 @@ export const learnDocsRoutes: DocsRoute[] = [
         path: 'node',
         title: 'Node',
         open: false,
-        children: [],
+        children: [
+          {
+            path: 'node-overview',
+            title: 'Node overview',
+            component: <NodeOverview />,
+          },
+        ],
+      },
+      {
+        path: 'html',
+        title: 'HTML',
+        open: false,
+        children: [
+          {
+            path: 'html-overview',
+            title: 'HTML overview',
+            component: <HtmlOverview />,
+          },
+        ],
       },
       {
         path: 'lit-html',
         title: 'Lit Element',
         open: false,
-        children: [],
+        children: [
+          {
+            path: 'lit-overview',
+            title: 'Lit overview',
+            component: <LitOverview />,
+          },
+        ],
       },
       {
         path: 'harmony',
