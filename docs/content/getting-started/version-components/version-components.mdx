@@ -8,7 +8,6 @@ A component in Bit has its own history. This history contains code, dependencies
 
 Each snap has to be completely isolated from the workspace. To evaluate if a state of a component can be saved, run:
 
-
 ```bash
 bit status
 ```
@@ -23,23 +22,15 @@ To record our first snapshot we use the `snap` command:
 bit snap ui/text --message "a demo snapshot"
 ```
 
-When creating a snapshot, Bit performs the actions below:
+The `tag` command creates a snap that has a unique semantic version pointer:
 
-- Create an isolated environment for the component (capsule).
-- Run the build pipeline (`bit build`) as defined in each component's env in the capsule.
-- Locking dependencies versions for the components.
-- Setting a snapshot of the component.
+```bash
+bit tag ui/my-welcome --message "my changelog message"
+```
 
-At the end of the process, Bit creates an immutable snapshot of the component, containing:
+All snaps are stored in the local scope. The process of sharing components to remote Bit scopes is about exporting staged snaps from the local store to the remote.
 
-- Implementation of the component.
-- Component configuration and env.
-- Full dependency graph.
-- Generated artifacts from the build pipeline.
-
-The scope is located in `.git/bit` directory for each workspace. When exporting components to remote The process of sharing components to remote Bit servers is about exporting staged versions to a remote Bit server (that hosts a remote scope).
-
-Read more about [snapshots](/docs/components/snaps) and how to use them.
+Read more about [snapshots](/docs/components/snaps) or [tags](/docs/components/tags) and how to use them.
 
 ## Component history
 
