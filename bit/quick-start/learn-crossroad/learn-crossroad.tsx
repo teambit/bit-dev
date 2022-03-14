@@ -1,11 +1,9 @@
-import React, { ReactNode } from 'react';
-import { WideColumn } from '@teambit/base-ui.layout.page-frame';
+import React from 'react';
 import { Image } from '@teambit/base-react.content.image';
 import { H4 } from '@teambit/design.ui.heading';
 import { Paragraph } from '@teambit/base-ui.text.paragraph';
 import { Link } from '@teambit/base-react.navigation.link';
 import { Edge } from '@teambit/design.graph.edge';
-import classNames from 'classnames';
 import styles from './learn-crossroad.module.scss';
 import ThinkingComponents from './learn-components.png';
 

@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { WhatIsBit } from '@teambit/bit.content.what-is-bit';
 import { ComponentID } from '@teambit/component-id';
-import { H3 } from '@teambit/design.ui.heading';
+// import { H3 } from '@teambit/design.ui.heading';
 import { ComponentShowcase } from '@teambit/community.component-showcase';
 import { LearnCrossroad } from '@teambit/bit.quick-start.learn-crossroad';
 import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-display';
@@ -13,6 +13,13 @@ import { ThinkingProcess } from './component-thinking-process';
 import Collaborate from './collaborate.mdx';
 import styles from './quick-start.module.scss';
 
+export type QuickStartComponent = {
+  id: string;
+  content?: ReactNode;
+  intro?: ReactNode;
+  ending?: ReactNode;
+};
+
 export type QuickStartProps = {
   id: ComponentID;
   intro?: ReactNode;
@@ -23,7 +30,15 @@ export type QuickStartProps = {
   components?: string[];
 };
 
-export function QuickStart({ id, intro, defaultScopeName, defaultWorkspaceName, name, components }: QuickStartProps) {
+export function QuickStart({
+  id,
+  intro,
+  defaultScopeName,
+  defaultWorkspaceName,
+  name,
+  components,
+  children,
+}: QuickStartProps) {
   const scopeName = defaultScopeName || `my-org.${name}`;
   const workspaceName = defaultWorkspaceName || `my-${name}`;
   const allComponents = [id.toString()].concat(components || []);
@@ -52,6 +67,7 @@ export function QuickStart({ id, intro, defaultScopeName, defaultWorkspaceName, 
       <ComponentCardDisplay componentIds={allComponents} />
       {/* <H3>Building the components</H3> */}
       <ThinkingProcess componentIds={allComponents} />
+      {children}
       <Collaborate />
     </>
   );

@@ -962,6 +962,11 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <div />,
       },
       {
+        path: 'using-apps',
+        title: 'Using apps',
+        component: <div />,
+      },
+      {
         path: 'app-build',
         title: 'App build',
         component: <div />,

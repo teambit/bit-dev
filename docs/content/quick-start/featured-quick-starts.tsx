@@ -64,23 +64,18 @@ export const quickStarts: QuickStartType[] = [
     component: <div />,
   },
   // {
+  //   name: 'basic-angular',
+  //   displayName: 'Basic Angular',
+  //   component: <div />,
+  // },
+  // {
   //   name: 'docs',
   //   displayName: 'Docs',
   //   component: <div />,
   // },
   // {
-  //   name: 'workers',
+  //   name: 'newsletter',
   //   displayName: 'Newsletter',
-  //   component: <div />,
-  // },
-  // {
-  //   name: 'interactive-cli',
-  //   displayName: 'Node modules',
-  //   component: <div />,
-  // },
-  // {
-  //   name: 'interactive-cli',
-  //   displayName: 'Node modules',
   //   component: <div />,
   // },
 ];
