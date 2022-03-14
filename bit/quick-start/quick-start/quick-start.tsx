@@ -20,6 +20,8 @@ export type QuickStartComponent = {
   ending?: ReactNode;
 };
 
+export type QuickStartNodeDesc = QuickStartComponent | string;
+
 export type QuickStartProps = {
   id: ComponentID;
   intro?: ReactNode;
@@ -27,7 +29,8 @@ export type QuickStartProps = {
   name: string;
   defaultWorkspaceName?: string;
   defaultScopeName?: string;
-  components?: string[];
+  components: QuickStartNodeDesc[];
+  beforeThinking?: ReactNode;
 };
 
 export function QuickStart({
@@ -37,11 +40,20 @@ export function QuickStart({
   defaultWorkspaceName,
   name,
   components,
+  beforeThinking,
   children,
 }: QuickStartProps) {
   const scopeName = defaultScopeName || `my-org.${name}`;
   const workspaceName = defaultWorkspaceName || `my-${name}`;
-  const allComponents = [id.toString()].concat(components || []);
+  const targetComponents = components?.map((component) => {
+    if (typeof component === 'string') {
+      return {
+        id: component,
+      };
+    }
+    return component;
+  });
+  const ids = targetComponents.map((component) => component.id.toString());
 
   return (
     <>
@@ -64,9 +76,10 @@ export function QuickStart({
         workspaceTemplateName="react"
       />
       <Components />
-      <ComponentCardDisplay componentIds={allComponents} />
+      <ComponentCardDisplay componentIds={ids} />
       {/* <H3>Building the components</H3> */}
-      <ThinkingProcess componentIds={allComponents} />
+      {beforeThinking}
+      <ThinkingProcess components={targetComponents} />
       {children}
       <Collaborate />
     </>
