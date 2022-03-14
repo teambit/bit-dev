@@ -144,32 +144,17 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
         path: 'remote-scope',
         title: 'Create a remote scope',
         component: <CreateRemoteScope />,
-        // open: false,
-        // children: [
-        //   {
-        //     path: 'host-on-bit-cloud',
-        //     title: 'Host on Bit Cloud',
-        //     description: 'Bit is connected to bit.cloud as its default hosting provider.',
-        //     component: <HostBitCloud />,
-        //   },
-        //   {
-        //     path: 'self-host-scope',
-        //     title: 'Self-hosted Scope',
-        //     description:
-        //       'When self-hosting Bit on your own infrastructure you will also need to publish components to an external registry so components will be available to install with package managers.',
-        //     component: <SelfHostScope />,
-        //   },
-        // ],
-      },
-      {
-        path: 'importing-components',
-        title: 'Importing components',
-        component: <ShareComponents />,
       },
       {
         path: 'exporting-components',
         title: 'Exporting components',
         component: <ShareComponents />,
+      },
+
+      {
+        path: 'importing-components',
+        title: 'Importing components',
+        component: <ImportComponents />,
       },
     ],
   },
