@@ -137,7 +137,7 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
     children: [
       {
         path: 'snap-component-changes',
-        title: 'Versioning components',
+        title: 'Components revisions',
         component: <VersionComponents />,
       },
       {
