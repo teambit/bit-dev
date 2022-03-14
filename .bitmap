@@ -11,7 +11,7 @@
 {
     "apps/bit-dev": {
         "scope": "teambit.community",
-        "version": "1.95.16",
+        "version": "1.95.17",
         "mainFile": "index.ts",
         "rootDir": "community/apps/bit-dev"
     },
@@ -47,25 +47,25 @@
     },
     "cloud/create-account": {
         "scope": "teambit.community",
-        "version": "0.0.7",
+        "version": "0.0.8",
         "mainFile": "index.ts",
         "rootDir": "community/cloud/create-account"
     },
     "community/blog-quick-start": {
         "scope": "teambit.blog",
-        "version": "0.0.5",
+        "version": "0.0.6",
         "mainFile": "index.ts",
         "rootDir": "blog/community/blog-quick-start"
     },
     "community/design-quick-start": {
         "scope": "teambit.design",
-        "version": "0.0.5",
+        "version": "0.0.6",
         "mainFile": "index.ts",
         "rootDir": "design/community/design-quick-start"
     },
     "community/docs-quick-start": {
         "scope": "teambit.docs",
-        "version": "0.0.4",
+        "version": "0.0.5",
         "mainFile": "index.ts",
         "rootDir": "docs/community/docs-quick-start"
     },
@@ -473,13 +473,13 @@
     },
     "content/getting-started/composing/create-components": {
         "scope": "teambit.community",
-        "version": "1.95.4",
+        "version": "1.95.5",
         "mainFile": "index.ts",
         "rootDir": "community/content/getting-started/composing/create-components"
     },
     "content/getting-started/create-remote-scope": {
         "scope": "teambit.docs",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "mainFile": "index.ts",
         "rootDir": "docs/content/getting-started/create-remote-scope"
     },
@@ -503,7 +503,7 @@
     },
     "content/getting-started/import-components": {
         "scope": "teambit.docs",
-        "version": "1.95.3",
+        "version": "1.95.4",
         "mainFile": "index.ts",
         "rootDir": "docs/content/getting-started/import-components"
     },
@@ -527,7 +527,7 @@
     },
     "content/getting-started/share-components": {
         "scope": "teambit.docs",
-        "version": "1.95.3",
+        "version": "1.95.4",
         "mainFile": "index.ts",
         "rootDir": "docs/content/getting-started/share-components"
     },
@@ -545,7 +545,7 @@
     },
     "content/getting-started/version-components": {
         "scope": "teambit.docs",
-        "version": "1.95.3",
+        "version": "1.95.4",
         "mainFile": "index.ts",
         "rootDir": "docs/content/getting-started/version-components"
     },
@@ -677,7 +677,7 @@
     },
     "content/installation/add-to-existing-project": {
         "scope": "teambit.docs",
-        "version": "1.95.3",
+        "version": "1.95.4",
         "mainFile": "index.ts",
         "rootDir": "docs/content/installation/add-to-existing-project"
     },
@@ -833,7 +833,7 @@
     },
     "content/quick-start": {
         "scope": "teambit.docs",
-        "version": "1.95.7",
+        "version": "1.95.8",
         "mainFile": "index.ts",
         "rootDir": "docs/content/quick-start"
     },
@@ -1121,19 +1121,19 @@
     },
     "quick-start": {
         "scope": "teambit.bit",
-        "version": "0.0.5",
+        "version": "0.0.6",
         "mainFile": "index.ts",
         "rootDir": "bit/quick-start/quick-start"
     },
     "quick-start/basic-backend": {
         "scope": "teambit.community",
-        "version": "0.0.4",
+        "version": "0.0.5",
         "mainFile": "index.ts",
         "rootDir": "community/quick-start/basic-backend"
     },
     "quick-start/basic-react": {
         "scope": "teambit.community",
-        "version": "0.0.4",
+        "version": "0.0.5",
         "mainFile": "index.ts",
         "rootDir": "community/quick-start/basic-react"
     },
@@ -1157,13 +1157,13 @@
     },
     "quick-start/quick-start": {
         "scope": "teambit.community",
-        "version": "0.0.4",
+        "version": "0.0.5",
         "mainFile": "index.ts",
         "rootDir": "community/quick-start/quick-start"
     },
     "quick-start/wiki-quick-start": {
         "scope": "teambit.bit",
-        "version": "1.95.5",
+        "version": "1.95.6",
         "mainFile": "index.ts",
         "rootDir": "bit/quick-start/wiki-quick-start"
     },
@@ -1223,7 +1223,7 @@
     },
     "ui/community-docs": {
         "scope": "teambit.docs",
-        "version": "1.95.9",
+        "version": "1.95.10",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/community-docs"
     },
