@@ -20,7 +20,7 @@ export function CreateAccount({ className, ...rest }: CreateAccountProps) {
         bit.cloud account prior to creating the workspace to ensure the right owner name for your components. You can
         choose to host the Bit yourself, choose a name for the remote scope in which the component you be hosted.
       </Paragraph>
-      <Button className={styles.button} data-testid="button" href="https://bit.cloud/signup">
+      <Button className={styles.button} data-testid="button" href="https://bit.cloud/signup" target="_blank">
         Create your account
       </Button>
     </div>

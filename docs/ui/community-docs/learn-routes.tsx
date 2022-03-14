@@ -13,7 +13,7 @@ const AspectsOverview = lazy(() => import('@teambit/harmony.content.aspects-over
 const UsingAspects = lazy(() => import('@teambit/harmony.content.using-aspects'));
 
 /* Workspace */
-// const WorkspaceOverview = lazy(() => import('@teambit/workspace.content.workspace-overview'));
+const WorkspaceOverview = lazy(() => import('@teambit/workspace.content.workspace-overview'));
 const Bitmap = lazy(() => import('@teambit/workspace.content.bitmap'));
 const WorkspaceLink = lazy(() => import('@teambit/workspace.content.workspace-link'));
 const DirectoryStructure = lazy(() => import('@teambit/workspace.content.directory-structure'));
@@ -203,6 +203,11 @@ export const learnDocsRoutes: DocsRoute[] = [
     // },
     children: [
       {
+        path: 'workspace-overview',
+        title: 'Workspace Overview',
+        component: <WorkspaceOverview />,
+      },
+      {
         path: 'workspace-configuration',
         component: <WorkspaceConfiguration />,
         title: 'Workspace configuration',
@@ -345,13 +350,13 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'snaps',
-        title: 'Snapshot changes',
+        title: 'Snapping changes',
         description: 'Record component history with snapshots.',
         component: <Snaps />,
       },
       {
         path: 'tags',
-        title: 'Versioning',
+        title: 'Tagging changes',
         description: 'Manage component releases with semantic version.',
         component: <Tags />,
       },
@@ -617,7 +622,7 @@ export const learnDocsRoutes: DocsRoute[] = [
             component: <BuildTasks />,
             description: 'Add a build task to your component build pipeline.',
           },
-         /* {
+          /* {
             path: 'build-task-api',
             title: 'Build task API',
             component: <BuildTaskApi />,
@@ -1010,33 +1015,33 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'package-name',
-        title: 'Package Name',
+        title: 'Package name',
         description:
           'The Package Name is the CommonJS compatible module name for the Component, used and linked from the Workspace node_modules directory. By default, package names are computed from the Component ID.',
         component: <PackageName />,
       },
       {
         path: 'packing-components',
-        title: 'Packing Components',
+        title: 'Packing components',
         description:
           'Component packages are generated during execution of the Component build pipeline and persisted as Artifacts upon component versioning.',
         component: <PackingComponents />,
       },
       {
         path: 'publishing-components-to-commonjs-registries',
-        title: 'Publishing to CommonJS Registries',
+        title: 'Publishing to CommonJS registries',
         description:
           'Component packages are included in the component versions (snaps and tags). Components hosted on Bit Cloud will have their packages available to be installed by Bit, as well as by standard package managers like npm and Yarn.',
         component: <CommonjsPackageRegistries />,
       },
       {
         path: 'build-tasks',
-        title: 'Build Tasks',
+        title: 'Build tasks',
         component: <PkgBuildTasks />,
       },
       {
         path: 'npmrc',
-        title: 'Configuring Bit Cloud in NPM config',
+        title: 'Configuring bit.cloud in NPM config',
         description:
           "npmrc's are npm config files (used by other package manager as well). npmrc can be configured per project, per user, or globally.",
         component: <Npmrc />,
