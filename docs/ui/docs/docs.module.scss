@@ -1,12 +1,13 @@
 @import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
 
+$sidebarWidth: 240px + 24px;
+
 .content {
   position: relative;
-  // padding-left: 36px;
   box-sizing: border-box;
   width: 100%;
   min-width: 0; // prevents content from overflowing
-  padding-left: 264px;
+  padding-left: $sidebarWidth;
   @media screen and (max-width: $br-md) {
     padding: 0;
     margin-left: 0;

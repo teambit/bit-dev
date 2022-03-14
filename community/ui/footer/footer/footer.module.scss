@@ -1,18 +1,16 @@
 @import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
 
+$sidebarWidth: 240px + 24px;
+
 .footer {
-  padding: 40px 0 20px 0;
+  padding: 40px 0 20px $sidebarWidth;
   font-size: 14px;
-  margin: 0px 276px;
 
   > div:last-child {
     margin-top: 40px;
   }
 
-  @media screen and (max-width: $br-lg) {
-    margin-right: 0;
-  }
   @media screen and (max-width: $br-md) {
-    margin: 0;
+    padding-left: 0;
   }
 }

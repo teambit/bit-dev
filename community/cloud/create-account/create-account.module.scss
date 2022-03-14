@@ -1,16 +1,15 @@
 .container {
-  padding: 32px;
-  width: 80%;
-  // TODO: kutner fix important here!
-  margin-left: 9% !important;
-  margin-bottom: 10px;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  margin-left: 32px;
-  background: #ebf7f0;
+  flex-direction: column;
+  
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  padding: 32px;
   border-radius: 16px;
+  
+  background: var(--positive-surface-color);
 }
 
 .insightful {
@@ -18,19 +17,15 @@
 }
 
 .heading {
-  // TODO: kutner fix important here!
-  margin: 16px 0 !important;
+  margin: 16px 0;
   font-size: 24px;
   font-weight: 700; 
   line-height: 40px;
 }
 
 .paragraph {
-  // TODO: kutner fix important here!
-  margin: 0 !important;
+  margin: 0;
   font-size: 18px;
-  font-style: normal;
-  font-weight: 400;
   line-height: 32px;
 }
 
