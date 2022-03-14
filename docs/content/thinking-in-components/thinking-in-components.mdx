@@ -20,7 +20,25 @@ import AppContent from './app.mdx';
 import { wikiComponents } from './wiki';
 
 # Thinking in components
-As you might have noticed, this site was built in components. As we built the new documentation we started hiring more people to work for our company and we needed
+
+Thinking of this simple product as one piece, keeps us further away from initial value creation. This approach focuses on a single point of value that can only ever serve a single purpose; the bigger the piece gets, the bigger the problem becomes.
+
+Persisting with this pattern of thinking compounds the problem; work is repeated infinitely. As more people join a team and continue this pattern, even more repetition takes place.
+
+This amounts to unnecessary amounts of duplicated code, design sketches and product specs, with slight differences that makes them a lesser whole together. This is an ever growing debt that decreases the pace of value creation and the quality of work produced.
+  
+Even worse, repeating work is repeating decisions, reducing productivity, ending up with teams diverging to different paths for similar problems. Diverged decisions pile up to a growing burden that divides teams further apart, where collaboration is discouraged and morale deteriorates.
+
+This leads us to a dangerous equation; the more we invest in value creation, the more damage is caused. At this point, it might be better if teams stopped working - for the sake of the company. 
+
+Value creation is exponentially decaying over time, ending up in silos of stagnation. 
+For a startup, that means bounding yourself to just a few paths, creating very specific value, limiting a company's ability to pivot or adapt to change.
+
+For an enterprise, that means every dollar spent in value creation is decreasing the value of total dollars invested. The more the enterprise invests, the less value it can create. 
+This equation applies on the entire range, from the smallest system all the way up to the biggest one.
+
+
+<!-- As you might have noticed, this site was built in components. As we built the new documentation we started hiring more people to work for our company and we needed
 an internal wiki site to be a single source of truth for all information internal at Bit to keep everyone in sync. We decided to document the process to demonstarate
 thinking in components. 
 
@@ -28,13 +46,13 @@ Thinking in components is a recursive process that starts at defining and the **
 Search for these components, try to **use or collaborte on something that exists**, otherwise **repeat the process with a new component that fulfills this exact need**.
 
 Below is the [wiki application](/) component we ended up building. Next sections will cover how we built the wiki website based on the work we have done for this documentation
-website.
+website. -->
 <!-- Thinking in components is a different mindset. It is about understanding and capitalizing on smaller, reusable portions of value in the mutual work we do that compose together to
 a greater whole. 
 This could apply on almost anything we create from software development, to content creation, design, product management or even organization structure and anything you might imagine.
 
 To demonstarate thinking in components we would use the following simple product that show a list of top inventions: -->
-
+<!-- 
 <br />
 
 <ExcludeHighlighter>
@@ -45,7 +63,7 @@ To demonstarate thinking in components we would use the following simple product
   </BubbleHighlighter>
 </ExcludeHighlighter>
 
-<br />
+<br /> -->
 
 <!-- <Graph /> -->
 
@@ -60,9 +78,9 @@ Components are described by names and APIs, and contain source code implementati
 You can think of almost anything in components.
 
 In the example above we have used this components:
-
+<!-- 
 <ComponentCardGroup components={wikiComponents} />
-<br />
+<br /> -->
 
 
 <!-- ```ts
@@ -90,7 +108,7 @@ function createComponent(def: ComponentDef) { // Step one
   return new Component(id, sourceCode, def.env);
 }
 ``` -->
-
+<!-- 
 <Tabs tabs={['App', 'Header', 'Wiki', 'About']}>
   {[
     <AppContent />
@@ -98,10 +116,10 @@ function createComponent(def: ComponentDef) { // Step one
 </Tabs>
 
 ## Collaborate
-
+ -->
 
 <!-- ## Step 5: Merge -->
-
+<!-- 
 
 
 Upon in the implementation of each of these components try and search for solutions at bit.cloud, try to use the component. 
@@ -124,7 +142,7 @@ We have decided to create our own header, and use the header we have built for
 bit create react wiki
 ```
 
-Use the header we found.
+Use the header we found. -->
 
 <!-- Thinking of this simple product in one-piece, keeps us longer away from initial value creation, and ends up creating a single point of value. We ended up creating something
 very specific that ever serves a single purpose, ignoring the smaller details. The bigger the one-piece is, the bigger the problem gets.

@@ -5,6 +5,7 @@ import { ReactAspect, ReactPreview } from '@teambit/react';
 import { ThemeSwitcher } from '@teambit/design.themes.theme-toggler';
 import { NavigationProvider } from '@teambit/base-react.navigation.link';
 import { reactRouterAdapter } from '@teambit/ui-foundation.ui.navigation.react-router-adapter';
+import { CloudProvider } from '@teambit/cloud.cloud-provider';
 import { CommunityReactConfig, CommunityReactAspect } from './community-react.aspect';
 
 export class CommunityReactPreview {
@@ -36,6 +37,7 @@ export class CommunityReactPreview {
         );
       },
       ThemeSwitcher,
+      CloudProvider,
     ]);
 
     return communityReactPreview;

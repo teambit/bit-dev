@@ -1,5 +1,6 @@
 import React from 'react';
 import { CodeSnippet } from '@teambit/documenter.ui.code-snippet';
+import { centerColumn } from '@teambit/base-ui.layout.page-frame';
 import WorkspacePost from './workspace-post.mdx';
 import WorkspacePre from './workspace-pre.mdx';
 
@@ -21,13 +22,14 @@ export function CreateWorkspace({
   return (
     <>
       <WorkspacePre />
-      <div style={{ maxWidth: '80%', marginLeft: '9%', marginBottom: '10px' }}>
-        <CodeSnippet language="bash">{bitNew}</CodeSnippet>
-        <br />
-        <CodeSnippet language="bash">{changeDir}</CodeSnippet>
-        {/* <br /> */}
-        {/* <CodeSnippet language="bash">bit start</CodeSnippet> */}
-      </div>
+      <CodeSnippet className={centerColumn} language="bash">
+        {bitNew}
+      </CodeSnippet>
+      <br />
+      <CodeSnippet className={centerColumn} language="bash">
+        {changeDir}
+      </CodeSnippet>
+      <br />
       <WorkspacePost />
     </>
   );

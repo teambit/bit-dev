@@ -1,14 +1,13 @@
 import React from 'react';
 import { MemoryRouter, UNSAFE_LocationContext } from 'react-router-dom';
 import { PreviewRuntime } from '@teambit/preview';
+import { CloudProvider } from '@teambit/cloud.cloud-provider';
 import { ReactAspect, ReactPreview } from '@teambit/react';
 import { MDXLayout } from '@teambit/mdx.ui.mdx-layout';
 import type { MDXProviderComponents } from '@teambit/mdx.ui.mdx-layout';
-
 import { ThemeSwitcher } from '@teambit/design.themes.theme-toggler';
 import { NavigationProvider, Link, LinkProps } from '@teambit/base-react.navigation.link';
 import { reactRouterAdapter } from '@teambit/ui-foundation.ui.navigation.react-router-adapter';
-
 import { CommunityMdxAspect } from './community-mdx.aspect';
 
 const mdxComponents: MDXProviderComponents = {
@@ -46,6 +45,7 @@ export class CommunityMdxPreview {
         );
       },
       ThemeSwitcher,
+      CloudProvider,
     ]);
 
     return communityMdxPreview;

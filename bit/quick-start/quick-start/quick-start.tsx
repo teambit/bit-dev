@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { WhatIsBit } from '@teambit/bit.content.what-is-bit';
 import { ComponentID } from '@teambit/component-id';
-// import { H3 } from '@teambit/design.ui.heading';
+import { centerColumn, wideColumn } from '@teambit/base-ui.layout.page-frame';
 import { ComponentShowcase } from '@teambit/community.component-showcase';
 import { LearnCrossroad } from '@teambit/bit.quick-start.learn-crossroad';
 import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-display';
@@ -23,13 +23,44 @@ export type QuickStartComponent = {
 export type QuickStartNodeDesc = QuickStartComponent | string;
 
 export type QuickStartProps = {
+  /**
+   * main component ID.
+   */
   id: ComponentID;
+
+  /**
+   * intro node.
+   */
   intro?: ReactNode;
+
+  /**
+   * children render below thinking process.
+   */
   children?: ReactNode;
+
+  /**
+   * name of the quick start.
+   */
   name: string;
+
+  /**
+   * default workspace name to use.
+   */
   defaultWorkspaceName?: string;
+
+  /**
+   * default scope name to use.
+   */
   defaultScopeName?: string;
+
+  /**
+   * array of components to show through the quick start.
+   */
   components: QuickStartNodeDesc[];
+
+  /**
+   * add a react Node before component creation steps.
+   */
   beforeThinking?: ReactNode;
 };
 
@@ -56,14 +87,14 @@ export function QuickStart({
   const ids = targetComponents.map((component) => component.id.toString());
 
   return (
-    <>
+    <div>
       <div className={styles.sectionMargin}>{intro || <DefaultIntro />}</div>
-      <ComponentShowcase componentId={id.toString()} />
+      <ComponentShowcase className={wideColumn} componentId={id.toString()} />
       <div className={styles.showcase}>
         <WhatIsBit />
         {/* <H3>Learn Bit</H3> */}
         <LearnCrossroad
-          style={{ maxWidth: '80%', marginLeft: '9%' }}
+          className={centerColumn}
           title="Thinking in components"
           description="Don't have time to give Bit a try? Not a developer? Understand component thinking quickly here!"
           link="/docs/thinking-in-components"
@@ -82,6 +113,6 @@ export function QuickStart({
       <ThinkingProcess components={targetComponents} />
       {children}
       <Collaborate />
-    </>
+    </div>
   );
 }
