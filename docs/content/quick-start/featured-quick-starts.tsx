@@ -1,6 +1,8 @@
 import React from 'react';
 import { QuickStartType } from '@teambit/bit.quick-start';
 import { WikiQuickStart } from '@teambit/bit.quick-start.wiki-quick-start';
+import { DesignQuickStart } from '@teambit/design.community.design-quick-start';
+import { BlogQuickStart } from '@teambit/blog.community.blog-quick-start';
 
 export const quickStarts: QuickStartType[] = [
   {
@@ -13,7 +15,13 @@ export const quickStarts: QuickStartType[] = [
     name: 'design',
     displayName: 'Design',
     description: 'Create a scalable and consistent composable design systems',
-    component: <WikiQuickStart />,
+    component: <DesignQuickStart />,
+  },
+  {
+    name: 'blog',
+    displayName: 'Blog',
+    description: 'Scale and collaborate on component-driven content.',
+    component: <BlogQuickStart />,
   },
   {
     name: 'basic-react',
@@ -32,12 +40,6 @@ export const quickStarts: QuickStartType[] = [
     displayName: 'Basic CLI',
     description: 'Build basic component-driven and composable CLI apps',
     component: <WikiQuickStart />,
-  },
-  {
-    name: 'blog',
-    displayName: 'Blog',
-    description: 'Scale and collaborate on component-driven content.',
-    component: <div />,
   },
   {
     name: 'authentication',

@@ -51,6 +51,32 @@
         "mainFile": "index.ts",
         "rootDir": "community/cloud/create-account"
     },
+    "community/blog-quick-start": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.blog",
+        "mainFile": "index.ts",
+        "rootDir": "blog/community/blog-quick-start",
+        "config": {
+            "teambit.community/envs/community-react": {},
+            "teambit.envs/envs": {
+                "env": "teambit.community/envs/community-react"
+            }
+        }
+    },
+    "community/design-quick-start": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.design",
+        "mainFile": "index.ts",
+        "rootDir": "design/community/design-quick-start",
+        "config": {
+            "teambit.community/envs/community-react": {},
+            "teambit.envs/envs": {
+                "env": "teambit.community/envs/community-react"
+            }
+        }
+    },
     "component-showcase": {
         "scope": "teambit.community",
         "version": "0.0.18",
@@ -456,18 +482,18 @@
         "mainFile": "index.ts",
         "rootDir": "docs/content/getting-started/ci-install"
     },
+    "content/getting-started/composing/create-components": {
+        "scope": "teambit.community",
+        "version": "1.95.1",
+        "mainFile": "index.ts",
+        "rootDir": "community/content/getting-started/composing/create-components"
+    },
     "content/getting-started/create-remote-scope": {
         "scope": "",
         "version": "",
         "defaultScope": "teambit.docs",
         "mainFile": "index.ts",
         "rootDir": "docs/content/getting-started/create-remote-scope"
-    },
-    "content/getting-started/composing/create-components": {
-        "scope": "teambit.community",
-        "version": "1.95.1",
-        "mainFile": "index.ts",
-        "rootDir": "community/content/getting-started/composing/create-components"
     },
     "content/getting-started/create-workspace": {
         "scope": "teambit.docs",
