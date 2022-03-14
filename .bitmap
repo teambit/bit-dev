@@ -1161,7 +1161,13 @@
         "scope": "teambit.bit",
         "version": "0.0.8",
         "mainFile": "index.ts",
-        "rootDir": "bit/quick-start/quick-start"
+        "rootDir": "bit/quick-start/quick-start",
+        "config": {
+            "teambit.community/envs/community-mdx": {},
+            "teambit.envs/envs": {
+                "env": "teambit.community/envs/community-mdx"
+            }
+        }
     },
     "quick-start/basic-backend": {
         "scope": "teambit.community",

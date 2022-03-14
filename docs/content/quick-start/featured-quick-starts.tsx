@@ -1,10 +1,9 @@
 import React from 'react';
 import { QuickStartType } from '@teambit/bit.quick-start';
 import { WikiQuickStart } from '@teambit/bit.quick-start.wiki-quick-start';
-import { DocsQuickStart } from '@teambit/docs.community.docs-quick-start';
+// import { DocsQuickStart } from '@teambit/docs.community.docs-quick-start';
 import { DesignQuickStart } from '@teambit/design.community.design-quick-start';
 import { BlogQuickStart } from '@teambit/blog.community.blog-quick-start';
-import { QuickStartQuickStart } from '@teambit/community.quick-start.quick-start';
 import { BasicReact } from '@teambit/community.quick-start.basic-react';
 
 export const quickStarts: QuickStartType[] = [
@@ -50,31 +49,31 @@ export const quickStarts: QuickStartType[] = [
   //   displayName: 'Authentication',
   //   component: <div />,
   // },
-  {
-    name: 'quick-start',
-    displayName: 'Quick start',
-    description: 'Learn how to contribute your own composable Quick start!',
-    // dogfooding paradox - have to export before creating the component.
-    component: <QuickStartQuickStart />,
-  },
-  {
-    name: 'docs',
-    displayName: 'Docs',
-    description: 'Create component-driven documentation',
-    component: <DocsQuickStart />,
-  },
-  {
-    name: 'slides',
-    description: 'Build reusable and limitless presentation slides',
-    displayName: 'Slides',
-    component: <div />,
-  },
-  {
-    name: 'analytics',
-    description: 'Build composable analytics solution',
-    displayName: 'Analytics',
-    component: <div />,
-  },
+  // {
+  //   name: 'docs',
+  //   displayName: 'Docs',
+  //   description: 'Create component-driven documentation',
+  //   component: <DocsQuickStart />,
+  // },
+  // {
+  //   name: 'quick-start',
+  //   displayName: 'Quick start',
+  //   description: 'Learn how to contribute your own composable Quick start!',
+  //   // dogfooding paradox - have to export before creating the component.
+  //   component: <QuickStartQuickStart />,
+  // },
+  // {
+  //   name: 'slides',
+  //   description: 'Build reusable and limitless presentation slides',
+  //   displayName: 'Slides',
+  //   component: <div />,
+  // },
+  // {
+  //   name: 'analytics',
+  //   description: 'Build composable analytics solution',
+  //   displayName: 'Analytics',
+  //   component: <div />,
+  // },
   // {
   //   name: 'basic-angular',
   //   displayName: 'Basic Angular',
