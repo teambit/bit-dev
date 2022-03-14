@@ -890,6 +890,13 @@
         "mainFile": "index.ts",
         "rootDir": "docs/content/quick-start"
     },
+    "content/react-native-overview": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.react",
+        "mainFile": "index.ts",
+        "rootDir": "react/content/react-native-overview"
+    },
     "content/react-overview": {
         "scope": "teambit.react",
         "version": "1.95.5",
