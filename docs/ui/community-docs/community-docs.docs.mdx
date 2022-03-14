@@ -1,22 +1,15 @@
 ---
-description: 'A CommunityDocs component.'
-labels: ['label1', 'label2', 'label3']
+description: 'Community docs component.'
+labels: ['docs', 'page', 'routes']
 ---
 
 import { CommunityDocs } from './community-docs';
 
-## React Component for rendering text
-
-A basic div that renders some text
+The 'Community Docs' component uses the 'Docs' component to render the doc (MDX) page.  
+This component maintains all the routes and pass them to the Docs component.
 
 ### Component usage
+
 ```js
-<CommunityDocs text="hello from CommunityDocs" />
-```
-
-### Using props to customize the text
-
-Modify the text to see it change live:
-```js live
-<CommunityDocs text="hello from CommunityDocs" />
+<CommunityDocs />
 ```

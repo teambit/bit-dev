@@ -7,32 +7,29 @@ export type LeftRightProps = {
   /**
    * section title.
    */
-  title: string,
+  title: string;
 
   /**
    * section text.
    */
-  text: string,
+  text: string;
 
   /**
    * content of the section.
    */
-  children: ReactNode
+  children: ReactNode;
 };
 
 export function LeftRight({ text, title, children }: LeftRightProps) {
-  return (
-    <LeftRightLayout
-      left={<Left text={text} title={title} />}
-      right={children}
-    />
-  );
+  return <LeftRightLayout left={<Left text={text} title={title} />} right={children} />;
 }
 
 function Left({ title, text }) {
   return (
     <>
-      <Heading element={Elements.H3} size={Elements.H3}>{title}</Heading>
+      <Heading element={Elements.H3} size={Elements.H3}>
+        {title}
+      </Heading>
       <Subtitle>{text}</Subtitle>
     </>
   );

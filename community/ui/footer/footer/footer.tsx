@@ -1,28 +1,26 @@
 import React from 'react';
-import classNames from 'classnames';
-import { Category, CategoryProps } from '@teambit/community.ui.footer.category';
+import classnames from 'classnames';
+import { Footer as BaseFooter, FooterProps as BaseFooterProps } from '@teambit/design.blocks.footer';
 import { Logo } from '@teambit/design.ui.brand.logo';
-import { Link } from '@teambit/community.ui.footer.link';
+import { IconLink } from '@teambit/design.ui.navigation.icon-link';
 import styles from './footer.module.scss';
 
-export type FooterProps = {
-  categoryList: CategoryProps[];
-} & React.HTMLAttributes<HTMLDivElement>;
+export type FooterProps = {} & BaseFooterProps;
 
-export function Footer({ categoryList, className }: FooterProps) {
+export function Footer({ categoryList, children = <BottomLinks />, className, ...rest }: FooterProps) {
   return (
-    <div className={classNames(styles.footer, className)}>
-      <div className={styles.footerLinks}>
-        {categoryList.map((category) => {
-          return <Category {...category} key={category.title} className={styles.footerCategory} />;
-        })}
-      </div>
-      <div className={styles.bottom}>
-        <Logo className={styles.logo} />
-        <span>© 2021 Bit, Inc.</span>
-        <Link text="Terms" href="https://bit.dev/Terms" external />
-        <Link  text="Privacy" href="https://bit.dev/privacy" external />
-      </div>
-    </div>
+    <BaseFooter {...rest} categoryList={categoryList} className={classnames(styles.footer, className)}>
+      {children}
+    </BaseFooter>
+  );
+}
+
+function BottomLinks() {
+  return (
+    <>
+      <Logo className={styles.logo} />
+      <span>© {new Date().getFullYear()} Cocycles Ltd.</span>
+      <IconLink text="Privacy" href="https://bit.cloud/resources/privacy" external />
+    </>
   );
 }

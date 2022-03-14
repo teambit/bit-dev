@@ -1,0 +1,68 @@
+# Create a Remote Scope
+
+Scope is a collboration server for components. Bit uses Scopes to allow for collboration of components wherever they are used.  
+Set Remote scopes on Bit.cloud or self-hosted Bit servers to share components.
+
+Each scope acts as a repostiory for components and exposes GraphQL API and Web UI and can be extended through with [Scope Aspects](/).
+
+You can choose whether to host your Scope on bit.cloud or on your own.
+
+## Host scope on bit.cloud
+
+Bit is connected to [bit.cloud](https://bit.cloud) as its default hosting provider. Run the `login` command for Bit to open a login/sign-up form for a new personal account.
+
+```bash
+bit login
+```
+
+Once an account has been created successfully, your terminal will greet you with the following message:
+
+```bash
+success! logged in as <account name>
+```
+
+After you created your account, head over to the [create scope](https://bit.cloud/~create-scope) page to create a new scope.
+
+1. Choose your account.
+1. Type your scope name.
+1. Click on "Create".
+
+## Deploy a self-hosted scope
+
+Self hosting your own scope requires provisioning a dedicated container either locally, on kubernetes or any cloud provider you use.
+
+Follow [these steps](/docs/scope/running-a-scope-server) to provision a scope server for your components.
+
+## Rename components to fit the a scope name
+
+Once you have setup a remote scope you may need to change the `workspace.jsonc` to reflect the correct account and scope.
+
+- Open the `workspace.jsonc` file
+- Find the line `"defaultScope": "my-scope"`
+- Replace it with your username/organization name, and 'demo-scope' as your scope
+
+```js
+{
+  "teambit.workspace/workspace": {
+    "defaultScope": "your-username.demo-scope"
+  }
+}
+```
+
+s we have changed the default scope we now need to make sure our node modules are linked correctly. We can do that with the `link` command.
+
+```bash
+bit link
+```
+
+You will need to change different `import` statements between components to reflect the component name changes.
+
+### Reset all components
+
+In case you already have local versions with wrong remote scope names, you can reset components and mark them as "new":
+
+```bash
+bit init --reset-new
+```
+
+You can also use the `rename` component if you simply want to move components to a different scope and still retain history.

@@ -1,0 +1,240 @@
+# Configuring React Tools
+
+## Create a New React extension
+
+Use React's template to create a new React Env:
+
+```
+bit create react-env extensions/my-react
+```
+
+Make sure the Aspect Env (a special Env for Bit Aspects) is applied on your Env (much like other component types, a Env needs an Env for its development):
+
+```json
+{
+  "teambit.workspace/variants": {
+    "{extensions/**}": {
+      "teambit.harmony/aspect": {}
+    }
+  }
+}
+```
+
+Compile your new Env:
+
+```
+bit compile extensions/my-react
+```
+
+Apply your Env on the relevant components (make sure to use its full [component ID](/docs/components/component-id)):
+
+```json
+{
+  "teambit.workspace/variants": {
+    "{ui/**}": {
+      "my-org.my-scope/extensions/my-react": {}
+    }
+  }
+}
+```
+
+Validate your Env is successfully applied on your components:
+
+```bash
+$ bit show ui/heading
+
+┌───────────────────┬─────────────────────────────────────────────────────────────────┐
+│ id                │ company.examples/ui/heading                                     │
+├───────────────────┼─────────────────────────────────────────────────────────────────┤
+│ env               │ teambit.react/examples/extensions/my-react                      │
+├───────────────────┼─────────────────────────────────────────────────────────────────┤
+│ package name      │ @company/examples.ui.heading                                    │
+└───────────────────┴─────────────────────────────────────────────────────────────────┘
+```
+
+## Merge New Configs with React's Configs
+
+Use the `compose` API (in `my-react.main.runtime.ts`) to compose a new Env out of the new and old Env configs (the relevant config APIs are listed below for each corresponding tool).
+
+For example:
+
+```ts
+// ...
+  static async provider([react, envs]: [ReactMain, EnvsMain]) {
+    const templatesReactEnv = envs.compose(react.reactEnv, [
+      react.useEslint({
+        transformers: [
+          (config) => {
+            config.setRule('no-console', ['error']);
+            return config;
+          }
+        ]
+      }),
+      react.usePrettier({
+        transformers: [
+          (config) => {
+            config.setKey('tabWidth', 2);
+            return config;
+          }
+        ]
+      })
+    ]);
+    // ...
+```
+
+:::info Merging configs
+Using React's API, new configs are merged with React's existing ones.
+This merge operation adds new properties and override existing ones.
+:::
+
+See ['Inspecting an Env's Configurations'](/docs/envs/inspecting-env) to learn how to validate your Env is configured as expected.
+
+### TypeScript
+
+```ts
+useTypeScript({ buildConfig?: TsConfigTransformer[], devConfig?: TsConfigTransformer[]}) : EnvTransformer
+```
+
+Use the `useTypeScript` API to set new properties for TS compilation in development or during build.
+
+```ts
+react.useTypescript({
+    buildConfig: [
+        (config) => {
+            config.setTarget('ES2015');
+            return config;
+          },
+        ],
+        devConfig: [
+          (config) => {
+            config.setTarget('ES2020');
+            return config;
+          },
+        ],
+      }),
+```
+
+[See here](https://bit.dev/teambit/typescript/modules/ts-config-mutator/~code/ts-config-mutator.ts) to learn more about the TypeScript's config mutator API
+
+[See here](https://github.com/teambit/examples/blob/master/react/examples/extensions/my-react/my-react.main.runtime.ts) for a full example.
+
+### Jest
+
+```ts
+overrideJestConfig(jestConfigPath: string, jestModulePath?: string | undefined): EnvTransformer
+```
+
+```ts
+// ...
+react.overrideJestConfig(require.resolve('./jest.config'));
+```
+
+The `jest.config.js` file:
+
+```js
+const reactJestConfig = require('@teambit/react/jest/jest.config');
+const { generateNodeModulesPattern } = require('@teambit/dependencies.modules.packages-excluder');
+const packagesToExclude = ['prop-types', '@teambit'];
+
+module.exports = {
+  ...reactJestConfig,
+  transformIgnorePatterns: [
+    ...reactJestConfig.transformIgnorePatterns,
+    `/${generateNodeModulesPattern({ packages: packagesToExclude })}`,
+  ],
+};
+```
+
+[See here](https://github.com/teambit/examples/blob/master/react/examples/extensions/my-react/my-react.main.runtime.ts) for a full example.
+
+### ESLint
+
+```ts
+useEslint(transformers: EslintConfigTransformer[]): EnvTransformer
+```
+
+```ts
+react.useEslint({
+    transformers: [
+        (config) => {
+        config.setRule('no-console', ['error']);
+        return config;
+        },
+    ],
+}),
+```
+
+[See here](https://bit.dev/teambit/defender/eslint/config-mutator/~code/config-mutator.ts) to learn more about ESLint's config mutator API.
+
+[See here](https://github.com/teambit/examples/blob/master/react/examples/extensions/my-react/my-react.main.runtime.ts) for a full example.
+
+### Prettier
+
+```ts
+usePrettier(transformers: PrettierConfigTransformer[]]): EnvTransformer
+```
+
+[See here](https://bit.dev/teambit/defender/prettier/config-mutator/~code/config-mutator.ts) to learn more about the Prettier's config mutator API.
+
+```ts
+react.usePrettier({
+    transformers: [
+        (config) => {
+        config.setKey('tabWidth', 2);
+        return config;
+        },
+    ],
+}),
+```
+
+### Webpack (Bundler/ DevServer)
+
+[Go to 'Configuring Webpack'](/docs/tools/webpack/configure-webpack).
+
+[See here](https://github.com/teambit/examples/blob/master/react/examples/extensions/my-react/my-react.main.runtime.ts) for a full example.
+
+### Package (package.json)
+
+```ts
+overridePackageJsonProps(props: PackageJsonProps): EnvTransformer
+```
+
+```ts
+react.overridePackageJsonProps({
+  'new-propery': 'value',
+});
+```
+
+### Env Dependencies
+
+```ts
+overrideDependencies(dependencyPolicy: VariantPolicyConfigObject): EnvTransformer
+```
+
+```ts
+react.overrideDependencies({
+    devDependencies: {
+        '@types/react': '17.0.3',
+    },
+}),
+```
+
+### Build Pipeline
+
+```ts
+overrideBuildPipe(tasks: BuildTask[]): EnvTransformer
+```
+
+```ts
+import { PrintCmpNameTask } from '@teambit/pipelines.examples.modules.print-component-name';
+// ...
+react.overrideBuildPipe([
+    new PrintCmpNameTask(
+        'teambit.react/examples/extensions/my-react',
+        'PrintCmpNameTask'
+    ),
+]),
+```
+
+[See here](https://github.com/teambit/examples/blob/master/react/examples/extensions/my-react/my-react.main.runtime.ts) for a full example.
+[See here](https://github.com/teambit/examples/blob/master/react/examples/extensions/my-react/my-react.main.runtime.ts) to learn how to customize the tag and snap pipelines.

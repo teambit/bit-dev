@@ -1,0 +1,107 @@
+import { WsConfigVsCompConfig } from '@teambit/docs.content.guides.ws-config-vs-comp-config';
+
+# Configuring the Workspace (workspace.jsonc)
+
+The `workspace.jsonc` serves as the main configuration file for the workspace and its components.
+
+`workspace.jsonc` is composed of a list of Aspects, and their corresponding configurations.
+For example, the following configuration is used to configure two Aspects:
+
+- `teambit.workspace/workspace`: The Workspace Aspect (responsible for the Workspace)
+- `teambit.dependencies/dependency-resolver`: The Dependency Resolver Aspect (responsible for dependency management)
+
+Since each Aspect is a [Component](/docs/components/components-overview), it uses the [Component ID](/docs/components/component-id) pattern.
+
+```json
+{
+  "teambit.workspace/workspace": {
+    "name": "my-workspace",
+    "defaultDirectory": "{scope}/{name}",
+    "defaultScope": "company.scope"
+  },
+  "teambit.dependencies/dependency-resolver": {
+    "packageManager": "teambit.dependencies/pnpm",
+    "policy": {
+      "dependencies": {
+        "classnames": "2.3.1",
+        "text-transform": "^0.1.2"
+      }
+    }
+  }
+}
+```
+
+The workspace configuration is extensible. It is not limited to a pre-configured list of Aspects. Any Aspect that implements the config
+
+## teambit.workspace/workspace
+
+`teambit.workspace/workspace` receives configurations for the workspace itself, as well as default values for components managed by the workspace.
+
+### name
+
+```ts
+name: string;
+```
+
+The name of the workspace. This name will be displayed in the workspace UI.
+
+### icon
+
+```ts
+icon: string;
+```
+
+Th path to an icon (svg, jpeg, etc.). The icon wll be displayed in the workspace UI.
+
+### defaultScope
+
+```ts
+defaultScope: string;
+```
+
+The default scope for all components in the workspace (this will be overridden by any other source of configuration, For example, variant)
+
+### defaultDirectory
+
+```ts
+defaultDirectory: string;
+```
+
+The default directory (relative path) to place a component during `bit import` and `bit create`.
+
+The following placeholders are available:
+
+<!-- TODO: add links to component id page -->
+
+- `name` - the component full name
+- `scopeId` - the scope-id
+- `scope` - scope name
+- `owner` - owner name
+
+For example:
+
+```json
+{
+  "defaultDirectory": "{scope}/{name}"
+}
+```
+
+## Adding an Aspect to the workspace configuration
+
+Adding an Aspect to the workspace configuration will apply that Aspect, by default, on all components in the workspace.
+
+For example, the custom Aspect `company.scope/extensions/my-dev-files` defines files that match the glob pattern '\*_/_.my-dev._' as [dev files](/docs/components/dev-files).
+Adding that Aspect to the workspace configuration will apply it on all components in the workspace (which will set every component's `_.my-dev.\*` file as a dev file).
+
+```json
+{
+  "teambit.workspace/workspace": {
+    // ..
+  },
+  "company.scope/extensions/my-dev-files": {}
+}
+```
+
+## Workspace Config vs Component Config
+
+<WsConfigVsCompConfig />

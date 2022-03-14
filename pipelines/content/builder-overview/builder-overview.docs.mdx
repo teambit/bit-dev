@@ -1,25 +1,6 @@
 ---
-description: 'An MDX component.'
-labels: ['content', 'mdx']
+description: 'component build pipeline.'
+labels: ['docs', 'env', 'builder']
 ---
 
-import { BuilderOverview } from './index';
-
-### Component usage
-```js
-<BuilderOverview />
-```
-
-### Render with theme and MDX providers
-
-```js
-import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions'
-import { MDXLayout } from '@teambit/mdx.ui.mdx-layout'
-import { BuilderOverview } from './index'
-
-<ThemeCompositions>
-  <MDXLayout>
-    <BuilderOverview />
-  </MDXLayout>
-</ThemeCompositions>
-```
+Builder aspect manages the component's independent build pipeline.

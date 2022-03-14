@@ -1,0 +1,17 @@
+```tsx
+import { BubbleHighlighter } from '@teambit/community.ui.bubble-highlighter';
+import { Button } from '@teambit/design.ui.buttons.button';
+import { ComponentID } from '@teambit/component-id';
+
+export const BubbleHighlighterWithLabel = () => {
+  /* generate a componentId object out of a string */
+  const componentId = ComponentID.fromString(
+    'teambit.design/ui/buttons/button'
+  );
+  return (
+    <BubbleHighlighter componentId={componentId}>
+      <Button>Getting Started</Button>
+    </BubbleHighlighter>
+  );
+};
+```

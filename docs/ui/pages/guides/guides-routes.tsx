@@ -1,6 +1,4 @@
-import React from 'react';
 import { DocsRoute } from '@teambit/docs.entities.docs-routes';
-import loadable from '@loadable/component';
 // import DecoupledCodebases from '@teambit/docs.content.mfe.decoupled-codebases';
 
 export const docsRoutes: DocsRoute[] = [
@@ -13,11 +11,11 @@ export const docsRoutes: DocsRoute[] = [
         title: 'Overview',
         path: 'overview',
       },
-      // {
-      //   title: 'Decoupled codebases',
-      //   path: 'decoupled-codebases',
-      //   component: <DecoupledCodebases />
-      // },
+      {
+        title: 'Decoupled codebases',
+        path: 'decoupled-codebases',
+        // component: <DecoupledCodebases />
+      },
       {
         title: 'Autonomy and Independence',
         path: 'autonomy-and-independence',

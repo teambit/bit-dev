@@ -1,4 +1,53 @@
+@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
+
+$textColumn: 1000px;
+
+.docsPage {
+  display: flex;
+}
+
 .next {
-    margin-top: 40px;
-    margin-bottom: 20px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+.mdxLayout {
+  --bit-p-md: 18px;
+  li {
+    font-size: var(--bit-p-md, 18px);
+  }
+
+  p,
+  .heading,
+  ul,
+  ol,
+  table,
+  pre,
+  :global(.admonition) {
+    max-width: $textColumn;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
+  }
+}
+
+.content {
+  position: relative;
+  min-width: 0; // this is in order for content to fit next to the table of content without colliding
+}
+
+.tableOfContent {
+  position: sticky;
+  flex-shrink: 0;
+  margin-left: 32px;
+  top: 56px;
+  bottom: 0;
+  right: 8px;
+  @media screen and (max-width: $br-lg) {
+    display: none;
+  }
+}
+
+.heading {
+  // border-bottom: none !important;
 }

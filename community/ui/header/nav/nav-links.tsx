@@ -1,80 +1,63 @@
 import React, { ReactNode } from 'react';
-// import { TooltipDrawer } from '@teambit/evangelist.surfaces.tooltip';
 import classNames from 'classnames';
-import { ExternalLink } from '@teambit/design.ui.external-link';
-// import { Link } from 'react-router-dom';
-import { Link } from "@teambit/design.ui.navigation.link";
-import { Icon } from '@teambit/design.elements.icon';
+import { TabLink } from '@teambit/design.ui.navigation.tab-link';
 import styles from './nav.module.scss';
 
 export type NavLinkType = {
-    /**
-     * title of category
-     */
-    title: ReactNode;
-    /**
-     * list of links
-     */
-    links?: LinkType[];
+  /**
+   * title of category
+   */
+  title: ReactNode;
+  /**
+   * list of links
+   */
+  links?: LinkType[];
 
-    /**
-     * link href. if a link is provided, links property is ignored.
-     */
-    href?: string;
-}
-
-export type LinkType = {
-    /**
-     * link display text
-     */
-    text: ReactNode;
-    /**
-     * link href
-     */
-    href: string;
-}
-
-export type NavLinksProps = {
-    /**
-     * list of links to display in the navbar
-     */
-  links: NavLinkType[];
+  /**
+   * link href. if a link is provided, links property is ignored.
+   */
+  href?: string;
 };
 
-export function NavLinks({links}: NavLinksProps) {
+export type LinkType = {
+  /**
+   * link display text
+   */
+  text: ReactNode;
+  /**
+   * link href
+   */
+  href: string;
+};
+
+export type NavLinksProps = {
+  /**
+   * list of links to display in the navbar
+   */
+  links: NavLinkType[];
+} & React.HtmlHTMLAttributes<HTMLDivElement>;
+
+export function NavLinks({ links, className, ...rest }: NavLinksProps) {
   return (
-    <div className={styles.navLinks}>
-      {links.map((link, key) => {
-        const isExternal = link.href?.startsWith('http://') || undefined;
-        return <Link key={key} external={isExternal} className={styles.link} activeClassName={styles.active} href={link.href}>{link.title}</Link>})}
-      {/* {links.map((item, index) => (
-        (item.href) ?
-        <Placeholder key={index} className={styles.link}>
-          {item.href.startsWith('http://') ? 
-          <ExternalLink href={item.href}>{item.title}</ExternalLink>
-          : <Link to={item.href}>{item.title}</Link>
-          }
-          
-        </Placeholder>
-        : <TooltipDrawer key={index} position="bottom" className={styles.link} placeholder={<Placeholder>{item.title}</Placeholder>} hoverToOpen elevation="medium">
-          {item.links.map((link, index) => (<ExternalLink key={index} href={link.href}>{link.text}</ExternalLink>))}
-        </TooltipDrawer>
-      ))} */}
+    <div {...rest} className={classNames(styles.navLinks, className)}>
+      {links.map((link) => {
+        const isExternal = link.href?.startsWith('https://') || undefined;
+        return (
+          <TabLink
+            key={link.href}
+            external={isExternal}
+            className={styles.link}
+            activeClassName={styles.active}
+            href={link.href}
+          >
+            {link.title}
+          </TabLink>
+        );
+      })}
     </div>
-  )
+  );
 }
 
 NavLinks.defaultProps = {
-  items: []
+  items: [],
 };
-
-// export type PlaceholderProps = {} & React.HTMLAttributes<HTMLDivElement>;
-
-// function Placeholder({children, className, ...rest}: PlaceholderProps) {
-//   return (
-//     <div {...rest} className={classNames(styles.placeholder, className)}>
-//         {children}
-//       <Icon of="fat-arrow-down" className={styles.arrow} />
-//     </div>
-//   )
-// }

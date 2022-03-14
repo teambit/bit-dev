@@ -35,7 +35,9 @@ export function NextPage({
           )}
           {description && <Paragraph className={styles.description}>{description}</Paragraph>}
         </div>
-        <Button href={href} className={classNames(styles.button, href && styles.link)}>{buttonText}</Button>
+        <Button href={href} className={classNames(styles.button, href && styles.link)}>
+          {buttonText}
+        </Button>
         {children}
       </Card>
     </div>

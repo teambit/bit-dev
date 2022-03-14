@@ -1,22 +1,24 @@
 ---
-description: 'A Heading component'
-labels: ['heading']
+description: 'Renders text as heading'
+labels: ['heading', 'text', 'ui']
 ---
 
-import { FigmaEmbed } from '@teambit/design.embeds.figma';
-import { Heading, highlightClass } from './heading';
+import { Tooltip } from '@teambit/community.ui.text-tooltip';
+import { Elements } from './index';
+import { importElements } from './docs/snippet';
+import { highlightClass, Heading } from '.';
 
-Component for the main Heading.
+Renders text as a heading with Bit Community styles.
 
-### Heading with H1 element
+### Basic usage
 
-```js live=true
-<Heading element="h1">Build anything in components</Heading>
+```jsx live
+<Heading>Build anything in components</Heading>
 ```
 
-### Highlighted heading with H1 element
+### Highlighting a heading
 
-```js live=true
+```jsx live
 <Heading element="h1" highlight>
   Build anything in components
 </Heading>
@@ -28,7 +30,15 @@ Component for the main Heading.
 <span className={highlightClass}>highlighted text</span>
 ```
 
-### Override heading size
+### Choosing the heading element type
+
+Pass the `element` prop to choose the element type to return (`H1` to `H6` of the <Tooltip content={importElements} language='typescript'>`Elements` enum</Tooltip>).
+
+```jsx live
+<Heading element={Elements.H3}>Build anything in components</Heading>
+```
+
+### Overriding the heading size
 
 You can override the size of the `Heading` using the existing pallete. In this case, the output is a `H2` element with the size of an `H6` element according to the _Design scope_ pallete.
 
@@ -37,7 +47,3 @@ You can override the size of the `Heading` using the existing pallete. In this c
   Build anything in components
 </Heading>
 ```
-
-### Design
-
-<FigmaEmbed src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FctC1w9YhJvqaO1EZ08gLOV%2FCommunity%3Fnode-id%3D5%253A2140" />

@@ -1,0 +1,112 @@
+---
+description: 'A React theme provider generator'
+labels: ['theme', 'design tokens', 'design system', 'react', 'css custom props']
+---
+
+import { Tooltip } from '@teambit/community.ui.text-tooltip';
+import { Theme } from './examples/default-theme.demo';
+import { designTokens, importTheme } from './docs/tooltip-content';
+import { darkThemeOverrides } from './examples/dark-theme.demo';
+
+
+Theme Provider generates a theme out of <Tooltip content={designTokens}> design tokens. </Tooltip>
+
+## Basic usage
+
+Use `createTheme` to generate a new theme out of a list of design tokens:
+
+```ts
+import { createTheme } from '@teambit/base-react.theme.theme-provider';
+
+/* describe the theme's design tokens and set their default values */
+export const defaultDesignTokenValues = {
+  colorBackground: '#ffffff',
+  colorText: '#cab854',
+};
+
+/* generate a theme with the above default values */
+export const Theme = createTheme({
+  theme: defaultDesignTokenValues,
+});
+
+/* create a theme schema to standardize future customized themes */
+export type ThemeSchema = typeof defaultDesignTokenValues;
+```
+
+### Theming components using CSS props
+
+Use the previously generated theme to have its CSS custom props available for your components.
+
+```jsx live
+() => {
+  const Button = ({ children }) => {
+    const style = {
+      backgroundColor: 'var(--color-background)',
+      color: 'var(--color-text)',
+    };
+    return <button style={style}>{children}</button>;
+  };
+
+  return (
+    <Theme.ThemeProvider>
+      <Button>A button themed using CSS props</Button>
+    </Theme.ThemeProvider>
+  );
+};
+```
+
+### Theming components using JS vars
+
+ Wrap your components with the previously generated theme. Use its hook to retrieve its values.
+
+```jsx live
+() => {
+  const Button = ({ children }) => {
+    const { colorBackground, colorText } = Theme.useTheme();
+    const style = {
+      backgroundColor: colorBackground,
+      color: colorText,
+    };
+    return <button style={style}>{children}</button>;
+  };
+
+  return (
+    <Theme.ThemeProvider>
+      <Button>A button themed using JS vars</Button>
+    </Theme.ThemeProvider>
+  );
+};
+```
+
+## Composing a new theme
+
+Create an object with new design token values. Use the previously generated theme scheme to ensure the proper use of design tokens.
+
+```ts
+import type { ThemeSchema } from './my-default-theme';
+
+export const darkThemeOverrides: ThemeSchema = {
+  colorBackground: '#474747',
+  colorBorder: '#30302e',
+};
+```
+
+Pass the overrides object to your default theme component to override or extend its design token values:
+
+```jsx live
+() => {
+  const Button = ({ children }) => {
+    const style = {
+      backgroundColor: 'var(--color-background)',
+      color: 'var(--color-text)',
+    };
+    return <button style={style}>{children}</button>;
+  };
+
+  return (
+    <Theme.ThemeProvider overrides={darkThemeOverrides}>
+      <Button>A dark button</Button>
+    </Theme.ThemeProvider>
+  );
+};
+```

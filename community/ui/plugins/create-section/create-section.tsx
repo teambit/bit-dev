@@ -29,7 +29,7 @@ export function CreateSection({ heading, subtitle, className, ...rest }: CreateS
           {heading}
         </Heading>
         <Subtitle className={styles.subtitle}>{subtitle}</Subtitle>
-        <Link href="/docs/extending-bit/create-a-plugin">
+        <Link href="/docs/extending-bit/aspect-overview" className={styles.link}>
           Create a new plugin <Icon of="right-arrow" className={styles.icon} />
         </Link>
       </div>

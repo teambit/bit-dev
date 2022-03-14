@@ -1,0 +1,178 @@
+# Inspecting Components
+
+import { Image } from '@teambit/docs.ui.zoomable-image';
+import logExampleImg from './log-example.png';
+import logIconImg from './log-icon.png';
+import depGraphImg from './dependencies-graph.png';
+import componentConfigImg from './component-config.png';
+import componentCode from './component-code.png';
+
+This page lists different ways to inspect components using Bit's CLI and UI.
+
+Since Bit components are configurable via multiple sources, it is not always easy to understand how their configurations will get resolved.
+This is where Bit's inspection tools come in handy.
+
+## CLI
+
+### Component's essential info
+
+```shell
+bit show ui/card
+```
+
+```shell
+┌───────────────────┬──────────────────────────────────────────────────────────┐
+│ id                │ company.scope/ui/card                                    │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ scope             │ company.scope                                            │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ name              │ ui/card                                                  │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ env               │ company.scope/envs/my-react                              │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ package name      │ @company/scope.ui.card                                   │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ deprecated        │ false                                                    │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ main file         │ index.ts                                                 │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ files             │ card.composition.tsx                                     │
+│                   │ card.docs.mdx                                            │
+│                   │ card.module.scss                                         │
+│                   │ card.spec.tsx                                            │
+│                   │ card.tsx                                                 │
+│                   │ index.ts                                                 │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ dev files         │ card.spec.tsx (teambit.defender/tester)                  │
+│                   │ card.composition.tsx (teambit.compositions/compositions) │
+│                   │ card.docs.mdx (teambit.docs/docs)                        │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ extensions        │ company.scope/envs/my-react                              │
+│                   │ teambit.component/dev-files                              │
+│                   │ teambit.compositions/compositions                        │
+│                   │ teambit.pkg/pkg                                          │
+│                   │ teambit.docs/docs                                        │
+│                   │ teambit.envs/envs                                        │
+│                   │ teambit.dependencies/dependency-resolver                 │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ dependencies      │ @company/scope.ui.heading@latest--------- (component)    │
+│                   │ @company/scope.ui.text@latest------------ (component)    │
+│                   │ @teambit/design.ui.external-link@0.0.344- (component)    │
+│                   │ @teambit/documenter.ui.copy-box@4.1.1---- (component)    │
+│                   │ core-js@^3.0.0--------------------------- (package)      │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ dev dependencies  │ @company/scope.envs.my-react@latest---- (component)      │
+│                   │ @types/testing-library__jest-dom@5.9.5- (package)        │
+│                   │ @babel/runtime@7.12.18----------------- (package)        │
+│                   │ @types/jest@^26.0.0-------------------- (package)        │
+│                   │ @types/react-dom@^17.0.5--------------- (package)        │
+│                   │ @types/react@^17.0.8------------------- (package)        │
+│                   │ @types/node@12.20.4-------------------- (package)        │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ peer dependencies │ @testing-library/react@12.0.0- (package)                 │
+│                   │ react-dom@^16.8.0 || ^17.0.0-- (package)                 │
+│                   │ react@^16.8.0 || ^17.0.0------ (package)                 │
+└───────────────────┴──────────────────────────────────────────────────────────┘
+```
+
+### History Log
+
+```shell
+bit log pages/welcome
+```
+
+Example output:
+
+```shell
+tag 0.0.2 (d83f7408224be662141073a843190321a0962a2f)
+author: John Doe <john_doe@my-org-mail.com>
+date: 10/24/2020, 5:49:15 PM
+
+tag 0.0.1 (d83f7408224be662141073a843190321a0962a3e)
+author: Jane Doe <jane_doe@my-org-mail.com>
+date: 09/24/2020, 4:48:51 PM
+```
+
+### Artifacts
+
+```bash
+bit artifacts pages/welcome
+```
+
+```bash
+my-new-ws/pages/welcome@0.0.1
+  teambit.compilation/compiler
+    TSCompiler
+      dist/index.d.ts
+      dist/index.js
+      dist/index.js.map
+      dist/wecome.spec.d.ts
+      dist/wecome.spec.js
+      dist/wecome.spec.js.map
+      dist/welcome.composition.d.ts
+      dist/welcome.composition.js
+      dist/welcome.composition.js.map
+      dist/welcome.d.ts
+      dist/welcome.docs.mdx
+      dist/welcome.js
+      dist/welcome.js.map
+      dist/welcome.module.scss
+      dist/welcome.spec.d.ts
+      dist/welcome.spec.js
+      dist/welcome.spec.js.map
+
+  teambit.defender/tester
+    TestComponents
+      __bit_junit.xml
+
+  teambit.preview/preview
+    GeneratePreview
+      public/asset-manifest.json
+      public/index.html
+      public/service-worker.js
+      public/workbox-ff5efe00.js
+      public/static/css/828.39ec3504.css
+      public/static/css/main.5a6d0ae4.css
+      public/static/js/828.4e941099.js
+      public/static/js/828.4e941099.js.LICENSE.txt
+      public/static/js/main.2b18ffc2.js
+      public/static/js/runtime-main.f8aedb2c.js
+
+  teambit.pkg/pkg
+    PackComponents
+      package-tar/company-scope.pages.welcome-0.0.1.tgz
+```
+
+## UI
+
+### Dependencies of Module-Type 'Component'
+
+The 'Dependencies' tab visualizes the component's dependencies graph. This graph only includes components (with exact versions). (Regular) packages are not listed.
+
+<Image src={depGraphImg} />
+
+### Code and Dependencies
+
+Use the `{ }` tab to inspect the component's code and dependencies in the UI.
+
+<Image src={componentConfigImg} />
+
+### Component's Configurations
+
+The 'Configuration' tab shows the components configurations, grouped by each Aspect used by it.
+
+For example:
+
+<Image src={componentConfigImg} />
+
+### History Log
+
+The 'History' tab 
+
+<Image src={logIconImg} width="20%"/>
+
+shows a component's version history. The different versions can be explored further by clicking on their links.
+
+For example:
+
+<Image src={logExampleImg} />

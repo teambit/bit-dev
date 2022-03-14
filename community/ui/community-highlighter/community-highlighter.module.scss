@@ -1,0 +1,23 @@
+@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
+
+.highlighter {
+  --bit-highlighter-color: var(--surface-hover-color, #edebfc);
+  --bit-highlighter-color-hover: var(--surface-focus-color, #e2defa);
+  --bit-highlighter-color-active: var(--surface-active-color, #dcd8f9);
+}
+
+.inspect {
+  display: flex;
+  align-items: center;
+  padding-left: 24px;
+  > span {
+    margin-right: 4px;
+  }
+  @media screen and (max-width: $br-md) {
+    font-size: 12px;
+    padding-left: 8px;
+  }
+  @media screen and (max-width: $br-sm) {
+    display: none;
+  }
+}

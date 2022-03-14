@@ -1,5 +1,5 @@
 export enum ProductType {
-  product = 'links'
+  product = 'links',
 }
 
 export type LinksFromApi = {

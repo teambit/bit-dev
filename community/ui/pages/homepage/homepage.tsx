@@ -10,45 +10,49 @@ import { features } from '@teambit/community.entity.features';
 import { mockBubbleGraph } from '@teambit/community.entity.graph.bubble-graph';
 import { ExcludeHighlighter } from '@teambit/react.ui.component-highlighter';
 import { LogoShowcase } from '@teambit/community.ui.logo-showcase';
-import { StickyMenu } from '@teambit/community.ui.sticky-menu';
+// import { StickyMenu } from '@teambit/community.ui.sticky-menu';
 import { Page } from '@teambit/base-react.pages.page';
-import { Distribution } from '@teambit/community.ui.homepage.sections.distribution';
+// import { Distribution } from '@teambit/community.ui.homepage.sections.distribution';
+// import { Standardization } from '@teambit/community.ui.homepage.sections.standardization';
+// import { Autonomy } from '@teambit/community.ui.homepage.sections.autonomy';
+// import { Collaboration } from '@teambit/community.ui.homepage.sections.collaboration';
+// import { Extendability } from '@teambit/community.ui.homepage.sections.extendability';
+// import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 import styles from './homepage.module.scss';
-import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 
 export type HomepageProps = {} & React.HTMLAttributes<HTMLDivElement>;
 
 // we need more logos to get the effect of an endless animation. duplicated the list for now
 const logoList = [...clientLogos, ...clientLogos];
 
+const pageDescription =
+  'Bit is the leading toolchain for component-driven development. Forget monolithic apps and distribute to component-driven software. Build like the world’s best teams.';
+
+// must be static!
+const bubbles = mockBubbleGraph();
+
 export function Homepage({ ...rest }: HomepageProps) {
   return (
-    <Page title='Bit: Component build and collaboration framework' {...rest}>
+    <Page title="Component driven development - Bit" description={pageDescription} {...rest}>
       <section>
         <div className={styles.grid}>
           <ExcludeHighlighter>
-            <Hero bubbles={mockBubbleGraph()} />
+            <Hero bubbles={bubbles} />
           </ExcludeHighlighter>
-          <ComponentDistributionSection
-            title='From monoliths to component-driven'
-            components={componentsMock()}
-          />
-          <FeaturesSection
-            features={features}
-            title='Better software is built in components'
-          />
+          <ComponentDistributionSection title="From monolithic to composable software" components={componentsMock()} />
+          <FeaturesSection features={features} title="Better software is built in components" />
           <UseCasesSection
             useCases={useCases}
-            title='Make hard things simple'
-            href='/'
-            linkText='See more use cases'
+            title="Make hard things simple"
+            href="/guides/micro-frontends/overview"
+            linkText="See more use cases"
           />
         </div>
         <div className={styles.imageStripSection}>
           <LogoShowcase className={styles.imgStrip} images={logoList} />
         </div>
       </section>
-      <WideColumn>
+      {/* <WideColumn>
         <StickyMenu
           links={[
             {
@@ -73,8 +77,13 @@ export function Homepage({ ...rest }: HomepageProps) {
             },
           ]}
         />
-      </WideColumn>
+      </WideColumn> */}
+      {/* 
       <Distribution />
+      <Collaboration />
+      <Standardization />
+      <Autonomy />
+      <Extendability /> */}
     </Page>
   );
 }

@@ -1,44 +1,16 @@
+@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
+
+$sidebarWidth: 240px + 24px;
+
 .footer {
-    padding: 40px 0 20px 0;
-    font-size: 14px;
-}
-.footerLinks {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 50px;
-  margin-bottom: 40px;
-  @media screen and (max-width: 1080px) {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  }
-  @media screen and (max-width: 768px) {
-      // this will make the first column into a row above the other columns
-      > div:first-child {
-        grid-column: 1 / -1;
-        display: flex;
-        align-items: center;
-        > a {
-            margin-right: 24px;
-        }
-        // this will hide the title of the first column once it turns into a row
-        > div:first-child {
-            display: none;
-        }
-      }
-  }
-}
+  padding: 40px 0 20px $sidebarWidth;
+  font-size: 14px;
 
-.bottom {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    color: var(--bit-text-color-light, #6c707c);
-    > * {
-        margin-right: 32px;
-        white-space: nowrap;
-        margin-bottom: 8px;
+  > div:last-child {
+    margin-top: 40px;
+  }
 
-    }
-    .logo {
-        margin-right: 20px;
-    }
+  @media screen and (max-width: $br-md) {
+    padding-left: 0;
+  }
 }

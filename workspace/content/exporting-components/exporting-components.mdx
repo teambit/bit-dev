@@ -1,0 +1,114 @@
+# Exporting Components
+
+Exporting components to remote scopes makes them available for other developers to consume and collaborate. You can create remote scopes on your own server or manage components' scopes the [bit.cloud](https://bit.cloud) components hub.
+
+The target scope of a component is determined by the applied scope definition for a component, as part of the component ID.
+
+After you created staged [snaps](/docs/components/snaps) or [versions](/docs/components/tags). To validate you can safely export new versions, run the `status` command.
+
+```bash
+bit status
+```
+
+Here we see that our workspace has 4 components, and 2 of them have **staged versions**.
+
+```bash
+new components
+(use "bit tag --all [version]" to lock a version with all your changes)
+
+     > pages/welcome ... ok
+     > ui/card ... ok
+
+                         
+staged components
+(use "bit export <remote_scope> to push these components to a remote scope")
+
+     > ui/text. versions: 1.0.0 ... ok
+     > ui/heading. versions: 1.0.0 ... ok
+```
+
+Bit tells you exactly which versions are pending to be exported. Export them to a remote scope with the `export` command:
+
+```sh
+bit export
+```
+
+Bit then lets you know how many components were exported.
+
+```bash
+2 components were exported to scope teambit/base-ui
+```
+
+## Ejecting Components
+
+Components exported to Bit are consumable with package managers. Bit allows ejecting components and replaces them with its node module. The name of this process is 'ejecting'. This is sugar syntax for both deleting the local component and running `bit install`.
+
+Use the `eject` flag to replace an exported component with a node module:
+
+```bash
+bit export --eject
+```
+
+You can directly eject any component with the `eject` command:
+
+```bash
+bit eject ui/text
+```
+
+## Post Export
+
+The export process updates your workspace' `.bitmap` file. Make sure to commit these changes to Git.
+
+```bash
+git commit -am 'updated .bitmap file after a successful export'
+```
+
+## Export During CI
+
+[See here](/docs/getting-started/set-up-ci/automate-export) to learn how to use your CI to export components.
+
+## Merge Conflicts
+
+You may encounter a merge conflict, if you tagged a new version and exported it, but there's such version already shared. Let's resolve such conflict.  
+
+The flow starts with running `export`, trying to export a new version:
+
+```bash
+bit tag teambit.base-ui/input/button --message "my message"
+bit export
+```
+
+We tried to export `1.0.5` for `teambit.base-ui/input/button`, but there's already `1.0.5` on the remote..
+
+```bash
+error: merge conflict occurred while importing the component teambit.base-ui/input/button. conflict version(s): 1.0.5
+to resolve it and merge your local and remote changes, please do the following:
+1) bit untag teambit.base-ui/input/button 1.0.5
+2) bit import
+3) bit checkout 1.0.5 teambit.base-ui/input/button
+```
+
+To resolve the conflict, `untag` the component’s local version.
+
+```bash
+bit untag teambit.base-ui/input/button 1.0.5
+```
+
+Now we use `import` to update the local component history, so we have `1.0.5` from the remote.
+
+```bas
+bit import
+```
+
+Checkout version `1.0.5` so you can merge your changes on top of it.
+
+```bash
+bit checkout 1.0.5 teambit.base-ui/input/button
+```
+
+Tag and export again, after solving the conflict.
+
+```bash
+bit tag teambit.base-ui/input/button --message "my message" 
+bit export
+```

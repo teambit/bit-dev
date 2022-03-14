@@ -1,10 +1,12 @@
 import React from 'react';
+import classNames from 'classnames';
 import { ComponentID } from '@teambit/component-id';
 import { Image } from '@teambit/base-react.content.image';
 import { Label } from '@teambit/documenter.ui.label';
 import { Caption } from '@teambit/design.ui.content.caption';
-import classNames from 'classnames';
+import { Link } from '@teambit/base-react.navigation.link';
 import { BubbleCard, BubbleCardProps } from '@teambit/design.ui.cards.bubble-card';
+import { ComponentUrl } from '@teambit/component.modules.component-url';
 import { Ellipsis, ellipsis } from '@teambit/design.ui.styles.ellipsis';
 import { getScopeName } from './get-scope-name';
 import styles from './component-bubble.module.scss';
@@ -49,11 +51,12 @@ export type ComponentBubbleProps = {
    * classname to inject the element.
    */
   className?: string;
-
   /**
-   * color of the bubble
+   * link the component bubble to its component page
    */
-  color?: string;
+  isLinkable?: boolean;
+
+  showScope?: boolean;
 } & BubbleCardProps;
 
 export function ComponentBubble({
@@ -61,38 +64,47 @@ export function ComponentBubble({
   componentId,
   showOwner = false,
   icon,
+  showScope = true,
   showVersion = true,
   allowHover = true,
   forceActive = false,
   nonInteractive = false,
-  color = '#EDEDED',
+  isLinkable = true,
   ...rest
 }: ComponentBubbleProps) {
   if (nonInteractive) {
     showVersion = false;
     allowHover = false;
   }
-  return (
+
+  const link = componentId && isLinkable && ComponentUrl.toUrl(componentId, { includeVersion: false });
+
+  const bubble = (
     <BubbleCard
-      className={classNames(
-        styles.bubble,
-        className,
-        forceActive && styles.active,
-        allowHover ? styles.allowHover : styles.noHoverAllowed
-      )}
+      className={classNames(styles.bubble, className, forceActive && styles.active, allowHover && styles.interactive)}
       {...rest}
     >
       {icon && <Image src={icon} className={styles.icon} />}
       {componentId && (
         <div className={classNames(styles.id)}>
           <Caption className={ellipsis}>
-            {getScopeName(componentId.scope, showOwner)}/{componentId.namespace}
+            {showScope
+              ? `${getScopeName(componentId.scope, showOwner)}/${componentId.namespace}`
+              : componentId.namespace}
           </Caption>
           <Ellipsis className={styles.name}>{componentId.name}</Ellipsis>
         </div>
       )}
-      {componentId && showVersion && <Label className={styles.versionLabel}>{componentId?.version}</Label>}
+      {componentId?.version && showVersion && <Label className={styles.versionLabel}>{componentId.version}</Label>}
     </BubbleCard>
+  );
+
+  if (!link) return bubble;
+
+  return (
+    <Link href={link} className={styles.link} external>
+      {bubble}
+    </Link>
   );
 }
 

@@ -1,0 +1,19 @@
+---
+description: 'Sets and retrieves data from the local storage.'
+labels: ['react', 'hook', 'local storage']
+---
+
+import { useLocalStorage } from './use-local-storage';
+
+This hook sets and retrieves data from the local storage.
+
+## Basic usage
+
+Initialize this hook by setting a key and a default value. The default value is used only if a value (for the same key) does not already exist in the local storage.
+
+```js live
+() => {
+  const [value, setValue] = useLocalStorage('my-key', 'my-default-value');
+  return <input value={value} onChange={(e) => setValue(e.target.value)} />;
+};
+```

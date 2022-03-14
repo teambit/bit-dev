@@ -1,0 +1,18 @@
+# Local Scope
+
+The Local Scope is located in the `.bit` or `.git/bit` directory at the root of the Workspace. It is where component versions (snapshots) are stored.
+The stored versions are either authored in the workspace or imported into it.
+
+The local scope serves three main functions:
+
+- It is where "staged" components are stored before they are exported to a remote scope.
+- It is where component data that is not written to the workspace (but used by Bit), is stored. That includes imported components, as well as components authored in the Workspace.
+- It enables the workspace to recognize whether a component has been modified by comparing the immutable version stored in the local scope to the component files tracked by the workspace.
+
+## The Local Scope and git
+
+While workspaces should be tracked by git, to enable collaboration on workspace config and pre-versioned components, the Local Scope should be excluded.
+
+Components are versioned independently, completely decoupled from any git repository.
+
+Tracking the component objects (in the Local Scope) with git will result in conflicts as new component versions (and therefor, new/modified objects) can originate from any other workspace/repository.

@@ -1,0 +1,238 @@
+import { Image } from '@teambit/docs.ui.zoomable-image';
+import componentObjectsDemoImg from './component-objects-demo.png';
+import objectsImag from './objects.png';
+import secondSnap from './second-snap.png';
+import snapDependency from './snap-dependency.png';
+import componentPointer from './component-pointer.png';
+import componentState from './component-state.png';
+import firstSnap from './first-snap.png';
+import tagSnap from './tag-snap.png';
+import twoTags from './two-tags.png';
+
+# Component Store
+
+Each component is stored in its own "mini" repository containing all information about a component.  
+When you add a new component, Bit adds it to the local workspace store found in `.git/bit`.
+
+<Image src={componentPointer} width="40%" />
+
+## Immutable Component State
+
+Alongside components, the worskapce store holds states for components. These states are immutable and contains all information about a component at a specific point in time.
+
+- Source code - as seen in your workspace.
+- Configuration - as calculated from `workspace.jsonc`.
+- Dependencies - as calculated from all `import` statements in the source code.
+- Metadata - like the version message, author, date of change, etc.
+- Artifacts - as generated when running the component's build pipeline.
+
+<Image src={componentState} width="20%" />
+
+## Revision History with Snapshots
+
+Each time you [snapshot a change](/docs/components/snaps), Bit saves the state of the component, and points to it from the component.
+
+<Image src={firstSnap} width="20%" />
+
+As you keep on maintaining components and creating more snapshots, Bit builds and maintains the revision history of the component.
+
+<Image src={secondSnap} width="30%" />
+
+- Latest snap will always be pointed by the component.
+- A snap points to its predecessor.
+
+## Storing Versions
+
+Versions are essentially very unique snapshots that has a semantic version attached to them, when you [create a new version](/docs/components/tags) for a component.
+
+<Image src={tagSnap} width="40%" />
+
+Components directly refer to all their available semantic versions. Version history and presedence is determined by semantic verion, not when a tag was created.
+
+<Image src={twoTags} width="40%" />
+
+## Checkout Past States
+
+Besides using `snap` and `tag` to write new versions for components, you can use `checkout` to pull a past (or future) state of a specific component from the store, keeping the rest of your workspace unchanged.
+
+```bash
+bit checkout 1.0.0 teambit.harmony/content/aspects-overview
+```
+
+Bit will switch the component to a past state from the component history.
+
+```
+successfully switched the following components to their latest version
+
+teambit.harmony/content/aspects-overview@1.0.0
+	updated aspect-graph.ts
+	updated aspects-overview.composition.tsx
+	updated aspects-overview.docs.mdx
+	auto-merged aspects-overview.mdx
+	updated composability.png
+	updated index.ts
+```
+
+## Collaborating on Components
+
+The process of `import` and `export` for components is all about sharing changes in component history with other developers. Each remote Bit scope is a storage server for components and their history, similar to the local component store.
+
+## Stored Dependencies
+
+Dependencies between versions or snaps are logged as part of the component's state.
+
+<Image src={snapDependency} width="70%" />
+
+This allows a safer workflow when working in a distributed environment, as when you export components all dependencies are ported over alongside the component.  
+For example, if you build a component in the **billing** system, and depending on components from the **design system** and when exporting the component to your scope, the scope will fetch all dependencies from **design system** and store them in it's storage.  
+Stored Dependencies are not visible through the UI, they are there for cases where you may not have access to the remote scope as it was taken down or removed.
+
+When other developer then `import` the component from **billing** scope, the dependencies from **design system** will be fetched from the **billing** scope, and stored locally for the consumer's workspace.
+
+## Explore Component Store
+
+Follow these steps to explore how components are stored and managed for your workspace.  
+Start by importing a component with a history of changes:
+
+```bash
+$ bit import teambit.base-ui/inputs/button
+```
+
+After the `import` process is complete, we can start exploring the component store:
+
+```bash
+bit cat-scope
+```
+
+During the `import` command, Bit fetched the `button` component and it's history. Moreover, see that all `button`'s dependencies are fetched as well component-dependencies.
+
+```bash
+┌──────────────────────────────────────────────────┬───────────────────────────────────────────────┐
+│ id                                               │ Object                                        │
+├──────────────────────────────────────────────────────────────────────────────────────────────────┤
+│ teambit.base-react/buttons/button                │ obj: e603d90cf7c889b7ab9a9726a17123a27a167b8f │
+├──────────────────────────────────────────────────┼───────────────────────────────────────────────┤
+│ teambit.base-ui/elements/dots-loader             │ obj: e8e067063f355d12be2af049d058f153abed7d41 │
+├──────────────────────────────────────────────────┼───────────────────────────────────────────────┤
+│ teambit.documenter/ui/copy-box                   │ obj: e9c696fd745a6d28d8dff813986da1142e8801bb │
+├──────────────────────────────────────────────────┼───────────────────────────────────────────────┤
+│ teambit.base-react/content/image                 │ obj: ed0b933b3f51b7c5403f5a75e41c67e3f453ea3b │
+├──────────────────────────────────────────────────┼───────────────────────────────────────────────┤
+│ teambit.design/ui/external-link                  │ obj: ee077bbb362fe75f07fef024066d13dadad1ab07 │
+├──────────────────────────────────────────────────┼───────────────────────────────────────────────┤
+│ teambit.base-ui/text/paragraph                   │ obj: f050ffae25607a81752cfbe7b0e96fe548376a24 │
+├──────────────────────────────────────────────────┼───────────────────────────────────────────────┤
+│ teambit.documenter/theme/theme-context           │ obj: f2eb682b13e32dfaf7a8c4b3132339f57526ae24 │
+├──────────────────────────────────────────────────┼───────────────────────────────────────────────┤
+│ teambit.base-ui/routing/native-nav-link          │ obj: f4e46c640c98521c7e08b7dbdcd6231250ded934 │
+├──────────────────────────────────────────────────┼───────────────────────────────────────────────┤
+│ teambit.design/ui/buttons/button                 │ obj: f54cf2199ebea77aeff811b3d03c3b9f89e040ad │
+└──────────────────────────────────────────────────┴───────────────────────────────────────────────┘
+```
+
+The above output table shows the mapping between each component ID and its component-object hash.
+
+Let's explore `teambit.base-ui/inputs/button`:
+
+```
+bit cat-object -p e603d90cf7c889b7ab9a9726a17123a27a167b8f
+```
+
+Here we see all the data we have for the component.
+
+```bash
+{
+  "name": "buttons/button",
+  "scope": "teambit.base-react",
+  "versions": {
+    // ...
+    "1.8.21": "5d93b9c90096952038b3654417206fd27b485e28",
+    "1.8.22": "40912fdea8a89cf24cbb87ec4bf25703442aa7d7",
+    "1.8.23": "0fb0f2e884caa591e4a07e413e42fcf6b79f29ed",
+    "1.8.24": "32479898826d2df2ad0e6845b408035dc24fc5d0",
+    "1.8.25": "1b58b0b7c0a12c5f28fb852c2ba643a2ff47bbb7",
+    "1.8.26": "79362d1cc55c0ea17524b0bdcfe5e35e91f2fb43"
+  },
+  "lang": "javascript",
+  "deprecated": false,
+  "bindingPrefix": "@teambit",
+  "remotes": [
+    {
+      "url": "https://koykibc.scopes.bit.dev",
+      "name": "teambit.base-react",
+      "date": "1633356726283"
+    }
+  ],
+  "schema": "1.0.0",
+  "head": "79362d1cc55c0ea17524b0bdcfe5e35e91f2fb43"
+}
+```
+
+Using `cat-object` we can explore the contents of a specific object.
+
+```bash
+bit cat-object -p 79362d1cc55c0ea17524b0bdcfe5e35e91f2fb43
+```
+
+```javascript
+{
+  "files": [
+    {
+      "file": "1e46108fa156694935ef2581b5fc0fba40596660",
+      "relativePath": "button.composition.tsx",
+      "name": "button.composition.tsx",
+      "test": false
+    },
+    //...
+  ],
+  "mainFile": "index.ts",
+  "bindingPrefix": "@teambit",
+    // ...
+        ],
+        "artifacts": [ ... ] // compiled output, package tar file, etc.
+          },
+        // ...
+        ],
+        "aspectsData": [
+            // (data regarding the pkg, tester, etc...)
+        ]
+      },
+      "name": "teambit.pipelines/builder"
+    }
+  ],
+  "packageDependencies": {
+       // ...
+  },
+  // ...
+  "buildStatus": "succeed",
+  "packageJsonChangedProps": {},
+  "parents": [
+    "1b58b0b7c0a12c5f28fb852c2ba643a2ff47bbb7"
+  ]
+}
+```
+
+To examine the content of the `button.compositions.ts` file run:
+
+```bash
+bit cat-object -p 1e46108fa156694935ef2581b5fc0fba40596660
+```
+
+```bash
+import React from 'react';
+import { Button } from './button';
+
+export const BasicButton = () => <Button>click me</Button>;
+
+export const ButtonWithAlert = () => (
+  <Button onPress={() => alert('hello there!')}>click me</Button>
+);
+
+// ...
+```
+
+## Putting it all together
+
+The below diagram shows the `.bitmap` file referencing to specific component versions to be used by the working directory.
+
+<Image src={componentObjectsDemoImg} />

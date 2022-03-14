@@ -1,45 +1,32 @@
 # Builder Overview
 
-The Builder Aspect manages the component build pipelines. It executes build tasks in sequence, according to their dependency on other tasks, as well as the tasks' own "requests".
+The Builder Aspect manages the component build pipelines. It executes build tasks in sequence, according to their dependency on other tasks.
+Builder runs the build-pipeline for each component in an isolated environment to validate a component is completely independent from the workspace.
 
-The build process is an essential part of making a component independent. It includes re-generating the component in an isolated environment, testing, compiling, generating previews, packaging and more.
+The build pipeline executes a set of tasks according to their dependency on each other. These tasks run as part of the following flows:
 
-When the build process runs in the context of a snap or tag operations, the generated metadata and artifacts are persisted in the component objects (the component version).
-
-The Builder Aspect executes three different pipelines, one for basic build, one for snaps, and one for tags.
-
-A component's build pipelines are determined by the Aspects it uses. Consequently, different components may use different build pipelines.
-To run the build pipelines on all components, regardless of their specific build pipeline configuration, run:
-
-```bash title="Build pipeline (output does not persist"
-bit build
+```bash
+bit build # run the build pipeline of a component to validate if it's buildable.
+bit snap  # create a component snapshot.
+bit tag   # create a semantic version for a component.
 ```
 
-```bash title="Build pipeline + snap pipeline (output is persisted in component versions)"
-bit snap --all
-```
+A single workspace may have multiple components, each with different build pipelines and running a different set of build tasks. The build pipeline will run for modified or affected components using a single command. It makes it much easier to integrate Bit to your automation flow, as you only need to run a single Bit command.
 
-```bash title="Build pipeline + tag pipeline (output is persisted in component versions)"
-bit tag --all
-```
+## Extendible build pipelines
+
+Often the set of tasks are determined by the env. You can control the build pipeline as defined by the env through customizing it.  
+In some cases, different aspects may apply their own build tasks and register them to the component's build pipeline.
 
 ## Isolated builds
 
-Components authored in a Bit workspace are created to be independent.
-To address that, the build process starts by creating a component ‘capsule’ which is an isolated instance of a component, generated in a separate directory in your filesystem.
-Running the build in an isolated environment validates that a component is not coupled, in any way, to its workspace (a component that is not isolated may be able to use files and packages in the workspace.
-For example, we may get false-positive results when testing for dependency-graph issues).
-
-<!-- ## Incremental builds
-
-When a component goes through the build pipeline, its dependencies are built as well. If a dependency has not changed since its last build, the build process will use its artifacts from the previous build (and will not process it again). This optimization to the build process supplements the "innate optimization" that naturally comes from developing (and building) independent components instead of a single monolithic codebase. -->
-
-## Environment-specific builds
-
-Each Bit environment determines its own build pipeline. That means, a single workspace that uses multiple environments will run a different set of build tasks on different components depending on their associated environment. This is another Bit feature that enables seamless transitioning between different development environments, all in the same workspace. It also makes it much easier to integrate the Build Pipeline in your (remote) CI, as it only requires executing the build step - all other per-component build configurations are already set by the various environments being used.
-
-Since environments are extensible, so are the build pipelines configured by them.
+Bit components are independent from each other and the workspace. To ensure that, the build process starts by creating a component **capsule**. A capsule is an isolated environment for the component, generated in a temporary directory. In the capsule Bit installs all dependencies and runs the build tasks.  
+Running the build in an isolated environment validates that a component is not coupled to the workspace, making sure it's 100% reusable in any consuming environment.
 
 ## Build task
 
 An example of a build-task is `compile`, it's written in the compiler aspect and is running on each one of the capsules created by the build process. build-tasks in many cases generate artifacts, in this case, the compiler generates `dists` files and write them on the isolated capsules. There artifacts files are used later for example when creating packages.
+
+## Artifacts
+
+The build pipeline may generate various artifacts which are then able to be used for various tasks. For example, the tester aspect generates a `junit.xml` format output file.

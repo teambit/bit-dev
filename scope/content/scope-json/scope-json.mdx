@@ -1,0 +1,51 @@
+# Configuring scopes
+
+The `scope.json` is the scope's config file.
+
+```
+{
+    "name": "scope-name",
+    "remotes": {},
+    "version": "1.0.172",
+    "lanes": {
+        "current": "main",
+        "tracking": []
+    }
+}
+```
+
+### name
+
+The scope's name. [Local scopes](/workspace/local-scope) are named by their Workspace name.
+
+When creating your own scope, the `name` is set, by default, to the hosting directory:
+
+```
+cd my-scope
+bit init --bare
+```
+
+```json
+{
+  "name": "my-scope",
+  "remotes": {},
+  "version": "1.0.172",
+  "lanes": {
+    "current": "main",
+    "tracking": []
+  }
+}
+```
+
+### remotes
+
+The `remotes` property holds the mapping of scope names and their corresponding URLs. This is primarily used to configure non Bit Cloud scopes in a workspace (e.g, `bit remote add http://localhost:3001`)
+
+```json
+{
+  "remotes": {
+    "my-scope": "http://localhost:3002"
+  }
+  // ..
+}
+```

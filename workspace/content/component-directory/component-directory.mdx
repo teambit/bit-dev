@@ -1,20 +1,29 @@
 # Component Directory
 
-A Component Directory is a directory in the developer [Workspace](/workspace/overview). Directories are mapped as Components using the [.bitmap](/workspace/bitmap) `rootDir` property which exist for every [Component entry](/workspace/bitmap#component-entry).
+A Component Directory is a directory for a Component in the [Workspace](/workspace/overview). The mapping of Components to their directories can be found in the [.bitmap](/workspace/bitmap) file (see the `rootDir` property).
 
-Every component directory must at least include a [Main File](/components/main-file) and can be located anywhere throughout the Workspace outside of the [node_modules](/workspace/node-modules) directory and other Component Directories.
+Every component directory must include a [Main File](/components/main-file) (an entry file). The directory can be located anywhere in the Workspace (directory), excluding only the [node_modules](/workspace/node-modules) directory and other Component Directories.
 
-A common example component for a directory can be as following.
+A common example component for a directory can be as following:
 
 ```bash
 └── ui/my-welcome # Component directory
     ├── index.tsx # Main file.
     ├── my-welcome.tsx # Test file.
-    ├── my-welcome.composition.tsx # Compositions for simulating the component in different states.
+    ├── my-welcome.composition.tsx # Compositions for simulating the component in different states and contexts.
     └── my-welcome.docs.mdx # Docs file for the component.
 ```
 
+This structure has several benefits:
+
+- Directory structure is easily consumable by placing all the related files together.
+- File references become shorter and more read-friendly.
+- Easy to move components around in the workspace.
+- Simple refactoring workflow, as changes are consolidated to the same place.
+- `index` is a single point for consumers and maintainers to start from when doing any operation on the component.
+
 ## Adding a directory as a Component
+
 Tracking a directory as a Component can be done with the `bit add` command.
 
 ```bash
@@ -24,6 +33,7 @@ bit add path/to/component-dir --id ui/my-component
 <!--TODO To learn more on tracking components in the Workspace. Head over to the [Tracking Components section](/workspace/tracking-components). -->
 
 ## Removing a component directory
+
 Removing a specific Component Directory in the Workspace can be achieved by using the `bit remove` command without the `--delete-files` flag which also removes the entire directory.
 
 ```bash

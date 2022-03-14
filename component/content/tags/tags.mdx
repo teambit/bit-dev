@@ -1,117 +1,155 @@
-# Tags
+import firstTag from './first-tag.png';
+import { Image } from '@teambit/docs.ui.zoomable-image';
 
-When we version or 'tag' a component, we commit changes and prepare it to be exported to a remote scope. This process most often includes compiling and testing, as well.
+# Versioning Components
 
-## Version CLI commands
+You can tag a specific state of a component as being a release. Bit calls these annotations **Tags**, and use semantic versioning for marking these releases. A tag is immutable, making it safe for consumers to depend on.  
+There are additional attributes that make Tags work best for consumers, we'll go over them in this section.
 
-### Tag a component
+To showcase how tagging work, create a new workspace and add your first component.  
+For this demo we'll use a basic demo project, as it has a few components to start with.
 
-```shell
-bit tag <component-id> <new-version>
+```bash
+bit new react tag-demo
+cd tag-demo
 ```
 
-For example:
+All components in this project are new, so none of them has any versions.  
+To record our first version we use the `tag` command:
 
-```shell
-bit tag ui-primitives/button 1.0.0
+```bash
+bit tag ui/text --ver 1.0.0 --message "my first vesion"
 ```
 
-#### Tag a component with a message
+During the `snap` process, Bit runs the full component [build pipeline](/docs/dev-services/builder/build-pipelines#build-pipelines), as defined in its environment.  
+We can see the new version in the component's **changelog** tab in the workspace-ui:
 
-```shell
-bit tag <component-id> <new-version> --message "this is the tag message"
+<Image src={firstTag} />
+
+```bash
+$ bit log ui/heading
+
+tag 1.0.0 (e0121fa8db05451c170b7204c95d14215c8b76b5)
+author: Jane <jane@my-company.dev>
+date: 10/27/2021, 5:41:00 AM
+
+      my first version
 ```
 
-### Tag all components in the workspace
+Now that you have a new version, you can also run `status` to see that the component is tagged:
 
-Tag all components and bump the patch number of each component version
-
-```shell
-bit tag --all
+```bash
+bit status
 ```
 
-### Soft and hard tags: component collaboration
+```bash
+new components
+(use "bit tag --all [version]" to lock a version with all your changes)
 
-Components can be collaborated on before they are tagged with a new release version. This is done by suggesting changes and having the remote CI do the tagging.
+     > pages/welcome ... ok
+     > ui/card ... ok
+     > ui/heading ... ok
+                         
+staged components
+(use "bit export <remote_scope> to push these components to a remote scope")
 
-The process:
-
-1. Tag a component using the `--soft` option. This will not create a new release version but will update the `.bitmap` file to suggest a new version.
-
-```shell
-bit tag --soft <component-id>
+     > ui/text. versions: 1.0.0 ... ok
 ```
 
-2. Commit changes made to the `.bitmap` file (the previous version update suggestion) and push to the remote repository.
+## Semantic Versioning
 
-3. Have the CI run the following command to tag all components suggested to be versioned (suggested by the previous 'soft tag')
+Bit adheres to Semantic Versioning as defined by [SemVer](https://semver.org/) when versioning components. This way any package manager like npm, yarn or pnpm can consume the comopnent as a dependency to a project.  
+The `tag` command has several features you can use for versioning:
 
-```shell
-bit tag --persist --all
+```bash
+bit tag --all --major --message "my version message"  # Version all modified and new components with a major version.
+bit tag --all --minor --message "my version message"  # Version all modified and new components with a minor version.
+bit tag "ui/*" --patch --message "my version message" # Version components matching the pattern with a patch vesion.
+bit tag ui/text --message "my version message"        # Version a specific component with default increment (patch).
 ```
 
-- **Learn more about adding Bit to your CI, [here](/cicd/cicd-setup-with-bit)**
+## Undoing a Tag
 
-### Untag a component
+We can untag staged components, i.e., components that were tagged by not yet exported to a remote scope.  
+Bit untag reverts the component to its previous state, i.e., `new`, `modified` or `exported`.
 
-To untag our a component run the following:
-
-```shell
-bit untag <component-id>
+```bash
+bit untag ui/text # Use bit untag to untag a component
+bit untag ui/heading 1.0.0 # untag specific local version
+bit untag --all 0.11.4 # untag a version from all components
+bit untag --all # untag all versions from all components
 ```
 
-### List all 'tagged' components
+Untag does not revert code changes made in the component.
 
-'tagged' or versioned components are components stored in your local scope.
+## Exporting Tags
 
-```shell
-bit list
+To allow consumers to use a version of a component we first must tag is with a version. They we can export tag using `export` command:
+
+```bash
+bit export
 ```
 
-Example output:
+:::note When self-hosting bit
 
-```shell
-  ┌──────────────────────────────────────────────────────────────────────┬─────────┬─────────┐
-  │ component ID                                                         │ local   │ used    │
-  │                                                                      │ version │ version │
-  ├──────────────────────────────────────────────────────────────────────┼─────────┼─────────┤
-  │ button                                                               │ 1.0.0   │ 1.0.0   │
-  └──────────────────────────────────────────────────────────────────────┴─────────┴─────────┘
+If you are self-hosting Bit, the process of publishing a component to a registry happens as part of the `bit tag` process, not `bit export`.  
+When using bit.cloud, consumption happens directly from a remote Scope, so `tag` does not need to publish to a registry.
+
+:::
+
+## Tagging New Versions
+
+As components are not only built from source code, there are various things that Bit considers as "changes" for a component:
+
+- Modification in any of the component files.
+- New file added.
+- File removed.
+- Dependenty version update.
+- Configuration changed.
+
+Change any of the files in `demo/ui/text`, and then run `tag` again:
+
+```bash
+bit tag ui/text --message "my version message"
 ```
 
-To explore the previous versions of a component in the Workspace/Scope UI, [see here](/components/inspecting-components#workspace-scope-ui).
+When we run `bit log` for `ui/text` again, we see the updated revision history:
 
-## Actions executed by the 'tag' command
+```
+tag 1.0.1 (e0121fa8db05451c170b7204c95d14215c8b76b5)
+author: Jane <jane@my-company.dev>
+date: 10/27/2021, 6:41:00 AM
 
-### 1. Runs the environment's 'build pipeline'
+      my version message
 
-The 'build pipeline' is a series of tasks defined by the environment. In our case, we've set all our components to [use the React environment](/envs/pre-configured-envs/react) which has, as a default, two tasks in its build pipeline:
+tag 1.0.0 (e0121fa8db05451c170b7204c95d14215c8b76b5)
+author: Jane <jane@my-company.dev>
+date: 10/27/2021, 5:41:00 AM
 
-1. Compile (using the React environment compiler)
-2. Test (using the React environment tester)
-
-If any of the build pipeline's tasks fail, the tagging is aborted.
-
-> As with any other service provided by the environment, the '[build pipeline](/builder/build-pipelines)' can too be extended and customized.
-
-### 2. Sets a new version for the tagged component
-
-Bit's versioning follows the common semantic structure of [major].[minor].[patch]. As a default, if a version number was not included in the tag command, Bit will bump the patch number.
-
-### 3. Tags all components that are dependant on this component
-
-Bit makes sure to run the tagging process on every component affected by the modified (versioned) component. As mentioned earlier, that process also includes compiling and testing. This process let's us know immediately when another component breaks due to that change.
-
-To see a diagram of the dependencies in your workspace or scope, take a look at the 'Dependencies' tab (in the Workspace UI/ Remote Scope)
-
-### 4. Locks any further changes to that version and stores it in the local scope
-
-The above example uses the `--persist` flag to perform a 'hard tag'. In most cases, you would not want to commit changes (and later on, export) components directly from your local environment. It is usually preferable to use 'soft tag' to **propose** a new version and let your [CI](/cicd/cicd-setup-with-bit) set a new version with the committed changes (using 'hard tag')
-
-```shell title="soft-tag"
-bit tag <component-id>
+      my first version
 ```
 
-```json
-{ "mode": "full", "isActive": false }
+### Explore the Version History
+
+Bit keeps a visual representation of the version history of a component. Run either the local dev-server:
+
+```bash
+bit start
+```
+
+In each component's **changelog** tag you can see all past versions and choose to explore each of them.
+
+## Automated Dependent Versioning
+
+When a component is tagged, Bit automatically version all the components that depend on it. Auto-tag has two basic rules:
+
+- Components are always auto tagged with a patch version, regardless of the bump type applied on the dependency.
+- Tagging is propagated to the dependency chain of the component.
+
+### Skip Auto-tag
+
+You may skip the auto-tag behavior for a component by using the `--skip-auto-tag` flag:
+
+```bash
+bit tag ui/heading --message "my version message" --skip-auto-tag
 ```

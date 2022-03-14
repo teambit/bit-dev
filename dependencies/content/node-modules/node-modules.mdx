@@ -1,12 +1,12 @@
 # node_modules
 
-The `node_modules` directory is a standard directory in which modules are resolved from initially by the [NodeJS Module Resolution](https://nodejs.org/api/modules.html#modules_loading_from_node_modules_folders) and as a result by other tools across the JS ecosystem such as [Webpack](https://webpack.js.org/), [Rollup](https://rollupjs.org/guide/en/), [TypeScript](https://www.typescriptlang.org/) and others.
+The `node_modules` directory is a standard directory in which modules are resolved from, initially by [Node.js Module Resolution](https://nodejs.org/api/modules.html#modules_loading_from_node_modules_folders) and as a result by other tools across the JavaScript ecosystem, such as [Webpack](https://webpack.js.org/), [Rollup](https://rollupjs.org/guide/en/), [TypeScript](https://www.typescriptlang.org/), and others.
 
 Package managers take responsibility over the `node_modules` directory for installing external dependencies.
 
 ## Installing external dependencies
 
-External dependencies are installed through the `bit install` command which encapsulates the usage of package managers as Yarn and PNPM making sure component dependencies are deduped correctly and linking all [Workspace](/workspace/overview) Components.
+External dependencies are installed using the `bit install` command, which encapsulates the usage of package managers, such as Yarn and PNPM, making sure component dependencies are deduped correctly and linking all [Workspace](/workspace/overview) Components.
 
 ```bash
 bit install
@@ -14,20 +14,21 @@ bit install
 
 ## Linking Workspace Components
 
-Workspace components are linked through the `node_modules` directory to their location in the Workspace itself for type resolution. `package.json` compiled code is contained under the `dist` directory
+Workspace components are linked through the `node_modules` directory to their location in the Workspace itself for type resolution. `package.json` compiled code is contained under the `dist` directory.
+
+The `bit link` command makes sure all of Bit's core Aspects are linked to your Workspace so that you can leverage Bit's APIs. 
 
 ```bash
 bit link
 ```
 
-Bit link also makes sure all Bit' core Aspects are linked to your Workspace so you would able to take advantage of Bit's APIs. 
 
 ## Delegating node_modules directory to a package manager
 
-Other package managers like `NPM`, `Yarn` and `pnpm` can also be used directly. To use them configure a `postinstall` in your project's `package.json` file to make sure [Workspace Component Links](/workspace/component-link) are generated properly and new Component Objects <!-- TODO [Component Objects](/components/component-objects)  -->are imported.
+Other package managers like `NPM`, `Yarn` and `pnpm` can also be used directly. To use them, configure a `postinstall` in your project's `package.json` file to make sure [Workspace Component Links](/workspace/component-link) are generated properly and new Component Objects <!-- TODO [Component Objects](/components/component-objects)  -->are imported.
 
 :::note
-We recommend to use `bit install` for the installation and management of modules in the `node_modules` directory.
+We recommend using the `bit install` command for the installation and management of modules in the `node_modules` directory.
 :::
 
 ```json

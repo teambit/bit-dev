@@ -1,0 +1,52 @@
+---
+description: 'A horizontal menu with some links'
+labels: ['react', 'ui', 'navigation', 'menu']
+---
+
+import { Link } from '@teambit/base-react.navigation.link';
+import { NavigationMenu } from './menu';
+
+A menu that accept an array of nav links and renders them in a line.
+
+The menu uses `TabLink` from `@teambit/design.ui.navigation.tab-link` by default as it's link component.
+
+```js live
+<NavigationMenu
+  links={[
+    {
+      title: 'Docs',
+      href: '/docs',
+    },
+    {
+      title: 'Plugins',
+      href: '/plugins',
+    },
+    {
+      title: 'bit.cloud',
+      href: 'https://bit.cloud',
+    },
+  ]}
+/>
+```
+
+The menu also accepts an override for the `Link` component to be used instead of `TabLink`.
+
+```js live
+<NavigationMenu
+  Link={Link}
+  links={[
+    {
+      title: 'Docs',
+      href: '/docs',
+    },
+    {
+      title: 'Plugins',
+      href: '/plugins',
+    },
+    {
+      title: 'bit.cloud',
+      href: 'https://bit.cloud',
+    },
+  ]}
+/>
+```

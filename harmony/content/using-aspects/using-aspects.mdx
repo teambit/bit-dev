@@ -1,0 +1,33 @@
+# Using Aspects
+
+Aspects can be used to extend Bit with simple configurations, to both the Scope and the Workspace. Aspects can also be composed into Harmony applications.
+
+## Configuring Aspects
+
+Configuring Aspects can be done across Bit configuration, from components.
+```json
+{
+  "myorg.dev/my-aspect": {}
+}
+```
+
+## Usaing c
+
+## Listing aspects
+
+
+## Get aspcet config and data
+
+
+## Upgrading aspects
+
+
+
+## Composing aspects into applications
+
+```tsx
+import { Harmony } from '@teambit/harmony';
+import { MyAspect } from '@myorg/dev.my-aspect';
+
+Harmony.run([MyAspect]);
+```

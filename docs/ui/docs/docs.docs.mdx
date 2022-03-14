@@ -1,22 +1,66 @@
 ---
-description: 'A Docs component.'
-labels: ['label1', 'label2', 'label3']
+description: 'A component-based documentation section'
+labels: ['docs', 'page', 'routes']
 ---
 
 import { Docs } from './docs';
 
-## React Component for rendering text
+`Docs` is a component-based documentation section built in React. It is a React component you can use in your website's components.
 
-A basic div that renders some text
+The 'Docs' component renders the docs page (MDX) with a sidebar to its left.  
+This component receives and renders all the Routes and makes them available in ReactRouter.
 
 ### Component usage
-```js
-<Docs text="hello from Docs" />
-```
 
-### Using props to customize the text
-
-Modify the text to see it change live:
 ```js live
-<Docs text="hello from Docs" />
+() => {
+  const primaryRoutes = [
+    {
+      path: 'quick-start',
+      icon: 'lightning',
+      title: 'Quick Start',
+      description: 'Quick Start',
+      component: <div>My quick start content...</div>,
+    },
+    {
+      path: 'thinking-in-components',
+      icon: 'Lightbulb-thinking',
+      title: 'Thinking in components',
+      component: <div>Thinking in components contnet</div>,
+    },
+  ];
+  const routes = [
+    {
+      path: 'installation',
+      title: 'Installation',
+      component: <div />,
+      children: [
+        {
+          path: 'start-bit-project',
+          title: 'Start a new Bit Workspace',
+          component: <div>start bit project contnet</div>,
+        },
+      ],
+    },
+    {
+      path: 'components',
+      title: 'Components',
+      component: <div />,
+      children: [
+        {
+          path: 'creating-components',
+          title: 'Creating components',
+          component: <div>creating compoents contnet</div>,
+        },
+        {
+          path: 'component-config',
+          title: 'Component Configuration',
+          component: <div>component config</div>,
+        },
+      ],
+    },
+  ];
+
+  return <Docs baseUrl="/" contents={[{ routes }]} primaryLinks={primaryRoutes} />;
+};
 ```

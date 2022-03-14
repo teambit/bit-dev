@@ -1,24 +1,22 @@
 ---
-description: 'A Terminal component.'
-labels: ['label1', 'label2', 'label3']
+description: "A UI component that mimics the look and feel of the terminal"
+labels: ['terminal', 'code', 'cli', 'documentation', 'docs']
 ---
 
 import { Terminal } from './terminal';
 
-## React Component for rendering text
+This component displays CLI commands and outputs in a UI that mimics the terminal.
 
-A basic div that renders some text
+## Basic usage
 
-### Component Usage
-
-```js
-<Terminal text="hello from Terminal" />
-```
-
-### Using props to customize the text
-
-Modify the text to see it change live:
+Use the `content` prop to pass the content you wish to display:
 
 ```js live
-<Terminal text="hello from Terminal" />
+<Terminal content="hello from Terminal" />
+```
+
+Set the `animate` prop to `true` to gradually reveal the content (as if it is being written out to the terminal). Use the `delay` prop to set the speed (milliseconds delay for each character):
+
+```js live
+<Terminal content="hello from Terminal" animate={false} delay={140} />
 ```

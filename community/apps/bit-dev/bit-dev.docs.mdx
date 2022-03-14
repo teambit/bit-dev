@@ -1,28 +1,21 @@
 ---
-description: Application
-labels: ['app', 'aspect']
+description: Bit's official community site
+labels: ['app', 'aspect', 'react', 'community', 'bit.dev']
 ---
 
-import { FigmaEmbed } from '@teambit/design.embeds.figma';
-
-- The app file contains components from react router dom so you can add here all routes for your app and include all your page components.
-- The main runtime file contains what is needed to build your application as a React app.
-- The app root file renders your app to the DOM.
-- The compositions file renders your app so it can be seen in the compositions tab.
-- The aspect file contains the id of the aspect. You will need to modify this with your own org name, scope name and namespace if any, and then add it to your `workspace.json` file at root level like:
-
-```json
-"org-name.scope-name/namespace/name": {},
-```
+The bit-dev app is a deployable component that provides Bit's community with documentation, guides and other Bit resources.
+The app is composed of open-source components from various scopes.
 
 ### Run the application
 
-You can run your application on a separate port to see it outside of the Bit workspace
+Import the app and add the following config to your `workspace.jsonc`:
+
+```json
+"teambit.community/apps/bit-dev": {},
+```
+
+To run the app locally, run the following:
 
 ```bash
 bit run bit-dev
 ```
-
-### Design
-
-<FigmaEmbed src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FhMvSkyTqPMvSbrmqBbs6nZ%2Fhomepage%3Fnode-id%3D1679%253A118322" />

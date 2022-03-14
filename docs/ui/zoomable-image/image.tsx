@@ -7,24 +7,34 @@ import styles from './image.module.scss';
 
 export type ImageProps = {
   center?: boolean;
+  /**
+   * @deprecated use 'maxWidth'
+   **/
   width?: string | number;
+  maxWidth?: string | number;
 } & BaseImageProps;
 
 export const Image = ({
   center = true,
   width,
+  maxWidth,
   alt,
   src,
   className,
   ...rest
 }: ImageProps) => {
+  maxWidth = maxWidth ?? width;
   return (
     <div
-      style={{ width: width || '100%' }}
-      className={cs(center && styles.center, className)}
+      className={cs(styles.imageWrapper, center && styles.center, className)}
     >
       <Zoom>
-        <BaseImage fullWidth={true} alt={alt} src={src} {...rest} />
+        <BaseImage
+          style={{ maxWidth: maxWidth || '100%' }}
+          alt={alt}
+          src={src}
+          {...rest}
+        />
       </Zoom>
     </div>
   );

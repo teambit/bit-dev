@@ -1,15 +1,17 @@
 ---
 description: 'A Hero component'
-labels: ['hero']
+labels: ['hero', 'ui', 'graph']
 ---
 
 import { FigmaEmbed } from '@teambit/design.embeds.figma';
 import { mockBubbleGraph } from '@teambit/community.entity.graph.bubble-graph';
 import { Hero } from './hero';
 
-Hero for the bit.dev website.
+A hero component showcasing components and their dependencies.
 
 ### Hero with title and teaser
+
+Pass the `title`, `teaser` and [`bubble graph`](https://bit.dev/teambit/community/entity/graph/bubble-graph) props to have them rendered by the Hero component.
 
 ```js live
 <Hero
@@ -18,5 +20,3 @@ Hero for the bit.dev website.
   bubbles={mockBubbleGraph()}
 />
 ```
-
-<FigmaEmbed src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FctC1w9YhJvqaO1EZ08gLOV%2FCommunity%3Fnode-id%3D422%253A4208" />

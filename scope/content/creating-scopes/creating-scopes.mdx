@@ -1,0 +1,84 @@
+import { Image } from '@teambit/docs.ui.zoomable-image';
+import scopeUiEmpty from './scope-ui-empty.png';
+import scopeUiFull from './scope-ui-full.png';
+
+# Create a Bare Scope
+
+:::tip This page is for teams looking to self-host a Bit Scope.
+:::
+
+When setting a scope you create a remote storage server for components. Various workspaces may import/export components from that scope.  
+A **bare scope** includes a storage and a UI server for your team.
+
+To create a bare scope run the following command in a new directory:
+
+```bash
+bit init --bare
+```
+
+Bit creates the following files and directories:
+
+```bash
+.
+├── components
+├── objects
+├── scope.json
+└── tmp
+```
+
+## Start the Server
+
+To use the bare scope you need to start the scope-server. The server allows for `import` and `export` of components, as well as a web UI for showcasing components.
+
+```bash
+bit start
+```
+
+```bash
+Building UI assets for 'my-scope' in target directory: public/bit. The first time we build the UI it may take a few minutes.
+
+
+You can now view 'my-scopes' components in the browser.
+Bit server is running on http://localhost:3002
+```
+
+<Image src={scopeUiEmpty} width="70%" />
+
+## Add your Scope to a Workspace
+
+Configure the bare scope as a **remote** for your workstation:
+
+```bash
+cd my-workspace
+bit remote add http://localhost:3001 # scope url
+```
+
+## Configure a Workspaces to Use the Scope
+
+Configure Workspaces to use your scope using the scope name.
+
+```json
+  "teambit.workspace/workspace": {
+    "name": "my-workspace",
+    "defaultScope": "my-scope"
+  },
+```
+
+You can now export components to the new scope.
+
+For example:
+
+```bash
+bit export
+```
+
+```bash
+exported the following 1 component(s):
+my-scope/ui/heading
+```
+
+<Image src={scopeUiFull} width="70%" />
+
+## Publish Component Packages to npm
+
+A Scope handles export and import operations. To make you components installable as packages (`npm install`/`bit install`) [configure them to be published to a package registry](/packages/publishing-components-to-commonjs-registries).

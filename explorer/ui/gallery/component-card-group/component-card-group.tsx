@@ -21,8 +21,8 @@ export function ComponentCardGroup({ title, components, ...rest }: ComponentCard
     <div {...rest}>
       {title && <H2>{title}</H2>}
       <ComponentGrid>
-        {components.map((component, index) => {
-          return <ComponentCard key={index} {...component} />;
+        {components.map((component) => {
+          return <ComponentCard key={component.id} {...component} />;
         })}
       </ComponentGrid>
     </div>

@@ -11,3 +11,23 @@ export const BasicBubbleHighlighter = () => {
     </BubbleHighlighter>
   );
 };
+
+export const BubbleHighlighterWithLabel = () => {
+  const id = ComponentID.fromString('teambit.design/ui/buttons/button');
+  return (
+    <div style={{ marginTop: 30, marginLeft: 30 }}>
+      <BubbleHighlighter componentId={id} showId style={{ width: 170 }}>
+        <Button>Getting Started</Button>
+      </BubbleHighlighter>
+    </div>
+  );
+};
+
+BubbleHighlighterWithLabel.canvas = {
+  width: 300,
+  height: 150,
+  justifyContent: 'center',
+  alignItems: 'center',
+  display: 'flex',
+  marginLeft: -15,
+};

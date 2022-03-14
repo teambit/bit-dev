@@ -1,0 +1,95 @@
+import { ComponentCardGroup } from '@teambit/explorer.ui.gallery.component-card-group';
+import { contexts } from './wiki';
+
+### What is the need?
+The most important step towards building a great component, is understanding where and how the component would be used and what does each of the usages require from the component
+interface. Undestanding the need and identifying the 
+
+In our case, we chose the app name to be `dot-bit`. This is the name of our internal wiki. You can choose any name you like for your organization.
+
+### Define the component
+
+[Naming the component](/) is the first challenge for building any component, and the most important one. When naming your component you are actually defining its owner, 
+responsbility and goal.
+
+- **Ownership.** Who will own the component. 
+- **Responsibility.** What kind this component is? What is the responsibility of the component?
+
+Earliar we decided to give the ownership over the component to the `wiki` scope on the `my-org` organization in Bit Cloud and now we decided to name 
+our first component: `apps / wiki`.
+
+| Ownership      | Responsibility           |
+|----------------|--------------------------|
+| my-org.wiki    | apps / wiki-worldwide    |
+
+Components are identified and named using a unique identifier called ["Component ID"](/components/component-id).
+
+Now that we have defined the name, we can go ahead and create the component. 
+
+```bash
+bit create react-app apps/wiki-worldwide
+```
+
+<!-- :::note
+TODO: Support compile after create, and dependencies in templates. UNTIL THEN:
+```bash
+bit compile
+bit install react-router@^5.0.0 @types/react-router@^5.0.0 react-router-dom@^5.0.0 @types/react-router-dom@^5.0.0
+```
+::: -->
+
+Configure the app on your workspace configuration, via `workspace.json`:
+```json
+{
+  "my-org.wiki/apps/wiki-worldwide": {},
+}
+```
+
+<!-- TODO: guy automate app loading -->
+
+Alternatively, you can `fork` the component from the demo above in to your project and start from there! 
+```bash
+bit fork teambit.wiki/apps/wiki
+```
+
+<!-- TODO: david to deliver on fork -->
+
+Run the app:
+```bash
+bit run wiki-worldwide
+dot-bit app is running on http://localhost:3001
+```
+
+You should be open to open the browser now on the displayed port and expect an 'Hello World' text on the screen!
+
+## Compose the component
+
+Scaling component-driven is about agreements, 
+ 
+To compose this kind of an app, we would need few common things like a Theme and a Routing context.
+There are common components that are contextual and affect every component we build.
+
+### Contextual components
+
+For this demo, we will use the following component. When distributing.
+
+<!-- TODO: Kutner. include the theme provider -->
+
+Build a theme of your own.
+
+### Routing
+
+<ComponentCardGroup components={contexts} />
+
+<!-- TODO: Kutner. include the routing provider -->
+
+Use a differnet routing solution. Or implement a provider. 
+NextJS link.
+
+
+Now what we have a working application, we need to use the header and the wiki components, and we have a better understanding of what
+is required of them.
+
+- Header.
+- Wiki.
+- Footer.

@@ -1,22 +1,50 @@
 ---
 description: 'A GridGraph component.'
-labels: ['label1', 'label2', 'label3']
+labels: ['graph', 'grid']
 ---
 
+import { createBubbleGraph } from '@teambit/community.entity.graph.bubble-graph';
 import { GridGraph } from './grid-graph';
 
-## React Component for rendering text
-
-A basic div that renders some text
+A graph component for render a grid React elements with lines between them.
 
 ### Component usage
-```js
-<GridGraph text="hello from GridGraph" />
-```
 
-### Using props to customize the text
-
-Modify the text to see it change live:
 ```js live
-<GridGraph text="hello from GridGraph" />
+() => {
+  const nodes = createBubbleGraph([
+    {
+      id: 'teambit.mdx/mdx@3.1.2',
+      dependencies: ['teambit.mdx/modules/mdx-compiler'],
+      payload: {
+        icon: 'https://static.bit.dev/extensions-icons/mdx-icon-small.svg',
+      },
+      row: 5,
+      col: 1,
+      position: 'bottom-left',
+    },
+    {
+      id: 'teambit.mdx/babel/mdx-loader@3.1.2',
+      dependencies: ['teambit.mdx/modules/mdx-compiler'],
+      payload: {
+        icon: 'https://static.bit.dev/brands/logo-nodejs.svg',
+      },
+      row: 1,
+      col: 1,
+      position: 'bottom-right',
+    },
+    {
+      id: 'teambit.mdx/modules/mdx-compiler@1.0.12',
+      dependencies: [],
+      payload: {
+        icon: 'https://static.bit.dev/brands/logo-nodejs.svg',
+      },
+      row: 1,
+      col: 2,
+      position: 'bottom-right',
+    },
+  ]);
+
+  return <GridGraph nodes={nodes} />;
+};
 ```

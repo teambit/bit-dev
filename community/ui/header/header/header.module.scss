@@ -1,23 +1,20 @@
+@import "~@teambit/base-ui.layout.breakpoints/_breakpoints.scss";
 
-.header {
-  width: 100%;
-  padding: 8px 0;
-  font-size: 14px;
-  border-bottom: 1px solid #EDEDED;
-}
-
-.headerContent {
-  display: flex;
-  align-items: center;
-  > a {
-    display: inline-flex;
+.githubLink {
+  @media screen and (max-width: $br-md) {
+    > span:not(:first-child) {
+      display: none;
+    }
   }
 }
 
-.logo {
-  margin-right: 32px;
+.headerWrapper {
+  height: var(--bit-header-height, 40px);
 }
 
-.inspect {
-  padding-left: 24px;
+.header {
+  position: fixed;
+  background-color: var(--bit-bg-color, white);
+  box-sizing: border-box;
+  z-index: 1;
 }

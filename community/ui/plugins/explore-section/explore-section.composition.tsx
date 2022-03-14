@@ -8,7 +8,7 @@ export const BasicExploreSection = () => (
   <ExploreSection
     heading={
       <>
-        Explore <span className={highlightClass}>Bit Plugins</span>
+        Explore <span className={highlightClass}>Endless Aspects of Bit</span>
       </>
     }
     subtitle="Enhance and customize your development experience with dozens of official and community Plugins."
@@ -17,5 +17,5 @@ export const BasicExploreSection = () => (
 );
 
 export const ExploreBubbleGraph = () => (
-  <BubbleGraph Node={ComponentBubbleNonInteractive} nodes={mockBubbleGraph()} data-testid="explore-graph" />
+  <BubbleGraph Node={ComponentBubbleNonInteractive} nodes={mockBubbleGraph} data-testid="explore-graph" />
 );

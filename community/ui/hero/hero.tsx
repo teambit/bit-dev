@@ -2,12 +2,12 @@ import React from 'react';
 import { Heading } from '@teambit/community.ui.heading';
 import classNames from 'classnames';
 // TODO: move to be in `design` owned by @amir.
-import { Edge } from '@teambit/community.ui.graph.edge';
+// import { Edge } from '@teambit/community.ui.graph.edge';
 import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 import { Button } from '@teambit/design.ui.buttons.button';
 import { Subtitle } from '@teambit/design.ui.content.subtitle';
 import { BubbleNode } from '@teambit/community.entity.graph.bubble-graph';
-import { GridNode } from '@teambit/community.entity.graph.grid-graph';
+// import { GridNode } from '@teambit/community.entity.graph.grid-graph';
 import { CopyBox } from '@teambit/documenter.ui.copy-box';
 import { ComponentID } from '@teambit/component-id';
 import { BubbleHighlighter } from '@teambit/community.ui.bubble-highlighter';
@@ -34,34 +34,22 @@ export type HeroProps = {
 
 const defaultTitle = 'Build anything in components';
 const defaultTeaser =
-  'Bit helps distribute to components and compose them into infinite features and apps. Forget monolithic apps and distribute to component-driven software. ';
+  'Bit is an open-source toolchain for component-driven development. Forget monolithic apps and distribute to composable software. ';
 
 export function Hero({ title = defaultTitle, teaser = defaultTeaser, bubbles }: HeroProps) {
-  const { heroState, setStateFromTime } = useHeroState();
-  const headingClass = heroState === HeroState.HEADING_UPDATED ? styles.highlight : '';
-
-  const button = GridNode.fromPlain({
-    id: 'teambit.design/ui/buttons/button',
-    dependencies: ['teambit.react-base/buttons/button'],
-  });
-
-  const heading = GridNode.fromPlain({
-    id: 'teambit.community/ui/content/heading',
-    dependencies: ['teambit.design/ui/content/heading'],
-  });
+  const { heroState } = useHeroState();
+  // const headingClass = heroState === HeroState.HEADING_UPDATED ? styles.highlight : '';
 
   return (
     <WideColumn>
-      <BubbleGraph nodes={bubbles}>
-        <Edge node={button} dependency={button.dependencies[0]} />
-        <Edge node={heading} dependency={heading.dependencies[0]} />
+      <BubbleGraph nodes={bubbles} className={styles.heroGraph}>
         <div className={styles.title}>
           <BubbleHighlighter
             showId
             cornerSvgSize={40}
             cornerSvgClassName={styles.largeSvg}
             className={classNames(styles.titleHighlighter)}
-            componentId={ComponentID.fromString('teambit.community/ui/content/heading')}
+            componentId={ComponentID.fromString('teambit.community/ui/heading')}
           >
             <Heading className={styles.marginZero} highlight={heroState === HeroState.HEADING_UPDATED}>
               {title}

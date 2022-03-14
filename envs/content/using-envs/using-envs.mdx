@@ -1,0 +1,133 @@
+# Using Envs
+
+Each Bit component has an env. This is required for Bit to know how to manage the component's lifecycle.  
+The same workspace may have components from different Envs, where an Env can define a more specific configuration for sub-set of components or define a completely different build pipeline and stack.
+
+By default Bit sets an env for a component. Use the `bit env` command to control the env for a component.
+
+```
+bit env set acme.demo/welcome teambit.react/react  # define the component the pre-built react env.
+```
+
+```
+added teambit.react/react env to the following component(s):
+set acme.demo/welcome
+```
+
+:::tip Setting env is registered as a modification
+
+Bit manages code, dependencies and configuration for each component. This means that when you change the env, Bit marks the component as `modified`. This means you need to tag or snap a new version for the component and release a new version.
+
+:::
+
+To see which env is applied for a component, use the `show` command:
+
+```
+bit show acme.demo/welcome
+```
+
+```
+┌───────┬─────────────────────────┐
+│ id    │ acme.demo/welcome       │
+├───────┼─────────────────────────┤
+│ ...   │ ...                     │
+├───────┼─────────────────────────┤
+│ env   │ teambit.react/react     │
+└───────┴─────────────────────────┘
+```
+
+Now any action you run for the component like `compile`, `test`, `build`, `format` and so on, is controlled by the settings applied from the env.
+
+## Working with custom envs
+
+For Bit there is no difference in syntax for when you work with custom envs or pre-built ones.
+
+```
+bit env set acme.demo/welcome acme.envs/react      # define the component a custom env.
+```
+
+When you apply a custom env a component, it is applied with a specific version. If you haven't set one manually, Bit defaults to the latest version for the selected env.
+
+```
+┌───────┬─────────────────────────┐
+│ id    │ acme.demo/welcome       │
+├───────┼─────────────────────────┤
+│ ...   │ ...                     │
+├───────┼─────────────────────────┤
+│ env   │ acme.envs/react@3.1.4   │
+└───────┴─────────────────────────┘
+```
+
+Having versioning for a custom env means you choose the version you want to use and how to upgrade.  
+Rerun `env set` with either a specific vesion or none to upgrade to the latest, or choose a specific version to update/downgrade to.
+
+```
+bit env set acme.demo/welcome acme.envs/react@4.0.0
+```
+
+## Control envs for multiple components
+
+A single workpsace may contain many components where components may have different envs. See a full list of which env is set for a component:
+
+```bash
+bit env
+```
+
+```bash
+┌───────────────────────────────┬─────────────────────────┐
+│ component                     │ env                     │
+├───────────────────────────────┼─────────────────────────┤
+│ acme.demo/pages/welcome@0.0.1 │ acme.envs/react@4.0.0   │
+├───────────────────────────────┼─────────────────────────┤
+│ acme.demo/ui/card@0.0.1       │ teambit.react/react     │
+├───────────────────────────────┼─────────────────────────┤
+│ acme.demo/ui/heading@0.0.1    │ teambit.react/react     │
+├───────────────────────────────┼─────────────────────────┤
+│ acme.demo/ui/text@0.0.1       │ teambit.react/react     │
+└───────────────────────────────┴─────────────────────────┘
+```
+
+All Bit commands support glob-patterns when specifying components.
+
+```
+bit env set "acme.demo/ui/*" acme.envs/react
+```
+
+```
+added acme.envs/react env to the following component(s):
+acme.demo/ui/card
+acme.demo/ui/heading
+acme.demo/ui/text
+```
+
+### Replace env with another
+
+The `replace` command helps with quickly refactoring all components that use a specific env with another.
+
+```
+bit env replace teambit.react/react acme.envs/react # replace env for all components that use acme.envs/react with teambit.react/react
+```
+
+```
+added teambit.react/react env to the following component(s):
+acme.demo/pages/welcome
+acme.demo/ui/card
+acme.demo/ui/heading
+acme.demo/ui/text
+```
+
+## Remove an env from a component
+
+Component should not have more than a single env applied. If you found yourself with an issue in Bit where `status` retunrs the following:
+
+```bash
+bit status
+```
+
+```bash
+     > pages/welcome ...  issues found
+       multiple envs:
+          company.scope/envs/my-react, teambit.react/react
+```
+
+Use the `unset` command to remove the unwanted configuration for the component.

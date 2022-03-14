@@ -6,3 +6,13 @@
     width: 70px;
   }
 }
+.disableCard {
+  background: var(--bit-bg-heavy, #f6f6f6);
+  pointer-events: none;
+}
+// this media query targets only safari browsers. it fixes the safari issue that the colored text overflows the h1.
+.highlightSafari {
+  @media not all and (min-resolution: 0.001dpcm) {
+    display: inline-block;
+  }
+}

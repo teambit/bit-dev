@@ -30,3 +30,4 @@ class ClassSomething {
 class Foo {}
 
 export { ClassSomething };
+

@@ -1,0 +1,81 @@
+---
+description: 'A React Hook that finds all specified elements within a parent element, and returns the current child in the top of the fold.'
+labels: ['react', 'hook', 'observer']
+---
+
+import { useRef, useEffect, useState } from 'react';
+import { useElementOnFold } from './use-element-on-fold';
+
+### Usage
+
+Pass a `ref` of the parent element, if none is specified, defaults to `document`.
+
+Pass a string with the required selectors. defaults to `h1 - h8`.
+
+### Example:
+
+The following example will collect all `h1` and `h2` within the parent `div`;
+
+```js
+import { useElementOnFold } from './use-element-on-fold';
+import { useRef } from 'react';
+
+function Page() {
+  const ref = useRef();
+  const { activeElement, elements } = useElementOnFold(ref, 'h1, h2');
+  return (
+    <div ref={ref}>
+      <h1>heading 1</h1>
+      <h2>heading 2</h2>
+      <h3>heading 3</h3>
+    </div>
+  );
+}
+```
+
+This component also uses the `IntersectionObserver` API to track when the tracked elements are located in the top section of the fold, and return it as the `activeElemet`.
+To prevent `IntersectionObserver` from running, pass a 3rd argument like so:
+
+```js
+const { activeElement, elements } = useElementOnFold(ref, 'h1, h2', true);
+```
+### Live example:
+
+Change selectors to track different elements on page.
+
+```ts live
+() => {
+  const ref = useRef();
+  const selectors = '.tracked-element';
+  const [elementsList, setElements] = useState([]);
+  const { elements } = useElementOnFold(ref, selectors);
+
+  useEffect(() => {
+    setElements(elements);
+  }, [ref.current]);
+
+  return (
+    <div>
+      <div data-testid="example" ref={ref}>
+        <h1 className="tracked-element">tracked heading1</h1>
+        <h2 className="tracked-element">tracked heading2</h2>
+        <h3 className="tracked-element">tracked heading3</h3>
+        <h2>h2</h2>
+        <h3>h3</h3>
+        <h4>h4</h4>
+      </div>
+      <div data-testid="collected-elements-box">
+        collected elements text:
+        {elementsList.map((el, index) => {
+          const text = el.textContent;
+          return (
+            <div className="collected-element" key={index}>
+              {text}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+```

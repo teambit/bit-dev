@@ -1,7 +1,4 @@
-import {
-  CommunityReactAspect,
-  CommunityReactConfig
-} from './community-react.aspect';
+import { CommunityReactAspect, CommunityReactConfig } from './community-react.aspect';
 
 export type { CommunityReactMain } from './community-react.main.runtime';
 export type { CommunityReactPreview } from './community-react.preview.runtime';

@@ -1,0 +1,24 @@
+---
+description: Highlights components in a certain component tree.
+labels: ['highlight', 'component', 'react']
+---
+
+import { HighlightComponent } from './highlight-component';
+// import { ProductCard } from '@learn-bit-react/ecommerce.ui.product.product-card';
+
+A component to highlight React components in a component tree. Using this component you can highlight the entire tree, or just parts of it.
+
+### Component usage
+```js
+<HighlightComponent>
+  <ProductCard />
+</HighlightComponent>
+```
+
+### Highlight all nested components in a component tree
+
+```js live
+<HighlightComponent title="Product card breakdown">
+  <div>Product card</div>
+</HighlightComponent>
+```

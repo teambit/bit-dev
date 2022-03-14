@@ -1,63 +1,51 @@
-import React, { useState } from 'react';
-import loadable from '@loadable/component';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { Link } from '@teambit/ui-foundation.ui.navigation.react-router.link';
+import React, { Suspense } from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { lazy } from '@loadable/component';
+import { GoogleTagManager } from '@teambit/analytics.data.google-tag-manager';
+import { GoogleAnalytics } from '@teambit/analytics.data.google-analytics';
 import { Guides } from '@teambit/docs.ui.pages.guides';
-import { RouterContextProvider } from '@teambit/base-react.navigation.router-context';
 import { Header } from '@teambit/community.ui.header.header';
+import { StickyBanner } from '@teambit/community.ui.sticky-banner';
 import { Homepage } from '@teambit/community.ui.pages.homepage';
-import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions';
 import { NotFound } from '@teambit/community.ui.pages.errors.not-found';
 import { CommunityDocs } from '@teambit/docs.ui.community-docs';
-import { WideColumn } from '@teambit/base-ui.layout.page-frame';
-import { ComponentHighlighter } from '@teambit/react.ui.component-highlighter';
-import { RoutingProvider } from '@teambit/base-ui.routing.routing-provider';
+import { wideColumn, centerColumn } from '@teambit/base-ui.layout.page-frame';
 import { Footer, footerMock } from '@teambit/community.ui.footer.footer';
-import { legacyRouting } from './legacy-routing';
-import styles from './app.module.scss';
+import { AppContext } from './app-context';
 
 /**
  * Load pages dynamically to enable code splitting.
  */
-const Plugins = loadable(() => import('@teambit/community.ui.pages.plugins'));
+const Plugins = lazy(() => import('@teambit/community.ui.pages.plugins'));
 
 export function BitDevApp() {
-  const [highlighting, setHighlighting] = useState(true)
   return (
-    <RoutingProvider value={legacyRouting}>
-      <RouterContextProvider Link={Link}>
-        <ThemeCompositions>
-          <ComponentHighlighter classes={{label: styles.label, frame: styles.frame }} placement="top" style={{ border: 'none' }} disabled={!highlighting}>
-            <BrowserRouter>
-              <Header highlighting={highlighting} setHighlighting={setHighlighting} />
-              <Switch>
-                <Route path="/docs">
-                  <WideColumn>
-                    <CommunityDocs />
-                  </WideColumn>
-                </Route>
+    <AppContext>
+      <GoogleAnalytics trackingId="UA-89811062-3" />
+      <GoogleTagManager gtmIds={['GTM-M99BCWV', 'GTM-W637HJ5']} />
+      <StickyBanner />
+      <Header />
+      <Routes>
+        <Route path="/" element={<Homepage />} />
 
-                <Route path="/guides">
-                  <WideColumn>
-                    <Guides />
-                  </WideColumn>
-                </Route>
-                <Route exact path="/plugins">
-                  <Plugins />
-                </Route>
-                <Route exact path="/">
-                  <Homepage />
-                </Route>
-                <Route component={NotFound} />
-              </Switch>
-              <WideColumn>
-                <Footer categoryList={footerMock} />
-              </WideColumn>
-              {/* footer component */}
-            </BrowserRouter>
-          </ComponentHighlighter>
-        </ThemeCompositions>
-      </RouterContextProvider>
-    </RoutingProvider>
+        <Route path="docs" element={<Navigate replace to="/docs/quick-start" />} />
+        <Route path="docs/*" element={<CommunityDocs className={wideColumn} />} />
+
+        <Route path="/guides" element={<Navigate replace to="/guides/micro-frontends/overview" />} />
+        <Route path="/guides/*" element={<Guides className={wideColumn} />} />
+
+        <Route
+          path="/aspects"
+          element={
+            <Suspense fallback={<div />}>
+              <Plugins />
+            </Suspense>
+          }
+        />
+
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+      <Footer className={centerColumn} categoryList={footerMock} />
+    </AppContext>
   );
 }

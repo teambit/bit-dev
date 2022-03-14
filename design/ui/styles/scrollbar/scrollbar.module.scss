@@ -1,0 +1,32 @@
+// not work in firefox
+.scrollbarSelf,
+.scrollbarAll {
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: var(--bit-border-color, #babec9);
+    border: 1px solid var(--bit-border-color-lightest, #ededed);
+    border-radius: 10px;
+  }
+}
+.scrollbarAll {
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--bit-border-color, #babec9);
+    border: 1px solid var(--bit-border-color-lightest, #ededed);
+    border-radius: 10px;
+  }
+}

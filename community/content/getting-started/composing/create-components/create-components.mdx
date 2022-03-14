@@ -1,25 +1,19 @@
+import { Image } from '@teambit/docs.ui.zoomable-image';
 import componentImg from './component.png';
 
 # Creating Components
 
-Bit makes it simple to build each [Component](/docs/components/overview) independently, and compose it to others with [Dependencies](/dependencies/overview). Components 
-can be created in different types such as Node Modules, React Components, Angular Modules and more. 
-Component types are defined by the configured [development environment (Env)](/docs/getting-started/dev-envs).
+Bit makes it simple to build independent [components](/docs/components/component-overview) and compose them with others, using [dependencies](/docs/dependencies/dependencies-overview).  
+Each component may have be of a different type, like Node Modules, React Components, Angular Modules and more. The type is defined according to the [Component Development Environment (Env)](/docs/getting-started/dev-envs) you set for a component.
 
-<!-- Components can be either abstract and very reusable but also concrete and useful only in specific contexts. 
-An example for an abstract component is a `button`, owned by a design team, which might be useful for many apps and 
-other components, where an example for a concerete one would be `Homepage` which might be used only once or twice. -->
-
-Our official supported Envs include [Node](/node/overview), [React](/docs/react), [Angular](/docs/angular) and [LitHTML](/docs/lit-html).
-Envs can be found in the [Bit Cloud community hub](/).  
-
-Envs can come built-in with a set of pre-configured templates to make the process of creating components repeatable, easy and directing towards best practices. To view available templates use the `bit templates` command.
+Bit has several supported Envs, like [Node](/node/overview), [React](/docs/react), [Angular](/docs/angular) and [LitHTML](/docs/lit-html). <!-- Envs can be found in the [Bit Cloud community hub](/). -->  
+Each env comes with a set of pre-configured templates for components. Transforming the process of creating components to be simple and repeatable with best practices at its core. See available templates by running the `bit templates` command in your workspace.
 
 ```bash
 bit templates
 ```
 
-```
+```bash
 teambit.react/react
     react (a basic react component)
     react-context (a react context component)
@@ -30,48 +24,23 @@ teambit.harmony/node
     node-env (customize the base Node env with your configs and tools)
     module (a general purpose node module)
 
-teambit.harmony/aspect
-    aspect (extend Bit capabilities)
-
 teambit.mdx/mdx
     mdx (Content component)
 ```
 
-:::note
-Templates are shown from all Envs configured in your Workspace.
+:::info Registered templates
+
+The list of templates is populated either with pre-sets from Bit or with any [custom templates](/docs/dev-services-overview/generator/generate-component) you created.
+
 :::
 
-Creating your first React Component is as simple as using the `bit create` command which is powered by the [Component Generator](/generator/overview). 
-
-:::note
-By default, components are created according to the `defaultScope` defined in the [workspace.json](/workspace/workspace-json). 
-Specifying a different scope can be done with the `--scope` flag while using `bit create`.
-:::
-
-Components are set to their development environment, according to their namespace as defined in `workspace.json`.
-Default [workspace configuration](/workspace/workspace-json) usually include [Variant rules](/) namespaces such as `ui`, `envs` or `pages` to be associated with their corresponding envs.
-
-```json title="workspace.json"
-  "teambit.workspace/variants": {
-    // teambit.harmony/node is the default environment. component under different namespaces than the below will fall back to it.
-    "{ui/**}": {
-      "teambit.react/react": {}
-    },
-    "{content/**}": {
-      "teambit.react/react": {}
-    },
-    "{envs/**}, {extensions/**}": {
-      "teambit.harmony/aspect": {}
-    }
-  }
-```
-
-Let's create our first React component. In this example, components created with the `ui` namespace are automatically set to the React env.
+Create a component with the `create` command. Here we'll create a simple `react` component named `my-welcome`, which will be in the `ui` namespace.
 
 ```bash
 bit create react ui/my-welcome
 ```
-```
+
+```bash
 1 component(s) were created
 
 company.demo/ui/my-welcome
@@ -79,34 +48,42 @@ company.demo/ui/my-welcome
     env:      teambit.react/react
 ```
 
-That's it! Bit has generated the component in a new [Component Directory](/workspace/component-directory) in the Workspace. You should think of every component created in Bit as an independent module which can be used from anywhere.
+That's it! Bit has generated a new component. The component has its own [directory](/docs/workspace/component-directory).  
+From now on Bit treats this component as an independent module, which so should you.
 
-## Component directories
-Let's view the newly created component directory.
+:::tip Fine-tune control for generating components
+
+By default, components are created according to the `defaultScope` defined in the [workspace.json](/workspace/workspace-json), and the `env` defined as part of the template.  
+Override any of them by passing the `--scope` and `--env` flags to the `create` command. Change the location of the component by passing the `--path` flag.
+
+:::
+
+## Component directory
+
+Let's view the newly created component directory. This is an example of a basic React component. If you chose any other template, your output may be slightly different.
 
 ```bash
-└── ui/my-welcome # Component directory
-    ├── index.ts # Main component file.
-    ├── my-welcome.tsx # Implementation of the component.
-    ├── my-welcome.spec.tsx # Test file of the component.
+└── ui/my-welcome                  # Component directory
+    ├── index.ts                   # Main component file.
+    ├── my-welcome.tsx             # Implementation of the component.
+    ├── my-welcome.spec.tsx        # Test file of the component.
     ├── my-welcome.composition.tsx # Compositions for simulating the component in different states.
-    └── my-welcome.docs.mdx # Docs file for the component.
+    └── my-welcome.docs.mdx        # Docs file for the component.
 ```
 
 As seen above, the created component has few different files generated by default.
 
-- `index.ts` / [Component main file](/components/main-file), exposing the component API.
-- `my-welcome.tsx` / Implantation of the React component. You can add as many files as required for your Component to operate.
-- `my-welcome.spec.tsx` / [Tests](/tester/overview) file for the Component.
-- `my-welcome.compositions.tsx` / [Compositions](/compositions/overview) file helping to simulate and visualize the component in different states.
-- `my-welcome.docs.md` / [Docs](/docs/overview) file. A markdown file for documenting the component.
+- `index.ts` - [Component main file](/docs/components/component-main-file), exposing the component API.
+- `my-welcome.tsx` - Component's implementation. This can be one, or many files.
+- `my-welcome.spec.tsx` - [Tests](/docs/dev-services-overview/tester/tester-overview) file for the Component.
+- `my-welcome.compositions.tsx` - [Compositions](/docs/dev-services-overview/compositions/compositions-overview) file to simulate the component in different states.
+- `my-welcome.docs.md` - [Documentation](/docs/overview) file. A markdown file for documenting the component.
 
-You can choose to not include tests files, docs files or even the composition files, however we highly recommend in including all of these as it encourages best practices and makes it easier for other developers to understand and trust your component.
+You can decide to remove the `*.spec.*`, `*.docs.*` or `*.composition.*` files, as they are not mandatory. We recommend using them, as it makes it easier for other developers to understand how to use your component and simplify maintaining it in the long run.
 
 ## Inspecting and browsing components
 
-You can inspect the component to see how Bit how it is configured, obtain access to the component metadata and its configuration using the `bit show` command.
-Per the example above, we can now verify that the example is associated to the desired React env.
+You can inspect the component to see how Bit how it is configured, see the component's configuration and dependencies with the `bit show` command.
 
 ```bash
 bit show ui/my-welcome
@@ -147,14 +124,14 @@ bit show ui/my-welcome
 └───────────────────┴────────────────────────────────────────────────────────────────┘
 ```
 
+See how the component is rendered in the Workspace UI <!--TODO [Component UI](/components/ui) --> by clicking the newly created component in sidebar.  
+Explore the documentation and the different compositions. Bit also visualize a dependency graph and even source code for each of your components.
 
-Component can be now viewed from the Component UI <!--TODO [Component UI](/components/ui) --> by clicking the newly created component in the UI sidebar. It is where [Docs](/docs/overview) can be previewed, [Compositions](/compositions/overview) can be developed to simulate and visualize different states of the component and examine the component dependencies, configuration and history visually.
+<Image src={componentImg} />
 
-<img src={componentImg} />
+## Check component status
 
-## Component status
-
-Checking in for the [Workspace Status](/workspace/workspace-status) would now indicate there is a `new` Component in the Workspace and it has no issues.
+Whenever we create a new component, or done any modification for a component, we recommend checking the [workspace status](/docs/workspace/workspace-status).
 
 ```bash
 bit status
@@ -170,12 +147,4 @@ new components
      > templates/ui/heading ... ok
      > templates/ui/text ... ok
      > ui/my-welcome ... ok
-```
-
-## Tracking existing directories as Components
-
-Existing directories can be tracked as components using the `bit add` command.
-
-```bash
-bit add 
 ```

@@ -1,19 +1,36 @@
 ---
-description: 'A Heading component'
-labels: ['heading']
+description: 'Renders text as a heading'
+labels: ['heading', 'text', 'ui']
 ---
 
-import { FigmaEmbed } from '@teambit/design.embeds.figma';
+import { Tooltip } from '@teambit/community.ui.text-tooltip';
+import { importElements } from './docs/snippet';
 import { Heading } from './heading';
+import { Elements } from './elements';
 
-Component for the main Heading.
+Renders text as a heading element (`H1` to `H6`) with Bit's heading style.
 
-### Heading with H1 element
+### Basic usage
 
-```js live=true
-<Heading element="h1">Build anything in components</Heading>
+```jsx live
+<Heading>Build anything in components</Heading>
 ```
 
-### Design
+### Choosing the heading element type
 
-<FigmaEmbed src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FctC1w9YhJvqaO1EZ08gLOV%2FCommunity%3Fnode-id%3D5%253A2140" />
+Pass the `element` prop to choose the element type to return (`H1` to `H6` of the <Tooltip content={importElements} language='typescript'>`Elements` enum</Tooltip>).
+
+```jsx live
+<Heading element={Elements.H3}>Build anything in components</Heading>
+```
+
+### Overriding heading default size
+
+Pass the `size` prop to override the heading element default size.
+
+```jsx live
+/* an H2 element rendered with H4 size */
+<Heading element={Elements.H2} size="h4">
+  Build anything in components
+</Heading>
+```

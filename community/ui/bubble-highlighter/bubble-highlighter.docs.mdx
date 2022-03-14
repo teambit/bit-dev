@@ -1,21 +1,38 @@
 ---
-description: 'A BubbleHighlighter component.'
-labels: ['label1', 'label2', 'label3']
+description: 'Highlights components using a bubble-like border.'
+labels: ['bubble', 'highlighter', 'docs']
 ---
 
 import { BubbleHighlighter } from './bubble-highlighter';
 import { ComponentID } from '@teambit/component-id';
 import { Button } from '@teambit/design.ui.buttons.button';
+import { LeftRight } from '@teambit/design.ui.layouts.sections.left-right';
+import HighlightButtonSnippet from './example/highlight-button.mdx';
+import HighlightButtonWithLabelSnippet from './example/highlight-button-with-label.mdx';
+import {
+  BasicBubbleHighlighterExample,
+  BubbleHighlighterWithLabelExample,
+} from './example/highlight-button.demo';
 
-Bubble highlights any component rendered inside.
+The bubble-highlighter highlights components using a bubble-like border. Optionally, it can include labels that indicate the component name and scope.
 
-### Bubble Highlighting a Button component
+### Basic highlighting
 
-```js live
-<BubbleHighlighter
-  componentId={ComponentID.fromString('teambit.design/ui/buttons/button')}
-  style={{ width: 170 }}
->
-  <Button>Getting Started</Button>
-</BubbleHighlighter>
-```
+Wrap the component to be highlighted with the bubble highlighter.  
+Pass a [`componentId`](https://bit.dev/teambit/component/component-id/~code/component-id.ts) object to provide the bubble highlighter with information regarding the highlighted component.
+
+<LeftRight
+  left={<HighlightButtonSnippet />}
+  right={<BasicBubbleHighlighterExample />}
+/>
+
+### Highlight with labels
+
+Pass the `showId` prop (boolean) to display the scope and name of the component being highlighted.
+
+(Try clicking on the labels to load the component/scope page.)
+
+<LeftRight
+  left={<HighlightButtonWithLabelSnippet />}
+  right={<BubbleHighlighterWithLabelExample />}
+/>

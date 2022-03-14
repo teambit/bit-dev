@@ -5,26 +5,25 @@ labels: ['mock', 'data', 'entity', 'types']
 
 import { Links } from './links';
 
-Array of types for a link.
+This component describes the Link object. It serves as the source of truth for components providing or consuming Links.
 
-```js
-href: string;
-text: string;
+### Create a new link object
+
+```ts
+import { Links } from '@teambit/community.entity.links';
+
+const myLink = new Links('https://bit.dev', 'Bit');
 ```
 
-## Mock Json
+### Consume Links via an API
 
-Mock data for the links.
+```ts
+import type { LinksFromApi } from '@teambit/community.entity.links';
+import { Links } from '@teambit/community.entity.links';
+import { fetchLink } from './fetch-link';
 
-```json
-export const links = [
-  {
-    href: 'https://static.bit.dev/homepage-enterprise-logos/Dell.svg',
-    text: 'Dell'
-  },
-  {
-    href: 'https://static.bit.dev/homepage-enterprise-logos/ebay.svg',
-    text: 'ebay'
-  },
-];
+async () => {
+  const fetchedLink: LinksFromApi = await fetchLink();
+  const link = Links.fromApiObject(fetchedLink);
+};
 ```

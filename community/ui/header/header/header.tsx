@@ -1,32 +1,37 @@
 import React from 'react';
 import classNames from 'classnames';
-import { Logo } from '@teambit/design.ui.brand.logo';
-import { Nav } from '@teambit/community.ui.header.nav';
-import { Link } from 'react-router-dom';
-import { WideColumn } from '@teambit/base-ui.layout.page-frame';
-import { Toggle } from '@teambit/design.ui.input.toggle';
+import { Icon } from '@teambit/design.elements.icon';
+import { GithubStars } from '@teambit/community.ui.github-stars';
+import { ExternalLink } from '@teambit/design.ui.external-link';
+import { ThemeToggler } from '@teambit/design.themes.theme-toggler';
+import { Header as BaseHeader, HeaderProps as BaseHeaderProps } from '@teambit/design.blocks.header';
+import { Toggler } from '@teambit/community.ui.community-highlighter';
+import { headerContent } from './header-links';
+
 import styles from './header.module.scss';
 
-export type HeaderProps = {
-  highlighting?: boolean;
-  setHighlighting?: (e: boolean) => void;
-} & React.HTMLAttributes<HTMLElement>;
+export type HeaderProps = {} & BaseHeaderProps;
 
-export function Header({ highlighting, setHighlighting, className, ...rest }: HeaderProps) {
-  function onToggleClick(e) {
-    return setHighlighting?.(e.target.checked)
-  }
+const pluginsArray = [
+  () => <GithubStars className={styles.githubLink} />,
+  () => (
+    <ExternalLink href="https://join.slack.com/t/bit-dev-community/shared_invite/zt-o2tim18y-UzwOCFdTafmFKEqm2tXE4w">
+      <Icon of="slack" />
+    </ExternalLink>
+  ),
+  Toggler,
+  ThemeToggler,
+];
+
+export function Header({ className, plugins, ...rest }: HeaderProps) {
   return (
-    <header className={classNames(styles.header, className)} {...rest}>
-      <WideColumn className={styles.headerContent}>
-        <Link to="/">
-          <Logo className={styles.logo} alt="bit-logo" />
-        </Link>
-        <Nav className={styles.nav}>
-          <span className={styles.inspect}>Inspect</span> 
-          <Toggle onInputChanged={onToggleClick} checked={highlighting} />
-        </Nav>
-      </WideColumn>
-    </header>
+    <div className={styles.headerWrapper}>
+      <BaseHeader
+        {...rest}
+        className={classNames(styles.header, className)}
+        menuLinks={headerContent}
+        plugins={pluginsArray}
+      />
+    </div>
   );
 }

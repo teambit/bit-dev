@@ -6,6 +6,7 @@ export type SearchInputProps = IconTextProps;
 export function SearchInput({ icon = 'discovery', placeholder = 'Search', onSubmit, ...rest }: SearchInputProps) {
   const onKeyUp = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
+      // eslint-disable-next-line @typescript-eslint/no-unused-expressions
       onSubmit && onSubmit();
     }
   };

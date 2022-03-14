@@ -29,18 +29,10 @@ export type LogoProps = {
 export function Logo({ size, customSize, alt, ...rest }: LogoProps) {
   const chosenSize = customSize || size;
 
-  return (
-    <BaseImage
-      {...rest}
-      src={logo}
-      alt={alt || ''}
-      height={chosenSize}
-      width={chosenSize}
-    />
-  );
+  return <BaseImage {...rest} src={logo} alt={alt || ''} height={chosenSize} width={chosenSize} />;
 }
 
 Logo.defaultProps = {
   size: RecommendedSizes.medium,
-  alt: 'Bit'
+  alt: 'Bit',
 };

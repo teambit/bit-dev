@@ -1,16 +1,37 @@
-import React, { useMemo, ReactNode } from 'react';
+import React, { useMemo } from 'react';
+import classNames from 'classnames';
 import { DocsRoute, DocsRoutes } from '@teambit/docs.entities.docs-routes';
-import { Switch, Route, useRouteMatch } from 'react-router-dom';
-import { Sidebar } from '@teambit/docs.ui.sidebar';
+import { Routes, Route } from 'react-router-dom';
+import { Sidebar } from '@teambit/docs.blocks.sidebar';
+import { ExcludeHighlighter } from '@teambit/react.ui.component-highlighter';
 import { DocPage } from '@teambit/docs.ui.pages.doc-page';
+import { DocsPlugin } from '@teambit/docs.plugins.docs-plugin';
+import { NotFound } from '@teambit/community.ui.pages.errors.not-found';
+import { DocsContext } from './docs-context';
 import styles from './docs.module.scss';
-import { PrimaryLinks } from './primary-links';
+
+export type ContentCategory = {
+  /**
+   * a title for the content category.
+   */
+  title?: string;
+
+  /**
+   * a routes to be rendered in the content sidebar.
+   */
+  routes: DocsRoute[];
+
+  /**
+   * a className to pass styling to the sidebar.
+   */
+  className?: string;
+};
 
 export type DocsProps = {
   /**
-   * a routes to be rendered in the sidebar.
+   * an array of routes category.
    */
-  routes: DocsRoute[];
+  contents?: ContentCategory[];
 
   /**
    * base URL for the docs route.
@@ -23,52 +44,61 @@ export type DocsProps = {
   primaryLinks?: DocsRoute[];
 
   /**
-   * Component to render for doc contribution instructions.
+   * array doc plugins to compose.
    */
-  contribution?: ReactNode,
-
-  /**
-   * shows a next page box after every page unless specifically set otherwise by the route using the `showNext` property on DocsRoute.
-   */
-  showNext?: boolean;
+  plugins?: DocsPlugin<any, any>[];
 } & React.HtmlHTMLAttributes<HTMLDivElement>;
 
-export function Docs({ routes, primaryLinks = [], showNext = true, baseUrl = '/', contribution, ...rest }: DocsProps) {
-  const { path } = useRouteMatch();
-  const docRoutes = DocsRoutes.from(routes, baseUrl || path);
-  const primaryRoutes = DocsRoutes.from(primaryLinks, baseUrl || path);
+export function Docs({ contents, primaryLinks = [], baseUrl, plugins = [], className, ...rest }: DocsProps) {
+  const primaryRoutes = DocsRoutes.from(primaryLinks, baseUrl);
+  const contentRoutes = contents?.map((category) => {
+    return {
+      title: category.title,
+      routes: DocsRoutes.from(category.routes || [], baseUrl),
+      className: category.className,
+    };
+  });
 
-  const routeArray = useMemo(
-    () => [...primaryRoutes.getRoutes(), ...docRoutes.getRoutes()],
-    [primaryRoutes, docRoutes]
-  );
+  const routeArray = useMemo(() => {
+    const pRoutes = primaryRoutes.getRoutes();
+    const cRoutes = contentRoutes?.map((category) => category.routes.getRoutes()) || [];
+
+    return pRoutes.concat(...cRoutes);
+  }, [primaryRoutes, contentRoutes]);
 
   return (
-    <div {...rest} className={styles.main}>
-      <div className={styles.sidebar}>
-        <PrimaryLinks tree={primaryRoutes.toSideBarTree()} />
-        <Sidebar tree={docRoutes.toSideBarTree()} linkPrefix={baseUrl} />
+    <DocsContext.Provider
+      value={{
+        contentRoutes: contentRoutes?.map((category) => category.routes),
+        primaryRoutes,
+        routes: routeArray,
+        plugins,
+      }}
+    >
+      <div {...rest} className={classNames(styles.main, className)}>
+        <ExcludeHighlighter>
+          <Sidebar primaryLinks={primaryRoutes.toSideBarTree()} sections={contentRoutes} />
+        </ExcludeHighlighter>
+        <div className={styles.content}>
+          <Routes>
+            {routeArray.map((route, key) => {
+              return (
+                <Route
+                  key={route.absPath}
+                  path={route.path}
+                  element={
+                    <DocPage index={key} route={route} plugins={plugins}>
+                      {route.component}
+                    </DocPage>
+                  }
+                />
+              );
+            })}
+            {/* default catch all */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
       </div>
-      <div className={styles.content}>
-        <Switch>
-        {contribution ? 
-            <Route>
-              {contribution}
-            </Route>
-          : ''
-        }
-          {routeArray.map((route, key) => {
-            const next = routeArray[key + 1] ? routeArray[key + 1] : undefined;
-            return (
-              <Route key={key} path={route.absPath}>
-                <DocPage nextPage={next} title={route.title}>
-                  {route.component}
-                </DocPage>
-              </Route>
-            );
-          })}
-        </Switch>
-      </div>
-    </div>
+    </DocsContext.Provider>
   );
 }

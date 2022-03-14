@@ -63,7 +63,7 @@ To Override the Jest config to ignore transpiling from specific folders add this
 const reactJestConfig = require('@teambit/react').jestconfig;
 module.exports = {
   ...reactJestConfig,
-  transformIgnorePatterns: ['/node_modules/(?!(prop-types|@teambit))']
+  transformIgnorePatterns: ['/node_modules/(?!(prop-types|@teambit))'],
 };
 ```
 
@@ -77,8 +77,8 @@ Example:
 module.exports = {
   module: {
     // add your custom rules here
-    rules: []
-  }
+    rules: [],
+  },
 };
 ```
 
@@ -139,8 +139,8 @@ Override the default dependencies in the `community-react.main.runtime` file to 
 ```ts
 react.overrideDependencies({
   devDependencies: {
-    '@types/react': '17.0.3'
-  }
+    '@types/react': '17.0.3',
+  },
 });
 ```
 
@@ -155,4 +155,5 @@ A custom theme has been added to the env which wraps all the composition files w
 Example:
 
 ```ts
-react.registerProvider([ThemeCompositions]);
+react.registerProvider([LightTheme]);
+```

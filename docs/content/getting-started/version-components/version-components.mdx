@@ -2,11 +2,15 @@ import changelog from './changelog.png';
 import versionPicker from './version-picker.png';
 import { Image } from '@teambit/docs.ui.zoomable-image';
 
-# Version Components
+# Snapping components
 
 By setting a version for a component you build a history of changes to a component's implementation. This version history can be shared through a remote Bit server.
 
-## Tagging Components
+## Snapping components
+
+
+
+## Tagging components
 
 Bit versions components it can isolate. To evaluate if a component can be versioned run:
 
@@ -28,7 +32,7 @@ You can also tag all new/modified components in the workspace:
 bit tag --all
 ```
 
-### Manage Semantic Version
+### Semantic versioning
 
 A component's version is set according to the [semantic versioning](https://semver.org/) specs. Meaning - version is MAJOR.MINOR.PATCH. By default, tagging a component without specifying a version bumps a patch version.
 
@@ -49,12 +53,12 @@ Like most commands in Bit you can use pattern matching to tag multiple component
 bit tag "ui/*" --patch --message "my version message" # Version components matching the pattern with a patch vesion.
 ```
 
-### Version Affected Components
+### Snapping affected components
 
 Bit understands the dependency graph of all components in a workspace. When tagging a component, it will also tag all components that are affected by the change. This means that you not only make sure all dependents get updated, you also do it in the most efficient way possible where the minimal amount of code gets rebuilt.  
 Dependent components will get promoted by a semantic patch version.
 
-## Component History
+## Component history
 
 With each component having it's own versioning and history you get a time-machine for components. You can see it in past working states, run diffs and even checkout a past version of a component to your workspace for maintenance.  
 Component tags is what building this history. The workspace UI builds a changelog for each component and even lets you view past versions. Each component has a changelog tab:
@@ -67,13 +71,13 @@ And by running the `log` command:
 bit log ui/my-welcome
 ```
 
-### View Past Versions
+### View past snaps
 
 The workspace UI features a dropdown list of the component version history. You can pick any of the past versions and explore all the changes that happened in that version. This works like having a time-machine for your components.
 
 <Image alt="version picker" src={versionPicker} />
 
-### Comparing with Past Versions
+### Comparing with past versions
 
 You may compare the current state of a component with past version. To do so, run:
 
@@ -81,7 +85,7 @@ You may compare the current state of a component with past version. To do so, ru
 bit diff ui/my-welcome 1.0.0
 ```
 
-### Checkout a Version
+### Navigating in component history
 
 While the UI lets you view a component version from the past, using the CLI you can checkout a version of a component to your workspace. To do so, run:
 
@@ -91,7 +95,7 @@ bit checkout 0.0.1 ui/my-welcome
 
 Bit will then revert the entire component directory to a past state.
 
-## Untag Versions
+## Undo snaps and tags
 
 We can untag staged components, i.e., components that were tagged by not yet exported to a remote scope.  
 Bit untag reverts the component to its previous state, i.e., `new`, `modified` or `exported`.
@@ -107,11 +111,11 @@ bit untag --all 0.11.4 # untag a specific version from all components that has t
 bit untag --all # untag all staged components
 ```
 
-## Versioning Process
+## Versioning process
 
 When tagging a component or multiple components, Bit performs the actions below:
 
-- Create an isolated environment for the component (capsule).
+- Create a network of all component capsules.
 - Run the build pipeline (`bit build`) as defined in each component's env in the capsule.
 - Locking dependencies versions for the components.
 - Setting a version of the component.

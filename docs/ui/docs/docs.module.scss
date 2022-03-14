@@ -1,25 +1,20 @@
-.docs {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-}
+@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
+
+$sidebarWidth: 240px + 24px;
 
 .content {
-  padding: 0 36px;
+  position: relative;
   box-sizing: border-box;
+  width: 100%;
   min-width: 0; // prevents content from overflowing
+  padding-left: $sidebarWidth;
+  @media screen and (max-width: $br-md) {
+    padding: 0;
+    margin-left: 0;
+  }
 }
 
 .main {
   display: flex;
-}
-
-.sidebar {
-  min-width: 264px;
-  border-right: 1px solid var(--bit-border-color-lightest, #ededed);
-}
-
-.primaryLinks {
-  border-bottom: 1px solid var(--bit-border-color-lightest, #ededed);
-  font-size: var(--bit-p-xs, 14px);
-  padding: 16px 0;
+  position: relative;
 }
