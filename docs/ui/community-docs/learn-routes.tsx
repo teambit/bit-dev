@@ -345,13 +345,13 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'snaps',
-        title: 'Snapshot changes',
+        title: 'Snapping changes',
         description: 'Record component history with snapshots.',
         component: <Snaps />,
       },
       {
         path: 'tags',
-        title: 'Versioning',
+        title: 'Tagging changes',
         description: 'Manage component releases with semantic version.',
         component: <Tags />,
       },
