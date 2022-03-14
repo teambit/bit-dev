@@ -2,7 +2,7 @@ import React from 'react';
 import { Heading, Elements } from '@teambit/community.ui.heading';
 import { Paragraph } from '@teambit/base-ui.text.paragraph';
 import { Button } from '@teambit/design.ui.buttons.button';
-import { Insightful } from './insgihtful';
+import { Insightful } from './insightful';
 import styles from './create-account.module.scss';
 
 export type CreateAccountProps = {} & React.HTMLAttributes<HTMLDivElement>;
