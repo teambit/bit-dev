@@ -1,7 +1,7 @@
 # Add to an existing project
 
-You can intialize Bit on any exsiting workspace to start onboarding components from it to Bit. Bit has a minimal footprint on your project and can run alongside existing tools.  
-Start onboarding components by heading over to your project root:
+You can intialize Bit on any exsiting workspace to start sharing components. Bit has a minimal footprint on your project and can run alongside existing tools.  
+Start sharing components by heading over to your project root:
 
 ```bash
 cd my-project
@@ -16,7 +16,7 @@ bit init
 `init` will not use any of the templates for [creating a workspace](/docs/getting-started/installing-bit/start-bit-workspace), so not to override any of your previous configurations. Instead `init` is a lightweight command that only create the following:
 
 - [`workspace.json`](/docs/workspace/workspace-config) file, with base configuration.
-- [`.bitmap`](/docs/workspace/bitmap) to point to any component you create or onboard.
+- [`.bitmap`](/docs/workspace/bitmap) to point to any component you share.
 - A hidden `.bit` (or `.git/bit`) directory to store local scope <!-- [local scope](/docs/scope/local-scope) --> for your components.
 
 Once Bit is initialized on your project, you can run Bit commands and start the local dev server. <!-- [local dev server](/docs/workspace/ui) -->
@@ -41,11 +41,11 @@ If you choose not to use Bit to manage dependencies in the project, ensure to ad
 
 :::
 
-## Onboarding components
+## Sharing components
 
 The process for taking an existing component, which is currently coupled your project, and add it to be a Bit component has several additional steps than just using the `create` command.  
 
-First of all, decide which component you aim to onboard and "liberate" from the project. Know that here, if the component has any dependencies, you will likely to need to onboard them as well, or have them as part of the component. Once you had a target in mind, create a new Bit component:
+First of all, decide which component you aim to share and decouple from the project. Know that here, if the component has any dependencies, you will likely to need to share them as well, or have them as part of the component. Once you had a target in mind, create a new Bit component:
 
 Follow the steps for [creating a new component](docs/getting-started/composing/spec-breakdown):
 
@@ -66,7 +66,7 @@ When the component is isolated and functioning, the next step is to replace the 
 
 :::tip Alternate path
 
-Alternatively, you can use the `bit add` command to onboard components to Bit. Note that with this flow you still have to decouple the component and ensure all dependencies are Bit components as well.
+Alternatively, you can use the `bit add` command to share components. Note that you will still have to decouple the component and ensure all dependencies are Bit components.
 
 :::
 
