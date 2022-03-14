@@ -1,6 +1,6 @@
-# Build Task API
+## Build task APIs
 
-## aspectId
+### `aspectId`
 
 ```ts
 aspectId: string;
@@ -8,7 +8,7 @@ aspectId: string;
 
 The component ID of the environment using this task.
 
-## name
+### `name`
 
 ```ts
 name: string;
@@ -16,7 +16,7 @@ name: string;
 
 A name for this task. Only alphanumerical characters are allowed. PascalCase should be used as a convention.
 
-## location
+### `location`
 
 ```ts
 location?: 'start' | 'end'
@@ -24,7 +24,7 @@ location?: 'start' | 'end'
 
 The section of the build-pipeline to which to append this task.
 
-## dependencies
+### `dependencies`
 
 ```ts
 dependencies?: string[]
@@ -33,7 +33,7 @@ dependencies?: string[]
 An list of tasks that must be completed before this task gets executed.
 For example `dependencies = ['@teambit/preview']`.
 
-## execute
+### `execute`
 
 ```ts
 execute(context: BuildContext): Promise<BuiltTaskResult>
@@ -41,7 +41,7 @@ execute(context: BuildContext): Promise<BuiltTaskResult>
 
 The execute method is where all the task logic is placed.
 
-### context
+#### `context`
 
 ```ts
 context: BuildContext;
@@ -52,7 +52,7 @@ For example, `context.capsuleNetwork.seedersCapsules` are models representing is
 
 Learn more about `BuildContext` [here](#build-context-buildcontext).
 
-### return (BuiltTaskResult)
+#### `return (BuiltTaskResult)`
 
 ```ts
 Promise<BuiltTaskResult>
@@ -144,9 +144,9 @@ The returned object `BuiltTaskResult` has the following attributes:
   `postBuild?(context: BuildContext, tasksResults: TaskResultsList): Promise<void>`  
   Runs after the dependencies were completed for all environments.
 
-## Build context (BuildContext)
+### `BuildContext`
 
-## components
+#### `components`
 
 ```ts
 components: Component[]
@@ -154,7 +154,7 @@ components: Component[]
 
 All components about to be built/tagged.
 
-## capsuleNetwork
+### `capsuleNetwork`
 
 ```ts
 capsuleNetwork: Network;
@@ -168,7 +168,7 @@ The network of capsules ready to be built. This includes:
 
 Learn more about `Network` [here](https://bit.dev/teambit/component/isolator/~code/network.ts).
 
-### seedersCapsules
+#### `seedersCapsules`
 
 ```ts
 seedersCapsules: CapsuleList;
@@ -176,7 +176,7 @@ seedersCapsules: CapsuleList;
 
 The seeders' capsules.
 
-### graphCapsules
+#### `graphCapsules`
 
 ```ts
 graphCapsules: CapsuleList;
@@ -184,7 +184,7 @@ graphCapsules: CapsuleList;
 
 All capsules, including the dependencies of the seeders (even when they belong to another env).
 
-### capsulesRootDir
+#### `capsulesRootDir`
 
 ```ts
 capsulesRootDir: string;
