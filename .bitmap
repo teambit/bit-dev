@@ -45,12 +45,6 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/buttons/button"
     },
-    "content/angular-overview": {
-        "scope": "",
-        "version": "",
-        "mainFile": "index.ts",
-        "rootDir": "angular/content/angular-overview"
-    },
     "cloud/create-account": {
         "scope": "teambit.community",
         "version": "0.0.14",
@@ -65,7 +59,7 @@
     },
     "community/blog-quick-start": {
         "scope": "teambit.blog",
-        "version": "0.0.14",
+        "version": "0.0.15",
         "mainFile": "index.ts",
         "rootDir": "blog/community/blog-quick-start"
     },
@@ -92,6 +86,12 @@
         "version": "1.95.8",
         "mainFile": "index.ts",
         "rootDir": "component/content/adding-components"
+    },
+    "content/angular-overview": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "angular/content/angular-overview"
     },
     "content/aspects-overview": {
         "scope": "teambit.harmony",
@@ -245,7 +245,7 @@
     },
     "content/component-overview": {
         "scope": "teambit.component",
-        "version": "1.95.8",
+        "version": "2e332bde38ae59f3c6322d062b268ea5b3e59ac3",
         "mainFile": "index.ts",
         "rootDir": "component/content/component-overview"
     },
@@ -1204,7 +1204,7 @@
     },
     "quick-start": {
         "scope": "teambit.bit",
-        "version": "0.0.14",
+        "version": "0.0.15",
         "mainFile": "index.ts",
         "rootDir": "bit/quick-start/quick-start"
     },
