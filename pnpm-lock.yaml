@@ -49,7 +49,7 @@ importers:
       '@teambit/component.ui.graph.dependencies-graph': ^0.0.34
       '@teambit/components.blocks.component-card-display': 0.0.13
       '@teambit/dependencies.modules.packages-excluder': ^0.0.44
-      '@teambit/design.content.carousel': 0.0.14
+      '@teambit/design.content.carousel': 0.0.15
       '@teambit/design.elements.icon': ^1.0.6
       '@teambit/design.embeds.figma': 0.0.6
       '@teambit/design.graph.edge': 0.0.2
@@ -204,7 +204,7 @@ importers:
       '@teambit/component.ui.graph.dependencies-graph': 0.0.34
       '@teambit/components.blocks.component-card-display': 0.0.13_29c37ebecd7dfa73f6c8b380903476de
       '@teambit/dependencies.modules.packages-excluder': registry.npmjs.org/@teambit/dependencies.modules.packages-excluder/0.0.44_react@16.13.1
-      '@teambit/design.content.carousel': 0.0.14_38be8bd4da9847dd67147ce9a129e815
+      '@teambit/design.content.carousel': 0.0.15_38be8bd4da9847dd67147ce9a129e815
       '@teambit/design.elements.icon': registry.npmjs.org/@teambit/design.elements.icon/1.0.8_react-dom@16.13.1+react@16.13.1
       '@teambit/design.graph.edge': 0.0.2_38be8bd4da9847dd67147ce9a129e815
       '@teambit/design.theme.icons-font': registry.npmjs.org/@teambit/design.theme.icons-font/1.0.8_react-dom@16.13.1+react@16.13.1
@@ -320,6 +320,21 @@ importers:
       react-json-view: registry.npmjs.org/react-json-view/1.21.3_8f8b8b40458e4db82e7077c4092f8d92
 
   analytics/community/analytics-quick-start:
+    specifiers: {}
+
+  angular/content/angular-overview:
+    specifiers: {}
+
+  apps/docs/app-build:
+    specifiers: {}
+
+  apps/docs/app-deployment:
+    specifiers: {}
+
+  apps/docs/apps-overview:
+    specifiers: {}
+
+  apps/docs/using-apps:
     specifiers: {}
 
   base-react/buttons/button:
@@ -986,6 +1001,9 @@ importers:
     specifiers: {}
 
   harmony/content/using-aspects:
+    specifiers: {}
+
+  harmony/docs/creating-aspects:
     specifiers: {}
 
   pipelines/content/build-artifacts:
@@ -1903,8 +1921,8 @@ packages:
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
     dev: false
 
-  /@teambit/design.content.carousel/0.0.14_38be8bd4da9847dd67147ce9a129e815:
-    resolution: {integrity: sha1-diQTuyIzvLrPEWHdnDy95TEokpc=, tarball: '@teambit/design.content.carousel/-/@teambit-design.content.carousel-0.0.14.tgz'}
+  /@teambit/design.content.carousel/0.0.15_38be8bd4da9847dd67147ce9a129e815:
+    resolution: {integrity: sha1-qRla98JTvz/UyL1EoxJNe9bRsSg=, tarball: '@teambit/design.content.carousel/-/@teambit-design.content.carousel-0.0.15.tgz'}
     peerDependencies:
       '@testing-library/react': 12.1.3
       react: ^16.8.0 || ^17.0.0
