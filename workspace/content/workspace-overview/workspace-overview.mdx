@@ -1,3 +1,4 @@
+import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-display';
 import { Image } from '@teambit/docs.ui.zoomable-image';
 import wsScreenshot from './ws-screenshot.png';
 import looseComponents from './loose-components.png';
@@ -5,11 +6,18 @@ import multiRepo from './multi-repo.png';
 
 # Workspace Overview
 
+<ComponentCardDisplay componentIds={[
+  'teambit.workspace/workspace',
+]} style={{ float: 'left', margin: 20, maxWidth: 250 }} />
+
 You can use the Bit workspace to either create, use or import components, make changes to them, and export these changes back. 
 Workspaces are tech-agnonstic and allow development of components of all kinds. They can be used by a single developer maintaining few components, exist on top of 
 existing repositories or shared as a Workspace component.
 
 <Image src={looseComponents} width="85%"/>
+
+<br />
+<br />
 
 Get started and generate a demo workspace:
 

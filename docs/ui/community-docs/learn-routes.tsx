@@ -825,13 +825,13 @@ export const learnDocsRoutes: DocsRoute[] = [
             title: 'Mounting Compositions to the DOM',
             component: <MountingCompositionsToDom />,
           },
-          {
-            path: 'compositions-and-stories',
-            title: 'Compositions and stories',
-            description:
-              'Compositions and Stories can appear quite similar. Almost like two sibling solutions that solve the same problem.',
-            component: <CompositionsAndStories />,
-          },
+          // {
+          //   path: 'compositions-and-stories',
+          //   title: 'Compositions and stories',
+          //   description:
+          //     'Compositions and Stories can appear quite similar. Almost like two sibling solutions that solve the same problem.',
+          //   component: <CompositionsAndStories />,
+          // },
         ],
       },
       {

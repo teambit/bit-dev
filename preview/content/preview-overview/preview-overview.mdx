@@ -1,10 +1,15 @@
+import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-display';
 import { Image } from '@teambit/docs.ui.zoomable-image';
 import overviewScreenshotImg from './overview_screenshot.png';
 import dependenciesImg from './dependencies.png';
 import dependenciesLinkFileImg from './dependencies_link_file.png';
 import fetchPreviewsImg from './fetch_previews.png';
 
-# Overview
+# Preview Overview
+
+<ComponentCardDisplay componentIds={[
+  'teambit.preview/preview',
+]} style={{ float: 'left', margin: 20, maxWidth: 250, marginBottom: 20 }} />
 
 The Preview Aspect enables component visualizations to be displayed by the browser, in an isolated [Preview environment](#preview-runtime) that is agnostic to the way visualizations are implemented (their framework, etc).
 
