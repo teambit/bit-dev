@@ -1,5 +1,5 @@
 export enum ProductType {
-  product = 'use-cases'
+  product = 'use-cases',
 }
 
 export type UseCasesFromApi = {

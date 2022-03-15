@@ -5,6 +5,7 @@ import { PreviewPlugin } from '@teambit/explorer.plugins.preview-plugin';
 import { ComponentID } from '@teambit/component-id';
 import { ComponentDescriptor, AspectList } from '@teambit/component-descriptor';
 import classNames from 'classnames';
+import { Link } from '@teambit/base-react.navigation.link';
 import { GraphIcon } from './graph-icon';
 import { CodeIcon } from './code-icon';
 import { PreviewIcon } from './preview-icon';
@@ -25,7 +26,9 @@ export function ComponentShowcase({ componentId, className, ...rest }: Component
   return (
     <div className={classNames(styles.container, className)} {...rest}>
       <div className={styles.tab}>
-        <span className={styles.componentId}>{componentId}</span>
+        <Link external href={computeLink(id)} className={styles.componentId}>
+          {componentId}
+        </Link>
         <span
           className={classNames(styles.tabLinks, selectedTab === 'preview' && styles.active)}
           onClick={() => setSelectedTab('preview')}
@@ -53,4 +56,12 @@ export function ComponentShowcase({ componentId, className, ...rest }: Component
       </div>
     </div>
   );
+}
+
+// TODO: need for a component.
+function computeLink(id: ComponentID) {
+  const baseUrl = 'https://bit.cloud';
+  const [owner, scope] = id.scope.split('.');
+
+  return [baseUrl, owner, scope, id.fullName].join('/');
 }
