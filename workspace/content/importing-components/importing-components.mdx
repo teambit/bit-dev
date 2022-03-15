@@ -5,11 +5,13 @@ import importVisual from './import-visual.png';
 
 # Importing Components
 
-You can import a component from a remote scope to a Bit workspace. Imported components are just like any other component: They can be modified, compiled, tested and used as dependencies for other components. You may also snap and version imported components.
+You can import a component from a remote scope to a Bit workspace. Imported components are just like any other component: they can be modified, compiled, tested, and used as dependencies for other components. You may also snap and version imported components.
 
 <Image src={importVisual} width="60%" />
 
 Use the `import` command in a Bit workspace.
+
+For example:
 
 ```bash
 bit import teambit.base-ui/input/button
@@ -24,13 +26,13 @@ successfully imported one component
 ```
 
 :::tip
-Copy your component's `import` command from the component page's "use" section
+Copy your component's `import` command from the component page's "use" section.
 
 <Image src={importDropDown} width="50%" />
 
 :::
 
-The import process fetches the component, install its dependencies, creates a directory for the component in the workspace for placing its implementation. Component location is set according to the `defaultDirectory` setting in your `workspace.jsonc` file
+The import process fetches the component, installs its dependencies, creates a directory for the component in the workspace for placing its implementation. Component location is set according to the `defaultDirectory` setting in your `workspace.jsonc` file.
 
 ```bash
 base-ui                            # Imported component "scope"
@@ -55,15 +57,19 @@ bit import teambit.base-ui/input/button --path random/directory
 
 ## Just like using any component
 
-Imported components appear when you run `bit start`, compiled during `bit compile` and tested during `bit test`. Change and use them as you would work with any other component you created.
+Imported components appear when you run `bit start`, are compiled during `bit compile` and are tested during `bit test`. Change and use them as you would work with any other component you created.
 
 You may import them as dependencies for other components.
+
+For example:
 
 ```javascript
 import { Button } from '@teambit/base-ui.input.button'; // Bit creates a node_module link for your imported component
 ```
 
-Past versions are available for `checkout`, so you can [navigate version history](/docs/components/navigating-history)
+Past versions are available for `checkout`, so you can [navigate version history](/docs/components/navigating-history).
+
+For example:
 
 ```bash
 bit checkout 0.0.5 teambit.base-ui/input/button  # checkout version 0.0.5
@@ -71,6 +77,8 @@ bit checkout latest teambit.base-ui/input/button # checkout latest version
 ```
 
 When you no longer need a component in a workspace you can eject it and replace with a dependency.
+
+For example: 
 
 ```bash
 bit eject teambit.base-ui/input/button
@@ -86,13 +94,13 @@ bit export
 
 ## Fetching updates
 
-If a new version is available for a component, you can import it. This flow happens automatically when you run `install` or `import` with now arguments.
+If a new version is available for a component, you can import it. This flow happens automatically when you run `bit install` or `bit import` without any arguments.
 
 ```bash
 bit import
 ```
 
-When new version is available, Bit prints a message on new version available.
+When a new version is available, Bit prints a message on new version available.
 
 ```bash
 successfully imported 1 component
@@ -116,6 +124,8 @@ pending updates
 ```
 
 Use the `checkout` command to update your workspace to the latest version.
+
+For example: 
 
 ```bash
 bit checkout latest teambit.base-ui/input/button
