@@ -1,11 +1,15 @@
+import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-display';
+
 # Compiler overview
 
-The Compiler aspect provides a single interface for Component compilation, [during development](/) and [during build](/).
+<ComponentCardDisplay componentIds={[
+  'teambit.compilation/compiler',
+]} style={{ float: 'left', margin: 20, maxWidth: 250, marginBottom: 20 }} />
+
+The Compiler aspect provides a single interface for Component compilation, [during development](/docs/compiler/compiling-during-development) and [during build](/docs/compiler/compiling-during-build).
 It enables you to use the same commands and APIs to compile any Component, regardless of the specific compiler it uses.
 
-:::info
-The specific compiler used by a Component ([Babel](/), [TypeScript](/), and so on) is set by the Component's Env.
-:::
+Specific compilers used by a Component ([Babel](https://bit.cloud/teambit/compilation/babel), [TypeScript](https://bit.cloud/teambit/typescript/typescript), and so on) are set by the [Component's Env](/docs/envs/using-envs).
 
 ## Compiling during development
 

@@ -1,8 +1,15 @@
-# Overview
+import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-display';
+
+# Linter Overview
+
+<ComponentCardDisplay componentIds={[
+  'teambit.defender/linter',
+]} style={{ float: 'left', margin: 20, maxWidth: 250, marginBottom: 20 }} />
+
+Bit's Linter simplifies and standardizes the process of component linting. It does so for linting during development (in the workspace) and for linting during component build (in a capsule, as part of the [Build Pipeline](/builder/build-pipelines))
 
 Linting helps us maintain consistent code styling and avoid potential bugs by analyzing our source code, statically, before it is compiled and executed.
 
-The Linter aspect simplifies and standardizes the process of component linting. It does so for linting during development (in the workspace) and for linting during component build (in a capsule, as part of the [Build Pipeline](/builder/build-pipelines))
 
 ## Linting in development
 

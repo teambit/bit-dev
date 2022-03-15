@@ -1,9 +1,14 @@
-# Compositions Overview
-
 import { Image } from '@teambit/docs.ui.zoomable-image';
 import screenshotImg from './screenshot.png';
+import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-display';
 
-The Compositions Aspect loads and displays component 'compositions' in an isolated [preview environment](../preview/overview#preview-runtime).
+# Compositions Overview
+
+<ComponentCardDisplay componentIds={[
+  'teambit.compositions/compositions',
+]} style={{ float: 'left', margin: 20, maxWidth: 250, marginBottom: 20 }} />
+
+Compositions allow to simulate components in differnet variations for testing, visulization and discoverability purposes. 
 
 A UI component composition is the rendering of that component in a certain state and context. A non-UI component composition is the visualization of the component's I/O and its effects (for example, the effects a React hook has on a consuming UI component).
 

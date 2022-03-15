@@ -1,3 +1,4 @@
+import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-display';
 import scopeImage from './scope.png';
 import scopeGraph from './scope-graph.png';
 import componentTypes from './component-types.png';
@@ -5,7 +6,11 @@ import { Image } from '@teambit/docs.ui.zoomable-image';
 
 # Scope Overview
 
-Scope is a server for hosting components. Scopes help teams to share and use each other's components as by preserving team autonomy through versioning, forking, storing dependencies, and collaborate on changes of independent components.
+<ComponentCardDisplay componentIds={[
+  'teambit.scope/scope',
+]} style={{ float: 'left', margin: 20, maxWidth: 250 }} />
+
+Scope is a **collaboration server for components**. Scopes help teams to share and use each other's components as by preserving team autonomy through versioning, forking, storing dependencies, and collaborate on changes of independent components.
 Scopes defines ownership on components, as a single team owns the components exported to scope.
 
 <Image width="70%" src={scopeImage} />

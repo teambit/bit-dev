@@ -1,4 +1,10 @@
+import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-display';
+
 # Docs Overview
+
+<ComponentCardDisplay componentIds={[
+  'teambit.docs/docs',
+]} style={{ float: 'left', margin: 20, maxWidth: 250, marginBottom: 20 }} />
 
 import { Image } from '@teambit/docs.ui.zoomable-image';
 import docsOverviewImg from './docs_overview.png';
@@ -8,7 +14,7 @@ The docs service simplifies the documentation process and provides components wi
 Doc files, of different formats, are loaded from the workspace's [component directories](/workspace/component-directory), and displayed using the [doc template](/doc-templates) that was set by each component's Env.
 
 The docs are presented in the 'Overview' tab of the Workspace UI/Scope UI.
-
+<!-- 
 <iframe
   width="560"
   height="315"
@@ -17,7 +23,7 @@ The docs are presented in the 'Overview' tab of the Workspace UI/Scope UI.
   frameborder="0"
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
   allowfullscreen
-></iframe>
+></iframe> -->
 
 ## Loading the component docs
 
