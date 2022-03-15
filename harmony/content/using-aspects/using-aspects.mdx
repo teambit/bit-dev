@@ -1,27 +1,60 @@
+import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-display';
+
 # Using Aspects
 
 Aspects can be used to extend Bit with simple configurations, to both the Scope and the Workspace. Aspects can also be composed into Harmony applications.
 
+<ComponentCardDisplay componentIds={[
+  'teambit.typescript/typescript',
+  'teambit.angular/angular',
+  'teambit.mdx/mdx',
+]} />
+
+<br />
+
+You can find more [available aspects to use here](/plugins) and on the [bit.cloud](https://bit.cloud/components?env=aspect) search!
+
 ## Configuring Aspects
 
-Configuring Aspects can be done across Bit configuration, from components.
+Configuring Aspects can be done across Bit configuration, from Workspaces and Scopes and on Components.
 ```json
 {
   "myorg.dev/my-aspect": {}
 }
 ```
 
-## Usaing c
-
 ## Listing aspects
 
+List all components and the aspects they have configured.
 
-## Get aspcet config and data
+```
+bit aspect list
+```
+
+## Inspecting aspects
+
+Inspect a specific component` aspects, inclduing metadata and config.
+
+```
+bit aspect get docs/apps-overview
+```
 
 
-## Upgrading aspects
+## Updating aspects
 
+Update components to a newer aspect version.
 
+Update all components using the community-react aspect.
+
+```bash
+bit aspect update teambit.community/envs/community-react
+```
+
+Update components using the community-env aspect under the ui/* namespace.
+
+```bash
+bit aspect update teambit.community/envs/community-react "ui/*"
+```
 
 ## Composing aspects into applications
 

@@ -1,0 +1,25 @@
+---
+description: 'An MDX component.'
+labels: ['content', 'mdx']
+---
+
+import { AngularOverview } from './index';
+
+### Component usage
+```js
+<AngularOverview />
+```
+
+### Render with theme and MDX providers
+
+```js
+import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions'
+import { MDXLayout } from '@teambit/ui.mdx-layout'
+import { AngularOverview } from './index'
+
+<ThemeCompositions>
+  <MDXLayout>
+    <AngularOverview />
+  </MDXLayout>
+</ThemeCompositions>
+```
