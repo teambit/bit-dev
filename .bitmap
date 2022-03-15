@@ -1041,6 +1041,19 @@
         "mainFile": "index.ts",
         "rootDir": "apps/docs/apps-overview"
     },
+    "docs/aspect-config": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.harmony",
+        "mainFile": "index.ts",
+        "rootDir": "harmony/docs/aspect-config",
+        "config": {
+            "teambit.community/envs/community-mdx@1.95.9": {},
+            "teambit.envs/envs": {
+                "env": "teambit.community/envs/community-mdx@1.95.9"
+            }
+        }
+    },
     "docs/creating-aspects": {
         "scope": "teambit.harmony",
         "version": "0.0.1",
@@ -1052,6 +1065,32 @@
         "version": "1.95.9",
         "mainFile": "index.ts",
         "rootDir": "bit/docs/installation/setup-editor"
+    },
+    "docs/runtimes": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.harmony",
+        "mainFile": "index.ts",
+        "rootDir": "harmony/docs/runtimes",
+        "config": {
+            "teambit.community/envs/community-mdx@1.95.9": {},
+            "teambit.envs/envs": {
+                "env": "teambit.community/envs/community-mdx@1.95.9"
+            }
+        }
+    },
+    "docs/slots": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.harmony",
+        "mainFile": "index.ts",
+        "rootDir": "harmony/docs/slots",
+        "config": {
+            "teambit.community/envs/community-mdx@1.95.9": {},
+            "teambit.envs/envs": {
+                "env": "teambit.community/envs/community-mdx@1.95.9"
+            }
+        }
     },
     "docs/using-apps": {
         "scope": "teambit.apps",

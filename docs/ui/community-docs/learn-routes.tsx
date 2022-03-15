@@ -12,6 +12,9 @@ const CreateComponents = lazy(() => import('@teambit/community.content.getting-s
 const AspectsOverview = lazy(() => import('@teambit/harmony.content.aspects-overview'));
 const UsingAspects = lazy(() => import('@teambit/harmony.content.using-aspects'));
 const CreatingAspects = lazy(() => import('@teambit/harmony.docs.creating-aspects'));
+const Slots = lazy(() => import('@teambit/harmony.docs.slots'));
+const AspectConfig = lazy(() => import('@teambit/harmony.docs.aspect-config'));
+const Runtimes = lazy(() => import('@teambit/harmony.docs.runtimes'));
 
 /* Workspace */
 const WorkspaceOverview = lazy(() => import('@teambit/workspace.content.workspace-overview'));
@@ -662,17 +665,17 @@ export const learnDocsRoutes: DocsRoute[] = [
         children: [
           {
             path: 'generator-overview',
-            title: 'Overview',
+            title: 'Generator Overview',
             component: <GeneratorOverview />,
           },
           {
             path: 'generate-component',
-            title: 'Custom component generator',
+            title: 'Create component generator',
             component: <GenerateComponent />,
           },
           {
             path: 'generate-workspace',
-            title: 'Custom workspace generator',
+            title: 'Create workspace generator',
             component: <GenerateWorkspace />,
           },
         ],
@@ -1189,13 +1192,13 @@ export const learnDocsRoutes: DocsRoute[] = [
         open: false,
         children: [],
       },
-      {
-        path: 'harmony',
-        title: 'Harmony',
-        icon: 'Extension',
-        open: false,
-        children: [],
-      },
+      // {
+      //   path: 'harmony',
+      //   title: 'Harmony',
+      //   icon: 'Extension',
+      //   open: false,
+      //   children: [],
+      // },
     ],
   },
   {
@@ -1226,14 +1229,17 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'config',
         title: 'Aspect config',
+        component: <AspectConfig />,
       },
       {
         path: 'slots',
         title: 'Slots',
+        component: <Slots />,
       },
       {
         path: 'runtimes',
         title: 'Runtimes',
+        component: <Runtimes />,
       },
       // {
       //   title: 'Guides',
@@ -1264,6 +1270,11 @@ export const learnDocsRoutes: DocsRoute[] = [
         title: 'Config files',
         open: false,
         component: <ConfigFiles />,
+      },
+      {
+        path: 'bitrc',
+        title: 'Global configuration (bitrc)',
+        component: <div />,
       },
     ],
   },

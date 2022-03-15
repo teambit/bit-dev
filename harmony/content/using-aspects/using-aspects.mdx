@@ -2,7 +2,10 @@ import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-
 
 # Using Aspects
 
-Aspects can be used to extend Bit with simple configurations, to both the Scope and the Workspace. Aspects can also be composed into Harmony applications.
+Aspects can be used to extend Bit by configuring them on your Workspace, Scope and Components. You can also use Aspects from other Aspects you
+build and use them as an API.
+
+You can use official and community Aspects built by us and the Bit community like the ones below or [build your own Aspect](/docs/extending-bit/creating-aspects).
 
 <ComponentCardDisplay componentIds={[
   'teambit.typescript/typescript',
@@ -14,9 +17,11 @@ Aspects can be used to extend Bit with simple configurations, to both the Scope 
 
 You can find more [available aspects to use here](/plugins) and on the [bit.cloud](https://bit.cloud/components?env=aspect) search!
 
-## Configuring Aspects
+## Using Aspects
 
-Configuring Aspects can be done across Bit configuration, from Workspaces and Scopes and on Components.
+Aspects can be configured across any [Bit config](/). That means, you can use aspects to extend the functionallity of Scopes, Workspaces,
+Components or any other feature built in an Aspect.
+
 ```json
 {
   "myorg.dev/my-aspect": {}
@@ -56,7 +61,15 @@ Update components using the community-env aspect under the ui/* namespace.
 bit aspect update teambit.community/envs/community-react "ui/*"
 ```
 
+## As an Aspect dependency
+
+Aspects can be used as dependencies by other aspects. See [Using dependencies](/docs/extending-bit/creating-aspects#using-dependencies).
+
 ## Composing aspects into applications
+
+Behind the scenes, Aspects apps are executed with Harmony, Bit's micro-kernel which powers its extensibility.
+
+Running Aspects with harmony:
 
 ```tsx
 import { Harmony } from '@teambit/harmony';
@@ -64,3 +77,4 @@ import { MyAspect } from '@myorg/dev.my-aspect';
 
 Harmony.run([MyAspect]);
 ```
+
