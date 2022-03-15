@@ -35,7 +35,7 @@ export function ComponentShowcase({ componentId, className, ...rest }: Component
         >
           <PreviewIcon /> Preview
         </span>
-        <span
+        {/* <span
           className={classNames(styles.tabLinks, selectedTab === 'graph' && styles.active)}
           onClick={() => setSelectedTab('graph')}
         >
@@ -46,7 +46,7 @@ export function ComponentShowcase({ componentId, className, ...rest }: Component
           onClick={() => setSelectedTab('code')}
         >
           <CodeIcon /> Code
-        </span>
+        </span> */}
       </div>
 
       <div className={styles.tabContent}>

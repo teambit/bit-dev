@@ -1,0 +1,11 @@
+# App Deployment
+
+An app component has an additional build task added to its tag and snap pipelines. This build task is set by it's app-type and is responsible for deploying its artifacts.
+The information for that deployment (authentication, domain, etc.) is set in the app plugin file (for example, `my-app.react-app.ts`).
+Note that not all app-types provide their own deployment functions. In these cases, provide your own custom deployer or search Bit.cloud for a compatible one.
+
+To version and deploy your app, run the following:
+
+```bash
+bit tag apps/my-app
+```

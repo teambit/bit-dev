@@ -1,8 +1,11 @@
+import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-display';
 import { BubbleGraph } from '@teambit/community.ui.graph.bubble-graph';
 import composability from './composability.png';
 import { aspectGraph } from './aspect-graph';
 
 # Aspects Overview
+
+<ComponentCardDisplay componentIds={['teambit.harmony/aspect']} style={{ float: 'left', margin: 20 }} />
 
 Bit is built entirely with Bit. This means that even Bit itself is built in a component-driven architecture. It uses [Harmony](https://bit.cloud/teambit/harmony/harmony) which is a 
 component-based framework for composing extensible features into apps. Harmony most fundemental type is an Aspect, every Aspect is a full stack feature, capable of extending UI, backend 

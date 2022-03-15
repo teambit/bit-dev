@@ -14,10 +14,35 @@ import Collaborate from './collaborate.mdx';
 import styles from './quick-start.module.scss';
 
 export type QuickStartComponent = {
+  /**
+   * id of the component. as a string.
+   */
   id: string;
+
+  /**
+   * replace all contents. including the showcase.
+   */
   content?: ReactNode;
+
+  /**
+   * intro node to render in the beginning
+   */
   intro?: ReactNode;
+
+  /**
+   * text to use in the ending of the component walk through.
+   */
   ending?: ReactNode;
+
+  /**
+   * text to be shown before fork.
+   */
+  fork?: ReactNode;
+
+  /**
+   * text to be shown next to create.
+   */
+  create?: ReactNode;
 };
 
 export type QuickStartNodeDesc = QuickStartComponent | string;

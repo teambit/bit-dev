@@ -12,7 +12,7 @@ export type BlogQuickStartProps = {
 export function BlogQuickStart({ children }: BlogQuickStartProps) {
   const id = ComponentID.fromString('teambit.blog/starter/starter-blog');
   const components = [
-    'teambit.blog/blog',
+    'teambit.blog/starter/starter-blog',
     'teambit.blog/blog',
     'teambit.blog/pages/lobby',
     'teambit.blog/pages/blog-post',

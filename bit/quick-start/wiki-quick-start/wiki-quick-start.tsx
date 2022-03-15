@@ -15,8 +15,8 @@ export function WikiQuickStart({ children }: WikiQuickStartProps) {
     'teambit.wiki/apps/wiki@1.90.13',
     'teambit.wiki/sections/wiki@1.90.3',
     'teambit.wiki/blocks/header@0.0.40',
-    'teambit.wiki/content/welcome@0.0.40',
     'teambit.wiki/blocks/footer@0.0.24',
+    'teambit.wiki/content/welcome@0.0.40',
   ];
 
   return (
