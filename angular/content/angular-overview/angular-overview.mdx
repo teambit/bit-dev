@@ -44,20 +44,13 @@ bit start
 
 Open-up your browser on localhost:3000, or any other available port, and display your workspace with your components.
 
-If you already have an existing workspace, you can edit your `workspace.jsonc` configuration file to add the following lines:
+If you already have an existing workspace, you can edit your `workspace.jsonc` configuration file to add the following lines, so you can use component templates for Angular.
 
 ```json
 {
   // ...
   // Load the angular-v13 environment into the workspace
   "teambit.angular/angular-v13@x.x.x": {},
-  "teambit.workspace/variants": {
-    // Use the angular-v13 environment for all components, or specify a pattern to use it just for some components
-    "*": {
-      // Replace `v13` by the version of Angular that you want to use
-      "teambit.angular/angular-v13@x.x.x": {}
-    }
-  },
   // Add Angular component generators to the list of available component templates
   "teambit.generator/generator": {
     "aspects": [
