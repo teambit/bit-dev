@@ -1,10 +1,10 @@
 # Workspace Status
 
-Bit' workspace track changes done to components, and shows the state of each in your project's workspace.
-Understanding the state of the workspace's components during the development process can be essential and provides useful information to whether components are staged, modified 
+Bit workspaces track changes done to components, and shows the state of each component in your project's workspace.
+Understanding the state of the workspace's components during the development process can be essential and provides useful information to whether components are staged, modified, 
 or even have missing dependencies, syntax errors, or other potential issues.
 
-A component may have more than one state. A state derived from its code status (such as modified) and a state derived from its dependencies (e.g. pending to be tagged).
+A component may have more than one state. It may have a state derived from its code status (such as modified) and a state derived from its dependencies (e.g. pending to be tagged).
 
 Bit prompts component status on both the UI and the CLI. To quickly check your workspace status, use the `bit status` command.
 
@@ -12,7 +12,7 @@ Bit prompts component status on both the UI and the CLI. To quickly check your w
 $ bit status
 ```
 
-You can also see component status on the Workspace UI component sidebar.
+You can also see the status of a component on the Workspace UI component sidebar.
 
 ## States
 
@@ -124,7 +124,7 @@ deleted components
 
 ### Component pending to be tagged automatically
 
-Component (not in state new) for whom at least one of its dependencies is in `modified` state.
+A Component (not in state new) where at least one of its dependencies is in a `modified` state.
 
 ```shell
 bit status
