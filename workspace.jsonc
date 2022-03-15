@@ -84,6 +84,7 @@
         "@teambit/component.ui.graph.dependencies-graph": "^0.0.34",
         "@teambit/components.blocks.component-card-display": "0.0.13",
         "@teambit/dependencies.modules.packages-excluder": "^0.0.44",
+        "@teambit/design.content.carousel": "0.0.15",
         "@teambit/design.elements.icon": "^1.0.6",
         "@teambit/design.embeds.figma": "^0.0.6",
         "@teambit/design.theme.icons-font": "^1.0.8",
@@ -240,6 +241,9 @@
     },
     "react": {
       "defaultScope": "teambit.react"
+    },
+    "angular": {
+      "defaultScope": "teambit.angular"
     },
     "workspace": {
       "defaultScope": "teambit.workspace"

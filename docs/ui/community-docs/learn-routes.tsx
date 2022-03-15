@@ -188,6 +188,9 @@ const ReactOverview = lazy(() => import('@teambit/react.content.react-overview')
 const ReplacingReactTools = lazy(() => import('@teambit/react.content.replace-react-tools'));
 const ConfigReactTools = lazy(() => import('@teambit/react.content.config-react-tools'));
 
+/* Angular */
+const AngularOverview = lazy(() => import('@teambit/angular.content.angular-overview'));
+
 /* Misc */
 const UsageAnalytics = lazy(() => import('@teambit/docs.content.guides.usage-analytics'));
 
@@ -1156,7 +1159,13 @@ export const learnDocsRoutes: DocsRoute[] = [
         path: 'angular',
         title: 'Angular',
         open: false,
-        children: [],
+        children: [
+          {
+            path: 'angular-overview',
+            title: 'Angular overview',
+            component: <AngularOverview />,
+          },
+        ],
       },
       {
         path: 'node',

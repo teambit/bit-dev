@@ -29,7 +29,7 @@ bit start
 
 ## Simple, scalable dev experience
 
-Keeping a similar dev-experience across workspaces allows you to jump in and out from codebases. When you don't need to deal with a per-project setup or learn the workflow commands/scripts you simply focus on the code.
+Keeping a similar dev-experience across workspaces allows you to jump in and out of codebases. When you don't need to deal with a per-project setup or learn the workflow commands/scripts you simply focus on the code.
 
 Simple dev experience means you can **easily onboard** yourself to a workspace, thanks to:
 
@@ -57,24 +57,24 @@ In the same sense you can `export` and even `eject` any of your components from 
 
 ### Personalize your workspace
 
-With composability in mind you can personalize your workspace on a per-feature basis or on the work you are currently focus on. You can start your flow by using `bit import` and fetch all required components, starting to modify and work on them as needed.  
-When done, you can version and eject unneeded components. Instead of you working in the boundaries of your workspace, have the workspace fit to your current work.
+With composability in mind you can personalize your workspace on a per-feature basis or on the work you are currently focused on. You can start your flow by using `bit import` and fetch all required components, starting to modify and work on them as needed.  
+When done, you can version and eject unneeded components. Instead of you working within the boundaries of your workspace, the workspace fits to your current work.
 
 ## Configuration-less
 
 Regardless of the amount of components you have in your workspace, and how different they may be in their configuration, it only requires two files to manage components.
 
 - `workspace.jsonc` - Contains the configuration policy for all components in the workspace.
-- `.bitmap` - Maps Bit components to their corresponding location (dir) in the workspace.
+- `.bitmap` - Maps Bit components to their corresponding location (directory) in the workspace.
 
-With both these files you track where each component is located and can apply configuration from a centralized location according to various [`variant`](/docs/workspace/variants) rules. The workspace then calculates the configuration to apply on a per-component basis.
+With both these files, you track where each component is located and can apply configuration from a centralized location, according to various [`variant`](/docs/workspace/variants) rules. The workspace then calculates the configuration to apply on a per-component basis.
 
 The end result is a clean workspace where you have a minimal amount of configuration files, no matter how many components you have and their variants.
 
 ## Any dev environment, any framework
 
 Angular modules, React components, Node modules or any other type of components you might need are rendered with the same [workspace UI](docs/workspace/workspace-ui), compiled by the same `compile` command, etc.  
-You can maintain components of different types and frameworks in a Bit workspace, as each component has it's own configured [Component Development Environment](/docs/envs/envs-overview), which the workspace use to run various workflows.
+You can maintain components of different types and frameworks in a Bit workspace, as each component has its own configured [Component Development Environment](/docs/envs/envs-overview), which the workspace uses to run various workflows.
 
 ## Components in the workspace
 
@@ -117,14 +117,14 @@ import { Card } from '@my-org/my-scope.ui.card';
 
 The workspace dependency policy defines how external dependencies are installed and in which version. You may apply complex setups to have multiple versions of a dependency installed to fit different components. It allows you to determine where you want to adopt to a new version and which components should still use past versions.
 
-In your workspace you also have a [dependency resolver](/docs/dependencies/dependencies-overview) that uses the policy to determine the type of dependency on a per-component basis.  
+In your workspace you also have a [Dependency Resolver](/docs/dependencies/dependencies-overview) that uses the policy to determine the type of dependency on a per-component basis.  
 Types of dependencies, like `dependency` and `devDependency` are contextual for each component. Meaning that according to where a component `import`s a dependency, it will be set with the corresponding type. For example, a dependency only used in a test file will set as a `devDependency` for that specific component.
 
 ## Performance
 
-Bit workspace is optimized for quick and snappy feedback loop on code changes. It leaves the tough work of ensuring de-coupling and isolation to a more robust CI flow.
+Bit workspace is optimized to provide a quick feedback loop on code changes. It leaves the tough work of ensuring de-coupling and isolation to a more robust CI flow.
 
-To optimize performance even further any time you change a component Bit find which components are affected by the change. Bit then build your modified components and their affected dependents.
+To optimize performance even further, any time you change a component, Bit will find which components are affected by the change. Bit then builds your modified components and their affected dependents.
 
 ## Integrate to existing codebases
 
