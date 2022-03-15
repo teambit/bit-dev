@@ -1136,6 +1136,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'react',
         title: 'React',
+        icon: 'reactjs',
         open: false,
         children: [
           {
@@ -1158,6 +1159,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'angular',
         title: 'Angular',
+        icon: 'Angular',
         open: false,
         children: [
           {
@@ -1170,18 +1172,21 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'node',
         title: 'Node',
+        icon: 'nodejs',
         open: false,
         children: [],
       },
       {
         path: 'lit-html',
         title: 'Lit Element',
+        icon: 'lit-element',
         open: false,
         children: [],
       },
       {
         path: 'harmony',
         title: 'Harmony',
+        icon: 'Extension',
         open: false,
         children: [],
       },
