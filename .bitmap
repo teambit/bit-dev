@@ -951,6 +951,13 @@
         "mainFile": "index.ts",
         "rootDir": "docs/content/thinking-in-components"
     },
+    "content/tracking-components": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.workspace",
+        "mainFile": "index.ts",
+        "rootDir": "workspace/content/tracking-components"
+    },
     "content/using-aspects": {
         "scope": "teambit.harmony",
         "version": "1.95.9",

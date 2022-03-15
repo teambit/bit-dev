@@ -18,6 +18,7 @@ const WorkspaceOverview = lazy(() => import('@teambit/workspace.content.workspac
 const Bitmap = lazy(() => import('@teambit/workspace.content.bitmap'));
 const WorkspaceLink = lazy(() => import('@teambit/workspace.content.workspace-link'));
 const DirectoryStructure = lazy(() => import('@teambit/workspace.content.directory-structure'));
+const TrackComponents = lazy(() => import('@teambit/workspace.content.tracking-components'));
 const ComponentDir = lazy(() => import('@teambit/workspace.content.component-directory'));
 const WorkspaceStatus = lazy(() => import('@teambit/workspace.content.workspace-status'));
 const ClearingCache = lazy(() => import('@teambit/workspace.content.clearing-cache'));
@@ -218,11 +219,6 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <WorkspaceOverview />,
       },
       {
-        path: 'workspace-configuration',
-        component: <WorkspaceConfiguration />,
-        title: 'Workspace configuration',
-      },
-      {
         path: 'creating-workspaces',
         title: 'Creating workspaces',
         component: <CreatingWorkspaces />,
@@ -231,6 +227,11 @@ export const learnDocsRoutes: DocsRoute[] = [
         path: 'creating-components',
         title: 'Creating components',
         component: <CreateComponents />,
+      },
+      {
+        path: 'tracking-components',
+        title: 'Tracking components',
+        component: <TrackComponents />,
       },
       {
         path: 'directory-structure',
@@ -258,6 +259,11 @@ export const learnDocsRoutes: DocsRoute[] = [
         title: 'Moving components',
         description: 'To move a component you can use the bit move command.',
         component: <MovingComponents />,
+      },
+      {
+        path: 'workspace-configuration',
+        component: <WorkspaceConfiguration />,
+        title: 'Workspace configuration',
       },
       {
         path: 'variants',

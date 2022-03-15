@@ -120,24 +120,17 @@ Bit generates module links in `node_module` dir for all components when creating
 
 ## Rename components
 
-:::info Sugar syntax is coming
+Component ID is used in `import` statement of its dependents, this means that updating it breaks consumers. To workaround that Bit essentially build a new component and deprecate/remove the previous one.
 
-Renaming components is a manual task. A `rename` functionality is coming.
+ ```sh
+bit rename teambit.base-ui/button teambit.advanced-ui/button
+ ```
 
-:::
+ When you have the right ID:
 
-Component ID is used in `import` statement of its dependents, this means that updating it breaks consumers. To workaround that you essentially build a new component and deprecate/remove the previous one.
-
-```sh
-bit create react-component new/component/name --scope company.scope
-```
-
-When you have the right ID:
-
-* Copy the implementation.
-* Run `bit dependents <old-component-id>` to get a list of dependent components.
-* Refactor all `import {...} from <old-module-name>` to `import {...} from <new-module-name>` for dependent components.
-* Now your components all use the right component. You can either `deprecate` or `remove` the previous component.
+ * Run `bit dependents <old-component-id>` to get a list of dependent components.
+ * Refactor all `import {...} from <old-module-name>` to `import {...} from <new-module-name>` for dependent components.
+ * Now your components all use the right component.
 
 ## Component name limitations
 
