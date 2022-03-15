@@ -45,6 +45,12 @@
         "mainFile": "index.ts",
         "rootDir": "base-react/buttons/button"
     },
+    "content/angular-overview": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "angular/content/angular-overview"
+    },
     "cloud/create-account": {
         "scope": "teambit.community",
         "version": "0.0.12",

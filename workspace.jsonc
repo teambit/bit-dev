@@ -241,6 +241,9 @@
     "react": {
       "defaultScope": "teambit.react"
     },
+    "angular": {
+      "defaultScope": "teambit.angular"
+    },
     "workspace": {
       "defaultScope": "teambit.workspace"
     },
