@@ -1179,12 +1179,6 @@
         "mainFile": "index.ts",
         "rootDir": "docs/modules/paths"
     },
-    "navigation/link": {
-        "scope": "teambit.base-react",
-        "version": "2.0.26",
-        "mainFile": "index.ts",
-        "rootDir": "base-react/navigation/link"
-    },
     "pages/page": {
         "scope": "teambit.base-react",
         "version": "1.95.6",
@@ -1568,12 +1562,6 @@
         "version": "1.95.6",
         "mainFile": "index.ts",
         "rootDir": "design/ui/navigation/menu"
-    },
-    "ui/navigation/react-router-adapter": {
-        "scope": "teambit.ui-foundation",
-        "version": "6.1.0",
-        "mainFile": "index.ts",
-        "rootDir": "ui-foundation/ui/navigation/react-router-adapter"
     },
     "ui/navigation/tab-link": {
         "scope": "teambit.design",
