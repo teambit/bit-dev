@@ -23,7 +23,6 @@ export function TreeNode<T>(props: TreeNodeComponentProps<T>) {
     <Link
       href={href}
       exact
-      strict
       className={classNames(indentClass, styles.fileNode)}
       activeClassName={styles.active}
       onClick={onClick}

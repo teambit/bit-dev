@@ -16,6 +16,8 @@ export const ReactRouterLink = forwardRef<HTMLAnchorElement, LinkProps>(function
 
     active,
     exact,
+    // strict is removed in RR6, but included in our interface
+    strict,
 
     native,
     external,

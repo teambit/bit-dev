@@ -1,5 +1,6 @@
 import { ComponentID } from "@teambit/component-id";
 import { MemoryRouter, UNSAFE_LocationContext } from "react-router-dom";
+import { wideColumn } from '@teambit/base-ui.layout.page-frame';
 import { ComponentCardGroup } from "@teambit/explorer.ui.gallery.component-card-group";
 import { Subtitle } from "@teambit/docs.ui.subtitle";
 import { TopInventions } from "@learnbit/inventions.blocks.top-inventions";
@@ -35,7 +36,7 @@ In this example, we will use the components built for this documantation app.
 
 <!-- Here is an example of what you will get: -->
 
-<ComponentShowcase componentId="teambit.wiki/apps/wiki@1.90.3" />
+<ComponentShowcase className={wideColumn} componentId="teambit.wiki/apps/wiki@1.90.3" />
 
 <!-- stronger understanding for bottom-up thinking early on -->
 
@@ -46,7 +47,6 @@ build better apps.  -->
 
 <br />
 
-<!-- TODO: Kutner add dark theme -->
 <!-- 
 <ExcludeHighlighter>
   <BubbleHighlighter
@@ -320,7 +320,7 @@ bit export
 
 ## Think your "Quick Start" is better than ours?
 
-If you think your quick start is better than ours, or just shows the same on a different tech stack or product. Feel free to
+If you think you have a quick start is better than ours, or just shows the same on a different tech stack or product. 
 
 ## What's next?
 

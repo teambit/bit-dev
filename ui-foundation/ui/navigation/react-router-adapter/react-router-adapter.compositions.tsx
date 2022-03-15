@@ -37,7 +37,7 @@ function CurrentLocation() {
   const location = useLocation();
   return (
     <div>
-      location is: <code>"{location?.pathname}"</code>
+      location is: <code>{location?.pathname}</code>
     </div>
   );
 }

@@ -1,55 +1,85 @@
 # Update Components
 
-There are several ways you may update your component. This guide walks through how to update components and measure the impact of your updates.
+When using components for collaboration it may happen that a remote component has been updated. When this happens, you need to fetch the remote updates and merge them to your codebase, to keep up with the team's progress.
 
-## Update Implementation
+When you run `bit install`, Bit also checks if there are any updates to your components. If there are updates, you will see a message like this:
 
-Updating implementation is as simple as editing the code of a component.
-TODO
-
-## Update Configuration
-
-workspace.json
-TODO
-
-## Update Dependencies
-
-Update your workspace dependencies by running the `install` command:
-
-```sh
-bit install
+```bash
+successfully imported 1 components
+- updated teambit.base-ui/button new versions: 1.0.1
 ```
 
-## Show Modified Components
+Bit notifies on any new versions found for the components that exist in the local workspace.
 
-To see how updating dependencies has affected each component run:
+Running bit status also shows pending changes for the component:
 
-```bash title="See updated components"
+```bash
 bit status
 ```
 
-Bit tracks which component it using any dependency, and shows you how the changes to installed dependencies affect each component.
+```bash
+pending updates
+(use "bit checkout [version] [component_id]" to merge changes)
+(use "bit log [component_id]" to list all available versions)
 
-```bash title="List of update components"
-TODO - GET OUTPUT
+    > teambit.base-ui/button: 1.0.0 latest: 1.0.1
 ```
 
-We see that `COMPONENT` is modified, and as a result `COMPONENT` is pending to be tagged as well, since its dependency was modified.
-
-### Component Diff
+## Show diff with the incoming update
 
 Bit uses Git to provide you with a diff for each component. You can use the `diff` command to see what are the exact changes made to a specific component.
 
 ```bash
-bit diff COMPONENT
+bit diff teambit.base-ui/button
 ```
 
 Component version contains code, configuration and dependencies, so the diff output gives us a complete glimpse of what has changed.
 
-```bash title="Diff output"
-TODO
+## Checkout the update
+
+To update your local component with the remote modifications you need to checkout the new version or snapshot. Alternatively, you can quickly checkout the latest version:
+
+```bash
+bit checkout latest teambit.base-ui/button
 ```
 
-## Build Affected Components
+```bash
+successfully switched teambit.base-ui/button to version 1.0.1
+update base-ui/button/button.tsx
+```
 
-Bit keeps a dependency graph of all components so when a component is modified it knows to build it and its dependents only, instead of building all components in the workspace.  
+### Handle merge conflict
+
+In case Git is unable to automatically merge the incoming changes with local changes in your component, you get prompted to resolve the conflict.
+
+Bit will print a similar output to this:
+
+```bash
+successfully switched teambit.base-ui/input/button to version 1.0.5
+updated base-ui/input/button.spec.ts
+updated base-ui/input/index.ts
+CONFLICT base-ui/input/button.ts automatic merge failed. please fix conflicts manually and then tag the results.
+```
+
+You can use the several options when `checkout` to resolve conflicts.
+
+- `--theirs` - the remote version overrides the local modifications.
+- `--ours` - the local implementation overrides the remote changes.
+- `--manual` - resolve the conflict manually.
+
+```bash
+bit checkout latest teambit.base-ui/button --ours
+```
+
+Once merge is resolved, run `bit status` and see the result.
+
+```bash
+bit status
+```
+
+```status
+modified components
+(use "bit tag --all [version]" to lock a version with all your changes)
+
+     > teambit.base-ui/input/button ... ok
+```

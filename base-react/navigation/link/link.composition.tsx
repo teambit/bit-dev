@@ -18,7 +18,7 @@ export const ActiveLink = () => (
   <div style={{ padding: 20 }}>
     <div>
       current url:
-      <div style={{ textDecoration: 'underline' }}>"{typeof window !== 'undefined' && window.location.pathname}"</div>
+      <div style={{ textDecoration: 'underline' }}>{typeof window !== 'undefined' && window.location.pathname}</div>
       (active links should be orange)
     </div>
 
@@ -46,11 +46,19 @@ export const ActiveLink = () => (
 );
 
 const navA: RouterContextType = {
-  Link: ({ children, ...props }) => <a {...props}>{children} 🔗</a>,
+  Link: ({ children, ...props }: any) => (
+    <a {...props} role="img">
+      {children} 🔗
+    </a>
+  ),
 };
 
 const navB: RouterContextType = {
-  Link: ({ style, ...props }) => <a {...props} style={{ textDecoration: 'none', fontWeight: 'bolder', ...style }} />,
+  Link: ({ style, ...props }: any) => (
+    <a {...props} style={{ textDecoration: 'none', fontWeight: 'bolder', ...style }}>
+      {props.children}
+    </a>
+  ),
 };
 
 export const MultipleRoutingSystems = () => (
