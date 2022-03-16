@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { Button } from '@teambit/design.ui.buttons.button';
 import { H2 } from '@teambit/design.ui.heading';
 // import { InfoCard } from '@teambit/design.ui.content.info-card';
@@ -6,13 +6,6 @@ import { H2 } from '@teambit/design.ui.heading';
 import { Card } from '@teambit/design.ui.cards.card';
 import { ThemeToggler, ThemeSwitcher } from '@teambit/design.themes.theme-toggler';
 import styles from './sample-app.module.scss';
-
-export type SampleAppProps = {
-  /**
-   * a node to be rendered in the special component.
-   */
-  children?: ReactNode;
-};
 
 export function SampleApp() {
   return (

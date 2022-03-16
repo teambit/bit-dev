@@ -43,28 +43,20 @@ export function UseCasesCard({
   ...rest
 }: UseCasesCardProps) {
   return (
-      <Card
-        {...rest}
-        elevation={elevation}
-        className={classNames(styles.useCasesCard, className)}
-      >
-        <div className={styles.images}>
-          <Image
-            src={image}
-            alt={alt}
-            className={classNames(styles.image, className)}
-          />
-        </div>
+    <Card {...rest} elevation={elevation} className={classNames(styles.useCasesCard, className)}>
+      <div className={styles.images}>
+        <Image src={image} alt={alt} className={classNames(styles.image, className)} />
+      </div>
 
-        <div className={styles.textBox}>
-          <H4 size="sm" className={classNames(styles.title, className)}>
-            {title} <Icon of="arrow_right" className={styles.arrowIcon} />
-          </H4>
-          <Paragraph element="p" className={classNames(styles.text, className)}>
-            {text}
-          </Paragraph>
-          {children}
-        </div>
-      </Card>
+      <div className={styles.textBox}>
+        <H4 size="sm" className={classNames(styles.title, className)}>
+          {title} <Icon of="arrow_right" className={styles.arrowIcon} />
+        </H4>
+        <Paragraph element="p" className={classNames(styles.text, className)}>
+          {text}
+        </Paragraph>
+        {children}
+      </div>
+    </Card>
   );
 }

@@ -1175,16 +1175,9 @@ export const learnDocsRoutes: DocsRoute[] = [
             title: 'Replacing React tools',
             component: <ReplacingReactTools />,
           },
-        ],
-      },
-      {
-        path: 'react-native',
-        title: 'React Native',
-        open: false,
-        children: [
           {
             path: 'react-native-overview',
-            title: 'React Native overview',
+            title: 'React Native',
             component: <ReactNativeOverview />,
           },
         ],

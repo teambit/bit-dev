@@ -28,7 +28,7 @@ can use the API to extend existing features and build new ones on top of them.
 
 Here is an example to a simple Logger aspect, exposing an API for logging messages and persisting them in memory.
 ```ts
-export class MyLoggerFeature {
+export class MyLoggerAspect {
   private logs = [];
 
   public log(log: string) {
@@ -41,7 +41,7 @@ export class MyLoggerFeature {
   }
 
   static async provider() {
-    return MyLoggerFeature();
+    return MyLoggerAspect();
   }
 }
 ```
