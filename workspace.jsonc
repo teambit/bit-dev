@@ -87,7 +87,7 @@
         "@teambit/component.modules.component-url": "^0.0.123",
         "@teambit/component.ui.graph.component-node-container": "^0.0.33",
         "@teambit/component.ui.graph.dependencies-graph": "^0.0.34",
-        "@teambit/components.blocks.component-card-display": "0.0.13",
+        "@teambit/components.blocks.component-card-display": "0.0.17",
         "@teambit/dependencies.modules.packages-excluder": "^0.0.44",
         "@teambit/design.content.carousel": "0.0.15",
         "@teambit/design.design-language": "0.0.2",
