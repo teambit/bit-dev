@@ -1,5 +1,5 @@
 .container {
-  height: 750px;
+  min-height: 350px;
 }
 
 .tab {
@@ -64,10 +64,13 @@
   height: 100%;
   box-sizing: border-box;
   padding: 8px 12px;
+  max-height: 750px;
   border-radius: 8px;
 }
 
 .tabContent {
+  // min-height: 500px;
+  overflow: scroll;
   animation: fadeEffect 1s;
 }
 

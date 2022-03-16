@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 // import { ComponentCard } from '@teambit/explorer.ui.component-card';
 // import { RelationsGraph } from '@teambit/graph.relations-graph';
 import { PreviewPlugin } from '@teambit/explorer.plugins.preview-plugin';
@@ -16,9 +16,16 @@ export type ComponentShowcaseProps = {
    * The components' id to showcase.
    */
   componentId: string;
+
+  // /**
+  //  * component to render. TODO: support this.
+  //  */
+  // component: ComponentType;
+
+  preview?: ReactNode;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-export function ComponentShowcase({ componentId, className, ...rest }: ComponentShowcaseProps) {
+export function ComponentShowcase({ componentId, preview, className, ...rest }: ComponentShowcaseProps) {
   const [selectedTab, setSelectedTab] = React.useState<'preview' | 'graph' | 'code'>('preview');
   const id = ComponentID.fromString(componentId || '');
   const component = new ComponentDescriptor(id as any, {} as AspectList);
@@ -51,7 +58,7 @@ export function ComponentShowcase({ componentId, className, ...rest }: Component
 
       <div className={styles.tabContent}>
         {/* @ts-ignore - update ComponentDescriptor in preview-plugin */}
-        {selectedTab === 'preview' && <PreviewPlugin component={component} />}
+        {selectedTab === 'preview' && (preview || <PreviewPlugin component={component} style={{ height: 500 }} />)}
         {/* {selectedTab === "graph" && <RelationsGraph seeders={[component]} />} */}
       </div>
     </div>

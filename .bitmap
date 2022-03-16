@@ -59,7 +59,7 @@
     },
     "community/blog-quick-start": {
         "scope": "teambit.blog",
-        "version": "0.0.16",
+        "version": "0.0.18",
         "mainFile": "index.ts",
         "rootDir": "blog/community/blog-quick-start"
     },
@@ -1046,13 +1046,7 @@
         "version": "",
         "defaultScope": "teambit.harmony",
         "mainFile": "index.ts",
-        "rootDir": "harmony/docs/aspect-config",
-        "config": {
-            "teambit.community/envs/community-mdx@1.95.9": {},
-            "teambit.envs/envs": {
-                "env": "teambit.community/envs/community-mdx@1.95.9"
-            }
-        }
+        "rootDir": "harmony/docs/aspect-config"
     },
     "docs/creating-aspects": {
         "scope": "teambit.harmony",
@@ -1071,26 +1065,14 @@
         "version": "",
         "defaultScope": "teambit.harmony",
         "mainFile": "index.ts",
-        "rootDir": "harmony/docs/runtimes",
-        "config": {
-            "teambit.community/envs/community-mdx@1.95.9": {},
-            "teambit.envs/envs": {
-                "env": "teambit.community/envs/community-mdx@1.95.9"
-            }
-        }
+        "rootDir": "harmony/docs/runtimes"
     },
     "docs/slots": {
         "scope": "",
         "version": "",
         "defaultScope": "teambit.harmony",
         "mainFile": "index.ts",
-        "rootDir": "harmony/docs/slots",
-        "config": {
-            "teambit.community/envs/community-mdx@1.95.9": {},
-            "teambit.envs/envs": {
-                "env": "teambit.community/envs/community-mdx@1.95.9"
-            }
-        }
+        "rootDir": "harmony/docs/slots"
     },
     "docs/using-apps": {
         "scope": "teambit.apps",
@@ -1208,7 +1190,7 @@
     },
     "quick-start": {
         "scope": "teambit.bit",
-        "version": "0.0.16",
+        "version": "0.0.18",
         "mainFile": "index.ts",
         "rootDir": "bit/quick-start/quick-start"
     },

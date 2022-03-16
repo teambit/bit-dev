@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { Welcome } from '@teambit/react.templates.pages.welcome';
 import { ComponentID } from '@teambit/component-id';
 import { QuickStart } from '@teambit/bit.quick-start';
 
@@ -20,7 +21,7 @@ export function BasicReact({ children }: BasicReactProps) {
   ];
 
   return (
-    <QuickStart name="basic-react" id={id} components={components}>
+    <QuickStart name="basic-react" id={id} components={components} mainComponent={<Welcome />}>
       {children}
     </QuickStart>
   );

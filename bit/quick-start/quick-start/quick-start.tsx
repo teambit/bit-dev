@@ -53,6 +53,8 @@ export type QuickStartProps = {
    */
   id: ComponentID;
 
+  mainComponent?: ReactNode;
+
   /**
    * intro node.
    */
@@ -95,6 +97,7 @@ export function QuickStart({
   defaultScopeName,
   defaultWorkspaceName,
   name,
+  mainComponent,
   components,
   beforeThinking,
   children,
@@ -113,7 +116,7 @@ export function QuickStart({
   return (
     <div>
       <div className={styles.sectionMargin}>{intro || <DefaultIntro />}</div>
-      <ComponentShowcase className={wideColumn} componentId={id.toString()} />
+      <ComponentShowcase className={wideColumn} componentId={id.toString()} preview={mainComponent} />
       <div className={styles.showcase}>
         <WhatIsBit />
         {/* <H3>Learn Bit</H3> */}

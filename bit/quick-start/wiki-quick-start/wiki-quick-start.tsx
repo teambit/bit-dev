@@ -1,6 +1,11 @@
 import React, { ReactNode } from 'react';
+import { NavigationProvider } from '@teambit/base-react.navigation.link';
+import { reactRouterAdapter } from '@teambit/ui-foundation.ui.navigation.react-router-adapter';
+import { MemoryRouter, UNSAFE_LocationContext } from 'react-router-dom';
 import { ComponentID } from '@teambit/component-id';
+import { WikiApp } from '@teambit/wiki.apps.wiki';
 import { QuickStart } from '@teambit/bit.quick-start';
+import styles from './wiki-quick-start.module.scss';
 
 export type WikiQuickStartProps = {
   /**
@@ -20,7 +25,22 @@ export function WikiQuickStart({ children }: WikiQuickStartProps) {
   ];
 
   return (
-    <QuickStart name="wiki" id={id} components={components}>
+    <QuickStart
+      name="wiki"
+      id={id}
+      components={components}
+      mainComponent={
+        <UNSAFE_LocationContext.Provider value={null as any}>
+          <MemoryRouter>
+            <div className={styles.wiki}>
+              <NavigationProvider implementation={reactRouterAdapter}>
+                <WikiApp />
+              </NavigationProvider>
+            </div>
+          </MemoryRouter>
+        </UNSAFE_LocationContext.Provider>
+      }
+    >
       {children}
     </QuickStart>
   );

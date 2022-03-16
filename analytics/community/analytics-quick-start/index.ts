@@ -1,2 +1,5 @@
-export { AnalyticsQuickStart } from './analytics-quick-start';
+import { AnalyticsQuickStart } from './analytics-quick-start';
+
 export type { AnalyticsQuickStartProps } from './analytics-quick-start';
+export default AnalyticsQuickStart;
+export { AnalyticsQuickStart };

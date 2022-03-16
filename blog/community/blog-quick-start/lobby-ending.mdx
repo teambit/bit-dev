@@ -1,0 +1,7 @@
+It might seem a little bloated, but it's quite simple. Most of the JSX returned by the component is metadata dynamically generated for the HTML head according to the data passed to the component.
+
+The interesting part is where we render the plugins. The plugins are rendered
+at the position we want them to be rendered. And yes, you guessed right, the plugins are also independent components that are versioned and can be updated. Something wrong with the plugin system? You can publish a new version of the plugin
+or fall back to a previous version.
+
+You can study further about the lobby page at the [component's documentation](https://bit.dev/teambit/blog/pages/lobby/)
