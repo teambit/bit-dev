@@ -18,7 +18,7 @@ All components in this project are new, so none of them has any versions.
 To record our first version we use the `tag` command:
 
 ```bash
-bit tag ui/text --ver 1.0.0 --message "my first vesion"
+bit tag ui/text --ver 1.0.0 --message "my first version"
 ```
 
 During the `snap` process, Bit runs the full component [build pipeline](/docs/dev-services/builder/build-pipelines#build-pipelines), as defined in its environment.  
@@ -58,13 +58,13 @@ staged components
 
 ## Semantic Versioning
 
-Bit adheres to Semantic Versioning as defined by [SemVer](https://semver.org/) when versioning components. This way any package manager like npm, yarn or pnpm can consume the comopnent as a dependency to a project.  
+Bit adheres to Semantic Versioning as defined by [SemVer](https://semver.org/) when versioning components. This way any package manager like npm, yarn or pnpm can consume the component as a dependency to a project.  
 The `tag` command has several features you can use for versioning:
 
 ```bash
 bit tag --all --major --message "my version message"  # Version all modified and new components with a major version.
 bit tag --all --minor --message "my version message"  # Version all modified and new components with a minor version.
-bit tag "ui/*" --patch --message "my version message" # Version components matching the pattern with a patch vesion.
+bit tag "ui/*" --patch --message "my version message" # Version components matching the pattern with a patch version.
 bit tag ui/text --message "my version message"        # Version a specific component with default increment (patch).
 ```
 
@@ -104,7 +104,7 @@ As components are not only built from source code, there are various things that
 - Modification in any of the component files.
 - New file added.
 - File removed.
-- Dependenty version update.
+- Dependency version update.
 - Configuration changed.
 
 Change any of the files in `demo/ui/text`, and then run `tag` again:
