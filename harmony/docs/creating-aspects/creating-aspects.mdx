@@ -2,18 +2,20 @@ import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-
 
 # Creating Aspects
 
-Aspects are components used to extend Bit. Every Aspect is a component that uses the [Aspect environment](/).
-You can use Aspects not just to extend Bit but also to built your own composable applications, that is your choice and we have no preference.
+Aspects are components used to extend Bit. Every Aspect is a component that uses the Aspect environment. <!-- TODO [Aspect environment](/). -->
+Aspects are not just for extending Bit, but also for building your own composable applications.
 
 ## Creating an Aspect
 
-Create a basic Aspect with using the official aspect env template.
+Here is how we would create a basic Aspect using the official aspect env template.
+
+For example: 
 
 ```
 bit create aspect hello-world
 ```
 
-Your new component incldues four new files: `hello-world.aspect.ts`, `hello-world.main-runtime.ts` and regular documantation, compositions and test files.
+Your new component incldues four new files: `hello-world.aspect.ts`, `hello-world.main-runtime.ts` and regular documentation, compositions and test files.
 
 To use the aspect, configure it on the Workspace and use it from an another Aspect.
 
@@ -31,7 +33,8 @@ Every Aspect can expose APIs for others to use, whether they are an other Aspect
 Adding an API is as simple as adding a method to a class.
 
 To start adding APIs to your Aspect, head over your `main.runtime` file, and add new methods to it. 
-Here is an example for a basic `sayHello()` API.
+
+Here is an example for a basic `sayHello()` API:
 
 ```ts
 export class HelloWorldMain {
@@ -54,13 +57,13 @@ like UI, RESTful, GraphQL or anything else that might be of interest.
 
 ## Using dependencies
 
-Since Bit is entirely build and composed from Aspects. That means every feature in Bit is first available as an API, and you can use these
-Aspects to extend Bit and build amazing development and collaboration expereinces on top.
+Since Bit is entirely built and composed from Aspects. That means every feature in Bit is first available as an API, and you can use these
+Aspects to extend Bit and build amazing development and collaboration experiences on top.
 
 Every Aspect can use APIs provided by other Aspects by adding them as dependencies. This way you can get access to all of the components and APIs
 we used to compose Bit to build your own Aspect and extend Bit.
 
-These are few examples to core components in the Bit toolchain that you can use as an API:
+Here are a few examples of core components in the Bit toolchain that you can use as an API:
 
 <ComponentCardDisplay componentIds={[
   'teambit.harmony/cli',
@@ -70,7 +73,7 @@ These are few examples to core components in the Bit toolchain that you can use 
 
 <br />
 
-To use the CLI aspect for example, in order to extend Bit with a new command is as simple as following.
+For example, if you wanted to use the CLI aspect to extend Bit with a new command, it is as simple as writing the following:
 
 ```ts
 // import the CLI aspect and the type of CLI main runtime.
@@ -96,11 +99,11 @@ export class MyAspectMain {
 }
 ```
 
-In the same sense you can use the component aspect to obtain programmatic access to component objects, and to the generator aspect, in order to 
-register a new [component generation template](/docs/generator) for use. 
+Similarly, you could use the component aspect to obtain programmatic access to component objects, and to the generator aspect, in order to 
+register a new [component generation template](/docs/generator). 
 
-Aspects like the below can be quite useful in various cases. You can use the GraphQL aspect to extend Bit with a new GraphQL schema, Express to
-add a new RESTful API or the Compiler API to compile any component programmatically without being aware to its implementation.
+Aspects like the example below can be quite useful in various cases. You can use the GraphQL aspect to extend Bit with a new GraphQL schema, Express to
+add a new RESTful API, or the Compiler API to compile any component programmatically without being aware to its implementation.
 
 <ComponentCardDisplay componentIds={[
   'teambit.compilation/compiler',
@@ -111,6 +114,8 @@ add a new RESTful API or the Compiler API to compile any component programmatica
 ## Using configuration
 
 Aspects can accept configuration from its users. To define a a config simply use a type to specify the config.
+
+For example:
 
 ```ts
 export type HelloWorldConfig = {
@@ -140,7 +145,9 @@ export class HelloWorldMain {
 }
 ```
 
-Our new `worldName` property can be provided in any configuration. For example in `workspace.json` or `scope.json`.
+Our new `worldName` property can be provided in any configuration. 
+
+For example (in `workspace.json` or `scope.json`):
 
 ```json
 {

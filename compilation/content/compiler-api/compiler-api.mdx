@@ -40,7 +40,7 @@ displayConfig?(): string;
 The `displayConfig` function helps the user to see the compiler config when using the `bit env <comp-id>` command.
 It should return a string representation of the compiler config (for example JSON.stringify of the tsconfig file).
 
-```
+```bash
 $ bit env ui/text
 
 // ...
@@ -81,7 +81,7 @@ build(context: BuildContext): Promise<BuiltTaskResult>;
 - [`BuildContext`](https://bit.dev/teambit/pipelines/builder/~code/build-task.ts)<!-- TODO: maybe change link to point to the builder docs here-->
 - [`BuiltTaskResult`](https://bit.dev/teambit/pipelines/builder/~code/build-task.ts)<!-- TODO: maybe change link to point to the builder docs here-->
 
-Implements the logic of the compilation task. This method will be used by the Compiler Aspect to create a Build Task (that is, this method does not _directly_ create a new Build Task)
+Implements the logic of the compilation task. This method will be used by the Compiler Aspect to create a Build Task (that is, this method does not _directly_ create a new Build Task).
 
 The build runs on a capsules network. <!--TODO add link -->
 For each processed component, `ComponentResult` should be returned. <!--TODO add link -->
@@ -121,7 +121,7 @@ the second for creating "esm". The artifact names would be "es5" and "esm" accor
 
 ## createTask (optional)
 
-An API to create a Compiler task via the concrete compiler implementation (instead of doing so via the Compiler Aspect)
+An API to create a Compiler task via the concrete compiler implementation (instead of doing so via the Compiler Aspect).
 
 ```js
 createTask?(name?: string): BuildTask;
@@ -170,7 +170,7 @@ version(): string;
 
 ## displayName
 
-Returns the display name of the current compiler instance (e.g. 'TypeScript')
+Returns the display name of the current compiler instance (e.g. 'TypeScript').
 
 ```js
 displayName(): string;

@@ -1,11 +1,10 @@
 # Aspect Config
 
-Aspect can be configured anywhere that accepts Harmony configuration. In Bit, it could be the Workspace, Scope and a Component. Also
-it might come up if creating an Harmony application and configuring aspects to it.
+Aspect can be configured anywhere that accepts Harmony configuration. In Bit, it could be the Workspace, Scope or a Component. It might even come up while creating an Harmony application and configuring aspects to it.
 
 ## Configuring an Aspect
 
-Configuring either Bit core aspects or external aspect is just the same.
+Configuring either Bit's core aspects or external aspect is just the same.
 The example configuration is a basic one used in `workspace.json` to configure the Workspace aspect.
 This is how we allow people to configure different variables for the Workspace like its `name` or `defaultScope`.
 
@@ -18,9 +17,11 @@ This is how we allow people to configure different variables for the Workspace l
 }
 ```
 
-External aspects that are configued on a Bit configuration, would be automatically and lazily downloaded as needed.
+External aspects that are configued in a Bit configuration would be automatically and lazily downloaded as needed.
 
 Aspects can also be configued to components using the `aspect` command.
+
+For example:
 
 ```bash
 bit aspect set my-component my-org.scope/my-dev-env

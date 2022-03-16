@@ -1,20 +1,20 @@
 # Slots
 
-Slots is a system for extensibility. They are making it easy for Aspects to pluggable by other Aspects.
+Slots is a system for extensibility. They make it easy for Aspects to be pluggable by other Aspects.
 
 Technically, it is a simple registry for objects. It can be used to expose APIs that allow for other Aspects to extend a certain component.
-We use slots to allow for API consumers to inject logic and behaviour. For example, behind the scenes, the CLI's aspect 
-`registerCommand` API, it just registering the command object to a Slot. Later on, it reads it when computing commands for Bit during
+We use slots to provide the ability for API consumers to inject logic and behaviour. For example, behind the scenes, the CLI's aspect 
+`registerCommand` API is just registering the command object to a Slot. Later on, it reads it when computing commands for Bit during
 bootstrap. 
 
-Simpler examples for Slots can be found across our UI, which allows you to register to the TopBar of the Component in the Workspace UI
-and allows the Scope UI to be extended with a new Drawer.
+Simpler examples for Slots can be found across our UI, which allow you to register to the TopBar of the Component in the Workspace UI
+and allow the Scope UI to be extended with a new Drawer.
 
 
 ## Using slots
 
-Slots are used through other Aspect API which expose them, usually through API method with the `register` prefix.
-For example, in the example below, we use CLI register method to inject a new command to Bit.
+Slots are used through another Aspect API which expose them, usually through an API method with the `register` prefix.
+In the next code example below, we use the CLI register method to inject a new command to Bit.
 
 Most aspects across Bit expose slots in their APIs. Slots are available for UIs, Commands, server APIs and more and as a consumer
 it is just an implementation detail.
