@@ -84,8 +84,8 @@ If you need to develop components for different versions of Angular you should c
 
 :::
 
-For example if you want to use a component in an Angular application running with v8 and in an Angular application running with v13, then you should choose the environment `angular-v8` as it will be compatible with both versions 8 and 13.
-The only exceptions are if you need to use new APIs that were not present in previous versions, or if you want to use old APIs that have been deprecated and removed from the framework in recent version, in which case you should create two components, one for each version, and maybe abstract the code that is common between the two in a third version-agnostic component.
+For example if you want to use a component in an Angular application running with v8 and in an Angular application running with v13, you should choose the environment `angular-v8` as it will be compatible with both versions 8 and 13.
+The only exceptions are if you need to use new APIs that were not present in previous versions, or if you want to use old APIs that have been deprecated and removed from the framework in recent version, in which case you should create two components - one for each version - and consider abstracting the code that is common between the two in a third version-agnostic component.
 But most of the time, the framework compilation will remove any version-specific code and replace it with simple ES5 code that is not linked to the version of the framework that you use.
 See [Maintaining library compatibility](https://angular.io/guide/ivy#maintaining-library-compatibility) in the Angular documentation.
 

@@ -61,10 +61,7 @@ const secondTransformer = (configMutator) => {
 };
 
 // Initialize a new bundler instance using the above transformers
-const bundler = this.webpack.createBundler(
-  [firstTransformer, secondTransformer],
-  context
-);
+const bundler = this.webpack.createBundler([firstTransformer, secondTransformer], context);
 
 // The new config for this Webpack instance:
 // {
