@@ -42,7 +42,7 @@ importers:
       '@teambit/cloud-providers.deployers.netlify': 0.0.8
       '@teambit/cloud.cloud-provider': 0.0.6
       '@teambit/community.entity.graph.bubble-graph': ^1.23.11
-      '@teambit/community.ui.sticky-banner': 0.0.4
+      '@teambit/community.ui.sticky-banner': 0.0.5
       '@teambit/community.ui.text-tooltip': 0.0.4
       '@teambit/community.ui.usage-example': 0.0.3
       '@teambit/component-descriptor': 0.0.13
@@ -207,7 +207,7 @@ importers:
       '@teambit/cloud-providers.deployers.netlify': 0.0.8
       '@teambit/cloud.cloud-provider': 0.0.6_41d93ae2141268db5ea0e8b166c96d66
       '@teambit/community.entity.graph.bubble-graph': link:community/entity/graph/bubble-graph
-      '@teambit/community.ui.sticky-banner': 0.0.4_08996d9b048963006e0d71241013fb8b
+      '@teambit/community.ui.sticky-banner': 0.0.5_08996d9b048963006e0d71241013fb8b
       '@teambit/component-descriptor': registry.npmjs.org/@teambit/component-descriptor/0.0.13_react-dom@16.13.1+react@16.13.1
       '@teambit/component-id': registry.npmjs.org/@teambit/component-id/0.0.401
       '@teambit/component.modules.component-url': registry.npmjs.org/@teambit/component.modules.component-url/0.0.123_react-dom@16.13.1+react@16.13.1
@@ -764,6 +764,9 @@ importers:
   design/community/design-quick-start:
     specifiers: {}
 
+  design/examples/sample-app:
+    specifiers: {}
+
   design/ui/brand/logo:
     specifiers: {}
 
@@ -1016,6 +1019,9 @@ importers:
   harmony/content/cli-reference:
     specifiers: {}
 
+  harmony/content/node-overview:
+    specifiers: {}
+
   harmony/content/using-aspects:
     specifiers: {}
 
@@ -1029,6 +1035,9 @@ importers:
     specifiers: {}
 
   harmony/docs/slots:
+    specifiers: {}
+
+  html/content/html-overview:
     specifiers: {}
 
   pipelines/content/build-artifacts:
@@ -1094,6 +1103,9 @@ importers:
   react/content/config-react-tools:
     specifiers: {}
 
+  react/content/react-native-overview:
+    specifiers: {}
+
   react/content/react-overview:
     specifiers: {}
 
@@ -1128,6 +1140,9 @@ importers:
     specifiers: {}
 
   ui-foundation/urls/compare-url:
+    specifiers: {}
+
+  web-components/content/lit-overview:
     specifiers: {}
 
   webpack/content/configure-webpack:
@@ -2596,8 +2611,8 @@ packages:
       - react-dom
     dev: false
 
-  /@teambit/community.ui.sticky-banner/0.0.4_08996d9b048963006e0d71241013fb8b:
-    resolution: {integrity: sha1-tX/2cpFi95ZuttSgbDMd9RwL2SM=, tarball: '@teambit/community.ui.sticky-banner/-/@teambit-community.ui.sticky-banner-0.0.4.tgz'}
+  /@teambit/community.ui.sticky-banner/0.0.5_08996d9b048963006e0d71241013fb8b:
+    resolution: {integrity: sha1-5m04ytA0uxPJUXwzK+8NcbnUesU=, tarball: '@teambit/community.ui.sticky-banner/-/@teambit-community.ui.sticky-banner-0.0.5.tgz'}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0
       react-router-dom: ^6.0.0

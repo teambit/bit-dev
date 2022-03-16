@@ -41,7 +41,7 @@ thinking in components.
   </BubbleHighlighter>
 </ExcludeHighlighter>
 
-## Monolithic thinking
+<!-- ## Monolithic thinking
 
 Thinking even of this simple product as one piece, keeps us further away from initial value creation. This approach focuses on a single point of value that can only ever serve a single purpose; the bigger the piece gets, the bigger the problem becomes.
 
@@ -51,15 +51,15 @@ This amounts to unnecessary amounts of duplicated code, design sketches and prod
 
 Even worse, repeating work is repeating decisions, reducing productivity, ending up with teams diverging to different paths for similar problems. Diverged decisions pile up to a growing burden that divides teams further apart, where collaboration is discouraged and morale deteriorates.
 
-<!-- This leads us to a dangerous equation; the more we invest in value creation, the more damage is caused. At this point, it might be better if teams stopped working - for the sake of the company. -->
-
 For a developer, that means building tightly-coupled code that is hard to reuse and limiting .
 
 Value creation is exponentially decaying over time, ending up in silos of stagnation.
 For a startup, that means bounding yourself to just a few paths, creating very specific value, limiting a company's ability to pivot or adapt to change.
 
 For an enterprise, that means every dollar spent in value creation is decreasing the value of total dollars invested. The more the enterprise invests, the less value it can create.
-This equation applies on the entire range, from the smallest system all the way up to the biggest one. 
+This equation applies on the entire range, from the smallest system all the way up to the biggest one.  -->
+
+<!-- This leads us to a dangerous equation; the more we invest in value creation, the more damage is caused. At this point, it might be better if teams stopped working - for the sake of the company. -->
 
 <!-- As you might have noticed, this site was built in components. As we built the new documentation we started hiring more people to work for our company and we needed
 an internal wiki site to be a single source of truth for all information internal at Bit to keep everyone in sync. We decided to document the process to demonstarate
@@ -88,21 +88,7 @@ Components are described by names and APIs, and contain source code implementati
 
 In fact, everything you see on this page has been created with components.
 
-<ExcludeHighlighter>
-  <BubbleHighlighter
-    componentId={ComponentID.fromString("teambit.wiki/apps/wiki")}
-    showId
-  >
-    <UNSAFE_LocationContext.Provider value={null}>
-      <MemoryRouter>
-        <div className={styles.wiki}>
-          <WikiApp />
-        </div>
-      </MemoryRouter>
-    </UNSAFE_LocationContext.Provider>
-  </BubbleHighlighter>
-</ExcludeHighlighter>
-
+<!-- 
 ## Component thinking
 
 For us, building this Wiki app.
@@ -113,8 +99,7 @@ Building in components is a collaborative process, in which, all stakeholders si
 
 Thinking in components is a recursive process that starts at defining and the **immediate component we need**. Upon the definition of this component, **think which components you wish you had now**.
 Search for these components, try to **use or collaborte on something that exists**, otherwise **create a new component that fulfills this exact need** and share it with everyone.
-
-
+-->
 
 ## Ready to give Bit a try?
 
