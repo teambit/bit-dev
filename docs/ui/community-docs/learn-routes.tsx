@@ -124,7 +124,7 @@ const CompositionsOverview = lazy(() => import('@teambit/compositions.content.co
 const CompositionFormat = lazy(() => import('@teambit/compositions.content.composition-format'));
 const CompositionContext = lazy(() => import('@teambit/compositions.content.composition-context'));
 const MountingCompositionsToDom = lazy(() => import('@teambit/compositions.content.mounting-compositions-to-dom'));
-const CompositionsAndStories = lazy(() => import('@teambit/compositions.content.compositions-and-stories'));
+// const CompositionsAndStories = lazy(() => import('@teambit/compositions.content.compositions-and-stories'));
 
 /* Components */
 
@@ -1175,16 +1175,9 @@ export const learnDocsRoutes: DocsRoute[] = [
             title: 'Replacing React tools',
             component: <ReplacingReactTools />,
           },
-        ],
-      },
-      {
-        path: 'react-native',
-        title: 'React Native',
-        open: false,
-        children: [
           {
             path: 'react-native-overview',
-            title: 'React Native overview',
+            title: 'React Native',
             component: <ReactNativeOverview />,
           },
         ],

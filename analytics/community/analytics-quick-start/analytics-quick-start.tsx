@@ -16,10 +16,10 @@ export function AnalyticsQuickStart({ children }: AnalyticsQuickStartProps) {
   const components = [
     // TODO: app showcasing a design system.
     'teambit.analytics/examples/dashboard',
-    'teambit.analytics/metric-card',
-    'teambit.analytics/charts/line-chart',
-    'teambit.analytics/charts/bar-chart',
-    'teambit.analytics/charts/pie-chart',
+    'teambit.analytics/examples/new-users',
+    'teambit.analytics/examples/revenues',
+    'teambit.analytics/examples/top-frameworks',
+    'teambit.analytics/examples/top-members',
   ];
 
   // const dashboard = Dashboard.__bit_component.id;

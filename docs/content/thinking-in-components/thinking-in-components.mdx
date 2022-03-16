@@ -14,6 +14,7 @@ import { HighlightComponent } from '@teambit/docs.ui.highlighter.highlight-compo
 import { TopInventions } from '@learnbit/inventions.blocks.top-inventions';
 import { TabContainer, TabList, Tab, TabPanel } from '@teambit/design.ui.panels.tabs';
 import { Tabs } from './tabs';
+import { HighlightTarget, ElementHighlighter } from '@teambit/react.ui.component-highlighter';
 import styles from './thinking-in-components.module.scss';
 import { exampleComponents } from './example-components';
 import AppContent from './app.mdx';
@@ -40,9 +41,9 @@ thinking in components.
   </BubbleHighlighter>
 </ExcludeHighlighter>
 
-<!-- ## Thinking in single piece
+<!-- ## Monolithic thinking
 
-Thinking of this simple product as one piece, keeps us further away from initial value creation. This approach focuses on a single point of value that can only ever serve a single purpose; the bigger the piece gets, the bigger the problem becomes.
+Thinking even of this simple product as one piece, keeps us further away from initial value creation. This approach focuses on a single point of value that can only ever serve a single purpose; the bigger the piece gets, the bigger the problem becomes.
 
 Persisting with this pattern of thinking compounds the problem; work is repeated infinitely. As more people join a team and continue this pattern, even more repetition takes place.
 
@@ -50,13 +51,15 @@ This amounts to unnecessary amounts of duplicated code, design sketches and prod
 
 Even worse, repeating work is repeating decisions, reducing productivity, ending up with teams diverging to different paths for similar problems. Diverged decisions pile up to a growing burden that divides teams further apart, where collaboration is discouraged and morale deteriorates.
 
-This leads us to a dangerous equation; the more we invest in value creation, the more damage is caused. At this point, it might be better if teams stopped working - for the sake of the company.
+For a developer, that means building tightly-coupled code that is hard to reuse and limiting .
 
 Value creation is exponentially decaying over time, ending up in silos of stagnation.
 For a startup, that means bounding yourself to just a few paths, creating very specific value, limiting a company's ability to pivot or adapt to change.
 
 For an enterprise, that means every dollar spent in value creation is decreasing the value of total dollars invested. The more the enterprise invests, the less value it can create.
-This equation applies on the entire range, from the smallest system all the way up to the biggest one. -->
+This equation applies on the entire range, from the smallest system all the way up to the biggest one.  -->
+
+<!-- This leads us to a dangerous equation; the more we invest in value creation, the more damage is caused. At this point, it might be better if teams stopped working - for the sake of the company. -->
 
 <!-- As you might have noticed, this site was built in components. As we built the new documentation we started hiring more people to work for our company and we needed
 an internal wiki site to be a single source of truth for all information internal at Bit to keep everyone in sync. We decided to document the process to demonstarate
@@ -85,13 +88,30 @@ Components are described by names and APIs, and contain source code implementati
 
 In fact, everything you see on this page has been created with components.
 
+<!-- 
+## Component thinking
+
+For us, building this Wiki app.
+
+Thinking in components achieves the exact opposite.
+
+Building in components is a collaborative process, in which, all stakeholders sit under a single table and decide on the components 
+
+Thinking in components is a recursive process that starts at defining and the **immediate component we need**. Upon the definition of this component, **think which components you wish you had now**.
+Search for these components, try to **use or collaborte on something that exists**, otherwise **create a new component that fulfills this exact need** and share it with everyone.
+-->
+
+## Ready to give Bit a try?
+
+If you are ready to give Bit a try, [head back to Quick start](/docs/quick-start) and kickoff you component-driven journey!
+
 <!-- A component as an independent, reusable product with an interface for using it. A component serve a single purpose. You design the component interface for your own needs,
 then expand over time to support the needs of other teammates, other product teams and eventually to entire world.
 
 Components are described by names and APIs, and contain source code implementation. They can be of different kinds like apps, pages, UI components, backend services and even content.
 You can think of almost anything in components. -->
 
-Building the Wiki was a simple and a joint effort made simple because the system worked
+<!-- Building the Wiki was a simple and a joint effort made simple because the system worked -->
 <!--
 <ComponentCardGroup components={wikiComponents} />
 <br /> -->

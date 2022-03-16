@@ -1,5 +1,5 @@
 .container {
-  min-height: 350px;
+  // min-height: 350px;
 }
 
 .tab {
@@ -66,6 +66,9 @@
   padding: 8px 12px;
   max-height: 750px;
   border-radius: 8px;
+  p {
+    margin: 0;
+  }
 }
 
 .tabContent {

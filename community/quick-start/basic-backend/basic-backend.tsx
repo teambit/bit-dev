@@ -10,12 +10,12 @@ export type BasicBackendProps = {
 };
 
 export function BasicBackend({ children }: BasicBackendProps) {
-  const id = ComponentID.fromString('teambit.react/templates/pages/welcome');
+  const id = ComponentID.fromString('learnbit.backend/user-service');
   const components = [
-    'teambit.react/templates/pages/welcome',
-    'teambit.react/templates/ui/card',
-    'teambit.react/templates/ui/heading',
-    'teambit.react/templates/ui/text',
+    'learnbit.backend/user-service',
+    'learnbit.backend/posts-service',
+    'learnbit.backend/entity/user',
+    'learnbit.backend/entity/post',
     // TODO: add node modules and react hooks
   ];
 

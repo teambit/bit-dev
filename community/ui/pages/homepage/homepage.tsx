@@ -44,7 +44,7 @@ export function Homepage({ ...rest }: HomepageProps) {
           <UseCasesSection
             useCases={useCases}
             title="Make hard things simple"
-            href="/guides/micro-frontends/overview"
+            href="/docs/quick-start"
             linkText="See more use cases"
           />
         </div>
