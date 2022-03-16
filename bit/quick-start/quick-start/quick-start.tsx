@@ -14,10 +14,35 @@ import Collaborate from './collaborate.mdx';
 import styles from './quick-start.module.scss';
 
 export type QuickStartComponent = {
+  /**
+   * id of the component. as a string.
+   */
   id: string;
+
+  /**
+   * replace all contents. including the showcase.
+   */
   content?: ReactNode;
+
+  /**
+   * intro node to render in the beginning
+   */
   intro?: ReactNode;
+
+  /**
+   * text to use in the ending of the component walk through.
+   */
   ending?: ReactNode;
+
+  /**
+   * text to be shown before fork.
+   */
+  fork?: ReactNode;
+
+  /**
+   * text to be shown next to create.
+   */
+  create?: ReactNode;
 };
 
 export type QuickStartNodeDesc = QuickStartComponent | string;
@@ -27,6 +52,9 @@ export type QuickStartProps = {
    * main component ID.
    */
   id: ComponentID;
+
+  // temporary until properly accepting components in this api.
+  mainComponent?: ReactNode;
 
   /**
    * intro node.
@@ -70,6 +98,7 @@ export function QuickStart({
   defaultScopeName,
   defaultWorkspaceName,
   name,
+  mainComponent,
   components,
   beforeThinking,
   children,
@@ -85,11 +114,10 @@ export function QuickStart({
     return component;
   });
   const ids = targetComponents.map((component) => component.id.toString());
-
   return (
     <div>
       <div className={styles.sectionMargin}>{intro || <DefaultIntro />}</div>
-      <ComponentShowcase className={wideColumn} componentId={id.toString()} />
+      <ComponentShowcase className={wideColumn} componentId={id.toString()} preview={mainComponent} />
       <div className={styles.showcase}>
         <WhatIsBit />
         {/* <H3>Learn Bit</H3> */}

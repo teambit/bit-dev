@@ -1,6 +1,17 @@
 import React, { ReactNode } from 'react';
 import { ComponentID } from '@teambit/component-id';
+import { MemoryRouter, UNSAFE_LocationContext } from 'react-router-dom';
+import { StarterBlog } from '@teambit/blog.starter.starter-blog';
 import { QuickStart } from '@teambit/bit.quick-start';
+import Intro from './intro.mdx';
+import StarterBlogIntro from './starter-blog-intro.mdx';
+import StarterBlogEnding from './starter-blog-ending.mdx';
+import BlogIntro from './blog-intro.mdx';
+import BlogEnding from './blog-ending.mdx';
+import LobbyIntro from './lobby-intro.mdx';
+import LobbyEnding from './lobby-ending.mdx';
+import PluginIntro from './plugin-intro.mdx';
+import PluginEnding from './plugin-ending.mdx';
 
 export type BlogQuickStartProps = {
   /**
@@ -10,18 +21,44 @@ export type BlogQuickStartProps = {
 };
 
 export function BlogQuickStart({ children }: BlogQuickStartProps) {
-  // TODO: app showcasing a design system.
   const id = ComponentID.fromString('teambit.blog/starter/starter-blog');
   const components = [
-    // TODO: app showcasing a design system.
-    'teambit.blog/starter/starter-blog',
-    'teambit.blog/blog',
-    'teambit.blog/pages/lobby',
-    'teambit.blog/pages/blog-post',
+    {
+      id: 'teambit.blog/starter/starter-blog',
+      intro: <StarterBlogIntro />,
+      ending: <StarterBlogEnding />,
+    },
+    {
+      id: 'teambit.blog/blog',
+      intro: <BlogIntro />,
+      ending: <BlogEnding />,
+    },
+    {
+      id: 'teambit.blog/pages/lobby',
+      intro: <LobbyIntro />,
+      ending: <LobbyEnding />,
+    },
+    {
+      id: 'teambit.blog/plugins/featured-posts',
+      intro: <PluginIntro />,
+      ending: <PluginEnding />,
+    },
   ];
 
   return (
-    <QuickStart name="blog" id={id} components={components}>
+    <QuickStart
+      name="blog"
+      intro={<Intro />}
+      id={id}
+      components={components}
+      mainComponent={
+        <UNSAFE_LocationContext.Provider value={null as any}>
+          <MemoryRouter>
+            <StarterBlog />
+          </MemoryRouter>
+        </UNSAFE_LocationContext.Provider>
+      }
+    >
       {children}
     </QuickStart>
   );

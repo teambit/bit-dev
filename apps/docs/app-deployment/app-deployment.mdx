@@ -1,0 +1,63 @@
+# App Deployment
+
+An app component has an additional build task added to its tag and snap pipelines. This build task is set by it's app-type and is responsible for deploying its artifacts.
+The information for that deployment (authentication, domain, etc.) is set in the app plugin file (for example, `my-app.react-app.ts`).
+Note that not all app-types provide their own deployment functions. In these cases, provide your own custom deployer or search Bit.cloud for a compatible one.
+
+To version and deploy your app, run the following:
+
+```bash
+bit tag apps/my-app
+```
+
+## Customizing the app deployment
+
+A custom app deployer can be used in you own app or in an app that accepts custom deployers (this is determined by the app-type).
+
+An app's deployment task always follows its build.
+The information regarding the app's build as well details about the app's capsule (where the artifacts are generated),
+is accessible to the deployer, and can be used for the deployment process.
+
+For example:
+
+```ts
+import type { DeployFn } from '@teambit/application';
+import { sep } from 'path';
+
+export const deployerExample: DeployFn = (context) => {
+  const appCapsulePath = context.capsule.path;
+  /* a real implementation would focus on the app's build dir */
+  const artifactRelativePaths = context.capsule.getAllFilesPaths();
+
+  console.log(
+    'upload file:',
+    `${appCapsulePath}${sep}${artifactRelativePaths}`
+  );
+};
+```
+
+Run the following to fork the above demo deployer function:
+
+```bash
+bit fork learnbit.apps/deployer-example
+```
+
+Use that deployer in an app that accepts deployers. For example, the following shows how this deployer is used in a [node demo app](https://bit.dev/learnbit/apps/node-app):
+
+```ts
+import { NodeAppOptions } from '@teambit/node';
+import { deployerExample } from '@learnbit/apps.deployer-example';
+
+export const HelloWorldApp: NodeAppOptions = {
+  name: 'hello-node-app',
+  entry: require.resolve('./hello-world.app-root'),
+  deploy: deployerExample,
+};
+
+export default HelloWorldApp;
+```
+
+:::info Compatible deployers
+A deployer is most commonly specific to an app-type or a category of app-types.
+When using a deployer, make sure that it is compatible with your app-type.
+:::

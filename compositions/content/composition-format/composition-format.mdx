@@ -1,6 +1,7 @@
 # Composition Format
 
-Compositions use the Component Story Format (CSF), an open standard for component examples based on JavaScript ES6 modules.
+Composition format is an open standard for component examples based on JavaScript ES6 modules. It is used to simulate components 
+in differnet variations for testing, visulization and discoverability purposes. 
 
 Compositions are functions that return a component, in a specific state and/or a specific context. They are exported using a name and never as default.
 
@@ -18,4 +19,4 @@ export const CardInHero = () => {
 };
 ```
 
-The CSF format is as easy to implement as any other exported ES6 function. But, most importantly, it is a non-propriety format. That enables compositions to be used by test frameworks like Jest and Cypress, as well as other popular dev tools like Storybook.
+Compositions are compitible with the Storybook`s [Story format](https://storybook.js.org/docs/react/api/csf).

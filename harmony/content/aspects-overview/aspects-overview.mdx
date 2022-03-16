@@ -1,16 +1,20 @@
+import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-display';
+import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 import { BubbleGraph } from '@teambit/community.ui.graph.bubble-graph';
 import composability from './composability.png';
 import { aspectGraph } from './aspect-graph';
 
 # Aspects Overview
 
+<ComponentCardDisplay componentIds={['teambit.harmony/aspect']} style={{ float: 'left', margin: 20 }} />
+
 Bit is built entirely with Bit. This means that even Bit itself is built in a component-driven architecture. It uses [Harmony](https://bit.cloud/teambit/harmony/harmony) which is a 
-component-based framework for composing extensible features into apps. Harmony most fundemental type is an Aspect, every Aspect is a full stack feature, capable of extending UI, backend 
+component-driven plugin system. Harmony most fundemental type is an Aspect, every Aspect is a full-stack feature, capable of extending UI, backend 
 and any other defined runtime environment. Every Aspect also acts as a service to all others, and its API can be used from any other aspect.
 
-We use Harmony as a way to scale development of dev experiences. We dogfood the API
+We use Harmony as a way to scale development of dev experiences. We dogfood our own APIs and make Bit extensible for others.
 
-## Component-driven
+## Composable
 Harmony is a [component-based](https://en.wikipedia.org/wiki/Component-based_software_engineering) framework for composing extensible applications. 
 Bit uses Harmony to compose itself from components. Every Aspect is a component in Bit, implementing a "feature" that provides an API, and every Aspect can depend on other Aspects and 
 compose them into a new feature.
@@ -54,9 +58,6 @@ export class MyOtherAspect {
 }
 ```
 
-## Composable 
-
-
 ## Extensible
 Aspects are extensible by design. Every aspect can expose an API for other aspects to use in order to extend it using [Integration Slots](/extending-bit/slots).
 Slot allow other Aspects to "register" a new object that can be later used by them.
@@ -78,7 +79,19 @@ export class MyOtherAspect {
 
 This allows every aspect to extend the CLI aspect by registering a new command to it. Learn more about [Slots](/extending-bit/slots).
 
-## Aspect discovery
+## Discoverable
+As mentioned, Bit is built entirely from Aspects and other has been developed by the Bit community, therefore they can be discovered
+and used in bit.cloud like any other component.
+
+<ComponentCardDisplay componentIds={[
+  'teambit.typescript/typescript',
+  'teambit.angular/angular',
+  'teambit.mdx/mdx',
+  'teambit.explorer/command-bar',
+  'teambit.pipelines/builder',
+  'teambit.defender/tester',
+]} />
+
 Aspects can be searched and found across [bit.cloud](https://bit.dev/components?env=aspect).
 
 ## Dogfooding
@@ -87,13 +100,7 @@ you must be able to enjoy this yourself.
 API and feature dogfooding is the key towards generating great dev experiences. Since every Aspect is using itself first, composing its API to various user interfaces, it is
 been dogfooded by its maintainer. 
 
-### Apps
-An Harmony app is an array of configured Aspects. Every aspect included 
-
-### Features
-Aspects can be composed into other Aspects which act as "features".
-
-## Multi runtime
+## Multi-runtime
 Aspects can declare and extend different runtime environments. An example could be a Logger Aspect which provides an API, but also extends the UI runtime, adding a logger UI
 and providing various CLI commands to interact with logs.
 
@@ -104,7 +111,7 @@ Every Aspect be declare a configuration it accepts, and use it for various needs
 
 ```json
 {
-  "myorg.aspects/logger": {
+  "my-org.scope/logger": {
     "verbose": true
   }
 }

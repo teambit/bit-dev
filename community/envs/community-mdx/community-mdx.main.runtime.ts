@@ -1,5 +1,5 @@
 import { MainRuntime } from '@teambit/cli';
-import type { ReactEnv } from '@teambit/react';
+import { ReactAspect, ReactEnv, ReactMain } from '@teambit/react';
 import { GeneratorMain, GeneratorAspect } from '@teambit/generator';
 import { EnvsAspect, EnvsMain } from '@teambit/envs';
 import { MDXAspect, MDXMain } from '@teambit/mdx';
@@ -12,7 +12,7 @@ export class CommunityMdxMain {
 
   static slots = [];
 
-  static dependencies = [EnvsAspect, MDXAspect, GeneratorAspect];
+  static dependencies = [EnvsAspect, MDXAspect, GeneratorAspect, ReactAspect];
 
   static runtime = MainRuntime;
 
@@ -20,19 +20,25 @@ export class CommunityMdxMain {
     extensions: ['.md', '.mdx'],
   };
 
-  static async provider([envs, mdxMain, generator]: [EnvsMain, MDXMain, GeneratorMain]) {
+  static async provider([envs, mdxMain, generator, react]: [EnvsMain, MDXMain, GeneratorMain, ReactMain]) {
     const { devDependencies, dependencies }: any = mdxMain.mdxEnv.getDependencies();
+    const reactDeps = react.env.getDependencies();
+    const devDeps = {
+      ...reactDeps.devDependencies,
+      ...devDependencies,
+    };
     const deps = {
       ...dependencies,
       '@teambit/mdx.ui.mdx-scope-context': '0.0.368',
       '@mdx-js/react': '1.6.22',
     };
+
     const communityMdxEnv = envs.compose(mdxMain.mdxEnv, [
       envs.override({
         getDependencies: () => {
           return {
             dependencies: deps,
-            devDependencies,
+            devDependencies: devDeps,
             peers: [
               {
                 name: 'react',

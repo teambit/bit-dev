@@ -1,10 +1,13 @@
 import React from 'react';
+import { lazy } from '@loadable/component';
 import { QuickStartType } from '@teambit/bit.quick-start';
-import { WikiQuickStart } from '@teambit/bit.quick-start.wiki-quick-start';
 // import { DocsQuickStart } from '@teambit/docs.community.docs-quick-start';
-import { DesignQuickStart } from '@teambit/design.community.design-quick-start';
-import { BlogQuickStart } from '@teambit/blog.community.blog-quick-start';
 import { BasicReact } from '@teambit/community.quick-start.basic-react';
+
+const WikiQuickStart = lazy(() => import('@teambit/bit.quick-start.wiki-quick-start'));
+const BlogQuickStart = lazy(() => import('@teambit/blog.community.blog-quick-start'));
+const AnalyticsQuickStart = lazy(() => import('@teambit/analytics.community.analytics-quick-start'));
+const DesignQuickStart = lazy(() => import('@teambit/design.community.design-quick-start'));
 
 export const quickStarts: QuickStartType[] = [
   {
@@ -19,11 +22,17 @@ export const quickStarts: QuickStartType[] = [
     description: 'Create a scalable and consistent composable design systems',
     component: <DesignQuickStart />,
   },
+  // {
+  //   name: 'blog',
+  //   displayName: 'Blog',
+  //   description: 'Scale and collaborate on component-driven content.',
+  //   component: <BlogQuickStart />,
+  // },
   {
-    name: 'blog',
-    displayName: 'Blog',
-    description: 'Scale and collaborate on component-driven content.',
-    component: <BlogQuickStart />,
+    name: 'basic-backend',
+    displayName: 'Basic Backend',
+    description: 'Build a basic component-driven and composable backend',
+    component: <WikiQuickStart />,
   },
   {
     name: 'basic-react',
@@ -32,17 +41,17 @@ export const quickStarts: QuickStartType[] = [
     component: <BasicReact />,
   },
   {
-    name: 'basic-backend',
-    displayName: 'Basic Backend',
-    description: 'Build a basic component-driven and composable backend',
-    component: <WikiQuickStart />,
+    name: 'analytics',
+    description: 'Build a composable and cross application analytics',
+    displayName: 'Analytics',
+    component: <AnalyticsQuickStart />,
   },
-  {
-    name: 'basic-cli',
-    displayName: 'Basic CLI',
-    description: 'Build basic component-driven and composable CLI apps',
-    component: <WikiQuickStart />,
-  },
+  // {
+  //   name: 'basic-cli',
+  //   displayName: 'Basic CLI',
+  //   description: 'Build basic component-driven and composable CLI apps',
+  //   component: <WikiQuickStart />,
+  // },
   // {
   //   name: 'authentication',
   //   description: 'Create a standard and unified authentication solution',
@@ -66,12 +75,6 @@ export const quickStarts: QuickStartType[] = [
   //   name: 'slides',
   //   description: 'Build reusable and limitless presentation slides',
   //   displayName: 'Slides',
-  //   component: <div />,
-  // },
-  // {
-  //   name: 'analytics',
-  //   description: 'Build composable analytics solution',
-  //   displayName: 'Analytics',
   //   component: <div />,
   // },
   // {

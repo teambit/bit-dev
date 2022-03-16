@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, CardProps } from '@teambit/bit.quick-start.card';
+import { useLocation } from '@teambit/base-react.navigation.link';
 import { H3 } from '@teambit/design.ui.heading';
 import { Carousel } from '@teambit/design.content.carousel';
 import { useNavigate } from 'react-router-dom';
@@ -15,17 +16,26 @@ export type FeaturedProps = {
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export function Featured({ cards = [], className, ...rest }: FeaturedProps) {
-  const [selected, setIsSelected] = React.useState(0);
+  const location = useLocation();
   const navigate = useNavigate();
   const handleClick = (index: number, pathName: string, componentId: string) => {
-    setIsSelected(index);
     navigate(pathName, { state: { componentId } });
   };
+
+  const isActive = (card: CardProps) => {
+    const pathname = location?.pathname;
+    const parts = pathname?.split('/');
+    if (!parts?.length) return false;
+    return parts[parts.length - 1] === card.path;
+  };
+
+  const activeCardIndex = cards.findIndex((card) => isActive(card));
+  const activeIndex = activeCardIndex === -1 ? 0 : activeCardIndex;
 
   return (
     <div data-testid="featured-container" {...rest} className={classNames(styles.featured, className)}>
       <H3 data-testid="featured heading" className={styles.heading}>
-        Start by building your own composable...
+        Start building from composable examples...
       </H3>
 
       <Carousel animation={false} className={styles.carousel} buttonGroupPosition="topRight">
@@ -35,7 +45,7 @@ export function Featured({ cards = [], className, ...rest }: FeaturedProps) {
             onClick={() =>
               handleClick(index, card.path || card.heading || '', card.frameworkLogos?.[0]?.componentId || '')
             }
-            selected={selected === index}
+            selected={activeIndex === index}
             key={card?.heading}
             className={styles.card}
             heading={card?.heading}

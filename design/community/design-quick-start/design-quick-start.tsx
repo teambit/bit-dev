@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import { ComponentID } from '@teambit/component-id';
 import { QuickStart } from '@teambit/bit.quick-start';
+import { DesignLanguage } from '@teambit/design.design-language';
 
 export type DesignQuickStartProps = {
   /**
@@ -54,7 +55,7 @@ export function DesignQuickStart({ children }: DesignQuickStartProps) {
   ];
 
   return (
-    <QuickStart name="design" id={id} components={components}>
+    <QuickStart name="design" id={id} components={components} mainComponent={<DesignLanguage />}>
       {children}
     </QuickStart>
   );

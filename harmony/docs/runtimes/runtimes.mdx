@@ -1,0 +1,69 @@
+# Runtimes
+
+Aspects can extend multiple runtimes. That allows Aspects to have cross-runtime responsiblity over a certain feature it composes.
+An aspect can start with single runtime, and grow to more runtimes as needed.
+
+## Using runtimes
+
+Aspects can tap into multiple runtimes, and extend their functionalities. Tapping into a runtime defined by an Apsect
+can be done by adding a file that matches the `*.[runtime-name].runtime.*` pattern.
+
+For example, tapping to the Bit UI runtime is achieved by adding the `hello-world.ui.runtime.ts`. Adding the `hello-world.preview.runtime.ts`
+will also tap the Aspect to the Bit preview runtime.
+
+The example below, adds a new tab to the Bit UI by tapping into the UI runtime and using Component aspect as a dependnecy.
+
+```tsx
+import { UIRuntime } from '@teambit/ui';
+import { ComponentUI, ComponentAspect, ComponentContext} from '@teambit/component';
+
+export class HelloWorldUI extends React.Component<any> {
+  helloWorld() {}
+
+  static slots = [];
+  static dependencies = [ComponentAspect];
+  static runtime = UIRuntime;
+
+  static async provider([component]: [ComponentUI]) {
+    // registers a new route.
+    component.registerRoute({
+      children: () => {
+        return <div>Component Name: {component.displayName}</div>;
+      },
+      path: '~hello'
+    });
+
+    // register a new navigation item.
+    component.registerNavigation(
+      {
+        href: '~hello',
+        children: 'Hello'
+      },
+      100
+    );
+
+    return new HelloWorldUI(MyComponent);
+  }
+}
+
+HelloWorldAspect.addRuntime(HelloWorldUI);
+```
+
+## Declaring new runtimes
+
+In the Aspect definition, it is possible to declare new runtimes, which would become available for other
+aspects to use.
+
+For example, the below example is actually used to defined the Bit UI runtime environment.
+
+```ts
+import { Aspect, RuntimeDefinition } from '@teambit/harmony';
+
+export const UIRuntime = new RuntimeDefinition('ui');
+
+export const UIAspect = Aspect.create({
+  id: 'teambit.ui-foundation/ui',
+  dependencies: [],
+  declareRuntime: UIRuntime,
+});
+```

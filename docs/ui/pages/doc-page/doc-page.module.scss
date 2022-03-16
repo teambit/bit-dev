@@ -4,6 +4,7 @@ $textColumn: 1000px;
 
 .docsPage {
   display: flex;
+  min-height: 100vw;
 }
 
 .next {
@@ -46,8 +47,4 @@ $textColumn: 1000px;
   @media screen and (max-width: $br-lg) {
     display: none;
   }
-}
-
-.heading {
-  // border-bottom: none !important;
 }

@@ -1,0 +1,177 @@
+import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-display';
+
+# Creating Aspects
+
+Aspects are components used to extend Bit. Every Aspect is a component that uses the [Aspect environment](/).
+You can use Aspects not just to extend Bit but also to built your own composable applications, that is your choice and we have no preference.
+
+## Creating an Aspect
+
+Create a basic Aspect with using the official aspect env template.
+
+```
+bit create aspect hello-world
+```
+
+Your new component incldues four new files: `hello-world.aspect.ts`, `hello-world.main-runtime.ts` and regular documantation, compositions and test files.
+
+To use the aspect, configure it on the Workspace and use it from an another Aspect.
+
+```json
+{
+  "my-org.scope/my-aspect": {
+    // aspect config goes here...
+  }
+}
+```
+
+## Defining the API
+
+Every Aspect can expose APIs for others to use, whether they are an other Aspect or an external consumer.
+Adding an API is as simple as adding a method to a class.
+
+To start adding APIs to your Aspect, head over your `main.runtime` file, and add new methods to it. 
+Here is an example for a basic `sayHello()` API.
+
+```ts
+export class HelloWorldMain {
+  sayHello() {
+    return 'hello world!';
+  }
+
+  static slots = [];
+  static dependencies = [];
+  static runtime = MainRuntime;
+  static async provider() {
+    return new HelloWorldMain();
+  }
+}
+```
+
+
+Aspects are designed to be API first. We are using programmatic APIs as a base and then composing composed to more advanced interfaces 
+like UI, RESTful, GraphQL or anything else that might be of interest. 
+
+## Using dependencies
+
+Since Bit is entirely build and composed from Aspects. That means every feature in Bit is first available as an API, and you can use these
+Aspects to extend Bit and build amazing development and collaboration expereinces on top.
+
+Every Aspect can use APIs provided by other Aspects by adding them as dependencies. This way you can get access to all of the components and APIs
+we used to compose Bit to build your own Aspect and extend Bit.
+
+These are few examples to core components in the Bit toolchain that you can use as an API:
+
+<ComponentCardDisplay componentIds={[
+  'teambit.harmony/cli',
+  'teambit.component/component',
+  'teambit.generator/generator',
+]} />
+
+<br />
+
+To use the CLI aspect for example, in order to extend Bit with a new command is as simple as following.
+
+```ts
+// import the CLI aspect and the type of CLI main runtime.
+import { MainRuntime, CLIMain, CLIAspect } from '@teambit/cli';
+
+export class MyAspectMain {
+  // your aspect's API.
+  sayHello() {
+    return 'hello world!';
+  }
+
+  static slots = [];
+  // define CLIAspect as a dependency for your Aspect.
+  static dependencies = [CLIAspect];
+  static runtime = MainRuntime;
+
+  // CLI in the correspoding runtime will be injected to your provider.
+  static async provider([cli]: [CLIMain]) {
+    // register a new command into the Bit CLI.
+    cli.register([new MyCommand()]);
+    return new HelloWorldMain();
+  }
+}
+```
+
+In the same sense you can use the component aspect to obtain programmatic access to component objects, and to the generator aspect, in order to 
+register a new [component generation template](/docs/generator) for use. 
+
+Aspects like the below can be quite useful in various cases. You can use the GraphQL aspect to extend Bit with a new GraphQL schema, Express to
+add a new RESTful API or the Compiler API to compile any component programmatically without being aware to its implementation.
+
+<ComponentCardDisplay componentIds={[
+  'teambit.compilation/compiler',
+  'teambit.harmony/graphql',
+  'teambit.harmony/express',
+]} />
+
+## Using configuration
+
+Aspects can accept configuration from its users. To define a a config simply use a type to specify the config.
+
+```ts
+export type HelloWorldConfig = {
+  worldName: string
+};
+
+export class HelloWorldMain {
+  constructor(
+    private config: HelloWorldConfig
+  ) {}
+
+  sayHello() {
+    return `hello ${this.config.worldName}!`;
+  }
+
+  static dependencies = [CLIAspect];
+
+  static defaultConfig = {
+    worldName: 'world'
+  };
+  
+  static runtime = MainRuntime;
+  static async provider([cli]: [CLIMain], config: HelloWorldConfig) {
+    cli.register([new MyCommand()]);
+    return new HelloWorldMain(config);
+  }
+}
+```
+
+Our new `worldName` property can be provided in any configuration. For example in `workspace.json` or `scope.json`.
+
+```json
+{
+  "my-org.scope/my-aspect": {
+    "worldName": "Bit"
+  }
+}
+```
+This will make the `worldName` configured here to be injected to the correspoding aspect.
+
+## Using slots
+
+Slots can be used to make any Aspect extensible by other Aspects. It is used to make it easy for Aspects to be pluggable and allow
+for other Aspect to implement logic that extends them.
+
+An example, could be the CLI aspect we used above; behind the scenes it uses a slot to contain all commands registered by aspects
+and essentially reads them upon the Bit bootstrap.
+
+You can use Slots as a utility provided by Harmony to create pluggable APIs. To [learn on Slots head here](/docs/extending-bit/slots).
+
+## Using runtimes 
+
+Aspects can extend multiple runtimes. That allows Aspects to have cross-runtime responsiblity over a certain feature it composes.
+An aspect can start with single runtime, and grow to more runtimes as needed.
+
+Using runtimes a single aspect like the one above, can extend both the UI and CLI interafces of Bit and even add a new GraphQL schema to it.
+
+Adding runtimes is easy as adding a new files 
+
+
+:::note
+Every provider injects Harmony as the fourth argument. You can use that for edge cases where you need to get access to a certain Harmony aspect,
+without using dependency injection.
+:::

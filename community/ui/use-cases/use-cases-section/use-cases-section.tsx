@@ -26,16 +26,13 @@ export type UseCasesSectionProps = {
   href: string;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-export function UseCasesSection({
-  useCases,
-  title,
-  href,
-  linkText,
-}: UseCasesSectionProps) {
+export function UseCasesSection({ useCases, title, href, linkText }: UseCasesSectionProps) {
   return (
     <WideColumn className={styles.UseCasesSection}>
       <div className={styles.heading}>
-      <Heading element={Elements.H3} className={styles.title}>{title}</Heading>
+        <Heading element={Elements.H3} className={styles.title}>
+          {title}
+        </Heading>
         <Link href={href}>{linkText}</Link>
         <Icon of="right-arrow" className={styles.icon} />
       </div>

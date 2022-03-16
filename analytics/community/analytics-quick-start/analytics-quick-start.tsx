@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import { ComponentID } from '@teambit/component-id';
+import { Dashboard } from '@teambit/analytics.examples.dashboard';
 import { QuickStart } from '@teambit/bit.quick-start';
 
 export type AnalyticsQuickStartProps = {
@@ -11,17 +12,19 @@ export type AnalyticsQuickStartProps = {
 
 export function AnalyticsQuickStart({ children }: AnalyticsQuickStartProps) {
   // TODO: app showcasing a design system.
-  const id = ComponentID.fromString('teambit.blog/starter/starter-blog');
+  const id = ComponentID.fromString('teambit.analytics/examples/dashboard');
   const components = [
     // TODO: app showcasing a design system.
-    'teambit.analytics/starter/starter-blog',
-    'teambit.blog/blog',
-    'teambit.blog/pages/lobby',
-    'teambit.blog/pages/blog-post',
+    'teambit.analytics/examples/dashboard',
+    'teambit.analytics/metric-card',
+    'teambit.analytics/charts/line-chart',
+    'teambit.analytics/charts/bar-chart',
+    'teambit.analytics/charts/pie-chart',
   ];
 
+  // const dashboard = Dashboard.__bit_component.id;
   return (
-    <QuickStart name="blog" id={id} components={components}>
+    <QuickStart name="analytics" id={id} components={components} mainComponent={<Dashboard />}>
       {children}
     </QuickStart>
   );
