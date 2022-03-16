@@ -3,7 +3,7 @@
 Component dependencies are defined in Bit through dependency policies. A dependency policy defines a set of dependencies, with a [SemVer](https://semver.org) range, allowed to be used by components 
 in your development workspace. Dependencies are set to components when used through an `import` or `require` statement. 
 
-Defining a dependency policy in the Workspace can be done by configuring the `teambit.dependnecies/dependency.resolver` in the `workspace.jsonc` file. 
+Defining a dependency policy in the Workspace can be done by configuring the `teambit.dependencies/dependency.resolver` in the `workspace.jsonc` file. 
 
 For example:
 
@@ -55,7 +55,7 @@ $ bit show ui/button
 As you can see in the above example, Bit has detected the use of `lodash` and set this dependency to the `ui/button` component. As you may recall from earlier, we also added `classnames` in our dependency policy. However, this is not defined as a dependency since it is not used
 by the `ui/button` component.
 
-To learn more about how Bit resolves dependencies, head over to the [Depedency Resolution](/).
+To learn more about how Bit resolves dependencies, head over to the [Dependency Resolution](/).
 
 
 ## Dev dependencies
@@ -146,7 +146,7 @@ bit show ui/button
 └───────────────────┴─────────────────────────────────────────────────────────────┘
 ```
 
-In the example above, peer dependencies are set by the configured environment `teambit.bit/react` which is the offcial React development envrionemnt by the Bit team. Our official 
+In the example above, peer dependencies are set by the configured environment `teambit.bit/react` which is the official React development environment by the Bit team. Our official 
 environment sets every React component peer dependency to include `react` and `react-dom`. Other examples for peer dependencies could be `vue` or even `@teambit/harmony` for Aspects.
 
 Under different circumstances, it is also possible to define peer dependencies through the workspace policy. To do this, use the `peerDependencies` entry in the policy. 
@@ -173,7 +173,7 @@ In the example you have seen above, we are defining `react` and `react-dom` to s
 using hooks can't be used in a React 15.x.x app.
 
 :::tip
-Using different versions of peer dependnecies is dependent on the use case and can be achieved through various techniques.
+Using different versions of peer dependencies is dependent on the use case and can be achieved through various techniques.
 For example, React 17+ components using React hooks can be used in the same process through the Adapter pattern method. We offer a variety of components
 to address different cases but in general, it is not recommended to do, as it might decrease performance and downgrade the dev experience for component consumers.
 :::

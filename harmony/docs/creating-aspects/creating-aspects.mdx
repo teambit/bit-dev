@@ -15,7 +15,7 @@ For example:
 bit create aspect hello-world
 ```
 
-Your new component incldues four new files: `hello-world.aspect.ts`, `hello-world.main-runtime.ts` and regular documentation, compositions and test files.
+Your new component includes four new files: `hello-world.aspect.ts`, `hello-world.main-runtime.ts` and regular documentation, compositions and test files.
 
 To use the aspect, configure it on the Workspace and use it from an another Aspect.
 
@@ -90,7 +90,7 @@ export class MyAspectMain {
   static dependencies = [CLIAspect];
   static runtime = MainRuntime;
 
-  // CLI in the correspoding runtime will be injected to your provider.
+  // CLI in the corresponding runtime will be injected to your provider.
   static async provider([cli]: [CLIMain]) {
     // register a new command into the Bit CLI.
     cli.register([new MyCommand()]);
@@ -156,7 +156,7 @@ For example (in `workspace.json` or `scope.json`):
   }
 }
 ```
-This will make the `worldName` configured here to be injected to the correspoding aspect.
+This will make the `worldName` configured here to be injected to the corresponding aspect.
 
 ## Using slots
 
@@ -170,7 +170,7 @@ You can use Slots as a utility provided by Harmony to create pluggable APIs. To 
 
 ## Using runtimes 
 
-Aspects can extend multiple runtimes. That allows Aspects to have cross-runtime responsiblity over a certain feature it composes.
+Aspects can extend multiple runtimes. That allows Aspects to have cross-runtime responsibility over a certain feature it composes.
 An aspect can start with single runtime, and grow to more runtimes as needed.
 
 Using runtimes a single aspect like the one above, can extend both the UI and CLI interafces of Bit and even add a new GraphQL schema to it.

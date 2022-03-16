@@ -1,6 +1,6 @@
 # Runtimes
 
-Aspects can extend multiple runtimes. That allows Aspects to have cross-runtime responsiblity over a certain feature it composes.
+Aspects can extend multiple runtimes. That allows Aspects to have cross-runtime responsibility over a certain feature it composes.
 An aspect can start with a single runtime, and grow to multiple runtimes as needed.
 
 ## Using runtimes
@@ -11,7 +11,7 @@ can be done by adding a file that matches the `*.[runtime-name].runtime.*` patte
 For example, tapping into the Bit UI runtime is achieved by adding the `hello-world.ui.runtime.ts`. Adding the `hello-world.preview.runtime.ts`
 will also tap into the Aspect of the Bit preview runtime.
 
-The example below, adds a new tab to the Bit UI by tapping into the UI runtime and using Component aspect as a dependnecy:
+The example below, adds a new tab to the Bit UI by tapping into the UI runtime and using Component aspect as a dependency:
 
 ```tsx
 import { UIRuntime } from '@teambit/ui';

@@ -20,7 +20,7 @@ They provide package managers with the latest dependency resolution results, so 
     dev: false
 ```
 
-When running the `bit install` command, a lock file is generated in the workspace root directory. The type of lock file generatd is determined by the package manager (used via the Dependency Resolver).
+When running the `bit install` command, a lock file is generated in the workspace root directory. The type of lock file generated is determined by the package manager (used via the Dependency Resolver).
 
 Lock files are used by the package manager to optimize the installation process in the workspace by making use of the previous dependency resolution results, whenever possible. However, they are not used by Bit to lock the versions of component dependencies.
 
