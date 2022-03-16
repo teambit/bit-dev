@@ -11,6 +11,7 @@ import { Image } from '@teambit/docs.ui.zoomable-image';
   'teambit.scope/scope',
 ]} style={{ float: 'left', margin: 20, maxWidth: 250 }} />
 
+
 Scope is a **collaboration server for components**. Scopes defines ownership on components, as a single team owns the components exported to scope.  
 Share components to scopes according to their domain, and preserve autonomy with versioning, dependency caching, forking components and collaborate on changes.
 
@@ -21,22 +22,22 @@ Share components to scopes according to their domain, and preserve autonomy with
 You can host multiple types of components in a scope, from React, Angular and Node modules. In the same scopes you can share "small" components all the way to frontend apps or microservices.  
 For example, the [MDX scope](https://bit.dev/teambit/mdx) contains all components relevant to handling MDX functionality in Bit. It exposes various types of components (or "APIs") to achieve this: **Webpack loader**, **Node modules**, **React components** and even an **Aspect**. When a single scope represents a fullstack of functionality, it is easy for other teams to take leverage of MDX (in this case), not just as a feature but also as an API for their features.
 
-Scopes support various methods for consuming components, from adding as buildtime dependencies all the way to runtime integrations. The consumer then decide how whats the best approach for their use case.
+Scopes support various methods for using components, from adding as dependencies, to runtime integrations, allowing the consumer to decide what the best solution is for their use case.
 
 <Image width="70%" src={componentTypes} />
 
 ## Team collaboration using components
 
-Scopes provides visibility to components built by other teams, this is the first step towards better collaboration. Developers can find, use and depend on components by others. This high level of visibility is a drive for better collaboration, as teams see they don't need to rebuild components and re-invent their wheel. It is similar to how teams build with microservices and build team communication and collaboration by using each-other's APIs.  
-With `bit import` consumers can access to any component's source code and contribute change and collaborate on specific components.
+Scopes provides visibility to components built by other teams, this is the first step towards better collaboration. Developers can find, use and depend on components by other teams. Instead of reinventing the wheel and rebuilding the same functionality, component visibility drives collaboration. It is similar to how teams build with microservices and build team communication and collaboration by using each other's APIs.  
+Moreover, developers can use `bit import` and access to any component's source code and contribute change to collaborate on components.
 
-Bit keeps track on all these dependencies and flows, making team collaboration visible, easy to extend and optimize.
+Bit keeps track on all these dependencies and flows, making team collaboration visible, and easy to extend and optimize.
 
 <Image width="70%" src={scopeGraph} />
 
 ## Distributed and autonomous
 
-Hosted scopes form a distributed network, where each scope is connected to the other scopes according to component dependencies. A scope stores its dependencies as well, so in case of a failure in the network, you are always safe.  
+Hosted scopes form a distributed network, where each scope is connected to the other scopes according to component dependencies. Each scope stores not only the components it hosts, but also the dependencies of those components. So in case of a failure in the network, you are always safe.   
 When you either export a new, or update an existing component, the scope fetch dependencies of the component. This process makes each scope completely autonomous, as it contains all the dependencies needed to its components. In turn this makes teams more autonomous, as they can now build and use their components without having to worry about the dependencies or dependents.
 
 Scopes use standard HTTP for inner-scope communication, however, when building a network of scopes, you need to ensure scopes are able to connect to one another to fetch dependencies.

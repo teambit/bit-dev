@@ -10,11 +10,11 @@ bit login
 
 This commands takes you to Bit.cloud's login page where you can either login to an existing account or create a new one.
 
-Once logged in you can create a remote scope for your Bit project. This is done on the bit.dev website. Start by choosing if it is a team project or personal project. Then give your remote scope a name and select if you want your scope to be public or private.
+Once logged in, you can create a remote scope for your Bit project. This is done on the bit.dev website. Start by choosing if it is a team project or personal project. Then give your remote scope a name and select if you want your scope to be public or private.
 
 :::info Looking to self-host a Bit Scope?
 
-Instructions on how to self host your own Scope are [this page](/docs/scope/running-a-scope-server).
+Instructions on how to self host your own Scope can be found [here](/docs/scope/running-a-scope-server).
 
 :::
 
@@ -36,7 +36,9 @@ Once you created a remote scope you need to make sure the `defaultScope` is set 
 
 ## Exporting to Bit.cloud
 
-When working with Bit.cloud there's no need for any additional local configuration to export components. Bit resolves the scopes from Bit.cloud with a predefined [resolve function](TODO). This means you only need to set your scope in `workspace.jsonc`.
+When working with Bit.cloud there's no need for any additional local configuration to export components. Bit resolves the scopes from Bit.cloud with a predefined resolve function. This means you only need to set your scope in `workspace.jsonc`.
+
+<!-- TODO write doc page for resolve function and link at [resolve function]() -->
 
 :::note Bit.cloud as a Package Registry
 

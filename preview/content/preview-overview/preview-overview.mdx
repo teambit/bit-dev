@@ -15,7 +15,9 @@ The Preview Aspect enables component visualizations to be displayed by the brows
 
 Component visualizations include the component compositions and documentation, but may also include other custom component previews. Preview provides other Aspects with an API to register their own component visualization. The content of these visualizations is retrieved from the component directories using a set of glob patterns defined by the Aspect (for example, the Docs Aspect uses the Preview Aspect to preview all `*.docs.*` files).
 
-The preview environment or runtime, is integrated into Bit's UI using an iframe. For example, the following screenshot shows a preview (a component's 'Overview') rendered in a preview environment and displayed in an iframe, inside the workspace UI.
+The preview environment or runtime, is integrated into Bit's UI using an iframe. 
+
+For example, the following screenshot shows a preview (a component's 'Overview') rendered in a preview environment and displayed in an iframe, inside the workspace UI:
 
 <Image alt="preview screenshot" src={overviewScreenshotImg} />
 
@@ -24,6 +26,7 @@ The preview environment or runtime, is integrated into Bit's UI using an iframe.
 The preview runtime is an isolated execution environment that is integrated into Bit's UI using an iframe. It is essentially, an application that renders component previews, using the technologies and configurations that are right for them (configured by the components' Envs).
 
 Having an isolated preview environment or multiple isolated preview environments, means that your component previews can be implemented in any way, and will not be affected by anything other than themselves.
+
 For example, you can implement and render component previews as Angular components, even though Bit's UI is implemented using React.
 
 [See here](#the-previewing-process) to learn more about the previewing process.
@@ -100,9 +103,9 @@ Previews for component versions are loaded to the preview runtime from the compo
 
 **Preview runtime**
 
-4. [Loads all link files](#link-modules) (from step 1)
+4. [Loads all link files](#link-modules) (from step 1).
 
-5. Executes all `*.preview.runtime.ts` files, provided by the various Aspects in use (with the most prominent ones being the Envs)
+5. Executes all `*.preview.runtime.ts` files, provided by the various Aspects in use (with the most prominent ones being the Envs).
 
 6. Retrieves and renders the relevant preview in the browser, according to the URL sent by the browser. Learn how to extend this step, [here](/register-custom-preview#register-files-for-routing-and-rendering).
 
