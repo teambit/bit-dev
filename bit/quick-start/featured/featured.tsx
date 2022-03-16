@@ -17,10 +17,8 @@ export type FeaturedProps = {
 
 export function Featured({ cards = [], className, ...rest }: FeaturedProps) {
   const location = useLocation();
-  // const [selected, setIsSelected] = React.useState(0);
   const navigate = useNavigate();
   const handleClick = (index: number, pathName: string, componentId: string) => {
-    // setIsSelected(index);
     navigate(pathName, { state: { componentId } });
   };
 
@@ -37,7 +35,7 @@ export function Featured({ cards = [], className, ...rest }: FeaturedProps) {
   return (
     <div data-testid="featured-container" {...rest} className={classNames(styles.featured, className)}>
       <H3 data-testid="featured heading" className={styles.heading}>
-        Start by building your own composable...
+        Start building from composable examples...
       </H3>
 
       <Carousel animation={false} className={styles.carousel} buttonGroupPosition="topRight">

@@ -53,6 +53,7 @@ export type QuickStartProps = {
    */
   id: ComponentID;
 
+  // temporary until properly accepting components in this api.
   mainComponent?: ReactNode;
 
   /**

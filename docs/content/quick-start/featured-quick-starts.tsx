@@ -28,24 +28,24 @@ export const quickStarts: QuickStartType[] = [
   //   description: 'Scale and collaborate on component-driven content.',
   //   component: <BlogQuickStart />,
   // },
-  // {
-  //   name: 'basic-backend',
-  //   displayName: 'Basic Backend',
-  //   description: 'Build a basic component-driven and composable backend',
-  //   component: <WikiQuickStart />,
-  // },
+  {
+    name: 'basic-backend',
+    displayName: 'Basic Backend',
+    description: 'Build a basic component-driven and composable backend',
+    component: <WikiQuickStart />,
+  },
   {
     name: 'basic-react',
     displayName: 'Basic React',
     description: 'Build a basic component-driven React application',
     component: <BasicReact />,
   },
-  // {
-  //   name: 'analytics',
-  //   description: 'Build a composable and cross application analytics',
-  //   displayName: 'Analytics',
-  //   component: <AnalyticsQuickStart />,
-  // },
+  {
+    name: 'analytics',
+    description: 'Build a composable and cross application analytics',
+    displayName: 'Analytics',
+    component: <AnalyticsQuickStart />,
+  },
   // {
   //   name: 'basic-cli',
   //   displayName: 'Basic CLI',
