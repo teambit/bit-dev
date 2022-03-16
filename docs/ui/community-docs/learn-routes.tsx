@@ -192,6 +192,18 @@ const ReactOverview = lazy(() => import('@teambit/react.content.react-overview')
 const ReplacingReactTools = lazy(() => import('@teambit/react.content.replace-react-tools'));
 const ConfigReactTools = lazy(() => import('@teambit/react.content.config-react-tools'));
 
+/* ReactNative */
+const ReactNativeOverview = lazy(() => import('@teambit/react.content.react-native-overview'));
+
+/* node */
+const NodeOverview = lazy(() => import('@teambit/harmony.content.node-overview'));
+
+/* lit html */
+const LitOverview = lazy(() => import('@teambit/web-components.content.lit-overview'));
+
+/* html */
+const HtmlOverview = lazy(() => import('@teambit/html.content.html-overview'));
+
 /* Angular */
 const AngularOverview = lazy(() => import('@teambit/angular.content.angular-overview'));
 
@@ -1166,6 +1178,18 @@ export const learnDocsRoutes: DocsRoute[] = [
         ],
       },
       {
+        path: 'react-native',
+        title: 'React Native',
+        open: false,
+        children: [
+          {
+            path: 'react-native-overview',
+            title: 'React Native overview',
+            component: <ReactNativeOverview />,
+          },
+        ],
+      },
+      {
         path: 'angular',
         title: 'Angular',
         icon: 'Angular',
@@ -1183,14 +1207,38 @@ export const learnDocsRoutes: DocsRoute[] = [
         title: 'Node',
         icon: 'nodejs',
         open: false,
-        children: [],
+        children: [
+          {
+            path: 'node-overview',
+            title: 'Node overview',
+            component: <NodeOverview />,
+          },
+        ],
+      },
+      {
+        path: 'html',
+        title: 'HTML',
+        open: false,
+        children: [
+          {
+            path: 'html-overview',
+            title: 'HTML overview',
+            component: <HtmlOverview />,
+          },
+        ],
       },
       {
         path: 'lit-html',
         title: 'Lit Element',
         icon: 'lit-element',
         open: false,
-        children: [],
+        children: [
+          {
+            path: 'lit-overview',
+            title: 'Lit overview',
+            component: <LitOverview />,
+          },
+        ],
       },
       // {
       //   path: 'harmony',
