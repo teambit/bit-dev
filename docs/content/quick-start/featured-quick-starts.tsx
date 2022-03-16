@@ -5,15 +5,17 @@ import { QuickStartType } from '@teambit/bit.quick-start';
 import { BasicReact } from '@teambit/community.quick-start.basic-react';
 
 const WikiQuickStart = lazy(() => import('@teambit/bit.quick-start.wiki-quick-start'));
-const BlogQuickStart = lazy(() => import('@teambit/blog.community.blog-quick-start'));
+// const BlogQuickStart = lazy(() => import('@teambit/blog.community.blog-quick-start'));
+// const BackendQuickStart = lazy(() => import('@teambit/community.quick-start.basic-backend'));
 const AnalyticsQuickStart = lazy(() => import('@teambit/analytics.community.analytics-quick-start'));
 const DesignQuickStart = lazy(() => import('@teambit/design.community.design-quick-start'));
+const DataFetchingQuickStart = lazy(() => import('@teambit/community.quick-start.data-fetching'));
 
 export const quickStarts: QuickStartType[] = [
   {
     name: 'wiki',
     displayName: 'Wiki',
-    description: 'Collaborate on organizational process and knowledge with a component-driven wiki.',
+    description: 'Learn how to use component-driven wiki to power knowledge sharing.',
     component: <WikiQuickStart />,
   },
   {
@@ -28,23 +30,29 @@ export const quickStarts: QuickStartType[] = [
   //   description: 'Scale and collaborate on component-driven content.',
   //   component: <BlogQuickStart />,
   // },
+  // {
+  //   name: 'basic-backend',
+  //   displayName: 'Basic Backend',
+  //   description: 'Build a basic component-driven and composable backend',
+  //   component: <BackendQuickStart />,
+  // },
   {
-    name: 'basic-backend',
-    displayName: 'Basic Backend',
-    description: 'Build a basic component-driven and composable backend',
-    component: <WikiQuickStart />,
+    name: 'analytics',
+    description: 'Build a composable and cross application analytics',
+    displayName: 'Analytics',
+    component: <AnalyticsQuickStart />,
+  },
+  {
+    name: 'data-fetching',
+    displayName: 'Data Fetching',
+    description: 'Build a component-driven data fetching',
+    component: <DataFetchingQuickStart />,
   },
   {
     name: 'basic-react',
     displayName: 'Basic React',
     description: 'Build a basic component-driven React application',
     component: <BasicReact />,
-  },
-  {
-    name: 'analytics',
-    description: 'Build a composable and cross application analytics',
-    displayName: 'Analytics',
-    component: <AnalyticsQuickStart />,
   },
   // {
   //   name: 'basic-cli',

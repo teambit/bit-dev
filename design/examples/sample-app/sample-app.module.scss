@@ -1,0 +1,32 @@
+
+.sampleApp {
+  width: 100%;
+  position: relative;
+}
+
+.button {
+  margin-top: 20px;
+}
+
+.toggler {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+.card {
+  // margin-top: 100px;
+  padding: 50px;
+  max-width: 300px;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.heading {
+  margin-bottom: 10px;
+}
+
+.container {
+  padding: 20px;
+}

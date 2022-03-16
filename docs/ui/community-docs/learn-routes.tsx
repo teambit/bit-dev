@@ -124,7 +124,7 @@ const CompositionsOverview = lazy(() => import('@teambit/compositions.content.co
 const CompositionFormat = lazy(() => import('@teambit/compositions.content.composition-format'));
 const CompositionContext = lazy(() => import('@teambit/compositions.content.composition-context'));
 const MountingCompositionsToDom = lazy(() => import('@teambit/compositions.content.mounting-compositions-to-dom'));
-const CompositionsAndStories = lazy(() => import('@teambit/compositions.content.compositions-and-stories'));
+// const CompositionsAndStories = lazy(() => import('@teambit/compositions.content.compositions-and-stories'));
 
 /* Components */
 
