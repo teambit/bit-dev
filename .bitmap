@@ -627,6 +627,13 @@
         "mainFile": "index.ts",
         "rootDir": "scope/content/hosting-scopes"
     },
+    "content/html-overview": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.html",
+        "mainFile": "index.ts",
+        "rootDir": "html/content/html-overview"
+    },
     "content/image": {
         "scope": "teambit.base-react",
         "version": "1.95.7",
@@ -723,6 +730,13 @@
         "mainFile": "index.ts",
         "rootDir": "defender/content/linting-during-development"
     },
+    "content/lit-overview": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.web-components",
+        "mainFile": "index.ts",
+        "rootDir": "web-components/content/lit-overview"
+    },
     "content/local-scope": {
         "scope": "teambit.workspace",
         "version": "1.95.9",
@@ -782,6 +796,13 @@
         "version": "1.95.9",
         "mainFile": "index.ts",
         "rootDir": "dependencies/content/node-modules"
+    },
+    "content/node-overview": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.harmony",
+        "mainFile": "index.ts",
+        "rootDir": "harmony/content/node-overview"
     },
     "content/npmrc": {
         "scope": "teambit.pkg",
@@ -854,6 +875,13 @@
         "version": "1.95.17",
         "mainFile": "index.ts",
         "rootDir": "docs/content/quick-start"
+    },
+    "content/react-native-overview": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.react",
+        "mainFile": "index.ts",
+        "rootDir": "react/content/react-native-overview"
     },
     "content/react-overview": {
         "scope": "teambit.react",

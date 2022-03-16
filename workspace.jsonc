@@ -80,6 +80,7 @@
         "@teambit/cloud-providers.deployers.netlify": "0.0.8",
         "@teambit/cloud.cloud-provider": "0.0.6",
         "@teambit/community.entity.graph.bubble-graph": "^1.23.11",
+        "@teambit/community.ui.sticky-banner": "0.0.5",
         "@teambit/component-descriptor": "0.0.13",
         "@teambit/component-id": "^0.0.401",
         "@teambit/component.modules.component-url": "^0.0.123",

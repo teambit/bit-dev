@@ -10,22 +10,20 @@ import { Image } from '@teambit/docs.ui.zoomable-image';
   'teambit.scope/scope',
 ]} style={{ float: 'left', margin: 20, maxWidth: 250 }} />
 
-Scope is a **collaboration server for components**. Scopes help teams to share and use each other's components - preserving team autonomy through versioning, forking, storing dependencies - and collaborate on changes of independent components.
-Scopes defines ownership on components, as a single team owns the components exported to scope.
+
+Scope is a **collaboration server for components**. Scopes defines ownership on components, as a single team owns the components exported to scope.  
+Share components to scopes according to their domain, and preserve autonomy with versioning, dependency caching, forking components and collaborate on changes.
 
 <Image width="70%" src={scopeImage} />
 
 ## Full stack of functionality
 
-Scopes host components of any kind, from React, Angular and Node modules, all the way to frontend apps or microservices. For a scope, they are all Bit Components.  
-For example, the [MDX scope](https://bit.dev/teambit/mdx) contains all components relevant to handling MDX functionality in Bit. It exposes various types of components (or "APIs") to achieve this: Webpack loader, Node modules, React components and even a Bit Aspect. This makes it easy for other teams to take leverage of MDX, not just as a feature but also as an API for their features.
-
-<!-- TODO, create docs for Aspect and link at [Bit Aspect] -->
+You can host multiple types of components in a scope, from React, Angular and Node modules. In the same scopes you can share "small" components all the way to frontend apps or microservices.  
+For example, the [MDX scope](https://bit.dev/teambit/mdx) contains all components relevant to handling MDX functionality in Bit. It exposes various types of components (or "APIs") to achieve this: **Webpack loader**, **Node modules**, **React components** and even an **Aspect**. When a single scope represents a fullstack of functionality, it is easy for other teams to take leverage of MDX (in this case), not just as a feature but also as an API for their features.
 
 Scopes support various methods for using components, from adding as dependencies, to runtime integrations, allowing the consumer to decide what the best solution is for their use case.
 
 <Image width="70%" src={componentTypes} />
-
 
 ## Team collaboration using components
 
@@ -38,17 +36,17 @@ Bit keeps track on all these dependencies and flows, making team collaboration v
 
 ## Distributed and autonomous
 
-Hosted scopes form a distributed network, where each scope is connected to the other scopes according to component dependencies. Each scope stores not only the components it hosts, but also the dependencies of those components.  
-When you export a component, the scope then does network calls to fetch the dependencies of the component from their respective scopes. This means that each scope becomes autonomous, as it contains all the dependencies needed to its components to run. In turn, this makes teams more autonomous, as they can now build and use their components without having to worry about the dependencies.
+Hosted scopes form a distributed network, where each scope is connected to the other scopes according to component dependencies. Each scope stores not only the components it hosts, but also the dependencies of those components. So in case of a failure in the network, you are always safe.   
+When you either export a new, or update an existing component, the scope fetch dependencies of the component. This process makes each scope completely autonomous, as it contains all the dependencies needed to its components. In turn this makes teams more autonomous, as they can now build and use their components without having to worry about the dependencies or dependents.
 
 Scopes use standard HTTP for inner-scope communication, however, when building a network of scopes, you need to ensure scopes are able to connect to one another to fetch dependencies.
 
 ## Source of truth
 
-Scopes become the source of truth for components. Allowing different stakeholders to collaborate and work together from the same, or from different Workspaces.
-Components can be maintained from multiple Workspaces in parallel, while Scopes are keeping them in sync, merging changes for all ends.
+Scopes become the source of truth for components. Different stakeholders can collaborate and work together from the same, or from different Workspaces.
+Components can be maintained from multiple Workspaces in parallel. You can have multiple workspaces export components to a single scope, or a single workspace export components to multiple scopes, and anywhere in between. Scopes keep all workspaces and component changes in sync.
 
-`bit import` can be used to fetch component updates. Using `bit import` is similar to using `git fetch` where new objects are being fetched but not checked out in your workspace.  
+`bit import` is used to fetch component updates. Using `bit import` is similar to using `git fetch` where new objects are being fetched but not checked out in your workspace.  
 
 ```bash
 $ bit import
