@@ -8,7 +8,7 @@ import styles from './doc-page.module.scss';
 const getTextLink = (element: ReactNode) =>
   typeof element === 'string' ? element.trim().toLowerCase().replace(/ /g, '-') : undefined;
 
-export const mdxComponents = (baseUrl?: string, selectorClassName?: string): MDXProviderComponents => {
+export const mdxComponents = (baseUrl: string, selectorClassName?: string): MDXProviderComponents => {
   return {
     wrapper: 'div',
     h1: ({ children, className, ...rest }: HTMLAttributes<HTMLHeadingElement>) => (
@@ -31,7 +31,7 @@ export const mdxComponents = (baseUrl?: string, selectorClassName?: string): MDX
     },
     a: ({ href, ...rest }: AnchorHTMLAttributes<HTMLAnchorElement>) => {
       const isExternal = href?.startsWith('http') ? true : undefined;
-      const target = isExternal && baseUrl ? `${baseUrl}${href}` : href;
+      const target = isExternal ? href : `${baseUrl}${href}`;
       return <Link href={target} external={isExternal} {...rest} />;
     },
   };
