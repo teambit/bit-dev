@@ -1,4 +1,4 @@
-# Register a Custom Preview
+# Register a custom preview
 
 Use the preview aspect to add your own component previews.
 
@@ -69,7 +69,7 @@ ComponentImagesAspect.addRuntime(MyAspectMain);
 
 ### PreviewDefinition
 
-#### prefix
+#### `prefix`
 
 ```ts
 prefix: string;
@@ -77,15 +77,15 @@ prefix: string;
 
 The name for the [link file](#) <!-- TODO --> and corresponding URL parameter (which will be used to fetch this type of previews).
 
-#### renderTemplatePath
+#### `renderTemplatePath`
 
 ```ts
 renderTemplatePath?: (context: ExecutionContext) => Promise<string>
 ```
 
-A function that gets an [`ExecutionContext`](https://bit.dev/teambit/envs/envs/~code/context/context.ts) with data regarding the Env's instance, and returns a path to the preview template which would be used to render the files returned by [`getModuleMap`](#getModuleMap) (for example, the [docs template](/dev-services-overview/docs/docs-templates)).
+A function that gets an [`ExecutionContext`](https://bit.cloud/teambit/envs/envs/~code/context/context.ts) with data regarding the Env's instance, and returns a path to the preview template which would be used to render the files returned by [`getModuleMap`](#getModuleMap) (for example, the [docs template](/dev-services-overview/docs/docs-templates)).
 
-#### getModuleMap
+#### `getModuleMap`
 
 ```ts
 getModuleMap(components: Component[]): Promise<ComponentMap<AbstractVinyl[]>>
@@ -204,7 +204,7 @@ export class DocsPreview {
 
 ### PreviewType
 
-#### name
+#### `name`
 
 ```ts
 name: string;
@@ -212,7 +212,7 @@ name: string;
 
 The preview name (or preview 'prefix')
 
-#### render
+#### `render`
 
 ```ts
 render(componentId: string, linkedModules: PreviewModule<any>, includedPreviews: string[], renderingContext: RenderingContext): void
@@ -236,7 +236,7 @@ render(componentId: string, linkedModules: PreviewModule<any>, includedPreviews:
 
 - `renderingContext: RenderingContext`:
 
-#### default
+#### `default`
 
 ```
 default?: boolean;
@@ -244,7 +244,7 @@ default?: boolean;
 
 Determines if this should be the default preview to render.
 
-#### include
+#### `include`
 
 ```ts
 include?: string[]
@@ -252,7 +252,7 @@ include?: string[]
 
 The names of the previews that should be included in this preview
 
-#### selectPreviewModel
+#### `selectPreviewModel`
 
 ```ts
 selectPreviewModel?: (componentId: string, module: PreviewModule) => any;

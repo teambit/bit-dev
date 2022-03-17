@@ -1,7 +1,7 @@
 import isolateDeps from './isolate-deps.png';
 import { Image } from '@teambit/docs.ui.zoomable-image';
 
-# Adding Components
+# Adding components
 
 Adding is the step that converts a directory repository into a component that is managed by Bit.  
 The `add` command takes an existing directory and adds it as a component.
@@ -39,42 +39,42 @@ Now that you have a new component, you can run `show` to see how it is structure
 bit show button
 ```
 
-The component structure is aggregated to a single view. Read more on [component structure](docs/components/component-structure).
+The component structure is aggregated to a single view. Read more on [component structure](/components/component-structure).
 
 ```bash
-┌───────────────────┬──────────────────────────────────────────────────────────┐
-│ id                │ company.scope/button                                     │
-├───────────────────┼──────────────────────────────────────────────────────────┤
-│ scope             │ company.scope                                            │
-├───────────────────┼──────────────────────────────────────────────────────────┤
-│ name              │ button                                                   │
-├───────────────────┼──────────────────────────────────────────────────────────┤
-│ env               │ company.scope/button                                     │
-├───────────────────┼──────────────────────────────────────────────────────────┤
-│ package name      │ @company/scope.button                                    │
-├───────────────────┼──────────────────────────────────────────────────────────┤
-│ main file         │ index.ts                                                 │
-├───────────────────┼──────────────────────────────────────────────────────────┤
-│ files             │ ...                                                      │
-├───────────────────┼──────────────────────────────────────────────────────────┤
-│ dev files         │ ...                                                      │
-├───────────────────┼──────────────────────────────────────────────────────────┤
-│ extensions        │ ...                                                      │
-├───────────────────┼──────────────────────────────────────────────────────────┤
-│ dependencies      │ ...                                                      │
-├───────────────────┼──────────────────────────────────────────────────────────┤
-│ dev dependencies  │ ...                                                      │
-├───────────────────┼──────────────────────────────────────────────────────────┤
-│ peer dependencies │ ...                                                      │
-└───────────────────┴──────────────────────────────────────────────────────────┘
+┌───────────────────┬────────────────────────┐
+│ id                │ company.scope/button   │
+├───────────────────┼────────────────────────┤
+│ scope             │ company.scope          │
+├───────────────────┼────────────────────────┤
+│ name              │ button                 │
+├───────────────────┼────────────────────────┤
+│ env               │ company.scope/button   │
+├───────────────────┼────────────────────────┤
+│ package name      │ @company/scope.button  │
+├───────────────────┼────────────────────────┤
+│ main file         │ index.ts               │
+├───────────────────┼────────────────────────┤
+│ files             │ ...                    │
+├───────────────────┼────────────────────────┤
+│ dev files         │ ...                    │
+├───────────────────┼────────────────────────┤
+│ extensions        │ ...                    │
+├───────────────────┼────────────────────────┤
+│ dependencies      │ ...                    │
+├───────────────────┼────────────────────────┤
+│ dev dependencies  │ ...                    │
+├───────────────────┼────────────────────────┤
+│ peer dependencies │ ...                    │
+└───────────────────┴────────────────────────┘
 ```
 
 ## Component ID
 
 Component ID is the unique identifier of a component. By default Bit will use the directory name of the component as the component name. You can use the `--id` flag to specify a different ID while adding a component.  
-[Learn more on component ID](docs/components/component-id).
+[Learn more on component ID](/components/component-id).
 
-## Main File
+## Main file
 
 Main file exposes the API of the component. It's recommended to have an `index` file as the **main file**. You can specify the main file using the `--main` flag on the bit add command.  [Read more about main files](/components/component-main-file).
 
@@ -92,7 +92,7 @@ bit status
 
 Here Bit may trigger several warnings or errors, in case it has issues when isolating your components as modules.
 
-### Relative Import Statements
+### Relative import statements
 
 Using a relative import statement locks a component to a specific directory structure. This makes the component not transferable.  
 When tracking components with relative import statements, you will need to add their dependencies to Bit and change `import` statement to use the link to the component Bit generates in `node_modules`.
@@ -101,7 +101,7 @@ When tracking components with relative import statements, you will need to add t
 import Button from '../components/button'; // Relative import, not transferable and not supported by Bit.
 ```
 
-### Missing Package Dependencies
+### Missing package dependencies
 
 As described above, Bit has different strategies to determine a package dependency version. If all of them fail, Bit prompts to install the missing package dependencies. This error may occur in the following cases:
 

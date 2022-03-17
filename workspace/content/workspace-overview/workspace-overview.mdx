@@ -10,6 +10,7 @@ import multiRepo from './multi-repo.png';
   'teambit.workspace/workspace',
 ]} style={{ float: 'left', margin: 20, maxWidth: 250 }} />
 
+The Bit Workspace is made for distributed, component-driven software, where each component is independently versioned.
 Bit's Workspaces are making it wea. You can create new components, use existing components, 
 modify existing components, and export new and existing components - all from the same workspace. 
 
@@ -17,7 +18,6 @@ They also allow for the development of all types of components.
 
 <Image src={looseComponents} width="85%"/>
 
-<br />
 <br />
 <br />
 
@@ -46,7 +46,7 @@ Simple dev experience means you can **easily onboard** yourself to a workspace, 
 - **Use the same commands** - Regardless of the tooling and configs used in a workspace, you use the same commands (`compile`, `test`, etc) and get similarly structured outputs.
 - **Minimal configuration** - Most of the configuration and setup is automated. No need to define per-component dependencies and no additional files needed to change a component's build pipeline.
 - **Templates and standards** - Create new components with templates and apply your formatting, linting, compilation and testing standards with a single policy.
-- **Components are directories** - Each [component in your workspace is a directory](docs/workspace/component-directory) so relevant files, assets and tests available in a single place.
+- **Components are directories** - Each [component in your workspace is a directory](/workspace/component-directory) so relevant files, assets and tests available in a single place.
 
 This makes it easy to scale the amount of components in a workspace, scale the amount of workspaces and even scale the amount of developers!
 
@@ -147,3 +147,4 @@ bit init
 ```
 
 From here you may use any Bit command and flow to build independent components and integrate them into your application.
+

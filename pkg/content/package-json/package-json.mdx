@@ -32,18 +32,17 @@ An example of a generated `package.json`.
 
 ## Name
 
-The [package name](/packages/package-name) corresponds to the component's ['component ID'](docs/components/component-id):
+The [package name](/packages/package-name) corresponds to the component's ['component ID'](/components/component-id):
 
 ```
 my-org.people/ui/avatar --> @my-org/people.ui.avatar
-
 ```
 
 Package names [can be modified](/packages/package-name) to a different pattern (that corresponds differently to their component IDs), or set to concrete values.
 
 ## Version
 
-The package version is determined by the [tag](components/tags) release version (whether it is set manually or automatically, by Bit).
+The package version is determined by the [tag](/components/tags) release version (whether it is set manually or automatically, by Bit).
 
 ```bash
 bit tag ui/avatar --ver 2.0.0
@@ -69,7 +68,7 @@ All dependency related properties are automated and handled by Bit the [Dependen
 
 Component dependencies are detected and resolved from the [node_modules](/workspace/node-modules) directory.
 
-### Tracking a Component with a main file
+### Tracking a component with a main file
 
 ```bash
 bit add path/to/button --main button.ts

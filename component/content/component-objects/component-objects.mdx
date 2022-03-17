@@ -9,16 +9,16 @@ import firstSnap from './first-snap.png';
 import tagSnap from './tag-snap.png';
 import twoTags from './two-tags.png';
 
-# Component Store
+# Component store
 
 Each component is stored in its own "mini" repository containing all information about a component.  
 When you add a new component, Bit adds it to the local workspace store found in `.git/bit`.
 
 <Image src={componentPointer} width="40%" />
 
-## Immutable Component State
+## Immutable component state
 
-Alongside components, the worskapce store holds states for components. These states are immutable and contains all information about a component at a specific point in time.
+Alongside components, the workspace store holds states for components. These states are immutable and contains all information about a component at a specific point in time.
 
 - Source code - as seen in your workspace.
 - Configuration - as calculated from `workspace.jsonc`.
@@ -28,30 +28,30 @@ Alongside components, the worskapce store holds states for components. These sta
 
 <Image src={componentState} width="20%" />
 
-## Revision History with Snapshots
+## Revision history with snaps
 
 Each time you [snapshot a change](/components/snaps), Bit saves the state of the component, and points to it from the component.
 
 <Image src={firstSnap} width="20%" />
 
-As you keep on maintaining components and creating more snapshots, Bit builds and maintains the revision history of the component.
+As you keep on maintaining components and creating more snaps, Bit builds and maintains the revision history of the component.
 
 <Image src={secondSnap} width="30%" />
 
 - Latest snap will always be pointed by the component.
 - A snap points to its predecessor.
 
-## Storing Versions
+## Storing versions
 
 Versions are essentially very unique snapshots that has a semantic version attached to them, when you [create a new version](/components/tags) for a component.
 
 <Image src={tagSnap} width="40%" />
 
-Components directly refer to all their available semantic versions. Version history and presedence is determined by semantic verion, not when a tag was created.
+Components directly refer to all their available semantic versions. Version history and precedence is determined by semantic version, not when a tag was created.
 
 <Image src={twoTags} width="40%" />
 
-## Checkout Past States
+## Checkout past states
 
 Besides using `snap` and `tag` to write new versions for components, you can use `checkout` to pull a past (or future) state of a specific component from the store, keeping the rest of your workspace unchanged.
 
@@ -61,23 +61,23 @@ bit checkout 1.0.0 teambit.harmony/content/aspects-overview
 
 Bit will switch the component to a past state from the component history.
 
-```
+```bash
 successfully switched the following components to their latest version
 
 teambit.harmony/content/aspects-overview@1.0.0
-	updated aspect-graph.ts
-	updated aspects-overview.composition.tsx
-	updated aspects-overview.docs.mdx
-	auto-merged aspects-overview.mdx
-	updated composability.png
-	updated index.ts
+  updated aspect-graph.ts
+  updated aspects-overview.composition.tsx
+  updated aspects-overview.docs.mdx
+  auto-merged aspects-overview.mdx
+  updated composability.png
+  updated index.ts
 ```
 
-## Collaborating on Components
+## Collaborating on components
 
 The process of `import` and `export` for components is all about sharing changes in component history with other developers. Each remote Bit scope is a storage server for components and their history, similar to the local component store.
 
-## Stored Dependencies
+## Stored dependencies
 
 Dependencies between versions or snaps are logged as part of the component's state.
 
@@ -95,7 +95,7 @@ Follow these steps to explore how components are stored and managed for your wor
 Start by importing a component with a history of changes:
 
 ```bash
-$ bit import teambit.base-ui/inputs/button
+bit import teambit.base-ui/inputs/button
 ```
 
 After the `import` process is complete, we can start exploring the component store:
@@ -134,7 +134,7 @@ The above output table shows the mapping between each component ID and its compo
 
 Let's explore `teambit.base-ui/inputs/button`:
 
-```
+```bash
 bit cat-object -p e603d90cf7c889b7ab9a9726a17123a27a167b8f
 ```
 

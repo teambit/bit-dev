@@ -51,17 +51,17 @@ When building an env-service, you can already compose it to your environment loc
 
 While there are no limitations on the implementation details for your env-service it is recommended to follow some guidelines to allow other developers using your env-service to extend and support future tooling and flows your env-service enables.
 
-### Service Handlers
+### Service handlers
 
 Service Handler is an API for the Environment to pass data and use a specific env-service. The API may support passing configuration, tools, or anything needed by the env-service. It is the only integration point between an environment maintainer and you, for them to compose your env-service to their workflow.
 
 For example, we can create a Service Handler call `getCompiler()` to configure the Compiler Env Service to run the Babel aspect. The `getCompiler()` method can accept configuration or any parameter for customizing the compiler.
 
-### Integrating with Aspects
+### Integrating with aspects
 
 You may want to extend your env-service functionality to create a new CLI command, write to Bit's, generate and manage artifacts, etc. All of this is possible by depending and using core aspects. You may also integrate your env-service with other env-services, as needed.
 
-### Execution in the workspace VS Execution during build
+### Execution in the workspace VS execution during build
 
 While build tasks run in isolation during `tag` or `snap` on the **component capsule**, env-services may run operations directly in a workspace. This is useful when you have a tool that does extensive and slow work for validating quality of a component, but also supports a "lightweight" run so not to slow down the workflow.
 

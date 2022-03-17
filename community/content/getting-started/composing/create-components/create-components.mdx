@@ -1,7 +1,7 @@
 import { Image } from '@teambit/docs.ui.zoomable-image';
 import componentImg from './component.png';
 
-# Creating Components
+# Creating components
 
 Bit makes it simple to build independent [components](/components/component-overview) and compose them with others, using [dependencies](/dependencies/dependencies-overview).  
 Each component may have be of a different type, like Node Modules, React Components, Angular Modules and more. The type is defined according to the [Component Development Environment (Env)](/getting-started/composing/dev-environments) you set for a component.
@@ -53,7 +53,7 @@ From now on Bit treats this component as an independent module, which so should 
 
 :::tip Fine-tune control for generating components
 
-By default, components are created according to the `defaultScope` defined in the [workspace.json](/workspace/workspace-json), and the `env` defined as part of the template.  
+By default, components are created according to the `defaultScope` defined in the [workspace.json](/workspace/workspace-configuration), and the `env` defined as part of the template.  
 Override any of them by passing the `--scope` and `--env` flags to the `create` command. Change the location of the component by passing the `--path` flag.
 
 :::
