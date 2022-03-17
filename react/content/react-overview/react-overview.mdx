@@ -4,14 +4,14 @@ import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-
 
 <ComponentCardDisplay componentIds={['teambit.react/react']} style={{ float: 'left', margin: 20, maxWidth: 250 }} />
 
-`teambit.react/react` is a pre-built [Env](/docs/envs/envs-overview) for building components and apps with React.
+`teambit.react/react` is a pre-built [Env](/envs/envs-overview) for building components and apps with React.
 It enables you to quickly set up a dev environment that follows best practices for React component development.
 
 React can also be used as a good starting point for your own customized Env as it provides a comprehensive API that makes it easy to extend.
 
 ## Using the React env
 
-To use React Env, apply it on the relevant [variants](/docs/workspace/variants) (component selections) in your [Workspace config](/docs/workspace/workspace-configuration):
+To use React Env, apply it on the relevant [variants](/workspace/variants) (component selections) in your [Workspace config](/workspace/workspace-configuration):
 
 ```json title="workspace.jsonc"
 {
@@ -48,9 +48,9 @@ bit create react ui/my-welcome
 
 ## Development services and configurations
 
-The table below lists [dev services](/dev-services/dev-services-overview) that are provided by the React env. Each service handles a specific component development operation. Each is implemented by the React env, using a specific set of configurations.
+The table below lists [dev services](/dev-services-overview/builder/builder-overview) that are provided by the React env. Each service handles a specific component development operation. Each is implemented by the React env, using a specific set of configurations.
 
-To customize and extend the React env, [create you own React env extension](/envs/pre-configured-envs/react/extending-react#using-your-own-react-env-extension). You can replace the Aspects used by the env, or override their configurations (use the links provided in the 'customization' column).
+To customize and extend the React env, create you own React env extension <!-- TODO [create you own React env extension](/envs/pre-configured-envs/react/extending-react#using-your-own-react-env-extension) -->. You can replace the Aspects used by the env, or override their configurations (use the links provided in the 'customization' column).
 
 | Service                                                                     | Aspect                                                      | Default config                                                                                                     | Customization                                                                                                                                                   |
 | --------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
