@@ -1,5 +1,11 @@
 @import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
 
+// @hack - prevent horrible horizontal scroll
+// TODO - @uri - fix in highlighter, then remove this hack
+html, body {
+  overflow-x: hidden;
+}
+
 .highlighter {
   --bit-highlighter-color: var(--surface-hover-color, #edebfc);
   --bit-highlighter-color-hover: var(--surface-focus-color, #e2defa);
