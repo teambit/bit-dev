@@ -2,7 +2,7 @@ import scopeChangelog from './scope-changelog.png';
 import versionDropdown from './version-dropdown.png';
 import { Image } from '@teambit/docs.ui.zoomable-image';
 
-# Navigate Component History
+# Navigate component history
 
 When you have created several component snapshots or versions, or you imported a component with an existing history, you may want to navigate the history of the component and see how it evolved.  
 Bit offers several tools for both viewing the history, understanding differences and even take your component back in time to a past version.
@@ -12,13 +12,13 @@ Bit keeps the component history as an attribute of each component. This provides
 - Independent view of the history of each component.
 - Bring the complete history of a component to other workspaces (when using `bit import`).
 - Checkout past versions of a component in a workspace.
-- Track new changes to the component history in any worksapce.
+- Track new changes to the component history in any workspace.
 
 This de-centralized approach to component history is a key feature of Bit and allows for more autonomy for developers.
 
-## Viewing the History for Remote Components
+## Viewing the history for remote components
 
-The scope-server allows complete autonomy for a viewer to explore past versions of a component. You may use the [component **changelog** tab](https://bit.dev/teambit/community/ui/graph/bubble-graph/~changelog).
+The scope-server allows complete autonomy for a viewer to explore past versions of a component. You may use the [component **changelog** tab](https://bit.cloud/teambit/community/ui/graph/bubble-graph/~changelog).
 
 <Image src={scopeChangelog} width="80%" />
 
@@ -52,11 +52,11 @@ tag 1.9.58 (81b84f42d10c17ae4b29293a8ca60dbf7fcfc11b)
 author: Acme Gene <you@domain.com>
 ```
 
-## Viewing the History for Local Components
+## Viewing the history for local components
 
 :::info follow along
 
-To follow this section start a new project and import the [bubble graph](https://bit.dev/teambit/community/ui/graph/bubble-graph) component.  
+To follow this section start a new project and import the [bubble graph](https://bit.cloud/teambit/community/ui/graph/bubble-graph) component.  
 All commands and examples will use it as a reference. If you have your own component with history, you may use it.
 
 ```bash
@@ -79,7 +79,7 @@ You can run `log` to view the history as well:
 bit log teambit.community/ui/graph/bubble-graph
 ```
 
-## Get Diff Between Versions
+## Get diff between versions
 
 For your local components, you may use `diff` command to see how component versions evolved:
 
@@ -166,7 +166,7 @@ teambit.community/entity/graph/bubble-graph
 + teambit.community/entity/graph/bubble-graph@1.9.54
 ```
 
-## Checkout to a Specific Version
+## Checkout to a specific version
 
 You can have Bit revert a component to a past history state with the `checkout` command:
 
@@ -200,7 +200,7 @@ To move back to the latest version, use the `checkout latest` command:
 bit checkout latest teambit.community/ui/graph/bubble-graph
 ```
 
-### Checkout Many Components
+### Checkout many components
 
 The `checkout` command supports multiple components at once, so you can revert trees of components.
 
