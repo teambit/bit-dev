@@ -1,4 +1,4 @@
-# Dev Files
+# Dev files
 
 Dev files are component files used for development and not for production. Dev files are determined as such by the Dev Files Aspect.
 
@@ -86,11 +86,11 @@ $ bit show ui/card
 └───────────────────┴──────────────────────────────────────────────────────────┘
 ```
 
-## Configuring Dev Files
+## Configuring dev files
 
 Dev files are configured by setting glob patterns that match the files' names.
 
-### Setting Glob Patterns via `workspace.jsonc`
+### Setting glob patterns via `workspace.jsonc`
 
 Use the `devFilePatterns` property in `teambit.component/dev-files` to manually set a glob pattern for dev files.
 
@@ -106,15 +106,15 @@ Use the `devFilePatterns` property in `teambit.component/dev-files` to manually 
 }
 ```
 
-### Setting Glob Patterns via the Dev Files API
+### Setting glob patterns via the Dev files API
 
 Update your extension or create an new one to register glob patterns for dev files, using the Dev Files `registerDevPattern` API.
 
-```
+```bash
 bit create aspect extensions/my-dev-files
 ```
 
-#### registerDevPattern
+#### `registerDevPattern`
 
 ```ts
 registerDevPattern: (pattern: string[]) : void

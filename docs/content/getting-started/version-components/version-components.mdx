@@ -4,7 +4,7 @@ import { Image } from '@teambit/docs.ui.zoomable-image';
 
 # Snapping components
 
-A component in Bit has its own history. This history contains code, dependencies and configuration changes, together they form the [Component Snap](docs/components/snaps). Snaps are shared using a remove Bit scope.
+A component in Bit has its own history. This history contains code, dependencies and configuration changes, together they form the [Component Snap](/components/snaps). Snaps are shared using a remove Bit scope.
 
 Each snap has to be completely isolated from the workspace. To evaluate if a state of a component can be saved, run:
 
@@ -30,7 +30,7 @@ bit tag ui/my-welcome --message "my changelog message" --patch
 
 All snaps are stored in the local scope. The process of sharing components to remote Bit scopes is about exporting staged snaps from the local store to the remote.
 
-Read more about [snaps](/docs/components/snaps) or [tags](/docs/components/tags) and how to use them.
+Read more about [snaps](/components/snaps) or [tags](/components/tags) and how to use them.
 
 ## Component history
 
@@ -44,7 +44,7 @@ And by running the `log` command:
 bit log ui/my-welcome
 ```
 
-Read more about [navigating history](/docs/components/navigating-history).
+Read more about [navigating history](/components/navigating-history).
 
 ### View past snaps
 
@@ -95,7 +95,7 @@ You can specify a SemVer increment, so Bit tags all the components using that in
 bit tag "ui/*" --patch --message "my version message" # Version components matching the pattern with a patch vesion.
 ```
 
-Read more on [versioning components](/docs/components/tags).
+Read more on [versioning components](/components/tags).
 
 ### Version Affected Components
 

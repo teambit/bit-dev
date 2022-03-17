@@ -4,8 +4,8 @@ import { Image } from '@teambit/docs.ui.zoomable-image';
 
 # Development Environments
 
-Component development workflow is simplified and standardized using [Component Development Environments](/docs/envs/envs-overview) (**Envs**). An env is a compositions of several [services](/docs/envs/dev-services) where each of them implements an operation.  
-For example: [Compilation](/docs/dev-services-overview/compiler/compiler-overview), [Testing](/docs/dev-services-overview/tester/tester-overview), [Build Pipeline](/docs/dev-services-overview/builder/builder-overview), [Linting](/docs/dev-services-overview/linter/linter-overview) and more. Services use various tools like TypeScript <!-- [TypeScript](/typescript/overview) --> or Jest <!-- [Jest](/jest/overview) -->. Composed together with configurations, services form an entire development experience for React, Node or Angular.  
+Component development workflow is simplified and standardized using [Component Development Environments](/envs/envs-overview) (**Envs**). An env is a compositions of several [services](/envs/dev-services) where each of them implements an operation.  
+For example: [Compilation](/dev-services-overview/compiler/compiler-overview), [Testing](/dev-services-overview/tester/tester-overview), [Build Pipeline](/dev-services-overview/builder/builder-overview), [Linting](/dev-services-overview/linter/linter-overview) and more. Services use various tools like TypeScript <!-- [TypeScript](/typescript/overview) --> or Jest <!-- [Jest](/jest/overview) -->. Composed together with configurations, services form an entire development experience for React, Node or Angular.  
 When shared between teams or project, they simplify and standardize the development process.
 
 :::info Benefits of Component Environments
@@ -44,12 +44,12 @@ added teambit.harmony/node env to the following component(s):
 company.scope/ui/my-welcome
 ```
 
-Learn more about [using envs](/docs/envs/using-envs).
+Learn more about [using envs](/envs/using-envs).
 
 ## Customize your workflow
 
 Envs in Bit features a set of various programmatic APIs that allow composition and customization of the development process. You can use any of the pre-built envs as a dependency, and create your own custom setup.  
-Follow the steps here to customize your workflow and [create your own custom env](/docs/envs/composing-env).
+Follow the steps here to customize your workflow and [create your own custom env](/envs/composing-env).
 
 The envs you create is a component, meaning you get all the features and benefits of managing your workflow as a versioned component.  
 To set a custom env for your component, you use the same flow as you would use to apply a pre-built env:
