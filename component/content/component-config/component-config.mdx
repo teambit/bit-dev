@@ -6,7 +6,7 @@ import componentConfig from './comp-config.png';
 
 Component configuration is a composition of different [Aspects](/extending-bit/aspect), where each aspect defines a set of attributes and behaviors.  
 These aspects may be an [env](docs/envs/envs-overview) to define the "kind" of component and different development workflows all the way to controlling dependencies, remote scopes and generated artifacts, etc.  
-Configuration is a core part of each [component's anatomy](/docs/component/component-anatomy), making it a part of each component version.
+Configuration is a core part of each [component's anatomy](/component/component-anatomy), making it a part of each component version.
 
 To see the component config head over the component page on a scope or in the workspace dev server, and find the "config" tab. Here you will see the list of applied aspects and their configuration. [Here's an example](https://bit.dev/teambit/community/ui/graph/bubble-graph/~aspect):
 
@@ -31,9 +31,9 @@ bit show teambit.community/ui/graph/bubble-graph
 
 ## Changing component configuration
 
-While configuration is a per-component "thing", Bit offers a set of features to control many components by using configuration rules called [Variants](/variants/overview) as part of the [workspace configuration](/docs/workspace/workspace-configuration).
+While configuration is a per-component "thing", Bit offers a set of features to control many components by using configuration rules called [Variants](/variants/overview) as part of the [workspace configuration](/workspace/workspace-configuration).
 
-With `variants` you can define configuration for a subset of components. In this example, all components with `ui` namespace are configured with the [React env](/docs/frameworks/react/react-overview).
+With `variants` you can define configuration for a subset of components. In this example, all components with `ui` namespace are configured with the [React env](/frameworks/react/react-overview).
 
 ```javascript
 {

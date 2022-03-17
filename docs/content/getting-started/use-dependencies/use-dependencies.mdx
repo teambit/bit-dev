@@ -5,7 +5,7 @@ import { Image } from '@teambit/docs.ui.zoomable-image';
 
 # Using Dependencies
 
-With [dependencies](/docs/dependencies/dependencies-overview) we compose components out of other components. Dependencies can be either [External Dependencies](/docs/dependencies/external-dependencies) or Bit components in the same workspace. Bit automatically resolves a component's dependencies by parsing all `import` and `require` statements in your code.
+With [dependencies](/dependencies/dependencies-overview) we compose components out of other components. Dependencies can be either [External Dependencies](/dependencies/external-dependencies) or Bit components in the same workspace. Bit automatically resolves a component's dependencies by parsing all `import` and `require` statements in your code.
 
 To create a dependency relationship between components we simply add `import` one from another. Go to `my-welcome.ts` and add the following `import` statement.
 
@@ -16,7 +16,7 @@ import { Heading } from '@bitorg/experience.templates.ui.heading';
 
 :::info Generated package name
 
-[`Package name`](/docs/packages/package-name) for a component is by default computed from its [Component ID](/components/component-id). You can customize it to your liking with other conventions.
+[`Package name`](/packages/package-name) for a component is by default computed from its [Component ID](/components/component-id). You can customize it to your liking with other conventions.
 
 :::
 
@@ -152,7 +152,7 @@ bit show ui/my-welcome
 
 ## External dependencies
 
-[External dependencies](/docs/dependencies/external-dependencies) are all dependencies listed as part of the workspace [Dependency Policy](/docs/dependencies/dependency-policies) and are installed with the `install` command.
+[External dependencies](/dependencies/external-dependencies) are all dependencies listed as part of the workspace [Dependency Policy](/dependencies/dependency-policies) and are installed with the `install` command.
 
 ```bash
 bit install @teambit/base-ui.button
@@ -166,7 +166,7 @@ Bit tries to automate managing types of dependencies as well so you don't have t
 
 ### Dev dependencies
 
-`devDependencies` is contextual. Some components many use a dependency for their testing, and others will need it to operate. Managing the type of dependency can be a pain. Bit solves this by treating `import` and `require` statements from files classified as [Dev Files](/docs/components/dev-files) differently. Any dependency resolved from a dev-file is marked as `devDependencies` for the specific component. `bit show` output lists which are the dev-files of a component.
+`devDependencies` is contextual. Some components many use a dependency for their testing, and others will need it to operate. Managing the type of dependency can be a pain. Bit solves this by treating `import` and `require` statements from files classified as [Dev Files](/components/dev-files) differently. Any dependency resolved from a dev-file is marked as `devDependencies` for the specific component. `bit show` output lists which are the dev-files of a component.
 
 If any dependency appears in both an implementation file and a dev-file, Bit marks it as a `dependency` as this is a "stronger" requirement.
 
@@ -184,5 +184,5 @@ Bit is unable to determine if a dependency should be a `peerDependency`. This is
 
 ## Overriding automated dependency policy
 
-Bit offers an automatic way to manage your dependency graph. However, you can take control to your own hands and override any automated behavior. To control and configure different dependency resolution to some components you need to use the [Workspace Variants Aspect](/docs/workspace/variants).  
+Bit offers an automatic way to manage your dependency graph. However, you can take control to your own hands and override any automated behavior. To control and configure different dependency resolution to some components you need to use the [Workspace Variants Aspect](/workspace/variants).  
 With manual control you can even decide that some of your components will resolve different versions of the same external dependency, allowing you to slowly upgrade your dependencies.
