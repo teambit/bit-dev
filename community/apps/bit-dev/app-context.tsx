@@ -13,6 +13,8 @@ const userAgent = typeof window !== 'undefined' ? new UAParser(window.navigator.
 
 export function AppContext({ children }: { children?: ReactNode }) {
   return (
+    // UserAgentProvider doesn't accept undefined type (even though it handles undefined just fine)
+    // https://stackoverflow.com/questions/71548903/react-context-provider-not-allowing-undefined
     <UserAgentProvider value={userAgent}>
       <NavigationProvider implementation={reactRouterAdapter}>
         <CloudProvider>
