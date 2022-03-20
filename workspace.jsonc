@@ -84,7 +84,7 @@
         "@teambit/community.ui.sticky-banner": "0.0.5",
         "@teambit/component-descriptor": "0.0.13",
         "@teambit/component-id": "^0.0.401",
-        "@teambit/component.modules.component-url": "^0.0.123",
+        "@teambit/component.modules.component-url": "0.0.124",
         "@teambit/component.ui.graph.component-node-container": "^0.0.33",
         "@teambit/component.ui.graph.dependencies-graph": "^0.0.34",
         "@teambit/components.blocks.component-card-display": "0.0.17",

@@ -13,13 +13,13 @@ export const features = [
   },
   {
     title: 'Standard',
-    text: 'Every component is developed in isolation and is its own package.',
+    text: 'Every component is developed in isolation and has its own package.',
     image: 'https://static.bit.dev/Community/features/visibile.svg',
     alt: 'visible',
   },
   {
     title: 'Composable',
-    text: 'Compose existing components into new ones instead of reinventing the same wheels.',
+    text: 'Compose existing components into new ones instead of reinventing the wheel.',
     image: 'https://static.bit.dev/Community/features/reusable.svg',
     alt: 'reusable',
   },
