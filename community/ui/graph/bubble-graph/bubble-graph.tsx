@@ -21,6 +21,7 @@ export function BubbleGraph({ nodes, Node = BubbleNode, children, nodeClassName,
   );
 }
 
+// this will be fixed in react-xarrows v3.0.0
 function ReloadArrows() {
   const updateXarrow = useXarrow();
 
