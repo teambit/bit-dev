@@ -114,6 +114,10 @@
   color: #ededed;
   width: 20em;
   height: 48px;
+  > div:nth-child(2) > span {
+    background-color: #fffbff;
+    color: #2b2b2b;
+  }
 }
 
 .getStartedAction {

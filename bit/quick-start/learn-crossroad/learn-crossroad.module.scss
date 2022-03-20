@@ -1,3 +1,4 @@
+@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
 .thinkingInComponents {
   display: flex;
   min-height: 200px;
@@ -33,6 +34,27 @@
     font-size: 18px;
     line-height: 24px;
     text-align: left;
+  }
+
+  @media screen and (max-width: $br-md) {
+    .image {
+      justify-self: flex-start;
+      height: 100px;
+      width: 100px;
+    }
+    .heading {
+      font-size: 16px;
+    }
+    .paragraph {
+      font-size: 14px;
+    }
+  }
+  @media screen and (max-width: $br-sm) {
+    max-width: 250px;
+    flex-direction: column;
+    .image {
+      margin-bottom: 16px;
+    }
   }
 }
 
