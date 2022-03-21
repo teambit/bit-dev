@@ -60,7 +60,7 @@ React Native implements a set of APIs you can use to merge your preferred config
 
 ## Runtime (framework) dependencies
 
-Similar to many Frontend frameworks React Native must have a singleton instance in your app's runtime. When building reuseable components we need to adhere to that and have `react` and `react-native` set as `peerDependencies`, thus allowing the consuming app to determine runtime version. React environment implements this via the **Dependencies** service which is used to override [dependency-resolver](https://bit.dev/teambit/dependencies/dependency-resolver) and set your prefered dependencies.
+Similar to many Frontend frameworks React Native must have a singleton instance in your app's runtime. When building reuseable components we need to adhere to that and have `react` and `react-native` set as `peerDependencies`, thus allowing the consuming app to determine runtime version. React environment implements this via the **Dependencies** service which is used to override [dependency-resolver](https://bit.dev/teambit/dependencies/dependency-resolver) and set your preferred dependencies.
 It is recommended to for you to extend the base React environment and define a semantic version rule to fit your current tech stack and guidelines for reuseable React components.
 
 ## FAQ
