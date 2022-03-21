@@ -1,6 +1,6 @@
-import React, { ReactNode } from "react";
-import classNames from "classnames";
-import styles from "./card.module.scss";
+import React, { ReactNode } from 'react';
+import classNames from 'classnames';
+import styles from './card.module.scss';
 
 export type CardProps = {
   /**

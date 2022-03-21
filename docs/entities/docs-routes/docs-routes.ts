@@ -40,7 +40,14 @@ export class DocsRoutes {
 
   private computePayload(docRoute: DocsRoute, parentPath?: string) {
     // basePath should be included in the parent path
-    const thisPath = this.accumulatePath(docRoute.path, parentPath);
+    let thisPath = this.accumulatePath(docRoute.path, parentPath);
+    const split = thisPath.split('/');
+    const last = split[split.length - 1];
+    // TODO: support wildcards properly..
+    if (last === '*') {
+      split.pop();
+      thisPath = split.join('/');
+    }
 
     return {
       icon: docRoute.icon,

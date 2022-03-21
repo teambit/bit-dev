@@ -5,7 +5,7 @@
 
 Collaborating on Bit components require setting up remote scopes accessible for all collaborators. Remote scopes should also be accessible for one-another, so that they can have dependencies.
 
-Managing a distributed network of scopes requires each node in the network to know which are the other remotes to communicate with. These nodes are called `remotes` in Bit, and managing them, regardless if the node is a developer workstation or a remote scope, is done with the `remote` command.
+Managing a distributed network of scopes requires each node in the network to know which remotes to communicate with. These nodes are called `remotes` in Bit, and managing them, regardless of whether the node is a developer workstation or a remote scope, is done with the `remote` command.
 
 ## Remotes for the workspace
 
@@ -19,7 +19,9 @@ When a scope is added as a remote, a workspace may export/import components and 
 
 ## Network of scopes
 
-If you have components that depend on components from other scopes, you need to inter-connect the scopes. For example if a component in scope **billing** is dependent on a component in scope **design-system**, you need to make scope **billing** aware of scope **design-system**. To do this, first log to the machine hosting **billing** and run:
+If you have components that depend on components from other scopes, you need to inter-connect the scopes. 
+
+For example, if a component in scope **billing** is dependent on a component in scope **design-system**, you need to make scope **billing** aware of scope **design-system**. To do this, first log to the machine hosting **billing** and run:
 
 ```bash
 bit remote add http://{design-system-host}:{host-port}
@@ -39,7 +41,9 @@ Another option is to define a resolve function that resolves the scopes. The fun
 }
 ```
 
-The function gets the destination scope name (the destination from to get the dependency) and source scope name (the scope that has the dependent) as parameters. It should return a valid URL of the destination, e.g: `file:///tmp/my-scope-name`. The example bellow is code taken from Bit.cloud:
+The function gets the destination scope name (the destination from to get the dependency) and source scope name (the scope that has the dependent) as parameters. It should return a valid URL of the destination, e.g: `file:///tmp/my-scope-name`. 
+
+The example below is code taken from Bit.cloud:
 
 ```javascript
 // /app/resolver.js

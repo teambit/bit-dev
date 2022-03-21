@@ -12,7 +12,7 @@ bit tag apps/my-app
 
 ## Customizing the app deployment
 
-A custom app deployer can be used in you own app or in an app that accepts custom deployers (this is determined by the app-type).
+A custom app deployer can be used in you own app or in an app that accepts custom deployment functions (this is determined by the app-type).
 
 An app's deployment task always follows its build.
 The information regarding the app's build as well details about the app's capsule (where the artifacts are generated),
@@ -42,7 +42,7 @@ Run the following to fork the above demo deployer function:
 bit fork learnbit.apps/deployer-example
 ```
 
-Use that deployer in an app that accepts deployers. For example, the following shows how this deployer is used in a [node demo app](https://bit.dev/learnbit/apps/node-app):
+Use that deployer in an app that accepts a deploy function. For example, the following shows how this deployer is used in a [node demo app](https://bit.dev/learnbit/apps/node-app):
 
 ```ts
 import { NodeAppOptions } from '@teambit/node';
@@ -57,7 +57,9 @@ export const HelloWorldApp: NodeAppOptions = {
 export default HelloWorldApp;
 ```
 
-:::info Compatible deployers
+:::info Compatible deployment functions
+
 A deployer is most commonly specific to an app-type or a category of app-types.
 When using a deployer, make sure that it is compatible with your app-type.
+
 :::

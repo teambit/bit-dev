@@ -1,6 +1,6 @@
 # Create component generator
 
-Bit gives you some basic templates that you can use without having to create your own components. However you may want to define specific labels or want to construct your documentation in a specific way or add a different testing library or perhaps add a css/sass file to each component. By creating your own templates it gives you the freedom to add what you want and how you want it. You can then export this generator as a component so that other members of your team can use it in other workspaces/projects and therefore everyone will be creating components just how you want them to.
+Bit gives you some basic templates that you can use without having to create your own components. However, you may want to define specific labels or want to construct your documentation in a specific way, or add a different testing library, or perhaps add a css/sass file to each component. By creating your own templates, it gives you the freedom to add what you want and how you want it. You can then export this generator as a component so that other members of your team can use it in other workspaces/projects. Everyone will be creating components just how you want them to.
 
 Create your own generator using the `bit create` command followed by the name you want to give your generator.
 
@@ -42,7 +42,7 @@ company.scope/generator/component-templates
 
 ## Modify the templates
 
-The `*.main.runtime.ts` file contains an array of templates that you can modify and add to to create different templates and numerous files to be generated. Make sure you also modify the name and description of these templates as this will be shown in the CLI when you run `bit templates`.
+The `*.main.runtime.ts` file contains an array of templates that you can modify and add to create different templates and numerous files to be generated. Make sure you also modify the name and description of these templates as this will be shown in the CLI when you run `bit templates`.
 
 ```js {3,4} title="*.main.runtime.ts"
 generator.registerComponentTemplate([
@@ -111,7 +111,7 @@ export type { ${context.namePascalCase}Props } from './${context.name}';
 
 ## Test templates locally
 
-Use your generator to create the component files. In our example we used the name _component1_ as our template name. We can use then `bit create component1` followed by the name of the component we want to create, for example a button component.
+Use your generator to create the component files. In our example we used the name _component1_ as our template name. We can then use `bit create component1`, followed by the name of the component we want to create, for example a button component.
 
 ```bash
 bit compile # first compile your generator
@@ -122,7 +122,7 @@ This will create your button component and all its files and content from your _
 
 ## Exporting your generator
 
-A generator is just like any other component. Once created it appears as a component in your workspace. To use it in other projects you need to version and export it.
+A generator is just like any other component. Once created, it appears as a component in your workspace. To use it in other projects you need to version and export it.
 
 ```bash
 bit tag --all --message="my custom generator"
@@ -133,7 +133,7 @@ Any modifications to the generator will require you to export a new version for 
 
 ## Using custom generators
 
-You can add any generator to the `workspace.jsonc` file in the workspace/project where you want to use it. Bit will automatically install this for your
+You can add any generator to the `workspace.jsonc` file in the workspace/project where you want to use it and Bit will automatically install this for you.
 
 ```json title="workspace.jsonc"
 "teambit.generator/generator": {

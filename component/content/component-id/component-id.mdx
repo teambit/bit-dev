@@ -37,23 +37,23 @@ bit env
 ```
 
 ```bash
-┌──────────────────────────────────────────────────────────────────────────────┬───────────────────────────────────────────────┐
-│ component                                                                    │ env                                           │
-├──────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────┤
-│ teambit.community/apps/bit-dev@1.11.3                                        │ teambit.harmony/aspect                        │
-├──────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────┤
-│ teambit.docs/blocks/component/architecture-breakdown@0.0.1                   │ teambit.community/envs/community-react@1.11.0 │
-├──────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────┤
-│ teambit.base-react/buttons/button@1.11.0                                     │ teambit.community/envs/community-react@1.11.0 │
-├──────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────┤
-│ teambit.component/content/adding-components@1.11.0                           │ teambit.mdx/mdx                               │
-├──────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────┤
-│ teambit.harmony/content/aspects-overview@1.11.0                              │ teambit.mdx/mdx                               │
-├──────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────┤
-│ teambit.workspace/content/bitmap@1.11.0                                      │ teambit.mdx/mdx                               │
-├──────────────────────────────────────────────────────────────────────────────┼───────────────────────────────────────────────┤
-│ teambit.pipelines/content/build-artifacts@1.11.0                             │ teambit.mdx/mdx                               │
-└──────────────────────────────────────────────────────────────────────────────┴───────────────────────────────────────────────┘
+┌────────────────────────────────────────────────────────────┬───────────────────────────────────────────────┐
+│ component                                                  │ env                                           │
+├────────────────────────────────────────────────────────────┼───────────────────────────────────────────────┤
+│ teambit.community/apps/bit-dev@1.11.3                      │ teambit.harmony/aspect                        │
+├────────────────────────────────────────────────────────────┼───────────────────────────────────────────────┤
+│ teambit.docs/blocks/component/architecture-breakdown@0.0.1 │ teambit.community/envs/community-react@1.11.0 │
+├────────────────────────────────────────────────────────────┼───────────────────────────────────────────────┤
+│ teambit.base-react/buttons/button@1.11.0                   │ teambit.community/envs/community-react@1.11.0 │
+├────────────────────────────────────────────────────────────┼───────────────────────────────────────────────┤
+│ teambit.component/content/adding-components@1.11.0         │ teambit.mdx/mdx                               │
+├────────────────────────────────────────────────────────────┼───────────────────────────────────────────────┤
+│ teambit.harmony/content/aspects-overview@1.11.0            │ teambit.mdx/mdx                               │
+├────────────────────────────────────────────────────────────┼───────────────────────────────────────────────┤
+│ teambit.workspace/content/bitmap@1.11.0                    │ teambit.mdx/mdx                               │
+├────────────────────────────────────────────────────────────┼───────────────────────────────────────────────┤
+│ teambit.pipelines/content/build-artifacts@1.11.0           │ teambit.mdx/mdx                               │
+└────────────────────────────────────────────────────────────┴───────────────────────────────────────────────┘
 ```
 
 When running `bit start`, component ID is used to sort components in the component tree and quick search.
@@ -63,11 +63,11 @@ When running `bit start`, component ID is used to sort components in the compone
 ## Scope name and hosting
 
 Scope describe the owner of the component on one hand, on the other hand, scope ownership is also defined by "who has access to the component", and what's the access level.  
-Read/write access for components is defined in a [remote scope](/docs/scope/running-a-scope-server), so by setting the ownership of a component, you also define where it will be hosted.
+Read/write access for components is defined in a [remote scope](/scope/running-a-scope-server), so by setting the ownership of a component, you also define where it will be hosted.
 
 ### Pre-fix scopes with the `.` separator
 
-Bit supports pre-fixing for scopes with an organization name for creating ownership on scopes. [bit.cloud](https://bit.cloud] use this to have better control over naming with distributing components the community hub.
+Bit supports pre-fixing for scopes with an organization name for creating ownership on scopes. [bit.cloud](https://bit.cloud) use this to have better control over naming with distributing components the community hub.
 
 All scopes created in [bit.cloud](https://bit.cloud] follow this pattern for the scope name:
 
@@ -75,7 +75,7 @@ All scopes created in [bit.cloud](https://bit.cloud] follow this pattern for the
 ACCOUNT.SCOPE
 ```
 
-## Workspace Component Layout
+## Workspace component layout
 
 Bit structures your workspace according to the component ID. It destructure the ID and create a directory tree. This makes the workspace easier to navigate by creating symmetry between the logical structure of components and their physical location.
 
@@ -94,7 +94,7 @@ Bit will create the component in the following directory:
         └── add-product
 ```
 
-## Component Module Name
+## Component module name
 
 All components in a workspace are available for consumption as node modules. Bit does it by creating a module for each component in `node_modules` according to it's component ID. However, as Bit heavily utilizes scoping and namespaces, it needs to transform component IDs to module names Node can resolve.
 
@@ -122,15 +122,15 @@ Bit generates module links in `node_module` dir for all components when creating
 
 Component ID is used in `import` statement of its dependents, this means that updating it breaks consumers. To workaround that Bit essentially build a new component and deprecate/remove the previous one.
 
- ```sh
+```sh
 bit rename teambit.base-ui/button teambit.advanced-ui/button
- ```
+```
 
- When you have the right ID:
+When you have the right ID:
 
- * Run `bit dependents <old-component-id>` to get a list of dependent components.
- * Refactor all `import {...} from <old-module-name>` to `import {...} from <new-module-name>` for dependent components.
- * Now your components all use the right component.
+* Run `bit dependents <old-component-id>` to get a list of dependent components.
+* Refactor all `import {...} from <old-module-name>` to `import {...} from <new-module-name>` for dependent components.
+* Now your components all use the right component.
 
 ## Component name limitations
 

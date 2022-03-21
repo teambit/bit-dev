@@ -10,8 +10,8 @@ import BlogIntro from './blog-intro.mdx';
 import BlogEnding from './blog-ending.mdx';
 import LobbyIntro from './lobby-intro.mdx';
 import LobbyEnding from './lobby-ending.mdx';
-import PluginIntro from './plugin-intro.mdx';
-import PluginEnding from './plugin-ending.mdx';
+import BlogPostIntro from './blog-post-intro.mdx';
+import BlogPostEnding from './blog-post-ending.mdx';
 
 export type BlogQuickStartProps = {
   /**
@@ -39,9 +39,9 @@ export function BlogQuickStart({ children }: BlogQuickStartProps) {
       ending: <LobbyEnding />,
     },
     {
-      id: 'teambit.blog/plugins/featured-posts',
-      intro: <PluginIntro />,
-      ending: <PluginEnding />,
+      id: 'teambit.blog/starter/blog-posts/post-one',
+      intro: <BlogPostIntro />,
+      ending: <BlogPostEnding />,
     },
   ];
 

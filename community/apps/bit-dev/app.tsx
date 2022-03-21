@@ -22,7 +22,7 @@ export function BitDevApp() {
   return (
     <AppContext>
       <GoogleAnalytics trackingId="UA-89811062-3" />
-      <GoogleTagManager gtmIds={['GTM-M99BCWV', 'GTM-W637HJ5']} />
+      <GoogleTagManager gtmIds={['GTM-WQX39XS']} />
       <StickyBanner />
       <Header />
       <Routes>

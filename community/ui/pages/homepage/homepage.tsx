@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Hero } from '@teambit/community.ui.hero';
 import { clientLogos } from '@teambit/community.entity.images';
 import { UseCasesSection } from '@teambit/community.ui.use-cases.use-cases-section';
@@ -32,8 +32,17 @@ const pageDescription =
 const bubbles = mockBubbleGraph();
 
 export function Homepage({ ...rest }: HomepageProps) {
+  // @hack - force render page to make sure edges render in correct place.
+  // TODO - fix source of issue and remove this hack
+  const [key, setKey] = useState(0);
+  useEffect(() => {
+    setTimeout(() => {
+      setKey(key + 1);
+    }, 1000);
+  }, []);
+
   return (
-    <Page title="Component driven development - Bit" description={pageDescription} {...rest}>
+    <Page key={key} title="Component driven development - Bit" description={pageDescription} {...rest}>
       <section>
         <div className={styles.grid}>
           <ExcludeHighlighter>
@@ -44,7 +53,7 @@ export function Homepage({ ...rest }: HomepageProps) {
           <UseCasesSection
             useCases={useCases}
             title="Make hard things simple"
-            href="/guides/micro-frontends/overview"
+            href="/docs/quick-start"
             linkText="See more use cases"
           />
         </div>
