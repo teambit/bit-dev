@@ -1,12 +1,21 @@
 @import "~@teambit/base-ui.layout.breakpoints/_breakpoints.scss";
 
-.tableOfContent {
+// toc wrapper that holds the position in the page that pushes the rest of the elements in the page
+.tocWrapper {
   position: sticky;
-  flex-shrink: 0;
   margin-left: 32px;
-  top: 120px;
+  flex-shrink: 0;
   bottom: 0;
   right: 8px;
+  width: 264px;
+  margin-top: 16px;
+}
+
+// the table itself. separated in order to allow scroll in the table content
+.tableOfContent {
+  position: fixed;
+  height: calc(100% - 60px);
+  overflow-y: auto;
   [data-element-type="H3"] {
     padding-left: 16px;
   }
@@ -14,7 +23,4 @@
   @media screen and (max-width: $br-lg) {
     display: none;
   }
-}
-.closedStickyBanner {
-  top: 56px;
 }

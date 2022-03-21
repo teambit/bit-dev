@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, ReactNode, Suspense, MutableRefObject } from 'react';
+import className from 'classnames';
 import { MDXLayout } from '@teambit/mdx.ui.mdx-layout';
 import { Page } from '@teambit/base-react.pages.page';
 import { DocsPlugin } from '@teambit/docs.plugins.docs-plugin';
@@ -24,6 +25,8 @@ export type DocPageProps = {
   index: number;
 
   plugins?: DocsPlugin<any>[];
+
+  contentClass?: string;
 };
 
 const components = mdxComponents('/docs', 'docs-heading');
@@ -33,7 +36,7 @@ const scrollToRef = (ref: MutableRefObject<HTMLElement | null>) => {
   window.scrollTo(0, -ref.current.offsetTop);
 };
 
-export function DocPage({ route, index, children, plugins = [] }: DocPageProps) {
+export function DocPage({ route, index, children, plugins = [], contentClass }: DocPageProps) {
   const myRef = useRef(null);
   const contentRef = useRef() as React.MutableRefObject<HTMLDivElement>;
 
@@ -56,7 +59,7 @@ export function DocPage({ route, index, children, plugins = [] }: DocPageProps) 
     <Page title={`${route.title} | Bit`} description={pageDescription} className={styles.docsPage}>
       <Suspense fallback={<div />}>
         <DocPageContext.Provider value={{ index, route }}>
-          <div ref={myRef} id="content" className={styles.content}>
+          <div ref={myRef} id="content" className={className(styles.content, contentClass)}>
             <MDXLayout components={components}>
               <div className={styles.mdxLayout} ref={contentRef}>
                 {children}

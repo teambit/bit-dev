@@ -1,6 +1,7 @@
-import React, { useMemo, ReactNode } from 'react';
+import React, { useMemo, ReactNode, useEffect } from 'react';
 import classNames from 'classnames';
-import { MenuLinkItem } from '@teambit/design.ui.surfaces.menu.link-item';
+import { classes } from '@teambit/design.ui.surfaces.menu.item';
+import { Link } from '@teambit/base-react.navigation.link';
 import { useElementOnFold } from '@teambit/docs.ui.hooks.use-element-on-fold';
 import styles from './table-of-content.module.scss';
 
@@ -29,16 +30,18 @@ export function TableOfContent({ className, children, title, rootRef, selectors,
     <div {...rest} className={classNames(styles.tableOfContent, className)}>
       {title && <div className={styles.title}>{title}</div>}
       {anchors.map((link) => {
+        const isActive = activeElement === link?.actualElement;
+
         return (
-          <MenuLinkItem
+          <Link
+            native
             key={link?.id}
-            className={styles.item}
-            isActive={() => activeElement?.innerText === link?.displayName}
+            className={classNames(styles.item, classes.menuItem, classes.interactive, isActive && classes.active)}
             href={`#${link?.id}`}
-            data-element-type={link?.element}
+            data-element-type={link?.elementType}
           >
             {link?.displayName}
-          </MenuLinkItem>
+          </Link>
         );
       })}
       {children}
@@ -53,7 +56,8 @@ function getLinks(links: Element[]) {
     return {
       id: linkText.toLowerCase().replace(/ /g, '-'),
       displayName: linkText,
-      element: link.tagName,
+      elementType: link.tagName,
+      actualElement: link,
     };
   });
 }

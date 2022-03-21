@@ -47,9 +47,14 @@ export type DocsProps = {
    * array doc plugins to compose.
    */
   plugins?: DocsPlugin<any, any>[];
+
+  /**
+   * override styles for content section of page
+   */
+  contentClass?: string;
 } & React.HtmlHTMLAttributes<HTMLDivElement>;
 
-export function Docs({ contents, primaryLinks = [], baseUrl, plugins = [], className, ...rest }: DocsProps) {
+export function Docs({ contents, primaryLinks = [], baseUrl, plugins = [], className, contentClass, ...rest }: DocsProps) {
   const primaryRoutes = DocsRoutes.from(primaryLinks, baseUrl);
   const contentRoutes = contents?.map((category) => {
     return {
