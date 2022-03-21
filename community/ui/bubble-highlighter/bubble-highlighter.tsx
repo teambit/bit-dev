@@ -51,6 +51,7 @@ type LabelProps = {
 } & React.HTMLAttributes<HTMLDivElement>;
 
 function Label({ componentId, className, ...rest }: LabelProps) {
+  // @ts-ignore
   const componentLink = ComponentUrl.toUrl(componentId);
   const scopeLink = ScopeUrl.toUrl(componentId.scope);
   const componentName =
