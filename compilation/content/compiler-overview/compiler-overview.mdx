@@ -6,10 +6,10 @@ import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-
   'teambit.compilation/compiler',
 ]} style={{ float: 'left', margin: 20, maxWidth: 250, marginBottom: 20 }} />
 
-The Compiler aspect provides a single interface for Component compilation, [during development](/docs/compiler/compiling-during-development) and [during build](/docs/compiler/compiling-during-build).
+The Compiler aspect provides a single interface for Component compilation, [during development](/dev-services-overview/compiler/compiling-during-development) and [during build](/dev-services-overview/compiler/compiling-during-build).
 It enables you to use the same commands and APIs to compile any Component, regardless of the specific compiler it uses.
 
-Specific compilers used by a Component ([Babel](https://bit.cloud/teambit/compilation/babel), [TypeScript](https://bit.cloud/teambit/typescript/typescript), and so on) are set by the [Component's Env](/docs/envs/using-envs).
+Specific compilers used by a Component ([Babel](https://bit.cloud/teambit/compilation/babel), [TypeScript](https://bit.cloud/teambit/typescript/typescript), and so on) are set by the [Component's Env](/envs/using-envs).
 
 ## Compiling during development
 
@@ -40,11 +40,11 @@ bit watch
 The compiled code is written into each Component's corresponding package, in the [`node_modules` directory](/dependencies/node-modules) of your workspace.
 For example, the compiled code for `company.scope/ui/text` will be found in the `./node_modules/@company/scope.ui.text/dist` directory (inside your workspace).
 
-To learn more about compilation in the Workspace, see ['Compiling during development'](/).
+To learn more about compilation in the Workspace, see ['Compiling during development'](/dev-services-overview/compiler/compiling-during-development).
 
 ## Compiling during build
 
-Run the following to compile Components as part of the [build pipeline](/) (which prepares Components for distribution):
+Run the following to compile Components as part of the [build pipeline](/dev-services-overview/builder/build-pipelines) (which prepares Components for distribution):
 
 ```bash
 bit build
@@ -61,17 +61,17 @@ The output to the terminal details the specific compilers being used, as well as
 the build has been completed. total: 19 tasks
 ```
 
-The compiled code is written into the [Component's Capsule](/). Run [`bit snap`](/) or [`bit tag`](/) to execute the build pipeline (as well as other pipelines), and have the compiled code persisted in the [Component version](/), and included in the [Component's package](/).
+The compiled code is written into the [Component's Capsule](/components/component-capsules). Run [`bit snap`](/components/snaps) or [`bit tag`](/components/tags) to execute the build pipeline (as well as other pipelines), and have the compiled code persisted in the [Component version](/components/navigating-history), and included in the component's package.
 
-To learn more about compilation in the Workspace, see ['Compiling during build'](/).
+To learn more about compilation in the Workspace, see ['Compiling during build'](/dev-services-overview/compiler/compiling-during-build).
 
 ## Compilation strategies and standards
 
-The Compiler aspect does not set specific compilation strategies as these are defined by the [specific compilers](/) themselves (and are often configurable by the Envs that use them).
+The Compiler aspect does not set specific compilation strategies as these are defined by the [specific compilers](/dev-services-overview/compiler/compiler-overview) themselves (and are often configurable by the Envs that use them).
 
 However, all official Bit compilers are configured to favor dev experience when compiling during development, and to favor runtime performance and code universality, when compiling for distribution (during build).
 
-For example, Bit's [TypeScript compiler](/) performs type-checking when compiling during build but skips it when compiling during development.
+For example, Bit's TypeScript compiler performs type-checking when compiling during build but skips it when compiling during development.
 This enables faster compilation and better dev experience.
 
 To examine a Component's specific compiler config, run the following:
@@ -124,6 +124,6 @@ compiler config:
 ## Setting a Component with a specific compiler
 
 Specific compilers are applied on Components via the Components' Envs. For example, the `company.demo/ui/card` Component examined earlier, is applied with
-the [TypeScript](/) compiler by its Env, the React Env.
+the TypeScript compiler by its Env, the React Env.
 
-To learn how to use a specific compiler, see ['Using compilers'](/).
+To learn how to use a specific compiler, see ['Using compilers'](/dev-services-overview/compiler/using-a-compiler).

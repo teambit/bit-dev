@@ -1,12 +1,12 @@
 # HTML Overview
 
-The Html env provides a tools for developing framework-less components, which can be any mix of html, css (various flavours) and javascript.
+The HTML env provides a tools for developing framework-less components, which can be any mix of HTML, CSS (various flavours) and JavaScript.
 
-These tools enables easy rendering of component examples via the compositions feature (see below) as well as functions for extracting html from a url, and converting strings to html elements.
+These tools enables easy rendering of component examples via the compositions feature (see below) as well as functions for extracting HTML from a URL, and converting strings to HTML elements.
 
 ## Create a component
 
-To create an HTML component run
+To create an HTML component run:
 
 ```bash
 bit create html my-component --env teambit.html/html
@@ -53,14 +53,14 @@ Supported composition formats in this environment:
 
 1. As an HTML element/fragment
 1. As an HTML string (can include script tags)
-1. As a javascript function
+1. As a JavaScript function
 
 ### HTML element/fragment compositions
 
 One method is to provide an HTML element as your composition. This element will then be rendered in the DOM. If your component outputs an HTML element or fragment (which can be an entire app)
 then this would be the simplest format of composition.
 
-### Html string composition
+### HTML string composition
 
 Another is to pass a string of HTML, which will be converted into actual HTML and rendered on the page.
 

@@ -5,7 +5,7 @@ import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-
 Aspects are components used to extend Bit. Every Aspect is a component that uses the Aspect environment. <!-- TODO [Aspect environment](/). -->
 Aspects are not just for extending Bit, but also for building your own composable applications.
 
-## Creating an Aspect
+## Creating an aspect
 
 Here is how we would create a basic Aspect using the official aspect env template.
 
@@ -100,7 +100,7 @@ export class MyAspectMain {
 ```
 
 Similarly, you could use the component aspect to obtain programmatic access to component objects, and to the generator aspect, in order to 
-register a new [component generation template](/docs/generator). 
+register a new [component generation template](/dev-services-overview/generator/generator-overview). 
 
 Aspects like the example below can be quite useful in various cases. You can use the GraphQL aspect to extend Bit with a new GraphQL schema, Express to
 add a new RESTful API, or the Compiler API to compile any component programmatically without being aware to its implementation.
@@ -166,7 +166,7 @@ for other Aspect to implement logic that extends them.
 An example, could be the CLI aspect we used above; behind the scenes it uses a slot to contain all commands registered by aspects
 and essentially reads them upon the Bit bootstrap.
 
-You can use Slots as a utility provided by Harmony to create pluggable APIs. To [learn on Slots head here](/docs/extending-bit/slots).
+You can use Slots as a utility provided by Harmony to create pluggable APIs. To [learn more about Slots, head here](/extending-bit/slots).
 
 ## Using runtimes 
 
@@ -177,8 +177,9 @@ Using runtimes a single aspect like the one above, can extend both the UI and CL
 
 Adding runtimes is easy as adding a new files 
 
-
 :::note
+
 Every provider injects Harmony as the fourth argument. You can use that for edge cases where you need to get access to a certain Harmony aspect,
 without using dependency injection.
+
 :::

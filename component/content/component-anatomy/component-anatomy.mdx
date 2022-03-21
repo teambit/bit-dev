@@ -1,6 +1,6 @@
 import ComponentMainFile from '@teambit/component.content.component-main-file';
 
-# Component Anatomy
+# Component anatomy
 
 A Bit component is a mini-repository. For each component Bit stores several elements:
 
@@ -11,36 +11,36 @@ A Bit component is a mini-repository. For each component Bit stores several elem
 
 To see how Bit structures your component, use the `show` command:
 
-```
+```bash
 bit show teambit.community/ui/graph/bubble-graph --remote
 ```
 
-```
-┌───────────────────┬──────────────────────────────────────────────────────────────────┐
-│ id                │ teambit.community/ui/graph/bubble-graph@1.8.15                   │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ scope             │ teambit.community                                                │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ name              │ ui/graph/bubble-graph                                            │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ env               │ teambit.community/envs/community-react@1.8.15                    │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ package name      │ @teambit/community.ui.graph.bubble-graph                         │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ main file         │ index.ts                                                         │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ files             │ ...                                                              │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ dev files         │ ...                                                              │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ extensions        │ ...                                                              │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ dependencies      │ ...                                                              │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ dev dependencies  │ ...                                                              │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ peer dependencies │ ...                                                              │
-└───────────────────┴──────────────────────────────────────────────────────────────────┘
+```bash
+┌───────────────────┬────────────────────────────────────────────────┐
+│ id                │ teambit.community/ui/graph/bubble-graph@1.8.15 │
+├───────────────────┼────────────────────────────────────────────────┤
+│ scope             │ teambit.community                              │
+├───────────────────┼────────────────────────────────────────────────┤
+│ name              │ ui/graph/bubble-graph                          │
+├───────────────────┼────────────────────────────────────────────────┤
+│ env               │ teambit.community/envs/community-react@1.8.15  │
+├───────────────────┼────────────────────────────────────────────────┤
+│ package name      │ @teambit/community.ui.graph.bubble-graph       │
+├───────────────────┼────────────────────────────────────────────────┤
+│ main file         │ index.ts                                       │
+├───────────────────┼────────────────────────────────────────────────┤
+│ files             │ ...                                            │
+├───────────────────┼────────────────────────────────────────────────┤
+│ dev files         │ ...                                            │
+├───────────────────┼────────────────────────────────────────────────┤
+│ extensions        │ ...                                            │
+├───────────────────┼────────────────────────────────────────────────┤
+│ dependencies      │ ...                                            │
+├───────────────────┼────────────────────────────────────────────────┤
+│ dev dependencies  │ ...                                            │
+├───────────────────┼────────────────────────────────────────────────┤
+│ peer dependencies │ ...                                            │
+└───────────────────┴────────────────────────────────────────────────┘
 ```
 
 ## Source code
@@ -67,7 +67,7 @@ Typically, the component's content is not just the source code itself and can in
 
 ### Main file
 
-Main file exposes the public API of the component. Read more about it [here](/docs/components/component-main-file).
+Main file exposes the public API of the component. Read more about it [here](/components/component-main-file).
 
 ### Implementation files
 
@@ -77,11 +77,11 @@ Components can have any number of files. Files can be sorted into sub-directorie
 
 Component dev-files are files we use for non-production purposes like testing, documentation, etc. Categorizing dev-files helps Bit with marking which dependencies should be considered as `devDependencies`, thus help with managing a component dependency tree.  
 
-Bit marks which configuration set each of the files as a dev-file. [read more](docs/components/dev-files) on how to manage component dev-files.
+Bit marks which configuration set each of the files as a dev-file. [read more](/components/dev-files) on how to manage component dev-files.
 
 ## Dependencies
 
-Component dependencies are managed by the [dependency resolver](https://bit.dev/docs/dependencies/dependencies-overview). This tool reads through all `import` and `require` statement in the component source code, and maps them to components or installed packages.
+Component dependencies are managed by the [dependency resolver](https://bit.cloud/docs/dependencies/dependencies-overview). This tool reads through all `import` and `require` statement in the component source code, and maps them to components or installed packages.
 
 Bit then creates a model of all the dependencies of the component. The dependency graph makes a component self-contained and allows for moving the component around projects without losing any references.
 The dependencies include the following:

@@ -2,7 +2,7 @@ import { Image } from '@teambit/docs.ui.zoomable-image';
 import screenshotImg from './screenshot.png';
 import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-display';
 
-# Compositions Overview
+# Compositions overview
 
 <ComponentCardDisplay componentIds={[
   'teambit.compositions/compositions',
@@ -24,7 +24,7 @@ Use the right sidebar to navigate to other available compositions.
 
 <Image src={screenshotImg} />
 
-Compositions are also available to be viewed in the remote Scope UI (for example, on [Bit.dev](https://bit.dev)).
+Compositions are also available to be viewed in the remote Scope UI (for example, on [Bit.cloud](https://bit.cloud)).
 
 ## Creating compositions
 
@@ -56,8 +56,7 @@ export const H3Heading = () => <Heading element="h3">H3 Heading</Heading>;
 
 ## Loading compositions
 
-The Compositions Aspect is set, by default, to detect all `*.composition?(s).*` files from the [component directories](../workspace/component-directory).
-It uses the [Preview](../preview/overview) Aspect to display the content of composition files with the `*.{t,j}s?(x)` extension. Learn more about this process, [here](#) <!-- TODO -->.
+The Compositions Aspect is set, by default, to detect all `*.composition?(s).*` files from the [component directories](/workspace/component-directory). It uses the preview Aspect to display the content of composition files with the `*.{t,j}s?(x)` extension. Learn more about this process. <!-- TODO -->.
 
 Change the glob pattern for the files to detect, and (of that group of files) the files to preview, by using the Workspace Aspect config interface:
 
@@ -75,7 +74,9 @@ Change the glob pattern for the files to detect, and (of that group of files) th
 <!-- TODO: above config does not work -->
 
 :::info dev files
+
 Composition files are defined by the Composition Aspect, as dev files <!-- TODO -->. That is because compositions are only used in development, and not in runtime.
+
 :::
 
 ## Using compositions for automated testing

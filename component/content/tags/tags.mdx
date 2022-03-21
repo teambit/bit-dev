@@ -1,7 +1,7 @@
 import firstTag from './first-tag.png';
 import { Image } from '@teambit/docs.ui.zoomable-image';
 
-# Versioning Components
+# Versioning components
 
 You can tag a specific state of a component as being a release. Bit calls these annotations **Tags**, and use semantic versioning for marking these releases. A tag is immutable, making it safe for consumers to depend on.  
 There are additional attributes that make Tags work best for consumers, we'll go over them in this section.
@@ -21,7 +21,7 @@ To record our first version we use the `tag` command:
 bit tag ui/text --ver 1.0.0 --message "my first version"
 ```
 
-During the `snap` process, Bit runs the full component [build pipeline](/docs/dev-services/builder/build-pipelines#build-pipelines), as defined in its environment.  
+During the `snap` process, Bit runs the full component [build pipeline](/dev-services/builder/build-pipelines#build-pipelines), as defined in its environment.  
 We can see the new version in the component's **changelog** tab in the workspace-ui:
 
 <Image src={firstTag} />
@@ -56,7 +56,7 @@ staged components
      > ui/text. versions: 1.0.0 ... ok
 ```
 
-## Semantic Versioning
+## Semantic versioning
 
 Bit adheres to Semantic Versioning as defined by [SemVer](https://semver.org/) when versioning components. This way any package manager like npm, yarn or pnpm can consume the component as a dependency to a project.  
 The `tag` command has several features you can use for versioning:
@@ -68,7 +68,7 @@ bit tag "ui/*" --patch --message "my version message" # Version components match
 bit tag ui/text --message "my version message"        # Version a specific component with default increment (patch).
 ```
 
-## Undoing a Tag
+## Undoing a tag
 
 We can untag staged components, i.e., components that were tagged by not yet exported to a remote scope.  
 Bit untag reverts the component to its previous state, i.e., `new`, `modified` or `exported`.
@@ -82,7 +82,7 @@ bit untag --all # untag all versions from all components
 
 Untag does not revert code changes made in the component.
 
-## Exporting Tags
+## Exporting tags
 
 To allow consumers to use a version of a component we first must tag is with a version. They we can export tag using `export` command:
 
@@ -97,7 +97,7 @@ When using bit.cloud, consumption happens directly from a remote Scope, so `tag`
 
 :::
 
-## Tagging New Versions
+## Tagging new versions
 
 As components are not only built from source code, there are various things that Bit considers as "changes" for a component:
 
@@ -115,7 +115,7 @@ bit tag ui/text --message "my version message"
 
 When we run `bit log` for `ui/text` again, we see the updated revision history:
 
-```
+```bash
 tag 1.0.1 (e0121fa8db05451c170b7204c95d14215c8b76b5)
 author: Jane <jane@my-company.dev>
 date: 10/27/2021, 6:41:00 AM
@@ -129,7 +129,7 @@ date: 10/27/2021, 5:41:00 AM
       my first version
 ```
 
-### Explore the Version History
+### Explore the version history
 
 Bit keeps a visual representation of the version history of a component. Run either the local dev-server:
 
@@ -139,14 +139,14 @@ bit start
 
 In each component's **changelog** tag you can see all past versions and choose to explore each of them.
 
-## Automated Dependent Versioning
+## Automated dependent versioning
 
 When a component is tagged, Bit automatically version all the components that depend on it. Auto-tag has two basic rules:
 
 - Components are always auto tagged with a patch version, regardless of the bump type applied on the dependency.
 - Tagging is propagated to the dependency chain of the component.
 
-### Skip Auto-tag
+### Skip auto-tag
 
 You may skip the auto-tag behavior for a component by using the `--skip-auto-tag` flag:
 
