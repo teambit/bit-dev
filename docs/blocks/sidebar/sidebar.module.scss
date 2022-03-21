@@ -13,7 +13,10 @@
     position: fixed;
     overflow-y: hidden;
     box-sizing: border-box;
-    height: calc(100% - 41px);
+    height: 100%;
+  }
+  &.isStickyBannerOpen > div:last-child {
+    height: calc(100% - 64px);
   }
 }
 

@@ -28,9 +28,9 @@ export class TableOfContentsPlugin
       React.useState(false);
     useEffect(() => {
       const stickyBannerClosed = JSON.parse(
-        JSON.parse(localStorage.getItem("isClosed") as string)
+        JSON.parse(localStorage.getItem("isStickyBannerClosed") as string)
       );
-      setIsStickyBannerClosed(stickyBannerClosed["isClosed"]);
+      setIsStickyBannerClosed(stickyBannerClosed["isStickyBannerClosed"]);
     }, []);
 
     if (show === false) return null;

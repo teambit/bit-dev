@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import { Scrollbar } from '@teambit/design.ui.styles.scrollbar';
 import { Sidebar as SidebarWrapper } from '@teambit/design.ui.sidebar.sidebar';
@@ -28,9 +28,20 @@ export type SidebarProps = {
 
 export function Sidebar({ primaryLinks, sections, className, linkPrefix, ...rest }: SidebarProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isStickyBannerOpen, setStickyBanner] = useState(false);
+
+  useEffect(() => {
+    const stickyBannerClosed = JSON.parse(JSON.parse(localStorage.getItem('isStickyBannerClosed') as string));
+    setStickyBanner(!stickyBannerClosed.isClosed);
+  }, []);
+
   return (
     <div {...rest} className={classNames(styles.sidebar, className)}>
-      <SidebarWrapper isOpen={isOpen} toggle={() => setIsOpen(!isOpen)} className={styles.sidebarContent}>
+      <SidebarWrapper
+        isOpen={isOpen}
+        toggle={() => setIsOpen(!isOpen)}
+        className={classNames(styles.sidebarContent, isStickyBannerOpen && styles.isStickyBannerOpen)}
+      >
         <Scrollbar className={styles.content}>
           {primaryLinks && <PrimaryLinks links={primaryLinks} />}
           {sections?.map((category) => {
