@@ -77,7 +77,6 @@ export function ComponentBubble({
     allowHover = false;
   }
   // @ts-ignore TODO fix this
-
   const link = componentId && isLinkable && ComponentUrl.toUrl(componentId, { includeVersion: false });
 
   const bubble = (
