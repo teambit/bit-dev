@@ -1,7 +1,7 @@
 import React, { ReactNode, useState, useRef, useEffect } from 'react';
 import classNames from 'classnames';
 import { Card as DesignCard, CardProps as DesignCardProps } from '@teambit/design.ui.cards.card';
-import { H3, Sizes } from '@teambit/design.ui.heading';
+import { H3 } from '@teambit/design.ui.heading';
 // import { Paragraph } from '@teambit/base-ui.text.paragraph';
 import { Image } from '@teambit/base-react.content.image';
 import styles from './card.module.scss';
@@ -56,7 +56,7 @@ export function Card({ heading, description, frameworkLogos, selected, children,
   };
   useEffect(() => {
     if (selected) {
-      cardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      cardRef?.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   }, [selected]);
 
