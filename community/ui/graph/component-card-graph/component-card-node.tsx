@@ -14,6 +14,7 @@ export type ComponentCardPayload = {
 
 export function ComponentCardNode({ node }: GraphNodeProps<ComponentCardPayload>) {
   const { preview, ...rest } = node.payload || {};
+  // @ts-ignore TODO fix this
   const componentLink = ComponentUrl.toUrl(node.id, { includeVersion: false });
   const Img = (
     <div className={styles.preview}>
