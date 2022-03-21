@@ -111,17 +111,11 @@
 .copyBox {
   // @hack - override system tokens
   --bit-bg-dent: #0a1821;
-  --bit-accent-color: #ededed;
+  --bit-accent-color: currentColor;
+  --bit-text-on-accent: #2b2b2b;
   color: #ededed;
   width: 20em;
   height: 48px;
-  > div:nth-child(2) > span {
-    // @hack - override system tokens
-    --bit-text-on-accent: #2b2b2b;
-    --surface01-color: #fffbff;
-    background-color: var(--surface01-color);
-    color: var(--bit-text-on-accent);
-  }
 }
 
 .getStartedAction {
