@@ -56,7 +56,7 @@ export function Card({ heading, description, frameworkLogos, selected, children,
   };
   useEffect(() => {
     if (selected) {
-      cardRef?.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      cardRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
   }, [selected]);
 
