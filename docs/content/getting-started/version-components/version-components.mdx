@@ -2,21 +2,82 @@ import changelog from './changelog.png';
 import versionPicker from './version-picker.png';
 import { Image } from '@teambit/docs.ui.zoomable-image';
 
-# Version Components
+# Snapping components
 
-By setting a version for a component you build a history of changes to a component's implementation. This version history can be shared through a remote Bit server.
+A component in Bit has its own history. This history contains code, dependencies and configuration changes, together they form the [Component Snap](/components/snaps). Snaps are shared using a remove Bit scope.
 
-## Tagging Components
-
-Bit versions components it can isolate. To evaluate if a component can be versioned run:
+Each snap has to be completely isolated from the workspace. To evaluate if a state of a component can be saved, run:
 
 ```bash
 bit status
 ```
 
-If you see all component status as `ok`, Bit will version the component.
+If you see all component status as `ok`, Bit can save that state for the component.
 
-To tag the component, use `tag` command:
+Snaps are point in time for a component which you want to keep or share for various reasons. Each snap is immutable, meaning that once set, similar to a git-commit, it can't be changed.
+
+To record our first snap we use the `snap` command:
+
+```bash
+bit snap ui/text --message "a demo snap"
+```
+
+The `tag` command creates a snap that has a unique semantic version pointer:
+
+```bash
+bit tag ui/my-welcome --message "my changelog message" --patch
+```
+
+All snaps are stored in the local scope. The process of sharing components to remote Bit scopes is about exporting staged snaps from the local store to the remote.
+
+Read more about [snaps](/components/snaps) or [tags](/components/tags) and how to use them.
+
+## Component history
+
+With each component having it's own versioning and history you get a time-machine for components. You can see it in past working states, run diffs and even checkout a past version of a component to your workspace for maintenance.  
+
+<Image alt="changelog" src={changelog} />
+
+And by running the `log` command:
+
+```bash
+bit log ui/my-welcome
+```
+
+Read more about [navigating history](/components/navigating-history).
+
+### View past snaps
+
+The workspace UI features a dropdown list of the component version history. You can pick any of the past versions and explore all the changes that happened in that version. This works like having a time-machine for your components.
+
+<Image alt="version picker" src={versionPicker} />
+
+### Comparing with past snaps
+
+You may compare the current state of a component with past snap or version. To do so, run:
+
+```bash
+bit diff ui/my-welcome 1.0.0
+```
+
+## Undo snapshots
+
+We can untag staged components, i.e., components that were tagged by not yet exported to a remote scope.  
+Bit untag reverts the component to its previous state, i.e., `new`, `modified` or `exported`.
+
+> Untag does not revert code changes made in the component.
+
+Use `bit untag` to untag a component:
+
+```bash title="examples for untag"
+bit untag teambit.base-ui/button # untag a specific component
+bit untag --all # untag all staged components
+```
+
+## Apply a semantic version
+
+You can tag a state of a component with a semantic version. Behind the scenes Bit will create a snap which will then be marked with a version, so you are not required to create a snap and then apply a version for it.  
+A component's version is set according to the [semantic versioning](https://semver.org/) specs. Meaning - version is MAJOR.MINOR.PATCH. By default, tagging a component without specifying a version bumps a patch version.
 
 ```bash
 bit tag ui/my-welcome --message "my changelog message"
@@ -28,102 +89,15 @@ You can also tag all new/modified components in the workspace:
 bit tag --all
 ```
 
-### Manage Semantic Version
-
-A component's version is set according to the [semantic versioning](https://semver.org/) specs. Meaning - version is MAJOR.MINOR.PATCH. By default, tagging a component without specifying a version bumps a patch version.
-
-```shell
-bit tag ui/my-welcome 1.0.0
-```
-
 You can specify a SemVer increment, so Bit tags all the components using that increment. Bit supports `patch`, `minor` and `major` increments.
-
-```shell
-bit tag --all --major --message "my version message" # Version all modified and new components with a major version.
-bit tag --all --minor --message "my version message" # Version all modified and new components with a minor version.
-```
-
-Like most commands in Bit you can use pattern matching to tag multiple components.
 
 ```bash
 bit tag "ui/*" --patch --message "my version message" # Version components matching the pattern with a patch vesion.
 ```
 
+Read more on [versioning components](/components/tags).
+
 ### Version Affected Components
 
 Bit understands the dependency graph of all components in a workspace. When tagging a component, it will also tag all components that are affected by the change. This means that you not only make sure all dependents get updated, you also do it in the most efficient way possible where the minimal amount of code gets rebuilt.  
 Dependent components will get promoted by a semantic patch version.
-
-## Component History
-
-With each component having it's own versioning and history you get a time-machine for components. You can see it in past working states, run diffs and even checkout a past version of a component to your workspace for maintenance.  
-Component tags is what building this history. The workspace UI builds a changelog for each component and even lets you view past versions. Each component has a changelog tab:
-
-<Image alt="changelog" src={changelog} />
-
-And by running the `log` command:
-
-```bash
-bit log ui/my-welcome
-```
-
-### View Past Versions
-
-The workspace UI features a dropdown list of the component version history. You can pick any of the past versions and explore all the changes that happened in that version. This works like having a time-machine for your components.
-
-<Image alt="version picker" src={versionPicker} />
-
-### Comparing with Past Versions
-
-You may compare the current state of a component with past version. To do so, run:
-
-```bash
-bit diff ui/my-welcome 1.0.0
-```
-
-### Checkout a Version
-
-While the UI lets you view a component version from the past, using the CLI you can checkout a version of a component to your workspace. To do so, run:
-
-```bash
-bit checkout 0.0.1 ui/my-welcome
-```
-
-Bit will then revert the entire component directory to a past state.
-
-## Untag Versions
-
-We can untag staged components, i.e., components that were tagged by not yet exported to a remote scope.  
-Bit untag reverts the component to its previous state, i.e., `new`, `modified` or `exported`.
-
-> Untag does not revert code changes made in the component.
-
-Use `bit untag` to untag a component:
-
-```bash title="examples for untag"
-bit untag foo/bar # untag a specific component
-bit untag foo/bar 1.0.0 # untag a specific version of a component
-bit untag --all 0.11.4 # untag a specific version from all components that has that version
-bit untag --all # untag all staged components
-```
-
-## Versioning Process
-
-When tagging a component or multiple components, Bit performs the actions below:
-
-- Create an isolated environment for the component (capsule).
-- Run the build pipeline (`bit build`) as defined in each component's env in the capsule.
-- Locking dependencies versions for the components.
-- Setting a version of the component.
-
-### Staged Components
-
-When a version is tagged it becomes **staged** to be exported. All staged versions are logged and managed in a local storage called **scope**.  
-For each staged version Bit keeps:
-
-- Implementation of the component.
-- Component configuration and env.
-- Full dependency graph.
-- Generated artifacts from the build pipeline.
-
-The scope is located in `.git/bit` directory for each workspace. When exporting components to remote The process of sharing components to remote Bit servers is about exporting staged versions to a remote Bit server (that hosts a remote scope).

@@ -1,8 +1,10 @@
-# Custom Workspace Generator
+# Create workspace generator
 
-Creating your own custom workspace generators allows you to quickly ramp up complete projects according to your standards. Workspace is the key part that controls your component-workflow and where components are managed. Standardizing it can help with onboarding and delivery of new apps and components.
+Creating your own custom workspace generators allows you to quickly ramp up complete projects according to your standards. The Workspace is the key part that controls your component-workflow and where your components are managed. Standardizing it can help with onboarding and delivery of new apps and components.
 
 Use the base workspace generator template followed by the name you want to give your generator.
+
+For example: 
 
 ```bash
 bit create workspace-generator my-workspace
@@ -16,7 +18,7 @@ company.scope/my-workspace
     env:      teambit.harmony/aspect
 ```
 
-This will give you a collection of files inside the my-workspace namespace.
+This will give you a collection of files inside the my-workspace namespace, as below:
 
 ```bash
 ├── index.ts
@@ -75,7 +77,9 @@ export const workspaceTemplate: WorkspaceTemplate = {
   description: 'workspace template for learn bit',
 ```
 
-We are now ready to modify our template and we can test it out by adding something very simple to see if it works. Let's modify the readme to include a new line at the top.
+We are now ready to modify our template and we can test it out by adding something very simple to see if it works. 
+
+Let's modify the readme to include a new line at the top:
 
 ```jsx title="readme-file.ts"
 export function readme() {
@@ -85,13 +89,15 @@ export function readme() {
 
 ## Testing generator locally
 
-As we have modified our generator we will need to compile it
+As we have modified our generator we will need to compile it:
 
 ```bash
 bit compile
 ```
 
-Now if we use our generator to generate a new workspace we will get one with our custom text in the ReadMe. We want to test this locally and not export our workspace template yet as we are still developing it. Open a **new terminal window separate from this workspace** and typing a command that includes the following:
+Now if we use our generator to generate a new workspace we will get one with our custom text in the ReadMe. We want to test this locally and not export our workspace template yet as we are still developing it. 
+
+Open a **new terminal window separate from this workspace** and run the following command:
 
 ```bash
 bit new <templateName> <workspaceName> --load-from <localProjectPath> --aspect <workspaceGeneratorID>
@@ -102,7 +108,7 @@ bit new <templateName> <workspaceName> --load-from <localProjectPath> --aspect <
 - The `<localProjectPath>` is where the path is to the project that holds the template generator. Type `pwd` in the terminal to get the correct path.
 - `<workspaceGeneratorID>` is the id of the workspace generator
 
-Full example should look something like this.
+For example, the command may look like this:
 
 ```bash
 bit new learn-bit-workspace sports-store --load-from /Users/me/path/to/this/dir --aspect learn-bit-react.base-ui/workspace-generator
@@ -114,17 +120,17 @@ This will now create a new workspace for us in the directory sports-store.
 cd sports-store
 ```
 
-If we then open it in our editor and inspect it we will see the custom message we added in the readMe file. Great.
+If we open the sports-store directory it in our editor and inspect it we will see the custom message we added in the readMe file.
 
 ## Exporting workspace generator
 
-Once we have finished all customizations and our generator is ready to be exported for other teams to use we can then tag a new version of this component and export it to our organization's repo.
+Once we have finished all customizations and our generator is ready to be exported for other teams to use, we can then tag a new version of this component and export it to our organization's repo.
 
 ```bash
 bit tag --all --message "my workspace generator"
 ```
 
-Once tagging has finished you can export it to your remote scope.
+Once tagging has finished, you can export it to your remote scope.
 
 ```bash
 bit export
@@ -132,7 +138,7 @@ bit export
 
 ## Using a custom generator
 
-Once it has been exported you can now generate a new workspace with the following:
+Once it has been exported, you can now generate a new workspace with the following:
 
 - `bit new` `<templateName>`
 - `<workspaceName>`
@@ -147,7 +153,9 @@ bit new learn-bit-workspace shoe-store --aspect learn-bit-react.base-ui/workspac
 
 ## Further customizing the workspace
 
-Ok now it's time to really put this to use. The `workspace.json` file is the file that we will configure the most as this will set up our workspace for all projects across our organization. We want different teams to own different features and have their own workspaces but we want to have standards across all of them and this is how we can do it. Let's take a look at some of the things we can configure, however you really can configure anything you want.
+Now we are ready to put this to use. The `workspace.json` file is the file we will configure the most, as this will set up our workspace for all projects across our organization. We want different teams to own different features and have their own workspaces but we want to have standards across all of them and this is how we can do it. 
+
+You are able to configure anything you want. For now, let's take a look at some example of things we can configure.
 
 ### Add a logo
 

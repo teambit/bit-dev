@@ -1,7 +1,13 @@
+import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-display';
+
 # Builder Overview
 
-The Builder Aspect manages the component build pipelines. It executes build tasks in sequence, according to their dependency on other tasks.
-Builder runs the build-pipeline for each component in an isolated environment to validate a component is completely independent from the workspace.
+<ComponentCardDisplay componentIds={[
+  'teambit.pipelines/builder',
+]} style={{ float: 'left', margin: 20, maxWidth: 250 }} />
+
+Bit's Builder is responsible for component build pipelines. It executes build tasks in sequence, according to their dependency on other tasks.
+Builder runs the build-pipeline for each component in an isolated component environment called [Capsule](/builder/capsule) to validate a component is completely independent from the workspace.
 
 The build pipeline executes a set of tasks according to their dependency on each other. These tasks run as part of the following flows:
 

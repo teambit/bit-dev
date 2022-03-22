@@ -1,0 +1,63 @@
+# Node overview
+
+The built-in [Node Component Development Environment](https://bit.dev/teambit/harmony/node) is a concrete composition of the [Env Aspect](https://bit.dev/teambit/envs/envs). Use it when getting started with Node components with Bit and later as a base for any future customization of your Node-based workflow.
+
+Node environment is composed out of the base [React Environment](https://bit.dev/teambit/react/react) with some specific overrides for dependency management.
+
+## Create node components
+
+Node implements several component templates:
+
+- `node-env` boilerplate for customizing configuration.
+
+Use any of these templates with the `bit create` command:
+
+```sh
+bit create node my-component
+```
+
+## Default configuration and services
+
+Node, like all over Environments must implement a set of Service Handlers. For each service, Node compose a different tool and config by default.
+
+> Node is a composition of the React environment with some specific modifications. Most of the links here direct to the actual configs in React environment.
+
+| Service              | Aspect                                                      | Base Configuration                                                                                                                 |
+| -------------------- | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Compilation          | [TypeScript](https://bit.dev/teambit/typescript/typescript) | [tsconfig.json](https://bit.dev/teambit/react/react/~code/typescript/tsconfig.json)                                                |
+| Testing              | **Jest**                                                    | [jest.config.js](https://bit.dev/teambit/react/react/~code/jest/jest.config.js)                                                    |
+| Linting              | **ESLint**                                                  | [eslintrc.ts](https://bit.dev/teambit/react/react/~code/eslint/eslintrc.ts)                                                        |
+| DevServer            | **Webpack**                                                 | [webpack.config.preview.dev.ts](https://bit.dev/teambit/react/react/~code/webpack/webpack.config.preview.dev.ts)                   |
+| Preview (simulation) | **Webpack**                                                 | [webpack.config.preview.ts](https://bit.dev/teambit/react/react/~code/webpack/webpack.config.preview.ts)                           |
+| Package              | **PKG**                                                     | Base `package.json` props from [TypeScript Aspect](https://bit.dev/teambit/typescript/typescript/~code/typescript.main.runtime.ts) |
+| Bundling             | **Webpack**                                                 | [webpack.config.preview.ts](https://bit.dev/teambit/react/react/~code/webpack/webpack.config.preview.ts)                           |
+| Documentation        | _Core implementation_                                       | [Docs template](https://bit.dev/teambit/react/react/~code/docs/index.tsx)                                                          |
+| Build pipeline       | [Builder](https://bit.dev/teambit/pipelines/builder)        | [Build pipeline](https://bit.dev/teambit/react/react/~code/node.env.ts)                                                            |
+| Dependencies         | _Core implementation_                                       | [Env-dependencies](https://bit.dev/teambit/harmony/node/~code/node.env.ts)                                                         |
+| Component Generator  | [Generator](https://bit.dev/teambit/generator/generator)    | [example template](https://bit.dev/harmony/node/~code/templates/node-component.ts)                                                 |
+
+## Customize environment
+
+All environments are extendible. You can take any pre-existing environment, and create a component to extend it. That component can then use APIs to:
+
+- Override default configurations.
+- Replace composed tools with others (for example - use Babel instead of TypeScript).
+- Add new services and capabilities.
+
+### Create an extension
+
+The first step is to create a component that extends Node. Use the `node-env` template from Node env.
+
+```sh
+bit create node-env extensions/custom-node
+```
+
+Now that you have a basic customized extension to start from, you can go ahead and use it to set a new component with your custom env:
+
+```bash
+bit env set my-component extensions/custom-node
+```
+
+### Customize configuration
+
+Node implements a set of APIs you can use to merge your preferred configuration with its defaults. These APIs are called **transformers**.

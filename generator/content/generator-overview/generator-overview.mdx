@@ -1,15 +1,22 @@
-# Generator
+import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-display';
 
-Generator enable generating new components and workspaces with templates. You can either use Bit's pre-defined templates or create your own.  
-You may create generator as standalone components or as part of an env.
+# Generator Overview
 
-Use generator to standardize and automate the creation of new components and workspaces.
+<ComponentCardDisplay componentIds={[
+  'teambit.generator/generator',
+]} style={{ float: 'left', margin: 20, maxWidth: 250 }} />
 
-The `teambit.generator/generator` aspect provides a single point of entry to component and workspace generation, depending where you are in your flow.
+Generators enable the generation new components and workspaces with templates. You can either use Bit's pre-defined templates or you can create your own.  
+
+You can create generators as standalone components or as part of an env.
+
+Use a generator to standardize and automate the creation of new components and workspaces.
+
+The `teambit.generator/generator` aspect provides a single point of entry to component and workspace generation, depending on where you are in your flow.
 
 ## Workspace templates
 
-Bit comes with a pre-defined list of workspace templates. To see them run the following command, when not in a Bit workspace:
+Bit comes with a pre-defined list of workspace templates. When not in a Bit workspace, you can run the following command to see them:
 
 ```bash
 bit templates

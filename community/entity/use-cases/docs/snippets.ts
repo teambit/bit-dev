@@ -5,4 +5,3 @@ import { useCases } from '@teambit/community.entity.use-cases';
 export const RenderingUseCasedMockData = () => (
   <UseCasesCardGrid useCases={useCases} />
 );`;
-

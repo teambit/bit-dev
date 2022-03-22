@@ -1,4 +1,11 @@
+.imageWrapper {
+  display: flex;
+  justify-content: flex-start;
+  &[data-rmiz-wrap='visible'] {
+    width: fit-content;
+  }
+}
+
 .center {
-  margin-left: auto;
-  margin-right: auto;
+  justify-content: center;
 }

@@ -11,12 +11,17 @@ const CreateComponents = lazy(() => import('@teambit/community.content.getting-s
 // const CliReference = lazy(() => import('@teambit/harmony.content.cli-reference'));
 const AspectsOverview = lazy(() => import('@teambit/harmony.content.aspects-overview'));
 const UsingAspects = lazy(() => import('@teambit/harmony.content.using-aspects'));
+const CreatingAspects = lazy(() => import('@teambit/harmony.docs.creating-aspects'));
+const Slots = lazy(() => import('@teambit/harmony.docs.slots'));
+const AspectConfig = lazy(() => import('@teambit/harmony.docs.aspect-config'));
+const Runtimes = lazy(() => import('@teambit/harmony.docs.runtimes'));
 
 /* Workspace */
 const WorkspaceOverview = lazy(() => import('@teambit/workspace.content.workspace-overview'));
 const Bitmap = lazy(() => import('@teambit/workspace.content.bitmap'));
 const WorkspaceLink = lazy(() => import('@teambit/workspace.content.workspace-link'));
 const DirectoryStructure = lazy(() => import('@teambit/workspace.content.directory-structure'));
+const TrackComponents = lazy(() => import('@teambit/workspace.content.tracking-components'));
 const ComponentDir = lazy(() => import('@teambit/workspace.content.component-directory'));
 const WorkspaceStatus = lazy(() => import('@teambit/workspace.content.workspace-status'));
 const ClearingCache = lazy(() => import('@teambit/workspace.content.clearing-cache'));
@@ -42,13 +47,19 @@ const HostingScopes = lazy(() => import('@teambit/scope.content.hosting-scopes')
 const DevServices = lazy(() => import('@teambit/envs.content.dev-services'));
 // const DevServicesOverview = lazy(() => import('@teambit/envs.content.dev-services-overview'));
 
+/* Apps */
+const AppsOverview = lazy(() => import('@teambit/apps.docs.apps-overview'));
+const CreateApp = lazy(() => import('@teambit/harmony.content.create-app'));
+const UsingApps = lazy(() => import('@teambit/apps.docs.using-apps'));
+const AppBuild = lazy(() => import('@teambit/apps.docs.app-build'));
+const AppDeployment = lazy(() => import('@teambit/apps.docs.app-deployment'));
+
 /* Generator */
 const GeneratorOverview = lazy(() => import('@teambit/generator.content.generator-overview'));
 const GenerateComponent = lazy(() => import('@teambit/generator.content.generate-component'));
 const GenerateWorkspace = lazy(() => import('@teambit/generator.content.generate-workspace'));
 
 /* Preview */
-
 const PreviewOverview = lazy(() => import('@teambit/preview.content.preview-overview'));
 const PreviewDuringBuild = lazy(() => import('@teambit/preview.content.preview-during-build'));
 const PreviewDuringDevelopment = lazy(() => import('@teambit/preview.content.preview-during-development'));
@@ -87,7 +98,7 @@ const ConfigureEnvWithCompiler = lazy(() => import('@teambit/compilation.content
 const ImplementCompiler = lazy(() => import('@teambit/compilation.content.implement-compiler'));
 const CompilerAPI = lazy(() => import('@teambit/compilation.content.compiler-api'));
 const MultiCompiler = lazy(() => import('@teambit/compilation.content.multi-compiler'));
-const ConfigureWebpck = lazy(() => import('@teambit/webpack.content.configure-webpack'));
+// const ConfigureWebpck = lazy(() => import('@teambit/webpack.content.configure-webpack'));
 
 /* Builder */
 
@@ -96,8 +107,8 @@ const BuildPipelines = lazy(() => import('@teambit/pipelines.content.build-pipel
 const BuildTasks = lazy(() => import('@teambit/pipelines.content.build-tasks'));
 const BuildArtifacts = lazy(() => import('@teambit/pipelines.content.build-artifacts'));
 const Capsule = lazy(() => import('@teambit/component.content.capsule'));
-//const BuildTaskApi = lazy(() => import('@teambit/pipelines.content.build-task-api'));
-//const BuildArtifactsApi = lazy(() => import('@teambit/pipelines.content.build-artifacts-api'));
+// const BuildTaskApi = lazy(() => import('@teambit/pipelines.content.build-task-api'));
+// const BuildArtifactsApi = lazy(() => import('@teambit/pipelines.content.build-artifacts-api'));
 const UsingBuildTask = lazy(() => import('@teambit/pipelines.content.using-build-task'));
 
 /* Docs */
@@ -113,7 +124,7 @@ const CompositionsOverview = lazy(() => import('@teambit/compositions.content.co
 const CompositionFormat = lazy(() => import('@teambit/compositions.content.composition-format'));
 const CompositionContext = lazy(() => import('@teambit/compositions.content.composition-context'));
 const MountingCompositionsToDom = lazy(() => import('@teambit/compositions.content.mounting-compositions-to-dom'));
-const CompositionsAndStories = lazy(() => import('@teambit/compositions.content.compositions-and-stories'));
+// const CompositionsAndStories = lazy(() => import('@teambit/compositions.content.compositions-and-stories'));
 
 /* Components */
 
@@ -127,7 +138,7 @@ const ComponentConfig = lazy(() => import('@teambit/component.content.component-
 const ComponentJson = lazy(() => import('@teambit/component.content.component-json'));
 const ComponentObjects = lazy(() => import('@teambit/component.content.component-objects'));
 const DevFiles = lazy(() => import('@teambit/component.content.dev-files'));
-const InspectingComponents = lazy(() => import('@teambit/component.content.inspecting-components'));
+// const InspectingComponents = lazy(() => import('@teambit/component.content.inspecting-components'));
 const Tags = lazy(() => import('@teambit/component.content.tags'));
 const Snaps = lazy(() => import('@teambit/component.content.snaps'));
 const ComponentAnatomy = lazy(() => import('@teambit/component.content.component-anatomy'));
@@ -138,7 +149,7 @@ const EnvsOverview = lazy(() => import('@teambit/envs.content.envs-overview'));
 const InspectingEnv = lazy(() => import('@teambit/envs.content.inspecting-env'));
 const ExtendingEnv = lazy(() => import('@teambit/envs.content.extending-env'));
 const UsingEnvs = lazy(() => import('@teambit/envs.content.using-envs'));
-const EnvsApi = lazy(() => import('@teambit/envs.content.envs-api'));
+// const EnvsApi = lazy(() => import('@teambit/envs.content.envs-api'));
 
 /* Dependencies */
 
@@ -151,8 +162,8 @@ const DependenciesConfiguration = lazy(() => import('@teambit/dependencies.conte
 const DependencyInstallation = lazy(() => import('@teambit/dependencies.content.installing-dependencies'));
 // const DependencyResolution = lazy(() => import('@teambit/dependencies.content.dependency-resolution'));
 const LockFiles = lazy(() => import('@teambit/dependencies.content.lock-files'));
-const Pnpm = lazy(() => import('@teambit/dependencies.content.pnpm'));
-const Yarn = lazy(() => import('@teambit/dependencies.content.yarn'));
+// const Pnpm = lazy(() => import('@teambit/dependencies.content.pnpm'));
+// const Yarn = lazy(() => import('@teambit/dependencies.content.yarn'));
 const NodeModules = lazy(() => import('@teambit/dependencies.content.node-modules'));
 const PackageManagers = lazy(() => import('@teambit/dependencies.content.package-managers'));
 
@@ -181,6 +192,21 @@ const ReactOverview = lazy(() => import('@teambit/react.content.react-overview')
 const ReplacingReactTools = lazy(() => import('@teambit/react.content.replace-react-tools'));
 const ConfigReactTools = lazy(() => import('@teambit/react.content.config-react-tools'));
 
+/* ReactNative */
+const ReactNativeOverview = lazy(() => import('@teambit/react.content.react-native-overview'));
+
+/* node */
+const NodeOverview = lazy(() => import('@teambit/harmony.content.node-overview'));
+
+/* lit html */
+const LitOverview = lazy(() => import('@teambit/web-components.content.lit-overview'));
+
+/* html */
+const HtmlOverview = lazy(() => import('@teambit/html.content.html-overview'));
+
+/* Angular */
+const AngularOverview = lazy(() => import('@teambit/angular.content.angular-overview'));
+
 /* Misc */
 const UsageAnalytics = lazy(() => import('@teambit/docs.content.guides.usage-analytics'));
 
@@ -203,9 +229,9 @@ export const learnDocsRoutes: DocsRoute[] = [
     // },
     children: [
       {
-        path: 'workspace-configuration',
-        component: <WorkspaceConfiguration />,
-        title: 'Workspace configuration',
+        path: 'workspace-overview',
+        title: 'Workspace overview',
+        component: <WorkspaceOverview />,
       },
       {
         path: 'creating-workspaces',
@@ -216,6 +242,11 @@ export const learnDocsRoutes: DocsRoute[] = [
         path: 'creating-components',
         title: 'Creating components',
         component: <CreateComponents />,
+      },
+      {
+        path: 'tracking-components',
+        title: 'Tracking components',
+        component: <TrackComponents />,
       },
       {
         path: 'directory-structure',
@@ -243,6 +274,11 @@ export const learnDocsRoutes: DocsRoute[] = [
         title: 'Moving components',
         description: 'To move a component you can use the bit move command.',
         component: <MovingComponents />,
+      },
+      {
+        path: 'workspace-configuration',
+        component: <WorkspaceConfiguration />,
+        title: 'Workspace configuration',
       },
       {
         path: 'variants',
@@ -345,13 +381,13 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'snaps',
-        title: 'Snapshot changes',
+        title: 'Snapping changes',
         description: 'Record component history with snapshots.',
         component: <Snaps />,
       },
       {
         path: 'tags',
-        title: 'Versioning',
+        title: 'Tagging changes',
         description: 'Manage component releases with semantic version.',
         component: <Tags />,
       },
@@ -574,11 +610,11 @@ export const learnDocsRoutes: DocsRoute[] = [
         description: 'Development Services control various workflows and commands for components.',
         component: <DevServices />,
       },
-      {
-        path: 'envs-api',
-        title: 'Envs API',
-        component: <EnvsApi />,
-      },
+      // {
+      //   path: 'envs-api',
+      //   title: 'Envs API',
+      //   component: <EnvsApi />,
+      // },
     ],
   },
   {
@@ -586,11 +622,6 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Dev services',
     icon: 'compCI',
     open: false,
-    // overview: {
-    //   path: 'dev-services-overview',
-    //   title: 'Dev services overview',
-    //   component: <DevServicesOverview />,
-    // },
     children: [
       {
         path: 'builder',
@@ -617,11 +648,6 @@ export const learnDocsRoutes: DocsRoute[] = [
             component: <BuildTasks />,
             description: 'Add a build task to your component build pipeline.',
           },
-         /* {
-            path: 'build-task-api',
-            title: 'Build task API',
-            component: <BuildTaskApi />,
-          },*/
           {
             path: 'using-build-tasks',
             title: 'Using build tasks',
@@ -634,11 +660,6 @@ export const learnDocsRoutes: DocsRoute[] = [
               'Artifacts are files that are generated by a build task, and persisted in the component objects (the component version).',
             component: <BuildArtifacts />,
           },
-          /*{
-            path: 'build-artifacts-api',
-            title: 'Build artifacts API',
-            component: <BuildArtifactsApi />,
-          },*/
           {
             path: 'capsule',
             title: 'Caspule',
@@ -656,17 +677,17 @@ export const learnDocsRoutes: DocsRoute[] = [
         children: [
           {
             path: 'generator-overview',
-            title: 'Overview',
+            title: 'Generator Overview',
             component: <GeneratorOverview />,
           },
           {
             path: 'generate-component',
-            title: 'Custom component generator',
+            title: 'Create component generator',
             component: <GenerateComponent />,
           },
           {
             path: 'generate-workspace',
-            title: 'Custom workspace generator',
+            title: 'Create workspace generator',
             component: <GenerateWorkspace />,
           },
         ],
@@ -825,13 +846,13 @@ export const learnDocsRoutes: DocsRoute[] = [
             title: 'Mounting Compositions to the DOM',
             component: <MountingCompositionsToDom />,
           },
-          {
-            path: 'compositions-and-stories',
-            title: 'Compositions and stories',
-            description:
-              'Compositions and Stories can appear quite similar. Almost like two sibling solutions that solve the same problem.',
-            component: <CompositionsAndStories />,
-          },
+          // {
+          //   path: 'compositions-and-stories',
+          //   title: 'Compositions and stories',
+          //   description:
+          //     'Compositions and Stories can appear quite similar. Almost like two sibling solutions that solve the same problem.',
+          //   component: <CompositionsAndStories />,
+          // },
         ],
       },
       {
@@ -954,27 +975,27 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'apps-overview',
         title: 'Apps overview',
-        component: <div />,
+        component: <AppsOverview />,
       },
       {
         path: 'create-app',
         title: 'Creating an app',
-        component: <div />,
+        component: <CreateApp />,
       },
       {
         path: 'using-apps',
         title: 'Using apps',
-        component: <div />,
+        component: <UsingApps />,
       },
       {
         path: 'app-build',
         title: 'App build',
-        component: <div />,
+        component: <AppBuild />,
       },
       {
         path: 'app-deployment',
         title: 'App deployment',
-        component: <div />,
+        component: <AppDeployment />,
       },
       {
         path: 'application-types',
@@ -1010,33 +1031,33 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'package-name',
-        title: 'Package Name',
+        title: 'Package name',
         description:
           'The Package Name is the CommonJS compatible module name for the Component, used and linked from the Workspace node_modules directory. By default, package names are computed from the Component ID.',
         component: <PackageName />,
       },
       {
         path: 'packing-components',
-        title: 'Packing Components',
+        title: 'Packing components',
         description:
           'Component packages are generated during execution of the Component build pipeline and persisted as Artifacts upon component versioning.',
         component: <PackingComponents />,
       },
       {
         path: 'publishing-components-to-commonjs-registries',
-        title: 'Publishing to CommonJS Registries',
+        title: 'Publishing to CommonJS registries',
         description:
           'Component packages are included in the component versions (snaps and tags). Components hosted on Bit Cloud will have their packages available to be installed by Bit, as well as by standard package managers like npm and Yarn.',
         component: <CommonjsPackageRegistries />,
       },
       {
         path: 'build-tasks',
-        title: 'Build Tasks',
+        title: 'Build tasks',
         component: <PkgBuildTasks />,
       },
       {
         path: 'npmrc',
-        title: 'Configuring Bit Cloud in NPM config',
+        title: 'Configuring bit.cloud in NPM config',
         description:
           "npmrc's are npm config files (used by other package manager as well). npmrc can be configured per project, per user, or globally.",
         component: <Npmrc />,
@@ -1136,6 +1157,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'react',
         title: 'React',
+        icon: 'reactjs',
         open: false,
         children: [
           {
@@ -1153,32 +1175,71 @@ export const learnDocsRoutes: DocsRoute[] = [
             title: 'Replacing React tools',
             component: <ReplacingReactTools />,
           },
+          {
+            path: 'react-native-overview',
+            title: 'React Native',
+            component: <ReactNativeOverview />,
+          },
         ],
       },
       {
         path: 'angular',
         title: 'Angular',
+        icon: 'Angular',
         open: false,
-        children: [],
+        children: [
+          {
+            path: 'angular-overview',
+            title: 'Angular overview',
+            component: <AngularOverview />,
+          },
+        ],
       },
       {
         path: 'node',
         title: 'Node',
+        icon: 'nodejs',
         open: false,
-        children: [],
+        children: [
+          {
+            path: 'node-overview',
+            title: 'Node overview',
+            component: <NodeOverview />,
+          },
+        ],
+      },
+      {
+        path: 'html',
+        title: 'HTML',
+        open: false,
+        children: [
+          {
+            path: 'html-overview',
+            title: 'HTML overview',
+            component: <HtmlOverview />,
+          },
+        ],
       },
       {
         path: 'lit-html',
         title: 'Lit Element',
+        icon: 'lit-element',
         open: false,
-        children: [],
+        children: [
+          {
+            path: 'lit-overview',
+            title: 'Lit overview',
+            component: <LitOverview />,
+          },
+        ],
       },
-      {
-        path: 'harmony',
-        title: 'Harmony',
-        open: false,
-        children: [],
-      },
+      // {
+      //   path: 'harmony',
+      //   title: 'Harmony',
+      //   icon: 'Extension',
+      //   open: false,
+      //   children: [],
+      // },
     ],
   },
   {
@@ -1204,18 +1265,22 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'create-aspect',
         title: 'Creating aspects',
+        component: <CreatingAspects />,
       },
       {
         path: 'config',
         title: 'Aspect config',
+        component: <AspectConfig />,
       },
       {
         path: 'slots',
         title: 'Slots',
+        component: <Slots />,
       },
       {
         path: 'runtimes',
         title: 'Runtimes',
+        component: <Runtimes />,
       },
       // {
       //   title: 'Guides',
@@ -1246,6 +1311,11 @@ export const learnDocsRoutes: DocsRoute[] = [
         title: 'Config files',
         open: false,
         component: <ConfigFiles />,
+      },
+      {
+        path: 'bitrc',
+        title: 'Global configuration (bitrc)',
+        component: <div />,
       },
     ],
   },

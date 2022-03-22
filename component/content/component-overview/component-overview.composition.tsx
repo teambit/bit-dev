@@ -1,4 +1,12 @@
 import React from 'react';
+import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions';
+import { MDXLayout } from '@teambit/mdx.ui.mdx-layout';
 import { ComponentOverview } from './index';
 
-export const BasicComponentOverview = () => <ComponentOverview />;
+export const Content = () => (
+  <ThemeCompositions>
+    <MDXLayout>
+      <ComponentOverview />
+    </MDXLayout>
+  </ThemeCompositions>
+);

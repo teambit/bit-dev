@@ -1,0 +1,116 @@
+# Slots
+
+Slots is a system for extensibility. They make it easy for Aspects to be pluggable by other Aspects.
+
+Technically, it is a simple registry for objects. It can be used to expose APIs that allow for other Aspects to extend a certain component.
+We use slots to provide the ability for API consumers to inject logic and behavior. For example, behind the scenes, the CLI's aspect 
+`registerCommand` API is just registering the command object to a Slot. Later on, it reads it when computing commands for Bit during
+bootstrap. 
+
+Simpler examples for Slots can be found across our UI, which allow you to register to the TopBar of the Component in the Workspace UI
+and allow the Scope UI to be extended with a new Drawer.
+
+
+## Using slots
+
+Slots are used through another Aspect API which expose them, usually through an API method with the `register` prefix.
+In the next code example below, we use the CLI register method to inject a new command to Bit.
+
+Most aspects across Bit expose slots in their APIs. Slots are available for UIs, Commands, server APIs and more and as a consumer
+it is just an implementation detail.
+
+## Exposing slots
+
+Slots are really used by the API maintainer using it. Slots are created and injected by Harmony to aspect providers as seen
+in the example below.
+
+This examples shows a simple slot for a Console function. This allows our aspect to expose a `registerConsole` API for others to hook
+and replace implementation.  
+
+
+```ts
+import { Slot, SlotRegistry } from '@teambit/harmony';
+
+export type ConsoleFn = (log: string) => void;
+export type ConsoleSlot = SlotRegistry<ConsoleFn>;
+
+export class HelloWorldMain {
+  constructor(
+    private config: HelloWorldConfig,
+    private consoleSlot: ConsoleSlot
+  ) {}
+
+  // an API for registering new type of consoles. 
+  registerConsole(fn: ConsoleFn) {
+    this.consoleSlot.register(fn);
+    return this;
+  }
+
+  // method for saying hello now also invokes a console.
+  sayHello() {
+    // obtain the console instance from the slot container.
+    const consoleFn = this.consoleSlot.get(this.config.consoleId);
+    const str = `hello ${this.config.worldName}!`;
+
+    // invoke the slot.
+    if (consoleFn) consoleFn(str);
+    return str;
+  }
+
+  static dependencies = [CLIAspect];
+
+  static defaultConfig = {
+    consoleId: 'teambit.logger/file-console'
+  };
+  
+  static slots = Slot.withType<ConsoleSlot>();
+  static async provider([cli]: [CLIMain], config: HelloWorldConfig, [consoleSlot]: [ConsoleSlot]) {
+    cli.register([new MyCommand()]);
+    return new HelloWorldMain(config, consoleSlot);
+  }
+}
+```
+
+Slots objects include an API for listing registered items, obtaining them and more.
+
+### Obtaining an instance
+
+Slots are indexing objects by their corresponding [Component ID](/components/component-id) and provide an API
+for accessing the objects it contains.
+
+Invoking `slot.get()` would try and retrieve the instance registered by the corresponding aspect. 
+
+```ts
+const instance = consoleSlot.get('my-org.scope/my-aspect'); 
+console.log(instance); // retrieves an instance registered to the slot by 'my-org.scope/my-aspect' if any.
+```
+
+### Registering a new instance
+
+Registering a new instance to the slot is done using the `slot.register()` API. 
+
+```ts
+consoleSlot.register((log) => console.log(log)); 
+console.log(consoleSlot.values()); // retrieves a list of all values. In this case: Function[].
+```
+
+### Listing all registered instances
+
+Registering a new instance to the slot is done using the `slot.register()` API. 
+
+```ts
+const instances = consoleSlot.values();
+console.log(instances); // retrieves a list of all values. In this case: Function[].
+```
+
+### Listing all registered instances with their keys
+
+Listing instances in a slot with their keys is done using the `slot.toArray()` API. 
+
+```ts
+const instances = consoleSlot.toArray();
+console.log(instances); // retrieves list of a key-value pair instances. { 'my-org.scope/my-aspect': Function }
+```
+
+
+

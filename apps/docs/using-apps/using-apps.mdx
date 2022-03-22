@@ -1,0 +1,46 @@
+
+# Using Apps
+
+## Enabling apps on your Workspace
+
+Add the app to your [Workspace configuration](/workspace/workspace-configuration) (`workspace.jsonc`) to make it available in your workspace.
+
+```json
+{
+  "learnbit.apps/node-app": {}
+}
+```
+
+## Listing all available apps
+
+Run the following to list all available apps in your workspace:
+
+```
+bit app list
+```
+
+The output should include the apps' name and component id:
+
+```
+┌───────────────────────────────────┬────────────────┐
+│ id                                │ name           │
+├───────────────────────────────────┼────────────────┤
+│ learnbit.apps/node-app            │ hello-node-app │
+└───────────────────────────────────┴────────────────┘
+```
+
+## Running an app
+
+Run an app using its app name (see the previous output example):
+
+```
+bit run hello-node-app
+```
+
+The output should include the port used by the app:
+
+```bash
+listening on port 3000
+
+hello-node-app app is running
+```

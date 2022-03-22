@@ -5,10 +5,11 @@ export const aspectGraph = createBubbleGraph([
     id: 'teambit.workspace/workspace@1.0.0',
     payload: {
       icon: 'https://static.bit.dev/Community/icons/workspace-edit.svg',
+      forceActive: true,
     },
     dependencies: ['teambit.scope/scope', 'teambit.harmony/logger', 'teambit.component/component'],
     // row: 3,
-    col: 2,
+    col: 3,
     position: 'top-left',
   },
   {
@@ -16,9 +17,10 @@ export const aspectGraph = createBubbleGraph([
     dependencies: ['teambit.component/component'],
     payload: {
       icon: 'https://static.bit.dev/Community/icons/collection.svg',
+      forceActive: true,
     },
     // row: 3,
-    col: 5,
+    col: 8,
     position: 'top-left',
   },
   {
@@ -26,9 +28,10 @@ export const aspectGraph = createBubbleGraph([
     dependencies: ['teambit.harmony/logger'],
     payload: {
       icon: 'https://static.bit.dev/Community/icons/workspace.svg',
+      forceActive: true,
     },
     row: 5,
-    col: 2,
+    col: 8,
     position: 'top-left',
   },
   {
@@ -36,9 +39,10 @@ export const aspectGraph = createBubbleGraph([
     dependencies: [],
     payload: {
       icon: 'https://static.bit.dev/Community/icons/aspect.svg',
+      forceActive: true,
     },
     row: 5,
-    col: 1,
+    col: 3,
     position: 'top-left',
   },
 ]);

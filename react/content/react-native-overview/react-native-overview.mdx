@@ -1,0 +1,198 @@
+# React Native
+
+The built-in [React Native Component Development Environment](https://bit.dev/teambit/react/react-native) is a concrete composition of the [Env Aspect](https://bit.dev/teambit/envs/envs). Use it when getting started with React Native components with Bit and later as a base for any future customization of your ReactNative-based workflow.
+
+React Native environment is composed out of the base [React Environment](https://bit.dev/teambit/react/react) with some specific overrides for dependency management.
+
+## Create React Native components
+
+React Native implements a template for generating components:
+
+```sh
+bit create react-native my-component
+```
+
+## Default configuration and services
+
+React Native, like all over Environments must implement a set of Service Handlers. For each service, React Native compose a different tool and config by default.
+
+> React Native is a composition of the React environment with some specific modifications. Most of the links here direct to the actual configs in React environment.
+
+| Service              | Aspect                                                      | Base Configuration                                                                                                                 |
+| -------------------- | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| Compilation          | [TypeScript](https://bit.dev/teambit/typescript/typescript) | [tsconfig.json](https://bit.dev/teambit/react/react/~code/typescript/tsconfig.json)                                                |
+| Testing              | **Jest**                                                    | [jest.config.js](https://bit.dev/teambit/react/react/~code/jest/jest.config.js)                                                    |
+| Linting              | **ESLint**                                                  | [eslintrc.ts](https://bit.dev/teambit/react/react/~code/eslint/eslintrc.ts)                                                        |
+| DevServer            | **Webpack**                                                 | [webpack.config.preview.dev.ts](https://bit.dev/teambit/react/react/~code/webpack/webpack.config.preview.dev.ts)                   |
+| Preview (simulation) | **Webpack**                                                 | [webpack.config.preview.ts](https://bit.dev/teambit/react/react/~code/webpack/webpack.config.preview.ts)                           |
+| Package              | **PKG**                                                     | Base `package.json` props from [TypeScript Aspect](https://bit.dev/teambit/typescript/typescript/~code/typescript.main.runtime.ts) |
+| Bundling             | **Webpack**                                                 | [webpack.config.preview.ts](https://bit.dev/teambit/react/react/~code/webpack/webpack.config.preview.ts)                           |
+| Documentation        | _Core implementation_                                       | [Docs template](https://bit.dev/teambit/react/react/~code/docs/index.tsx)                                                          |
+| Build pipeline       | [Builder](https://bit.dev/teambit/pipelines/builder)        | [Build pipeline](https://bit.dev/teambit/react/react/~code/react-native.env.ts)                                                    |
+| Dependencies         | _Core implementation_                                       | [Env-dependencies](https://bit.dev/teambit/react/react-native/~code/react-native.env.ts)                                           |
+| Component Generator  | [Generator](https://bit.dev/teambit/generator/generator)    | [example template](https://bit.dev/react/react-native/~code/templates/react-native-component.ts)                                   |
+
+## Customize environment
+
+All environments are extendible. You can take any pre-existing environment, and create a component to extend it. That component can then use APIs to:
+
+- Override default configurations.
+- Replace composed tools with others (for example - use Babel instead of TypeScript).
+- Add new services and capabilities.
+
+### Create an extension
+
+The first step is to create a component that extends React Native. Use the `react-native-env` template from React Native env.
+
+```sh
+bit create react-native-env extensions/custom-react-native
+```
+
+Now that you have a basic customized extension to start from, you can go ahead and configure it for your components:
+
+```bash
+bit env set my-component extensions/custom-react-native
+```
+
+### Customize configuration
+
+React Native implements a set of APIs you can use to merge your preferred configuration with its defaults.
+
+## Runtime (framework) dependencies
+
+Similar to many Frontend frameworks React Native must have a singleton instance in your app's runtime. When building reuseable components we need to adhere to that and have `react` and `react-native` set as `peerDependencies`, thus allowing the consuming app to determine runtime version. React environment implements this via the **Dependencies** service which is used to override [dependency-resolver](https://bit.dev/teambit/dependencies/dependency-resolver) and set your preferred dependencies.
+It is recommended to for you to extend the base React environment and define a semantic version rule to fit your current tech stack and guidelines for reuseable React components.
+
+## FAQ
+
+### Compositions issues
+
+```bash
+You may need an appropriate loader to handle this file type...
+```
+
+This error can show up for multiple reason, and one of the most popular is because we use a library in a React Native component that uses Native API's.  
+As the local Bit Dev Server runs on the Web it can't work properly with API's that are meant to be run on a mobile device.  
+So components that are using a library that use Native API's cannot be rendered on the web, because the Native API's are unavailable.
+
+One way to solve it is to see if the library has support for Web and update your code to also be Web compatible.  
+If not, the second way to solve this is to search for a parallel library with Web support and make a Webpack aliases in a Bit React Native extension inside your project, and then configure the extension to make a Webpack aliases.
+
+If for some reason a library doesn't have a parallel library for the web and doesn't have built in Websupport, you can't make the composition work on the local Bit dev server.
+
+For example, [`react-native-svg`](https://github.com/react-native-svg/react-native-svg) library has a parallel library called [`react-native-svg-web`](https://github.com/bakerface/react-native-svg-web).  
+Let's [create a React Native extension](#create-an-extension) and add a `webpack-transformers.ts` file in the extension under `webpack` folder, the file looks like this:
+
+```ts
+import { WebpackConfigTransformer, WebpackConfigMutator, WebpackConfigTransformContext } from '@teambit/webpack';
+
+/**
+ * Transformation to apply for both preview and dev server
+ * @param config
+ * @param _context
+ */
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function commonTransformation(config: WebpackConfigMutator, _context: WebpackConfigTransformContext) {
+  // Merge config with the webpack.config.js file - adding handlebars support
+  // config.merge([webpackConfig]);
+  config.addAliases({
+    'react-native-svg': require.resolve('react-native-svg-web'),
+    'react-native-web': require.resolve('react-native-web'),
+  });
+  return config;
+}
+
+/**
+ * Transformation for the preview only
+ * @param config
+ * @param context
+ * @returns
+ */
+export const previewConfigTransformer: WebpackConfigTransformer = (
+  config: WebpackConfigMutator,
+  context: WebpackConfigTransformContext
+) => {
+  const newConfig = commonTransformation(config, context);
+  return newConfig;
+};
+
+/**
+ * Transformation for the dev server only
+ * @param config
+ * @param context
+ * @returns
+ */
+export const devServerConfigTransformer: WebpackConfigTransformer = (
+  config: WebpackConfigMutator,
+  context: WebpackConfigTransformContext
+) => {
+  const newConfig = commonTransformation(config, context);
+  return newConfig;
+};
+```
+
+And then in the main file of the extension we created, let's add the import of the Webpack transformers:
+
+```ts
+import { EnvsMain, EnvsAspect } from '@teambit/envs';
+import { ReactNativeAspect, ReactNativeMain } from '@teambit/react-native';
+import { previewConfigTransformer, devServerConfigTransformer } from './webpack/webpack-transformers';
+
+export class CustomReactNativeExtension {
+  constructor(private reactNative: ReactNativeMain) {}
+
+  static dependencies: any = [EnvsAspect, ReactNativeAspect];
+
+  static async provider([envs, reactNative]: [EnvsMain, ReactNativeMain]) {
+    const CustomReactNativeEnv = reactNative.compose([
+      /*
+        Use any of the "reactNative.override..." transformers to
+      */
+      reactNative.useWebpack({
+        previewConfig: [previewConfigTransformer],
+        devServerConfig: [devServerConfigTransformer],
+      }),
+    ]);
+
+    envs.registerEnv(CustomReactNativeEnv);
+
+    return new CustomReactNativeExtension(reactNative);
+  }
+}
+```
+
+This will add the Webpack aliases to the Webpack configurations and solve the issue.  
+One last thing we need to do, is to add the peer dependencies of the parallel library we use to the dependency resolver of the extension in the variants section in `workspace.jsonc` file:
+
+```json
+{
+  "teambit.workspace/variants": {
+    "extensions/custom-react-native": {
+      "teambit.harmony/aspect": {},
+      "teambit.dependencies/dependency-resolver": {
+        "policy": {
+          "dependencies": {
+            "react-native-svg-web": "1.0.9",
+            "react-native-web": "0.16.2",
+            "prop-types": "15.7.2"
+          }
+        }
+      }
+    }
+    // ...
+  }
+}
+```
+
+In this case `react-native-svg-web` has these dependencies in the peer dependencies:
+
+```json
+"peerDependencies": {
+  "prop-types": "*",
+  "react": "*",
+  "react-native-web": ">= 0.10.1"
+},
+```
+
+So we need to add them as the dependencies of the extension so it will work properly.  
+Now every component that will use the `react-native-svg` library will work fine with the compositions, and this solution can be used for every other library that use Native API's.

@@ -4,12 +4,13 @@ A Component Directory is a directory for a Component in the [Workspace](/workspa
 
 Every component directory must include a [Main File](/components/main-file) (an entry file). The directory can be located anywhere in the Workspace (directory), excluding only the [node_modules](/workspace/node-modules) directory and other Component Directories.
 
-A common example component for a directory can be as following:
+A common example component for a directory could be the following:
 
 ```bash
 └── ui/my-welcome # Component directory
-    ├── index.tsx # Main file.
-    ├── my-welcome.tsx # Test file.
+    ├── index.tsx # Entry file.
+    ├── my-welcome.tsx # Main file.
+    ├── my-welcome.spec.tsx # Test file.
     ├── my-welcome.composition.tsx # Compositions for simulating the component in different states and contexts.
     └── my-welcome.docs.mdx # Docs file for the component.
 ```
@@ -17,12 +18,12 @@ A common example component for a directory can be as following:
 This structure has several benefits:
 
 - Directory structure is easily consumable by placing all the related files together.
-- File references become shorter and more read-friendly.
+- File references become shorter and more readable.
 - Easy to move components around in the workspace.
 - Simple refactoring workflow, as changes are consolidated to the same place.
 - `index` is a single point for consumers and maintainers to start from when doing any operation on the component.
 
-## Adding a directory as a Component
+## Adding a directory as a component
 
 Tracking a directory as a Component can be done with the `bit add` command.
 
@@ -30,9 +31,9 @@ Tracking a directory as a Component can be done with the `bit add` command.
 bit add path/to/component-dir --id ui/my-component
 ```
 
-<!--TODO To learn more on tracking components in the Workspace. Head over to the [Tracking Components section](/workspace/tracking-components). -->
+To learn more on tracking components in the Workspace. Head over to the [Tracking Components section](/workspace/tracking-components).
 
-## Removing a component directory
+## Removing a component from the workspace
 
 Removing a specific Component Directory in the Workspace can be achieved by using the `bit remove` command without the `--delete-files` flag which also removes the entire directory.
 

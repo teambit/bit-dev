@@ -9,7 +9,7 @@ import { StickyBanner } from '@teambit/community.ui.sticky-banner';
 import { Homepage } from '@teambit/community.ui.pages.homepage';
 import { NotFound } from '@teambit/community.ui.pages.errors.not-found';
 import { CommunityDocs } from '@teambit/docs.ui.community-docs';
-import { wideColumn } from '@teambit/base-ui.layout.page-frame';
+import { wideColumn, centerColumn } from '@teambit/base-ui.layout.page-frame';
 import { Footer, footerMock } from '@teambit/community.ui.footer.footer';
 import { AppContext } from './app-context';
 
@@ -22,7 +22,7 @@ export function BitDevApp() {
   return (
     <AppContext>
       <GoogleAnalytics trackingId="UA-89811062-3" />
-      <GoogleTagManager gtmIds={['GTM-M99BCWV', 'GTM-W637HJ5']} />
+      <GoogleTagManager gtmIds={['GTM-WQX39XS']} />
       <StickyBanner />
       <Header />
       <Routes>
@@ -45,10 +45,7 @@ export function BitDevApp() {
 
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <div className={wideColumn}>
-        <Footer categoryList={footerMock} />
-      </div>
-      {/* footer component */}
+      <Footer className={centerColumn} categoryList={footerMock} />
     </AppContext>
   );
 }

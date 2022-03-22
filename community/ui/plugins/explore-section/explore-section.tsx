@@ -41,7 +41,7 @@ export function ExploreSection({ heading, subtitle, className, ...rest }: Explor
           <Heading className={styles.heading}>{heading}</Heading>
           <Subtitle className={styles.subtitle}>{subtitle}</Subtitle>
           <SearchInput
-            placeholder="Search plugins"
+            placeholder="Search Aspects"
             onSubmit={onSearch}
             value={searchValue}
             onChange={onSearchChange}
@@ -49,11 +49,11 @@ export function ExploreSection({ heading, subtitle, className, ...rest }: Explor
           />
           <div className={styles.linkHolder}>
             <Link href="https://bit.cloud/components?env=aspect" external className={styles.link}>
-              Browse plugins
+              Browse Aspects
               <Icon of="right-arrow" className={styles.icon} />
             </Link>
             <Link href="/docs/extending-bit/aspect-overview" className={styles.link}>
-              Create a new plugin <Icon of="right-arrow" className={styles.icon} />
+              Create a new Aspect <Icon of="right-arrow" className={styles.icon} />
             </Link>
           </div>
         </div>

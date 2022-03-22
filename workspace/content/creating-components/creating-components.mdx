@@ -1,9 +1,34 @@
-# Title - CreatingComponents
+# Creating Components
 
-This is markdown.
+Components are created using the `bit create <template-name> <component-name>` command. 
 
-<p>This is HTML</p>
+:::tip Bit Component Templates
+When creating new Components inside of an existing Workspace, Bit offers several templates to choose from. To learn more about the different templates available, run `bit templates`.
+:::
 
-# Import a React Component or use HTML
+If we wanted to create a React component with the name of button, we would run `bit create react button`.
 
-<button>Button 👋 </button>
+For example:
+
+```bash
+bbit create react button
+1 component(s) were created
+
+my-scope/button
+    location: my-scope/button
+    env:      teambit.react/react
+```
+
+By default, the newly created component will appear in the Workspace in the same directory as the name of its Scope. You can modify the name of the Scope in the Workspace [`.bitmap`](/workspace/bitmap) file. In our case, the scope was called `my-scope`, so the button Component was generated at my-scope/button.
+
+If we want to create a Component within a specific directory in the Scope, for example, in a 'ui' directory, we can run `bit create react ui/button`.
+
+```bash
+bbit create react ui/button
+1 component(s) were created
+
+my-scope/button
+    location: my-scope/ui/button
+    env:      teambit.react/react
+```
+

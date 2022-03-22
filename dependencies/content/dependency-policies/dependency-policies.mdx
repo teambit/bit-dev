@@ -1,9 +1,11 @@
 # Dependency Policies
 
-Component dependnecies are defined in Bit through dependency policies. A dependency policy is definition of a set of dependencies, with a [SemVer](https://semver.org) range, allowed to use from components 
-in your development workspace. Dependencies are set to components upon usage through an `import` or a `require` statement. 
+Component dependencies are defined in Bit through dependency policies. A dependency policy defines a set of dependencies, with a [SemVer](https://semver.org) range, allowed to be used by components 
+in your development workspace. Dependencies are set to components when used through an `import` or `require` statement. 
 
-Defining a dependency policy in the Workspace can be done by configuring the `teambit.dependnecies/dependency.resolver` key in `workspace.json`.
+Defining a dependency policy in the Workspace can be done by configuring the `teambit.dependencies/dependency.resolver` in the `workspace.jsonc` file. 
+
+For example:
 
 ```json
 {
@@ -19,20 +21,20 @@ Defining a dependency policy in the Workspace can be done by configuring the `te
 ```
 
 :::note
-Dependencies defined in a Workspace `package.json` are also considered as policy by Bit, but it is recommended to use `workspace.json` for more advanced dependency configuration
-features such as force notations. Also, `package.json` and `workspace.json` can be combined on the same workspace. Bit uses both and merges them into a single policy.
+Dependencies defined in a Workspace `package.json` are also considered as policy by Bit, but it is recommended to use `workspace.jsonc` for more advanced dependency configuration
+features such as force notations. Also, `package.json` and `workspace.jsonc` can be combined on the same workspace. Bit uses both and merges them into a single policy.
 :::
 
-In the example above, we are configuring `lodash` and `classnames` to use specific SemVer ranges. Every installation of dependnecies using `bit install` command would install
+In the example above, we are configuring `lodash` and `classnames` to use specific SemVer ranges. Every installation of dependencies using the `bit install` command will install
 the latest versions allowed by the defined ranges.
 
-Once adding `lodash` to be used from my one of my components through an `import` or a `require` statement, bit sets `lodash` as a dependency on my component.
+As soon as we begin using `lodash` in a component, through an `import` or a `require` statement, Bit sets `lodash` as a dependency on the component.
 
 ```ts
 import { get } from 'lodash';
 ```
 
-To see the new dependnecy defined on my component, you can use `bit show`.
+To see the new dependency defined on the component, run `bit show`.
 
 ```bash
 $ bit show ui/button
@@ -50,16 +52,17 @@ $ bit show ui/button
 └───────────────────┴────────────────────────────────────────────────────────────┘
 ```
 
-As seen above, Bit has detected the use of `lodash` and set this dependency to the `ui/button` component. `classnames` is not defined as a dependency since it is not used
-by the component.
+As you can see in the above example, Bit has detected the use of `lodash` and set this dependency to the `ui/button` component. As you may recall from earlier, we also added `classnames` in our dependency policy. However, this is not defined as a dependency since it is not used
+by the `ui/button` component.
 
-To learn about how Bit resolves dependencies, head over to the [Depedency Resolution](/) docs.
+To learn more about how Bit resolves dependencies, head over to the [Dependency Resolution](/).
 
 
 ## Dev dependencies
-`devDependencies` are used only during development but not used in production. Usually dev dependencies are used from test files, documantation and other files that are required
-only for component development purposes. In the policy, dev dependencies are set just like any other depenendecy unlike in the `package.json` dependencies entry like in the example
-below.
+`devDependencies` are used only during development and not in production. Usually, dev dependencies are used in test files, documentation and other files that are required
+only for component development purposes. In the dependency policy, dev dependencies are set just like any other dependency, unlike in the `package.json` dependencies entry.
+
+For example:
 
 ```json
 {
@@ -73,14 +76,13 @@ below.
 }
 ```
 
-Bit automatically resolves dependencies as `devDependencies` when the files using them are classified as [Dev Files](/docs/components/dev-files). By default, different aspects of
-bit classify files as `*.composition.*`, `*.docs.*` and `*.test.*`.
+Bit automatically resolves dependencies as `devDependencies` when the files using them are classified as [Dev Files](/components/dev-files). By default, different aspects of
+Bit classify files as `*.composition.*`, `*.docs.*`, `*.spec.*`, and `*.test.*`.
 
-For example, using the `@testing-library/react` package only from the test file: `heading.spec.ts` will result in Bit defining the package as a dev dependency of my component. 
-In the example below, using `bit show`, you can see which files are classified as dev files and that bit detected @testing-library/react as a dev dependency for my component
-as a result.  
+For example, using the `@testing-library/react` package only from the test file: `heading.spec.ts` will result in Bit defining the package as a dev dependency of the component. 
+Running the `bit show` command will display which files are classified as dev files and that Bit detected `@testing-library/react` as a dev dependency for the component.
 
-
+For example:
 
 ```
 $ bit show ui/button
@@ -100,7 +102,7 @@ $ bit show ui/button
 ├───────────────────┼─────────────────────────────────────────────────────────────┤
 │ dependencies      │ ...                                                         │
 ├───────────────────┼─────────────────────────────────────────────────────────────┤
-│ dev dependencies  │ @testing-library/react@12.0.0- (package)                    │                                     │
+│ dev dependencies  │ @testing-library/react@12.0.0- (package)                    │
 ├───────────────────┼─────────────────────────────────────────────────────────────┤
 │ peer dependencies │ ...                                                         │
 └───────────────────┴─────────────────────────────────────────────────────────────┘
@@ -110,15 +112,18 @@ By using the `@testing-library/react` package from a runtime file such as `butto
 
 
 ## Peer dependencies
-Peer dependencies are used when a single instance of a module is allowed in a single process. In a component-driven architecture, only apps are the ones to define and decide on 
-peer dependencies and their specific versions. Therefore, in Bit, peer dependencies are defined by the component' development env.
+Peer dependencies are used when a single instance of a module is allowed in a single process. In a component-driven architecture, only apps can define and decide on 
+peer dependencies and their specific versions. Therefore, in Bit, peer dependencies are defined by the component's development env.
 
 To understand this further, you can use `bit show` on a React component in the Workspace. 
+
+For example: 
 
 ```bash
 bit show ui/button
 ```
-```
+
+```bash
 ┌───────────────────┬─────────────────────────────────────────────────────────────┐
 │ id                │ myorg.design/ui/heading                                     │
 ├───────────────────┼─────────────────────────────────────────────────────────────┤
@@ -141,11 +146,12 @@ bit show ui/button
 └───────────────────┴─────────────────────────────────────────────────────────────┘
 ```
 
-In the example above, peer dependencies are set by the configured environment `teambit.bit/react` which is the offcial react development envrionemnt by the Bit team. Our official 
-environments sets every React component peer dependencies to include `react` and `react-dom`. Other examples for peer dependencies could be `vue` or even `@teambit/harmony` for Aspects.
+In the example above, peer dependencies are set by the configured environment `teambit.bit/react` which is the official React development environment by the Bit team. Our official 
+environment sets every React component peer dependency to include `react` and `react-dom`. Other examples for peer dependencies could be `vue` or even `@teambit/harmony` for Aspects.
 
-Under different circumcisions, it is also possible to define a peer dependencies through the workspace policy. Simply use the `peerDependencies` entry in the policy like
-in the example below.
+Under different circumstances, it is also possible to define peer dependencies through the workspace policy. To do this, use the `peerDependencies` entry in the policy. 
+
+For example:
 
 ```json
 {
@@ -160,16 +166,15 @@ in the example below.
 ```
 
 ### Prefer wide ranges
-Best practice to prefer the widest range of ranges for peer dependencies, that allows component consumers maxiumum flexability using the component easily from variaty of React
-versions that might be of a constraint. Of course, the component has to be complient with all supported versions defined in the range, and breaking changes are an important 
-constraint choosing your peer dependencies.
+When possible, the best practice is to use the widest range of ranges for peer dependencies. This gives component consumers the maximum amount of flexibility to use a component easily from a variety of React
+versions. On the other hand, breaking changes are an important constraint when choosing your peer dependencies, so the component must be compliant with all supported versions defined within the range. 
 
-In the example above, we are defining `react` and `react-dom` to support apps the range of 16.8.0 to 17.0.0+. Constraint was that React 16.8.0 include React hooks and components
+In the example you have seen above, we are defining `react` and `react-dom` to support apps within the range of 16.8.0 to 17.0.0+. The constraint defined here was 16.8.0, as 16.8.0 of React includes React hooks and components
 using hooks can't be used in a React 15.x.x app.
 
 :::tip
-Using different versions of peer dependnecies is depending on the use case and can be avhieved through various techniques
-For example, React 17+ components using React hooks can be used in the same process through the Adapter pattern method. We offer variaty of components
-to address different cases but in general, it is not recommended to do, as it might decrease performence and downgrade dev experience for component consumers.
+Using different versions of peer dependencies is dependent on the use case and can be achieved through various techniques.
+For example, React 17+ components using React hooks can be used in the same process through the Adapter pattern method. We offer a variety of components
+to address different cases but in general, it is not recommended to do, as it might decrease performance and downgrade the dev experience for component consumers.
 :::
 

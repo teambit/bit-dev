@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Hero } from '@teambit/community.ui.hero';
 import { clientLogos } from '@teambit/community.entity.images';
 import { UseCasesSection } from '@teambit/community.ui.use-cases.use-cases-section';
@@ -44,7 +44,7 @@ export function Homepage({ ...rest }: HomepageProps) {
           <UseCasesSection
             useCases={useCases}
             title="Make hard things simple"
-            href="/guides/micro-frontends/overview"
+            href="/docs/quick-start"
             linkText="See more use cases"
           />
         </div>

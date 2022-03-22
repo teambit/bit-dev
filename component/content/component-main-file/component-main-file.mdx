@@ -1,4 +1,4 @@
-# Main File
+# Main file
 
 Component's `main` file exposes the component's API. This simplifies the component's code and allows for easier maintenance, as it is a single point of entry for the component.
 
@@ -9,7 +9,7 @@ export { Button } from './button';
 export type { ButtonProps } from './button';
 ```
 
-There are several rules Bit follows when setting a `main` file (list is orered by importance):
+There are several rules Bit follows when setting a `main` file (list is ordered by importance):
 
 1. Manually set `main` file when running `bit add` command with the `--main` option.
 1. `index.ts` or `index.js`.
@@ -17,7 +17,7 @@ There are several rules Bit follows when setting a `main` file (list is orered b
 
 Bit logs the `main` file in the `.bitmap` file, and uses it when generating the component's `package.json` file to be [main entry point](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#main).
 
-## Changing a Component main file
+## Changing a component main file
 
 Use the `add` command on your component to update it's main file.
 
