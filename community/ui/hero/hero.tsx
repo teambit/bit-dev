@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Heading } from '@teambit/community.ui.heading';
 import classNames from 'classnames';
 // TODO: move to be in `design` owned by @amir.
@@ -12,6 +12,7 @@ import { CopyBox } from '@teambit/documenter.ui.copy-box';
 import { ComponentID } from '@teambit/component-id';
 import { BubbleHighlighter } from '@teambit/community.ui.bubble-highlighter';
 import { BubbleGraph } from '@teambit/community.ui.graph.bubble-graph';
+import { useXarrow } from 'react-xarrows';
 import styles from './hero.module.scss';
 import { useHeroState, HeroState } from './use-hero-state';
 
@@ -38,6 +39,12 @@ const defaultTeaser =
 
 export function Hero({ title = defaultTitle, teaser = defaultTeaser, bubbles }: HeroProps) {
   const { heroState } = useHeroState();
+  const updateXarrow = useXarrow();
+
+  useEffect(() => {
+    const tid = setTimeout(updateXarrow, 80);
+    return () => clearTimeout(tid);
+  }, []);
   // const headingClass = heroState === HeroState.HEADING_UPDATED ? styles.highlight : '';
 
   return (

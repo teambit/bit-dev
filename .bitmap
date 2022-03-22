@@ -3,9 +3,9 @@
 /**
  * The Bitmap file is an auto generated file used by Bit to track all your Bit components. It maps the component to a folder in your file system.
  * This file should be committed to VCS(version control).
- * Components are listed using their component ID (https://harmony-docs.bit.dev/aspects/component/#component-id).
+ * Components are listed using their component ID (https://bit.dev/docs/components/component-id).
  * If you want to delete components you can use the "bit remove <component-id>" command.
- * See the docs (https://harmony-docs.bit.dev/building-with-bit/removing-components) for more information, or use "bit remove --help".
+ * See the docs (https://bit.dev/docs/components/removing-components) for more information, or use "bit remove --help".
  */
 
 {
@@ -221,7 +221,7 @@
     },
     "content/component-id": {
         "scope": "teambit.component",
-        "version": "1.95.10",
+        "version": "b2c1dd15c931524ba1e7b142ca08ab6fbac2f488",
         "mainFile": "index.ts",
         "rootDir": "component/content/component-id"
     },
@@ -329,7 +329,7 @@
     },
     "content/creating-scopes": {
         "scope": "teambit.scope",
-        "version": "1.95.10",
+        "version": "12673660518d7f7045c6d15dc03c42f94dcf3b80",
         "mainFile": "index.ts",
         "rootDir": "scope/content/creating-scopes"
     },
@@ -1013,7 +1013,7 @@
     },
     "content/what-is-bit": {
         "scope": "teambit.bit",
-        "version": "1.95.10",
+        "version": "1.95.11",
         "mainFile": "index.ts",
         "rootDir": "bit/content/what-is-bit"
     },
@@ -1469,7 +1469,7 @@
     },
     "ui/hero": {
         "scope": "teambit.community",
-        "version": "1.95.21",
+        "version": "1.95.22",
         "mainFile": "index.ts",
         "rootDir": "community/ui/hero"
     },

@@ -3,7 +3,7 @@ import { Subtitle } from '@teambit/docs.ui.subtitle';
 # Installing Bit
 
 <Subtitle>Bit has been designed from the start for gradual adoption and has a minimal footprint. You can use components as much or as little as you need.
-  Bit can be used to Librate components from existing projects or start a component-driven project with Bit.</Subtitle>
+  Bit can be used to share components from existing projects or start a component-driven project with Bit.</Subtitle>
 
 <!-- Installing Bit is recommended using [BVM](/bvm/introduction), Bit's version manager.  -->
 
@@ -43,26 +43,6 @@ To update to the latest version of Bit, use:
 npx @teambit/bvm upgrade
 ```
 
-### I'm getting "command is not available" error
+## Troubleshooting
 
-If you get a warning or the `bvm` command is not available you will need to run the code below.
-
-- **Windows**
-```bash
-setx path "%path%;%LocalAppData%\.bvm"
-```
-- **MacOS/Linux** (Bash)
-```bash
-echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc && source ~/.bashrc
-```
-- **MacOS/Linux** (ZSH)
-```bash
-echo 'export PATH=$HOME/bin:$PATH' >> ~/.zshrc && source ~/.zshrc
-```
-
-### Prerequisites
-
-You may encounter issues running Bit commands if either of these tools are not installed on your system.
-
-- **NodeJS** - Bit requires NodeJS 14, 15 or 16 to be installed on your system.  
-- **Git** - Bit uses Git for solving merge conflicts and other capabilities.
+For installation troubleshooting head to [BVM troubleshooting](/reference/using-bvm#troubleshooting).
