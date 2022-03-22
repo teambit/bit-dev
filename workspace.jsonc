@@ -117,6 +117,7 @@
         "@teambit/design.ui.surfaces.menu.item": "^0.0.350",
         "@teambit/design.ui.surfaces.menu.link-item": "^0.0.374",
         "@teambit/documenter.markdown.heading": "^0.1.6",
+        "@teambit/documenter.theme.theme-compositions": "4.1.4",
         "@teambit/documenter.ui.copy-box": "^4.1.1",
         "@teambit/documenter.ui.label": "^4.0.4",
         "@teambit/documenter.ui.paragraph": "4.1.4",
