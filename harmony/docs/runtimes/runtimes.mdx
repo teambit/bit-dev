@@ -1,17 +1,17 @@
 # Runtimes
 
-Aspects can extend multiple runtimes. That allows Aspects to have cross-runtime responsiblity over a certain feature it composes.
-An aspect can start with single runtime, and grow to more runtimes as needed.
+Aspects can extend multiple runtimes. That allows Aspects to have cross-runtime responsibility over a certain feature it composes.
+An aspect can start with a single runtime, and grow to multiple runtimes as needed.
 
 ## Using runtimes
 
-Aspects can tap into multiple runtimes, and extend their functionalities. Tapping into a runtime defined by an Apsect
+Aspects can tap into multiple runtimes and extend their functionalities. Tapping into a runtime defined by an Aspect
 can be done by adding a file that matches the `*.[runtime-name].runtime.*` pattern.
 
-For example, tapping to the Bit UI runtime is achieved by adding the `hello-world.ui.runtime.ts`. Adding the `hello-world.preview.runtime.ts`
-will also tap the Aspect to the Bit preview runtime.
+For example, tapping into the Bit UI runtime is achieved by adding the `hello-world.ui.runtime.ts`. Adding the `hello-world.preview.runtime.ts`
+will also tap into the Aspect of the Bit preview runtime.
 
-The example below, adds a new tab to the Bit UI by tapping into the UI runtime and using Component aspect as a dependnecy.
+The example below, adds a new tab to the Bit UI by tapping into the UI runtime and using Component aspect as a dependency:
 
 ```tsx
 import { UIRuntime } from '@teambit/ui';
@@ -54,7 +54,7 @@ HelloWorldAspect.addRuntime(HelloWorldUI);
 In the Aspect definition, it is possible to declare new runtimes, which would become available for other
 aspects to use.
 
-For example, the below example is actually used to defined the Bit UI runtime environment.
+For example, the below example is actually used to defined the Bit UI runtime environment:
 
 ```ts
 import { Aspect, RuntimeDefinition } from '@teambit/harmony';
