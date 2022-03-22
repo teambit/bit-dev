@@ -1,0 +1,71 @@
+/*
+ * also known as the "holy grail layout"
+ *  -------------------------
+ * |    header(non-flex)     |
+ * |-------------------------|
+ * |            ^            |
+ * |            |            |
+ * |       main-content      |
+ * |  (flexible, scrolling)  |
+ * |            |            |
+ * |            v            |
+ * |-------------------------|
+ * |    footer(non-flex)     |
+ * |-------------------------|
+ *
+ */
+
+// LAYOUT STYLES ONLY
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+// "body" flexes to fill the remaining space
+.stretch {
+  flex: 1;
+  height: 100%;
+  min-height: 0; // required for the div to flex
+
+  // pos: abs elements will align to this element
+  position: relative;
+}
+
+.scrollContainer {
+  height: 100%;
+  overflow: auto;
+}
+
+// "sticky" items just remain outside of the body,
+// so they will always be visible.
+//
+// move them inside if you want them hidden by scrolling
+.sticky {
+  flex: none;
+}
+
+// // for debugging
+body,
+.container,
+.stretch {
+  box-sizing: border-box;
+  border: 5px solid;
+}
+
+body {
+  border-color: black;
+}
+.container {
+  border-color: darkblue;
+}
+.sticky {
+  background: darkgreen !important;
+}
+.stretch {
+  border-color: blue;
+}
+
+.scrolling {
+  border-color: lightblue;
+}
