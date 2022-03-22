@@ -1,4 +1,4 @@
-import React, { useMemo, ReactNode, useEffect, useState } from 'react';
+import React, { useMemo, ReactNode, useEffect, createRef, useRef } from 'react';
 import classNames from 'classnames';
 import { classes } from '@teambit/design.ui.surfaces.menu.item';
 import { Link, useLocation } from '@teambit/base-react.navigation.link';
@@ -22,39 +22,35 @@ export type TableOfContentProps = {
 
 export function TableOfContent({ className, children, title, rootRef, selectors, ...rest }: TableOfContentProps) {
   const { activeElement, elements } = useElementOnFold(rootRef, selectors);
-  const [loaded, setLoaded] = useState(false);
-  const [key, setKey] = useState(0);
+  const containerRef = createRef<HTMLDivElement>();
+  const loadedRef = useRef(false);
   const currentLocation = useLocation();
   const anchors = useMemo(() => getLinks(elements), [elements]);
 
-  useEffect(() => {
-    // identifies first load
-    if(!loaded && elements.length > 0) {
-      setLoaded(!loaded)
-    } else {
-      // makes sure to remove stale content
-      setKey(key + 1)
-    }
-  }, [elements])
-  
   // scroll to active link, after first load and after content is loaded
   useEffect(() => {
-    const hash = currentLocation?.hash?.replace('#', '')
-    const el = document.getElementById(`link-${hash}`)
+    if (loadedRef.current) return;
+    if (elements.length === 0) return;
+    loadedRef.current = true;
+
+    // find anchor with matching href
+    const query = `a[href="${currentLocation?.hash || ''}"`;
+    const el = containerRef?.current?.querySelector(query);
     el?.scrollIntoView();
-  }, [loaded]);
+  }, [elements]);
 
   if (anchors.length < 1) return null;
 
   return (
-    <div {...rest} key={key} className={classNames(styles.tableOfContent, className)}>
+    <div {...rest} ref={containerRef} className={classNames(styles.tableOfContent, className)}>
       {title && <div className={styles.title}>{title}</div>}
-      {anchors.map((link) => {
+      {anchors.map((link, index) => {
         const isActive = activeElement === link?.actualElement;
+        const uniqueId = `${link?.id}-${index}`;
         return (
           <Link
             native
-            key={link?.id}
+            key={uniqueId}
             id={`link-${link?.id || ''}`}
             className={classNames(styles.item, classes.menuItem, classes.interactive, isActive && classes.active)}
             href={`#${link?.id}`}
