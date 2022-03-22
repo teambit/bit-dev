@@ -1,18 +1,12 @@
 @import "~@teambit/base-ui.layout.breakpoints/_breakpoints.scss";
 
-// the height above the TOC. it includes the header and some more spacing. 
-// used when toc is higher than page
-$heightAboveToc: 60px; 
+$tocWidth: 264px;
 
 // toc wrapper that holds the position in the page that pushes the rest of the elements in the page
 .tocWrapper {
-  position: relative;
   margin-left: 32px;
-  flex-shrink: 0;
-  bottom: 0;
-  right: 8px;
-  width: 264px;
-  margin-top: 16px;
+  width: $tocWidth;
+  flex: none;
   @media screen and (max-width: $br-lg) {
     display: none;
   }
@@ -20,9 +14,11 @@ $heightAboveToc: 60px;
 
 // the table itself. separated in order to allow scroll in the table content
 .tableOfContent {
-  position: fixed;
-  height: calc(100% - $heightAboveToc);
+  position: absolute;
   overflow-y: auto;
+  padding-top: 16px;
+  box-sizing: border-box;
+
   [data-element-type="H3"] {
     padding-left: 16px;
   }
