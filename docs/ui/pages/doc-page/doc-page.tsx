@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, ReactNode, Suspense, MutableRefObject } from 'react';
+import className from 'classnames';
 import { MDXLayout } from '@teambit/mdx.ui.mdx-layout';
 import { Page } from '@teambit/base-react.pages.page';
 import { DocsPlugin } from '@teambit/docs.plugins.docs-plugin';

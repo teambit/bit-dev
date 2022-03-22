@@ -1,20 +1,29 @@
 @import "~@teambit/base-ui.layout.breakpoints/_breakpoints.scss";
 
-.tableOfContent {
-  position: sticky;
-  flex-shrink: 0;
+// the height above the TOC. it includes the header and some more spacing. 
+// used when toc is higher than page
+$heightAboveToc: 60px; 
+
+// toc wrapper that holds the position in the page that pushes the rest of the elements in the page
+.tocWrapper {
+  position: relative;
   margin-left: 32px;
-  top: 120px;
+  flex-shrink: 0;
   bottom: 0;
   right: 8px;
-  [data-element-type="H3"] {
-    padding-left: 16px;
-  }
-
+  width: 264px;
+  margin-top: 16px;
   @media screen and (max-width: $br-lg) {
     display: none;
   }
 }
-.closedStickyBanner {
-  top: 56px;
+
+// the table itself. separated in order to allow scroll in the table content
+.tableOfContent {
+  position: fixed;
+  height: calc(100% - $heightAboveToc);
+  overflow-y: auto;
+  [data-element-type="H3"] {
+    padding-left: 16px;
+  }
 }

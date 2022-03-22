@@ -1,9 +1,11 @@
 @import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
 
 $textColumn: 1000px;
+$headerHeight: 40px;
 
 .docsPage {
   display: flex;
+  justify-content: space-between;
 }
 
 .next {
@@ -27,6 +29,13 @@ $textColumn: 1000px;
     margin-left: auto;
     margin-right: auto;
     box-sizing: border-box;
+  }
+}
+
+.heading {
+  h1, h2, h3 {
+    // TODO - @uri remove this when moving header outside of main scrollable content. 
+    scroll-margin-top: $headerHeight; // prevent headings from hiding behind fixed top bar, when clicking hyperlink
   }
 }
 
