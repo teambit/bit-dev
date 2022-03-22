@@ -5,11 +5,11 @@ The same workspace may have components from different Envs, where an Env can def
 
 By default Bit sets an env for a component. Use the `bit env` command to control the env for a component.
 
-```
+```bash
 bit env set acme.demo/welcome teambit.react/react  # define the component the pre-built react env.
 ```
 
-```
+```bash
 added teambit.react/react env to the following component(s):
 set acme.demo/welcome
 ```
@@ -22,11 +22,11 @@ Bit manages code, dependencies and configuration for each component. This means 
 
 To see which env is applied for a component, use the `show` command:
 
-```
+```bash
 bit show acme.demo/welcome
 ```
 
-```
+```bash
 ┌───────┬─────────────────────────┐
 │ id    │ acme.demo/welcome       │
 ├───────┼─────────────────────────┤
@@ -42,13 +42,13 @@ Now any action you run for the component like `compile`, `test`, `build`, `forma
 
 For Bit there is no difference in syntax for when you work with custom envs or pre-built ones.
 
-```
+```bash
 bit env set acme.demo/welcome acme.envs/react      # define the component a custom env.
 ```
 
 When you apply a custom env a component, it is applied with a specific version. If you haven't set one manually, Bit defaults to the latest version for the selected env.
 
-```
+```bash
 ┌───────┬─────────────────────────┐
 │ id    │ acme.demo/welcome       │
 ├───────┼─────────────────────────┤
@@ -59,15 +59,15 @@ When you apply a custom env a component, it is applied with a specific version. 
 ```
 
 Having versioning for a custom env means you choose the version you want to use and how to upgrade.  
-Rerun `env set` with either a specific vesion or none to upgrade to the latest, or choose a specific version to update/downgrade to.
+Rerun `env set` with either a specific version or none to upgrade to the latest, or choose a specific version to update/downgrade to.
 
-```
+```bash
 bit env set acme.demo/welcome acme.envs/react@4.0.0
 ```
 
 ## Control envs for multiple components
 
-A single workpsace may contain many components where components may have different envs. See a full list of which env is set for a component:
+A single workspace may contain many components where components may have different envs. See a full list of which env is set for a component:
 
 ```bash
 bit env
@@ -89,11 +89,11 @@ bit env
 
 All Bit commands support glob-patterns when specifying components.
 
-```
+```bash
 bit env set "acme.demo/ui/*" acme.envs/react
 ```
 
-```
+```bash
 added acme.envs/react env to the following component(s):
 acme.demo/ui/card
 acme.demo/ui/heading
@@ -108,7 +108,7 @@ The `replace` command helps with quickly refactoring all components that use a s
 bit env replace teambit.react/react acme.envs/react # replace env for all components that use acme.envs/react with teambit.react/react
 ```
 
-```
+```bash
 added teambit.react/react env to the following component(s):
 acme.demo/pages/welcome
 acme.demo/ui/card
@@ -118,7 +118,7 @@ acme.demo/ui/text
 
 ## Remove an env from a component
 
-Component should not have more than a single env applied. If you found yourself with an issue in Bit where `status` retunrs the following:
+Component should not have more than a single env applied. If you found yourself with an issue in Bit where `status` returns the following:
 
 ```bash
 bit status

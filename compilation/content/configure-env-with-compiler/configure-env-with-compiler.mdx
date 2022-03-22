@@ -1,10 +1,10 @@
-# Using a Compiler
+# Using a compiler
 
-## Using a Compiler in a new Env
+## Using a compiler in a new env
 
 Create a new Env using the 'env' template:
 
-```
+```bash
 bit create env aspect/my-env
 ```
 
@@ -19,9 +19,8 @@ it will naturally require additional dependencies like `@babel/preset-react` and
 ```ts
 import { CompilerEnv, BuilderEnv, DependenciesEnv } from '@teambit/envs';
 import { CompilerMain } from '@teambit/compiler';
-// Babel aspect is used as an example
-import { BabelMain } from '@teambit/babel';
-import { babelConfig } from './babel/babel.config';
+import { BabelMain } from '@teambit/babel';  // Babel aspect is used as an example
+import { babelConfig } from './babel/babel.config';  // Babel aspect is used as an example
 
 export const AspectEnvType = 'custom-env';
 
@@ -57,8 +56,7 @@ This includes the Envs aspect for `Env` registration, the `Compiler` aspect for 
 import { MainRuntime } from '@teambit/cli';
 import { EnvsMain, EnvsAspect } from '@teambit/envs';
 import { CompilerMain, CompilerAspect } from '@teambit/compiler';
-// Babel aspect is used as an example
-import { BabelMain, BabelAspect } from '@teambit/babel';
+import { BabelMain, BabelAspect } from '@teambit/babel'; // Babel aspect is used as an example
 import { MyEnv } from './my-env.env';
 import { MyEnvAspect } from './my-env.aspect';
 
@@ -79,13 +77,13 @@ export class MyEnvMain {
 CustomEnvAspect.addRuntime(MyEnvMain);
 ```
 
-## Replace an Env's compiler using an Env extension
+## Replace an env's compiler using an env extension
 
 You can use an Env extension to replace the (base) Env's default compiler with another compiler implementation.
 
 For example, the following will create a React Env extension:
 
-```
+```bash
 bit create react-env aspects/my-react
 ```
 

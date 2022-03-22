@@ -1,6 +1,6 @@
 # Add to an existing project
 
-You can intialize Bit on any exsiting workspace to start sharing components. Bit has a minimal footprint on your project and can run alongside existing tools.  
+You can initialize Bit on any existing workspace to start sharing components. Bit has a minimal footprint on your project and can run alongside existing tools.  
 Start sharing components by heading over to your project root:
 
 ```bash
@@ -13,13 +13,13 @@ Initialize Bit in your project.
 bit init
 ```
 
-`init` will not use any of the templates for [creating a workspace](/docs/getting-started/installing-bit/start-bit-workspace), so not to override any of your previous configurations. Instead `init` is a lightweight command that only create the following:
+`init` will not use any of the templates for [creating a workspace](/getting-started/installing-bit/start-bit-workspace), so not to override any of your previous configurations. Instead `init` is a lightweight command that only create the following:
 
-- [`workspace.json`](/docs/workspace/workspace-config) file, with base configuration.
-- [`.bitmap`](/docs/workspace/bitmap) to point to any component you share.
-- A hidden `.bit` (or `.git/bit`) directory to store local scope <!-- [local scope](/docs/scope/local-scope) --> for your components.
+- [`workspace.json`](/workspace/workspace-config) file, with base configuration.
+- [`.bitmap`](/workspace/bitmap) to point to any component you share.
+- A hidden `.bit` (or `.git/bit`) directory to store local scope <!-- [local scope](/scope/local-scope) --> for your components.
 
-Once Bit is initialized on your project, you can run Bit commands and start the local dev server. <!-- [local dev server](/docs/workspace/ui) -->
+Once Bit is initialized on your project, you can run Bit commands and start the local dev server. <!-- [local dev server](/workspace/ui) -->
 
 ```bash
 bit start
@@ -47,10 +47,10 @@ The process for taking an existing component, which is currently coupled your pr
 
 First of all, decide which component you aim to share and decouple from the project. Know that here, if the component has any dependencies, you will likely to need to share them as well, or have them as part of the component. Once you had a target in mind, create a new Bit component:
 
-Follow the steps for [creating a new component](docs/getting-started/composing/spec-breakdown):
+Follow the steps for [creating a new component](/getting-started/composing/spec-breakdown):
 
-```bash
-ther```
+<!-- ```bash
+ther``` -->
 
 When you have the Bit component created, port over the implementation to the newly created component. Now that you have the component's functionality decoupled from the project, use the various features Bit offers to ensure it's fully functional.
 

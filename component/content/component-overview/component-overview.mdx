@@ -14,13 +14,12 @@ An _Independent Component_ (_Component_) is an [independently source-controlled]
 
 Components, decoupled from larger projects, are essential for effective component-driven development.
 
-A Component contains the history of its [Source Code](/components/source-code), [Dependencies](/dependencies/overview) (packages and other Components), [Artifacts](/components/artifact) (including a consumable [package](/packages/packages-overview)), [Configuration](/components/component-config) and [Metadata](/components/metadata).
+A Component contains the history of its source code, [dependencies](/dependencies/dependencies-overview) (packages and other Components), artifacts (including a consumable [package](/packages/packages-overview)), [Configuration](/components/component-config) and metadata.
 Each Component has a unique [ID](/components/component-id) which is used by Scopes and Workspaces, to reference it.
-
 
 <Image src={componentImg} alt="Bit Components" style={{ maxWidth: 800, marginTop: 50 }} />
 
-## From files to Components
+## From files to components
 
 A component, with a lowercase 'c', is any group of files that serve a single purpose.
 That can be a React component, a Vue component, a Node.JS module, a CSS component, and so on. Each of these can be of different levels of complexity and concreteness.
@@ -28,7 +27,7 @@ That can be a React component, a Vue component, a Node.JS module, a CSS componen
 For example, the following is a standard React component in a Bit Workspace. Although it is recognized as a component by you, it is still unrecognized as such by Bit (or by any other development tool, for that matter).
 Right now, it is no more than files in a directory.
 
-```
+```bash
 ...
 ├── ui
      └── card
@@ -42,7 +41,7 @@ Right now, it is no more than files in a directory.
 
 The following command tracks the above component. It provides it with a Component ID and registers this ID in the Workspace's `.bitmap` file:
 
-```
+```bash
 $ bit add ui/card --id card
  tracking component card:
  added card.module.scss
@@ -51,22 +50,19 @@ $ bit add ui/card --id card
  added index.ts
 ```
 
-Since it is a component, it most likely has dependencies. These dependencies are detected and resolved by Bit. This Component is more than a set of source files.
-It has a dependency graph as well. 
+Since it is a component, it most likely has dependencies. These dependencies are detected and resolved by Bit. This Component is more than a set of source files. It has a dependency graph as well.
 
-A Component uses different Bit Aspects for its development.
-These Aspects and their corresponding configurations are applied on this Component by various sources in the Workspace.
-The config for these Aspect is also part of this Component.
+A Component uses different Bit Aspects for its development. These Aspects and their corresponding configurations are applied on this Component by various sources in the Workspace. The config for these Aspect is also part of this Component.
 
 The Component's data currently exists only in memory. It is not written into any file. The following command displays that data:
 
+```bash
+bit show card
 ```
-$ bit show card
-```
-The output contains information regarding this Component's ID, source files, main file, and dependencies (where some are components and some are packages).
-Under the 'aspects' label are listed the Aspects that this Component uses:
 
-```
+The output contains information regarding this Component's ID, source files, main file, and dependencies (where some are components and some are packages). Under the 'aspects' label are listed the Aspects that this Component uses:
+
+```bash
 ┌───────────────────┬──────────────────────────────────────────────────────────┐
 │ id                │ company.scope/card                                       │
 ├───────────────────┼──────────────────────────────────────────────────────────┤
@@ -111,11 +107,13 @@ Under the 'aspects' label are listed the Aspects that this Component uses:
 The following command runs this Component's build to test it and generate its artifacts (compiled code, package, etc).
 It also creates a snapshot of its current state and provides it with a specific sematic version:
 
-```
+```bash
 bit tag card --ver 1.0.0
 ```
+
 The output with the result of that process is the following:
-```
+
+```bash
 1 component(s) tagged
 (use "bit export [collection]" to push these components to a remote")
 (use "bit untag" to unstage versions)

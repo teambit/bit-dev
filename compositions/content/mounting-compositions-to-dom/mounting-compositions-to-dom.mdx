@@ -1,15 +1,15 @@
-# Mounting Compositions to the DOM
+# Mounting compositions to the DOM
 
 Compositions are mounted or appended to the DOM, using a "mounter" function.
 
 :::info
 A "mounter" is the main module used by the Preview Aspect to render the content of files (modules) for the 'compositions' preview. It is analogous to the docs' template.
-Learn more about it, [here](/preview/overview)
+Learn more about it, [here](/dev-services-overview/preview/overview)
 :::
 
 ## Setting a mounter
 
-To set your own template, create a new Env (or extend and existing one), and implement the `getMounter()` [service handler](/envs/services/dev-services-overview#service-handlers).
+To set your own template, create a new Env (or extend and existing one), and implement the `getMounter()` [service handler](/envs/dev-services).
 
 ```ts
 getMounter(): string

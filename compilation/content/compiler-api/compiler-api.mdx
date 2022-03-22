@@ -10,7 +10,7 @@ The transpilation methods are used by the Compiler Service to transpile files in
 
 - `transpileFile` - transpiles a single file, agnostic to the component's other files.
 - `transpileComponent` - transpiles all the component's files. Use this when it's not possible to transpile files without their context (i.e, without having access to the component's other files).
-  One example of this is the angular compiler (ng packager and ngcc) which requires the entire context, in order for it to perform.
+  One example of this is the angular compiler (`ngPackager` and `ngcc`) which requires the entire context, in order for it to perform.
 
 Gets a `fileContent` and returns the compiled content and the output path.
 
@@ -40,7 +40,7 @@ displayConfig?(): string;
 The `displayConfig` function helps the user to see the compiler config when using the `bit env <comp-id>` command.
 It should return a string representation of the compiler config (for example JSON.stringify of the tsconfig file).
 
-```
+```bash
 $ bit env ui/text
 
 // ...
@@ -78,14 +78,14 @@ compiler config:
 build(context: BuildContext): Promise<BuiltTaskResult>;
 ```
 
-- [`BuildContext`](https://bit.dev/teambit/pipelines/builder/~code/build-task.ts)<!-- TODO: maybe change link to point to the builder docs here-->
-- [`BuiltTaskResult`](https://bit.dev/teambit/pipelines/builder/~code/build-task.ts)<!-- TODO: maybe change link to point to the builder docs here-->
+- [`BuildContext`](https://bit.cloud/teambit/pipelines/builder/~code/build-task.ts)<!-- TODO: maybe change link to point to the builder docs here-->
+- [`BuiltTaskResult`](https://bit.cloud/teambit/pipelines/builder/~code/build-task.ts)<!-- TODO: maybe change link to point to the builder docs here-->
 
-Implements the logic of the compilation task. This method will be used by the Compiler Aspect to create a Build Task (that is, this method does not _directly_ create a new Build Task)
+Implements the logic of the compilation task. This method will be used by the Compiler Aspect to create a Build Task (that is, this method does not _directly_ create a new Build Task).
 
 The build runs on a capsules network. <!--TODO add link -->
 For each processed component, `ComponentResult` should be returned. <!--TODO add link -->
-You should also return an array of [`ArtifactDefinition`](https://bit.dev/teambit/pipelines/builder/~code/artifact/artifact-definition.ts) <!-- TODO: maybe change link to point to the builder docs here-->.
+You should also return an array of [`ArtifactDefinition`](https://bit.cloud/teambit/pipelines/builder/~code/artifact/artifact-definition.ts) <!-- TODO: maybe change link to point to the builder docs here-->.
 The artifacts are the compiled files written into the capsules, or any other files created by the compiler (for example the ts compiler also generate `d.ts` files).
 
 ## distDir
@@ -106,7 +106,7 @@ Determines which of the generated files are to be saved in the bit objects (when
 
 e.g. distGlobPatterns = [`${this.distDir}/**`, `!${this.distDir}/tsconfig.tsbuildinfo`];
 
-See https://github.com/mrmlnc/fast-glob for the supported glob patters syntax.
+See [fast-glob](https://github.com/mrmlnc/fast-glob) for the supported glob patters syntax.
 
 ## artifactName (optional)
 
@@ -121,7 +121,7 @@ the second for creating "esm". The artifact names would be "es5" and "esm" accor
 
 ## createTask (optional)
 
-An API to create a Compiler task via the concrete compiler implementation (instead of doing so via the Compiler Aspect)
+An API to create a Compiler task via the concrete compiler implementation (instead of doing so via the Compiler Aspect).
 
 ```js
 createTask?(name?: string): BuildTask;
@@ -170,7 +170,7 @@ version(): string;
 
 ## displayName
 
-Returns the display name of the current compiler instance (e.g. 'TypeScript')
+Returns the display name of the current compiler instance (e.g. 'TypeScript').
 
 ```js
 displayName(): string;
@@ -178,7 +178,7 @@ displayName(): string;
 
 ## getDistPathBySrcPath
 
-Given a source file, Return its compiled parallel in the dists. e.g. "index.ts" => "dist/index.js"
+Given a source file, Return its compiled parallel in the dists. e.g. `index.ts` => `dist/index.js`
 Both, the return path and the given path are relative paths.
 For example, this is used to calculate the main dist file by the main file of the component.
 It is also used to calculate different links Bit references to, when bundling the component.

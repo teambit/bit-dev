@@ -1,6 +1,6 @@
 # Tracking components
 
-When initializing a Bit Workspace in a pre-existing project you can convert a existing directories to be Bit components. `add` command defines the [component directory](/docs/workspace/component-directory) and start the component isolation process. The command analyzes the source files to build the component's dependencies. Tracking a component adds it to the [`.bitmap`](//docs/workspace/bitmap) in the workspace.
+When initializing a Bit Workspace in a pre-existing project you can convert a existing directories to be Bit components. `add` command defines the [component directory](/workspace/component-directory) and start the component isolation process. The command analyzes the source files to build the component's dependencies. Tracking a component adds it to the [`.bitmap`](/workspace/bitmap) in the workspace.
 
 ## Process
 
@@ -16,7 +16,7 @@ When tracking a component Bit does the following:
 
 The `status` command also shows any errors during the tracking of a component.
 
-## Best Practices
+## Best practices
 
 Here are some recommendations on how to track components:
 
@@ -76,11 +76,11 @@ To track all the newly added component use the `--all` flag:
 bit untrack --all
 ```
 
-## Common Isolation Errors
+## Common isolation errors
 
 Here are some common errors and their resolution when trying to isolate a component. Run `bit status` to check the status of components dependency resolution.
 
-### Untracked Dependencies
+### Untracked dependencies
 
 When a component is importing local files (i.e. files with relative paths), Bit is attempting to find the components where those files exist. If the file is not yet tracked by any other components, Bit notifies about an untracked dependency.  
 Resolve this issue by tracking the files into another component, or move them to your component.
