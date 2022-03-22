@@ -45,27 +45,27 @@
   flex: none;
 }
 
-// // for debugging
-body,
-.container,
-.stretch {
-  box-sizing: border-box;
-  border: 5px solid;
-}
+// // // for debugging
+// body,
+// .container,
+// .stretch {
+//   box-sizing: border-box;
+//   border: 5px solid;
+// }
 
-body {
-  border-color: black;
-}
-.container {
-  border-color: darkblue;
-}
-.sticky {
-  background: darkgreen !important;
-}
-.stretch {
-  border-color: blue;
-}
+// body {
+//   border-color: black;
+// }
+// .container {
+//   border-color: darkblue;
+// }
+// .sticky {
+//   background: darkgreen !important;
+// }
+// .stretch {
+//   border-color: blue;
+// }
 
-.scrolling {
-  border-color: lightblue;
-}
+// .scrolling {
+//   border-color: lightblue;
+// }
