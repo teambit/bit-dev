@@ -445,17 +445,12 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Dependencies',
     open: false,
     icon: 'dependencies-icn',
-    config: {
-      path: 'dependencies-config',
-      title: 'Dependencies Configuration',
-      component: <DependenciesConfiguration />,
-    },
     children: [
       {
         path: 'dependencies-overview',
         title: 'Dependencies overview',
         description:
-          'Dependency management is a major concern for developers looking to build and deliver components independently.',
+          'Bit helps you with managing dependencies for components, reducing the work required to managing independent components.',
         component: <DependenciesOverview />,
       },
       {
@@ -474,7 +469,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'configuring-dependencies',
-        title: 'Configuring dependencies',
+        title: 'Control dependency resolution',
         description: 'Control component dependency policies.',
         component: <ConfiguringDependencies />,
       },
@@ -484,10 +479,10 @@ export const learnDocsRoutes: DocsRoute[] = [
         description: 'See your component dependencies',
         component: <InspectingDependencies />,
       },
-      {
-        path: 'updates',
-        title: 'Dependency updates',
-      },
+     // {
+     //   path: 'updates',
+     //   title: 'Dependency updates',
+     // },
       {
         path: 'package-managers',
         title: 'Package managers',
@@ -503,6 +498,11 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <ExternalDependencies />,
       },
       {
+        path: 'dependencies-config',
+        title: 'Dependencies Configuration',
+        component: <DependenciesConfiguration />,
+      },
+      {
         path: 'node-modules',
         title: 'node_modules',
         description:
@@ -514,10 +514,10 @@ export const learnDocsRoutes: DocsRoute[] = [
       //   title: 'Dependency resolution',
       //   component: <DependencyResolution />,
       // },
-      {
-        path: 'cyclic-dependencies',
-        title: 'Cyclic dependencies',
-      },
+      //{
+      //  path: 'cyclic-dependencies',
+      //  title: 'Cyclic dependencies',
+      //},
       {
         path: 'lock-files',
         title: 'Lock files',
