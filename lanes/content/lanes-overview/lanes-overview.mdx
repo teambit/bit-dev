@@ -7,6 +7,15 @@ import firstSnap from './first-snap.png';
 
 `Lanes` is how you collaborate on changes for components without interfering with the main development course. A single Lane can encapsulate changes for many components.
 
+:::note Featue in "alpha" state
+
+Core capabilities for **lane**, operate as intended, we are still testing and verifing scalability.
+
+Feedbacks and testing are appreciated.
+
+:::
+
+
 Use Lanes to encapsule all changes for components for a bug-fix, refactor, new feature in an existing component and even creating new components. You can include affected components of that change. It gives you a change to simulate how a single change can affect the entire code base, even for components that are outside of your workspace, making collaboration easier.
 
 <Image src={laneOverview} width="70%" />
@@ -105,7 +114,7 @@ bit switch main
 ```
 
 ```bash
-TODO
+successfully set "main" as the active lane
 ```
 
 All changes in the `new-feature` lane disappear from the workspace. You can switch back to the `new-feature` lane to keep the work done on these components.

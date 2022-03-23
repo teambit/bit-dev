@@ -147,6 +147,11 @@ const AddingComponents = lazy(() => import('@teambit/component.content.adding-co
 /* Lanes */
 
 const LanesOverview = lazy(() => import('@teambit/lanes.content.lanes-overview'));
+const CreateLane = lazy(() => import('@teambit/lanes.content.create-lane'));
+const ComponentsInLane = lazy(() => import('@teambit/lanes.content.components-in-lane'));
+const ExportLane = lazy(() => import('@teambit/lanes.content.export'));
+const ImportLane = lazy(() => import('@teambit/lanes.content.import'));
+const MergeLane = lazy(() => import('@teambit/lanes.content.merging'));
 
 /* Envs */
 const EnvsOverview = lazy(() => import('@teambit/envs.content.envs-overview'));
@@ -536,67 +541,73 @@ export const learnDocsRoutes: DocsRoute[] = [
     open: false,
     title: 'Lanes',
     icon: 'collection',
-    overview: {
-      path: 'lanes-overview',
-      title: 'Lanes Overview',
-      component: <LanesOverview />,
-      description: 'Lanes allow for change management in a distributed environment'
-    },
     children: [
       {
-        path: 'create-lanes',
-        title: 'Create lanes',
-        description: 'not sure yet',
-        component: <div />,
+        path: 'lanes-overview',
+        title: 'Lanes Overview',
+        component: <LanesOverview />,
+        description: 'Lanes allow change management for component driven software.'
       },
+      {
+        path: 'create-lane',
+        title: 'Creating lanes',
+        description: 'How to create lanes and control their properties.',
+        component: <CreateLane />,
+      },
+      //{ waiting for luv to implement
+      //  path: 'lane-definition',
+      //  title: 'Lane definition',
+      //  description: 'not sure yet',
+      //  component: <div />,
+      //},
       {
         path: 'lane-components',
         title: 'Components in lane',
-        description: 'not sure yet',
-        component: <div />,
+        description: 'Add, remove and change components in a lane.',
+        component: <ComponentsInLane />,
       },
-      {
-        path: 'inspecting-lanes',
-        title: 'Inspecting lanes',
-        description: 'not sure yet',
-        component: <div />,
-      },
-      {
-        path: 'remote-lanes',
-        title: 'Lane remotes',
-        description: 'not sure yet',
-        component: <div />,
-      },
+      //{
+      //  path: 'inspecting-lanes',
+      //  title: 'Inspecting lanes',
+      //  description: 'not sure yet',
+      //  component: <div />,
+      //},
+      //{
+      //  path: 'remote-lanes',
+      //  title: 'Lane remotes',
+      //  description: 'not sure yet',
+      //  component: <div />,
+      //},
       {
         path: 'export-lane',
         title: 'Exporting lanes',
-        description: 'not sure yet',
-        component: <div />,
+        description: 'Export a lane to a remote to collaborate with others.',
+        component: <ExportLane />,
       },
       {
         path: 'import-lanes',
         title: 'Importing lanes',
-        description: 'not sure yet',
-        component: <div />,
+        description: 'Import lane or components from a lane to extend collaborate.',
+        component: <ImportLane />,
       },
       {
         path: 'merge-lanes',
         title: 'Merging changes',
-        description: 'Merge lanes when all changes are ready to be versioned.',
-        component: <div />,
+        description: 'Merge changes for components from a lane to main or other lanes.',
+        component: <MergeLane />,
       },
-      {
-        path: 'remote-lanes',
-        title: 'Removing lanes',
-        description: 'Merge lanes when all changes are ready to be versioned.',
-        component: <div />,
-      },
-      {
-        path: 'lanes-objects',
-        title: 'Lane objects',
-        description: 'How Bit stores and manages lane and all its components in the scope.',
-        component: <div />,
-      },
+     // {
+     //   path: 'remove-lanes',
+     //   title: 'Removing lanes',
+     //   description: 'Merge lanes when all changes are ready to be versioned.',
+     //   component: <div />,
+     // },
+      //{
+      //  path: 'lanes-objects',
+      //  title: 'Lane objects',
+      //  description: 'How Bit stores and manages lane and all its components in the scope.',
+      //  component: <div />,
+      //},
     ],
   },
   {
