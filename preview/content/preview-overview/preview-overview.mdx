@@ -1,9 +1,9 @@
 import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-display';
 import { Image } from '@teambit/docs.ui.zoomable-image';
-import overviewScreenshotImg from './overview_screenshot.png';
-import dependenciesImg from './dependencies.png';
-import dependenciesLinkFileImg from './dependencies_link_file.png';
-import fetchPreviewsImg from './fetch_previews.png';
+;
+;
+;
+;
 
 # Preview Overview
 
@@ -19,7 +19,7 @@ The preview environment or runtime, is integrated into Bit's UI using an iframe.
 
 For example, the following screenshot shows a preview (a component's 'Overview') rendered in a preview environment and displayed in an iframe, inside the workspace UI:
 
-<Image alt="preview screenshot" src={overviewScreenshotImg} />
+
 
 ## Preview runtime
 
@@ -109,7 +109,7 @@ Previews for component versions are loaded to the preview runtime from the compo
 
 6. Retrieves and renders the relevant preview in the browser, according to the URL sent by the browser. Learn how to extend this step, [here](/register-custom-preview#register-files-for-routing-and-rendering).
 
-<Image alt="diagram" src={fetchPreviewsImg} />
+
 
 ## Link files
 
@@ -147,8 +147,8 @@ The `linkModules` function registers the preview name, the main module, and the 
 
 Bundlers process and concatenate modules of an application by crawling over a network of dependencies that starts from the app's entry file. Components, however, are not all dependencies (direct or indirect) of a single entry file. They do not provide the bundler with a single network of modules to process.
 
-<Image alt="diagram" src={dependenciesImg} />
+
 
 To solve that, the Preview aspect imports all the modules of a single preview into a single link file, named using a timestamp and prefixed by the preview name. For example: `__overview-1633481243984.js`.
 
-<Image alt="diagram" src={dependenciesLinkFileImg} width="70%" />
+

@@ -1,7 +1,7 @@
 import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-display';
 import { Image } from '@teambit/docs.ui.zoomable-image';
-import envOverview from './env-overview.png';
-import envComposition from './env-composition.png';
+;
+;
 
 # Envs
 
@@ -11,7 +11,7 @@ import envComposition from './env-composition.png';
 
 Envs are reusable development environments for components. They are used simplify and standardize component development workflows, like **compilation**. You may set different envs on different "types" of components. It means that a single command runs the same flow for all components in the workspace, regardless of specific tools or configs used.
 
-<Image src={envOverview} width="60%" />
+
 
 An env contains the definition for how a component is built and maintained. By setting a specific env on a component you define the component "type": React, Angular or Node, as each requires a different setup.  
 You can build envs to contain more granular configurations for having various flavors of components of the same "type". For example, keeping a different env just for React Hooks, which extends your base React configuration.
@@ -41,7 +41,7 @@ bit env
 Envs are implemented as [Bit Components](/components/component-overview) that compose together different workflows ([env services](/envs/env-service-overview)) and configs for testing, linting, formatting, previewing and others.  
 Different envs may use the same flows but with different configuration. For example, **formatter** is used by both React and Angular, but each of them applies a different set of rules. Envs can provide APIs to be extended and composed to more concrete flows.
 
-<Image src={envComposition} width="80%" />
+
 
 ## Envs in your workspace
 

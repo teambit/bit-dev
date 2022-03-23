@@ -1,7 +1,7 @@
 import { Image } from '@teambit/docs.ui.zoomable-image';
-import bundlerImg from './bundler.png'
-import retrieveVersionedPreviewImg from './retrieve_versioned_preview.png'
-import expressRoutingImg from './express_routing.png'
+
+
+
 
 # Preview During Build
 
@@ -16,7 +16,7 @@ $ bit build ui/text
 
 Since it is a build task, the link file and consequent preview artifacts, are generated in a Capsule (`~/Library/Caches/Bit/capsules/{hash}/{env-id}_{env-name}-preview/__{preview-name}-{timestamp}.js`) <!--TODO-->
 
-<Image src={bundlerImg} width="100%"/>
+
 
 Artifacts that are generated as part of the `snap` or `tag` pipelines, are be persisted in the component objects.
 
@@ -45,8 +45,8 @@ $ bit artifacts ui/text
 
 Previews of tagged versions are retrieved from the component objects.
 
-<Image src={retrieveVersionedPreviewImg} width ="90%"/>
+
 
 To enable the retrieval of versioned Preview artifacts, the Preview aspects registers its plugin to the Express Aspect (responsible for running the express server).
 
-<Image src={expressRoutingImg} width="50%"/>
+

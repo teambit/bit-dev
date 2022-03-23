@@ -1,4 +1,3 @@
-import isolateDeps from './isolate-deps.png';
 import { Image } from '@teambit/docs.ui.zoomable-image';
 
 # Adding components
@@ -82,7 +81,6 @@ Main file exposes the API of the component. It's recommended to have an `index` 
 
 Bit build a dependency graph for the component by reading all `import` statements in the implementation. According to the file type, dependencies are added to the `dependencies` or `devDependencies` section of the component.
 
-<Image src={isolateDeps} width="70%" />
 
 Components are isolated modules in your workspace. As such, all their dependencies should be clearly defined and available for Bit to log. Run `status` to see if there are any isolation issues for your components.
 

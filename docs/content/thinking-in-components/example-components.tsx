@@ -1,6 +1,6 @@
 // import React from 'react';
 // import type { ComponentCardProps } from '@teambit/explorer.ui.gallery.component-card';
-// import button from './button.png';
+// ;
 
 // function ComponentCardPreview({ src }: { src: string }) {
 //   return (

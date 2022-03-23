@@ -45,7 +45,7 @@ export function UseCasesCard({
   return (
     <Card {...rest} elevation={elevation} className={classNames(styles.useCasesCard, className)}>
       <div className={styles.images}>
-        <Image src={image} alt={alt} className={classNames(styles.image, className)} />
+        
       </div>
 
       <div className={styles.textBox}>

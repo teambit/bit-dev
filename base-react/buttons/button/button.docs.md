@@ -26,7 +26,7 @@ On the surface level, building a custom styled Button might seem simple. In real
 
 ```ts live
 <Button>
-  <Image src="https://static.bit.dev/bit-logo.svg" />
+  
   click me
 </Button>
 ```

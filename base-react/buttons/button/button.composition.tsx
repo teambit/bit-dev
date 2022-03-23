@@ -17,7 +17,7 @@ export const ButtonWithCustomStyles = () => {
 export const ButtonWithIcon = () => {
   return (
     <Button>
-      {/* <Image src="https://static.bit.dev/bit-logo.svg" /> */}
+      {/*  */}
       click me
     </Button>
   );

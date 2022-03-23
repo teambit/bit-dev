@@ -1,5 +1,5 @@
 import { Image } from '@teambit/docs.ui.zoomable-image';
-import compilerDiagram from './compiler-diagram.png';
+;
 
 # Env services overview
 
@@ -52,7 +52,7 @@ An Env can be customized by replacing its service handlers, or by adding new one
 
 As mentioned above, Dev Services are standardizers of certain types of development workflows. Looking at it from the perspective of a dev tool maintainer, dev services simplify the integration of tools into Bit by offering an abstraction layer, between your tool and all the required Aspects.
 
-<Image src={compilerDiagram} style={{maxWidth: 700} }/>
+
 
 For example, the following compiler implements the Compiler interface, to integrate [Babel](https://jestjs.io/) into Bit, _as a compiler_.
 Using the Dev Service API, the Babel Aspect is able to access and use all the relevant Aspects, and use them in a way that is consistent with other Aspects that serve as compilers.

@@ -6,7 +6,6 @@ import { Paragraph } from '@teambit/base-ui.text.paragraph';
 import { Link } from '@teambit/base-react.navigation.link';
 import { Edge } from '@teambit/design.graph.edge';
 import styles from './learn-crossroad.module.scss';
-import ThinkingComponents from './learn-components.png';
 
 export type LearnCrossroadProps = {
   /**
@@ -47,7 +46,6 @@ export function LearnCrossroad({ title, description, link, className, ...rest }:
         <div id="d" className={styles.anchorEnd} />
       </div>
       <div className={styles.content}>
-        <Image data-testid="image" className={styles.image} src={ThinkingComponents} />
         <Link href={link} className={styles.link} data-testid="link">
           <H4 data-testid="heading" className={styles.heading} style={{ margin: 0 }}>
             {title}{' '}

@@ -1,13 +1,12 @@
 import React from 'react';
 import { Image } from './image';
-import puppyImg from './puppy.jpg';
 
 export const CenteredImage = () => (
-  <Image alt="a puppy" src={puppyImg} maxWidth={300} />
+  null
 );
 
 export const UncenteredImage = () => (
-  <Image center={false} alt="a puppy" src={puppyImg} maxWidth={300} />
+  null
 );
 
 export const ImageBelowText = () => (
@@ -19,6 +18,6 @@ export const ImageBelowText = () => (
       bibendum facilisis in et leo. Praesent aliquam varius lorem, a sagittis
       ante molestie non
     </p>
-    <Image alt="a puppy" src={puppyImg} maxWidth={300} />
+    
   </div>
 );

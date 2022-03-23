@@ -7,7 +7,6 @@ import { Terminal } from '@teambit/community.ui.terminal';
 import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 import { BubbleGraph } from '@teambit/community.ui.graph.bubble-graph';
 import { Browser } from '@teambit/community.ui.browser';
-import scopeUi from './scope-ui.png';
 
 export type CollaborationProps = {
   /**
@@ -28,7 +27,6 @@ export function Collaboration({}: CollaborationProps) {
           text="Host components with a common responsibility in a remote scope, making them available for everyone to discover, use, and collaborate on."
         >
           <Browser>
-            <img src={scopeUi} height="450" />
           </Browser>
         </LeftRight>
         <LeftRight 

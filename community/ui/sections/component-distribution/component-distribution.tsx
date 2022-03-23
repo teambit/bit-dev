@@ -8,8 +8,6 @@ import { ComponentCardGraph } from '@teambit/community.ui.graph.component-card-g
 import { ComponentCardNode } from '@teambit/community.entity.compnent-distribution-graph';
 import { top, bottom } from './component-distribution.mock';
 import styles from './component-distribution.module.scss';
-// @ts-ignore
-import img from './shoe-store.jpg';
 
 export type ComponentDistributionSectionProps = {
   /**
@@ -37,7 +35,7 @@ export function ComponentDistributionSection({ title, components = [], className
       </div>
       <ComponentCardGraph nodes={components} className={styles.distributionGraph}>
         <Link href="https://bit.dev/learn-bit-react/shoe-store/apps/shoe-store" external className={styles.appLink}>
-          <Image src={img} className={styles.appImg} id="learn-bit-react-image-image" />
+          
         </Link>
       </ComponentCardGraph>
       {/* created a connecting element for edge curve effect */}

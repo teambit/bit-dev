@@ -1,6 +1,6 @@
 import { Image } from '@teambit/docs.ui.zoomable-image'
-import devServiceBoilerplate from './env-service-boilerplate.png';
-import aspectImplementsService from './aspect-implements-service.png';
+;
+;
 
 # Development Services
 
@@ -8,7 +8,7 @@ import aspectImplementsService from './aspect-implements-service.png';
 
 Dev-Services define how different workflows and commands get executed. While Bit offers a set of predefined and implemented Development Services, you can use this capability to expand Bit to support additional workflows. Use it to either add new tooling support for existing workflows or to add new workflows to Bit.
 
-<Image src={devServiceBoilerplate} style={{maxWidth: 700}} />
+
 
 :::tip Small workflow adjustments
 
@@ -24,7 +24,7 @@ Small modifications like applying a different config or adding a build task does
 Adding new tooling is about implementing the interface defined by an Environment Service. You only need to provide the specific implementation of the API to run tasks related to the tool.  
 When extending Bit you always start by creating an [Aspect](/extending-bit/aspect-overview), in this case the aspect will implement the require interface by your target env-service and use any tool to run complex operations.
 
-<Image src={aspectImplementsService} style={{maxWidth: 600}} />
+
 
 Development Services provide templates for you to get stated with the APIs you need to implement. Start by using any of the templates:
 
