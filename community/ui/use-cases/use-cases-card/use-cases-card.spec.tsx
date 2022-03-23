@@ -14,14 +14,14 @@ it('should render with a text', () => {
   expect(rendered).toBeTruthy();
 });
 
-it('should contain an image', () => {
-  render(<BasicUseCasesCard />);
-  const displayedImage = document.querySelector('img') as HTMLImageElement;
-  expect(displayedImage.src).toContain('https://storage.googleapis.com/static.bit.dev/Community/use-cases/library.svg');
-});
+// it('should contain an image', () => {
+//   render(<BasicUseCasesCard />);
+//   const displayedImage = document.querySelector('img') as HTMLImageElement;
+//   expect(displayedImage.src).toContain('https://storage.googleapis.com/static.bit.dev/Community/use-cases/library.svg');
+// });
 
-it('image should contain an alt tag', () => {
-  const { getByAltText } = render(<BasicUseCasesCard />);
-  const rendered = getByAltText('Library of Frameworks');
-  expect(rendered).toBeTruthy();
-});
+// it('image should contain an alt tag', () => {
+//   const { getByAltText } = render(<BasicUseCasesCard />);
+//   const rendered = getByAltText('Library of Frameworks');
+//   expect(rendered).toBeTruthy();
+// });
