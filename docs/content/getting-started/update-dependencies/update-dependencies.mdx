@@ -1,0 +1,15 @@
+# Updating Dependencies
+
+There are several ways to update external dependencies. If you use semantic version ranges in the dependency policy, you can ask Bit to update all dependencies according to your accepted ranges:
+
+```bash
+bit install --update-existing
+```
+
+Some dependencies may have even newer versions than the allows semantic version range in your workspace. You can start a flow to update them by running the `update` command:
+
+```bash
+bit update
+```
+
+Here you see all available policies and what can be updated to each policy, or even for each component.

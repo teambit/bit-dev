@@ -1,24 +1,26 @@
 ---
-description: 'A Grid for the Use Case Card'
-labels: ['label1', 'label2', 'label3']
+description: 'Displays Bit use-cases in a grid of two columns'
+labels: ['ui', 'grid', 'exhibit', 'display']
 ---
 
 import { UseCasesCardGrid } from './use-cases-card-grid';
 import { FigmaEmbed } from '@teambit/design.embeds.figma';
 
-Grid of Use Cases Cards.
+This component displays ['use-cases-card'](https://bit.dev/teambit/community/ui/use-cases/use-cases-card) components in a grid layout of two columns.
 
-### Grid of Use Cases Cards with imported Json
 
-Imports mock data in json format from the entity component which contains an array of use cases.
+## Basic usage
+
+Pass an array of  [UseCase](https://bit.dev/teambit/community/entity/use-cases) objects (containing use-cases info) to the `useCases` prop:
 
 ```js
-import { UseCases } from '@teambit/community.entity.use-cases';
+import { UseCasesGrid } from '@teambit/community.ui.use-cases.use-cases-card-grid';
+import { useCases } from './use-cases';
 
-<UseCasesCardGrid useCases={useCasess} />;
+<UseCasesCardGrid useCases={useCases} />;
 ```
 
-### Grid of Use Cases Cards with array of objects
+Try this component for yourself by changing the `useCases` data:
 
 ```js live
 <UseCasesCardGrid

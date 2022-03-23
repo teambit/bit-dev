@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { Link } from '@teambit/base-react.navigation.link';
 import { Logo, LogoProps } from '@teambit/design.ui.brand.logo';
 import { NavigationMenu, NavigationMenuProps, NavLinkType } from '@teambit/design.ui.navigation.menu';
-import { WideColumn } from '@teambit/base-ui.layout.page-frame';
+import { wideColumn } from '@teambit/base-ui.layout.page-frame';
 
 import styles from './header.module.scss';
 
@@ -37,7 +37,7 @@ export function Header({
 }: HeaderProps) {
   return (
     <header {...rest} className={classNames(styles.header, className)}>
-      <WideColumn className={styles.headerContent}>
+      <div className={classNames(styles.headerContent, wideColumn)}>
         <div className={styles.left}>
           <Link href="/">
             <Icon className={styles.logo} alt="bit-logo" />
@@ -50,7 +50,7 @@ export function Header({
             <Plugin key={index} />
           ))}
         </div>
-      </WideColumn>
+      </div>
     </header>
   );
 }

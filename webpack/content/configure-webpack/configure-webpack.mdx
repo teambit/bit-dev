@@ -1,66 +1,169 @@
-# Configure Webpack
+import { WebpackConfigMutator } from '@teambit/webpack.modules.config-mutator';
 
-Depending on the [Component Development Environments](https://harmony-docs.bit.dev/building-with-bit/environments) configured for components, a different default Webpack config is applied on each component. You can customize any Webpack config by creating an Environment and use the available APIs to mutate the provided configuration. Bit uses the Envs' WebPack configuration for the contents of the **overview** tab and **compositions**.
+# Webpack configuration
 
-## `useWebpack`
+The Webpack aspect integrates Webpack into Bit. It is used as Bit's default bundler for compositions, docs and frontend app types.
 
-All base environments support the `useWebpack` function to mutate their base Webpack configuration.
+Webpack provides its own set of default configurations, which can be extended and customized using Webpack Transformers.
 
-```js
-useWebpack(modifiers?: UseWebpackModifiers): EnvTransformer
+## Webpack transformers
 
-export type UseWebpackModifiers = {
-  devServerConfig?: WebpackConfigTransformer[]; // Used for the 'bit start' command.
-  previewConfig?: WebpackConfigTransformer[]; // Used for 'build' and 'tag' commands.
+A Webpack transformer is a function that receives a [Webpack Config Mutator](#webpack-config-mutator), uses its API to modify it, and returns it in its modified state.
+
+```ts
+(config: WebpackConfigMutator, context) => WebpackConfigMutator;
+```
+
+:::note
+The `context` object is outside the scope of this documentation.
+:::
+For example:
+
+```ts
+const myWebpackTransformer = (configMutator) => {
+  configMutator.addEntry('./new/entry');
+  return configMutator;
 };
 ```
 
-Each of the Webpack configs accepts an array of `WebpackConfigTransformer`. This is so you can build a transformer for specific features and compose them together. Each transformer can change the mutator instance (or create a new one). When returned, Bit passes the mutated instance to the next transformer in the array.
+Webpack transformers are passed to Webpack when creating a new bundler instance. This instance uses Webpack transformers to modify its own default configuration.
 
-## `WebpackConfigTransformer`
+For example, the following creates a new instance of a Webpack bundler using two Webpack transformers. Each transformer receives the former Config Mutator, and uses it to add another entry point for bundling.
 
-The `WebpackConfigTransformer` is the main function that mutates an instance of a Webpack configuration.
-
-```js
-export type WebpackConfigTransformer = (
-  config: WebpackConfigMutator,
-  context: WebpackConfigTransformContext
-) => WebpackConfigMutator;
+```ts
+const bundler = this.webpack.createBundler([myWebpackTransformer], context);
 ```
 
-`WebpackConfigMutator` is a class that holds the `raw` webpack config (as a member) and a set of built-in mutator functions for common tasks. [Learn more about the mutator API](https://bit.dev/teambit/webpack/modules/config-mutator).
+Webpack transformers are passed in an array. When executed (in sequence) by the Webpack instance, each transformer receives the results of the transformer before it.
 
-`WebpackConfigTransformContext` is a context provided by Bit. It's purpose is to help you build transformers based on the configs' context. At the moment it supports a basic `BundleMode`.
+For example:
 
-# Configure Webpack
+```ts
+// Webpack's default config:
+// {
+//   {
+//     entry: ['./src/index.js'],
+//     output: {
+//       filename: 'main.js',
+//       path: 'path/to/output',
+//     },
+//   };
+// }
 
-```js
-export type WebpackConfigTransformContext = {
-  mode: BundlerMode,
+const firstTransformer = (configMutator) => {
+  configMutator.addEntry('./path/to/entry-one.js');
+  return configMutator;
 };
-export type BundlerMode = 'dev' | 'prod';
+
+const secondTransformer = (configMutator) => {
+  configMutator.addEntry('./path/to/entry-two.js');
+  return configMutator;
+};
+
+// Initialize a new bundler instance using the above transformers
+const bundler = this.webpack.createBundler(
+  [firstTransformer, secondTransformer],
+  context
+);
+
+// The new config for this Webpack instance:
+// {
+//   {
+//     entry: ['./path/to/entry-two.js' ,'./path/to/entry-one.js','./src/index.js'],
+//     output: {
+//       filename: 'main.js',
+//       path: 'path/to/output',
+//     },
+//   };
+// }
 ```
 
-## Debug Prints for Config
+## Webpack mutators
 
-- When building a transformer, print `config.raw` to see what was passed to the transformer.
-- `config.raw` is a webpack config, which means there are cases where `JSON.stringify` will no print something which is human readable.
-- Use `require('util').inspect(config.raw, {depth: 5})` (or any other depth) as an alternative way for printing `config.raw`. [Learn more](https://nodejs.org/api/util.html#util_util_inspect_object_options)).
+A Webpack mutator is an object that contains standard Webpack configuration as well as a number of handy methods for modifying it.
 
-## Upcoming Changes and Improvements
+To create a new webpack mutator, initialize a Webpack mutator class. Provide the class with a standard Webpack config object (this can also be an empty object).
 
-Below are changes to be introduce to Bit's support for Webpack configuration customization.
+For example, the following initializes a new instance of a webpack mutator using the `myWebpackConfig` webpack config:
 
-### Module Federation
+```ts
+import { WebpackConfigMutator } from '@teambit/webpack.modules.config-mutator';
 
-We are working to natively support for [Webpack Module Federation](https://webpack.js.org/concepts/module-federation/). Track the progress on this [issue](https://github.com/teambit/bit/issues/4338) and this [pull request](https://github.com/teambit/bit/pull/4334).
+const myWebpackConfig = {
+    {
+    entry: ['./src/index.js'],
+    output: {
+      filename: 'main.js',
+      path: 'path/to/output',
+    },
+  };
+}
 
-As part of this process Bit is likely to introduce additional transformers.
+const myConfigMutator = new WebpackConfigMutator(myWebpackConfig)
+```
 
-### Improve `WebpackConfigTransformContext`
+Now that a config mutator is initialized, you can use its methods to modify its config (the config set in `myWebpackConfig.raw`).
+For example, the following adds another entry to the webpack config:
 
-Currently the context is pretty thin. We aim to provide additional context like component-id, entry file and the entire component object.
+```ts
+myConfigMutator.addEntry('./admin-app/index.js');
+```
 
-### Specific Env mutator
+The (modified) config can be examined in `myConfigMutator.raw`:
 
-Each Env will implement its own instance for a `WebpackConfigMutator` that will be aware of the different features and rules already available as defaults for the Env. This will allow each env to provide more specific mutator methods, as the mutator will be aware fo the internal structure of the config.
+```ts
+console.log(myConfigMutator.raw); // outputs the following =>
+// {
+//   {
+//     entry: ['./admin-app/index.js', './src/index.js'],
+//     output: {
+//       filename: 'main.js',
+//       path: 'path/to/output',
+//     },
+//   };
+// }
+```
+
+To add a new property or override an existing one, use the `addTopLevel` method:
+
+```ts
+myConfigMutator.addTopLevel('output', {
+  filename: 'bundle.js',
+  path: 'a/different/path',
+});
+
+// myConfigMutator.raw contains the following:
+// {
+//   {
+//     entry: ['./admin-app/index.js', './src/index.js'],
+//     output: {
+//       filename: 'bundle.js',
+//       path: 'a/different/path',
+//     },
+//   };
+// }
+```
+
+Use the `merge` method (which utilizes the `webpack-merge` library) to merge an array of webpack configs with your own.
+
+```ts
+const newWebpackConfig = {
+  output: {
+    publicPath: 'path/to/assets',
+  },
+};
+
+myConfigMutator.merge([newWebpackConfig]);
+
+// myConfigMutator.raw contains the following:
+// {
+//   entry: [ './admin-app/index.js', './app/index.js' ],
+//   output: {
+//     filename: 'main.js',
+//     path: 'a/different/path',
+//     publicPath: 'path/to/assets'
+//   }
+// }
+```
+
+Other config mutator methods include `addPlugin`, `addModuleRule`, `addAliases`, and more.

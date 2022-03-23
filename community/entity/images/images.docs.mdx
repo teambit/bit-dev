@@ -3,29 +3,45 @@ description: 'Entity component for Images'
 labels: ['mock', 'data', 'entity', 'types']
 ---
 
-import { Images } from './images';
+import { clientLogos } from './client-logos.mocks';
+// import { Tooltip } from '@teambit/community.ui.text-tooltip';
 
-Array of types for an image
+This component describes the Image object. It serves as a contract between components providing and consuming Images.
 
-```js
-alt: string;
-src: string;
-loading?: 'lazy' | 'eager';
+### Creating a new image object
+
+```ts
+import { Images } from '@teambit/community.entity.images';
+
+const alt = 'ebay';
+const src = 'https://static.bit.dev/homepage-enterprise-logos/ebay.svg';
+const loading = 'lazy';
+
+const image = new Images(alt, src, loading);
 ```
 
-## Mock Json
+### Consuming images via an API
 
-Mock data for images.
+```ts
+import type { ImagesFromApi } from '@teambit/community.entity.images';
+import { Images } from '@teambit/community.entity.images';
+import { fetchImage } from './fetch-image';
 
-```json
-export const clientLogos = [
-  {
-    src: 'https://static.bit.dev/homepage-enterprise-logos/Dell.svg',
-    alt: 'Dell'
-  },
-  {
-    src: 'https://static.bit.dev/homepage-enterprise-logos/ebay.svg',
-    alt: 'ebay'
-  },
-];
+async () => {
+  const fetchedImage: ImagesFromApi = await fetchImage();
+  const image = Images.fromApiObject(fetchedImage);
+};
+```
+
+### Using the images mock to test your components
+
+<Tooltip
+  content="import { clientLogos } from '@teambit/community.entity.images'"
+  language="typescript"
+>
+  Use the images mock
+</Tooltip> to test components that render Images.
+
+```jsx live
+() => clientLogos.map((img) => <img src={img.src} alt={img.alt} />);
 ```

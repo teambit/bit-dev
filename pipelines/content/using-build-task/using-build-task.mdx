@@ -1,9 +1,11 @@
-# Using Build Tasks
+# Using build tasks
 
-## Register a Build Task via an Env
+Build tasks are not coupled to a specific env or an aspect. This means you can create your own build task as a component and use it where-ever it makes sense for you.  
+These steps show how to use an independent build task in either an env or an aspect.
 
-To use a build task implement the `BuilderEnv` in your Env's class (located in your Env's `*.env.ts` file). To create a new Env, use one of Bit's Env templates.
+## Use build task in an env
 
+If you have a custom env, you can include a build task (`BuilderEnv`) in your Env's class (located in your Env's `*.env.ts` file).  
 Use the appropriate Builder service handler to provide the Builder service with an array of build tasks to run.
 
 - `getBuildPipe`: To add a task to the Build Pipeline
@@ -23,8 +25,6 @@ export class MyEnv implements BuilderEnv {
 }
 ```
 
-If your Env extends another Env, it is preferable, in most cases, to add the base Env tasks as well (instead of overriding them, altogether).
-
 Pass the base Env instance through the constructor and use its `getBuildPipe` method to retrieve its build tasks array.
 
 ```ts
@@ -40,9 +40,16 @@ export class ReactLocStats implements BuilderEnv {
 }
 ```
 
+:::tip Create a custom env
+
+To create a custom env, follow [these steps](/envs/composing-env).
+
+:::
+
 ## Register a Build Task via an Aspect
 
-Use the Builder registration API in an existing Aspect, or create a new one.
+If you are building an aspect, you may also register build tasks.  
+Create a new aspect:
 
 ```bash
 bit create aspect aspects/my-aspect -s my-scope

@@ -1,19 +1,20 @@
 ---
-description: 'TopDown'
-labels: ['label1', 'label2', 'label3']
+description: 'A section with a title, a subtile, and other elements, from top to bottom.'
+labels: ['section', 'ui']
 ---
 
 import { TopDown } from './top-down';
 import { FigmaEmbed } from '@teambit/design.embeds.figma';
 
-Div with some text
+'Top Bottom' is a page section that renders a title, a subtitle, and other elements, from top to bottom.
 
-### Renders a div with some text
+## Basic usage
 
-```js live
-<TopDown text="hello" />
+```jsx live
+<TopDown
+  title="Create. Collaborate."
+  subtitle="Create new components quickly and compose them with others."
+>
+  <button>a custom button</button>
+</TopDown>
 ```
-
-### Design
-
-<FigmaEmbed src="url-to-figma" />

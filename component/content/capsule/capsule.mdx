@@ -1,27 +1,24 @@
 # Capsule
 
-A capsule is an isolated component environment. It is mainly implemented as a directory that hosts a component outside its workspace directory.
+A capsule is a temporary directory Bit creates for each component for running build tasks. It play an essential role in validating that a component is decoupled from the workspace, and will be able to function properly in other host projects.
 
-Capsules provide a context-free setting for component build tasks. They play an essential role in validating that a component is truly decoupled from its workspace, and will be able to function properly in other host projects.
+For example, a component that does not have 'module-a' in its dependency graph, but needs it in order to function, may be able to function in its workspace (provided the module was installed in the workspace), but will fail to function in a Capsule, where packages are only installed for that specific component.
 
-For example, a component that does not hove 'module-a' in its dependency graph, but needs it in order to function, may be able to function in its workspace (provided the module was installed in the workspace), but will fail to function in a Capsule, where packages are only installed for that specific component.
-
-```bash title="Example: component-a is coupled to the workspace"
+```bash
 .
 ├── page
-    └── node_modules
-        └── module-a # installed due to 'component-a'
-    └── scope
-        └── component-a # has module-a in its dependency graph
-        └── component-b # does not have module-a in ist dependency graph although it does need it
+└─── node_modules
+    └── module-a # installed due to 'component-a'
+└── scope
+    └── component-a # has module-a in its dependency graph
+    └── component-b # does not have module-a in ist dependency graph although it does need it
 ```
 
-## Capsule directory structure
+## Capsule location
 
 Capsules are located in Bit's `capsules` directory:
 
 - macOS: `~/Library/Caches/Bit/capsules/`
-
 - Windows: `%LOCALAPPDATA%\Bit\capsules\`
 
 To change the location of that directory (globally):
@@ -30,12 +27,12 @@ To change the location of that directory (globally):
 bit config set capsules_root_base_dir "my-new-path"
 ```
 
-Component capsules are generated for each build inside a common directory that corresponds to the workspace that executed that build. That common directory is named with a hash based on the absolute path of the corresponding workspace. It may also include assets shared by components of the same Env (for example, the preview bundles).
+Component capsules are generated for each build inside a common directory for the workspace. That common directory is named with a hash based on the absolute path of the workspace. It may also include assets shared by components of the same Env (for example, the preview bundles).
 
 For example:
 
-```
-├── /Users/eden/Library/Caches/Bit/capsules/f170673b3ef2c76c19d7c6ca9e37decddac38e6d
+```bash
+├── /Users/.../Library/Caches/Bit/capsules/f170673b3ef2c76c19d7c6ca9e37decddac38e6d
     ├── company.scope_envs
         └── my-react@0.0.1-preview         # preview assets for Env 'envs/my-react'
     ├── company.scope_envs_my-react@0.0.1  # component capsule
@@ -44,16 +41,16 @@ For example:
 ```
 
 :::note Capsules are temporary
+
 Each build starts by removing the capsule that was previously generated for the same workspace.
 
 :::
 
-## Network
+## Capsule network
 
-A network is a group of capsules that are linked by their dependencies. A network includes a graph of all seed components given to it, as well as a list of all capsules.
+Bit creates a network of capsules. A network is a group of capsules that are linked according to their dependency relationships. The different capsules in the network are symlinked between each other, so that when a component requires another, it depends on the output found in the capsule.
 
 - 'Seeders': Components that where explicitly built (e.g, bit build <components)>).
-
 - 'Graph capsules' Seeders and their dependencies
 
-Learn more about `Network` [here](https://bit.dev/teambit/component/isolator/~code/network.ts).
+Learn more about `Network` [here](https://bit.cloud/teambit/component/isolator/~code/network.ts).

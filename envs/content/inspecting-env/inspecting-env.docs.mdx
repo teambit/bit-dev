@@ -1,25 +1,7 @@
 ---
-description: 'An MDX component.'
-labels: ['content', 'mdx']
+description: 'How to inspect component development environment'
+labels: ['docs', 'env']
 ---
 
-import { InspectingEnv } from './index';
-
-### Component usage
-```js
-<InspectingEnv />
-```
-
-### Render with theme and MDX providers
-
-```js
-import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions'
-import { MDXLayout } from '@teambit/mdx.ui.mdx-layout'
-import { InspectingEnv } from './index'
-
-<ThemeCompositions>
-  <MDXLayout>
-    <InspectingEnv />
-  </MDXLayout>
-</ThemeCompositions>
-```
+Envs are components that compose a set of tools and flow to define your workflow.  
+Bit CLI allows visualizing what's defined for an env.

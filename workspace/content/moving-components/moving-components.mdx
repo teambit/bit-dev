@@ -14,39 +14,17 @@ This will only affect how your components are ordered in your workspace and not 
 
 ## Renaming a component
 
-Renaming a component
+## Rename components
 
-### Renaming a new component
+Use the `rename` command to rename a component or move a component between namespaces and scopes.
 
-Renaming a new component can be done by untracking the original component and tracking it again with a new ID.
-
-Untracking a button component can be done with `bit untrack`.
-
-```bash
-bit untrack teambit.design/ui/buttons/button
+```sh
+bit rename teambit.base-ui/button teambit.advanced-ui/button
 ```
 
-Then, track back the component
+Given that there are potential consumers that use the previous name, Bit does not simply rename the component. Instead, it will create a new component with the new name, and mark the previous one as deprecated.
 
-```
-bit add design/ui/buttons/button --id ui/button
-```
-
-### Renaming a used component
-
-```bash
-bit deprecate teambit.design/ui/buttons/button
-```
-
-```bash
-bit remove teambit.design/ui/buttons/button
-```
-
-```bash
-bit add ui/buttons/button
-```
-
-## Moving compoenents between repositories
+## Moving components between repositories
 
 Components can be migrated between different repositories with ease.
 

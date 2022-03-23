@@ -1,4 +1,4 @@
-@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
+@import "~@teambit/base-ui.layout.breakpoints/_breakpoints.scss";
 
 .githubLink {
   @media screen and (max-width: $br-md) {
@@ -6,4 +6,15 @@
       display: none;
     }
   }
+}
+
+.headerWrapper {
+  height: var(--bit-header-height, 40px);
+}
+
+.header {
+  position: fixed;
+  background-color: var(--bit-bg-color, white);
+  box-sizing: border-box;
+  z-index: 1;
 }

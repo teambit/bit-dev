@@ -8,7 +8,8 @@ Bridge this gap by merging the other's changes into your own.
 Component versions are immutable, and once exported can't be changed. This means that once a component was versioned with a specific semantic version, others can't change it or export a different implementation of the component with the same semantic version.  
 If you happen to encounter such a case, Bit will trigger a **merge conflict**. To continue the export process, you must resolve the conflict and set another semantic version.
 
-:::tip avoid merge conflicts by running `bit import` to fetch new remote versions before you `tag` and `export`
+:::tip
+avoid merge conflicts by running `bit import` to fetch new remote versions before you `tag` and `export`
 :::
 
 Tag a component with a semver and try to export it:

@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect, ReactNode } from 'react';
+import React, { useMemo, ReactNode } from 'react';
 import classNames from 'classnames';
 import { MenuLinkItem } from '@teambit/design.ui.surfaces.menu.link-item';
 import { useElementOnFold } from '@teambit/docs.ui.hooks.use-element-on-fold';
@@ -20,32 +20,11 @@ export type TableOfContentProps = {
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export function TableOfContent({ className, children, title, rootRef, selectors, ...rest }: TableOfContentProps) {
-  const [isLoaded, setLoaded] = useState(false);
-  const { activeElement, elements } = useElementOnFold(rootRef, selectors, !isLoaded);
+  const { activeElement, elements } = useElementOnFold(rootRef, selectors);
   const anchors = useMemo(() => getLinks(elements), [elements]);
 
-  useEffect(() => {
-    const targetNode = rootRef?.current;
-    if (!(targetNode instanceof HTMLElement)) {
-      return () => {};
-    }
-    const config = {
-      attributes: true,
-      childList: true,
-      characterData: true,
-    };
-    // watch for changes on children
-    const observer = new MutationObserver(() => {
-      setLoaded(true);
-      observer.disconnect();
-    });
+  if (anchors.length < 1) return null;
 
-    observer.observe(targetNode, config);
-
-    return () => observer.disconnect();
-  }, [rootRef?.current]);
-
-  if (!anchors) return null;
   return (
     <div {...rest} className={classNames(styles.tableOfContent, className)}>
       {title && <div className={styles.title}>{title}</div>}
@@ -68,7 +47,6 @@ export function TableOfContent({ className, children, title, rootRef, selectors,
 }
 
 function getLinks(links: Element[]) {
-  if (!links) return undefined;
   return Object.values(links).map((link) => {
     const linkText = link?.textContent;
     if (!linkText) return undefined;

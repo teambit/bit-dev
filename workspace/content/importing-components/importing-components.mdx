@@ -5,11 +5,13 @@ import importVisual from './import-visual.png';
 
 # Importing Components
 
-You can import a component from a remote scope to a Bit workspace. Imported components are just like any other component: They can be modified, compiled, tested and used as dependencies for other components. You may also snap and version imported components.
+You can import a component from a remote scope to a Bit workspace. Imported components are just like any other component: they can be modified, compiled, tested, and used as dependencies for other components. You may also snap and version imported components.
 
 <Image src={importVisual} width="60%" />
 
 Use the `import` command in a Bit workspace.
+
+For example:
 
 ```bash
 bit import teambit.base-ui/input/button
@@ -23,13 +25,14 @@ successfully imported one component
 - added teambit.base-ui/input/button new versions: 0.5.9, 0.5.10, 0.6.0, 0.6.2, 0.6.3, 0.6.4, 0.6.5, 0.6.6, 0.6.7, 0.6.8, 0.6.9, 0.6.10, 0.6.11, 0.6.12, 0.7.0, 0.7.1, 0.7.2, 1.0.0, 1.0.1, 1.0.2, 1.0.3, currently used version 1.0.3 
 ```
 
-:::tip Copy your component's `import` command from the component page's "use" section
+:::tip
+Copy your component's `import` command from the component page's "use" section.
 
 <Image src={importDropDown} width="50%" />
 
 :::
 
-The import process fetches the component, install its dependencies, creates a directory for the component in the workspace for placing its implementation. Component location is set according to the `defaultDirectory` setting in your `workspace.jsonc` file
+The import process fetches the component, installs its dependencies, creates a directory for the component in the workspace for placing its implementation. Component location is set according to the `defaultDirectory` setting in your `workspace.jsonc` file.
 
 ```bash
 base-ui                            # Imported component "scope"
@@ -43,7 +46,8 @@ base-ui                            # Imported component "scope"
         └── index.ts
 ```
 
-:::tip override `defaultDirectory` with the `--path` option.
+:::tip
+override `defaultDirectory` with the `--path` option.
 
 ```bash
 bit import teambit.base-ui/input/button --path random/directory
@@ -53,15 +57,19 @@ bit import teambit.base-ui/input/button --path random/directory
 
 ## Just like using any component
 
-Imported components appear when you run `bit start`, compiled during `bit compile` and tested during `bit test`. Change and use them as you would work with any other component you created.
+Imported components appear when you run `bit start`, are compiled during `bit compile` and are tested during `bit test`. Change and use them as you would work with any other component you created.
 
 You may import them as dependencies for other components.
+
+For example:
 
 ```javascript
 import { Button } from '@teambit/base-ui.input.button'; // Bit creates a node_module link for your imported component
 ```
 
-Past versions are available for `checkout`, so you can [navigate version history](/docs/components/navigating-history)
+Past versions are available for `checkout`, so you can [navigate version history](/components/navigating-history).
+
+For example:
 
 ```bash
 bit checkout 0.0.5 teambit.base-ui/input/button  # checkout version 0.0.5
@@ -70,11 +78,13 @@ bit checkout latest teambit.base-ui/input/button # checkout latest version
 
 When you no longer need a component in a workspace you can eject it and replace with a dependency.
 
+For example: 
+
 ```bash
 bit eject teambit.base-ui/input/button
 ```
 
-Additionally, you can also modify the component, create [versions](/docs/components/tags) or [snaps](/docs/components/snaps) and [export](/docs/components/exporting-components) them:
+Additionally, you can also modify the component, create [versions](/components/tags) or [snaps](/components/snaps) and [export](/components/exporting-components) them:
 
 ```bash
 bit snap teambit.base-ui/input/button --message "snapshot a component from any workspace"
@@ -84,13 +94,13 @@ bit export
 
 ## Fetching updates
 
-If a new version is available for a component, you can import it. This flow happens automatically when you run `install` or `import` with now arguments.
+If a new version is available for a component, you can import it. This flow happens automatically when you run `bit install` or `bit import` without any arguments.
 
 ```bash
 bit import
 ```
 
-When new version is available, Bit prints a message on new version available.
+When a new version is available, Bit prints a message on new version available.
 
 ```bash
 successfully imported 1 component
@@ -115,6 +125,8 @@ pending updates
 
 Use the `checkout` command to update your workspace to the latest version.
 
+For example: 
+
 ```bash
 bit checkout latest teambit.base-ui/input/button
 ```
@@ -133,6 +145,6 @@ The component is now on the version that was checked out with the local changes 
 
 :::info Merge with local changes
 
-When you have local changes on a component, and you checkout to new version, Bit uses Git to resolve any conflicts. Anything that is not automatically resolved requires a manual intervention. Learn more [here](/docs/components/merge-conflicts).
+When you have local changes on a component, and you checkout to new version, Bit uses Git to resolve any conflicts. Anything that is not automatically resolved requires a manual intervention. Learn more [here](/components/merge-conflicts).
 
 ::::

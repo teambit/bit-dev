@@ -1,13 +1,22 @@
 import { ReactAppOptions } from '@teambit/react';
-import { Netlify } from '@teambit/apps.netlify';
+import { NetlifyOptions, Netlify } from '@teambit/cloud-providers.deployers.netlify';
+// TODO: not passing build because of missing peer
+// import { faviconWebpackTransformer } from './webpack-favicon';
 
-const netlify = new Netlify(process.env.NETLIFY_AUTH_TOKEN as string, 'teambit-community-apps-bit-dev', 'yona');
+const netlify: NetlifyOptions = {
+  accessToken: process.env.NETLIFY_AUTH_TOKEN as string,
+  siteName: 'teambit-community-apps-bit-dev',
+  team: 'teambit',
+};
 
 export const BitDevApp: ReactAppOptions = {
   name: 'bit-dev',
   entry: [require.resolve('./bit-dev.app-root')],
-  deploy: netlify.deploy.bind(netlify),
-  prerenderRoutes: ['/plugins'],
+  deploy: Netlify.deploy(netlify),
+  // webpackTransformers: [faviconWebpackTransformer],
+  // prerender: {
+  //   routes: ['/', '/plugins', '/docs'],
+  // },
 };
 
 export default BitDevApp;

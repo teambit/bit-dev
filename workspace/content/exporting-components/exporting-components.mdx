@@ -1,16 +1,16 @@
 # Exporting Components
 
-Exporting components to remote scopes makes them available for other developers to consume and collaborate. You can create remote scopes on your own server or manage components' scopes the [bit.cloud](https://bit.cloud) components hub.
+Exporting components to remote scopes makes them available for other developers to consume and collaborate. You can create remote scopes on your own server or manage components' scopes in the [bit.cloud](https://bit.cloud) component hub.
 
 The target scope of a component is determined by the applied scope definition for a component, as part of the component ID.
 
-After you created staged [snaps](/docs/components/snaps) or [versions](/docs/components/tags). To validate you can safely export new versions, run the `status` command.
+Once you have created staged [snaps](/components/snaps) or [versions](/components/tags), you can run the `status` command to validate that can safely export new versions.
 
 ```bash
 bit status
 ```
 
-Here we see that our workspace has 4 components, and 2 of them have **staged versions**.
+In the below example, we see that our workspace has 4 components, and 2 of them have **staged versions**.
 
 ```bash
 new components
@@ -29,7 +29,7 @@ staged components
 
 Bit tells you exactly which versions are pending to be exported. Export them to a remote scope with the `export` command:
 
-```sh
+```bash
 bit export
 ```
 
@@ -65,11 +65,11 @@ git commit -am 'updated .bitmap file after a successful export'
 
 ## Export During CI
 
-[See here](/docs/getting-started/set-up-ci/automate-export) to learn how to use your CI to export components.
+[See here](/getting-started/set-up-ci/automate-export) to learn how to use your CI to export components.
 
 ## Merge Conflicts
 
-You may encounter a merge conflict, if you tagged a new version and exported it, but there's such version already shared. Let's resolve such conflict.  
+You may encounter a merge conflict, for example, if you tagged a new version and exported it, but there's already a version with the same SemVer. Let's look at how we would resolve this.  
 
 The flow starts with running `export`, trying to export a new version:
 
@@ -78,7 +78,7 @@ bit tag teambit.base-ui/input/button --message "my message"
 bit export
 ```
 
-We tried to export `1.0.5` for `teambit.base-ui/input/button`, but there's already `1.0.5` on the remote..
+We tried to export `1.0.5` for `teambit.base-ui/input/button`, but there's already `1.0.5` on the remote.
 
 ```bash
 error: merge conflict occurred while importing the component teambit.base-ui/input/button. conflict version(s): 1.0.5
@@ -88,7 +88,7 @@ to resolve it and merge your local and remote changes, please do the following:
 3) bit checkout 1.0.5 teambit.base-ui/input/button
 ```
 
-To resolve the conflict, `untag` the component’s local version.
+To resolve the conflict, `untag` the component's local version.
 
 ```bash
 bit untag teambit.base-ui/input/button 1.0.5
@@ -96,7 +96,7 @@ bit untag teambit.base-ui/input/button 1.0.5
 
 Now we use `import` to update the local component history, so we have `1.0.5` from the remote.
 
-```bas
+```bash
 bit import
 ```
 

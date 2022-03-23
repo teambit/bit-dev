@@ -1,15 +1,22 @@
+import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-display';
+
 # Dependencies Overview
 
-Dependency management is a major concern for developers looking to build and deliver components independently. It must be done efficiently, to handle an unlimited number of components, each with its own dependency graph.
-It must also be done reliably and safely for components to integrate successfully into new and unfamiliar compositions. Furthermore, since Bit introduced a new type of module, the [Component](/components/component-overview), a proper dependency management must include the handling of these new entities, as well as standard Node packages.
 
-Component dependencies are managed by the Dependency Resolver aspect. It provides component dependency detection and smart dependency resolution that takes into consideration the uniqueness of Bit workspaces and components, and the concerns expressed above.
+<ComponentCardDisplay componentIds={['teambit.dependencies/dependency-resolver']} style={{ float: 'left', margin: 20, maxWidth: 250 }} />
 
-The dependency resolver generates the component's dependency graph by integrating multiple sources of dependency policies, where some are set manually and some are set by various aspects, programmatically.
+Dependency management is a major concern for developers looking to build and deliver components independently. It must be done efficiently, all while being able to handle an unlimited number of components, each with its own dependency graph.
+It must also be done reliably and safely for components to integrate successfully into new and unfamiliar compositions. 
 
-Dependency policies are set manually by the [component config](/components/component-config) or by the [workspace config](/workspace/workspace-configuration). Unlike standard JS projects, a `package.json` is not used to set dependencies. However, if one does exist in the workspace directory, it will also be read by the dependency resolver.
+Furthermore, since Bit introduced a new type of module, the [Component](/components/component-overview), proper dependency management must include the handling of these new entities, as well as standard Node.js packages.
 
-```bash title="Example: dependency configuration (workspace.jsonc)"
+Component dependencies are managed by the [Dependency Resolver](/dependencies/dependency-resolution) aspect. It provides component dependency detection and smart dependency resolution that takes into consideration the uniqueness of Bit workspaces and components, and the concerns expressed above.
+
+The dependency resolver generates the component's dependency graph by integrating multiple sources of dependency policies.
+
+Dependency policies are either set manually by the [component config](/components/component-config) or programmatically by the [workspace config](/workspace/workspace-configuration). Unlike standard JS projects, a `package.json` is not used to set dependencies. However, if one does exist in the workspace directory, it will also be read by the dependency resolver.
+
+```jsonc title="Example: dependency configuration (workspace.jsonc)"
 // Example: Dependency resolver configuration, including dependency policies.
 // ...
 "teambit.dependencies/dependency-resolver": {
@@ -38,8 +45,7 @@ bit install
 
 ## Dependency Automation
 
-Bit greatly simplifies component dependency management by automating most of it.
-It detects component dependencies, determines their dependency type ('standard', 'peer', or 'dev'), their module type ('package' or ['component'](<(/components/component-overview)>)), and resolves their version number.
+Bit greatly simplifies component dependency management by automating most of it. It detects component dependencies, determines their dependency type ('standard', 'peer', or 'dev'), their module type ('package' or ['component'](<(/components/component-overview)>)), and resolves their version number.
 
 Dependency automation enables you to generate dependency graphs for components in the workspace, without manually configuring each component's [`package.json`](/packages/package-json).
 
@@ -59,9 +65,9 @@ This centralized approach makes dependency management efficient, elegant and eas
 
 Bit makes the consumption of components predictable and consistent. That means, you get the same code on every installation of the same dependency (provided this dependency is a component).
 
-Traditionally, resolution of dependencies is done in installation time, and cached via Lock file (e.g. yarn.lock, package-lock.json) by package managers.
+Traditionally, resolution of dependencies is done at installation time, and cached via Lock file (e.g. yarn.lock, package-lock.json) by package managers.
 
-Bit's default, and best practice, is to compute and set dependencies for each version upon [tag](/components/tags) to make sure a component uses the exact version (of components) it needs.
+Bit's default, and best practice, is to compute and set dependencies for each version upon [tag](/components/tags) to make sure a component uses the exact version (of each component) it needs.
 
 <!--TODO ## Dependency Safety -->
 
@@ -78,17 +84,17 @@ This is true, regardless of the package manager that is being used.
 
 Understanding the relation between components is key to safe and effective component maintenance and collaboration. For that, Bit offers a variety of CLI and UI tools that help in understanding your component dependencies.
 
-It enables you to understand:
+These tools provide you with answers to the following questions:
 
-- What are a component's dependencies
-  - What's their dependency type (runtime, dev, peer)
-  - What's their module type (package or independent component)
-  - How was a dependency (and its version) determined by Bit
-- What are a component's dependents (direct and indirect)
+- What are a component's dependencies?
+  - What's their dependency type: runtime, dev, or peer?
+  - What's their module type: package or independent component?
+  - How was a dependency, and its version, determined by Bit?
+- What are a component's direct and indirect dependents?
 
 ## Dependency Standardization (Envs)
 
-Component dependencies can be configured via an Env to create a single dependency standard for all components using that Env.
+Component dependencies can be configured via an [Env](/envs/envs-overview) to create a single dependency standard for all components using that Env.
 For example, an Env can set all components to use `react@16.3.0` as a peer dependency. That way, components will not produce unexpected conflicts when composed together.
 
 ## Using a `package.json` for Dependencies

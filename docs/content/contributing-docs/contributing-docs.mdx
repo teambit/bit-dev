@@ -1,3 +1,170 @@
 # Contributing Docs
 
-Contributing docs can be easily done by creating an MDX component and
+:::caution This is a draft. Do not use as guidelines!
+:::
+
+## Tone
+
+## Demonstrating commands
+
+## General notes
+
+- Aim to guide the reader to use the documented component as quickly as possible
+- Simple examples should start by demonstrating a standard use-case, statically. The code snippet for this should include import statements.
+- Follow the above with live examples showcasing other forms of usages. Live examples should not include import statements.
+- Complicated components should be explained via templates and demo components instead of verbose instructions and long snippets of code
+- Think of the documentation as a list of atomic instructions, each aim to introduce a separate value. Order instructions according to ROI.
+- Information that is hard to makes sense of before using the demo component, should be included in the template/demo component docs as well as in comments, inside the component's code.
+- As a rule of thumb, try to avoid using templates as they often require additional configuration in the `workspace.jsonc` file. Instead, use `bit fork`, to fork a demo component.
+
+## Introduction section
+
+An introduction section always include an explanation of what, why and how.
+
+- **What** what it is.
+- **Why** why it is needed.
+- **How** how it works.
+
+For example:
+
+<!-- NEED: change to a simpler example here -->
+
+> The UMD target component demonstrates the bundling of a React component into a `<script>` target.  
+> Having the app consumable using a `<script>` tag allows you to integrate it into any other app, regardless of the specific tech used by that app.
+> To achieve that, the UMD target component uses a [Webpack transformer](https://bit.dev/teambit/webpack/content/configure-webpack/~compositions) that sets the target output for the bundler to a [UMD library](https://webpack.com/libraries).
+
+<!-- TODO: Move to the `teambit.docs/documenting-components` component -->
+<!-- ## Labels
+
+Labels serve two purposes:
+
+- They promote discoverability
+- They provide context in a clear and concise manner
+
+The list of labels should include keywords that are likely to be used as search queries by users looking for a component of that type.
+
+The classification of the component in Bit's taxonomy. For example, `env`, `build task`, `app`, `template`, etc.
+To prevent the list of labels from becoming too long, try to include only those categories that are placed highest in Bit's taxonomy hierarchy. For example,
+a component of type `env` will most probably also register its own build tasks. In this case, labeling it with `build task` is redundant as the reader already expects it to provide build tasks. -->
+
+<!-- - Third party tools used by the component. For example, `Webpack`, `Typescript`, etc.
+
+- Third party providers used by the component. for example, `Netlify`, `Cloudflare`, `Zappier`, etc.
+
+- Frameworks and runtime environments used by the component. For example, `React`, `NodeJS`, `Angular`, `Deno`, etc. -->
+
+# Documentation style guide
+
+- Focus on the usage
+- P
+
+## Links
+
+- Link from Github to Bit.
+- Do not avoid linking from a Bit to Github.
+
+## Titles
+
+Capitalize only the first letter:
+
+- DO: Dependency updates
+- DONT: Dependency Updates
+
+## Demonstrating commands
+
+- Be specific
+
+DONT:
+
+```bash
+bit compile <component_id>
+```
+
+DO:
+
+```bash
+bit compile button
+```
+
+### Arguments
+
+Mandatory arguments:
+
+```
+bit create COMPONENT_TEMPLATE COMPONENT_NAME
+```
+
+Arguments that can repeat:
+
+```
+bit create COMPONENT_TEMPLATE COMPONENT_NAME...
+```
+
+Optional arguments:
+
+```
+bit create COMPONENT_TEMPLATE COMPONENT_NAME [--scope SCOPE_NAME]
+```
+
+Mutually exclusive arguments:
+
+```bash
+bit tag {--all | COMPONENT_ID...}
+```
+
+## Output
+
+Run the following command:
+
+```
+bit show company.demo/ui/text
+```
+
+This will output the following:
+
+```
+┌───────────────────┬──────────────────────────────────────────────────────────┐
+│ id                │ company.scope/ui/text@0.0.2                              │
+├───────────────────┼──────────────────────────────────────────────────────────┤
+│ scope             │ company.scope                                            │
+└───────────────────┴──────────────────────────────────────────────────────────┘
+```
+
+## Aspects
+
+### Aspect names
+
+Use an uppercase at the beginning of every word.
+
+- _Recommended_: Dependency Resolver
+- _Not recommended_: dependency resolver
+- _Not recommended_: Dependency resolver
+
+## Links
+
+Always use the description of the link as the link text.
+
+- _Recommended_: Read more about updating dependencies in [Dependency updates](#)
+- _Not recommended_: [See here](#) to learn more about updating dependencies
+
+## Components
+
+### Referencing a Component
+
+When referencing a component use its full component ID.
+
+Example:
+
+```
+bit show company.demo/ui/text
+```
+
+<!--
+TODO: What does this means?
+
+## Code snippets
+
+### Static codeblocks
+
+
+-->

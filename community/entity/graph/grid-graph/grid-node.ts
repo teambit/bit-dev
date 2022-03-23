@@ -20,6 +20,7 @@ export type GridNodeType<T = {}> = {
   sizes?: Sizes;
   position?: NodePosition;
   payload?: T;
+  isLinkable?: boolean;
 };
 
 export type Breakpoints = {
@@ -45,6 +46,7 @@ export class GridNode<T> {
     readonly col?: number,
     readonly sizes?: Sizes,
     readonly position?: NodePosition,
+    readonly isLinkable?: boolean,
     readonly payload?: T
   ) {}
 
@@ -52,7 +54,16 @@ export class GridNode<T> {
     return getAttrValidId(this.id.toStringWithoutVersion());
   }
 
-  static fromPlain<T>({ id, dependencies = [], col, row, sizes, position, ...rest }: GridNodeType<T>): GridNode<T> {
+  static fromPlain<T>({
+    id,
+    dependencies = [],
+    col,
+    row,
+    sizes,
+    position,
+    isLinkable,
+    ...rest
+  }: GridNodeType<T>): GridNode<T> {
     return new GridNode(
       ComponentID.fromString(id),
       dependencies.map((dep) => DependencyEdge.fromPlain(dep)),
@@ -60,6 +71,7 @@ export class GridNode<T> {
       col,
       sizes,
       position,
+      isLinkable,
       rest.payload
     );
   }

@@ -30,6 +30,7 @@
     "defaultScope": "teambit.community"
   },
   "teambit.community/apps/bit-dev": {},
+  // "teambit.wiki/apps/wiki": {},
   // "teambit.generator/generator": {
   //   "aspects": ["teambit.community/envs/community-react"]
   // },
@@ -46,80 +47,103 @@
       "dependencies": {
         "@babel/plugin-syntax-dynamic-import": "7.8.3",
         "@babel/runtime": "7.15.3",
-        "@learn-bit-react/ecommerce.entity.product": "1.0.2",
-        "@learn-bit-react/ecommerce.ui.header": "1.0.9",
-        "@learn-bit-react/ecommerce.ui.product.price": "1.0.6",
-        "@learn-bit-react/ecommerce.ui.product.product-card": "1.0.14",
-        "@learn-bit-react/ecommerce.ui.product.product-card-grid": "1.0.9",
-        "@learn-bit-react/ecommerce.ui.store-hero": "0.0.9",
+        "@learn-bit-react/data-fetching.pages.books-page": "0.0.2",
+        "@learn-bit-react/ecommerce.ui.product.price": "1.0.8",
+        "@learn-bit-react/ecommerce.ui.product.product-card": "1.0.16",
         "@learnbit/inventions.blocks.top-inventions": "1.0.0",
         "@loadable/component": "5.15.0",
         "@react-aria/button": "3.3.3",
         "@react-types/button": "3.4.1",
-        "@teambit/apps.netlify": "0.0.1",
-        "@teambit/base-ui.constants.storage": "1.0.0",
-        "@teambit/base-ui.elements.image": "1.0.0",
-        "@teambit/base-ui.elements.label": "1.0.0",
-        "@teambit/base-ui.elements.noop": "1.0.0",
-        "@teambit/base-ui.elements.separator": "1.1.0",
-        "@teambit/base-ui.graph.tree.collapsable-tree-node": "0.0.4",
-        "@teambit/base-ui.graph.tree.indent": "1.0.0",
-        "@teambit/base-ui.graph.tree.inflate-paths": "1.0.0",
-        "@teambit/base-ui.graph.tree.recursive-tree": "1.0.0",
-        "@teambit/base-ui.graph.tree.root-node": "1.0.0",
-        "@teambit/base-ui.graph.tree.tree-context": "1.0.0",
-        "@teambit/base-ui.layout.breakpoints": "1.0.0",
-        "@teambit/base-ui.layout.grid-component": "1.0.1",
-        "@teambit/base-ui.layout.page-frame": "1.0.1",
-        "@teambit/base-ui.loaders.skeleton": "1.0.1",
-        "@teambit/base-ui.routing.native-nav-link": "1.0.0",
-        "@teambit/base-ui.routing.routing-provider": "1.0.0",
-        "@teambit/base-ui.surfaces.card": "1.0.1",
-        "@teambit/base-ui.text.paragraph": "1.0.3",
-        "@teambit/component-id": "0.0.369",
-        "@teambit/component.modules.component-url": "0.0.71",
-        "@teambit/component.ui.graph.component-node-container": "0.0.33",
-        "@teambit/component.ui.graph.dependencies-graph": "0.0.34",
-        "@teambit/dependencies.modules.packages-excluder": "0.0.44",
-        "@teambit/design.elements.icon": "1.0.6",
-        "@teambit/design.embeds.figma": "0.0.6",
-        "@teambit/design.ui.cli-snippet": "0.0.349",
-        "@teambit/design.ui.dropdown": "1.0.10",
-        "@teambit/design.ui.error-page": "0.0.351",
-        "@teambit/design.ui.external-link": "0.0.346",
-        "@teambit/design.ui.heading": "1.0.7",
-        "@teambit/design.ui.icon-button": "1.0.10",
-        "@teambit/design.ui.input.icon-text": "0.0.7",
-        "@teambit/design.ui.input.toggle": "1.0.7",
-        "@teambit/design.ui.message-card": "1.0.6",
-        "@teambit/design.ui.sidebar.sidebar": "1.9.57",
-        "@teambit/design.ui.styles.ellipsis": "0.0.346",
-        "@teambit/design.ui.surfaces.menu.link-item": "0.0.374",
-        "@teambit/documenter.markdown.heading": "0.1.6",
-        "@teambit/documenter.theme.theme-compositions": "4.1.1",
-        "@teambit/documenter.theme.theme-context": "4.0.3",
-        "@teambit/documenter.ui.copy-box": "4.1.1",
-        "@teambit/documenter.ui.label": "4.0.4",
-        "@teambit/documenter.ui.sub-title": "4.1.1",
-        "@teambit/evangelist.surfaces.tooltip": "1.0.1",
-        "@teambit/explorer.ui.gallery.component-card": "0.0.470",
-        "@teambit/explorer.ui.gallery.component-grid": "0.0.435",
+        "@teambit/analytics.data.google-analytics": "0.0.5",
+        "@teambit/analytics.data.google-tag-manager": "0.0.2",
+        "@teambit/analytics.examples.dashboard": "0.0.1",
+        "@teambit/apps.netlify": "~3.0.3",
+        "@teambit/base-react.navigation.link": "2.0.27",
+        "@teambit/base-ui.constants.storage": "^1.0.0",
+        "@teambit/base-ui.elements.image": "^1.0.0",
+        "@teambit/base-ui.elements.label": "^1.0.0",
+        "@teambit/base-ui.elements.noop": "^1.0.0",
+        "@teambit/base-ui.elements.separator": "^1.1.0",
+        "@teambit/base-ui.graph.tree.collapsable-tree-node": "^0.0.4",
+        "@teambit/base-ui.graph.tree.indent": "^1.0.0",
+        "@teambit/base-ui.graph.tree.inflate-paths": "^1.0.0",
+        "@teambit/base-ui.graph.tree.recursive-tree": "^1.0.0",
+        "@teambit/base-ui.graph.tree.root-node": "^1.0.0",
+        "@teambit/base-ui.graph.tree.tree-context": "^1.0.0",
+        "@teambit/base-ui.layout.breakpoints": "^1.0.0",
+        "@teambit/base-ui.layout.grid-component": "^1.0.1",
+        "@teambit/base-ui.layout.page-frame": "^1.0.1",
+        "@teambit/base-ui.loaders.skeleton": "^1.0.1",
+        "@teambit/base-ui.routing.routing-provider": "^1.0.0",
+        "@teambit/base-ui.surfaces.card": "^1.0.1",
+        "@teambit/base-ui.text.paragraph": "^1.0.3",
+        "@teambit/blog.starter.starter-blog": "0.0.7",
+        "@teambit/cloud-providers.deployers.netlify": "0.0.8",
+        "@teambit/cloud.cloud-provider": "0.0.6",
+        "@teambit/community.entity.graph.bubble-graph": "^1.23.11",
+        "@teambit/community.ui.sticky-banner": "0.0.5",
+        "@teambit/component-descriptor": "0.0.13",
+        "@teambit/component-id": "^0.0.401",
+        "@teambit/component.modules.component-url": "^0.0.123",
+        "@teambit/component.ui.graph.component-node-container": "^0.0.33",
+        "@teambit/component.ui.graph.dependencies-graph": "^0.0.34",
+        "@teambit/components.blocks.component-card-display": "0.0.17",
+        "@teambit/dependencies.modules.packages-excluder": "^0.0.44",
+        "@teambit/design.content.carousel": "0.0.15",
+        "@teambit/design.design-language": "0.0.2",
+        "@teambit/design.elements.icon": "^1.0.6",
+        "@teambit/design.embeds.figma": "^0.0.6",
+        "@teambit/design.theme.icons-font": "^1.0.8",
+        "@teambit/design.themes.base-theme": "0.1.0",
+        "@teambit/design.themes.dark-theme": "1.91.0",
+        "@teambit/design.themes.light-theme": "0.1.0",
+        "@teambit/design.themes.theme-toggler": "0.1.0",
+        "@teambit/design.ui.cli-snippet": "^0.0.349",
+        "@teambit/design.ui.content.info-card": "0.0.1",
+        "@teambit/design.ui.dropdown": "^1.0.10",
+        "@teambit/design.ui.error-page": "^0.0.351",
+        "@teambit/design.ui.external-link": "^0.0.346",
+        "@teambit/design.ui.heading": "^1.0.7",
+        "@teambit/design.ui.icon-button": "^1.0.10",
+        "@teambit/design.ui.input.icon-text": "^0.0.7",
+        "@teambit/design.ui.input.toggle": "^1.0.7",
+        "@teambit/design.ui.message-card": "^1.0.6",
+        "@teambit/design.ui.panels.tabs": "^1.0.6",
+        "@teambit/design.ui.sidebar.sidebar": "^1.10.0",
+        "@teambit/design.ui.styles.ellipsis": "^0.0.346",
+        "@teambit/design.ui.surfaces.menu.item": "^0.0.350",
+        "@teambit/design.ui.surfaces.menu.link-item": "^0.0.374",
+        "@teambit/documenter.markdown.heading": "^0.1.6",
+        "@teambit/documenter.ui.copy-box": "^4.1.1",
+        "@teambit/documenter.ui.label": "^4.0.4",
+        "@teambit/documenter.ui.paragraph": "4.1.4",
+        "@teambit/documenter.ui.sub-title": "^4.1.1",
+        "@teambit/evangelist.surfaces.tooltip": "^1.0.1",
+        "@teambit/explorer.ui.component-card": "0.0.9",
+        "@teambit/explorer.ui.gallery.component-card": "^0.0.470",
+        "@teambit/explorer.ui.gallery.component-grid": "^0.0.435",
+        "@teambit/graphql.hooks.use-query": "^0.0.1",
         "@teambit/harmony": "0.2.11",
-        "@teambit/mdx.modules.mdx-loader": "0.0.466",
-        "@teambit/mdx.ui.mdx-layout": "0.0.479",
-        "@teambit/react.eslint-config-bit-react": "0.0.451",
-        "@teambit/react.templates.themes.theme": "0.0.3",
-        "@teambit/react.ui.component-highlighter": "0.0.486",
-        "@teambit/ui-foundation.ui.buttons.collapser": "0.0.144",
-        "@teambit/ui-foundation.ui.react-router.link": "0.0.441",
-        "@teambit/ui-foundation.ui.react-router.nav-link": "0.0.441",
-        "@teambit/ui-foundation.ui.tree.folder-tree-node": "0.0.453",
-        "@teambit/ui-foundation.ui.tree.tree-node": "0.0.453",
+        "@teambit/harmony.content.create-app": "0.0.2",
+        "@teambit/mdx.modules.mdx-loader": "^0.0.466",
+        "@teambit/mdx.ui.mdx-layout": "^0.0.496",
+        "@teambit/react.eslint-config-bit-react": "^0.0.451",
+        "@teambit/react.templates.pages.welcome": "0.0.19",
+        "@teambit/react.templates.themes.theme": "^0.0.3",
+        "@teambit/react.ui.component-highlighter": "^0.0.506",
+        "@teambit/ui-foundation.ui.buttons.collapser": "^0.0.144",
+        "@teambit/ui-foundation.ui.navigation.react-router-adapter": "6.1.1",
+        "@teambit/ui-foundation.ui.tree.drawer": "^0.0.476",
+        "@teambit/ui-foundation.ui.tree.folder-tree-node": "^0.0.453",
+        "@teambit/ui-foundation.ui.tree.tree-node": "^0.0.453",
+        "@teambit/wiki.apps.wiki": "1.90.14",
+        "@teambit/wiki.blocks.header": "^0.0.34",
+        "@testing-library/jest-dom": "5.16.2",
+        "@testing-library/react": "12.0.0",
         "@testing-library/react-hooks": "7.0.1",
         "@types/history": "^4.0.0",
         "@types/loadable__component": "5.13.4",
         "@types/react-helmet": "6.1.2",
-        "@types/react-router-dom": "^5.0.0",
         "@types/url-join": "4.0.1",
         "@typescript-eslint/eslint-plugin": "4.30.0",
         "@typescript-eslint/parser": "4.30.0",
@@ -134,24 +158,33 @@
         "eslint-plugin-prettier": "4.0.0",
         "eslint-plugin-react": "7.22.0",
         "eslint-plugin-react-hooks": "4.2.0",
-        "history": "^5.0.0",
+        "favicons": "7.0.0-beta.3",
+        "graphql": "14.7.0",
+        "graphql-tag": "2.12.1",
+        "history": "5.2.0",
         "lodash.compact": "3.0.1",
+        "lodash.head": "4.0.1",
         "millify": "4.0.0",
+        "postcss": "8.4.6",
         "prettier": "2.4.1",
         "react-helmet": "6.1.0",
         "react-json-view": "1.21.3",
         "react-medium-image-zoom": "4.3.5",
-        "react-router-dom": "^5.0.0",
         "react-terminal": "1.2.1",
         "react-xarrows": "2.0.2",
+        "stylelint-config-recommended-scss": "5.0.2",
         "typescript": "4.4.2",
         "url-join": "4.0.1",
-        "url-parse": "1.5.3"
+        "url-parse": "1.5.3",
+        "use-debounce": "7.0.1"
       },
       "peerDependencies": {
+        "@apollo/client": "3.3.7",
         "@testing-library/react": "12.0.0",
+        "graphql": "^14.3.0",
         "react": "16.13.1",
-        "react-dom": "16.13.1"
+        "react-dom": "16.13.1",
+        "react-router-dom": "^6.0.0"
       }
     },
     "packageManagerArgs": [],
@@ -161,6 +194,9 @@
     "strictPeerDependencies": true,
     "installFromBitDevRegistry": true,
     "savePrefix": ""
+  },
+  "teambit.preview/preview": {
+    "bundlingStrategy": "component"
   },
   // "teambit.community/envs/community-react": {},
   /**
@@ -183,10 +219,12 @@
     },
     "base-react/content": {
       "teambit.mdx/mdx": "-",
+      "teambit.community/envs/community-mdx": "-",
       "teambit.community/envs/community-react": {}
     },
     "{content/**}": {
-      "teambit.mdx/mdx": {}
+      "teambit.mdx/mdx": "-",
+      "teambit.community/envs/community-mdx": {}
     },
     "{envs/**}, {extensions/*}, {apps/*}, {aspects/*}, {generator/*}": {
       "teambit.react/react": "-",
@@ -196,14 +234,7 @@
       "defaultScope": "teambit.design"
     },
     "community": {
-      "defaultScope": "teambit.community",
-      "teambit.dependencies/dependency-resolver": {
-        "policy": {
-          "devDependencies": {
-            "@teambit/design.embeds.figma": "0.0.6"
-          }
-        }
-      }
+      "defaultScope": "teambit.community"
     },
     "docs": {
       "defaultScope": "teambit.docs"
@@ -219,6 +250,9 @@
     },
     "react": {
       "defaultScope": "teambit.react"
+    },
+    "angular": {
+      "defaultScope": "teambit.angular"
     },
     "workspace": {
       "defaultScope": "teambit.workspace"
@@ -246,6 +280,18 @@
     },
     "envs": {
       "defaultScope": "teambit.envs"
+    },
+    "community/envs/community-mdx, community/envs/community-react": {
+      "teambit.dependencies/dependency-resolver": {
+        "policy": {
+          "dependencies": {
+            "react-router-dom": "^6.0.0"
+          },
+          "peerDependencies": {
+            "react-router-dom": "^6.0.0"
+          }
+        }
+      }
     },
     "pipelines": {
       "defaultScope": "teambit.pipelines"

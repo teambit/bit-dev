@@ -10,7 +10,7 @@ For example, the following configuration is used to configure two Aspects:
 - `teambit.workspace/workspace`: The Workspace Aspect (responsible for the Workspace)
 - `teambit.dependencies/dependency-resolver`: The Dependency Resolver Aspect (responsible for dependency management)
 
-Since each Aspect is a [Component](/docs/components/components-overview), it uses the [Component ID](/docs/components/component-id) pattern.
+Since each Aspect is a [Component](/components/components-overview), it uses the [Component ID](/components/component-id) pattern.
 
 ```json
 {
@@ -31,7 +31,7 @@ Since each Aspect is a [Component](/docs/components/components-overview), it use
 }
 ```
 
-The workspace configuration is extensible. It is not limited to a pre-configured list of Aspects. Any Aspect that implements the config
+The workspace configuration is extensible. It is not limited to a pre-configured list of Aspects.
 
 ## teambit.workspace/workspace
 
@@ -59,7 +59,7 @@ Th path to an icon (svg, jpeg, etc.). The icon wll be displayed in the workspace
 defaultScope: string;
 ```
 
-The default scope for all components in the workspace (this will be overridden by any other source of configuration, For example, variant)
+The default scope for all components in the workspace. This will be overridden by any other source of configuration, for example, variant.
 
 ### defaultDirectory
 
@@ -90,7 +90,7 @@ For example:
 
 Adding an Aspect to the workspace configuration will apply that Aspect, by default, on all components in the workspace.
 
-For example, the custom Aspect `company.scope/extensions/my-dev-files` defines files that match the glob pattern '\*_/_.my-dev._' as [dev files](/docs/components/dev-files).
+For example, the custom Aspect `company.scope/extensions/my-dev-files` defines files that match the glob pattern '\*_/_.my-dev._' as [dev files](/components/dev-files).
 Adding that Aspect to the workspace configuration will apply it on all components in the workspace (which will set every component's `_.my-dev.\*` file as a dev file).
 
 ```json

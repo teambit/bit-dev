@@ -1,7 +1,10 @@
 @import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
 
+$textColumn: 1000px;
+
 .docsPage {
   display: flex;
+  min-height: 100vw;
 }
 
 .next {
@@ -14,12 +17,17 @@
   li {
     font-size: var(--bit-p-md, 18px);
   }
-  * {
-    max-width: unset;
-  }
 
-  img {
-    max-width: 100%;
+  p,
+  .heading,
+  ul,
+  ol,
+  pre,
+  :global(.admonition) {
+    max-width: $textColumn;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
   }
 }
 

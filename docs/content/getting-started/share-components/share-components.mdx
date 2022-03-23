@@ -1,31 +1,46 @@
-# Share Components
+# Exporting components
 
-Exporting components to remote Bit scopes makes them available for other developers to use. On a remote Bit scope components are discoverable with documentation, examples, and other information. Moreover, components hosted on a remote scope are available to be used in other projects.
+Exporting components to remote scopes makes them available for other developers to consume and collaborate. You can create remote scopes on your own server or manage components' scopes the [bit.cloud](https://bit.cloud) components hub.
 
-The export process decouples a component from the repository is was implemented in and allows other developer to use it and collaborate on a component. The reason why Bit doubles down on component isolation, simplified dev experience with no configuration files and others is to scale the process of exporting components. Bit's goal is to make any piece of functionality written a shared module for any project or developer to use.
+As a prerequisite you need to create a remote scope, and ensure that you have write access to it. All components you aim to export should have the remote scope name as part of their component ID.
 
-## Export Component to Target Scope
-
-Scopes for components help with defining team boundaries and ownership on components. Remote scopes share the same property as each server hosting Bit is a single scope. This means that a component's scope in a workspace is used as the **target scope** for the export process.  
-Scoping components in different remotes helps with solidify boundaries around component ownership by sorting components to different targets.
-
-Once you have versioned components issue the following command for Bit to export all components:
+After you created staged [snaps](/components/snaps) or [versions](/components/tags). To validate you can safely export new versions, run the `status` command.
 
 ```bash
+bit status
+```
+
+Here we see that our workspace has 4 components, and 2 of them have **staged versions**.
+
+```bash
+new components
+(use "bit tag --all [version]" to lock a version with all your changes)
+
+     > pages/welcome ... ok
+     > ui/card ... ok
+               
+staged components
+(use "bit export <remote_scope> to push these components to a remote scope")
+
+     > ui/text. versions: 1.0.0 ... ok
+     > ui/heading. versions: 1.0.0 ... ok
+```
+
+Bit tells you exactly which components are pending to be exported. Export them to a remote scope with the `export` command:
+
+```sh
 bit export
 ```
 
-:::info Target is set per Component
+Bit then lets you know how many components were exported.
 
-You can export to multiple scopes from the same workspace, as the **scope** is a property of the components. Another interesting approach it allows is targeting the same scope from multiple workspaces. This way a team may build components in smaller, more concrete workspaces, and still export them to the same scope.
+```bash
+2 components were exported to scope teambit/base-ui
+```
 
-:::
+Learn more about [exporting components](/components/exporting-components).
 
-### Dependencies
-
-It is very likely that in a workspace you have components in different scopes depending on each other. When you export components all dependency relationships are preserved. Moreover, a cached copy of the dependency itself is exported along with the component. This means that a single Bit scope keeps not just it's hosted components, but a copy of all their dependencies, making it reliable when dependent servers are unavailable.
-
-## View Exported Components
+## Viewing exported components
 
 Exported components are hosted on the target scope. Each scope features a not only a **remote scope** for keeping all component versions. A remote scope features a web UI similar to the workspace UI in which all components are showcased.  
 To see the all exported components open your browser and navigate to the Bit scope URL.

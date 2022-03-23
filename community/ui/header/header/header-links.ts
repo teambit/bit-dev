@@ -4,8 +4,8 @@ export const headerContent = [
     href: '/docs',
   },
   {
-    title: 'Plugins',
-    href: '/plugins',
+    title: 'Aspects',
+    href: '/aspects',
   },
   {
     title: 'bit.cloud',

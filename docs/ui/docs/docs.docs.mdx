@@ -3,11 +3,6 @@ description: 'A component-based documentation section'
 labels: ['docs', 'page', 'routes']
 ---
 
-import { RoutingProvider } from '@teambit/base-ui.routing.routing-provider';
-import { SidebarProvider } from '@teambit/design.ui.sidebar.sidebar-context';
-import { useLocation, MemoryRouter } from 'react-router-dom';
-import { Link } from '@teambit/ui-foundation.ui.react-router.link';
-import { NavLink } from '@teambit/ui-foundation.ui.react-router.nav-link';
 import { Docs } from './docs';
 
 `Docs` is a component-based documentation section built in React. It is a React component you can use in your website's components.
@@ -19,7 +14,6 @@ This component receives and renders all the Routes and makes them available in R
 
 ```js live
 () => {
-  const routing = { Link, NavLink, useLocation };
   const primaryRoutes = [
     {
       path: 'quick-start',
@@ -32,7 +26,7 @@ This component receives and renders all the Routes and makes them available in R
       path: 'thinking-in-components',
       icon: 'Lightbulb-thinking',
       title: 'Thinking in components',
-      component: <div />,
+      component: <div>Thinking in components contnet</div>,
     },
   ];
   const routes = [
@@ -44,7 +38,7 @@ This component receives and renders all the Routes and makes them available in R
         {
           path: 'start-bit-project',
           title: 'Start a new Bit Workspace',
-          component: <div />,
+          component: <div>start bit project contnet</div>,
         },
       ],
     },
@@ -56,25 +50,17 @@ This component receives and renders all the Routes and makes them available in R
         {
           path: 'creating-components',
           title: 'Creating components',
-          component: <div />,
+          component: <div>creating compoents contnet</div>,
         },
         {
           path: 'component-config',
           title: 'Component Configuration',
-          component: <div />,
+          component: <div>component config</div>,
         },
       ],
     },
   ];
 
-  return (
-    <RoutingProvider value={routing}>
-      <SidebarProvider>
-        <MemoryRouter>
-          <Docs baseUrl="/" contents={[{ routes }]} primaryLinks={primaryRoutes} />
-        </MemoryRouter>
-      </SidebarProvider>
-    </RoutingProvider>
-  );
+  return <Docs baseUrl="/" contents={[{ routes }]} primaryLinks={primaryRoutes} />;
 };
 ```

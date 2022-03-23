@@ -1,0 +1,77 @@
+import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-display';
+
+# Generator Overview
+
+<ComponentCardDisplay componentIds={[
+  'teambit.generator/generator',
+]} style={{ float: 'left', margin: 20, maxWidth: 250 }} />
+
+Generators enable the generation new components and workspaces with templates. You can either use Bit's pre-defined templates or you can create your own.  
+
+You can create generators as standalone components or as part of an env.
+
+Use a generator to standardize and automate the creation of new components and workspaces.
+
+The `teambit.generator/generator` aspect provides a single point of entry to component and workspace generation, depending on where you are in your flow.
+
+## Workspace templates
+
+Bit comes with a pre-defined list of workspace templates. When not in a Bit workspace, you can run the following command to see them:
+
+```bash
+bit templates
+```
+
+```bash
+The following template(s) are available with the command bit new: 
+Example - bit new <template-name> <workspace-name>
+teambit.react/react
+    react (React workspace with demo components)
+...
+```
+
+Each template may contain several items:
+
+- Configuration for your `workspace.jsonc` file.
+- Dependencies.
+- New components.
+
+To use any of the pre-built templates, run the following command:
+
+```bash
+bit new react my-workspace
+```
+
+## Component templates
+
+While in a workspace, the `templates` command lists all available component templates.
+
+```bash
+bit templates
+```
+
+```bash
+The following template(s) are available with the command bit create:  
+Example - bit create <template-name> <component-name>
+
+teambit.react/react
+    react (a basic react component)
+    react-context (a react context component)
+    react-hook (a react hook component)
+    react-js (a basic react component in js)
+    react-env (customize the base React env with your configs and tools)
+
+teambit.harmony/aspect
+    aspect (extend Bit capabilities)
+
+teambit.html/html
+    html-env (customize the base Html env with your configs and tools)
+    html (a basic html component)
+...
+```
+
+Use the `bit create` command to create a new component from a template.
+
+```bash
+bit create react my-component
+```

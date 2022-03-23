@@ -1,9 +1,11 @@
-import { Image } from '@teambit/docs.ui.zoomable-image';
+<!-- // import { Image } from '@teambit/docs.ui.zoomable-image'; -->
 
 # Inspecting Dependencies
 
-In Bit dependency management is automated. Bit reads your code to find all `import` statements and builds a dependency graph.  
-You can use various tools to inspect the generated dependency graph to learn how your components are composed, assisting you in making architectural decisions. Moreover, as you can take control and define dependency policy for each components, by inspecting dependencies, you may see the result dependency graph and decide if this fits your desired outcome.
+With Bit, dependency management is automated. Bit reads your code to find all `import` and `require` statements and builds a dependency graph.  
+You can use various tools to inspect the generated dependency graph to learn how your components are composed, assisting you in making architectural decisions. 
+
+Moreover, as you can take control and define dependency policy for each components (by inspecting dependencies) you may look at the result dependency graph and decide if this fits your desired outcome.
 
 :::info Follow the examples
 
@@ -11,27 +13,31 @@ To follow these examples run `bit new react demo-project`.
 
 :::
 
-The first and most simple way to see component dependencies is using the local dev server.
+The easiest way to see component dependencies is using the local dev server. You can do this by running the `bit start` command.
 
 ```bash title="start dev server"
 bit start
 ```
 
-In each component page you can explore dependencies through the **Dependencies** tab. Here you see all components composed into your code.
+This will load up your Bit workspace. From here, you can view each component, along with component-specific information, such as compositions, documentation, plus much more.
+
+In each component page you can explore dependencies through the **Dependencies** tab. Here you will see all components composed into your code.
 
 import devServerDepsGraph from './dev-server-deps-graph.png';
 
-<Image src={devServerDepsGraph} />
+<!-- {/* <Image src={devServerDepsGraph} /> */} -->
 
 Additional information, like package dependencies can be found in the **Code** tab.
 
 import devServerDepsCode from './dev-server-deps-code.png';
 
-<Image src={devServerDepsCode} />
+<!-- {/* <Image src={devServerDepsCode} /> */} -->
 
 ## Dependency Graph in the CLI
 
-You can use the CLI to see all dependencies when running the `bit show` command.
+You can use the CLI to see all dependencies by running the `bit show` command.
+
+For example:
 
 ```bash title="show all dependencies"
 bit show ui/card
@@ -63,7 +69,9 @@ This outputs provides all information on the component, including:
 
 :::info Bit marks which dependency is a package and which is a component.
 
-To print the complete graph representation of the component in the CLI run `bit dependencies`:
+To print the complete graph representation of the component in the CLI run the `bit dependencies` command.
+
+For example:
 
 ```bash
 bit dependencies ui/card
@@ -156,8 +164,10 @@ Dependencies Details
 
 ## Component Dependents
 
-Bit keeps track of the entire dependent graph in your workspace, so you can understand how a change in a component affets the rest of the codebase. 
-use the `bit dependents` command:
+Bit keeps track of the entire dependent graph in your workspace, so you can understand how a change in a component affects the rest of the codebase. 
+You can see this by running the `bit dependents` command.
+
+For example:
 
 ```bash
 bit dependents ui/card

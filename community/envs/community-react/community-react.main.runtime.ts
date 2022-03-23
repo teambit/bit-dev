@@ -1,11 +1,10 @@
 import { MainRuntime } from '@teambit/cli';
-import { ReactAspect, ReactMain } from '@teambit/react';
+import { ReactAspect, ReactMain, ReactEnv } from '@teambit/react';
 import { GeneratorMain, GeneratorAspect } from '@teambit/generator';
 import { EnvsAspect, EnvsMain } from '@teambit/envs';
 import { CommunityReactAspect } from './community-react.aspect';
 import { myReactTemplate } from './templates/my-react-template';
 import { myEntityTemplate } from './templates/my-entity-template';
-import { bitDevDocs } from './templates/bitdev-docs';
 import { transformTsConfig } from './typescript/transform-tsconfig';
 
 // import { previewConfigTransformer, devServerConfigTransformer } from './webpack/webpack-transformers';
@@ -16,6 +15,8 @@ import { transformTsConfig } from './typescript/transform-tsconfig';
 // const tsconfig = require('./typescript/tsconfig');
 
 export class CommunityReactMain {
+  constructor(readonly communityReactEnv: ReactEnv) {}
+
   static slots = [];
 
   static dependencies = [ReactAspect, EnvsAspect, GeneratorAspect];
@@ -23,10 +24,69 @@ export class CommunityReactMain {
   static runtime = MainRuntime;
 
   static async provider([react, envs, generator]: [ReactMain, EnvsMain, GeneratorMain]) {
+    const { devDependencies, dependencies }: any = react.env.getDependencies();
+    const deps = {
+      'core-js': dependencies['core-js'],
+    };
     const templatesReactEnv = envs.compose(react.reactEnv, [
+      envs.override({
+        getPreviewConfig: () => {
+          return {
+            strategyName: 'component',
+            splitComponentBundle: true,
+          };
+        },
+      }),
+
+      envs.override({
+        getDependencies: () => {
+          return {
+            dependencies: deps,
+            devDependencies,
+            peers: [
+              {
+                name: 'react',
+                supportedRange: '^16.8.0 || ^17.0.0',
+                version: '^17.0.0',
+              },
+              {
+                name: 'react-dom',
+                supportedRange: '^16.8.0 || ^17.0.0',
+                version: '^17.0.0',
+              },
+              // {
+              //   name: '@testing-library/jest-dom',
+              //   supportedVersion: '^5.16.2',
+              //   version: '^5.16.2',
+              // },
+              {
+                name: 'react-router-dom',
+                supportedRange: '^6.0.0',
+                version: '^6.0.0',
+              },
+              {
+                name: 'graphql',
+                version: '^14.3.0',
+                supportedRange: '^14.3.0',
+              },
+              {
+                name: '@apollo/client',
+                version: '^3.3.7',
+                supportedRange: '^3.3.7',
+              },
+              {
+                name: 'subscriptions-transport-ws',
+                version: '^0.11.0',
+                supportedRange: '^0.11.0',
+              },
+            ],
+          };
+        },
+      }),
+
       /**
-       * Uncomment to override the config files for TypeScript, Webpack or Jest
-       * Your config gets merged with the defaults
+       * Uncomment to override the config files for TypeScript, Webpack or Jest.
+       * Your config gets merged with the defaults.
        */
       react.useTypescript({
         devConfig: [transformTsConfig],
@@ -88,17 +148,18 @@ export class CommunityReactMain {
        * @example
        * Uncomment types to include version 17.0.3 of the types package
        */
-      react.overrideDependencies({
-        devDependencies: {
-          // '@types/react': '17.0.3'
-        },
-      }),
-    ]);
+      // react.overrideDependencies({
+      //   devDependencies: {
+      //     // '@types/react': '17.0.3'
+      //   },
+      // }),
+    ]) as ReactEnv;
+
     envs.registerEnv(templatesReactEnv);
 
-    generator.registerComponentTemplate([myReactTemplate, myEntityTemplate, bitDevDocs]);
+    generator.registerComponentTemplate([myReactTemplate, myEntityTemplate]);
 
-    return new CommunityReactMain();
+    return new CommunityReactMain(templatesReactEnv);
   }
 }
 

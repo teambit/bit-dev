@@ -3,7 +3,7 @@ description: 'A horizontal menu with some links'
 labels: ['react', 'ui', 'navigation', 'menu']
 ---
 
-import { NavLink } from '@teambit/base-react.navigation.link';
+import { Link } from '@teambit/base-react.navigation.link';
 import { NavigationMenu } from './menu';
 
 A menu that accept an array of nav links and renders them in a line.
@@ -33,7 +33,7 @@ The menu also accepts an override for the `Link` component to be used instead of
 
 ```js live
 <NavigationMenu
-  Link={NavLink}
+  Link={Link}
   links={[
     {
       title: 'Docs',

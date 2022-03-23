@@ -1,19 +1,29 @@
+import { ComponentCardGroup } from '@teambit/explorer.ui.gallery.component-card-group';
 import WhatIsBitSmall from './what-is-bit-small.mdx';
+import { bitComponent } from './bit-component';
+import styles from './what-is-bit.module.scss';
 
-Bit is a tool for components. 
+Bit is an open-source tool for composing component-driven software.
+
+<ComponentCardGroup components={bitComponent} className={styles.bitCard} />
+<br />
 
 <!-- Every independent component built, compounds in value and becomes an asset
 for the developer, the team and the entire organization and can be used for the definition and development of new products.  -->
 
-<WhatIsBitSmall />
+<WhatIsBitSmall components={bitComponent} />
 
 <!-- **As a developer, imagine having a single mini-repository for each of your components, and a dev experience that makes the development of them seamless together.**
-As an arhictect, imagine having your entire software architecture built from service-oriented components, sorted and controlled on a single architectural graph, it is like scaling
-Microservices for everything. As a designer, think of composing a design out of symbols, each symbol is indepednent and reusable.
+As an architect, imagine having your entire software architecture built from service-oriented components, sorted and controlled on a single architectural graph, it is like scaling
+Microservices for everything. As a designer, think of composing a design out of symbols, each symbol is independent and reusable.
  -->
 Bit does not prescribe how you build your entire application. It helps you define and compose components and allows for every component to adopt the dev tools that best fit its nature.
-A React component might be compiled, tested and sometimes even deployed with a different composition of tools than a Microservice component, or a generic function.
+A React component might be compiled, tested and sometimes even deployed with a different composition of tools than a backend-service component, or a generic function.
 Bit comes with native support in various dev tools like [TypeScript](/tools/typescript), [Babel](/tools/babel), [Jest](/tools/jest), [Webpack](/tools/webpack), [ESLint](/tools/eslint) and
 ready made development environments for [React](/frameworks/react), [NodeJS](/frameworks/node), [Angular](/envs/angular) and more. New tools can be easily integrated by
 adding one more component into Bit!
 
+<!-- Building in components promotes good software design practices like single responsibility principle, separation of concerns and encapsulation. It helps drive symmetry between
+product requirements, architecture and the organization structure allowing development to scale to more teams owning specific product responsibilities.
+ -->
+ 

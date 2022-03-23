@@ -1,38 +1,34 @@
 ---
-description: 'StickyMenu'
-labels: ['label1', 'label2', 'label3']
+description: 'A sticky horizontal menu.'
+labels: ['menu', 'navigation', 'ui']
 ---
 
 import { StickyMenu } from './sticky-menu';
 import { FigmaEmbed } from '@teambit/design.embeds.figma';
+import { LeftRight } from '@teambit/design.ui.layouts.sections.left-right';
 
-Sticky menu that stays on the screen as you scroll down.
+A horizontal menu that "sticks" to the top when you scroll down.
 
-### Sticky menu with array of links
+## Basic usage
+
+Pass the `links` prop with an array of links. Use the `className` prop to customize the menu.
 
 ```js live
 <StickyMenu
+  className="my-class"
   links={[
     {
       href: '#compose',
-      text: 'Compose'
+      text: 'Compose',
     },
     {
       href: '#collaborate',
-      text: 'Collaborate'
+      text: 'Collaborate',
     },
     {
       href: '#release',
-      text: 'Release'
+      text: 'Release',
     },
-    {
-      href: '#Standardize',
-      text: 'Standardize'
-    },
-    {
-      href: '#extend',
-      text: 'Extend'
-    }
   ]}
 />
 ```

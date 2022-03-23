@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { BasicGridGraph } from './grid-graph.composition';
 
-describe.skip('should render basic grid graph', () => {
+describe('should render grid graph', () => {
   let rendered: HTMLElement;
   beforeAll(() => {
     const { getByTestId } = render(<BasicGridGraph />);
@@ -17,7 +17,7 @@ describe.skip('should render basic grid graph', () => {
   });
 });
 
-describe.skip('should render with the correct text', () => {
+describe('should render grid graph with the correct text', () => {
   it('should render with the correct text - node 1', () => {
     const { getByText } = render(<BasicGridGraph />);
     const rendered = getByText('teambit.mdx/mdx@3.1.2');

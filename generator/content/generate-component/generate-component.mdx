@@ -1,0 +1,146 @@
+# Create component generator
+
+Bit gives you some basic templates that you can use without having to create your own components. However, you may want to define specific labels or want to construct your documentation in a specific way, or add a different testing library, or perhaps add a css/sass file to each component. By creating your own templates, it gives you the freedom to add what you want and how you want it. You can then export this generator as a component so that other members of your team can use it in other workspaces/projects. Everyone will be creating components just how you want them to.
+
+Create your own generator using the `bit create` command followed by the name you want to give your generator.
+
+```bash
+bit create component-generator generator/component-templates
+```
+
+```bash
+1 component(s) were created
+
+company.scope/generator/component-templates
+    location: scope/generator/component-templates
+    env:      teambit.harmony/aspect
+```
+
+Edit your `workspace.jsonc` file and add the following snippet:
+
+```json {} title="workspace.jsonc"
+"teambit.generator/generator": {
+  "aspects": ["company.scope/generator/component-templates"]
+},
+"company.scope/generator/component-templates": {}
+```
+
+Run `bit templates` and see that the output contains your new components.
+
+```bash
+bit templates
+```
+
+```bash
+The following template(s) are available with the command bit create:
+...
+
+company.scope/generator/component-templates
+    component1 (description for component1)
+    component2 (description for component2)
+```
+
+## Modify the templates
+
+The `*.main.runtime.ts` file contains an array of templates that you can modify and add to create different templates and numerous files to be generated. Make sure you also modify the name and description of these templates as this will be shown in the CLI when you run `bit templates`.
+
+```js {3,4} title="*.main.runtime.ts"
+generator.registerComponentTemplate([
+  {
+    name: 'my-react',
+    description: 'description for my react custom component',
+    generateFiles: (context: ComponentContext) => {
+      return [
+        // index file
+        {
+          relativePath: 'index.ts',
+          isMain: true,
+          content: `export { ${context.namePascalCase} } from './${context.name}';
+export type { ${context.namePascalCase}Props } from './${context.name}';
+`
+        },
+
+        // component file
+        {
+          relativePath: `${context.name}.tsx`,
+          content: `import React from 'react';`
+        },
+
+        // docs file
+        {
+          relativePath: `${context.name}.docs.mdx`,
+          content: `docs content goes here`
+        },
+
+        // composition file
+        {
+          relativePath: `${context.name}.composition.tsx`,
+          content: `composition content goes here
+`
+        },
+
+        // test file
+        {
+          relativePath: `${context.name}.spec.tsx`,
+          content: `test content goes here`
+        }
+        // add more files here such as css/sass
+      ];
+    }
+  },
+
+  // component 2
+  {
+    name: 'component2',
+    description: 'description for component2',
+    generateFiles: (context: ComponentContext) => {
+      return [
+        // index file
+        {
+          relativePath: 'index.ts',
+          isMain: true,
+          content: `add content here`
+        }
+        // add more files
+      ];
+    }
+  }
+  // add more components
+]);
+```
+
+## Test templates locally
+
+Use your generator to create the component files. In our example we used the name _component1_ as our template name. We can then use `bit create component1`, followed by the name of the component we want to create, for example a button component.
+
+```bash
+bit compile # first compile your generator
+bit create my-react button
+```
+
+This will create your button component and all its files and content from your _my-react_ template.
+
+## Exporting your generator
+
+A generator is just like any other component. Once created, it appears as a component in your workspace. To use it in other projects you need to version and export it.
+
+```bash
+bit tag --all --message="my custom generator"
+bit export
+```
+
+Any modifications to the generator will require you to export a new version for it.
+
+## Using custom generators
+
+You can add any generator to the `workspace.jsonc` file in the workspace/project where you want to use it and Bit will automatically install this for you.
+
+```json title="workspace.jsonc"
+"teambit.generator/generator": {
+  "aspects": ["company.scope/generator/component-templates"]
+},
+"company.scope/generator/component-templates": {}
+
+```
+
+You can then run `bit templates` to see your available templates and start creating your components with `bit create`.

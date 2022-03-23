@@ -9,17 +9,17 @@ export type ButtonProps = AriaButtonProps & {
   /**
    * children of the Button.
    */
-  children: ReactNode,
+  children: ReactNode;
 
   /**
    * link to target page. once href is used, Button is considered an A tag.
    */
-  href?: string,
+  href?: string;
 
   /**
    * class names to inject.
    */
-  className?: string
+  className?: string;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export function Button(props: ButtonProps) {
@@ -28,7 +28,7 @@ export function Button(props: ButtonProps) {
   const { buttonProps } = useButton(
     {
       ...props,
-      elementType: props.href ? 'a' : undefined
+      elementType: props.href ? 'a' : undefined,
     },
     // @ts-ignore figure this out.
     ref
@@ -38,6 +38,7 @@ export function Button(props: ButtonProps) {
     ...buttonProps,
     ...props,
   };
+  const external = props.href?.startsWith('http:') || props.href?.startsWith('https:');
 
   return (
     <>
@@ -46,7 +47,7 @@ export function Button(props: ButtonProps) {
           {props.children}
         </button>
       ) : (
-        <Link ref={ref} className={props.className} {...allProps}>
+        <Link external={external} ref={ref} className={props.className} {...allProps}>
           {props.children}
         </Link>
       )}

@@ -1,19 +1,17 @@
 @import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
 
-.label {
-  a {
-      background-color: var(--bit-bg-heavy, #f6f6f6) !important;
-      &:hover {
-          background-color: var(--bit-border-color-lightest, #ededed) !important;
-      }
-  }
+// @hack - prevent horrible horizontal scroll
+// TODO - @uri - fix in highlighter, then remove this hack
+body {
+  
+  overflow-x: hidden;
 }
 
-.frame {
-  border: 1px solid var(--bit-border-color-lightest, #ededed);
+.highlighter {
+  --bit-highlighter-color: var(--surface-hover-color, #edebfc);
+  --bit-highlighter-color-hover: var(--surface-focus-color, #e2defa);
+  --bit-highlighter-color-active: var(--surface-active-color, #dcd8f9);
 }
-
-
 
 .inspect {
   display: flex;

@@ -1,0 +1,33 @@
+
+.componentThinkingProcess {
+  background-color: var(--background-color);
+  border: 1px solid var(--border-high-color, #BABEC9);
+  padding: 5px;
+  border-radius: 8px;
+}
+
+.componentStep {
+  --bit-p-xxs: 18px;
+  margin-right: 5px;
+  box-shadow: inset 0px -1px 0px #EDEDED;
+  span {
+    font-weight: 500;
+  }
+  span::before {
+    content: '';
+  }
+}
+
+.stepContents {
+  float: left;
+  background: var(--bit-accent-bg, #eceaff);
+  width: 24px;
+  height: 21px;
+  margin-top: 4px;
+  text-align: center;
+  border-radius: 6px;
+  color: var(--primary-color);
+  margin-right: 10px;
+  font-size: 12px;
+  vertical-align: bottom;
+}

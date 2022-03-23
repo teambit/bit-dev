@@ -1,22 +1,14 @@
 ---
-description: 'A Browser component.'
-labels: ['label1', 'label2', 'label3']
+description: 'Displays screenshots in a browser mockup'
+labels: ['browser', 'image']
 ---
 
-import { Browser } from './browser';
+import { LeftRight } from '@teambit/design.ui.layouts.sections.left-right';
+import { BrowserExample } from './browser-example/browser.demo';
+import { BrowserSnippet } from './browser-example/browser-snippet.demo';
 
-A basic div that renders some text
+This component displays screenshots in a browser mockup.
 
-### Component Usage
+## Basic usage
 
-```js
-<Browser />
-```
-
-### Using props to customize the text
-
-Modify the text to see it change live:
-
-```js live
-<Browser />
-```
+<LeftRight left={<BrowserSnippet />} right={<BrowserExample />} />

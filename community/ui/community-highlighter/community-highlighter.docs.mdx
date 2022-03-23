@@ -1,18 +1,75 @@
 ---
-description: A CommunityHighlighter component.
+description: 'Enables visual inspection of React components'
+labels: ['react', 'component discoverability', 'open-source contribution']
 ---
 
+import { UsageExample } from '@teambit/community.ui.usage-example';
+import { Tooltip } from '@teambit/community.ui.text-tooltip';
 import { CommunityHighlighter } from './community-highlighter';
+import { Example, snippet, FeaturesCard } from './example/example.demo';
+import { Toggler } from './toggler';
+import { useHighlighter } from './use-highlighter';
 
-A component that does something special and renders text in a div.
+Community Highlighter helps you discover components by revealing the component IDs of UI elements in a page.
+The highlighter data is injected into the component's bundle <!-- TODO: change the link to the relevant page in the docs --> using [Bit's babel plugin](https://bit.dev/teambit/react/babel/bit-react-transformer).
+This plugin is used by default in applications built with the [React app-type](https://bit.dev/teambit/react/react).
 
-### Component usage
-```js
-<CommunityHighlighter>Hello world!</CommunityHighlighter>
+## Basic usage
+
+<Tooltip
+  language="bash"
+  content="bit install @teambit/community.ui.community-highlighter"
+>
+  Install the Community Highlighter
+</Tooltip> and wrap your components with it to enable inspection.
+
+<UsageExample maxCodeWidth={750} code={snippet} output={<Example />} />
+
+## Disabling the highlighter using the toggler component
+
+<Tooltip
+  content="import { Toggler } from '@teambit/community.ui.community-highlighter'"
+  language="typescript"
+>
+  Use 'Toggler'
+</Tooltip> anywhere, nested inside the Community highlighter. The highlighter's state
+(`disable: boolean`) is persisted in the local storage.
+
+```tsx live
+() => (
+  <CommunityHighlighter>
+    <Toggler />
+    <FeaturesCard />
+  </CommunityHighlighter>
+);
 ```
 
-### Render hello world!
+### Disabling the highlighter using the useHighlighter hook
 
-```js live
-<CommunityHighlighter>Hello world!</CommunityHighlighter>
+<Tooltip
+  content="import { useHighlighter } from '@teambit/community.ui.community-highlighter'"
+  language="typescript"
+>
+  Use the useHighlighter
+</Tooltip> hook in a component nested inside the Community highlighter. The highlighter's
+state (`disable: boolean`) is persisted in the local storage.
+
+```tsx live
+() => {
+  const HighlighterSwitch = () => {
+    const { disabled, setDisabled } = useHighlighter();
+    return (
+      <button onClick={() => setDisabled(!disabled)}>
+        Click to disable/enable highlighter
+      </button>
+    );
+  };
+
+  return (
+    <CommunityHighlighter>
+      <HighlighterSwitch />
+      <FeaturesCard />
+    </CommunityHighlighter>
+  );
+};
 ```

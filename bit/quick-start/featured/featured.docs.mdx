@@ -1,0 +1,29 @@
+---
+description: "Shows the featured."
+labels: ["Featured", "Carousel", "Quick Start"]
+---
+
+import { Featured } from "./featured";
+
+Shows a carousel of featured cards.
+
+### Component usage
+
+Pass the cards with the `cards` prop.
+
+```js
+<Featured cards=[
+  {
+    heading: "Wiki",
+    description:
+      "Collaborate on organizational process and knowledge with a component-driven wiki.",
+    frameworkLogos: [
+      {
+        src: "https://static.bit.dev/extensions-icons/react.svg",
+        inactiveSrc:'https://static.bit.dev/extensions-icons/react_grey.svg',
+        alt: "React",
+        href: "/",
+      },
+    ],
+  }] />
+```

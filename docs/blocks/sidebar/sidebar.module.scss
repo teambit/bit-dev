@@ -1,0 +1,49 @@
+@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
+
+.sidebar {
+  position: relative;
+}
+
+.sidebarContent {
+  position: relative;
+  height: 100%;
+  border-right: unset;
+  display: flex;
+  > div:last-child {
+    position: fixed;
+    overflow-y: hidden;
+    box-sizing: border-box;
+    height: calc(100% - 41px);
+  }
+}
+
+.content {
+  overflow-y: auto;
+  height: calc(100% - var(--bit-header-height, 40px));
+  @media screen and (max-width: $br-md) {
+    height: 100%;
+  }
+}
+
+.tree {
+  padding: 16px 0px;
+}
+
+.collapser {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 40px;
+  bottom: unset;
+  @media screen and (max-width: $br-md) {
+    display: unset;
+  }
+}
+.sidebarTitle {
+  color: var(--bit-text-inactive-heavy, #878c9a);
+  font-size: var(--bit-p-xxs, 12px);
+  height: 32px;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
+}

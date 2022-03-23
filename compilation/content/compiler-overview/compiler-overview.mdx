@@ -1,60 +1,129 @@
-# Compiler Overview
+import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-display';
 
-The Compiler aspect simplifies and standardizes the process of the compiling components.
+# Compiler overview
 
-Modern JS apps are usually compiled, using compilers like [Babel](https://babeljs.io/) and [TypeScript](https://www.typescriptlang.org/), into standard formats that are compatible with browsers, bundlers (such as [Webpack](https://webpack.js.org/) and [Rollup](https://rollupjs.org)) and JS execution engines such as [NodeJS](https://nodejs.org) and [Deno](https://deno.land/).
-Compilation standards include [ES2015](https://262.ecma-international.org/6.0/), [ESM](https://nodejs.org/api/esm.html), [CommonsJS](https://nodejs.org/docs/latest/api/modules.html) and others.
+<ComponentCardDisplay componentIds={[
+  'teambit.compilation/compiler',
+]} style={{ float: 'left', margin: 20, maxWidth: 250, marginBottom: 20 }} />
 
-The role of the Compiler Aspect is to standardize this process across different components, by providing a simple and standard dev experience for compilation during development and build.
+The Compiler aspect provides a single interface for Component compilation, [during development](/dev-services-overview/compiler/compiling-during-development) and [during build](/dev-services-overview/compiler/compiling-during-build).
+It enables you to use the same commands and APIs to compile any Component, regardless of the specific compiler it uses.
 
-Compiled code is generated in the components' corresponding package (in development, this package can be found in the workspace `node_modules` directory). By default, the Compiler sets the `main` property of each component's `package.json` to `dist/{main}.js` (the component's main file, inside the `dist` directory).
+Specific compilers used by a Component ([Babel](https://bit.cloud/teambit/compilation/babel), [TypeScript](https://bit.cloud/teambit/typescript/typescript), and so on) are set by the [Component's Env](/envs/using-envs).
 
-```bash
-├── node_modules
-    ├── @my-org
-        ├── ui.button
-          ├── dist
-              ├── index.js -> `package.json` points here if `index.js` is the main file.
-              ├── index.js.map
-              ├── button.js
-              ├── button.js.map
-          ├── ...
-```
+## Compiling during development
 
-## Compiling for development
-
-The Compiler Aspect standardizes compilation during development in the development Workspace by providing the `bit compile` command, to compile all components, regardless of the specific compiler set by their corresponding Envs.
-
-Compilation of components in the [Workspace](/workspace/overview) is configured to deliver a great dev experience by by optimizing performance and debugging.
-
-This means Source Maps <!-- TODO [Source Maps](/) --> are generated and components are only transpiled (without types), into in the `node_modules` directory.
+Run the following to compile all your Workspace Components:
 
 ```bash
 bit compile
 ```
 
-Components can be watched for changes and recompiled with a single command as well.
+The following output lists the compilation results in a single format:
+
+```bash
+  STATUS        COMPONENT ID
+✔ SUCCESS       apps/bit-dev
+✔ SUCCESS       blocks/component/architecture-breakdown
+✔ SUCCESS       blocks/footer
+✔ SUCCESS       blocks/header
+✔ SUCCESS       buttons/button
+✔ SUCCESS       content/adding-components
+```
+
+To 'watch' Components for changes, and to auto-compile modified Components, run:
 
 ```bash
 bit watch
 ```
 
-To learn more on compilation during development, please refer to [Workspace Compilation](/compiler/workspace-compilation).
+The compiled code is written into each Component's corresponding package, in the [`node_modules` directory](/dependencies/node-modules) of your workspace.
+For example, the compiled code for `company.scope/ui/text` will be found in the `./node_modules/@company/scope.ui.text/dist` directory (inside your workspace).
 
-## Compiling for distribution
+To learn more about compilation in the Workspace, see ['Compiling during development'](/dev-services-overview/compiler/compiling-during-development).
 
-Compiling components for distribution is done in a Capsule, as part of the [Build Pipeline](/builder/build-pipelines).
+## Compiling during build
 
-Component build can be simulated with `bit build` and done through [Tag](/components/tags) or [Snap](/components/snaps)
+Run the following to compile Components as part of the [build pipeline](/dev-services-overview/builder/build-pipelines) (which prepares Components for distribution):
 
 ```bash
 bit build
 ```
 
-By default, Bit includes a [Build Task](/) for compiling components in the [Build Pipeline](/builder/build-pipelines) using the Compiler of your choice which is configured in the [Env](/envs/overview). Compilation for distribution is optimized for runtime performance, consistency and reusability. This means Source Maps <!--TODO [Source Maps](/)  -->are not being generated, target is preferred to be compatible with vast majority of browsers, bundlers and JS execution engines and Types are generated for the component, which can be costly in performance.
+The output to the terminal details the specific compilers being used, as well as the Envs that use them:
 
-<!--TODO To learn more on compilation for distribution, please refer to [Compiling for distribution](/). -->
+```bash
+...
+✔ env "teambit.harmony/aspect", task "teambit.compilation/compiler:BabelCompiler (compile components for artifact dist)" has completed successfully in 363ms
+✔ env "teambit.react/react", task "teambit.compilation/compiler:TSCompiler (compile components for artifact dist)" has completed successfully in 1s
+✔ env "teambit.mdx/mdx", task "teambit.compilation/compiler:MDXCompiler (compile components)" has completed successfully in 879ms
+...
+the build has been completed. total: 19 tasks
+```
 
-## Configuring and Implementing Compilers
+The compiled code is written into the [Component's Capsule](/components/component-capsules). Run [`bit snap`](/components/snaps) or [`bit tag`](/components/tags) to execute the build pipeline (as well as other pipelines), and have the compiled code persisted in the [Component version](/components/navigating-history), and included in the component's package.
 
-Compilers are configured in the [Env](/envs/overview) which is configured on your [Component](/components/overview). Customizing the Compiler can be done by [customizing an existing env with your compiler](/compiler/configure-env) or by [implementing your own Env](/).
+To learn more about compilation in the Workspace, see ['Compiling during build'](/dev-services-overview/compiler/compiling-during-build).
+
+## Compilation strategies and standards
+
+The Compiler aspect does not set specific compilation strategies as these are defined by the [specific compilers](/dev-services-overview/compiler/compiler-overview) themselves (and are often configurable by the Envs that use them).
+
+However, all official Bit compilers are configured to favor dev experience when compiling during development, and to favor runtime performance and code universality, when compiling for distribution (during build).
+
+For example, Bit's TypeScript compiler performs type-checking when compiling during build but skips it when compiling during development.
+This enables faster compilation and better dev experience.
+
+To examine a Component's specific compiler config, run the following:
+
+```bash
+bit env get COMPONENT_ID
+```
+
+For example:
+
+```bash
+bit env get company.demo/ui/card
+```
+
+The output details the Component's env config which includes the compiler config:
+
+```bash
+Environment: teambit.react/react
+...
+teambit.compilation/compiler
+
+configured compiler: teambit.typescript/typescript (TypeScript @ 4.4.2)
+compiler config:
+{
+  "compilerOptions": {
+    "lib": [
+      "es2019",
+      "DOM",
+      "ES6",
+      "DOM.Iterable"
+    ],
+    "target": "es2015",
+    "module": "commonjs",
+    "jsx": "react",
+    "declaration": true,
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "outDir": "dist"
+  },
+  "exclude": [
+    "dist"
+  ]
+}
+
+```
+
+## Setting a Component with a specific compiler
+
+Specific compilers are applied on Components via the Components' Envs. For example, the `company.demo/ui/card` Component examined earlier, is applied with
+the TypeScript compiler by its Env, the React Env.
+
+To learn how to use a specific compiler, see ['Using compilers'](/dev-services-overview/compiler/using-a-compiler).

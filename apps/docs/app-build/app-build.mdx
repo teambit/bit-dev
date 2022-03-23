@@ -1,0 +1,18 @@
+# App build
+
+An app component has an additional build task added to its build pipeline. This build task is set by it's app-type and is responsible for generating the artifacts for deployment.
+The entry file for that build, as well as any other available build configuration, is set in the app plugin file (for example, `my-app.react-app.ts`).
+
+To test your app's build without execution of your deployment task, run the following:
+
+```bash
+bit build apps/my-app
+```
+
+Head over to this Component's capsule to examine the output of its build (get the capsule's path by running `bit capsule list`).
+Check your app-type documentation to find the exact build directory used by it.
+
+Note that an app's build configuration is not identical to the configuration set by its env.
+For instance, a React app component may have one set of bundle configurations for its component previews and a different one for its deployment.
+That means, among other things, that a working composition does not guarantee a working app.
+

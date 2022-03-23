@@ -14,7 +14,7 @@ export type GithubStarsProps = {
 } & React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
 export function GithubStars({ className, ...rest }: GithubStarsProps) {
-  const stars = 14246; // useStars() - cors issues TODO: guy
+  const stars = 14755; // useStars() - cors issues TODO: guy
   return (
     <ExternalLink href="https://github.com/teambit/bit" className={classNames(styles.githubStars, className)} {...rest}>
       <Icon of="github-logo" />

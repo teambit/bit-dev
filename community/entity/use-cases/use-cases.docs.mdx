@@ -1,32 +1,37 @@
 ---
-description: 'Entity component for Use Cases'
+description: 'Entity component for Bit use-cases.'
 labels: ['mock', 'data', 'entity', 'types']
 ---
 
-import { UseCases } from './use-cases';
+import { UsageExample } from '@teambit/community.ui.usage-example';
+import { usingMock } from './docs/snippets';
+import { RenderUseCasesMock } from './docs/using-mocks.demo';
 
-Array of types for a use case.
+This component describes and demonstrates the "use-case" object. It serves as the source of truth for components sending and receiving "use-cases" data.
 
-```js
-title?: string;
-text?: string;
-image?: string;
-alt?: string;
-href?: string;
+### Test components with mock data
+
+Use the mock data provided by this component to test your components:
+
+<UsageExample code={usingMock} output={<RenderUseCasesMock />} />
+
+### Create a new use-case object
+
+Use this component to create a new use-case and validate it follows the right schema:
+
+```ts
+import { UseCases } from '@teambit/community.entity.use-cases';
+import { title, text, image, alt, href } from './my-use-case-info';
+
+const myUseCase = new UseCases(title, text, image, alt, href);
 ```
 
-## Mock Json
+### Type data transferred via network requests
 
-Mock data for use Cases.
+```ts
+import type { UseCasesFromApi } from '@teambit/community.entity.use-cases';
 
-```json
-export const useCases = [
-  {
-    title: 'Component Library',
-    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis semper, quam sed.',
-    image: 'brands/logo-react.svg',
-    alt: 'react logo',
-    href: "/"
-  }
-];
+async function fetchUseCase(): Promise<UseCasesFromApi> {
+  // ...
+}
 ```

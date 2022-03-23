@@ -2,8 +2,11 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { BasicBubbleEdge } from './edge.composition';
 
-it.skip('should render with the correct text', () => {
-  const { getByText } = render(<BasicBubbleEdge />);
-  const rendered = getByText('hello from BubbleEdge');
-  expect(rendered).toBeTruthy();
+// skipping tests for this component because of this issue: https://github.com/Eliav2/react-xarrows/issues/110.
+describe.skip('Edge component', () => {
+  it('should render', () => {
+    const { container } = render(<BasicBubbleEdge />);
+
+    expect(container).toBeInTheDocument();
+  });
 });

@@ -1,78 +1,124 @@
 # Using Envs
 
-You can have many components configured with different envs in the same workspace.  
-Use `variants` configuration in `workspace.jsonc` file to define the policy of how components should be configured:
+Each Bit component has an env. This is required for Bit to know how to manage the component's lifecycle.  
+The same workspace may have components from different Envs, where an Env can define a more specific configuration for sub-set of components or define a completely different build pipeline and stack.
 
-```javascript
-"teambit.workspace/variants": {
-    "{utility-functions/**}": {    // Match any component name starts with utility-functions
-        "teambit.harmony/node": {} // Set "node" workflow and configs for components
-    },
-    "{pages/**}": {                // Match any component name starts with pages
-        "teambit.react/react": {}  // Set "react" workflow and configs for components
-    },
-}
+By default Bit sets an env for a component. Use the `bit env` command to control the env for a component.
+
+```bash
+bit env set acme.demo/welcome teambit.react/react  # define the component the pre-built react env.
 ```
 
-:::info Default component environment
+```bash
+added teambit.react/react env to the following component(s):
+set acme.demo/welcome
+```
 
-If no policy is defined, Bit sets the component's env to be [node](https://bit.dev/teambit/harmony/node).
+:::tip Setting env is registered as a modification
+
+Bit manages code, dependencies and configuration for each component. This means that when you change the env, Bit marks the component as `modified`. This means you need to tag or snap a new version for the component and release a new version.
 
 :::
 
-There are several ways for you to understand which env is set for a component:
+To see which env is applied for a component, use the `show` command:
 
 ```bash
-bit env # shows all envs set for components in the workspace
+bit show acme.demo/welcome
 ```
 
 ```bash
-┌──────────────────────────────────┬─────────────────────────────────┐
-│ component                        │ env                             │
-├──────────────────────────────────┼─────────────────────────────────┤
-│ teambit.demo/pages/welcome@0.0.1 │ teambit.react/react             │
-├──────────────────────────────────┼─────────────────────────────────┤
-│ teambit.demo/ui/card@0.0.1       │ teambit.react/react             │
-├──────────────────────────────────┼─────────────────────────────────┤
-│ teambit.demo/ui/heading@0.0.1    │ teambit.react/react             │
-├──────────────────────────────────┼─────────────────────────────────┤
-│ teambit.demo/ui/text@0.0.1       │ teambit.react/react             │
-└──────────────────────────────────┴─────────────────────────────────┘
+┌───────┬─────────────────────────┐
+│ id    │ acme.demo/welcome       │
+├───────┼─────────────────────────┤
+│ ...   │ ...                     │
+├───────┼─────────────────────────┤
+│ env   │ teambit.react/react     │
+└───────┴─────────────────────────┘
 ```
 
-Or using `show` for a specific component:
+Now any action you run for the component like `compile`, `test`, `build`, `format` and so on, is controlled by the settings applied from the env.
+
+## Working with custom envs
+
+For Bit there is no difference in syntax for when you work with custom envs or pre-built ones.
 
 ```bash
-bit show teambit.base-ui/button
+bit env set acme.demo/welcome acme.envs/react      # define the component a custom env.
+```
+
+When you apply a custom env a component, it is applied with a specific version. If you haven't set one manually, Bit defaults to the latest version for the selected env.
+
+```bash
+┌───────┬─────────────────────────┐
+│ id    │ acme.demo/welcome       │
+├───────┼─────────────────────────┤
+│ ...   │ ...                     │
+├───────┼─────────────────────────┤
+│ env   │ acme.envs/react@3.1.4   │
+└───────┴─────────────────────────┘
+```
+
+Having versioning for a custom env means you choose the version you want to use and how to upgrade.  
+Rerun `env set` with either a specific version or none to upgrade to the latest, or choose a specific version to update/downgrade to.
+
+```bash
+bit env set acme.demo/welcome acme.envs/react@4.0.0
+```
+
+## Control envs for multiple components
+
+A single workspace may contain many components where components may have different envs. See a full list of which env is set for a component:
+
+```bash
+bit env
 ```
 
 ```bash
-┌───────────────────┬──────────────────────────────────────────────────────────┐
-│ id                │ company.scope/button                                     │
-├───────────────────┼──────────────────────────────────────────────────────────┤
-│ ...               │ ...                                                      │
-├───────────────────┼──────────────────────────────────────────────────────────┤
-│ env               │ company.scope/button                                     │
-├───────────────────┼──────────────────────────────────────────────────────────┤
-│ ...               │ ...                                                      │
-├───────────────────┼──────────────────────────────────────────────────────────┤
-│ ...               │ ...                                                      │
-└───────────────────┴──────────────────────────────────────────────────────────┘
+┌───────────────────────────────┬─────────────────────────┐
+│ component                     │ env                     │
+├───────────────────────────────┼─────────────────────────┤
+│ acme.demo/pages/welcome@0.0.1 │ acme.envs/react@4.0.0   │
+├───────────────────────────────┼─────────────────────────┤
+│ acme.demo/ui/card@0.0.1       │ teambit.react/react     │
+├───────────────────────────────┼─────────────────────────┤
+│ acme.demo/ui/heading@0.0.1    │ teambit.react/react     │
+├───────────────────────────────┼─────────────────────────┤
+│ acme.demo/ui/text@0.0.1       │ teambit.react/react     │
+└───────────────────────────────┴─────────────────────────┘
 ```
 
-## The component's development environment
-
-Get the actual setup for a component by running the `env` command:
+All Bit commands support glob-patterns when specifying components.
 
 ```bash
-bit env teambit.base-ui/button
+bit env set "acme.demo/ui/*" acme.envs/react
 ```
 
-The result output describes all applied services and their configs.
+```bash
+added acme.envs/react env to the following component(s):
+acme.demo/ui/card
+acme.demo/ui/heading
+acme.demo/ui/text
+```
 
-## Component must have a single env
+### Replace env with another
 
-In case your policy applied more than one env for a component, Bit will throw an error when running `status`:
+The `replace` command helps with quickly refactoring all components that use a specific env with another.
+
+```
+bit env replace teambit.react/react acme.envs/react # replace env for all components that use acme.envs/react with teambit.react/react
+```
+
+```bash
+added teambit.react/react env to the following component(s):
+acme.demo/pages/welcome
+acme.demo/ui/card
+acme.demo/ui/heading
+acme.demo/ui/text
+```
+
+## Remove an env from a component
+
+Component should not have more than a single env applied. If you found yourself with an issue in Bit where `status` returns the following:
 
 ```bash
 bit status
@@ -84,32 +130,4 @@ bit status
           company.scope/envs/my-react, teambit.react/react
 ```
 
-This is a result of a mis-placed configuration policy in `workspace.jsonc`. There are several reasons this may occur, and depending on the reason, you should pick the right fix fitting your use case.
-
-```javascript
-{
-"teambit.workspace/variants": {
-  "*, !{pages/**}": {            // use "!" to exclude a group of components with env defined somewhere else
-    "teambit.react/react": {}
-  },
-  "{pages/**}": {
-    "company.scope/envs/my-react": {}
-  },
-}
-```
-
-```javascript
-{
-"teambit.workspace/variants": {
-  "*": {
-    "teambit.react/react": {}
-  },
-  "{pages/**}": {
-    "company.scope/envs/my-react": {},
-    "teambit.envs/envs": {                   // explicitly add the "env" aspect config on a specific rule
-      "env": "company.scope/envs/my-react"
-    }
-    "teambit.react/react": "-",             // explicitly remove the env set in "*" policy
-  },
-}
-```
+Use the `unset` command to remove the unwanted configuration for the component.
