@@ -140,6 +140,15 @@ const ComponentAnatomy = lazy(() => import('@teambit/component.content.component
 const AddingComponents = lazy(() => import('@teambit/component.content.adding-components'));
 const CreateComponents = lazy(() => import('@teambit/community.content.getting-started.composing.create-components'));
 
+/* Lanes */
+
+const LanesOverview = lazy(() => import('@teambit/lanes.content.lanes-overview'));
+const CreateLane = lazy(() => import('@teambit/lanes.content.create-lane'));
+const ComponentsInLane = lazy(() => import('@teambit/lanes.content.components-in-lane'));
+const ExportLane = lazy(() => import('@teambit/lanes.content.export'));
+const ImportLane = lazy(() => import('@teambit/lanes.content.import'));
+const MergeLane = lazy(() => import('@teambit/lanes.content.merging'));
+
 /* Envs */
 const EnvsOverview = lazy(() => import('@teambit/envs.content.envs-overview'));
 const InspectingEnv = lazy(() => import('@teambit/envs.content.inspecting-env'));
@@ -523,6 +532,80 @@ export const learnDocsRoutes: DocsRoute[] = [
           'A lock file is a representation of the node_modules directory, written in a YAML format. It is automatically generated and updated, whenever the node_modules directory structure is modified by the package manager (when packages are either installed or removed).',
         component: <LockFiles />,
       },
+    ],
+  },
+  {
+    path: 'lanes',
+    open: false,
+    title: 'Lanes',
+    icon: 'collection',
+    children: [
+      {
+        path: 'lanes-overview',
+        title: 'Lanes Overview',
+        component: <LanesOverview />,
+        description: 'Lanes allow change management for component driven software.'
+      },
+      {
+        path: 'create-lane',
+        title: 'Creating lanes',
+        description: 'How to create lanes and control their properties.',
+        component: <CreateLane />,
+      },
+      //{ waiting for luv to implement
+      //  path: 'lane-definition',
+      //  title: 'Lane definition',
+      //  description: 'not sure yet',
+      //  component: <div />,
+      //},
+      {
+        path: 'lane-components',
+        title: 'Components in lane',
+        description: 'Add, remove and change components in a lane.',
+        component: <ComponentsInLane />,
+      },
+      //{
+      //  path: 'inspecting-lanes',
+      //  title: 'Inspecting lanes',
+      //  description: 'not sure yet',
+      //  component: <div />,
+      //},
+      //{
+      //  path: 'remote-lanes',
+      //  title: 'Lane remotes',
+      //  description: 'not sure yet',
+      //  component: <div />,
+      //},
+      {
+        path: 'export-lane',
+        title: 'Exporting lanes',
+        description: 'Export a lane to a remote to collaborate with others.',
+        component: <ExportLane />,
+      },
+      {
+        path: 'import-lanes',
+        title: 'Importing lanes',
+        description: 'Import lane or components from a lane to extend collaborate.',
+        component: <ImportLane />,
+      },
+      {
+        path: 'merge-lanes',
+        title: 'Merging changes',
+        description: 'Merge changes for components from a lane to main or other lanes.',
+        component: <MergeLane />,
+      },
+     // {
+     //   path: 'remove-lanes',
+     //   title: 'Removing lanes',
+     //   description: 'Merge lanes when all changes are ready to be versioned.',
+     //   component: <div />,
+     // },
+      //{
+      //  path: 'lanes-objects',
+      //  title: 'Lane objects',
+      //  description: 'How Bit stores and manages lane and all its components in the scope.',
+      //  component: <div />,
+      //},
     ],
   },
   {

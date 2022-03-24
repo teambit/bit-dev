@@ -1,0 +1,18 @@
+# Merging changes
+
+Merging a lane means taking a snap of a component from a lane, and merge it back to the component.
+
+To merge all snaps in your lane to another, first get all components of a lane, and then use the `merge` sub-command
+
+```sh
+bit lane switch myorg.myscope/my-lane --get-all
+bit lane merge main
+```
+
+This merges all changes for all components in the lane to the main lane. Bit creates a snap for each component, highlighting the merge that has happen.
+
+You can now decide to `tag` a new version.
+
+```sh
+bit tag --all --message "new version after merge"
+```

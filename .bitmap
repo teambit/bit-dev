@@ -249,6 +249,13 @@
         "mainFile": "index.ts",
         "rootDir": "component/content/component-overview"
     },
+    "content/components-in-lane": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.lanes",
+        "mainFile": "index.ts",
+        "rootDir": "lanes/content/components-in-lane"
+    },
     "content/composition-context": {
         "scope": "teambit.compositions",
         "version": "1.95.9",
@@ -327,6 +334,13 @@
         "mainFile": "index.ts",
         "rootDir": "docs/content/contributing-docs"
     },
+    "content/create-lane": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.lanes",
+        "mainFile": "index.ts",
+        "rootDir": "lanes/content/create-lane"
+    },
     "content/creating-scopes": {
         "scope": "teambit.scope",
         "version": "1.95.11",
@@ -387,6 +401,13 @@
         "mainFile": "index.ts",
         "rootDir": "envs/content/dev-services-overview"
     },
+    "content/diff-changes": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.lanes",
+        "mainFile": "index.ts",
+        "rootDir": "lanes/content/diff-changes"
+    },
     "content/directory-structure": {
         "scope": "teambit.workspace",
         "version": "1.95.9",
@@ -422,6 +443,13 @@
         "version": "1.95.12",
         "mainFile": "index.ts",
         "rootDir": "envs/content/envs-overview"
+    },
+    "content/export": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.lanes",
+        "mainFile": "index.ts",
+        "rootDir": "lanes/content/export"
     },
     "content/exporting-components": {
         "scope": "teambit.workspace",
@@ -675,6 +703,13 @@
         "mainFile": "index.ts",
         "rootDir": "envs/content/implementing-new-env"
     },
+    "content/import": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.lanes",
+        "mainFile": "index.ts",
+        "rootDir": "lanes/content/import"
+    },
     "content/importing-components": {
         "scope": "teambit.workspace",
         "version": "1.95.10",
@@ -705,6 +740,13 @@
         "mainFile": "index.ts",
         "rootDir": "envs/content/inspecting-env"
     },
+    "content/inspecting-lane": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.lanes",
+        "mainFile": "index.ts",
+        "rootDir": "lanes/content/inspecting-lane"
+    },
     "content/installation/add-to-existing-project": {
         "scope": "teambit.docs",
         "version": "1.95.12",
@@ -716,6 +758,20 @@
         "version": "1.95.10",
         "mainFile": "index.ts",
         "rootDir": "dependencies/content/installing-dependencies"
+    },
+    "content/lane-objects": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.lanes",
+        "mainFile": "index.ts",
+        "rootDir": "lanes/content/lane-objects"
+    },
+    "content/lanes-overview": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.lanes",
+        "mainFile": "index.ts",
+        "rootDir": "lanes/content/lanes-overview"
     },
     "content/linter-overview": {
         "scope": "teambit.defender",
@@ -764,6 +820,13 @@
         "version": "1.95.10",
         "mainFile": "index.ts",
         "rootDir": "docs/content/mdx"
+    },
+    "content/merging": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.lanes",
+        "mainFile": "index.ts",
+        "rootDir": "lanes/content/merging"
     },
     "content/mounting-compositions-to-dom": {
         "scope": "teambit.compositions",
@@ -902,6 +965,13 @@
         "version": "1.95.10",
         "mainFile": "index.ts",
         "rootDir": "preview/content/register-custom-preview"
+    },
+    "content/remote-lanes": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.lanes",
+        "mainFile": "index.ts",
+        "rootDir": "lanes/content/remote-lanes"
     },
     "content/remote-scopes": {
         "scope": "teambit.scope",
