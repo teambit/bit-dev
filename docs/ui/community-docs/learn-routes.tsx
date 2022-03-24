@@ -2,11 +2,6 @@ import React from 'react';
 import { lazy } from '@loadable/component';
 import { DocsRoute } from '@teambit/docs.entities.docs-routes';
 
-/* Getting Started */
-
-// const InstallingBit = lazy(() => import('@teambit/docs.content.getting-started.installing-bit'));
-const CreateComponents = lazy(() => import('@teambit/community.content.getting-started.composing.create-components'));
-
 /* Harmony */
 // const CliReference = lazy(() => import('@teambit/harmony.content.cli-reference'));
 const AspectsOverview = lazy(() => import('@teambit/harmony.content.aspects-overview'));
@@ -143,6 +138,7 @@ const Tags = lazy(() => import('@teambit/component.content.tags'));
 const Snaps = lazy(() => import('@teambit/component.content.snaps'));
 const ComponentAnatomy = lazy(() => import('@teambit/component.content.component-anatomy'));
 const AddingComponents = lazy(() => import('@teambit/component.content.adding-components'));
+const CreateComponents = lazy(() => import('@teambit/community.content.getting-started.composing.create-components'));
 
 /* Envs */
 const EnvsOverview = lazy(() => import('@teambit/envs.content.envs-overview'));
@@ -154,6 +150,7 @@ const UsingEnvs = lazy(() => import('@teambit/envs.content.using-envs'));
 /* Dependencies */
 
 const InspectingDependencies = lazy(() => import('@teambit/dependencies.content.inspecting-dependencies'));
+const CyclicDependencies = lazy(() => import('@teambit/dependencies.content.cyclic-dependencies'));
 const DependenciesOverview = lazy(() => import('@teambit/dependencies.content.dependencies-overview'));
 const ExternalDependencies = lazy(() => import('@teambit/dependencies.content.external-dependencies'));
 const DependencyPolicies = lazy(() => import('@teambit/dependencies.content.dependency-policies'));
@@ -517,6 +514,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'cyclic-dependencies',
         title: 'Cyclic dependencies',
+        component: <CyclicDependencies />,
       },
       {
         path: 'lock-files',

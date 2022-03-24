@@ -4,10 +4,10 @@ import classNames from 'classnames';
 import { GridNode, DependencyEdge } from '@teambit/community.entity.graph.grid-graph';
 import { Edge as DefaultEdge, ArrowAutoReloader } from '@teambit/community.ui.graph.edge';
 import { graphNodeLayout, Sizes } from '@teambit/base-react.ui.layout.graph-node';
-import { DefaultNode } from './default-node';
 import { getValidId } from './utils';
 import type { PositionsType } from './utils';
 import styles from './grid-graph.module.scss';
+import { DefaultNode } from './default-node';
 
 export type GridItemProps = {
   id?: string;
