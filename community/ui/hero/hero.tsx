@@ -58,7 +58,7 @@ export function Hero({ title = defaultTitle, teaser = defaultTeaser, bubbles }: 
             className={classNames(styles.titleHighlighter)}
             componentId={ComponentID.fromString('teambit.community/ui/heading')}
           >
-            <Heading className={styles.marginZero} highlight={heroState === HeroState.HEADING_UPDATED}>
+            <Heading className={styles.heading} highlight={heroState === HeroState.HEADING_UPDATED}>
               {title}
             </Heading>
           </BubbleHighlighter>
