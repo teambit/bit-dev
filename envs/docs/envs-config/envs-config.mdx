@@ -1,0 +1,31 @@
+# Envs configuration
+
+## env
+
+```ts
+env: string;
+```
+
+Sets components with a component development environment.
+
+For example:
+
+```json
+"env": "teambit.react/react"
+```
+
+It is recommended to apply an env on a selected group of components - not as the workspace default.
+
+For example:
+
+```json
+{
+  "teambit.workspace/variants": {
+    "{ui/**}": {
+      "teambit.envs/envs": {
+        "env": "teambit.react/react"
+      }
+    }
+  }
+}
+```

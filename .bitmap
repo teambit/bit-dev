@@ -3,9 +3,9 @@
 /**
  * The Bitmap file is an auto generated file used by Bit to track all your Bit components. It maps the component to a folder in your file system.
  * This file should be committed to VCS(version control).
- * Components are listed using their component ID (https://bit.dev/docs/components/component-id).
+ * Components are listed using their component ID (https://harmony-docs.bit.dev/aspects/component/#component-id).
  * If you want to delete components you can use the "bit remove <component-id>" command.
- * See the docs (https://bit.dev/docs/components/removing-components) for more information, or use "bit remove --help".
+ * See the docs (https://harmony-docs.bit.dev/building-with-bit/removing-components) for more information, or use "bit remove --help".
  */
 
 {
@@ -1153,11 +1153,32 @@
         "mainFile": "index.ts",
         "rootDir": "harmony/docs/creating-aspects"
     },
+    "docs/envs-config": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.envs",
+        "mainFile": "index.ts",
+        "rootDir": "envs/docs/envs-config"
+    },
     "docs/installation/setup-editor": {
         "scope": "teambit.bit",
         "version": "1.95.10",
         "mainFile": "index.ts",
         "rootDir": "bit/docs/installation/setup-editor"
+    },
+    "docs/linter-config": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.defender",
+        "mainFile": "index.ts",
+        "rootDir": "defender/docs/linter-config"
+    },
+    "docs/preview-config": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.preview",
+        "mainFile": "index.ts",
+        "rootDir": "preview/docs/preview-config"
     },
     "docs/runtimes": {
         "scope": "teambit.harmony",
@@ -1170,6 +1191,13 @@
         "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "harmony/docs/slots"
+    },
+    "docs/tester-config": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.defender",
+        "mainFile": "index.ts",
+        "rootDir": "defender/docs/tester-config"
     },
     "docs/using-apps": {
         "scope": "teambit.apps",
