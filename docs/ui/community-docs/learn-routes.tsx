@@ -39,7 +39,7 @@ const HostingScopes = lazy(() => import('@teambit/scope.content.hosting-scopes')
 
 /* Dev services */
 // const AvailableServices = lazy(() => import('@teambit/envs.content.available-services'));
-const DevServices = lazy(() => import('@teambit/envs.content.dev-services'));
+// const DevServices = lazy(() => import('@teambit/envs.content.dev-services'));
 // const DevServicesOverview = lazy(() => import('@teambit/envs.content.dev-services-overview'));
 
 /* Apps */
@@ -544,7 +544,7 @@ export const learnDocsRoutes: DocsRoute[] = [
         path: 'lanes-overview',
         title: 'Lanes Overview',
         component: <LanesOverview />,
-        description: 'Lanes allow change management for component driven software.'
+        description: 'Lanes allow change management for component driven software.',
       },
       {
         path: 'create-lane',
@@ -594,12 +594,12 @@ export const learnDocsRoutes: DocsRoute[] = [
         description: 'Merge changes for components from a lane to main or other lanes.',
         component: <MergeLane />,
       },
-     // {
-     //   path: 'remove-lanes',
-     //   title: 'Removing lanes',
-     //   description: 'Merge lanes when all changes are ready to be versioned.',
-     //   component: <div />,
-     // },
+      // {
+      //   path: 'remove-lanes',
+      //   title: 'Removing lanes',
+      //   description: 'Merge lanes when all changes are ready to be versioned.',
+      //   component: <div />,
+      // },
       //{
       //  path: 'lanes-objects',
       //  title: 'Lane objects',
@@ -685,24 +685,13 @@ export const learnDocsRoutes: DocsRoute[] = [
         description: 'Extend existing envs to create your unique workflow.',
         component: <ExtendingEnv />,
       },
-      {
-        path: 'dev-services',
-        title: 'Dev services',
-        description: 'Development Services control various workflows and commands for components.',
-        component: <DevServices />,
-      },
-      // {
-      //   path: 'envs-api',
-      //   title: 'Envs API',
-      //   component: <EnvsApi />,
-      // },
     ],
   },
   {
-    path: 'dev-services-overview',
+    path: 'dev-services',
     title: 'Dev services',
     icon: 'compCI',
-    open: false,
+    description: 'Development Services control various workflows and commands for components.',
     children: [
       {
         path: 'builder',
