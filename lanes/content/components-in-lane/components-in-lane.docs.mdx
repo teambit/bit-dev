@@ -1,0 +1,25 @@
+---
+description: 'An MDX component.'
+labels: ['content', 'mdx']
+---
+
+import { ComponentsInLane } from './index';
+
+### Component usage
+```js
+<ComponentsInLane />
+```
+
+### Render with theme and MDX providers
+
+```js
+import { ThemeCompositions } from '@teambit/documenter.theme.theme-compositions'
+import { MDXLayout } from '@teambit/mdx.ui.mdx-layout'
+import { ComponentsInLane } from './index'
+
+<ThemeCompositions>
+  <MDXLayout>
+    <ComponentsInLane />
+  </MDXLayout>
+</ThemeCompositions>
+```
