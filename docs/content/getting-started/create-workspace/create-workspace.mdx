@@ -13,10 +13,9 @@ bit templates
 
 :::tip Create your scope
 
-We recommend creating a remote [Scope](/scope/scope-overview) as a target for exporting your components.  
+We recommend creating a remote [Scope](/scope/scope-overview) as a target for exporting your components.
 
 Either [create a free Scope on the Bit Cloud](https://bit.cloud) or [host your own Scope](/scope/running-a-scope-server).
-
 
 :::
 
@@ -55,7 +54,7 @@ Most templates will likely generate the following files:
 - `tsconfig.json`, `.eslintrc.js`, `types` directory and other base files to sync your IDE with components.
 - `node_modules` and `pnpm-lock.yaml` - External dependencies and a corresponding lock file managed by pnpm as the package manager.
 - `.git` - Newly initiated Git repository (can be skipped with the `--skip-git` flag).
-- `.git/bit` - [Local Scope](/scope/overview) associated with the Workspace.
+- `.git/bit` - [Local Scope](/scope/scope-overview) associated with the Workspace.
 
 See the status of all components in the workspace.
 
@@ -76,7 +75,7 @@ new components
 
 Notice all components are under the `new` category. This category is for components that were just created and does not have any past versions. Each of the components is also marked as `ok`, which means that Bit is unable to find any issues with the components. There may be different statuses for components, which direct you to fix dependency resolution or other issues. Learn more on the different [workspace statuses](/workspace/workspace-status).
 
-Workspace comes with a local dev server <!-- [local dev server](/workspace/workspace-ui) --> to help with building your components. It helps during development and ease common development tasks as documentation, discovery, testing, visualization, dependency management, explore history and other capabilities. You can use the Workspace UI alongside other development tools.  <!-- Bit runs a dev server for each type of components, according to their configuration. [readmore](/bundlers/dev-servers) -->
+Workspace comes with a local dev server <!-- [local dev server](/workspace/workspace-ui) --> to help with building your components. It helps during development and ease common development tasks as documentation, discovery, testing, visualization, dependency management, explore history and other capabilities. You can use the Workspace UI alongside other development tools. <!-- Bit runs a dev server for each type of components, according to their configuration. [readmore](/bundlers/dev-servers) -->
 
 Start the local workspace UI with the following command:
 
