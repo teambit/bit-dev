@@ -300,7 +300,7 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <Bitmap />,
       },
       {
-        path: 'component-links',
+        path: 'component-link',
         title: 'Workspace component link',
         component: <WorkspaceLink />,
       },
@@ -594,12 +594,12 @@ export const learnDocsRoutes: DocsRoute[] = [
         description: 'Merge changes for components from a lane to main or other lanes.',
         component: <MergeLane />,
       },
-     // {
-     //   path: 'remove-lanes',
-     //   title: 'Removing lanes',
-     //   description: 'Merge lanes when all changes are ready to be versioned.',
-     //   component: <div />,
-     // },
+      // {
+      //   path: 'remove-lanes',
+      //   title: 'Removing lanes',
+      //   description: 'Merge lanes when all changes are ready to be versioned.',
+      //   component: <div />,
+      // },
       //{
       //  path: 'lanes-objects',
       //  title: 'Lane objects',
