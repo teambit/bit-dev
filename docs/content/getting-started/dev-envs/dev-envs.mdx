@@ -112,7 +112,7 @@ To learn more on Compiler, head to over to the [Compiler documentation](/dev-ser
 ### `test`
 
 Running tests for components built with purposes may result in requiring vastly different configurations and approaches. For example, for UI components you may want to set visual regression testing, while for utils this is less relevant. Some components may also need different testers.  
-The [tester](/tester/overview) service knows to run tests and extract their results to a standardized format to be presented in the UI.
+The [tester](/dev-services-overview/tester/tester-overview) service knows to run tests and extract their results to a standardized format to be presented in the UI.
 
 ```bash
 bit test
@@ -152,7 +152,7 @@ When using `bit start` as your development environment, the UI will display the 
 
 :::
 
-To learn more about the Tester and component Testing, head over to the [Tester documentation](/tester/overview).
+To learn more about the Tester and component Testing, head over to the [Tester documentation](/dev-services-overview/tester/tester-overview).
 
 ### `lint`
 
@@ -177,7 +177,7 @@ To learn more about the Formatter, please head over to the [Formatter documentat
 
 ### `build`
 
-[Builder](/builder/overview) service composes the [build pipeline](/builder/build-pipelines) from tasks implemented by other [services](/envs/services/overview) such as [Compiler](/compiler/overview) or [Tester](/tester/overview).
+[Builder](/builder/overview) service composes the [build pipeline](/builder/build-pipelines) from tasks implemented by other [services](/envs/services/overview) such as [Compiler](/compiler/overview) or [Tester](/dev-services-overview/tester/tester-overview).
 
 ```bash title="Run the build pipeline"
 bit build
