@@ -1,9 +1,8 @@
 # Configuring Dependencies
 
-
-Even though dependencies are usually set automatically by using [Dependency Policies](/docs/dependencies/dependency-policies), components in the Workspace can be configured with a 
+Even though dependencies are usually set automatically by using [Dependency Policies](/dependencies/dependency-policies), components in the Workspace can be configured with a
 specific set of dependencies. Component dependencies can either be configured with [Variants](/docs/workspace/variants), by the development environment, by ejecting the component configuration, or by editing the [component.json](/docs/components/component-json)
-like any [component configuration](/components/component-config) in Bit. 
+like any [component configuration](/components/component-config) in Bit.
 
 Specific dependencies can be configured by setting the `dependencies` property in the `teambit.dependencies/dependency-resolver` configuration.
 
@@ -15,7 +14,7 @@ In the example below, `classnames` is configured to all components under the `ui
     "dependencies": {
       "{ui/**}": {
         "standard": {
-          "classnames": "1.0.0" 
+          "classnames": "1.0.0"
         }
       }
     }
@@ -25,7 +24,7 @@ In the example below, `classnames` is configured to all components under the `ui
 
 To check whether the configuration has applied on selected components run the `bit show` command.
 
-For example: 
+For example:
 
 ```bash
 $ bit show ui/heading
@@ -44,7 +43,7 @@ $ bit show ui/heading
 ```
 
 :::tip
-Variants can be used to select components by directories, or even to select specific components. To learn more about configuring components with Variants, head over to [Variants](/workspace/variants). 
+Variants can be used to select components by directories, or even to select specific components. To learn more about configuring components with Variants, head over to [Variants](/workspace/variants).
 :::
 
 As mentioned, dependencies can also be configured with `component.json` files. These can be ejected for any component in the Workspace with `bit eject-conf`.
@@ -96,9 +95,10 @@ In the below example, we are telling the dependency resolved to ignore `enzyme` 
 ```
 
 ## Dev and peer dependencies
+
 Components can also be configured to use dependencies of different types. Configuring either dev or peer dependencies to a component can be done using the `devDependencies` or `peerDependencies` properties.
 
-In the example below, `@testing-library/react` is configured as a dev dependency: 
+In the example below, `@testing-library/react` is configured as a dev dependency:
 
 ```json
 {
@@ -114,12 +114,11 @@ In the example below, `@testing-library/react` is configured as a dev dependency
 
 A component dependency policy will set the type and version of a component's dependency. If that dependency is not already listed in the component's dependency graph (this is usually automatically detected), it will be added.
 
-
 ## Configuring dependencies from an Env
+
 Configuring dependencies from the Env is useful for standardizing component dependencies, such as peer dependencies, across a large set of components. This helps to ensure
 consistent and efficient dependency trees. Another example of dependency configuration that might be applied by the Env could be dependencies added during component
 compilation.
-
 
 To set dependencies from a React Env, implement the Env `getDependencies` method and return a set up dependencies.
 
@@ -129,7 +128,7 @@ For example:
 getDependencies(component: any): Promise<DependencyList>
 ```
 
-Let's take a look at another example. In the code below, we are removing React as a dependency and adding common types packages to all components. 
+Let's take a look at another example. In the code below, we are removing React as a dependency and adding common types packages to all components.
 
 ```ts
 import { DependenciesEnv } from '@teambit/envs';
@@ -157,9 +156,9 @@ export class MyEnv implements DependenciesEnv {
 
 ### Configuring from Aspects
 
-Configuring dependencies from an Aspect can be useful for various automations, improvement of development experience, and more advanced use cases. 
+Configuring dependencies from an Aspect can be useful for various automations, improvement of development experience, and more advanced use cases.
 
-For example: 
+For example:
 
 ```bash
 bit create aspect my-aspect
@@ -187,5 +186,3 @@ export class MyAspect {
 ```
 
 The code example above configures any component configured with the `MyAspect` aspect with the `classnames` package.
-
-
