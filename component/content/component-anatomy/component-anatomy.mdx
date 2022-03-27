@@ -75,13 +75,13 @@ Components can have any number of files. Files can be sorted into sub-directorie
 
 ### Dev Files
 
-Component dev-files are files we use for non-production purposes like testing, documentation, etc. Categorizing dev-files helps Bit with marking which dependencies should be considered as `devDependencies`, thus help with managing a component dependency tree.  
+Component dev-files are files we use for non-production purposes like testing, documentation, etc. Categorizing dev-files helps Bit with marking which dependencies should be considered as `devDependencies`, thus help with managing a component dependency tree.
 
 Bit marks which configuration set each of the files as a dev-file. [Read more](/components/dev-files) on how to manage component dev-files.
 
 ## Dependencies
 
-Component dependencies are managed by the [dependency resolver](https://bit.cloud/docs/dependencies/dependencies-overview). This tool reads through all `import` and `require` statement in the component source code, and maps them to components or installed packages.
+Component dependencies are managed by the [dependency resolver](/dependencies/dependencies-overview). This tool reads through all `import` and `require` statement in the component source code, and maps them to components or installed packages.
 
 Bit then creates a model of all the dependencies of the component. The dependency graph makes a component self-contained and allows for moving the component around projects without losing any references.
 The dependencies include the following:
