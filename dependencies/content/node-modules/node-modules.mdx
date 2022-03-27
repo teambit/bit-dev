@@ -6,7 +6,7 @@ Package managers take responsibility over the `node_modules` directory for insta
 
 ## Installing external dependencies
 
-External dependencies are installed using the `bit install` command, which encapsulates the usage of package managers, such as Yarn and PNPM, making sure component dependencies are deduped correctly and linking all [Workspace](/workspace/overview) Components.
+External dependencies are installed using the `bit install` command, which encapsulates the usage of package managers, such as Yarn and PNPM, making sure component dependencies are deduped correctly and linking all [Workspace](/workspace/workspace-overview) Components.
 
 ```bash
 bit install
@@ -16,12 +16,11 @@ bit install
 
 Workspace components are linked through the `node_modules` directory to their location in the Workspace itself for type resolution. `package.json` compiled code is contained under the `dist` directory.
 
-The `bit link` command makes sure all of Bit's core Aspects are linked to your Workspace so that you can leverage Bit's APIs. 
+The `bit link` command makes sure all of Bit's core Aspects are linked to your Workspace so that you can leverage Bit's APIs.
 
 ```bash
 bit link
 ```
-
 
 ## Delegating node_modules directory to a package manager
 

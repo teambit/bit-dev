@@ -2,18 +2,18 @@ import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-
 
 # Linter Overview
 
-<ComponentCardDisplay componentIds={[
-  'teambit.defender/linter',
-]} style={{ float: 'left', margin: 20, maxWidth: 250, marginBottom: 20 }} />
+<ComponentCardDisplay
+  componentIds={['teambit.defender/linter']}
+  style={{ float: 'left', margin: 20, maxWidth: 250, marginBottom: 20 }}
+/>
 
 Bit's Linter simplifies and standardizes the process of component linting. It does so for linting during development (in the workspace) and for linting during component build (in a capsule, as part of the [Build Pipeline](/builder/build-pipelines))
 
 Linting helps us maintain consistent code styling and avoid potential bugs by analyzing our source code, statically, before it is compiled and executed.
 
-
 ## Linting in development
 
-Bit lints all components in the [Workspace](/workspace/overview) using just a single command. That is true for components of all types, regardless of their specific [Env](/envs/overview), and as a consequence of that, their specific Linter implementation<!-- [Linter implementation](#) --> and configuration.
+Bit lints all components in the [Workspace](/workspace/workspace-overview) using just a single command. That is true for components of all types, regardless of their specific [Env](/envs/overview), and as a consequence of that, their specific Linter implementation<!-- [Linter implementation](#) --> and configuration.
 
 ```bash
 bit lint
