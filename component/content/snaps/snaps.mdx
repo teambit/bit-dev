@@ -6,11 +6,11 @@ import { Image } from '@teambit/docs.ui.zoomable-image';
 
 Snaps allow recoding of changes on components alongside a message describing the change. Use snaps to share changes of a component to collaborate with your team on components. Snapshots are immutable, when they are saved to Bit and published, you can't change them, similar to a commit in Git.
 
-In Bit you manage changes across connected components, this guide follows how snapping changes work for components that have dependencies on each other.  
+In Bit you manage changes across connected components, this guide follows how snapping changes work for components that have dependencies on each other.
 
 The guide follows sharing changes for `ui/text` and `ui/heading` in a workspace with 4 connected components.
 
-<Image src={snapOverview} width="50%"/>
+<Image src={snapOverview} width="50%" />
 
 ## Snap a single component
 
@@ -54,12 +54,12 @@ new components
      > pages/welcome ... ok
      > ui/card ... ok
      > ui/heading ... ok
-                         
+
 snapped components
 (use "bit tag --all [version]" or "bit tag --snapped [version]" to lock a version)
 
      > ui/text ... ok
-                         
+
 staged components
 (use "bit export <remote_scope> to push these components to a remote scope")
 
@@ -75,7 +75,7 @@ Export snaps using `export` command:
 bit export
 ```
 
-Read more [here](/workspace/exporting-components).
+Read more [here](/components/exporting-components).
 
 ### Tracking new changes
 
