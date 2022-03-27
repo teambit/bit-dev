@@ -1,11 +1,10 @@
 # Dependency Installation
 
-Bit's dependency resolver ensures Workspace Components and [External Dependencies](/dependencies/dependencies-overview) are resolved and kept up to date. It makes sure all components and external 
+Bit's dependency resolver ensures Workspace Components and [External Dependencies](/dependencies/dependencies-overview) are resolved and kept up to date. It makes sure all components and external
 dependencies are resolved from the [`node_modules`](/dependencies/node_modules) directory.
 
 It fetches [component objects](/components/component-objects) and uses modern package package managers such as [pnpm](https://pnpm.io/) and [Yarn](https://yarnpkg.com/) to make sure each independent component is resolved with the correct dependencies and their corresponding versions.
 Updating and resolving components and external dependencies in the Workspace is done by running `bit install`.
-
 
 ```bash
 bit install
@@ -31,12 +30,13 @@ Successfully resolved dependencies for 6 component(s) in 11.036 seconds
 ```
 
 Dependencies are resolved for each component in the Workspace, according to configuration provided by the Workspace Dependency Policy, component dependencies or Aspects used by
-your components. 
-To inspect which dependencies are expected to be resolved for each component, use `bit show` or `bit dependencies`. For more information, head over to 
+your components.
+To inspect which dependencies are expected to be resolved for each component, use `bit show` or `bit dependencies`. For more information, head over to
 [Inspecting Dependencies](/dependencies/inspecting-dependencies).
 
 ## Add an external dependency
-Adding an external dependency (which can be either a Component or a package) is done by configuring the Workspace [Dependency Policy](/dependencies/dependency-policy).
+
+Adding an external dependency (which can be either a Component or a package) is done by configuring the Workspace [Dependency Policy](/dependencies/dependency-policies).
 Running `bit install <component-id>` will automate this process by resolving the latest version of the requested dependency, configuring it on the Workspace Dependency Policy, and
 eventually making sure the Bit workspace is up to date.
 
@@ -65,7 +65,8 @@ Successfully resolved dependencies for 6 component(s) in 8.815 seconds
 Since `bit install` only fetches outdated or unresolved dependencies. Therefore, the installation process ended in the above example by installing the newly added `@teambit/design.ui.buttons.button`.
 
 ## Install a specific version of a package
-Dependencies can also be added with a specific version. [SemVer](https://semver.org/) ranges can also be set on the Workspace [Dependency Policy](/dependencies/dependency-policy).
+
+Dependencies can also be added with a specific version. [SemVer](https://semver.org/) ranges can also be set on the Workspace [Dependency Policy](/dependencies/dependency-policies).
 
 ```shell
 bit use lodash@1.0.0
