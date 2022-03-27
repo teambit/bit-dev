@@ -16,6 +16,28 @@ A Component ID is generated when a component is added to the Workspace. For exam
 bit create react ui/inputs/button --scope my-org.my-shop
 ```
 
+Run the following to inspect the different parts of the Component ID:
+
+```bash
+bit show my-org.my-shop/ui/inputs/button
+```
+
+The output displays the full component-id, its sub-parts, and the package name that was generated according to it.
+
+```
+┌───────────────────┬───────────────────────────────────────────────────────────┐
+│ id                │ my-org.scope/ui/inputs/button                             │
+├───────────────────┼───────────────────────────────────────────────────────────┤
+│ scope             │ my-org.scope                                              │
+├───────────────────┼───────────────────────────────────────────────────────────┤
+│ name              │ ui/inputs/button                                          │
+├───────────────────┼───────────────────────────────────────────────────────────┤
+│ package name      │ @my-org/scope.ui.inputs.button                            │
+├───────────────────┼───────────────────────────────────────────────────────────┤
+│ ...               │ ...                                                       │
+└───────────────────┴───────────────────────────────────────────────────────────┘
+```
+
 The new Component ID is registered in the workspace `.bitmap` file. Once that component is exported to a remote scope, it is registered there using the same ID.
 That makes the Component ID a valid reference to a component in the workspace, as well as in a remote scope (for example, `bit test COMPONENT_ID` and `bit import COMPONENT_ID` )
 
@@ -58,7 +80,7 @@ Bit Components must be require-able by node module resolution. The component ID 
 - Component name must contain only url-safe characters.
 - Component name should not contain any leading or trailing spaces.
 - Component name should not contain any of the following characters: `~)('!*` .
-- Component name cannot be the same as a node.js/io.js core module nor a resetarved/blacklisted name.
+- Component name cannot be the same as a node.js/io.js core module nor a reserved/blacklisted name.
 - Component name length cannot exceed 214.
 
 ## List all component IDs in a workspace
@@ -78,30 +100,4 @@ found 1 components
 ├────────────────────────────────┼─────────────────┼───────────────────┤
 │ teambit.base-ui/elements/image │ 1.0.0           │ 1.0.0             │
 └────────────────────────────────┴─────────────────┴───────────────────┘
-```
-
-## List all component IDs in a remote scope
-
-Run the following to list all Component IDs in a remote scope:
-
-```
-bit list REMOTE_SCOPE
-```
-
-For example:
-
-```
-$ bit list teambit.docs
-
-found 51 components in teambit.docs
-┌─────────────────────────────────────────────────────────────┬─────────────────┬───────────────────┐
-│ component ID                                                │ latest in scope │ used in workspace │
-├─────────────────────────────────────────────────────────────┼─────────────────┼───────────────────┤
-│ teambit.docs/blocks/component/architecture-breakdown        │ 1.23.1          │ N/A               │
-├─────────────────────────────────────────────────────────────┼─────────────────┼───────────────────┤
-│ teambit.docs/content/contributing-docs                      │ 1.23.0          │ N/A               │
-├─────────────────────────────────────────────────────────────┼─────────────────┼───────────────────┤
-│ ...                                                         │ ...             │ ...               │
-└─────────────────────────────────────────────────────────────┴─────────────────┴───────────────────┘
-
 ```

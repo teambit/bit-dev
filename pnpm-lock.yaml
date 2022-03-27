@@ -656,6 +656,9 @@ importers:
   component/content/tags:
     specifiers: {}
 
+  component/docs/renaming-components:
+    specifiers: {}
+
   compositions/content/composition-context:
     specifiers: {}
 
