@@ -10,7 +10,7 @@ export type EdgeProps = {
 
 export function Edge({ node, dependency, ...rest }: EdgeProps) {
   const anchors: any = {};
-  const direction = getDirection(dependency.edge?.direction) || {}; // not sure if we should memoize this
+  const direction = getDirection(dependency.edge?.direction) || {}; // not sure if we should memoize this.
 
   if (dependency.edge?.start) anchors.startAnchor = dependency.edge.start;
   if (dependency.edge?.end) anchors.endAnchor = dependency.edge.end;

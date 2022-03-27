@@ -1,19 +1,13 @@
 import React, { ComponentType, useMemo } from 'react';
 import { ComponentID } from '@teambit/component-id';
 import classNames from 'classnames';
-import {
-  GridNode,
-  DependencyEdge,
-} from '@teambit/community.entity.graph.grid-graph';
-import { Edge as DefaultEdge } from '@teambit/community.ui.graph.edge';
-import {
-  graphNodeLayout,
-  Sizes,
-} from '@teambit/base-react.ui.layout.graph-node';
-import { DefaultNode } from './default-node';
+import { GridNode, DependencyEdge } from '@teambit/community.entity.graph.grid-graph';
+import { Edge as DefaultEdge, ArrowAutoReloader } from '@teambit/community.ui.graph.edge';
+import { graphNodeLayout, Sizes } from '@teambit/base-react.ui.layout.graph-node';
 import { getValidId } from './utils';
 import type { PositionsType } from './utils';
 import styles from './grid-graph.module.scss';
+import { DefaultNode } from './default-node';
 
 export type GridItemProps = {
   id?: string;
@@ -68,19 +62,21 @@ export function GridGraph({
 }: GridGraphProps) {
   return (
     <div className={classNames(styles.gridGraph, className)} {...rest}>
-      {nodes.map((node) => {
-        const id = getValidId(node.id.toString({ ignoreVersion: true }));
-        return (
-          <GraphNode
-            key={id}
-            Edge={Edge}
-            Node={Node}
-            nodeContent={node}
-            className={nodeClassName}
-            nodeLayout={nodeLayout}
-          />
-        );
-      })}
+      <ArrowAutoReloader>
+        {nodes.map((node) => {
+          const id = getValidId(node.id.toString({ ignoreVersion: true }));
+          return (
+            <GraphNode
+              key={id}
+              Edge={Edge}
+              Node={Node}
+              nodeContent={node}
+              className={nodeClassName}
+              nodeLayout={nodeLayout}
+            />
+          );
+        })}
+      </ArrowAutoReloader>
       {children}
     </div>
   );
@@ -97,15 +93,7 @@ function GraphNode<T>({
   Edge = DefaultEdge,
   nodeLayout = graphNodeLayout,
 }: GridGraphNodeProps<T>) {
-  const {
-    id,
-    attrId,
-    dependencies,
-    position = '',
-    sizes,
-    col,
-    row,
-  } = nodeContent || {};
+  const { id, attrId, dependencies, position = '', sizes, col, row } = nodeContent || {};
   const cellLayout = useMemo(() => {
     return nodeLayout(sizes, row, col);
   }, [sizes]);
@@ -119,13 +107,7 @@ function GraphNode<T>({
       <Node id={attrId} node={nodeContent} />
 
       {dependencies.map((dependency) => {
-        return (
-          <Edge
-            key={`${attrId}->${dependency.attrId}`}
-            node={nodeContent}
-            dependency={dependency}
-          />
-        );
+        return <Edge key={`${attrId}->${dependency.attrId}`} node={nodeContent} dependency={dependency} />;
       })}
     </div>
   );

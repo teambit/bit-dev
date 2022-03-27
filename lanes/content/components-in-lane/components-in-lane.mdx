@@ -1,0 +1,42 @@
+# Components in lane
+
+Lanes hold [snaps](components/snaps) of components. A single lane can hold multiple snaps of various components. This way you aggregate changes for many components under a single roof.
+
+Associate a snap to a lane by first ensuring your workspace is on a lane:
+
+```sh
+bit lane switch my-lane
+```
+
+Now, any snap you do for any component will be tied to the lane.
+
+```sh
+bit create react ui/button                   # create a new component
+bit snap ui/button --message "my first snap" # create the snap
+```
+
+The new snap for your new component is stored in the lane:
+
+```sh
+bit show lane my-lane
+```
+
+```sh
+showing information for my-lane - (remote lane - my-scope/my-lane)
+    components (1)
+	  ui/button - 387afb9aaee14de53c1ea74979a254b818eedc80
+```
+
+After the snap is created, you can also see all the components (with the changes applied onto them) in the workspace UI. Run `start` and when you browse the lane, you see a grid of components.  
+When choosing a component, you browse the snap that the lane contain.
+
+:::info Affected components
+
+When your workspace has several components, and you `snap` a component, all components that depends on that change will be snapped as well and tracked by the lane.  
+Essentially making the lane contain not only the change for your component, but the affected ones as well.
+
+:::
+
+## Snap changes across scopes
+
+A lane can hold changes for components without a limitation of where a component is originally located. You can track changes for components from multiple scopes into the same lane. This is like having a virtual branch that includes changes from multiple repositories.
