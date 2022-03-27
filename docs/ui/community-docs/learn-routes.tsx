@@ -137,7 +137,8 @@ const InspectingComponents = lazy(() => import('@teambit/component.content.inspe
 const Tags = lazy(() => import('@teambit/component.content.tags'));
 const Snaps = lazy(() => import('@teambit/component.content.snaps'));
 const ComponentAnatomy = lazy(() => import('@teambit/component.content.component-anatomy'));
-const AddingComponents = lazy(() => import('@teambit/component.content.adding-components'));
+const RenamingComponents = lazy(() => import('@teambit/component.docs.renaming-components'));
+// const AddingComponents = lazy(() => import('@teambit/component.content.adding-components'));
 const CreateComponents = lazy(() => import('@teambit/community.content.getting-started.composing.create-components'));
 
 /* Lanes */
@@ -438,6 +439,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         title: 'Renaming components',
         path: 'renaming-components',
+        component: <RenamingComponents />,
       },
       {
         title: 'Merging changes',
@@ -1310,6 +1312,11 @@ export const learnDocsRoutes: DocsRoute[] = [
             path: 'html-overview',
             title: 'HTML overview',
             component: <HtmlOverview />,
+          },
+          {
+            path: 'configure-webpack',
+            title: 'Configure webpack',
+            component: <ConfigureWebpack />,
           },
         ],
       },

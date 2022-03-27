@@ -59,7 +59,7 @@
     },
     "community/blog-quick-start": {
         "scope": "teambit.blog",
-        "version": "0.0.26",
+        "version": "0.0.28",
         "mainFile": "index.ts",
         "rootDir": "blog/community/blog-quick-start"
     },
@@ -1158,6 +1158,20 @@
         "version": "1.95.10",
         "mainFile": "index.ts",
         "rootDir": "bit/docs/installation/setup-editor"
+    },
+    "docs/renaming-components": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.component",
+        "mainFile": "index.ts",
+        "rootDir": "component/docs/renaming-components",
+        "config": {
+            "teambit.community/envs/community-mdx": {},
+            "teambit.envs/envs": {
+                "env": "teambit.community/envs/community-mdx"
+            },
+            "teambit.community/envs/community-mdx@1.95.9": "-"
+        }
     },
     "docs/runtimes": {
         "scope": "teambit.harmony",
