@@ -3,16 +3,13 @@ import compilerDiagram from './compiler-diagram.png';
 
 # Env services overview
 
-_Dev Services_ simplify and standardize component development processes. They allow you to perform different development operations like, testing, linting, and compiling, using the same sets of commands and APIs, 
+_Dev Services_ simplify and standardize component development processes. They allow you to perform different development operations like, testing, linting, and compiling, using the same sets of commands and APIs,
 regardless of the tools and configs that are used for each dev operation.
 
-Env Services are applied on components via the components' [Envs](/envs/overview). That means, components of different types (which use different Envs) will use a different set of tools and configs for their development.
-
+Env Services are applied on components via the components' [Envs](/envs/envs-overview). That means, components of different types (which use different Envs) will use a different set of tools and configs for their development.
 
 For instance, `bit compile` compiles all components in your workspace, regardless of the specific tool (TS, Babel, etc.) used by each component.
 The output to the terminal will have the same format, and the generated dist files will all be available in the components' corresponding `node_modules` directory.
-
-
 
 ## Execution in the workspace VS Execution during build
 
@@ -21,7 +18,6 @@ Use Dev Services during component development or as Build Tasks, during componen
 Development and build processes are often configured differently to address the needs of each context.
 For example, the TypeScript Aspect does not generate `.d.ts` files when used in the workspace (during development) but does generate these files when used during component build. This is done in order to improve performance during development.
 
-
 ## Service Handlers
 
 _Service Handlers_ are implemented by Envs to provide Dev Services with the specific tools and configurations to use.
@@ -29,7 +25,7 @@ _Service Handlers_ are implemented by Envs to provide Dev Services with the spec
 For example, the `MyEnv` Env, shown below, uses the Service Handler `getCompiler()` to provide the Compiler Dev Service with the tool (`babelAspect`) and the config (`babelConfig`) to use.
 That means, when you run `bit compile`, components that use `MyEnv` Env, use that tool and config, for their compilation.
 
-```ts 
+```ts
 import { CompilerEnv } from '@teambit/envs';
 import { BabelMain } from '@my-org/my-tools.aspects.babel';
 import { babelConfig } './babel-config';
@@ -52,7 +48,7 @@ An Env can be customized by replacing its service handlers, or by adding new one
 
 As mentioned above, Dev Services are standardizers of certain types of development workflows. Looking at it from the perspective of a dev tool maintainer, dev services simplify the integration of tools into Bit by offering an abstraction layer, between your tool and all the required Aspects.
 
-<Image src={compilerDiagram} style={{maxWidth: 700} }/>
+<Image src={compilerDiagram} style={{ maxWidth: 700 }} />
 
 For example, the following compiler implements the Compiler interface, to integrate [Babel](https://jestjs.io/) into Bit, _as a compiler_.
 Using the Dev Service API, the Babel Aspect is able to access and use all the relevant Aspects, and use them in a way that is consistent with other Aspects that serve as compilers.
