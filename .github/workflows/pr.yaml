@@ -16,6 +16,8 @@ jobs:
           name: symphony_backend
           BIT_TOKEN: ${{ env.BIT_TOKEN }}
       - uses: actions/checkout@v2
+      - name: verify bit version
+        run: bit -v
       - name: Install dependencies
         run: bit install
       - name: Bit compile
