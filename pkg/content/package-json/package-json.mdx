@@ -66,7 +66,7 @@ To learn more on how to set and control [Component Main File here](/components/m
 
 All dependency related properties are automated and handled by Bit the [Dependency Resolver](/dependencies/overview) Aspect.
 
-Component dependencies are detected and resolved from the [node_modules](/workspace/node-modules) directory.
+Component dependencies are detected and resolved from the [node_modules](/dependencies/node-modules) directory.
 
 ### Tracking a component with a main file
 
@@ -76,4 +76,4 @@ bit add path/to/button --main button.ts
 
 ## The `componentId` property
 
-The `componentId` property is used by Bit to associate packages in the [node_modules](/workspace/node-modules) directories to Bit [Components](/components/overview). Packages that do not include this property would be considered by Bit as a generic package and won't be recognized as a Bit Component.
+The `componentId` property is used by Bit to associate packages in the [node_modules](/dependencies/node-modules) directories to Bit [Components](/components/overview). Packages that do not include this property would be considered by Bit as a generic package and won't be recognized as a Bit Component.
