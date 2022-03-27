@@ -58,7 +58,7 @@ Bit Components must be require-able by node module resolution. The component ID 
 - Component name must contain only url-safe characters.
 - Component name should not contain any leading or trailing spaces.
 - Component name should not contain any of the following characters: `~)('!*` .
-- Component name cannot be the same as a node.js/io.js core module nor a reserved/blacklisted name.
+- Component name cannot be the same as a node.js/io.js core module nor a resetarved/blacklisted name.
 - Component name length cannot exceed 214.
 
 ## List all component IDs in a workspace
@@ -104,17 +104,4 @@ found 51 components in teambit.docs
 │ ...                                                         │ ...             │ ...               │
 └─────────────────────────────────────────────────────────────┴─────────────────┴───────────────────┘
 
-```
-
-## Workspace Component Layout
-
-Bit arranges your workspace directories according to the IDs of components in that workspace. It destructures the Component IDs and creates a directory tree that represents the hierarchy found in these IDs. This makes the workspace easier to navigate as it creates symmetry between the logical structure of components and their physical location.
-
-For example, when creating a component with `my-org.my-scope/forms/add-product` Component ID, Bit generates the following directories:
-
-```sh
-.
-└── my-scope
-    └── forms
-        └── add-product
 ```
