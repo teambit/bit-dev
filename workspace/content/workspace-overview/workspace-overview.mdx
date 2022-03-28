@@ -6,9 +6,10 @@ import multiRepo from './multi-repo.png';
 
 # Workspace Overview
 
-<ComponentCardDisplay componentIds={[
-  'teambit.workspace/workspace',
-]} style={{ float: 'left', margin: 20, maxWidth: 250 }} />
+<ComponentCardDisplay
+  componentIds={['teambit.workspace/workspace']}
+  style={{ float: 'left', margin: 20, maxWidth: 250 }}
+/>
 
 Bit's Workspace is designed for distributed, component-driven software.
 
@@ -29,8 +30,7 @@ A Bit workspace is a tiny footprint.
 
 ## Built for components
 
-<Image src={multiRepo} width="85%"/>
-
+<Image src={multiRepo} width="85%" />
 
 ## Simple, scalable dev experience
 
@@ -41,7 +41,7 @@ Simple dev experience means you can **easily onboard** yourself to a workspace, 
 - **Use the same commands** - Regardless of the tooling and configs used in a workspace, you use the same commands (`compile`, `test`, etc) and get similarly structured outputs.
 - **Minimal configuration** - Most of the configuration and setup is automated. No need to define per-component dependencies and no additional files needed to change a component's build pipeline.
 - **Templates and standards** - Create new components with templates and apply your formatting, linting, compilation and testing standards with a single policy.
-- **Components are directories** - Each [component in your workspace is a directory](/workspace/component-directory) so relevant files, assets and tests available in a single place.
+- **Components are directories** - Each [component in your workspace is a directory](/workspace/structure/component-directory) so relevant files, assets and tests available in a single place.
 
 This makes it easy to scale the amount of components in a workspace, scale the amount of workspaces and even scale the amount of developers!
 
@@ -66,7 +66,7 @@ All components in your workspace are rendered and presented on a local developme
 bit start
 ```
 
-<Image src={wsScreenshot} width="80%"/>
+<Image src={wsScreenshot} width="80%" />
 
 ### Personalize your workspace
 
@@ -150,4 +150,3 @@ bit init
 ```
 
 From here you may use any Bit command and flow to build independent components and integrate them into your application.
-

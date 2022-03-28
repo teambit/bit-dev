@@ -8,12 +8,12 @@ import scopeUiFull from './scope-ui-full.png';
 To host and manage your Scopes on [Bit.cloud](https://bit.cloud) see [Scopes on Bit.cloud](/scope/scope-bit-cloud).
 :::
 
-When you [initialize a new workspace](/workspace/creating-workspaces#initialize-a-workspace-on-an-existing-project) you also initialize a new [scope](/workspace/local-scope). This scope is used internally by the [workspace](/workspace/workspace-overview).
+When you [initialize a new workspace](/workspace/creating-workspaces#initialize-a-workspace-on-an-existing-project) you also initialize a new [scope](/workspace/structure/local-scope). This scope is used internally by the [workspace](/workspace/workspace-overview).
 
 To create a scope without the rest of the workspace (components in the working directory, `.bitmap` file, etc.), use the `--bare` option.
 The initialized scope can then be used as collaboration server for components across workspaces (not just for the internal use of a single workspace).
 
-The following example initializes a new scope and sets its name (in the [`scope.json`](/workspace/local-scope#scope.json) file) to its directory name, `my-scope`. This name will later be used to configure components with that scope.
+The following example initializes a new scope and sets its name (in the [`scope.json`](/workspace/structure/local-scope#scope.json) file) to its directory name, `my-scope`. This name will later be used to configure components with that scope.
 
 ```bash
 mkdir my-scope
@@ -58,7 +58,7 @@ bit remote add http://localhost:3001
 ```
 
 :::info
-The `bit remote add` command registers the scope URL in the Workspace's [Local Scope](/workspace/local-scope) config ([`scope.json`](/scope/configure-scopes)).
+The `bit remote add` command registers the scope URL in the Workspace's [Local Scope](/workspace/structure/local-scope) config ([`scope.json`](/scope/configure-scopes)).
 :::
 
 ## Configure components to use a scope

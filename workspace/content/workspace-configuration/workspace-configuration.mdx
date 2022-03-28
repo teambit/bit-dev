@@ -10,7 +10,7 @@ For example, the following configuration is used to configure two Aspects:
 - `teambit.workspace/workspace`: The Workspace Aspect (responsible for the Workspace)
 - `teambit.dependencies/dependency-resolver`: The Dependency Resolver Aspect (responsible for dependency management)
 
-Since each Aspect is a [Component](/components/component-overview), it uses the [Component ID](/components/component-id) pattern.
+Since each Aspect is a [Component](/components/component-overview), it uses the [Component ID](/components/structure/component-id) pattern.
 
 ```json
 {
@@ -90,7 +90,7 @@ For example:
 
 Adding an Aspect to the workspace configuration will apply that Aspect, by default, on all components in the workspace.
 
-For example, the custom Aspect `company.scope/extensions/my-dev-files` defines files that match the glob pattern '\*_/_.my-dev._' as [dev files](/components/dev-files).
+For example, the custom Aspect `company.scope/extensions/my-dev-files` defines files that match the glob pattern '\*_/_.my-dev._' as [dev files](/components/structure/dev-files).
 Adding that Aspect to the workspace configuration will apply it on all components in the workspace (which will set every component's `_.my-dev.\*` file as a dev file).
 
 ```json

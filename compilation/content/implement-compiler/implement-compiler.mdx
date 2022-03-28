@@ -25,7 +25,7 @@ To prevent the Compiler service from passing unsupported files (files that canno
 `transpileFile` should return an array of objects that contain the compiled content and relative paths (with their new filename extensions).
 The output returned from `transpileFile` is written by the Compiler service into the `dist` directory of the component's corresponding package (in the workspace `node_modules` directory).
 
-To instruct the Compiler service to copy unsupported files to the `dist` directory, implement the [`shouldCopyNonSupportedFiles`](/dev-services-overview/compiler/compiler-api#shouldcopynonsupportedfiles-(optional)) field and set it to `true`.
+To instruct the Compiler service to copy unsupported files to the `dist` directory, implement the [`shouldCopyNonSupportedFiles`](</dev-services-overview/compiler/compiler-api#shouldcopynonsupportedfiles-(optional)>) field and set it to `true`.
 
 ```ts
 transpileFile( fileContent: string, options: TranspileFileParams ): TranspileFileOutput {
@@ -46,7 +46,7 @@ shouldCopyNonSupportedFiles = true;
 For component compilation during build, implement the [`build`](/dev-services-overview/compiler/compiler-api#build) API.
 
 [`build`](/dev-services/compiler/compiler-api#transpilefilei) receives (from the [Builder service](/dev-services-overview/builder/builder-overview)) the entire [Build Context](/dev-services-overview/builder/implement-build-task#buildcontext).
-However, our compiler only needs the [`seedersCapsules`](/dev-services-overview/builder/implement-build-task#capsulenetwork) as they are [Component Capsules](/components/component-capsules) that are intended to be built, while the rest are dependencies that do not need to go through the compilation process.
+However, our compiler only needs the [`seedersCapsules`](/dev-services-overview/builder/implement-build-task#capsulenetwork) as they are [Component Capsules](/components/structure/component-capsules) that are intended to be built, while the rest are dependencies that do not need to go through the compilation process.
 
 The `build` implementation should compile all the relevant files by iterating over each Capsule, and again over each supported file in these Capsules (note that Capsules contain the filepaths, not their content). Use the `isFileSupported` method, implemented in the ['Compilation in the Workspace'](#implement-compilation-in-the-workspace) section, to filter out unsupported files.
 
