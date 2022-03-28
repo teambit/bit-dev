@@ -1,6 +1,6 @@
 import React from 'react';
 import { lazy } from '@loadable/component';
-import { DocsRoute } from '@teambit/docs.entities.docs-routes';
+import { DocsRoute, DocsRoutes } from '@teambit/docs.entities.docs-routes';
 // import ImportingComponents from '@teambit/workspace.content.importing-components';
 
 const DevEnvs = lazy(() => import('@teambit/docs.content.getting-started.dev-envs'));
@@ -191,3 +191,7 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
     ],
   },
 ];
+
+export const gettingStartedPaths = new DocsRoutes(gettingStartedDocsRoutes)
+  .getRoutes()
+  .flatMap((route) => `/${route.path}`);

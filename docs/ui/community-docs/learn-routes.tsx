@@ -1,6 +1,6 @@
 import React from 'react';
 import { lazy } from '@loadable/component';
-import { DocsRoute } from '@teambit/docs.entities.docs-routes';
+import { DocsRoute, DocsRoutes } from '@teambit/docs.entities.docs-routes';
 
 /* Harmony */
 // const CliReference = lazy(() => import('@teambit/harmony.content.cli-reference'));
@@ -544,7 +544,7 @@ export const learnDocsRoutes: DocsRoute[] = [
         path: 'lanes-overview',
         title: 'Lanes Overview',
         component: <LanesOverview />,
-        description: 'Lanes allow change management for component driven software.'
+        description: 'Lanes allow change management for component driven software.',
       },
       {
         path: 'create-lane',
@@ -594,12 +594,12 @@ export const learnDocsRoutes: DocsRoute[] = [
         description: 'Merge changes for components from a lane to main or other lanes.',
         component: <MergeLane />,
       },
-     // {
-     //   path: 'remove-lanes',
-     //   title: 'Removing lanes',
-     //   description: 'Merge lanes when all changes are ready to be versioned.',
-     //   component: <div />,
-     // },
+      // {
+      //   path: 'remove-lanes',
+      //   title: 'Removing lanes',
+      //   description: 'Merge lanes when all changes are ready to be versioned.',
+      //   component: <div />,
+      // },
       //{
       //  path: 'lanes-objects',
       //  title: 'Lane objects',
@@ -1421,3 +1421,5 @@ export const learnDocsRoutes: DocsRoute[] = [
     ],
   },
 ];
+
+export const learnDocsPaths = new DocsRoutes(learnDocsRoutes).getRoutes().flatMap((route) => `/${route.path}`);
