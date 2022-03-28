@@ -59,7 +59,7 @@
     },
     "community/blog-quick-start": {
         "scope": "teambit.blog",
-        "version": "0.0.26",
+        "version": "0.0.28",
         "mainFile": "index.ts",
         "rootDir": "blog/community/blog-quick-start"
     },
@@ -203,7 +203,7 @@
     },
     "content/component-anatomy": {
         "scope": "teambit.component",
-        "version": "1.95.11",
+        "version": "c426f774081ad930f226f775ca350fa7121bfe61",
         "mainFile": "index.ts",
         "rootDir": "component/content/component-anatomy"
     },
@@ -221,7 +221,7 @@
     },
     "content/component-id": {
         "scope": "teambit.component",
-        "version": "1.95.11",
+        "version": "41e14cb0b54438624b5d7fdc14a4bbeed4c0fa0b",
         "mainFile": "index.ts",
         "rootDir": "component/content/component-id"
     },
@@ -233,7 +233,7 @@
     },
     "content/component-main-file": {
         "scope": "teambit.component",
-        "version": "1.95.10",
+        "version": "a4b8fd5e06aaec0c7b08047de9afd1ffa6baad66",
         "mainFile": "index.ts",
         "rootDir": "component/content/component-main-file"
     },
@@ -1017,13 +1017,13 @@
     },
     "content/snaps": {
         "scope": "teambit.component",
-        "version": "1.95.12",
+        "version": "9ce801d2230ab51c11694ae6dded09fb9b695692",
         "mainFile": "index.ts",
         "rootDir": "component/content/snaps"
     },
     "content/tags": {
         "scope": "teambit.component",
-        "version": "1.95.10",
+        "version": "2122265fa08dc758d73ce800d3ff7483e7a3a4ef",
         "mainFile": "index.ts",
         "rootDir": "component/content/tags"
     },
@@ -1158,6 +1158,19 @@
         "version": "1.95.10",
         "mainFile": "index.ts",
         "rootDir": "bit/docs/installation/setup-editor"
+    },
+    "docs/renaming-components": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.component",
+        "mainFile": "index.ts",
+        "rootDir": "component/docs/renaming-components",
+        "config": {
+            "teambit.envs/envs": {
+                "env": "teambit.community/envs/community-mdx"
+            },
+            "teambit.community/envs/community-mdx@1.95.9": {}
+        }
     },
     "docs/runtimes": {
         "scope": "teambit.harmony",

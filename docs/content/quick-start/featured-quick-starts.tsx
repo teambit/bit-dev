@@ -21,7 +21,7 @@ export const quickStarts: QuickStartType[] = [
   {
     name: 'design',
     displayName: 'Design',
-    description: 'Create a scalable and consistent composable design systems',
+    description: 'Create a scalable and consistent composable design system',
     component: <DesignQuickStart />,
   },
   // {

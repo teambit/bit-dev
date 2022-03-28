@@ -24,7 +24,7 @@ export type ComponentDistributionSectionProps = {
 
 export function ComponentDistributionSection({ title, components = [], className }: ComponentDistributionSectionProps) {
   return (
-    <ArrowAutoReloader>
+    <ArrowAutoReloader interval>
       <div className={classNames(styles.buildSection, className)}>
         <div className={styles.heading}>
           <Heading element={Elements.H3} className={styles.title}>

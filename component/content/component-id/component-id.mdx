@@ -16,6 +16,28 @@ A Component ID is generated when a component is added to the Workspace. For exam
 bit create react ui/inputs/button --scope my-org.my-shop
 ```
 
+Run the following to inspect the different parts of the Component ID:
+
+```bash
+bit show my-org.my-shop/ui/inputs/button
+```
+
+The output displays the full component-id, its sub-parts, and the package name that was generated according to it.
+
+```
+┌───────────────────┬───────────────────────────────────────────────────────────┐
+│ id                │ my-org.scope/ui/inputs/button                             │
+├───────────────────┼───────────────────────────────────────────────────────────┤
+│ scope             │ my-org.scope                                              │
+├───────────────────┼───────────────────────────────────────────────────────────┤
+│ name              │ ui/inputs/button                                          │
+├───────────────────┼───────────────────────────────────────────────────────────┤
+│ package name      │ @my-org/scope.ui.inputs.button                            │
+├───────────────────┼───────────────────────────────────────────────────────────┤
+│ ...               │ ...                                                       │
+└───────────────────┴───────────────────────────────────────────────────────────┘
+```
+
 The new Component ID is registered in the workspace `.bitmap` file. Once that component is exported to a remote scope, it is registered there using the same ID.
 That makes the Component ID a valid reference to a component in the workspace, as well as in a remote scope (for example, `bit test COMPONENT_ID` and `bit import COMPONENT_ID` )
 
@@ -78,43 +100,4 @@ found 1 components
 ├────────────────────────────────┼─────────────────┼───────────────────┤
 │ teambit.base-ui/elements/image │ 1.0.0           │ 1.0.0             │
 └────────────────────────────────┴─────────────────┴───────────────────┘
-```
-
-## List all component IDs in a remote scope
-
-Run the following to list all Component IDs in a remote scope:
-
-```
-bit list REMOTE_SCOPE
-```
-
-For example:
-
-```
-$ bit list teambit.docs
-
-found 51 components in teambit.docs
-┌─────────────────────────────────────────────────────────────┬─────────────────┬───────────────────┐
-│ component ID                                                │ latest in scope │ used in workspace │
-├─────────────────────────────────────────────────────────────┼─────────────────┼───────────────────┤
-│ teambit.docs/blocks/component/architecture-breakdown        │ 1.23.1          │ N/A               │
-├─────────────────────────────────────────────────────────────┼─────────────────┼───────────────────┤
-│ teambit.docs/content/contributing-docs                      │ 1.23.0          │ N/A               │
-├─────────────────────────────────────────────────────────────┼─────────────────┼───────────────────┤
-│ ...                                                         │ ...             │ ...               │
-└─────────────────────────────────────────────────────────────┴─────────────────┴───────────────────┘
-
-```
-
-## Workspace Component Layout
-
-Bit arranges your workspace directories according to the IDs of components in that workspace. It destructures the Component IDs and creates a directory tree that represents the hierarchy found in these IDs. This makes the workspace easier to navigate as it creates symmetry between the logical structure of components and their physical location.
-
-For example, when creating a component with `my-org.my-scope/forms/add-product` Component ID, Bit generates the following directories:
-
-```sh
-.
-└── my-scope
-    └── forms
-        └── add-product
 ```
