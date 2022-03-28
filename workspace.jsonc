@@ -132,7 +132,7 @@
         "@teambit/react.templates.pages.welcome": "0.0.19",
         "@teambit/react.templates.themes.theme": "^0.0.3",
         "@teambit/react.ui.component-highlighter": "^0.0.506",
-        "@teambit/ui-foundation.ui.buttons.collapser": "^0.0.144",
+        "@teambit/ui-foundation.ui.buttons.collapser": "^0.0.194",
         "@teambit/ui-foundation.ui.navigation.react-router-adapter": "6.1.1",
         "@teambit/ui-foundation.ui.tree.drawer": "^0.0.476",
         "@teambit/ui-foundation.ui.tree.folder-tree-node": "^0.0.453",
