@@ -312,7 +312,7 @@
     },
     "content/configure-webpack": {
         "scope": "teambit.webpack",
-        "version": "1.95.9",
+        "version": "1.95.11",
         "mainFile": "index.ts",
         "rootDir": "webpack/content/configure-webpack"
     },
@@ -1246,7 +1246,7 @@
     },
     "envs/community-mdx": {
         "scope": "teambit.community",
-        "version": "1.95.9",
+        "version": "1.95.10",
         "mainFile": "index.ts",
         "rootDir": "community/envs/community-mdx"
     },
