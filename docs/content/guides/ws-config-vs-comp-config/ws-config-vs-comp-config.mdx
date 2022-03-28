@@ -3,7 +3,7 @@ Since Bit is composed of Aspects, configurations can only be set by applying an 
 Aspects configured in the [workspace config](/workspace/workspace-configuration) are applied on the workspace whereas, aspects configured in the [component config](/components/component-config) are applied on the component.
 They both may have a similar effect on the workspace components, but only in the context of that specific workspace.
 
-Components [exported](/components/exporting-components) from one workspace and [imported](/workspace/importing-components) into another, will lose their configuration, since the new workspace does not have the same Aspects applied on it. This is not the case for aspects that are applied on components (i.e, via the component config).
+Components [exported](/components/exporting-components) from one workspace and [imported](/components/importing-components) into another, will lose their configuration, since the new workspace does not have the same Aspects applied on it. This is not the case for aspects that are applied on components (i.e, via the component config).
 
 The examples below show the `my-org.my-scope/snapshots` aspect being applied in either of the two ways. This Aspect uses the Dev Files API to set a certain set of component files (`**/snapshot.*`) as development files.
 One of this workspace's components is `ui/button`. As you can see, in both cases `button.snapshot.png` is successfully defined as a development file. This will be persisted when the component is [tagged](/components/tags) or [snapped](/components/snaps).
