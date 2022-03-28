@@ -1,9 +1,9 @@
 # Packing Components
 
-Component packages are generated during execution of the Component [build pipeline](build-tasks) and persisted as [Artifacts](/dev-services/builder/build-artifacts) 
+Component packages are generated during execution of the Component [build pipeline](/dev-services-overview/builder/implement-build-task) and persisted as [Artifacts](/dev-services-overview/builder/build-artifacts)
 upon component versioning.
-[Tagging](/components/tags) or [snapping](/components/snaps) a component will result in a newly generated package for the Component. 
-To simulate packages prior to tag or snap, use `bit build` and inspect [capsules](/).
+[Tagging](/components/tags) or [snapping](/components/snaps) a component will result in a newly generated package for the Component.
+To simulate packages prior to tag or snap, use `bit build` and inspect [capsules](/components/component-capsules).
 
 ```bash
 $ bit tag ui/heading
@@ -39,9 +39,7 @@ To exclude sources from being included in the package, set the `files` property 
 {
   "teambit.pkg/pkg": {
     "packageJsonProps": {
-      "files": [
-        "dist"
-      ]
+      "files": ["dist"]
     }
   }
 }
