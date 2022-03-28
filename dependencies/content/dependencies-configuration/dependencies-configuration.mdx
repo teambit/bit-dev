@@ -16,9 +16,8 @@ packageManager: string;
 
 Set the aspect ID of the package manager to use for dependency installation (a custom package manager may also be used).
 
-- [pnpm](#)
-
-- [yarn](#)
+- [`teambit.dependencies/pnpm`](https://bit.cloud/teambit/dependencies/pnpm)
+- [`teambit.dependencies/yarn`](https://bit.cloud/teambit/dependencies/yarn)
 
 ## packageManagerArgs
 
@@ -128,6 +127,7 @@ installFromBitDevRegistry: boolean;
 ```
 
 By default, `.npmrc` files that are set to use the `https://registry.npmjs.org/` registry, will be replaced with `node.bit.dev` before a `bit install` is executed.
-Bit does this in order to save you the need to configure many scoped registries for components from different owners. `bit.dev` registry serves as a proxy the request to npmjs registry for packages that are not found in the `bit.dev` registry.
+Bit does this in order to save you the need to configure many scoped registries for components from different owners. `bit.dev` registry serves 
+as a proxy the request to npmjs registry for packages that are not found in the `bit.dev` registry.
 
 To disable this behavior, set this property to `false`.

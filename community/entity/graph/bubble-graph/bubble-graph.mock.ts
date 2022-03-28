@@ -4,7 +4,7 @@ import { createBubbleGraph } from './bubble-graph';
 export function mockBubbleGraph() {
   return createBubbleGraph([
     /**
-     * Highlighted hero components graph
+     * highlighted hero components graph
      */
     {
       id: 'teambit.community/ui/hero@1.17.0',
@@ -227,10 +227,7 @@ export function mockBubbleGraph() {
     },
     {
       id: 'teambit.scope/scope@1.3.1',
-      dependencies: [
-        'teambit.component/component',
-        'teambit.ui-foundation/ui/top-bar',
-      ],
+      dependencies: ['teambit.component/component', 'teambit.ui-foundation/ui/top-bar'],
       payload: {
         icon: 'https://static.bit.dev/Community/icons/collection.svg',
       },
@@ -394,11 +391,7 @@ export function mockBubbleGraph() {
     },
     {
       id: 'teambit.react/react@2.0.1',
-      dependencies: [
-        'teambit.typescript/typescript',
-        'teambit.defender/jest',
-        'teambit.defender/eslint',
-      ],
+      dependencies: ['teambit.typescript/typescript', 'teambit.defender/jest', 'teambit.defender/eslint'],
       payload: {
         icon: 'https://static.bit.dev/Community/icons/reactjs-puzzle.svg',
       },
@@ -621,10 +614,7 @@ export function mockBubbleGraph() {
     },
     {
       id: 'learn-bit-react.data-fetching/ui/book-list@0.0.2',
-      dependencies: [
-        'learn-bit-react.data-fetching/ui/hooks/use-books',
-        'learn-bit-react.data-fetching/models/book',
-      ],
+      dependencies: ['learn-bit-react.data-fetching/ui/hooks/use-books', 'learn-bit-react.data-fetching/models/book'],
       payload: {
         icon: 'https://static.bit.dev/brands/logo-react.svg',
       },
