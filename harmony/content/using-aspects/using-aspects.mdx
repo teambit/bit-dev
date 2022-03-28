@@ -7,11 +7,7 @@ build and use them as an API.
 
 You can use official and community Aspects built by us and the Bit community like the ones below or [build your own Aspect](/extending-bit/create-aspect).
 
-<ComponentCardDisplay componentIds={[
-  'teambit.typescript/typescript',
-  'teambit.angular/angular',
-  'teambit.mdx/mdx',
-]} />
+<ComponentCardDisplay componentIds={['teambit.typescript/typescript', 'teambit.angular/angular', 'teambit.mdx/mdx']} />
 
 <br />
 
@@ -44,7 +40,6 @@ Inspect a specific component` aspects, including metadata and config.
 bit aspect get docs/apps-overview
 ```
 
-
 ## Updating aspects
 
 Update components to a newer aspect version.
@@ -55,7 +50,7 @@ Update all components using the community-react aspect.
 bit aspect update teambit.community/envs/community-react
 ```
 
-Update components using the community-env aspect under the ui/* namespace.
+Update components using the community-env aspect under the ui/\* namespace.
 
 ```bash
 bit aspect update teambit.community/envs/community-react "ui/*"
@@ -63,7 +58,7 @@ bit aspect update teambit.community/envs/community-react "ui/*"
 
 ## As an Aspect dependency
 
-Aspects can be used as dependencies by other aspects. See [Using dependencies](/extending-bit/creating-aspects#using-dependencies).
+Aspects can be used as dependencies by other aspects. See [Using dependencies](/extending-bit/create-aspect#using-dependencies).
 
 ## Composing aspects into applications
 
@@ -77,4 +72,3 @@ import { MyAspect } from '@myorg/dev.my-aspect';
 
 Harmony.run([MyAspect]);
 ```
-
