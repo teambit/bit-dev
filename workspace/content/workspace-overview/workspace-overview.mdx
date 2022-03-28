@@ -10,32 +10,27 @@ import multiRepo from './multi-repo.png';
   'teambit.workspace/workspace',
 ]} style={{ float: 'left', margin: 20, maxWidth: 250 }} />
 
-The Bit Workspace is made for distributed, component-driven software, where each component is independently versioned.
-Bit's Workspaces are making it wea. You can create new components, use existing components, 
-modify existing components, and export new and existing components - all from the same workspace. 
+Bit's Workspace is designed for distributed, component-driven software.
 
-They also allow for the development of all types of components.
+It provides a development workspaces . You can create new components, use existing components, modify existing components, and export changes. They also allow for the development of all types of components.
 
-<Image src={looseComponents} width="85%"/>
+Bit Workspaces are tech agnostic, and are designed to fit into your existing tech stack. Workspaces are designed to be scalable. So whether you’re a solo developer working with a few components, or you’re a team of a hundred developers and a thousand components, a Workspace will provide the same level of experience.
 
 <br />
 <br />
 
-Get started and generate a demo workspace:
+Get started by initiating Bit Workspace in a new directory or an existing project:
 
 ```bash
-bit new react demo
+bit init
 ```
 
-## Component development server
+A Bit workspace is a tiny footprint.
 
-All components in your workspace are rendered and presented on a local development server. To start it, run the following command:
+## Built for components
 
-```sh
-bit start
-```
+<Image src={multiRepo} width="85%"/>
 
-<Image src={wsScreenshot} width="80%"/>
 
 ## Simple, scalable dev experience
 
@@ -63,7 +58,15 @@ Bit adds the new component to the list of components in the workspace, pulls dow
 
 In the same sense you can `export` and even `eject` any of your components from a workspace, and more it to another one. So if you started with building all components in the same place, you are not locked to that decision.
 
-<Image src={multiRepo} width="85%"/>
+## Component development server
+
+All components in your workspace are rendered and presented on a local development server. To start it, run the following command:
+
+```sh
+bit start
+```
+
+<Image src={wsScreenshot} width="80%"/>
 
 ### Personalize your workspace
 

@@ -1,22 +1,25 @@
+import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-display';
 import { Image } from '@teambit/docs.ui.zoomable-image';
 import laneOverview from './lane-overview.png';
 import singleLane from './single-lane.png';
 import firstSnap from './first-snap.png';
 
-# Lanes
+# Lanes overview
 
-`Lanes` is how you collaborate on changes for components without interfering with the main development course. A single Lane can encapsulate changes for many components.
+<ComponentCardDisplay componentIds={[
+  'teambit.lanes/lanes',
+]} style={{ float: 'left', margin: 20, maxWidth: 250 }} />
 
-:::note Featue in "alpha" state
+Lanes to collaborate on changes across multiple components without interfering with the main development course. Lane is a pointer to one or multiple specific versions of components.  
 
-Core capabilities for **lane**, operate as intended, we are still testing and verifing scalability.
+You can use Lanes to record changes across a set of components, for a bug-fix, new feature, refactor or even for creating new components.   
 
-Feedbacks and testing are appreciated.
+You can include affected components of that change. It gives you a change to simulate how a single change can affect the entire code base, even for components that are outside of your workspace, making collaboration easy and scalable.  
 
+:::note
+Lanes is under `alpha`
 :::
 
-
-Use Lanes to encapsule all changes for components for a bug-fix, refactor, new feature in an existing component and even creating new components. You can include affected components of that change. It gives you a change to simulate how a single change can affect the entire code base, even for components that are outside of your workspace, making collaboration easier.
 
 <Image src={laneOverview} width="70%" />
 
@@ -30,7 +33,7 @@ By encapsulating changes for several components in the same lane you can test is
 
 As you lean about Lanes remember that Bit Lanes are not like Branches. A branch is used to manage a change of a specific repository, while a lane is used to capture together changes from components that may be spread across multiple repositories.
 
-## Working with lanes
+## Using lanes
 
 By default all your components are in the `main` lane. This is where you manage your component's semantic versions and releases.
 
