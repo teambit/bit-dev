@@ -198,4 +198,4 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
 
 export const gettingStartedPaths = new DocsRoutes(gettingStartedDocsRoutes)
   .getRoutes()
-  .flatMap((route) => `/${route.path}`);
+  .flatMap((route) => `/docs/${route.path}`);

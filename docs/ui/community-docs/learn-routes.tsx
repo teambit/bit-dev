@@ -1447,4 +1447,4 @@ export const learnDocsRoutes: DocsRoute[] = [
   },
 ];
 
-export const learnDocsPaths = new DocsRoutes(learnDocsRoutes).getRoutes().flatMap((route) => `/${route.path}`);
+export const learnDocsPaths = new DocsRoutes(learnDocsRoutes).getRoutes().flatMap((route) => `/docs/${route.path}`);
