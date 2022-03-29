@@ -250,7 +250,7 @@
         "rootDir": "component/content/component-overview"
     },
     "content/components-in-lane": {
-        "scope": "",
+        "scope": "teambit.lanes",
         "version": "0.0.1",
         "defaultScope": "teambit.lanes",
         "mainFile": "index.ts",
@@ -335,7 +335,7 @@
         "rootDir": "docs/content/contributing-docs"
     },
     "content/create-lane": {
-        "scope": "",
+        "scope": "teambit.lanes",
         "version": "0.0.1",
         "defaultScope": "teambit.lanes",
         "mainFile": "index.ts",
@@ -402,7 +402,7 @@
         "rootDir": "envs/content/dev-services-overview"
     },
     "content/diff-changes": {
-        "scope": "",
+        "scope": "teambit.lanes",
         "version": "0.0.1",
         "defaultScope": "teambit.lanes",
         "mainFile": "index.ts",
@@ -445,7 +445,7 @@
         "rootDir": "envs/content/envs-overview"
     },
     "content/export": {
-        "scope": "",
+        "scope": "teambit.lanes",
         "version": "0.0.1",
         "defaultScope": "teambit.lanes",
         "mainFile": "index.ts",
@@ -704,7 +704,7 @@
         "rootDir": "envs/content/implementing-new-env"
     },
     "content/import": {
-        "scope": "",
+        "scope": "teambit.lanes",
         "version": "0.0.1",
         "defaultScope": "teambit.lanes",
         "mainFile": "index.ts",
@@ -741,7 +741,7 @@
         "rootDir": "envs/content/inspecting-env"
     },
     "content/inspecting-lane": {
-        "scope": "",
+        "scope": "teambit.lanes",
         "version": "0.0.1",
         "defaultScope": "teambit.lanes",
         "mainFile": "index.ts",
@@ -760,14 +760,14 @@
         "rootDir": "dependencies/content/installing-dependencies"
     },
     "content/lane-objects": {
-        "scope": "",
+        "scope": "teambit.lanes",
         "version": "0.0.1",
         "defaultScope": "teambit.lanes",
         "mainFile": "index.ts",
         "rootDir": "lanes/content/lane-objects"
     },
     "content/lanes-overview": {
-        "scope": "",
+        "scope": "teambit.lanes",
         "version": "0.0.1",
         "defaultScope": "teambit.lanes",
         "mainFile": "index.ts",
@@ -822,7 +822,7 @@
         "rootDir": "docs/content/mdx"
     },
     "content/merging": {
-        "scope": "",
+        "scope": "teambit.lanes",
         "version": "0.0.1",
         "defaultScope": "teambit.lanes",
         "mainFile": "index.ts",
@@ -967,7 +967,7 @@
         "rootDir": "preview/content/register-custom-preview"
     },
     "content/remote-lanes": {
-        "scope": "",
+        "scope": "teambit.lanes",
         "version": "0.0.1",
         "defaultScope": "teambit.lanes",
         "mainFile": "index.ts",
@@ -1160,7 +1160,7 @@
         "rootDir": "bit/docs/installation/setup-editor"
     },
     "docs/renaming-components": {
-        "scope": "",
+        "scope": "teambit.component",
         "version": "0.0.1",
         "defaultScope": "teambit.component",
         "mainFile": "index.ts",
