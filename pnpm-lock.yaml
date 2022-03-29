@@ -47,6 +47,7 @@ importers:
       '@teambit/community.ui.usage-example': 0.0.5
       '@teambit/component-descriptor': 0.0.13
       '@teambit/component-id': ^0.0.401
+      '@teambit/component.content.component-anatomy': 1.95.12
       '@teambit/component.modules.component-url': ^0.0.123
       '@teambit/component.ui.graph.component-node-container': ^0.0.33
       '@teambit/component.ui.graph.dependencies-graph': ^0.0.34
@@ -210,6 +211,7 @@ importers:
       '@teambit/community.ui.sticky-banner': 0.0.5_08996d9b048963006e0d71241013fb8b
       '@teambit/component-descriptor': registry.npmjs.org/@teambit/component-descriptor/0.0.13_react-dom@16.13.1+react@16.13.1
       '@teambit/component-id': registry.npmjs.org/@teambit/component-id/0.0.401
+      '@teambit/component.content.component-anatomy': 1.95.12_react-dom@16.13.1+react@16.13.1
       '@teambit/component.modules.component-url': registry.npmjs.org/@teambit/component.modules.component-url/0.0.123_react-dom@16.13.1+react@16.13.1
       '@teambit/component.ui.graph.component-node-container': 0.0.33
       '@teambit/component.ui.graph.dependencies-graph': 0.0.34
@@ -2693,6 +2695,16 @@ packages:
       - '@testing-library/react'
       - react-dom
     dev: true
+
+  /@teambit/component.content.component-anatomy/1.95.12_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha1-7NjxYExYNdcwMx9FKtjiFwUaYc8=, tarball: '@teambit/component.content.component-anatomy/-/@teambit-component.content.component-anatomy-1.95.12.tgz'}
+    dependencies:
+      '@mdx-js/react': registry.npmjs.org/@mdx-js/react/1.6.22_react@16.13.1
+      '@teambit/mdx.ui.mdx-scope-context': registry.npmjs.org/@teambit/mdx.ui.mdx-scope-context/0.0.487_react-dom@16.13.1+react@16.13.1
+    transitivePeerDependencies:
+      - react
+      - react-dom
+    dev: false
 
   /@teambit/component.graph.model.graph-types/0.0.4:
     resolution: {integrity: sha1-s/6UIW44EN4R5vTMn2l/pXHIV+c=, tarball: '@teambit/component.graph.model.graph-types/-/@teambit-component.graph.model.graph-types-0.0.4.tgz'}
