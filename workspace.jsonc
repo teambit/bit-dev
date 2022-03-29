@@ -141,6 +141,7 @@
         "@teambit/ui-foundation.ui.tree.drawer": "^0.0.476",
         "@teambit/ui-foundation.ui.tree.folder-tree-node": "^0.0.453",
         "@teambit/ui-foundation.ui.tree.tree-node": "^0.0.453",
+        "@teambit/webpack.modules.config-mutator": "0.0.137",
         "@teambit/wiki.apps.wiki": "1.90.14",
         "@teambit/wiki.blocks.header": "^0.0.34",
         "@testing-library/jest-dom": "5.16.2",
