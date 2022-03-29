@@ -31,7 +31,7 @@ export function Sidebar({ primaryLinks, sections, className, linkPrefix, ...rest
   return (
     <div {...rest} className={classNames(styles.sidebar, className)}>
       <SidebarWrapper isOpen={isOpen} toggle={() => setIsOpen(!isOpen)} className={styles.sidebarContent}>
-        <Scrollbar className={styles.content}>
+        <Scrollbar className={styles.scrollbar}>
           {primaryLinks && <PrimaryLinks links={primaryLinks} />}
           {sections?.map((category) => {
             if (!category) return null;
