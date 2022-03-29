@@ -32,6 +32,13 @@ $headerHeight: 40px;
   }
 }
 
+.heading {
+  h1, h2, h3 {
+    // TODO - @uri remove this when moving header outside of main scrollable content. 
+    scroll-margin-top: $headerHeight; // prevent headings from hiding behind fixed top bar, when clicking hyperlink
+  }
+}
+
 .content {
   position: relative;
   min-width: 0; // this is in order for content to fit next to the table of content without colliding
