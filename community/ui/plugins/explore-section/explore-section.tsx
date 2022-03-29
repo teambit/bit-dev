@@ -48,7 +48,11 @@ export function ExploreSection({ heading, subtitle, className, ...rest }: Explor
             className={styles.searchInput}
           />
           <div className={styles.linkHolder}>
-            <Link href="https://bit.cloud/components?env=aspect" external className={styles.link}>
+            <Link
+              href="https://bit.cloud/components?packageDependencies=@teambit/harmony"
+              external
+              className={styles.link}
+            >
               Browse Aspects
               <Icon of="right-arrow" className={styles.icon} />
             </Link>
