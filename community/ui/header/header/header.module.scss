@@ -8,13 +8,8 @@
   }
 }
 
-.headerWrapper {
-  height: var(--bit-header-height, 40px);
-}
-
 .header {
-  position: fixed;
+  height: var(--bit-header-height, 40px);
   background-color: var(--bit-bg-color, white);
   box-sizing: border-box;
-  z-index: 1;
 }
