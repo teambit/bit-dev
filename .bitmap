@@ -59,7 +59,7 @@
     },
     "community/blog-quick-start": {
         "scope": "teambit.blog",
-        "version": "0.0.37",
+        "version": "0.0.38",
         "mainFile": "index.ts",
         "rootDir": "blog/community/blog-quick-start"
     },
@@ -1408,7 +1408,7 @@
     },
     "ui/community-docs": {
         "scope": "teambit.docs",
-        "version": "1.95.29",
+        "version": "1.95.30",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/community-docs"
     },
