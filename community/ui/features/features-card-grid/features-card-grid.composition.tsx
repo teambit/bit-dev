@@ -8,7 +8,7 @@ export const BasicFeaturesCardGrid = () => (
       {
         title: 'Distributed',
         text: 'Component ownership is distributed across developer teams',
-        image: 'https://static.bit.dev/Community/features/distributed.svg',
+        image: 'https://static.bit.dev/Community/features/distributed.min.svg',
         alt: 'distributed'
       },
       {

@@ -2,7 +2,7 @@ export const features = [
   {
     title: 'Distributed',
     text: 'Distribute component ownership across development teams.',
-    image: 'https://static.bit.dev/Community/features/distributed.svg',
+    image: 'https://static.bit.dev/Community/features/distributed.min.svg',
     alt: 'distributed',
   },
   {

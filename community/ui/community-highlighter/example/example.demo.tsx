@@ -8,7 +8,7 @@ const ExampleComponent = () => (
   <FeaturesCard
     title="Hover over me!"
     text="Click on the scope name/component name labels to visit their pages. "
-    image="https://static.bit.dev/Community/features/distributed.svg"
+    image="https://static.bit.dev/Community/features/distributed.min.svg"
     alt="an example component"
   />
 );
