@@ -114,6 +114,7 @@
         "@teambit/design.ui.surfaces.menu.item": "^0.0.350",
         "@teambit/design.ui.surfaces.menu.link-item": "^0.0.374",
         "@teambit/documenter.markdown.heading": "^0.1.6",
+        "@teambit/documenter.ui.code-snippet": "4.2.2",
         "@teambit/documenter.ui.copy-box": "^4.1.1",
         "@teambit/documenter.ui.label": "^4.0.4",
         "@teambit/documenter.ui.paragraph": "4.1.4",
@@ -126,7 +127,7 @@
         "@teambit/harmony": "0.2.11",
         "@teambit/harmony.content.create-app": "0.0.2",
         "@teambit/mdx.modules.mdx-loader": "^0.0.466",
-        "@teambit/mdx.ui.mdx-layout": "^0.0.496",
+        "@teambit/mdx.ui.mdx-layout": "0.0.497",
         "@teambit/react.eslint-config-bit-react": "^0.0.451",
         "@teambit/react.templates.pages.welcome": "0.0.19",
         "@teambit/react.templates.themes.theme": "^0.0.3",
@@ -136,6 +137,7 @@
         "@teambit/ui-foundation.ui.tree.drawer": "^0.0.476",
         "@teambit/ui-foundation.ui.tree.folder-tree-node": "^0.0.453",
         "@teambit/ui-foundation.ui.tree.tree-node": "^0.0.453",
+        "@teambit/webpack.modules.config-mutator": "0.0.137",
         "@teambit/wiki.apps.wiki": "1.90.14",
         "@teambit/wiki.blocks.header": "^0.0.34",
         "@testing-library/jest-dom": "5.16.2",
@@ -271,6 +273,9 @@
     },
     "compilation": {
       "defaultScope": "teambit.compilation"
+    },
+    "lanes": {
+      "defaultScope": "teambit.lanes"
     },
     "harmony": {
       "defaultScope": "teambit.harmony"

@@ -1,0 +1,66 @@
+# Create lanes
+
+A lane is similar to a component as it's it also managed within a scope. This means that when we create a new lane, we essentially add a new item to our [local scope](/workspace/local-scope). The lane will later get exported, just like any other component, to a remote scope.
+
+Create a new lane with the following command:
+
+```sh
+bit lane create my-lane
+```
+
+```sh
+successfully added and checked out to a new lane my-lane
+this lane will be exported to the default-scope my-scope. to change it, please run "bit lane track" command
+```
+
+:::info Auto-lane switch
+
+Notice that Bit automatically moves your workpsace to the new lane.
+
+:::
+
+All local lanes are listed in the workspace UI. Run:
+
+```sh
+bit start
+```
+
+Below the list of components, you see a new drawer with the list of lanes.
+
+By default the new lane is attached to the `defaultScope` as configured in your local `workspace.jsonc`.
+
+You can see the remote scope information for your new lane:
+
+```sh
+bit lane show my-lane
+```
+
+```sh
+showing information for my-lane - (remote lane - my-scope/my-lane)
+	components (0)
+```
+
+## Remote scope
+
+If you want to set a different target remote scope a new lane use the `--remote-scope` option:
+
+```sh
+bit lane create my-lane --remote-scope my-org.some-scope
+```
+
+In some cases a lane was already created (or even exported) and you want to move it to another remote scope. To change the remote for a lane, use the `track` sub-command:
+
+```sh
+bit lane track my-lane my-org.some-other-scope
+```
+
+This way you can move a lane, alongside all the changes encapsulated as part of it, to a new target scope.
+
+## Remote and local lane names
+
+There may be cases where the name of a lane you created is already captured on the remote scope. Bit does not support renaming a lane at the moment, but what you can do is set a "remote name" for your lane.  
+A remote name means that a lane may have a different unique name only on the remote scope, while keeping your local lane name.
+
+```sh
+bit lane track my-lane my-org.some-other-scope remote-lane-name
+```

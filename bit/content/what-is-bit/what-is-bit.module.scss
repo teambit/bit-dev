@@ -1,7 +1,7 @@
 @import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
 .bitCard {
   float: left;
-  max-width: 250px;
+  max-width: 280px;
   margin: 30px;
   @media screen and (max-width: $br-sm) {
     float: none;
