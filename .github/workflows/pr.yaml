@@ -1,9 +1,9 @@
-name: Tests
+name: Bit build
 
 on: [pull_request]
 env:
   BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
-  NODE_OPTIONS: --max_old_space_size=4096
+  NODE_OPTIONS: --max_old_space_size=8096
 jobs:
   test:
     runs-on: ubuntu-latest

@@ -1,20 +1,26 @@
-@import "~@teambit/base-ui.layout.breakpoints/_breakpoints.scss";
+@use "~@teambit/design.responsive.breakpoints/_breakpoints.module.scss";
 
-.tableOfContent {
-  position: sticky;
-  flex-shrink: 0;
+$tocWidth: 264px;
+
+// toc wrapper that holds the position in the page that pushes the rest of the elements in the page
+.tocWrapper {
   margin-left: 32px;
-  top: 120px;
-  bottom: 0;
-  right: 8px;
-  [data-element-type="H3"] {
-    padding-left: 16px;
-  }
+  width: $tocWidth;
+  flex: none;
 
-  @media screen and (max-width: $br-lg) {
+  @include breakpoints.media-lg {
     display: none;
   }
 }
-.closedStickyBanner {
-  top: 56px;
+
+// the table itself. separated in order to allow scroll in the table content
+.tableOfContent {
+  position: absolute;
+  overflow-y: auto;
+  padding-top: 16px;
+  box-sizing: border-box;
+
+  [data-element-type="H3"] {
+    padding-left: 16px;
+  }
 }
