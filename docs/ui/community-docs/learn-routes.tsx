@@ -125,6 +125,7 @@ const MountingCompositionsToDom = lazy(() => import('@teambit/compositions.conte
 
 const NavigateHistory = lazy(() => import('@teambit/component.content.navigate-history'));
 const ComponentId = lazy(() => import('@teambit/component.content.component-id'));
+const Metadata = lazy(() => import('@teambit/component.docs.metadata'));
 const ComponentOverview = lazy(() => import('@teambit/component.content.component-overview'));
 const RemovingDeprecating = lazy(() => import('@teambit/docs.content.guides.removing-deprecating-components'));
 const MergingComponentVersions = lazy(() => import('@teambit/docs.content.guides.merging-component-versions'));
@@ -359,6 +360,11 @@ export const learnDocsRoutes: DocsRoute[] = [
             path: 'component-json',
             title: 'component.json',
             component: <ComponentJson />,
+          },
+          {
+            path: 'component-metadata',
+            title: 'Component metadata',
+            component: <Metadata />,
           },
           {
             path: 'component-main-file',
