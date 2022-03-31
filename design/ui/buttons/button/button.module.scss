@@ -3,12 +3,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--primary-color);
+  background: var(--primary-color, #6C5CE7);
   border-radius: 8px;
   height: 48px;
   width: 168px;
-  border: 1px solid var(--primary-color);
-  color: var(--on-primary-color);
+  border: 1px solid var(--primary-color, #6C5CE7);
+  color: var(--on-primary-color, #FFFFFF);
   cursor: pointer;
   text-decoration: none;
   transition: background-color 300ms ease-in-out;
