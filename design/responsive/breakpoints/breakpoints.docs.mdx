@@ -1,0 +1,72 @@
+---
+description: A component that provides breakpoint values and specific media query mixins.
+labels: ['scss', 'breakpoints', 'media queries']
+---
+
+This component provides a uniform way of using the same breakpoints across apps. It can be used in a few ways.
+
+### Media query mixins
+
+```scss
+@use '~@teambit/design.responsive.breakpoints/_breakpoints.module.scss';
+
+@include breakpoints.media-xs {
+  ...
+}
+@include breakpoints.media-sm {
+  ...
+}
+@include breakpoints.media-md {
+  ...
+}
+@include breakpoints.media-l {
+  ...
+}
+@include breakpoints.media-lg {
+  ...
+}
+@include breakpoints.media-xl {
+  ...
+}
+@include breakpoints.media-xxl {
+  ...
+}
+```
+
+This reaolves to regular media queries that use the predefined breakpoints.
+
+```scss
+
+@media screen and max-width: $xs) {
+  ...
+}
+@media screen and max-width: $sm) {
+  ...
+}
+```
+
+### Using breakpoint values as sass variables
+
+Breakpoint sizes can be used directly (not recommended)
+```scss
+@use '~@teambit/design.responsive.breakpoints/_breakpoints.module.scss';
+
+// notice that we are using the size itself instead of the mixin
+@media screen and max-width: $xs) {
+  ...
+}
+@media screen and max-width: $sm) {
+  ...
+}
+
+```
+
+
+### Using in js
+
+You can also use the sizes in your `js`/`ts` files. just import the required modules.
+
+```tsx
+import { sm, md, l, lg, xl, xxl } '~@teambit/design.responsive.breakpoints';
+
+```
