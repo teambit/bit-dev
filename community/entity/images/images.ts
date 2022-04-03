@@ -1,5 +1,5 @@
 export enum ProductType {
-  product = 'product'
+  product = 'product',
 }
 
 export type ImagesFromApi = {

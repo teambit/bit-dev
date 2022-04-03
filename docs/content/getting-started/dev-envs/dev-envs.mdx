@@ -4,10 +4,18 @@ import { Image } from '@teambit/docs.ui.zoomable-image';
 
 # Development Environments
 
-Component development is simplified and standardized using [Component Development Environments](/envs/overview) (or **envs** in short). An env is a compositions of several [Services](/envs/services/overview).  
-A service implementes an operation, for example: [Compiler](/compiler/overview), [Tester](/tester/overview), [Builder](/builder/overview), [Linter](/linter/overview), Bundler<!--TODO [Bundler](/bundler/overview) -->. Services use tool-specific implementations like [TypeScript](/typescript/overview) or [Jest](/jest/overview) and used from [Env](/envs/env) like 
-[React](/react/overview) or [Node](/node/overview).  
-Composed together with their configurations, they form an entire development experience. When shared between different teams and developers, they simplify and standardize the development process.
+Component development workflow is simplified and standardized using [Component Development Environments](/envs/envs-overview) (**Envs**). An env is a compositions of several [services](/envs/dev-services) where each of them implements an operation.  
+For example: [Compilation](/dev-services-overview/compiler/compiler-overview), [Testing](/dev-services-overview/tester/tester-overview), [Build Pipeline](/dev-services-overview/builder/builder-overview), [Linting](/dev-services-overview/linter/linter-overview) and more. Services use various tools like TypeScript <!-- [TypeScript](/typescript/overview) --> or Jest <!-- [Jest](/jest/overview) -->. Composed together with configurations, services form an entire development experience for React, Node or Angular.  
+When shared between teams or project, they simplify and standardize the development process.
+
+:::info Benefits of Component Environments
+
+- Clean your codebase from configuration files.
+- Versioning for your build pipeline and tooling configuration.
+- Standardize build process by reusing the same settings on many components.
+- Apply unique build process on each component.
+
+:::
 
 To check which envs are configured on your components you can use the `bit env` command or check the icon on its left on the UI.
 
@@ -25,23 +33,34 @@ bit env
 └───────────────────────────────────────┴───────────────────────────────────────┘
 ```
 
-Since we created this component under the `ui` namespace, the newly component created is configured to use 
-the [React Env](/aspects/react). The [React Env](/aspects/react) is the official [Env](/envs/overview) 
-for development of React Components. It comes baked with best practices from the React community and makes it easy and repeatable to create and maintain React components. By default, the [React Env](/aspects/react) is configured to use Typescript <!--TODO [TypeScript](/typescript/overview)--> for compiling, [ESLint](/linter/overview) for linting, <!--TODO [Jest](/jest/overview)--> Jest for testing and a contains a basic build pipeline.
+An env is set on a specific component, and you can control this setting with the `bit env` command. By changing an env for a component you change the component's complete configuration and tooling.
 
-:::info Benefits of Component Environments
+```bash
+bit env set company.scope/ui/my-welcome teambit.harmony/node
+```
 
-- Clean your codebase from configuration files.
-- Versioning for your build pipeline and tooling configuration.
-- Standardize build process by reusing the same settings on many components.
-- Apply unique build process on each component.
+```bash
+added teambit.harmony/node env to the following component(s):
+company.scope/ui/my-welcome
+```
 
-:::
+Learn more about [using envs](/envs/using-envs).
 
-## Developer Workflow Commands and Services
+## Customize your workflow
+
+Envs in Bit features a set of various programmatic APIs that allow composition and customization of the development process. You can use any of the pre-built envs as a dependency, and create your own custom setup.  
+Follow the steps here to customize your workflow and [create your own custom env](/envs/composing-env).
+
+The envs you create is a component, meaning you get all the features and benefits of managing your workflow as a versioned component.  
+To set a custom env for your component, you use the same flow as you would use to apply a pre-built env:
+
+```bash
+bit env set company.scope/ui/my-welcome myorg.envs/my-react-setup
+```
+
+## Pre-built services
 
 [Environment Services](/envs/services/overview) define what tools would run and their configs. These services correspond to the different Bit commands you can use while building with Bit.
-
 
 ### `start`
 
@@ -88,12 +107,12 @@ Finished. (3s)
 bit watch
 ```
 
-To learn more on Compiler, head to over to the [Compiler documentation](/compiler/overview).
+To learn more on Compiler, head to over to the [Compiler documentation](/dev-services-overview/compiler/compiler-overview).
 
 ### `test`
 
 Running tests for components built with purposes may result in requiring vastly different configurations and approaches. For example, for UI components you may want to set visual regression testing, while for utils this is less relevant. Some components may also need different testers.  
-The [tester](/tester/overview) service knows to run tests and extract their results to a standardized format to be presented in the UI.
+The [tester](/dev-services-overview/tester/tester-overview) service knows to run tests and extract their results to a standardized format to be presented in the UI.
 
 ```bash
 bit test
@@ -133,7 +152,7 @@ When using `bit start` as your development environment, the UI will display the 
 
 :::
 
-To learn more about the Tester and component Testing, head over to the [Tester documentation](/tester/overview).
+To learn more about the Tester and component Testing, head over to the [Tester documentation](/dev-services-overview/tester/tester-overview).
 
 ### `lint`
 
@@ -144,7 +163,7 @@ bit lint
 bit lint --fix
 ```
 
-To learn more about linting components and the Linter, head over to the [Linter documentation](/linter/overview) section.
+To learn more about linting components and the Linter, head over to the [Linter documentation](/dev-services-overview/linter/linter-overview) section.
 
 ### `format`
 
@@ -154,11 +173,11 @@ Depending on the environment configured on components, components in the same wo
 bit format
 ```
 
-To learn more about the Formatter, please head over to the [Formatter documentation](/formatter/overview) section.
+To learn more about the Formatter, please head over to the [Formatter documentation](/dev-services-overview/formatter/formatter-overview) section.
 
 ### `build`
 
-[Builder](/builder/overview) service composes the [build pipeline](/builder/build-pipelines) from tasks implemented by other [services](/envs/services/overview) such as [Compiler](/compiler/overview) or [Tester](/tester/overview).
+[Builder](/builder/overview) service composes the [build pipeline](/builder/build-pipelines) from tasks implemented by other [services](/envs/services/overview) such as [Compiler](/dev-services-overview/compiler/compiler-overview) or [Tester](/dev-services-overview/tester/tester-overview).
 
 ```bash title="Run the build pipeline"
 bit build
@@ -167,11 +186,3 @@ bit build
 <Image src={builderImg} width="100%" />
 
 To learn about building components and the Builder, head over to the [Builder documentation](/builder/overview) section.
-
-## Customzing envs with different tools and configrations
-
-
-
-## Build your own Env Services
-
-

@@ -17,7 +17,7 @@ const pageDescription =
 
 export function Plugins({ ...props }: PluginsProps) {
   return (
-    <Page title="Plugins | Bit" description={pageDescription} {...props}>
+    <Page title="Aspects | Bit" description={pageDescription} {...props}>
       <ExploreSection
         heading={
           <>
@@ -38,11 +38,11 @@ export function Plugins({ ...props }: PluginsProps) {
       <CreateSection
         heading={
           <>
-            Create a new plugin <br />
+            Create a new Aspect <br />
             <span className={highlightClass}>in minutes</span>
           </>
         }
-        subtitle="Bit is extremly extendible and you can add any tool or functionality in minutes and using over 800 available APIs. So what will you make?"
+        subtitle="Bit is extremely extendible and you can add any tool or functionality in minutes and using over 800 available APIs. So what will you make?"
       />
     </Page>
   );

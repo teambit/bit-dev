@@ -1,166 +1,184 @@
-import ComponentMainFile from '@teambit/component.content.component-main-file';
+import { Image } from '@teambit/docs.ui.zoomable-image';
+import config from './config.png';
+import metadata from './metadata.png';
 
-# Component Anatomy
+# Component anatomy
 
-A Bit component is a mini-repository. For each component Bit stores several elements:
-
-- Source code.
-- Configuration.
-- Dependencies.
-- Configuration.
-
-To see how Bit structures your component, use the `show` command:
-
-```
-bit show teambit.community/ui/graph/bubble-graph --remote
-```
-
-```
-┌───────────────────┬──────────────────────────────────────────────────────────────────┐
-│ id                │ teambit.community/ui/graph/bubble-graph@1.8.15                   │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ scope             │ teambit.community                                                │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ name              │ ui/graph/bubble-graph                                            │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ env               │ teambit.community/envs/community-react@1.8.15                    │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ package name      │ @teambit/community.ui.graph.bubble-graph                         │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ main file         │ index.ts                                                         │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ files             │ ...                                                              │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ dev files         │ ...                                                              │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ extensions        │ ...                                                              │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ dependencies      │ ...                                                              │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ dev dependencies  │ ...                                                              │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ peer dependencies │ ...                                                              │
-└───────────────────┴──────────────────────────────────────────────────────────────────┘
-```
+A Component contains five types of data: Source code, dependencies, configurations, artifacts and metadata.
 
 ## Source code
 
-Typically, the component’s content is not just the source code itself and can include additional files that are related, such as the styling files, assets (images, fonts), test code, documentation.
+The 'source code' includes the component's [main file](/components/component-main-file), implementation files and [development files](/components/dev-files). A file is considered part of the component if it is under the same [Component Directory](/workspace/component-directory).
+
+For example:
 
 ```bash
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ main file         │ index.ts                                                         │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ files             │ bubble-graph.composition.tsx                                     │
-│                   │ bubble-graph.docs.mdx                                            │
-│                   │ bubble-graph.module.scss                                         │
-│                   │ bubble-graph.spec.tsx                                            │
-│                   │ bubble-graph.tsx                                                 │
-│                   │ bubble-node.tsx                                                  │
-│                   │ index.ts                                                         │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ dev files         │ bubble-graph.spec.tsx (teambit.defender/tester)                  │
-│                   │ bubble-graph.composition.tsx (teambit.compositions/compositions) │
-│                   │ bubble-graph.docs.mdx (teambit.docs/docs)                        │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
+bit show teambit.base-react/navigation/link --remote
 ```
 
-### Main file
+The following output displays the component files. It specifies which of these files are dev files, and which file is the main file:
 
-Main file exposes the public API of the component. Read more about it [here](/docs/components/component-main-file).
-
-### Implementation files
-
-Components can have any number of files. Files can be sorted into sub-directories for readability. Files can be TypeScript files implementing functionality, design assets like `scss` and even binary files like `png`.
-
-### Dev Files
-
-Component dev-files are files we use for non-production purposes like testing, documentation, etc. Categorizing dev-files helps Bit with marking which dependencies should be considered as `devDependencies`, thus help with managing a component dependency tree.  
-
-Bit marks which configuration set each of the files as a dev-file. [read more](docs/components/dev-files) on how to manage component dev-files.
+```bash
+┌───────────────────┬────────────────────────────────────────────────────────────────────┐
+│ id                │ teambit.base-react/navigation/link@2.0.27                          │
+├───────────────────┼────────────────────────────────────────────────────────────────────┤
+│ ...               │ ...                                                                │
+├───────────────────┼────────────────────────────────────────────────────────────────────┤
+│ main file         │ index.ts                                                           │
+├───────────────────┼────────────────────────────────────────────────────────────────────┤
+│ files             │ index.ts                                                           │
+│                   │ link.composition.tsx                                               │
+│                   │ link.docs.mdx                                                      │
+│                   │ link.spec.tsx                                                      │
+│                   │ link.tsx                                                           │
+│                   │ link.type.ts                                                       │
+│                   │ native-link.tsx                                                    │
+│                   │ navigation-provider.tsx                                            │
+│                   │ routing-provider.tsx                                               │
+│                   │ use-location.tsx                                                   │
+│                   │ use-navigate.tsx                                                   │
+├───────────────────┼────────────────────────────────────────────────────────────────────┤
+│ dev files         │ example/my-router-adapter.demo.tsx (config)                        │
+│                   │ link.spec.tsx (teambit.defender/tester)                            │
+│                   │ link.composition.tsx (teambit.compositions/compositions)           │
+│                   │ link.docs.mdx (teambit.docs/docs)                                  │
+├───────────────────┼────────────────────────────────────────────────────────────────────┤
+│ ...               │                                                                    │
+└───────────────────┴────────────────────────────────────────────────────────────────────┘
+```
 
 ## Dependencies
 
-Component dependencies are managed by the [dependency resolver](https://bit.dev/docs/dependencies/dependencies-overview). This tool reads through all `import` and `require` statement in the component source code, and maps them to components or installed packages.
+['Dependencies'](/dependencies/dependencies-overview) include other components maintained in the same workspace, as well as [external dependencies](/dependencies/external-dependencies).
 
-Bit then creates a model of all the dependencies of the component. The dependency graph makes a component self-contained and allows for moving the component around projects without losing any references.
-The dependencies include the following:
-
-- NPM packages installed as `node_modules`
-- Bit components installed as `node_modules`
-- Bit components in the workspace.
-
-Dependencies according to their source.
-
-- Package dependencies - All dependencies that packages from any node module registry (like npmjs.org)
-- Bit components - Dependencies that are also components, regardless if they are in the same workpsace or installed to `node_modules`.
+For example:
 
 ```bash
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ dependencies      │ @teambit/community.entity.graph.grid-graph@1.9.53--- (component) │
-│                   │ @teambit/community.ui.graph.grid-graph@1.9.58------- (component) │
-│                   │ @teambit/community.ui.graph.component-bubble@1.9.58- (component) │
-│                   │ core-js@^3.0.0-------------------------------------- (package)   │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ dev dependencies  │ @teambit/community.entity.graph.bubble-graph@1.9.54- (component) │
-│                   │ @teambit/community.envs.community-react@1.8.15------ (component) │
-│                   │ @testing-library/react@12.0.0----------------------- (package)   │
-│                   │ @types/testing-library__jest-dom@5.9.5-------------- (package)   │
-│                   │ @babel/runtime@7.12.18------------------------------ (package)   │
-│                   │ @types/jest@^26.0.0--------------------------------- (package)   │
-│                   │ @types/react-dom@^17.0.5---------------------------- (package)   │
-│                   │ @types/react@^17.0.8-------------------------------- (package)   │
-│                   │ @types/node@12.20.4--------------------------------- (package)   │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ peer dependencies │ react-dom@^16.8.0 || ^17.0.0- (package)                          │
-│                   │ react@^16.8.0 || ^17.0.0----- (package)                          │
-└───────────────────┴──────────────────────────────────────────────────────────────────┘
+bit show teambit.base-react/navigation/link --remote
 ```
 
-### Dependency types
+The following output lists the component dependencies and groups them by their dependency type (regular, dev and peer):
 
-`dependencies` and `devDependencies` are contextual to the component. While one component may use a dependency for its documentation, anohter component may use it for its implementation. This is why the dependency resolver is managing depenency type on a per-component basis. More specifically, by understanding in which file type the dependency is used.
-
-- Dependency used in a dev-file: `devDependencies`.
-- Dependency used in an implementation file: `dependencies`.
-- Dependency used in both dev-file and implementation file: `dependencies`.
-
-If a dependency is marked as a `peerDependency`, Bit marks that dependency as a `peerDependency`, regardless of where it is used.
+```bash
+┌───────────────────┬────────────────────────────────────────────────────────────────────┐
+│ id                │ teambit.base-react/navigation/link@2.0.27                          │
+├───────────────────┼────────────────────────────────────────────────────────────────────┤
+│ ...               │ ...                                                                │
+├───────────────────┼────────────────────────────────────────────────────────────────────┤
+│ dependencies      │ @teambit/base-ui.routing.compare-url@1.0.0- (component)            │
+│                   │ classnames@2.3.1--------------------------- (package)              │
+│                   │ core-js@^3.0.0----------------------------- (package)              │
+├───────────────────┼────────────────────────────────────────────────────────────────────┤
+│ dev dependencies  │ @teambit/design.ui.layouts.sections.left-right@1.95.6- (component) │
+│                   │ @types/testing-library__jest-dom@5.9.5---------------- (package)   │
+│                   │ @babel/runtime@7.12.18-------------------------------- (package)   │
+│                   │ @types/jest@^26.0.0----------------------------------- (package)   │
+│                   │ @types/react-dom@^17.0.5------------------------------ (package)   │
+│                   │ @types/react@^17.0.8---------------------------------- (package)   │
+│                   │ @types/node@12.20.4----------------------------------- (package)   │
+├───────────────────┼────────────────────────────────────────────────────────────────────┤
+│ peer dependencies │ @testing-library/react@^12.0.0- (package)                          │
+│                   │ react-dom@^16.8.0 || ^17.0.0--- (package)                          │
+│                   │ react@^16.8.0 || ^17.0.0------- (package)                          │
+└───────────────────┴────────────────────────────────────────────────────────────────────┘
+```
 
 ## Configuration
 
-Configuration is the different aspects loaded for each component. Each aspect is responsible for a specific part of the component's lifecycle and holds a configuration for itself.
+A [Component's configuration](/components/component-config) consists of the Aspects it uses and the config set for each of them.
+For example:
 
 ```bash
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
-│ extensions        │ teambit.community/envs/community-react@1.8.15                    │
-│                   │ teambit.component/dev-files                                      │
-│                   │ teambit.compositions/compositions                                │
-│                   │ teambit.pkg/pkg                                                  │
-│                   │ teambit.docs/docs                                                │
-│                   │ teambit.envs/envs                                                │
-│                   │ teambit.dependencies/dependency-resolver                         │
-│                   │ teambit.pipelines/builder                                        │
-├───────────────────┼──────────────────────────────────────────────────────────────────┤
+bit show teambit.base-react/navigation/link --remote
 ```
+
+The following output displays the list of aspects applied on this component. Some of these aspects contain configuration.
+
+```bash
+┌───────────────────┬────────────────────────────────────────────────────────────────────┐
+│ id                │ teambit.base-react/navigation/link@2.0.27                          │
+├───────────────────┼────────────────────────────────────────────────────────────────────┤
+│ ...               │ ...                                                                │
+├───────────────────┼────────────────────────────────────────────────────────────────────┤
+│ extensions        │ teambit.envs/envs                                                  │
+│                   │ teambit.react/react                                                │
+│                   │ teambit.component/dev-files                                        │
+│                   │ teambit.compositions/compositions                                  │
+│                   │ teambit.docs/docs                                                  │
+│                   │ teambit.dependencies/dependency-resolver                           │
+│                   │ teambit.pipelines/builder                                          │
+│                   │ teambit.pkg/pkg                                                    │
+├───────────────────┼────────────────────────────────────────────────────────────────────┤
+│ ...               │ ...                                                                │
+└───────────────────┴────────────────────────────────────────────────────────────────────┘
+```
+
+Head over to [this component's 'aspect' page](https://bit.cloud/teambit/base-react/navigation/link/~aspect) to see the configurations applied on it via its different aspects.
+For example, `teambit.component/dev-files` is configured to define files with the filename pattern `"**/*.demo.+(js|ts|jsx|tsx)"` as dev files.
+
+<Image src={config} />
+
+:::info Manual vs programmatic configuration
+The config section refers to configuration set directly and manually on a component.
+It does not include information that was calculated or set programmatically by the different aspects.
+:::
+
+## Metadata
+
+A component's metadata consists of the Aspects it uses and the data they generate and persist in the component.
+For example, the previous section ('Configuration') shows the `teambit.component/dev-files` aspect configured to define `"**/*.demo.+(js|ts|jsx|tsx)"` files as dev files.
+The calculated result of that configuration, the component's concrete files defined as dev files, is part of this component's metadata and can be seen in the [component's 'aspect' page](https://bit.cloud/teambit/base-react/navigation/link/~aspect).
+
+<Image src={metadata} />
+
+Critical metadata is also available when a component is inspected in the terminal:
+
+```bash
+bit show teambit.base-react/navigation/link --remote
+```
+
+The output should show the calculated dev file seen previously:
+
+```
+┌───────────────────┬────────────────────────────────────────────────────────────────────┐
+│ id                │ teambit.base-react/navigation/link@2.0.27                          │
+├───────────────────┼────────────────────────────────────────────────────────────────────┤
+│ ...               │ ...                                                                │
+├───────────────────┼────────────────────────────────────────────────────────────────────┤
+│ dev files         │ example/my-router-adapter.demo.tsx (config)                        │
+├───────────────────┼────────────────────────────────────────────────────────────────────┤
+│ extensions        │ teambit.component/dev-files                                        │
+├───────────────────┼────────────────────────────────────────────────────────────────────┤
+│ ...               │ ...                                                                │
+└───────────────────┴────────────────────────────────────────────────────────────────────┘
+```
+
+:::info Metadata in development
+The metadata for [new](/workspace/workspace-status#new-components) and [modified](/workspace/workspace-status#modified-components) components is re-calculated while in development. This data is persisted only when components are versioned.
+:::
 
 ## Artifacts
 
-During the component build pipeline Bit creates several artifacts and saves them as part of the model. See all artifacts with the `artifacts` command:
+
+[Artifacts](/dev-services-overview/builder/build-artifacts) are generated during the component [build](/dev-services-overview/builder/build-pipelines). Artifacts are persisted when a Component is snapped or tagged. Each Component version holds the artifacts that were generated as part of its build.
+
+
+For example:
 
 ```bash
-bit artifacts teambit.community/ui/graph/bubble-graph
+bit import teambit.base-react/navigation/link
+bit artifacts teambit.base-react/navigation/link
 ```
 
-Each version or snap of a component holds a list of generated artifacts. Each aspect creates can create various artifacts, according to its task.
+The following output groups the component artifacts by the aspect that registered the build task, and then again, by the build task name:
 
 ```bash
-teambit.community/ui/graph/bubble-graph@1.9.58
+teambit.base-react/navigation/link@2.0.27
   teambit.compilation/compiler
     TSCompiler
-      dist/bubble-graph.composition.d.ts
-      dist/bubble-graph.composition.js
-      dist/bubble-graph.composition.js.map
+      dist/link.composition.d.ts
+      dist/link.composition.js
+      dist/link.composition.js.map
       dist/index.d.ts
       dist/index.js
       dist/index.js.map
@@ -180,5 +198,5 @@ teambit.community/ui/graph/bubble-graph@1.9.58
 
   teambit.pkg/pkg
     PackComponents
-      package-tar/teambit-community.ui.graph.bubble-graph-1.9.58.tgz
+      package-tar/teambit-community.ui.graph.link-2.0.27
 ```

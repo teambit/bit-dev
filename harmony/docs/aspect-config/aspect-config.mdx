@@ -1,0 +1,68 @@
+# Aspect Config
+
+Aspect can be configured anywhere that accepts Harmony configuration. In Bit, it could be the Workspace, Scope or a Component. It might even come up while creating an Harmony application and configuring aspects to it.
+
+## Configuring an Aspect
+
+Configuring either Bit's core aspects or external aspect is just the same.
+The example configuration is a basic one used in `workspace.json` to configure the Workspace aspect.
+This is how we allow people to configure different variables for the Workspace like its `name` or `defaultScope`.
+
+```json
+{
+  "teambit.workspace/workspace": {
+    "name": "my workspace",
+    "defaultScope": "teambit.docs"
+  }
+}
+```
+
+External aspects that are configured in a Bit configuration would be automatically and lazily downloaded as needed.
+
+Aspects can also be configured to components using the `aspect` command.
+
+For example:
+
+```bash
+bit aspect set my-component my-org.scope/my-dev-env
+```
+
+## Defining and accessing an Aspect config
+
+In the example below, we are exposing a way to configure the world name printed by the hello-world aspect.
+
+```ts
+// define the type for your aspect config.
+export type HelloWorldConfig = {
+  worldName: string
+};
+
+export class HelloWorldMain {
+  constructor(
+    private config: HelloWorldConfig
+  ) {}
+
+  sayHello() {
+    return `hello ${this.config.worldName}!`;
+  }
+
+  static dependencies = [CLIAspect];
+
+  // set the default config to be 'world'
+  static defaultConfig = {
+    worldName: 'world'
+  };
+  
+  static runtime = MainRuntime;
+  // config is injected to your provider during construction.
+  static async provider([cli]: [CLIMain], config: HelloWorldConfig) {
+    cli.register([new MyCommand()]);
+    return new HelloWorldMain(config);
+  }
+}
+```
+
+## Default config
+In cases where a property was not configured by the aspect consumer, the property would be `undefined` or equal 
+to the value defined in the static `defaultConfig` property as shown in the example above.
+

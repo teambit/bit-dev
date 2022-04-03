@@ -1,0 +1,172 @@
+import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-display';
+import { Image } from '@teambit/docs.ui.zoomable-image';
+import laneOverview from './lane-overview.png';
+import singleLane from './single-lane.png';
+import firstSnap from './first-snap.png';
+
+# Lanes overview
+
+<ComponentCardDisplay componentIds={[
+  'teambit.lanes/lanes',
+]} style={{ float: 'left', margin: 20, maxWidth: 250 }} />
+
+Lanes allows to collaborate on changes across multiple components without interfering with the main development course. Lane is a pointer to one or multiple specific versions of components.  
+
+You can use Lanes to record changes across a set of components, for a bug-fix, new feature, refactor or even for proposing creating new components.   
+
+You can include affected components of that change. It allows to simulate how a specific change can affect the entire codebase, even for components that are outside of your workspace, making collaboration easy and scalable.  
+
+:::note
+Lanes is under `alpha`
+:::
+
+
+<Image src={laneOverview} width="70%" />
+
+The diagram shows two isolated lanes of development:
+
+- `Add anchor links` lane that contains a code change for `table of content` component, and `blog page` component that is a dependent of that change.
+- `add author avatar` lane contains code changes for `blog page` component and a new `avatar` component.
+- Merging back to `main` all changes from both lanes, creating new semantic versions for the components.
+
+By encapsulating changes for several components in the same lane you can test isolate refactors that affect other components in your codebase, making it harder to merge changes that may hurt your dependents.
+
+As you lean about Lanes remember that Bit Lanes are not like Branches. A branch is used to manage a change of a specific repository, while a lane is used to capture together changes from components that may be spread across multiple repositories.
+
+## Using lanes
+
+By default all your components are in the `main` lane. This is where you manage your component's semantic versions and releases.
+
+<Image src={singleLane} width="70%" />
+
+Use lanes to represent independent lines of development that cross component boundaries.  
+Before you create a new feature, create and switch to a new lane:
+
+```bash
+bit create lane new-feature
+```
+
+```bash
+successfully added a new lane new-feature
+this lane will be exported to the default-scope company.scope. to change it, please run "bit lane track" command
+```
+
+See all lanes in available for your locally:
+
+```bash
+bit lane list
+```
+
+```bash
+current lane - mock
+
+to get more info on all lanes in workspace use 'bit lane list --details' or 'bit lane show <lane-name>' for a specific lane.
+switch lanes using 'bit switch <name>'.
+```
+
+The new lane will not include any component or any change in any component. To do that you need to modify a component and use `snap` command:
+
+```bash
+bit snap ui/text -m "add new feature"
+```
+
+```bash
+1 component(s) snapped
+(use "bit export" to push these components to a remote")
+(use "bit untag" to unstage versions)
+
+new components
+(first version for components)
+     > ui/text@21e72e4a789d0921ad55ef9fb72f47c4a4375a8a
+```
+
+The new snapshot will be in the `new-feature` lane and not part of the `ui/text` component.
+
+<Image src={firstSnap} width="70%" />
+
+You can see the how many components in the `new-feature` lane and their current snap with the `bit lane show` command:
+
+```bash
+bit lane show new-feature
+```
+
+```bash
+showing information for mock - (remote lane - company.scope/mock)
+    components (1)
+      envs/my-react - 21e72e4a789d0921ad55ef9fb72f47c4a4375a8a
+```
+
+To better understand the contents of the lane as compared to the `main` lane in your workspace, run:
+
+```bash
+bit lane diff
+```
+
+Any other changes you snap in the workspace will be tracked in the `new-feature` lane. For example, `ui/card` depends on `ui/text`, you can snap the changes to its dependency graph and track them as part of the `new-feature` lane.
+
+```sh
+bit snap ui/card -m "add to new feature lane"
+```
+
+### Switching between lanes
+
+At any point in time you may diverge back to the default lane, another specific lane, or even to a new lane. Use the `bit lane switch` command or `bit switch`.
+
+```bash
+bit switch main
+```
+
+```bash
+successfully set "main" as the active lane
+```
+
+All changes in the `new-feature` lane disappear from the workspace. You can switch back to the `new-feature` lane to keep the work done on these components.
+
+## Collaborating using lanes
+
+You can export a lane to any scope, assuming you have permissions to. This way you publish changes for components to a place where others can view and fetch them, so they can edit and collaborate.
+
+Export the lane the same way you'd export a component:
+
+```sh
+bit export
+```
+
+The lane is now exported to the remote scope. As there's no UI to showcase this, we'll use the CLI:
+
+```sh
+bit lane list --remote teambit.design
+```
+
+In a brand new directory switch to working on the remote lane:
+
+```sh
+bit switch teambit.design/change-color --remote
+```
+
+See that in your workspace you have all the snaps of the components in the lane. You can now work on the components, apply your changes, and re-export the updated lane:
+
+```sh
+bit snap -a
+bit export
+```
+
+Head back to the original workspace import the updates from the lane.
+
+## Merging changes to the main lane
+
+When you are ready to release a new version from your component merge the lane to the main lane:
+
+```bash
+bit lane merge new-feature
+```
+
+Now you can version all your components, remove the lane and move on to the next feature.
+
+## Limitations
+
+A lane is an encapsulated and atomic change for many components. This means there are several limitations when using it, especially in regards to working across different lanes.
+
+- You can't version a component from a lane. If you need to `tag` a component, you must do it from the main lane.
+- Components in different lanes can't depend on each other. Components may only depend on components in the same lane and components in the main lane.
+- You can't have two lanes checkout in the same workspace, even if they don't track the same components.

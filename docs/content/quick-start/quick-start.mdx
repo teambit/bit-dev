@@ -1,5 +1,6 @@
 import { ComponentID } from "@teambit/component-id";
 import { MemoryRouter, UNSAFE_LocationContext } from "react-router-dom";
+import { wideColumn } from '@teambit/base-ui.layout.page-frame';
 import { ComponentCardGroup } from "@teambit/explorer.ui.gallery.component-card-group";
 import { Subtitle } from "@teambit/docs.ui.subtitle";
 import { TopInventions } from "@learnbit/inventions.blocks.top-inventions";
@@ -22,31 +23,30 @@ import styles from "./quick-start.module.scss";
 <Featured cards={cardsMock} />
 
 <!--
-<Subtitle>Welcome to the Bit documantation site! This site is composable.</Subtitle> -->
+<Subtitle>Welcome to the Bit documentation site! This site is composable.</Subtitle> -->
 
-Welcome to the Bit documantation site! This site is a composition of independent components, built and maintained mostly by the [Docs](https://bit.dev/teambit/docs),
+Welcome to the Bit documentation site! This site is a composition of independent components, built and maintained mostly by the [Docs](https://bit.dev/teambit/docs),
 [Design](https://bit.dev/teambit/design) and [Community](https://bit.dev/teambit/community) teams here at Bit! It is built from React, Markdown and
 Node components we have crafted specifically for the purpose and needs of this app.
 
 ## Introduction
 
 During this quick start, you will learn to create your own **composable app**. We will show you how simple it is, to build even a complex app like a wiki when built from components!
-In this example, we will use the components built for this documantation app.
+In this example, we will use the components built for this documentation app.
 
 <!-- Here is an example of what you will get: -->
 
-<ComponentShowcase componentId="teambit.wiki/apps/wiki@1.90.3" />
+<ComponentShowcase className={wideColumn} componentId="teambit.wiki/apps/wiki@1.90.3" />
 
 <!-- stronger understanding for bottom-up thinking early on -->
 
 <!-- Below is a **component-driven wiki** app that we composed from the components we used to build this documentation app. During this quick start, you will
-create your own component-driven personal app from and learn how to use components to build to poissibly anything. -->
+create your own component-driven personal app from and learn how to use components to build to possibly anything. -->
 <!-- During this quick start, you will build your first Bit building blocks and compose your first **component-driven personal app**. We will learn that components can help us
 build better apps.  -->
 
 <br />
 
-<!-- TODO: Kutner add dark theme -->
 <!-- 
 <ExcludeHighlighter>
   <BubbleHighlighter
@@ -74,12 +74,12 @@ There are few ways to get started with Bit.
   is the thought behind building a component-driven software with Bit.
 - If you are **familiar with Bit and its concepts**, and want to dive deep into a specific topic, head over to the different chapters on the Learn section.
   <!-- TODO: add a link to the learn section -->
-  <!-- TODO: think of a way to direct non-technical people to thinking in components earliar on -->
+  <!-- TODO: think of a way to direct non-technical people to thinking in components earlier on -->
 
 The rest of this page, will guide you step by step through the different concepts of Bit and will help navigate through the docs and decide
 which concepts to dive deeper into.
 
-<!-- During this quick start, you will build choose your own favourite inventions, and build them into a component with a simple search functionallity. Here is the product
+<!-- During this quick start, you will build choose your own favourite inventions, and build them into a component with a simple search functionality. Here is the product
 spec. -->
 
 ## Installation
@@ -95,7 +95,7 @@ For a more advanced installation guide, [head to our installation section](/gett
 ### Creating the workspace
 
 The first step in the Bit journey is to create a [component development workspace](/workspaces). You can use the Bit workspace to either create, use or import components,
-make changes to them, and export these changes back. Workspaces are tech-agnonstic and allow development of components of all kinds. They can be used by a single developer
+make changes to them, and export these changes back. Workspaces are tech-agnostic and allow development of components of all kinds. They can be used by a single developer
 maintaining few components for a certain scope of work and exist on top of existing repositories or shared as a [Workspace component](/workspace/workspace-component).
 
 :::tip
@@ -145,16 +145,16 @@ These are the components used for the wiki app example above. In the next steps,
 
 <!--
 [Thinking in components](/thinking-in-components) is a recursive process that starts at defining and the **immediate component we need**. Upon the definition of this
-component, **think which components you wish you had now**. Search for these components, try to **use or collaborte on something that exists**,
+component, **think which components you wish you had now**. Search for these components, try to **use or collaborate on something that exists**,
 otherwise **repeat the process with a new component that fulfills this exact need**. -->
 
 ## Create the component you need
 
-Choosing the first component is an important step in the process in building a component-driven design. When choosing the first comopnent, focus on choosing the most
-tengible component, the one you can ideally use now. When building a component someone else is expected to use, try and agree on a clear API contract early on to minimize
+Choosing the first component is an important step in the process in building a component-driven design. When choosing the first component, focus on choosing the most
+tangible component, the one you can ideally use now. When building a component someone else is expected to use, try and agree on a clear API contract early on to minimize
 the amount of uncertainty. Using components as a consumer early on the development process helps avoid uncertainty and achieve faster and more accurate results.
 
-The usage occurences there is for a component, the better.
+The usage occurances there is for a component, the better.
 
 Building in components is a recursive process.
 
@@ -203,7 +203,7 @@ our first component: `apps / wiki`.
 
 Components are identified and named using a unique identifier called ["Component ID"](/components/component-id).
 
-### Genrate a component skeleton
+### Generate a component skeleton
 
 ```bash
 bit create react-app apps/wiki-worldwide
@@ -239,7 +239,7 @@ bit run wiki-worldwide
 
 ### Design the API
 
-Think of your component API as a user interface. You are the first user of your component. Design the component to yourself. When desigining a user interface we are always
+Think of your component API as a user interface. You are the first user of your component. Design the component to yourself. When designating a user interface we are always
 starting from the user, what he needs? What are his constraints? What is he trying to achieve? Once understanding that API design becomes very easy and intuitive
 his requirements? The more consumers there are, the better the API design would be.
 
@@ -253,7 +253,7 @@ Think about the requirements of your consumers, what do they need?
 
 ## Implement the component
 
-You can build the component in isolation, or import any component you want to test it againsts! 
+You can build the component in isolation, or import any component you want to test it against! 
 Let's say we would like to use this component on Bit docs, adding here to this section here!
 
 
@@ -292,7 +292,7 @@ Now we create create  -->
 ## Collaborate
 
 Now that we have done our work and all seems to be working locally, its time to share our changes and collaborate with others.  
-Bit tells you exacly which components has changed.
+Bit tells you exactly which components has changed.
 
 ```
 $ bit status
@@ -320,7 +320,7 @@ bit export
 
 ## Think your "Quick Start" is better than ours?
 
-If you think your quick start is better than ours, or just shows the same on a different tech stack or product. Feel free to
+If you think you have a quick start is better than ours, or just shows the same on a different tech stack or product. 
 
 ## What's next?
 

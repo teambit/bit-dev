@@ -1,0 +1,26 @@
+# Importing lanes
+
+A component, even when in a lane, has its own history. It means that you can import a single, or a set of components, from a lane and focus your work. No need to import an entire lane to evaluate or submit a small change.  
+The changes you apply and snap for the imported components are logged to the lane, for you to export back.
+
+To import components from a lane you need to first switch your workpsace to the remote lane:
+
+```sh
+bit lane switch myorg.myscope/my-lane
+```
+
+Once your workspace is checked out on a lane, import a single component from a lane, head over to the remote scope, find the lane and component, and copy the `import` action. It should look something like this:
+
+```sh
+bit import teambit.design/content/carousel@5b790b7262be00b31a57f4e044562fe371eb6219
+```
+
+This way you can import specific components from a lane, work on them, focus your work, and export only relevant items back to the remote scope, in the lane.
+
+## Import an entire lane
+
+Import a lane and all its components with a single action:
+
+```sh
+bit lane switch myorg.myscope/my-lane --get-all
+```

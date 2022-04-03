@@ -17,7 +17,7 @@ export type ComponentThinkingProcessProps = {
 
 export function ComponentThinkingProcess({ children, steps, ...rest }: ComponentThinkingProcessProps) {
   return (
-    <div className={classNames(styles.componentThinkingProcess, rest.className)} {...rest}>
+    <div {...rest} className={classNames(styles.componentThinkingProcess, rest.className)}>
       {steps.map((step, key) => {
         return <ComponentStep open={key === 0} key={step.id.toString()} {...step} stepNum={key + 1} />;
       })}

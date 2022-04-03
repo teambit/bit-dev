@@ -10,7 +10,7 @@ export const NavigationLink = () => {
 
   return (
     <div>
-      <div>current path "{location?.pathname}"</div>
+      <div>current path {location?.pathname}</div>
       <NavLink href={location?.pathname} activeStyle={{ fontWeight: 'bold' }}>
         {location?.pathname}
       </NavLink>

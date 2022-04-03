@@ -8,7 +8,7 @@ Use React's template to create a new React Env:
 bit create react-env extensions/my-react
 ```
 
-Make sure the Aspect Env (a special Env for Bit Aspects) is applied on your Env (much like other component types, a Env needs an Env for its development):
+Make sure the Aspect Env (a special Env for Bit Aspects) is applied on your Env. Much like other component types, a Env needs an Env for its development:
 
 ```json
 {
@@ -26,7 +26,7 @@ Compile your new Env:
 bit compile extensions/my-react
 ```
 
-Apply your Env on the relevant components (make sure to use its full [component ID](/docs/components/component-id)):
+Apply your Env on the relevant components (make sure to use its full [component ID](/components/component-id)):
 
 ```json
 {
@@ -87,7 +87,7 @@ Using React's API, new configs are merged with React's existing ones.
 This merge operation adds new properties and override existing ones.
 :::
 
-See ['Inspecting an Env's Configurations'](/docs/envs/inspecting-env) to learn how to validate your Env is configured as expected.
+See ['Inspecting an Env's Configurations'](/envs/inspecting-env) to learn how to validate your Env is configured as expected.
 
 ### TypeScript
 
@@ -189,11 +189,11 @@ react.usePrettier({
 
 ### Webpack (Bundler/ DevServer)
 
-[Go to 'Configuring Webpack'](/docs/tools/webpack/configure-webpack).
+[Go to 'Configuring Webpack'](/tools/webpack/configure-webpack).
 
 [See here](https://github.com/teambit/examples/blob/master/react/examples/extensions/my-react/my-react.main.runtime.ts) for a full example.
 
-### Package (package.json)
+### Package (/packages/package-json)
 
 ```ts
 overridePackageJsonProps(props: PackageJsonProps): EnvTransformer
@@ -201,7 +201,7 @@ overridePackageJsonProps(props: PackageJsonProps): EnvTransformer
 
 ```ts
 react.overridePackageJsonProps({
-  'new-propery': 'value',
+  'new-property': 'value',
 });
 ```
 

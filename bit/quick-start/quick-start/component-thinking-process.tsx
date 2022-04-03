@@ -23,15 +23,17 @@ export function ThinkingProcess({ components }: ThinkingProcessProps) {
             id,
             content: component.content || (
               <div className={styles.step}>
-                {component.intro}
-                You can either fork the component.
+                <div className={styles.margin}>{component.intro}</div>
+                <div className={styles.margin}>You can either fork the component.</div>
                 <CodeSnippet language="bash">{`bit fork ${id.toString()}`}</CodeSnippet>
-                Or create a new component and use the code from the component below as a reference!
-                <br />
+                <div className={styles.margin}>
+                  Or create a new component and use the code from the component below as a reference!
+                </div>
+
                 <CodeSnippet language="bash">{`bit create ${id.fullName}`}</CodeSnippet>
-                {component.ending}
-                <br />
-                <ComponentShowcase componentId={id.toString()} />
+                <div className={styles.margin}>{component.ending}</div>
+
+                <ComponentShowcase className={styles.margin} componentId={id.toString()} />
               </div>
             ),
             open: false,

@@ -1,19 +1,13 @@
 @import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
 
-.content {
-  position: relative;
-  // padding-left: 36px;
-  box-sizing: border-box;
-  width: 100%;
-  min-width: 0; // prevents content from overflowing
-  padding-left: 264px;
-  @media screen and (max-width: $br-md) {
-    padding: 0;
-    margin-left: 0;
-  }
+.docsPage {
+  display: flex;
 }
 
-.main {
-  display: flex;
-  position: relative;
+.content {
+  min-width: 0; // required for content to flex
+}
+
+.sidebar {
+  flex: none;
 }

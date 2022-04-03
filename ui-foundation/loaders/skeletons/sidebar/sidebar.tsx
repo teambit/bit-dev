@@ -1,8 +1,8 @@
-import React from "react";
-import classNames from "classnames";
-import { WordSkeleton } from "@teambit/base-ui.loaders.skeleton";
+import React from 'react';
+import classNames from 'classnames';
+import { WordSkeleton } from '@teambit/base-ui.loaders.skeleton';
 
-import styles from "./sidebar.module.scss";
+import styles from './sidebar.module.scss';
 
 export type SidebarProps = {} & React.HTMLAttributes<HTMLDivElement>;
 

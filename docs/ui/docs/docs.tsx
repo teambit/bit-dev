@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { DocsRoute, DocsRoutes } from '@teambit/docs.entities.docs-routes';
 import { Routes, Route } from 'react-router-dom';
 import { Sidebar } from '@teambit/docs.blocks.sidebar';
+import { excludeHighlighterAtt } from '@teambit/react.ui.component-highlighter';
 import { DocPage } from '@teambit/docs.ui.pages.doc-page';
 import { DocsPlugin } from '@teambit/docs.plugins.docs-plugin';
 import { NotFound } from '@teambit/community.ui.pages.errors.not-found';
@@ -74,8 +75,14 @@ export function Docs({ contents, primaryLinks = [], baseUrl, plugins = [], class
         plugins,
       }}
     >
-      <div {...rest} className={classNames(styles.main, className)}>
-        <Sidebar primaryLinks={primaryRoutes.toSideBarTree()} sections={contentRoutes} />
+      <div {...rest} className={classNames(styles.docsPage, className)}>
+        <Sidebar
+          className={styles.sidebar}
+          primaryLinks={primaryRoutes.toSideBarTree()}
+          sections={contentRoutes}
+          {...excludeHighlighterAtt}
+        />
+
         <div className={styles.content}>
           <Routes>
             {routeArray.map((route, key) => {

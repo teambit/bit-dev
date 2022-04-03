@@ -1,7 +1,10 @@
 @import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
 
+$textColumn: 1000px;
+
 .docsPage {
   display: flex;
+  justify-content: space-between;
 }
 
 .next {
@@ -14,40 +17,17 @@
   li {
     font-size: var(--bit-p-md, 18px);
   }
-  * {
-    max-width: unset;
-  }
 
-  // this is.. less than ideal
+  p,
+  .heading,
+  ul,
+  ol,
+  pre,
   :global(.admonition) {
-    max-width: 80%;
-    margin-left: 9%;
-
-    // this is.. far from ideal.
-    // We need to find a better place to put the top level indent.
-    p, h1, h2, h3, h4, h5, ul, ol, table {
-      max-width: none;
-      margin-left: 0;
-    }
-  }
-
-  p, h1, h2, h3, h4, h5, ul, ol, table {
-    max-width: 80%;
-    margin-left: 9%;
-  }
-
-  pre {
-    // max-width: 80%;
-    margin-left: 9%;
-  }
-
-  // div {
-  //   max-width: 80%;
-  //   margin-left: 9%;
-  // }
-
-  img {
-    max-width: 100%;
+    max-width: $textColumn;
+    margin-left: auto;
+    margin-right: auto;
+    box-sizing: border-box;
   }
 }
 
@@ -66,8 +46,4 @@
   @media screen and (max-width: $br-lg) {
     display: none;
   }
-}
-
-.heading {
-  border-bottom: none !important;
 }

@@ -135,7 +135,7 @@ export const lintingFormatingMock: ComponentCardProps[] = [
 export const appsMock: ComponentCardProps[] = [
   {
     id: 'teambit/apps/netlify',
-    href: `${baseAspectsUrl}teambit/apps/netlify`,
+    href: `${baseAspectsUrl}teambit/cloud-providers/deployers/netlify`,
     description: 'Deploy App components to Netlify.',
     envIcon: `${staticEnvBaseUrl}default.svg`,
     preview: <ComponentCardPreview src={`${staticBrandsBaseUrl}netlify.svg`} />,

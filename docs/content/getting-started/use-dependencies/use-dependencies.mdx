@@ -5,17 +5,19 @@ import { Image } from '@teambit/docs.ui.zoomable-image';
 
 # Using Dependencies
 
-[Dependencies](/dependencies) allow us to compose components out of other components. Dependencies for a component can be either [External Dependencies](/dependencies/external-dependencies) or [Workspace Components](/workspace/workspace-component) and are resolved from the `import` or the `require` statements added in your components.
+With [dependencies](/dependencies/dependencies-overview) we compose components out of other components. Dependencies can be either [External Dependencies](/dependencies/external-dependencies) or Bit components in the same workspace. Bit automatically resolves a component's dependencies by parsing all `import` and `require` statements in your code.
 
-Go to `my-welcome.ts` and add the following `import` statement.
+To create a dependency relationship between components we simply add `import` one from another. Go to `my-welcome.ts` and add the following `import` statement.
 
 ```ts title="my-welcome.ts"
 import React from 'react';
 import { Heading } from '@bitorg/experience.templates.ui.heading';
 ```
 
-:::note
-[`Package name`](/packages/package-name) for a component is by default computed from its [Component ID](/components/component-id) and can be customized to different conventions.
+:::info Generated package name
+
+[`Package name`](/packages/package-name) for a component is by default computed from its [Component ID](/components/component-id). You can customize it to your liking with other conventions.
+
 :::
 
 Congrats you have added a new dependency for your component! You can view your new component dependency with `bit show`. Bit now recognizes `templates/ui/heading` as a dependency of your component.
@@ -59,9 +61,11 @@ bit show ui/my-welcome
 └───────────────────┴────────────────────────────────────────────────────────────────┘
 ```
 
+You can see the dependency graph of your component in the Workspace UI.
+
 <Image src={depImg} />
 
-We will now add a second dependency, `ui/card` and the initial implementation for our new component.
+Now let's add another component as a dependency. This time it will be `ui/card`:
 
 ```ts {3} title="my-welcome.ts"
 import React from 'react';
@@ -94,11 +98,12 @@ MyWelcome.defaultProps = {
 };
 ```
 
-By going to the component's [Dependencies UI](/dependencies/ui) tab, we can inspect the computed dependency graph, which includes direct and indirect dependencies.
+Now, if you go back to the Workspace UI, you will see that Bit adds not only the direct dependency (`ui/card`), but all of it's Component Dependencies as well.
 
 <Image src={depGraphImg} />
 
-As seen above, Bit understands more than just just the list of direct dependencies for a component and capable of showing the entire dependency / dependents graph of each component. A list of the component's direct dependencies can be seen using `bit show` or in the [Code UI tab](/code/ui).
+Bit keeps a complete dependency graph of all components in the workspace and show the entire dependency / dependents graph of each component.  
+A list of the component's direct dependencies can be seen using `bit show` or in the Code tab part of the Workspace UI.
 
 ```bash
 bit show ui/my-welcome
@@ -146,20 +151,24 @@ bit show ui/my-welcome
 ```
 
 ## External dependencies
-[External dependencies](/dependencies/external-dependencies) are defined in the [Dependency Policy](/) and can be installed using the `bit install` command.
+
+[External dependencies](/dependencies/external-dependencies) are all dependencies listed as part of the workspace [Dependency Policy](/dependencies/dependency-policies) and are installed with the `install` command.
 
 ```bash
 bit install @teambit/base-ui.button
 ```
 
-The dependency policies for components in a workspace can all be configured in a single place, the workspace configuration file. These policies augment and modify the components' auto-generated dependency graphs.
+All dependencies are listed in the `workspace.jsonc` and installed to `node_modules`. Still, Bit does not set a dependency on a component unless a component has a specific `import` statement to that dependency. This means you don't have to deal with managing a dependency graph for each component. A dependency gets removed when you stop use it, and reappear when you start using it again.
 
-To learn more about dependency policies, please read the [Dependency Policy](/dependencies/overview#dependency-policies) section of the docs.
+## Dependency types
 
-## Dev dependencies
+Bit tries to automate managing types of dependencies as well so you don't have to manage your `package.json` file for each component.
 
-`import` and `require` statements added in files classified as [Dev Files](/components/dev-files) are classified as `devDependencies` of the component.
-As seen at the `bit show` output demonstrated above, Bit recognizes three files as [Dev Files](/dev-files) and classifies each dependency as a dev one, and configures it into the `devDependencies` property in the Component Metadata and package.json.
+### Dev dependencies
+
+`devDependencies` is contextual. Some components many use a dependency for their testing, and others will need it to operate. Managing the type of dependency can be a pain. Bit solves this by treating `import` and `require` statements from files classified as [Dev Files](/components/dev-files) differently. Any dependency resolved from a dev-file is marked as `devDependencies` for the specific component. `bit show` output lists which are the dev-files of a component.
+
+If any dependency appears in both an implementation file and a dev-file, Bit marks it as a `dependency` as this is a "stronger" requirement.
 
 Dev dependencies can be viewed either using `bit show` as seen in the example above or by selecting `show non-runtime` option in the Dependencies UI.
 
@@ -167,19 +176,13 @@ Dev dependencies can be viewed either using `bit show` as seen in the example ab
 
 Dotted edges represent a dev dependency between two components.
 
-**Removing a dependency** is as simple as removing the corresponding `import`/`require` statements from the Component's Source Code
+### Peer dependencies
 
-To learn more about dev dependencies, please read the [Dev Dependencies](/dependencies/overview#dev-dependencies) section of the docs.
+Peer Dependencies are dependencies that are not required to be installed by the consumer of the component. They are used to provide a common API for packages that are related. Often used to ensure a single instance of a dependency in the consumer's runtime.
 
+Bit is unable to determine if a dependency should be a `peerDependency`. This is something you should manage in your `workspace.jsonc`.
 
-## Peer dependencies
+## Overriding automated dependency policy
 
-In the same project a dependency can be a runtime dependency for one component and a dev-dependency to another. This means that defining a dependency type is on a per-component basis. To simplify this flow, Bit determines the dependency type according to the file importing that dependency.
-
-To learn more about peer dependencies, please read the [Peer Dependencies](/dependencies/overview#peer-dependencies) section of the docs.
-
-## Overriding dependencies
-
-The workspace.jsonc file defines dependencies for the entire workspace as a centralized, easy to manage, place to set all dependencies. Bit then uses how dependencies are installed and resolved to build a dependency graph for components. This means that the workspace acts more like a policy that defines the rules for how Bit should decide on dependencies. This is unlike using a package.json where what's written there drives the entire dependency graph for your project.
-
-To learn more about overriding dependencies, please read the [Dependency Standardization](/dependencies/overview#dependency-standardization-envs) section of the docs.
+Bit offers an automatic way to manage your dependency graph. However, you can take control to your own hands and override any automated behavior. To control and configure different dependency resolution to some components you need to use the [Workspace Variants Aspect](/workspace/variants).  
+With manual control you can even decide that some of your components will resolve different versions of the same external dependency, allowing you to slowly upgrade your dependencies.

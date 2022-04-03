@@ -1,4 +1,5 @@
 import React from 'react';
+import classnames from 'classnames';
 import { Image } from '@teambit/base-react.content.image';
 import { H4 } from '@teambit/design.ui.heading';
 import { Paragraph } from '@teambit/base-ui.text.paragraph';
@@ -26,9 +27,9 @@ export type LearnCrossroadProps = {
   link: string;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-export function LearnCrossroad({ title, description, link, ...rest }: LearnCrossroadProps) {
+export function LearnCrossroad({ title, description, link, className, ...rest }: LearnCrossroadProps) {
   return (
-    <div className={styles.thinkingInComponents} {...rest}>
+    <div className={classnames(styles.thinkingInComponents, className)} {...rest}>
       <div className={styles.arrows}>
         <Edge
           data-testid="edge"

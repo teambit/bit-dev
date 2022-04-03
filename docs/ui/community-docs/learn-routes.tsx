@@ -2,21 +2,21 @@ import React from 'react';
 import { lazy } from '@loadable/component';
 import { DocsRoute } from '@teambit/docs.entities.docs-routes';
 
-/* Getting Started */
-
-// const InstallingBit = lazy(() => import('@teambit/docs.content.getting-started.installing-bit'));
-const CreateComponents = lazy(() => import('@teambit/community.content.getting-started.composing.create-components'));
-
 /* Harmony */
 // const CliReference = lazy(() => import('@teambit/harmony.content.cli-reference'));
 const AspectsOverview = lazy(() => import('@teambit/harmony.content.aspects-overview'));
 const UsingAspects = lazy(() => import('@teambit/harmony.content.using-aspects'));
+const CreatingAspects = lazy(() => import('@teambit/harmony.docs.creating-aspects'));
+const Slots = lazy(() => import('@teambit/harmony.docs.slots'));
+const AspectConfig = lazy(() => import('@teambit/harmony.docs.aspect-config'));
+const Runtimes = lazy(() => import('@teambit/harmony.docs.runtimes'));
 
 /* Workspace */
 const WorkspaceOverview = lazy(() => import('@teambit/workspace.content.workspace-overview'));
 const Bitmap = lazy(() => import('@teambit/workspace.content.bitmap'));
 const WorkspaceLink = lazy(() => import('@teambit/workspace.content.workspace-link'));
 const DirectoryStructure = lazy(() => import('@teambit/workspace.content.directory-structure'));
+const TrackComponents = lazy(() => import('@teambit/workspace.content.tracking-components'));
 const ComponentDir = lazy(() => import('@teambit/workspace.content.component-directory'));
 const WorkspaceStatus = lazy(() => import('@teambit/workspace.content.workspace-status'));
 const ClearingCache = lazy(() => import('@teambit/workspace.content.clearing-cache'));
@@ -42,13 +42,19 @@ const HostingScopes = lazy(() => import('@teambit/scope.content.hosting-scopes')
 const DevServices = lazy(() => import('@teambit/envs.content.dev-services'));
 // const DevServicesOverview = lazy(() => import('@teambit/envs.content.dev-services-overview'));
 
+/* Apps */
+const AppsOverview = lazy(() => import('@teambit/apps.docs.apps-overview'));
+const CreateApp = lazy(() => import('@teambit/harmony.content.create-app'));
+const UsingApps = lazy(() => import('@teambit/apps.docs.using-apps'));
+const AppBuild = lazy(() => import('@teambit/apps.docs.app-build'));
+const AppDeployment = lazy(() => import('@teambit/apps.docs.app-deployment'));
+
 /* Generator */
 const GeneratorOverview = lazy(() => import('@teambit/generator.content.generator-overview'));
 const GenerateComponent = lazy(() => import('@teambit/generator.content.generate-component'));
 const GenerateWorkspace = lazy(() => import('@teambit/generator.content.generate-workspace'));
 
 /* Preview */
-
 const PreviewOverview = lazy(() => import('@teambit/preview.content.preview-overview'));
 const PreviewDuringBuild = lazy(() => import('@teambit/preview.content.preview-during-build'));
 const PreviewDuringDevelopment = lazy(() => import('@teambit/preview.content.preview-during-development'));
@@ -87,7 +93,7 @@ const ConfigureEnvWithCompiler = lazy(() => import('@teambit/compilation.content
 const ImplementCompiler = lazy(() => import('@teambit/compilation.content.implement-compiler'));
 const CompilerAPI = lazy(() => import('@teambit/compilation.content.compiler-api'));
 const MultiCompiler = lazy(() => import('@teambit/compilation.content.multi-compiler'));
-const ConfigureWebpck = lazy(() => import('@teambit/webpack.content.configure-webpack'));
+const ConfigureWebpack = lazy(() => import('@teambit/webpack.content.configure-webpack'));
 
 /* Builder */
 
@@ -96,8 +102,8 @@ const BuildPipelines = lazy(() => import('@teambit/pipelines.content.build-pipel
 const BuildTasks = lazy(() => import('@teambit/pipelines.content.build-tasks'));
 const BuildArtifacts = lazy(() => import('@teambit/pipelines.content.build-artifacts'));
 const Capsule = lazy(() => import('@teambit/component.content.capsule'));
-//const BuildTaskApi = lazy(() => import('@teambit/pipelines.content.build-task-api'));
-//const BuildArtifactsApi = lazy(() => import('@teambit/pipelines.content.build-artifacts-api'));
+// const BuildTaskApi = lazy(() => import('@teambit/pipelines.content.build-task-api'));
+// const BuildArtifactsApi = lazy(() => import('@teambit/pipelines.content.build-artifacts-api'));
 const UsingBuildTask = lazy(() => import('@teambit/pipelines.content.using-build-task'));
 
 /* Docs */
@@ -113,12 +119,13 @@ const CompositionsOverview = lazy(() => import('@teambit/compositions.content.co
 const CompositionFormat = lazy(() => import('@teambit/compositions.content.composition-format'));
 const CompositionContext = lazy(() => import('@teambit/compositions.content.composition-context'));
 const MountingCompositionsToDom = lazy(() => import('@teambit/compositions.content.mounting-compositions-to-dom'));
-const CompositionsAndStories = lazy(() => import('@teambit/compositions.content.compositions-and-stories'));
+// const CompositionsAndStories = lazy(() => import('@teambit/compositions.content.compositions-and-stories'));
 
 /* Components */
 
 const NavigateHistory = lazy(() => import('@teambit/component.content.navigate-history'));
 const ComponentId = lazy(() => import('@teambit/component.content.component-id'));
+const Metadata = lazy(() => import('@teambit/component.docs.metadata'));
 const ComponentOverview = lazy(() => import('@teambit/component.content.component-overview'));
 const RemovingDeprecating = lazy(() => import('@teambit/docs.content.guides.removing-deprecating-components'));
 const MergingComponentVersions = lazy(() => import('@teambit/docs.content.guides.merging-component-versions'));
@@ -131,18 +138,30 @@ const InspectingComponents = lazy(() => import('@teambit/component.content.inspe
 const Tags = lazy(() => import('@teambit/component.content.tags'));
 const Snaps = lazy(() => import('@teambit/component.content.snaps'));
 const ComponentAnatomy = lazy(() => import('@teambit/component.content.component-anatomy'));
-const AddingComponents = lazy(() => import('@teambit/component.content.adding-components'));
+const RenamingComponents = lazy(() => import('@teambit/component.docs.renaming-components'));
+// const AddingComponents = lazy(() => import('@teambit/component.content.adding-components'));
+const CreateComponents = lazy(() => import('@teambit/community.content.getting-started.composing.create-components'));
+
+/* Lanes */
+
+const LanesOverview = lazy(() => import('@teambit/lanes.content.lanes-overview'));
+const CreateLane = lazy(() => import('@teambit/lanes.content.create-lane'));
+const ComponentsInLane = lazy(() => import('@teambit/lanes.content.components-in-lane'));
+const ExportLane = lazy(() => import('@teambit/lanes.content.export'));
+const ImportLane = lazy(() => import('@teambit/lanes.content.import'));
+const MergeLane = lazy(() => import('@teambit/lanes.content.merging'));
 
 /* Envs */
 const EnvsOverview = lazy(() => import('@teambit/envs.content.envs-overview'));
 const InspectingEnv = lazy(() => import('@teambit/envs.content.inspecting-env'));
 const ExtendingEnv = lazy(() => import('@teambit/envs.content.extending-env'));
 const UsingEnvs = lazy(() => import('@teambit/envs.content.using-envs'));
-const EnvsApi = lazy(() => import('@teambit/envs.content.envs-api'));
+// const EnvsApi = lazy(() => import('@teambit/envs.content.envs-api'));
 
 /* Dependencies */
 
 const InspectingDependencies = lazy(() => import('@teambit/dependencies.content.inspecting-dependencies'));
+const CyclicDependencies = lazy(() => import('@teambit/dependencies.content.cyclic-dependencies'));
 const DependenciesOverview = lazy(() => import('@teambit/dependencies.content.dependencies-overview'));
 const ExternalDependencies = lazy(() => import('@teambit/dependencies.content.external-dependencies'));
 const DependencyPolicies = lazy(() => import('@teambit/dependencies.content.dependency-policies'));
@@ -150,9 +169,9 @@ const ConfiguringDependencies = lazy(() => import('@teambit/dependencies.content
 const DependenciesConfiguration = lazy(() => import('@teambit/dependencies.content.dependencies-configuration'));
 const DependencyInstallation = lazy(() => import('@teambit/dependencies.content.installing-dependencies'));
 // const DependencyResolution = lazy(() => import('@teambit/dependencies.content.dependency-resolution'));
-const LockFiles = lazy(() => import('@teambit/dependencies.content.lock-files'));
-const Pnpm = lazy(() => import('@teambit/dependencies.content.pnpm'));
-const Yarn = lazy(() => import('@teambit/dependencies.content.yarn'));
+// const LockFiles = lazy(() => import('@teambit/dependencies.content.lock-files'));
+// const Pnpm = lazy(() => import('@teambit/dependencies.content.pnpm'));
+// const Yarn = lazy(() => import('@teambit/dependencies.content.yarn'));
 const NodeModules = lazy(() => import('@teambit/dependencies.content.node-modules'));
 const PackageManagers = lazy(() => import('@teambit/dependencies.content.package-managers'));
 
@@ -181,6 +200,21 @@ const ReactOverview = lazy(() => import('@teambit/react.content.react-overview')
 const ReplacingReactTools = lazy(() => import('@teambit/react.content.replace-react-tools'));
 const ConfigReactTools = lazy(() => import('@teambit/react.content.config-react-tools'));
 
+/* ReactNative */
+const ReactNativeOverview = lazy(() => import('@teambit/react.content.react-native-overview'));
+
+/* node */
+const NodeOverview = lazy(() => import('@teambit/harmony.content.node-overview'));
+
+/* lit html */
+const LitOverview = lazy(() => import('@teambit/web-components.content.lit-overview'));
+
+/* html */
+const HtmlOverview = lazy(() => import('@teambit/html.content.html-overview'));
+
+/* Angular */
+const AngularOverview = lazy(() => import('@teambit/angular.content.angular-overview'));
+
 /* Misc */
 const UsageAnalytics = lazy(() => import('@teambit/docs.content.guides.usage-analytics'));
 
@@ -203,9 +237,48 @@ export const learnDocsRoutes: DocsRoute[] = [
     // },
     children: [
       {
-        path: 'workspace-configuration',
-        component: <WorkspaceConfiguration />,
-        title: 'Workspace configuration',
+        path: 'structure',
+        title: 'Structure',
+        children: [
+          {
+            path: 'directory-structure',
+            title: 'Directory structure',
+            description:
+              'The Bit Workspace is flexible in directory structure to preserve a seamless dev experience for building distributed apps.',
+            component: <DirectoryStructure />,
+          },
+          {
+            path: 'component-directory',
+            title: 'Component directory',
+            description:
+              'A Component Directory is a directory in the developer Workspace. Directories are mapped as Components using the .bitmap rootDir property which exist for every Component entry.',
+            component: <ComponentDir />,
+          },
+          {
+            path: 'component-links',
+            title: 'Workspace component link',
+            component: <WorkspaceLink />,
+          },
+          {
+            path: 'bitmap',
+            title: 'bitmap',
+            description:
+              ".bitmap is a file auto-generated and managed by Bit in the Workspace for mapping component to their corresponding directory in the project's file system.",
+            component: <Bitmap />,
+          },
+          {
+            path: 'local-scope',
+            title: 'Local scope',
+            description:
+              'The Local Scope is located in the .bit or .git/bit directory at the root of the Workspace. It is where component versions (snapshots) are stored.',
+            component: <LocalScope />,
+          },
+        ],
+      },
+      {
+        path: 'workspace-overview',
+        title: 'Workspace overview',
+        component: <WorkspaceOverview />,
       },
       {
         path: 'creating-workspaces',
@@ -218,18 +291,9 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <CreateComponents />,
       },
       {
-        path: 'directory-structure',
-        title: 'Directory structure',
-        description:
-          'The Bit Workspace is flexible in directory structure to preserve a seamless dev experience for building distributed apps.',
-        component: <DirectoryStructure />,
-      },
-      {
-        path: 'component-directory',
-        title: 'Component directory',
-        description:
-          'A Component Directory is a directory in the developer Workspace. Directories are mapped as Components using the .bitmap rootDir property which exist for every Component entry.',
-        component: <ComponentDir />,
+        path: 'tracking-components',
+        title: 'Tracking components',
+        component: <TrackComponents />,
       },
       {
         path: 'workspace-status',
@@ -245,39 +309,20 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <MovingComponents />,
       },
       {
+        path: 'workspace-json',
+        component: <WorkspaceConfiguration />,
+        title: 'workspace.json',
+      },
+      {
         path: 'variants',
         title: 'Configuration variants',
         description: 'Variants enables you to configure group of components with Component configuration.',
         component: <Variants />,
       },
       {
-        path: 'bitmap',
-        title: 'bitmap',
-        description:
-          ".bitmap is a file auto-generated and managed by Bit in the Workspace for mapping component to their corresponding directory in the project's file system.",
-        component: <Bitmap />,
-      },
-      {
-        path: 'component-links',
-        title: 'Workspace component link',
-        component: <WorkspaceLink />,
-      },
-      {
         path: 'configuring-remote-scopes',
         title: 'Configuring remote scopes',
         component: <ConfiguringRemoteScopes />,
-      },
-      {
-        path: 'local-scope',
-        title: 'Local scope',
-        description:
-          'The Local Scope is located in the .bit or .git/bit directory at the root of the Workspace. It is where component versions (snapshots) are stored.',
-        component: <LocalScope />,
-      },
-      {
-        path: 'clearing-cache',
-        title: 'Clearing cache',
-        component: <ClearingCache />,
       },
     ],
   },
@@ -295,63 +340,87 @@ export const learnDocsRoutes: DocsRoute[] = [
     // },
     children: [
       {
+        title: 'Structure',
+        path: 'structure',
+        children: [
+          {
+            path: 'component-anatomy',
+            title: 'Anatomy overview',
+            description: 'How Bit manages all data on a component.',
+            component: <ComponentAnatomy />,
+          },
+          {
+            path: 'component-id',
+            title: 'Component ID',
+            description:
+              'The Component ID is designed to be a unique, human-readable name that simplifies and help organize components.',
+            component: <ComponentId />,
+          },
+          {
+            path: 'component-json',
+            title: 'component.json',
+            component: <ComponentJson />,
+          },
+          {
+            path: 'component-metadata',
+            title: 'Component metadata',
+            component: <Metadata />,
+          },
+          {
+            path: 'component-main-file',
+            title: 'Main file',
+            description: 'Main file exposes the Component API.',
+            component: <MainFile />,
+          },
+          {
+            path: 'dev-files',
+            title: 'Dev files',
+            description:
+              'Dev files are component files used for development and not for production. Dev files are determined as such by the Dev Files Aspect.',
+            component: <DevFiles />,
+          },
+          {
+            path: 'component-objects',
+            title: 'Component objects',
+            description: 'How Bit saves revision history for components',
+            component: <ComponentObjects />,
+          },
+          {
+            path: 'component-capsules',
+            title: 'Component capsules',
+            description:
+              'A capsule is an isolated component environment. It is mainly implemented as a directory that hosts a component outside its workspace directory.',
+            component: <Capsule />,
+          },
+        ],
+      },
+      {
         path: 'component-overview',
         title: 'Component overview',
         description:
           'Component is a decoupled, versioned source-code container designed for the purpose of containing a single module or component.',
         component: <ComponentOverview />,
       },
-      {
-        path: 'adding-components',
-        title: 'Adding components',
-        description: 'Add a new component to be managed by Bit.',
-        component: <AddingComponents />,
-      },
-      {
-        path: 'component-config',
-        title: 'Component configuration',
-        component: <ComponentConfig />,
-      },
-      {
-        path: 'component-id',
-        title: 'Component ID',
-        description:
-          'The Component ID is designed to be a unique, human-readable name that simplifies and help organize components.',
-        component: <ComponentId />,
-      },
-      {
-        path: 'component-anatomy',
-        title: 'Component anatomy',
-        description: 'How Bit manages all data on a component.',
-        component: <ComponentAnatomy />,
-      },
       // {
-      //   path: 'inspecting-components',
-      //   title: 'Inspecting components',
-      //   component: <InspectingComponents />,
+      //   path: 'adding-components',
+      //   title: 'Adding components',
+      //   description: 'Add a new component to be managed by Bit.',
+      //   component: <AddingComponents />,
       // },
       {
-        path: 'component-main-file',
-        title: 'Main file',
-        description: 'Main file exposes the Component API.',
-        component: <MainFile />,
-      },
-      {
-        path: 'dev-files',
-        title: 'Dev files',
-        description:
-          'Dev files are component files used for development and not for production. Dev files are determined as such by the Dev Files Aspect.',
-        component: <DevFiles />,
+        path: 'inspecting-components',
+        title: 'Inspecting components',
+        component: <InspectingComponents />,
       },
       {
         path: 'snaps',
-        title: 'Snapshot changes',
+        title: 'Snapping changes',
         description: 'Record component history with snapshots.',
         component: <Snaps />,
       },
       {
         path: 'tags',
-        title: 'Versioning',
+        title: 'Tagging changes',
         description: 'Manage component releases with semantic version.',
         component: <Tags />,
       },
@@ -367,12 +436,6 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <ExportingComponents />,
       },
       {
-        path: 'removing-components',
-        title: 'Deprecating and removing',
-        description: 'Mark components as irrelevant or obsolete..',
-        component: <RemovingDeprecating />,
-      },
-      {
         path: 'importing-components',
         title: 'Importing components',
         description:
@@ -380,27 +443,25 @@ export const learnDocsRoutes: DocsRoute[] = [
         component: <ImportingComponents />,
       },
       {
-        title: 'Merge conflicts',
-        path: 'merge-conflicts',
+        title: 'Renaming components',
+        path: 'renaming-components',
+        component: <RenamingComponents />,
+      },
+      {
+        title: 'Merging changes',
+        path: 'merging-changes',
         component: <MergingComponentVersions />,
       },
       {
-        path: 'component-json',
-        title: 'component.json',
-        component: <ComponentJson />,
+        path: 'removing-components',
+        title: 'Deprecating and removing',
+        description: 'Mark components as irrelevant or obsolete..',
+        component: <RemovingDeprecating />,
       },
       {
-        path: 'component-capsules',
-        title: 'Component capsules',
-        description:
-          'A capsule is an isolated component environment. It is mainly implemented as a directory that hosts a component outside its workspace directory.',
-        component: <Capsule />,
-      },
-      {
-        path: 'component-objects',
-        title: 'Component objects',
-        description: 'How Bit saves revision history for components',
-        component: <ComponentObjects />,
+        path: 'component-config',
+        title: 'Component configuration',
+        component: <ComponentConfig />,
       },
     ],
   },
@@ -448,10 +509,10 @@ export const learnDocsRoutes: DocsRoute[] = [
         description: 'See your component dependencies',
         component: <InspectingDependencies />,
       },
-      {
-        path: 'updates',
-        title: 'Dependency updates',
-      },
+      // {
+      //   path: 'updates',
+      //   title: 'Dependency updates',
+      // },
       {
         path: 'package-managers',
         title: 'Package managers',
@@ -481,14 +542,89 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'cyclic-dependencies',
         title: 'Cyclic dependencies',
+        component: <CyclicDependencies />,
+      },
+      // {
+      //   path: 'lock-files',
+      //   title: 'Lock files',
+      //   description:
+      //     'A lock file is a representation of the node_modules directory, written in a YAML format. It is automatically generated and updated, whenever the node_modules directory structure is modified by the package manager (when packages are either installed or removed).',
+      //   component: <LockFiles />,
+      // },
+    ],
+  },
+  {
+    path: 'lanes',
+    open: false,
+    title: 'Lanes (Alpha)',
+    icon: 'Lanes2',
+    children: [
+      {
+        path: 'lanes-overview',
+        title: 'Lanes overview',
+        component: <LanesOverview />,
+        description: 'Lanes allow change management for component driven software.',
       },
       {
-        path: 'lock-files',
-        title: 'Lock files',
-        description:
-          'A lock file is a representation of the node_modules directory, written in a YAML format. It is automatically generated and updated, whenever the node_modules directory structure is modified by the package manager (when packages are either installed or removed).',
-        component: <LockFiles />,
+        path: 'create-lane',
+        title: 'Creating lanes',
+        description: 'How to create lanes and control their properties.',
+        component: <CreateLane />,
       },
+      // { waiting for luv to implement
+      //  path: 'lane-definition',
+      //  title: 'Lane definition',
+      //  description: 'not sure yet',
+      //  component: <div />,
+      // },
+      {
+        path: 'switching-lanes',
+        title: 'Snapping changes',
+        description: 'Add, remove and change components in a lane.',
+        component: <ComponentsInLane />,
+      },
+      // {
+      //  path: 'inspecting-lanes',
+      //  title: 'Inspecting lanes',
+      //  description: 'not sure yet',
+      //  component: <div />,
+      // },
+      // {
+      //  path: 'remote-lanes',
+      //  title: 'Lane remotes',
+      //  description: 'not sure yet',
+      //  component: <div />,
+      // },
+      {
+        path: 'export-lane',
+        title: 'Exporting lanes',
+        description: 'Export a lane to a remote to collaborate with others.',
+        component: <ExportLane />,
+      },
+      {
+        path: 'import-lanes',
+        title: 'Importing lanes',
+        description: 'Import lane or components from a lane to extend collaborate.',
+        component: <ImportLane />,
+      },
+      {
+        path: 'merge-lanes',
+        title: 'Merging changes',
+        description: 'Merge changes for components from a lane to main or other lanes.',
+        component: <MergeLane />,
+      },
+      // {
+      //   path: 'remove-lanes',
+      //   title: 'Removing lanes',
+      //   description: 'Merge lanes when all changes are ready to be versioned.',
+      //   component: <div />,
+      // },
+      // {
+      //  path: 'lanes-objects',
+      //  title: 'Lane objects',
+      //  description: 'How Bit stores and manages lane and all its components in the scope.',
+      //  component: <div />,
+      // },
     ],
   },
   {
@@ -528,7 +664,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'remote-scopes',
-        title: 'Remotes',
+        title: 'Using remote scopes',
         description: 'Connect scopes and workspace with remotes.',
         component: <RemoteScopes />,
       },
@@ -574,11 +710,11 @@ export const learnDocsRoutes: DocsRoute[] = [
         description: 'Development Services control various workflows and commands for components.',
         component: <DevServices />,
       },
-      {
-        path: 'envs-api',
-        title: 'Envs API',
-        component: <EnvsApi />,
-      },
+      // {
+      //   path: 'envs-api',
+      //   title: 'Envs API',
+      //   component: <EnvsApi />,
+      // },
     ],
   },
   {
@@ -586,11 +722,6 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Dev services',
     icon: 'compCI',
     open: false,
-    // overview: {
-    //   path: 'dev-services-overview',
-    //   title: 'Dev services overview',
-    //   component: <DevServicesOverview />,
-    // },
     children: [
       {
         path: 'builder',
@@ -617,11 +748,6 @@ export const learnDocsRoutes: DocsRoute[] = [
             component: <BuildTasks />,
             description: 'Add a build task to your component build pipeline.',
           },
-         /* {
-            path: 'build-task-api',
-            title: 'Build task API',
-            component: <BuildTaskApi />,
-          },*/
           {
             path: 'using-build-tasks',
             title: 'Using build tasks',
@@ -634,14 +760,9 @@ export const learnDocsRoutes: DocsRoute[] = [
               'Artifacts are files that are generated by a build task, and persisted in the component objects (the component version).',
             component: <BuildArtifacts />,
           },
-          /*{
-            path: 'build-artifacts-api',
-            title: 'Build artifacts API',
-            component: <BuildArtifactsApi />,
-          },*/
           {
             path: 'capsule',
-            title: 'Caspule',
+            title: 'Capsule',
             description:
               'A capsule is an isolated component environment. It is mainly implemented as a directory that hosts a component outside its workspace directory.',
             component: <Capsule />,
@@ -656,17 +777,17 @@ export const learnDocsRoutes: DocsRoute[] = [
         children: [
           {
             path: 'generator-overview',
-            title: 'Overview',
+            title: 'Generator Overview',
             component: <GeneratorOverview />,
           },
           {
             path: 'generate-component',
-            title: 'Custom component generator',
+            title: 'Create component generator',
             component: <GenerateComponent />,
           },
           {
             path: 'generate-workspace',
-            title: 'Custom workspace generator',
+            title: 'Create workspace generator',
             component: <GenerateWorkspace />,
           },
         ],
@@ -825,13 +946,13 @@ export const learnDocsRoutes: DocsRoute[] = [
             title: 'Mounting Compositions to the DOM',
             component: <MountingCompositionsToDom />,
           },
-          {
-            path: 'compositions-and-stories',
-            title: 'Compositions and stories',
-            description:
-              'Compositions and Stories can appear quite similar. Almost like two sibling solutions that solve the same problem.',
-            component: <CompositionsAndStories />,
-          },
+          // {
+          //   path: 'compositions-and-stories',
+          //   title: 'Compositions and stories',
+          //   description:
+          //     'Compositions and Stories can appear quite similar. Almost like two sibling solutions that solve the same problem.',
+          //   component: <CompositionsAndStories />,
+          // },
         ],
       },
       {
@@ -954,27 +1075,27 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'apps-overview',
         title: 'Apps overview',
-        component: <div />,
+        component: <AppsOverview />,
       },
       {
         path: 'create-app',
         title: 'Creating an app',
-        component: <div />,
+        component: <CreateApp />,
       },
       {
         path: 'using-apps',
         title: 'Using apps',
-        component: <div />,
+        component: <UsingApps />,
       },
       {
         path: 'app-build',
         title: 'App build',
-        component: <div />,
+        component: <AppBuild />,
       },
       {
         path: 'app-deployment',
         title: 'App deployment',
-        component: <div />,
+        component: <AppDeployment />,
       },
       {
         path: 'application-types',
@@ -1010,33 +1131,33 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'package-name',
-        title: 'Package Name',
+        title: 'Package name',
         description:
           'The Package Name is the CommonJS compatible module name for the Component, used and linked from the Workspace node_modules directory. By default, package names are computed from the Component ID.',
         component: <PackageName />,
       },
       {
         path: 'packing-components',
-        title: 'Packing Components',
+        title: 'Packing components',
         description:
           'Component packages are generated during execution of the Component build pipeline and persisted as Artifacts upon component versioning.',
         component: <PackingComponents />,
       },
       {
         path: 'publishing-components-to-commonjs-registries',
-        title: 'Publishing to CommonJS Registries',
+        title: 'Publishing to CommonJS registries',
         description:
           'Component packages are included in the component versions (snaps and tags). Components hosted on Bit Cloud will have their packages available to be installed by Bit, as well as by standard package managers like npm and Yarn.',
         component: <CommonjsPackageRegistries />,
       },
       {
         path: 'build-tasks',
-        title: 'Build Tasks',
+        title: 'Build tasks',
         component: <PkgBuildTasks />,
       },
       {
         path: 'npmrc',
-        title: 'Configuring Bit Cloud in NPM config',
+        title: 'Configuring bit.cloud in NPM config',
         description:
           "npmrc's are npm config files (used by other package manager as well). npmrc can be configured per project, per user, or globally.",
         component: <Npmrc />,
@@ -1136,6 +1257,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'react',
         title: 'React',
+        icon: 'reactjs',
         open: false,
         children: [
           {
@@ -1153,32 +1275,77 @@ export const learnDocsRoutes: DocsRoute[] = [
             title: 'Replacing React tools',
             component: <ReplacingReactTools />,
           },
+          {
+            path: 'react-native-overview',
+            title: 'React Native',
+            component: <ReactNativeOverview />,
+          },
         ],
       },
       {
         path: 'angular',
         title: 'Angular',
+        icon: 'Angular',
         open: false,
-        children: [],
+        children: [
+          {
+            path: 'angular-overview',
+            title: 'Angular overview',
+            component: <AngularOverview />,
+          },
+        ],
       },
       {
         path: 'node',
         title: 'Node',
+        icon: 'nodejs',
         open: false,
-        children: [],
+        children: [
+          {
+            path: 'node-overview',
+            title: 'Node overview',
+            component: <NodeOverview />,
+          },
+        ],
+      },
+      {
+        path: 'html',
+        title: 'HTML',
+        icon: 'html',
+        open: false,
+        children: [
+          {
+            path: 'html-overview',
+            title: 'HTML overview',
+            component: <HtmlOverview />,
+          },
+          {
+            path: 'configure-webpack',
+            title: 'Configure webpack',
+            component: <ConfigureWebpack />,
+          },
+        ],
       },
       {
         path: 'lit-html',
-        title: 'Lit Element',
+        title: 'Lit',
+        icon: 'lit-element',
         open: false,
-        children: [],
+        children: [
+          {
+            path: 'lit-overview',
+            title: 'Lit overview',
+            component: <LitOverview />,
+          },
+        ],
       },
-      {
-        path: 'harmony',
-        title: 'Harmony',
-        open: false,
-        children: [],
-      },
+      // {
+      //   path: 'harmony',
+      //   title: 'Harmony',
+      //   icon: 'Extension',
+      //   open: false,
+      //   children: [],
+      // },
     ],
   },
   {
@@ -1204,18 +1371,22 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'create-aspect',
         title: 'Creating aspects',
+        component: <CreatingAspects />,
       },
       {
         path: 'config',
         title: 'Aspect config',
+        component: <AspectConfig />,
       },
       {
         path: 'slots',
         title: 'Slots',
+        component: <Slots />,
       },
       {
         path: 'runtimes',
         title: 'Runtimes',
+        component: <Runtimes />,
       },
       // {
       //   title: 'Guides',
@@ -1247,6 +1418,11 @@ export const learnDocsRoutes: DocsRoute[] = [
         open: false,
         component: <ConfigFiles />,
       },
+      {
+        path: 'bitrc',
+        title: 'Global configuration (bitrc)',
+        component: <div />,
+      },
     ],
   },
   {
@@ -1255,6 +1431,11 @@ export const learnDocsRoutes: DocsRoute[] = [
     open: false,
     title: 'Reference',
     children: [
+      {
+        path: 'clearing-cache',
+        title: 'Clearing cache',
+        component: <ClearingCache />,
+      },
       {
         path: 'cli-reference',
         title: 'CLI Reference',
