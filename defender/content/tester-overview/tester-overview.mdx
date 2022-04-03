@@ -2,11 +2,12 @@ import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-
 
 # Tester Overview
 
-<ComponentCardDisplay componentIds={[
-  'teambit.defender/tester',
-]} style={{ float: 'left', margin: 20, maxWidth: 250, marginBottom: 20 }} />
+<ComponentCardDisplay
+  componentIds={['teambit.defender/tester']}
+  style={{ float: 'left', margin: 20, maxWidth: 250, marginBottom: 20 }}
+/>
 
-The *Tester* provides a unified interface for testing components regardless of the specific tester they use.
+The _Tester_ provides a unified interface for testing components regardless of the specific tester they use.
 
 Software testing is a way to validate that an application, or a module of it, behaves as expected.
 
@@ -18,7 +19,7 @@ Standardization is done for component testing during development (in the workspa
 
 ## Testing in development
 
-Bit tests all components in the [Workspace](/workspace/overview) using just a single command. That is true for components of all types, regardless of their specific [Env](/envs/overview), and as a consequence of that, their specific [Tester implementation](/tester/overview) and configuration.
+Bit tests all components in the [Workspace](/workspace/overview) using just a single command. That is true for components of all types, regardless of their specific [Env](/envs/overview), and as a consequence of that, their specific [Tester implementation](/dev-services-overview/tester/tester-overview) and configuration.
 
 ```bash
 bit test

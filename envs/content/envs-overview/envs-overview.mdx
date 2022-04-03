@@ -5,9 +5,7 @@ import envComposition from './env-composition.png';
 
 # Envs
 
-<ComponentCardDisplay componentIds={[
-  'teambit.envs/envs',
-]} style={{ float: 'left', margin: 20, maxWidth: 250 }} />
+<ComponentCardDisplay componentIds={['teambit.envs/envs']} style={{ float: 'left', margin: 20, maxWidth: 250 }} />
 
 Envs are reusable development environments for components. They are used simplify and standardize component development workflows, like **compilation**. You may set different envs on different "types" of components. It means that a single command runs the same flow for all components in the workspace, regardless of specific tools or configs used.
 
@@ -50,4 +48,4 @@ A Bit workspace helps you focus on components and removes all other noise such a
 An env encapsulates all the "noise" to single component. You then apply the env on a component for all flows and configs to apply for that specific component. In the same sense, you may also set vastly different envs on components in the same workspace.
 
 When you run different commands like `start`, `compile`, `test`, `lint`, `format` or `build`, the operation will run per-component, according to how it is set in the env applied to it.  
-Checkout all available services [here](/dev-services/available-services). And if you need to create your own, follow this [guide](/envs/creating-your-own-services).
+Checkout all available services [here](/dev-services-overview/available-services). And if you need to create your own, follow this [guide](/envs/creating-your-own-services).
