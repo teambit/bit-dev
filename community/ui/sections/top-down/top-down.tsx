@@ -1,24 +1,27 @@
 import React, { ReactNode } from 'react';
-import { TopDown as TopDownLayout, TopDownProps as TopDownLayoutProps } from '@teambit/design.ui.layouts.sections.top-down';
+import {
+  TopDown as TopDownLayout,
+  TopDownProps as TopDownLayoutProps,
+} from '@teambit/design.ui.layouts.sections.top-down';
 import { Heading } from '@teambit/community.ui.heading';
 import { Subtitle } from '@teambit/design.ui.content.subtitle';
 import styles from './top-down.module.scss';
 
 export type TopDownProps = {
   /**
-  * section title.
-  */
-  title: string,
-  
+   * section title.
+   */
+  title: string;
+
   /**
    * section subtitle.
    */
-  subtitle: string,
+  subtitle: string;
 
   /**
    * section content.
    */
-  children: ReactNode
+  children?: ReactNode;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export function TopDown({ title, subtitle, children, className, ...rest }: TopDownProps) {
@@ -32,8 +35,8 @@ export function TopDown({ title, subtitle, children, className, ...rest }: TopDo
 function Header({ title, subtitle }) {
   return (
     <>
-    <Heading>{title}</Heading>
-    <Subtitle>{subtitle}</Subtitle>
+      <Heading>{title}</Heading>
+      <Subtitle>{subtitle}</Subtitle>
     </>
   );
 }
