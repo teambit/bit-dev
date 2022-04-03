@@ -62,7 +62,7 @@ export function GridGraph({
 }: GridGraphProps) {
   return (
     <div className={classNames(styles.gridGraph, className)} {...rest}>
-      <ArrowAutoReloader interval>
+      <ArrowAutoReloader reloadOnTimeout={300} reloadOnMount>
         {nodes.map((node) => {
           const id = getValidId(node.id.toString({ ignoreVersion: true }));
           return (

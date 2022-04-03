@@ -25,13 +25,11 @@ const pluginsArray = [
 
 export function Header({ className, plugins, ...rest }: HeaderProps) {
   return (
-    <div className={styles.headerWrapper}>
-      <BaseHeader
-        {...rest}
-        className={classNames(styles.header, className)}
-        menuLinks={headerContent}
-        plugins={pluginsArray}
-      />
-    </div>
+    <BaseHeader
+      {...rest}
+      className={classNames(styles.header, className)}
+      menuLinks={headerContent}
+      plugins={pluginsArray}
+    />
   );
 }

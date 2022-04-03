@@ -1,3 +1,7 @@
+import { Image } from '@teambit/docs.ui.zoomable-image';
+import config from './config.png';
+import metadata from './metadata.png';
+
 # Component anatomy
 
 A Component contains five types of data: Source code, dependencies, configurations, artifacts and metadata.
@@ -50,7 +54,7 @@ The following output displays the component files. It specifies which of these f
 For example:
 
 ```bash
-bit show teambit.base-react/navigation/link
+bit show teambit.base-react/navigation/link --remote
 ```
 
 The following output lists the component dependencies and groups them by their dependency type (regular, dev and peer):
@@ -81,15 +85,14 @@ The following output lists the component dependencies and groups them by their d
 
 ## Configuration
 
-A [Component's configuration](./components/component-config) consists of the Aspects it uses and their corresponding configs.
+A [Component's configuration](./components/component-config) consists of the Aspects it uses and the config set for each of them.
 For example:
 
 ```bash
 bit show teambit.base-react/navigation/link --remote
 ```
 
-The following output displays the list of aspects applied on this component. The effects of these aspects can be seen in other types of component data. For example, the 'compositions' aspect defines the `.compositions.*` files as dev file.
-It's also responsible for generating the artifacts that make these compositions renderable by the browser.
+The following output displays the list of aspects applied on this component. Some of these aspects contain configuration.
 
 ```bash
 ┌───────────────────┬────────────────────────────────────────────────────────────────────┐
@@ -110,9 +113,49 @@ It's also responsible for generating the artifacts that make these compositions 
 └───────────────────┴────────────────────────────────────────────────────────────────────┘
 ```
 
+Head over to [this component's 'aspect' page](https://bit.cloud/teambit/base-react/navigation/link/~aspect) to see the configurations applied on it via its different aspects.
+For example, `teambit.component/dev-files` is configured to define files with the filename pattern `"**/*.demo.+(js|ts|jsx|tsx)"` as dev files.
+
+<Image src={config} />
+
+:::info Manual vs programmatic configuration
+The config section refers to configuration set directly and manually on a component.
+It does not include information that was calculated or set programmatically by the different aspects.
+:::
+
 ## Metadata
 
-Configured aspects can also persist and retieve metadata on components.
+A component's metadata consists of the Aspects it uses and the data they generate and persist in the component.
+For example, the previous section ('Configuration') shows the `teambit.component/dev-files` aspect configured to define `"**/*.demo.+(js|ts|jsx|tsx)"` files as dev files.
+The calculated result of that configuration, the component's concrete files defined as dev files, is part of this component's metadata and can be seen in the [component's 'aspect' page](https://bit.cloud/teambit/base-react/navigation/link/~aspect).
+
+<Image src={metadata} />
+
+Critical metadata is also available when a component is inspected in the terminal:
+
+```bash
+bit show teambit.base-react/navigation/link --remote
+```
+
+The output should show the calculated dev file seen previously:
+
+```
+┌───────────────────┬────────────────────────────────────────────────────────────────────┐
+│ id                │ teambit.base-react/navigation/link@2.0.27                          │
+├───────────────────┼────────────────────────────────────────────────────────────────────┤
+│ ...               │ ...                                                                │
+├───────────────────┼────────────────────────────────────────────────────────────────────┤
+│ dev files         │ example/my-router-adapter.demo.tsx (config)                        │
+├───────────────────┼────────────────────────────────────────────────────────────────────┤
+│ extensions        │ teambit.component/dev-files                                        │
+├───────────────────┼────────────────────────────────────────────────────────────────────┤
+│ ...               │ ...                                                                │
+└───────────────────┴────────────────────────────────────────────────────────────────────┘
+```
+
+:::info Metadata in development
+The metadata for [new](/workspace/workspace-status#new-components) and [modified](/workspace/workspace-status#modified-components) components is re-calculated while in development. This data is persisted only when components are versioned.
+:::
 
 ## Artifacts
 

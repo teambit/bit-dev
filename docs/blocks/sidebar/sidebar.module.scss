@@ -1,28 +1,38 @@
 @import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
 
+$sidebarWidth: 240px;
+
 .sidebar {
-  position: relative;
+  transition: width 300ms, margin-right 300ms;
+
+  // width placeholder pushes the content right
+  width: $sidebarWidth;
+  margin-right: 24px;
+
+  @media screen and (max-width: $br-md) {
+    width: 0;
+    margin-right: 0;
+  }
 }
 
 .sidebarContent {
-  position: relative;
   height: 100%;
   border-right: unset;
   display: flex;
-  > div:last-child {
-    position: fixed;
-    overflow-y: hidden;
-    box-sizing: border-box;
-    height: calc(100% - 41px);
+
+  > :last-child {
+    height: 100%;
+    position: absolute;
+
+    @media screen and (max-width: $br-md) {
+      position: fixed;
+    }
   }
 }
 
-.content {
+.scrollbar {
+  height: 100%;
   overflow-y: auto;
-  height: calc(100% - var(--bit-header-height, 40px));
-  @media screen and (max-width: $br-md) {
-    height: 100%;
-  }
 }
 
 .tree {
@@ -30,15 +40,18 @@
 }
 
 .collapser {
-  display: none;
-  position: fixed;
+  // relative to app body
+  position: absolute;
   left: 0;
-  top: 40px;
+  top: 0;
   bottom: unset;
+
+  display: none;
   @media screen and (max-width: $br-md) {
     display: unset;
   }
 }
+
 .sidebarTitle {
   color: var(--bit-text-inactive-heavy, #878c9a);
   font-size: var(--bit-p-xxs, 12px);
