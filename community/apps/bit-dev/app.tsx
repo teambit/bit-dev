@@ -15,7 +15,7 @@ import { Footer, footerMock } from '@teambit/community.ui.footer.footer';
 import { AppContext } from './app-context';
 
 /**
- * Load pages dynamically to enable code splitting.
+ * Loads pages dynamically to enable code splitting.
  */
 const Plugins = lazy(() => import('@teambit/community.ui.pages.plugins'));
 
