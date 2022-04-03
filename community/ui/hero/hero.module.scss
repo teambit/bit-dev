@@ -113,8 +113,10 @@
 }
 
 .copyBox {
+  // @hack - override system tokens
   --bit-bg-dent: #0a1821;
-  --bit-accent-color: #ededed;
+  --bit-accent-color: currentColor;
+  --bit-text-on-accent: #2b2b2b;
   color: #ededed;
   width: 20em;
   height: 48px;
