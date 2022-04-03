@@ -2,9 +2,10 @@ import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-
 
 # Formatter overview
 
-<ComponentCardDisplay componentIds={[
-  'teambit.defender/formatter',
-]} style={{ float: 'left', margin: 20, maxWidth: 250, marginBottom: 20 }} />
+<ComponentCardDisplay
+  componentIds={['teambit.defender/formatter']}
+  style={{ float: 'left', margin: 20, maxWidth: 250, marginBottom: 20 }}
+/>
 
 Formatter helps you format your components' code according to a pre-defined set of styling rules.
 
@@ -45,7 +46,7 @@ bit build
 
 By default, formatting is **not** part of the [Build Pipeline](/builder/build-pipelines).
 
-To learn more on formatting code during build and how to add a formatter [Build Task](/builder/overview#build-task), please refer to [Formatting During Build](/formatter/overview#format-during-build).
+To learn more on formatting code during build and how to add a formatter [Build Task](/builder/overview#build-task), please refer to [Formatting During Build](/dev-services-overview/formatter/formatter-overview#format-during-build).
 
 ## Configuring and implementing Linters
 

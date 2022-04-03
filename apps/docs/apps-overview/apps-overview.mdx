@@ -2,14 +2,15 @@ import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-
 
 # Apps overview
 
-<ComponentCardDisplay componentIds={[
-  'teambit.harmony/application',
-]} style={{ float: 'left', margin: 20, maxWidth: 250, marginBottom: 20 }} />
+<ComponentCardDisplay
+  componentIds={['teambit.harmony/application']}
+  style={{ float: 'left', margin: 20, maxWidth: 250, marginBottom: 20 }}
+/>
 
 An app is a deployable Component that is consumable in runtime. That includes full applications, as well as, micro-frontends, microservices and serverless functions. A deployable Component contains all the information it needs for it to be built and deployed.
-Just like any other components, app components are **small**, and composing other components to fulfill their needs. 
+Just like any other components, app components are **small**, and composing other components to fulfill their needs.
 
-An application can be of different types. The most basic type is Node, but different components add new [Application Types](/docs/apps/app-types) you can
+An application can be of different types. The most basic type is Node, but different components add new [Application Types](/apps/application-types) you can
 
 use for React, Angular apps and more.
 
@@ -19,9 +20,7 @@ Here is an example of two used in this documentation site:
 
 <ComponentCardDisplay componentIds={['teambit.community/apps/bit-dev', 'teambit.wiki/apps/wiki']} />
 
-
 <!-- ## Incremental deployments
 
 ## Standard development experience
  -->
-
