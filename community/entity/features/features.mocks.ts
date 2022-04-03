@@ -19,7 +19,7 @@ export const features = [
   },
   {
     title: 'Reusable',
-    text: 'Compose existing components into new ones instead of reinventing the same wheels.',
+    text: 'Compose existing components into new ones instead of reinventing the wheel.',
     image: 'https://static.bit.dev/Community/features/reusable.svg',
     alt: 'reusable',
   },
