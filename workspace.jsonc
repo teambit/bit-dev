@@ -132,7 +132,7 @@
         "@teambit/harmony": "0.2.11",
         "@teambit/harmony.content.create-app": "0.0.2",
         "@teambit/mdx.modules.mdx-loader": "^0.0.466",
-        "@teambit/mdx.ui.mdx-layout": "0.0.497",
+        "@teambit/mdx.ui.mdx-layout": "0.0.498",
         "@teambit/react.eslint-config-bit-react": "^0.0.451",
         "@teambit/react.templates.pages.welcome": "0.0.19",
         "@teambit/react.templates.themes.theme": "^0.0.3",
