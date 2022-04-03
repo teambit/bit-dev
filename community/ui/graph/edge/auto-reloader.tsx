@@ -1,37 +1,72 @@
 import React, { PropsWithChildren, useEffect } from 'react';
 import { Xwrapper, useXarrow } from 'react-xarrows';
 
-export type ReloadOptions = { delay?: number; interval?: boolean };
+export type ReloadOptions = {
+  reloadOnMount?: boolean;
+  reloadOnPageLoad?: boolean;
+  reloadOnTimeout?: number;
+  reloadOnInterval?: number;
+};
 export type ArrowAutoReloaderProps = PropsWithChildren<ReloadOptions>;
 
 /**
  * automatically reloads arrows on mount
  * this solves some glitches on first time rendering
  */
-export function ArrowAutoReloader({ children, delay, interval }: ArrowAutoReloaderProps) {
+export function ArrowAutoReloader({
+  children,
+  reloadOnPageLoad,
+  reloadOnTimeout,
+  reloadOnInterval,
+}: ArrowAutoReloaderProps) {
   return (
     <Xwrapper>
       {children}
-      <ReloadArrows delay={delay} interval={interval} />
+      <ReloadArrows
+        reloadOnPageLoad={reloadOnPageLoad}
+        reloadOnTimeout={reloadOnTimeout}
+        reloadOnInterval={reloadOnInterval}
+      />
     </Xwrapper>
   );
 }
 
 // this will be fixed in react-xarrows v3.0.0
-function ReloadArrows({ delay = 1000, interval = false }: ReloadOptions) {
+function ReloadArrows({ reloadOnMount, reloadOnPageLoad, reloadOnTimeout, reloadOnInterval }: ReloadOptions) {
   const updateXarrow = useXarrow();
 
   useEffect(() => {
-    updateXarrow();
-
-    if (interval) {
-      const tid = setInterval(updateXarrow, delay);
-      return () => clearInterval(tid);
+    if (reloadOnMount) {
+      updateXarrow();
     }
+  }, [reloadOnMount]);
 
-    const tid = setTimeout(updateXarrow, delay);
+  useEffect(() => {
+    if (!reloadOnPageLoad) return undefined;
+
+    document.addEventListener('DOMContentLoaded', updateXarrow);
+    document.addEventListener('readystatechange', updateXarrow);
+    document.addEventListener('load', updateXarrow);
+
+    return () => {
+      document.removeEventListener('DOMContentLoaded', updateXarrow);
+      document.removeEventListener('readystatechange', updateXarrow);
+      document.removeEventListener('load', updateXarrow);
+    };
+  }, [reloadOnPageLoad]);
+
+  useEffect(() => {
+    if (!reloadOnInterval) return undefined;
+    const tid = setInterval(updateXarrow, reloadOnInterval);
+    return () => clearInterval(tid);
+  }, [reloadOnInterval]);
+
+  useEffect(() => {
+    if (reloadOnTimeout) return undefined;
+
+    const tid = setTimeout(updateXarrow, reloadOnTimeout);
     return () => clearTimeout(tid);
-  }, [delay, interval]);
+  }, [reloadOnTimeout]);
 
   return null;
 }
