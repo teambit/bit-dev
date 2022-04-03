@@ -96,6 +96,7 @@
         "@teambit/design.elements.icon": "^1.0.6",
         "@teambit/design.embeds.figma": "^0.0.6",
         "@teambit/design.graph.edge": "0.0.2",
+        "@teambit/design.responsive.breakpoints": "0.0.1",
         "@teambit/design.theme.icons-font": "^1.0.8",
         "@teambit/design.themes.base-theme": "0.1.0",
         "@teambit/design.themes.dark-theme": "1.91.0",
