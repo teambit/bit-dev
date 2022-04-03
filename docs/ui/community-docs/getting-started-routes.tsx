@@ -131,11 +131,6 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
       // },
     ],
   },
-  // {
-  //   path: 'getting-started/implementing',
-  //   title: 'Building components',
-  //   children: [],
-  // },
   {
     path: 'getting-started/collaborate',
     title: 'Collaborate',
@@ -194,4 +189,14 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
       },
     ],
   },
+  {
+    path: 'getting-started/implementing',
+    title: 'Apps and deployment',
+    children: [],
+ },
+ {
+  path: 'getting-started/implementing',
+  title: 'Lanes (alpha)',
+  children: [],
+},
 ];
