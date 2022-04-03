@@ -1,0 +1,101 @@
+# Dependency Updates
+
+## Sending component updates
+
+There are two steps to publishing updates to new and existing components.
+
+The first step is to run the `bit tag <component-name>` command.
+
+For example:
+
+```bash
+bit tag ui/button
+```
+
+This will automatically tag the `ui/button`, incrementing its patch version, as [SemVer](https://semver.org/). Therefore, if the current version of `ui/button` was 0.0.1, `bit tag` will increment it to 0.0.2.
+
+If you would like to tag a component with a specific version, you can run `bit tag <component-name> <semver>`.
+
+For example:
+
+```bash
+bit tag ui/button 1.2.0
+```
+
+If you have other components in your workspace that have `ui/button` as a dependency, Bit will intelligently tag all of those other components too. 
+
+Once tagged, the second step is running the `bit export` command. This will publish the new version of your component (along with any others) to your remote.
+
+## Receiving component updates
+
+Just like when using package managers such as Yarn or NPM, you may wish to check if any of the components in your workspace have updates available. You can find out by first running the `bit status` command.
+
+For example:
+
+```bash
+bit status
+pending updates
+(use "bit checkout [version] [component_id]" to merge changes)
+(use "bit diff [component_id] [new_version]" to compare changes)
+(use "bit log [component_id]" to list all available versions)
+
+    > teambit.base/ui/button current: 0.0.1 latest: 0.0.2
+```
+
+From here, we can see that there is a newer version of `ui/button` available.
+
+If we want to bring in this latest version, we can run `bit checkout latest <component-name>`
+
+For example:
+
+```bash
+bit checkout latest ui/button
+  installing dependencies in workspace using teambit.dependencies/pnpm
+✔ running pre install subscribers
+✔ deduping dependencies for installation
+Already up-to-date
+Progress: resolved 17, reused 17, downloaded 0, added 0, done
+  -------------------------
+✔ installing dependencies using pnpm
+✔ running post install subscribers
+✔ linking components
+successfully switched teambit.base-ui/ui/button to version 0.0.2
+ 
+updated button.composition.tsx 
+updated button.docs.mdx 
+updated button.spec.tsx 
+updated button.tsx 
+updated index.ts 
+```
+
+:::tip Update all components at once
+You can get the latest version of all components by running: `bit checkout --all latest` or `bit checkout -a latest`.
+:::
+
+If the latest version of a component is not what you want, you can specify which version you want by running `bit checkout <version> <component-name>`
+
+For example, `bit checkout 0.0.2 ui/button`:
+
+```bash
+bit checkout 0.0.2 ui/button
+  installing dependencies in workspace using teambit.dependencies/pnpm
+✔ running pre install subscribers
+✔ deduping dependencies for installation
+Already up-to-date
+Progress: resolved 17, reused 17, downloaded 0, added 0, done
+  -------------------------
+✔ installing dependencies using pnpm
+✔ running post install subscribers
+✔ linking components
+successfully switched teambit.base-ui/ui/button to version 0.0.2
+ 
+updated button.composition.tsx 
+updated button.docs.mdx 
+updated button.spec.tsx 
+updated button.tsx 
+updated index.ts 
+```
+
+:::tip You can downgrade and rollback components
+When checking out components, you are not limited to specifying newer versions. So if you ever need to rollback a change, or check out an older version of a component, simply specify that version instead with `bit checkout <older-version> <component-name>`
+:::

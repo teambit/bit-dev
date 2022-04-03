@@ -1,6 +1,7 @@
-import React, { useMemo, ReactNode } from 'react';
+import React, { useMemo, ReactNode, useEffect, createRef, useRef } from 'react';
 import classNames from 'classnames';
-import { MenuLinkItem } from '@teambit/design.ui.surfaces.menu.link-item';
+import { classes } from '@teambit/design.ui.surfaces.menu.item';
+import { Link, useLocation } from '@teambit/base-react.navigation.link';
 import { useElementOnFold } from '@teambit/docs.ui.hooks.use-element-on-fold';
 import styles from './table-of-content.module.scss';
 
@@ -21,24 +22,42 @@ export type TableOfContentProps = {
 
 export function TableOfContent({ className, children, title, rootRef, selectors, ...rest }: TableOfContentProps) {
   const { activeElement, elements } = useElementOnFold(rootRef, selectors);
+  const containerRef = createRef<HTMLDivElement>();
+  const loadedRef = useRef(false);
+  const currentLocation = useLocation();
   const anchors = useMemo(() => getLinks(elements), [elements]);
+
+  // scroll to active link, after first load and after content is loaded
+  useEffect(() => {
+    if (loadedRef.current) return;
+    if (elements.length === 0) return;
+    loadedRef.current = true;
+
+    // find anchor with matching href
+    const query = `a[href="${currentLocation?.hash || ''}"`;
+    const el = containerRef?.current?.querySelector(query);
+    el?.scrollIntoView();
+  }, [elements]);
 
   if (anchors.length < 1) return null;
 
   return (
-    <div {...rest} className={classNames(styles.tableOfContent, className)}>
+    <div {...rest} ref={containerRef} className={classNames(styles.tableOfContent, className)}>
       {title && <div className={styles.title}>{title}</div>}
-      {anchors.map((link) => {
+      {anchors.map((link, index) => {
+        const isActive = activeElement === link?.actualElement;
+        const uniqueId = `${link?.id}-${index}`;
         return (
-          <MenuLinkItem
-            key={link?.id}
-            className={styles.item}
-            isActive={() => activeElement?.innerText === link?.displayName}
+          <Link
+            native
+            key={uniqueId}
+            id={`link-${link?.id || ''}`}
+            className={classNames(styles.item, classes.menuItem, classes.interactive, isActive && classes.active)}
             href={`#${link?.id}`}
-            data-element-type={link?.element}
+            data-element-type={link?.elementType}
           >
             {link?.displayName}
-          </MenuLinkItem>
+          </Link>
         );
       })}
       {children}
@@ -53,7 +72,8 @@ function getLinks(links: Element[]) {
     return {
       id: linkText.toLowerCase().replace(/ /g, '-'),
       displayName: linkText,
-      element: link.tagName,
+      elementType: link.tagName,
+      actualElement: link,
     };
   });
 }

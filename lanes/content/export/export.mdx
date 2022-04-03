@@ -1,0 +1,17 @@
+import { Image } from '@teambit/docs.ui.zoomable-image';
+import scopeLane from './scope-lane.png';
+
+# Exporting lane
+
+Export a lane and all the snaps it encapsule to collaborate on changes for components. Use the same `export` command as you would for exporting a component:
+
+```sh
+bit export
+```
+
+The lane, alongside the snaps it holds are then exported to the same remote scope.  
+Once exported, on the remote scope you see a new drawer that lists all lanes in the scope.
+
+<Image src={scopeLane} />
+
+By choosing a lane, you see which components have snaps in that lane. You can browse any of the snaps to evaluate the changes.

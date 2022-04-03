@@ -1,21 +1,25 @@
-name: Tests
+name: Bit build
 
 on: [pull_request]
 env:
   BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
-  NODE_OPTIONS: --max_old_space_size=4096
+  NODE_OPTIONS: --max_old_space_size=8096
 jobs:
   test:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'skip-ci')"
     container:
-      image: docker://bitcli/ripple-container:latest
+      image: docker://bitcli/bit:latest
     steps:
       - uses: teambit/setup-action@v1
         with:
           name: symphony_backend
           BIT_TOKEN: ${{ env.BIT_TOKEN }}
+      - name: Install ubuntu packages
+        run: apt-get update && apt-get -y install sudo && sudo apt-get install -y libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb
       - uses: actions/checkout@v2
+      - name: print bit version
+        run: bit -v
       - name: Install dependencies
         run: bit install
       - name: Bit compile

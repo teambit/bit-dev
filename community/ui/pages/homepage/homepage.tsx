@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Hero } from '@teambit/community.ui.hero';
 import { clientLogos } from '@teambit/community.entity.images';
 import { UseCasesSection } from '@teambit/community.ui.use-cases.use-cases-section';
@@ -10,14 +10,14 @@ import { features } from '@teambit/community.entity.features';
 import { mockBubbleGraph } from '@teambit/community.entity.graph.bubble-graph';
 import { ExcludeHighlighter } from '@teambit/react.ui.component-highlighter';
 import { LogoShowcase } from '@teambit/community.ui.logo-showcase';
-// import { StickyMenu } from '@teambit/community.ui.sticky-menu';
+import { StickyMenu } from '@teambit/community.ui.sticky-menu';
 import { Page } from '@teambit/base-react.pages.page';
-// import { Distribution } from '@teambit/community.ui.homepage.sections.distribution';
-// import { Standardization } from '@teambit/community.ui.homepage.sections.standardization';
-// import { Autonomy } from '@teambit/community.ui.homepage.sections.autonomy';
-// import { Collaboration } from '@teambit/community.ui.homepage.sections.collaboration';
-// import { Extendability } from '@teambit/community.ui.homepage.sections.extendability';
-// import { WideColumn } from '@teambit/base-ui.layout.page-frame';
+import { Distribution } from '@teambit/community.ui.homepage.sections.distribution';
+import { Standardization } from '@teambit/community.ui.homepage.sections.standardization';
+import { Autonomy } from '@teambit/community.ui.homepage.sections.autonomy';
+import { Collaboration } from '@teambit/community.ui.homepage.sections.collaboration';
+import { Extendability } from '@teambit/community.ui.homepage.sections.extendability';
+import { WideColumn } from '@teambit/base-ui.layout.page-frame';
 import styles from './homepage.module.scss';
 
 export type HomepageProps = {} & React.HTMLAttributes<HTMLDivElement>;
@@ -78,8 +78,7 @@ export function Homepage({ ...rest }: HomepageProps) {
           ]}
         />
       </WideColumn> */}
-      {/* 
-      <Distribution />
+      {/* <Distribution />
       <Collaboration />
       <Standardization />
       <Autonomy />
