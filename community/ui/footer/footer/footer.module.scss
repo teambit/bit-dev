@@ -4,6 +4,7 @@ $sidebarWidth: 240px + 24px;
 
 .footer {
   padding: 40px 0 20px $sidebarWidth;
+  box-sizing: border-box;
   font-size: 14px;
 
   > div:last-child {

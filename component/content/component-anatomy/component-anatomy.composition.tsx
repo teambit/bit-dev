@@ -6,7 +6,6 @@ import { ComponentAnatomy } from './index';
 export const Content = () => (
   <ThemeCompositions>
     <MDXLayout>
-      <base href="https://bit.dev/docs/" target="_blank" />
       <ComponentAnatomy />
     </MDXLayout>
   </ThemeCompositions>

@@ -762,7 +762,7 @@ export const learnDocsRoutes: DocsRoute[] = [
           },
           {
             path: 'capsule',
-            title: 'Caspule',
+            title: 'Capsule',
             description:
               'A capsule is an isolated component environment. It is mainly implemented as a directory that hosts a component outside its workspace directory.',
             component: <Capsule />,
