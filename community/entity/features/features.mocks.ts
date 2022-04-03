@@ -2,7 +2,7 @@ export const features = [
   {
     title: 'Distributed',
     text: 'Distribute component ownership across development teams.',
-    image: 'https://static.bit.dev/Community/features/distributed.svg',
+    image: 'https://static.bit.cloud/Community/features/distributed.min.svg',
     alt: 'distributed',
   },
   {
@@ -19,7 +19,7 @@ export const features = [
   },
   {
     title: 'Reusable',
-    text: 'Compose existing components into new ones instead of reinventing the same wheels.',
+    text: 'Compose existing components into new ones instead of reinventing the wheel.',
     image: 'https://static.bit.dev/Community/features/reusable.svg',
     alt: 'reusable',
   },

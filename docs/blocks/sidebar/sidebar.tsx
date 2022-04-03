@@ -28,6 +28,7 @@ export type SidebarProps = {
 
 export function Sidebar({ primaryLinks, sections, className, linkPrefix, ...rest }: SidebarProps) {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div {...rest} className={classNames(styles.sidebar, className)}>
       <SidebarWrapper isOpen={isOpen} toggle={() => setIsOpen(!isOpen)} className={styles.sidebarContent}>
