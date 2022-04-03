@@ -59,8 +59,10 @@
 }
 
 .tabContent {
+  display: flex;
+  justify-content: center;
   border: 2px solid var(--primary-color, #6c5ce7);
-  max-width: 100%;
+  width: 100%;
   height: 100%;
   box-sizing: border-box;
   overflow-x: hidden;
@@ -73,7 +75,7 @@
 
 .tabContent {
   // min-height: 500px;
-  overflow: auto;
+  overflow: hidden;
   animation: fadeEffect 1s;
 }
 
