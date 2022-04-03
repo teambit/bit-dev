@@ -1358,6 +1358,19 @@
         "mainFile": "index.ts",
         "rootDir": "graph/relations-graph"
     },
+    "responsive/breakpoints": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.design",
+        "mainFile": "index.ts",
+        "rootDir": "design/responsive/breakpoints",
+        "config": {
+            "teambit.community/envs/community-react": {},
+            "teambit.envs/envs": {
+                "env": "teambit.community/envs/community-react"
+            }
+        }
+    },
     "theme/theme-provider": {
         "scope": "teambit.base-react",
         "version": "1.95.10",
