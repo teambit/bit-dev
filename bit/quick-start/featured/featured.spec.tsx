@@ -4,6 +4,12 @@ import { BasicFeatured } from './featured.composition';
 import { cardsMock } from './card.mock';
 
 describe('featured', () => {
+  beforeEach(() => {
+    window.HTMLElement.prototype.scrollIntoView = jest.fn();
+  });
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
   it('should render', () => {
     render(<BasicFeatured />);
     expect(screen.getByTestId('featured-container')).toBeInTheDocument();

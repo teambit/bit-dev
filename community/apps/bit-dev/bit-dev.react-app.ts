@@ -14,9 +14,9 @@ export const BitDevApp: ReactAppOptions = {
   entry: [require.resolve('./bit-dev.app-root')],
   deploy: Netlify.deploy(netlify),
   // webpackTransformers: [faviconWebpackTransformer],
-  // prerender: {
-  //   routes: ['/', '/plugins', '/docs'],
-  // },
+  prerender: {
+    routes: ['/', '/aspects', '/docs'],
+  },
 };
 
 export default BitDevApp;
