@@ -1,5 +1,4 @@
-// TODO: @oded replace to new breakpoints component.
-@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
+@use '~@teambit/design.responsive.breakpoints/_breakpoints.module.scss';
 
 .nav {
     display: flex;
@@ -40,7 +39,7 @@
 }
 
 .githubLink {
-    @media screen and (max-width: $br-sm) {
+    @include breakpoints.media-sm {
         > span:not(:first-child) {
             display: none;
         }

@@ -1,4 +1,4 @@
-@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
+@use '~@teambit/design.responsive.breakpoints/_breakpoints.module.scss';
 
 .hero {
   display: grid;
@@ -12,10 +12,10 @@
 }
 
 .heroGraph {
-  @media screen and (max-width: $br-lg) {
+  @include breakpoints.media-lg {
     grid-template-rows: repeat(5, 0.4fr);
   }
-  @media screen and (max-width: $br-md) {
+  @include breakpoints.media-md {
     grid-template-rows: repeat(4, 0.4fr);
   }
 }
@@ -36,7 +36,7 @@
   grid-column-start: 4;
   grid-column-end: 10;
   grid-row-start: 3;
-  @media screen and (max-width: $br-lg) {
+  @include breakpoints.media-lg {
     grid-row-start: 2;
   }
   text-align: center;
@@ -69,14 +69,14 @@
     top: 10px;
     left: 10px;
   }
-  @media screen and (max-width: $br-lg) {
+  @include breakpoints.media-lg {
     grid-row-start: 3;
   }
-  @media screen and (max-width: $br-md) {
+  @include breakpoints.media-md {
     grid-column-start: 3;
     grid-column-end: 11;
   }
-  @media screen and (max-width: $br-sm) {
+  @include breakpoints.media-sm {
     grid-column-start: 1;
     grid-column-end: 13;
   }
@@ -101,7 +101,7 @@
   > div:first-child {
     margin-right: 8px;
   }
-  @media screen and (max-width: $br-lg) {
+  @include breakpoints.media-lg {
     grid-row-start: 4;
   }
 }

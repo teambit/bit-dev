@@ -1,4 +1,4 @@
-@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
+@use '~@teambit/design.responsive.breakpoints/_breakpoints.module.scss';
 
 .buildSection {
   display: flex;
@@ -17,11 +17,11 @@
 }
 
 .distributionGraph {
-  @media screen and (max-width: 1200px) {
+  @include breakpoints.media-lg {
     grid-template-rows: repeat(3, auto);
     grid-template-columns: repeat(4, minmax(150px, 1fr));
   }
-  @media screen and (max-width: 768px) {
+  @include breakpoints.media-md {
     grid-template-rows: repeat(5, auto);
     grid-template-columns: repeat(2, minmax(150px, 1fr));
   }
@@ -32,13 +32,13 @@
   grid-column-end: 8;
   grid-row-start: 1;
   grid-row-end: 3;
-  @media screen and (max-width: $br-lg) {
+  @include breakpoints.media-md {
     grid-column-start: 1;
     grid-column-end: 5;
     grid-row-start: 1;
     grid-row-end: 1;
   }
-  @media screen and (max-width: $br-md) {
+  @include breakpoints.media-md {
     min-width: 300px;
     width: 100%;
     grid-column-start: 1;
@@ -60,7 +60,7 @@
 
 .connectingEdgeAnchor {
   transform: translateX(-215px);
-  @media screen and (max-width: $br-lg) {
+  @include breakpoints.media-lg {
     display: none;
   }
 }
