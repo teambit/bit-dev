@@ -52,7 +52,7 @@
   max-width: 600px;
   min-width: 600px;
   border-radius: 8px;
-  @media screen and (max-width: $br-md) {
+  @include breakpoints.media-md {
     min-width: unset;
     width: 100%;
   }
