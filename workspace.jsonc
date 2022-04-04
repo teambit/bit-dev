@@ -137,7 +137,7 @@
         "@teambit/react.eslint-config-bit-react": "^0.0.451",
         "@teambit/react.templates.pages.welcome": "0.0.19",
         "@teambit/react.templates.themes.theme": "^0.0.3",
-        "@teambit/react.ui.component-highlighter": "^0.0.506",
+        "@teambit/react.ui.component-highlighter": "^0.0.514",
         "@teambit/ui-foundation.ui.buttons.collapser": "^0.0.194",
         "@teambit/ui-foundation.ui.hooks.use-is-mobile": "0.0.179",
         "@teambit/ui-foundation.ui.hooks.use-user-agent": "0.0.179",
