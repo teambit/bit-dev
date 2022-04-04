@@ -339,11 +339,11 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Components',
     icon: 'comps',
     open: false,
-    config: {
-      path: 'component-config',
-      title: 'Component configuration',
-      component: <ComponentConfig />,
-    },
+    // config: {
+    //   path: 'component-config',
+    //   title: 'Component configuration',
+    //   component: <ComponentConfig />,
+    // },
     // overview: {
     //   path: 'component-overview',
     //   title: 'Component Overview',
@@ -1130,11 +1130,11 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Packages',
     icon: 'dependencies',
     open: false,
-    config: {
-      path: 'managing-package-json',
-      title: 'Managing the package.json',
-      component: <ManagingPackageJson />,
-    },
+    // config: {
+    //   path: 'managing-package-json',
+    //   title: 'Managing the package.json',
+    //   component: <ManagingPackageJson />,
+    // },
     children: [
       {
         path: 'packages-overview',
@@ -1379,11 +1379,11 @@ export const learnDocsRoutes: DocsRoute[] = [
     open: false,
     icon: 'Extension',
     title: 'Extending Bit',
-    config: {
-      path: 'config',
-      title: 'Aspect config',
-      component: <AspectConfig />,
-    },
+    // config: {
+    //   path: 'config',
+    //   title: 'Aspect config',
+    //   component: <AspectConfig />,
+    // },
     children: [
       {
         path: 'aspect-overview',
