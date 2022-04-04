@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 import { Scrollbar } from '@teambit/design.ui.styles.scrollbar';
 import { Sidebar as SidebarWrapper } from '@teambit/design.ui.sidebar.sidebar';
