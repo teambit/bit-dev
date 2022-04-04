@@ -4,11 +4,12 @@ import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-
 
 # Compositions overview
 
-<ComponentCardDisplay componentIds={[
-  'teambit.compositions/compositions',
-]} style={{ float: 'left', margin: 20, maxWidth: 250, marginBottom: 20 }} />
+<ComponentCardDisplay
+  componentIds={['teambit.compositions/compositions']}
+  style={{ float: 'left', margin: 20, maxWidth: 250, marginBottom: 20 }}
+/>
 
-Compositions allow to simulate components in different variations for testing, visualization and discoverability purposes. 
+Compositions allow to simulate components in different variations for testing, visualization and discoverability purposes.
 
 A UI component composition is the rendering of that component in a certain state and context. A non-UI component composition is the visualization of the component's I/O and its effects (for example, the effects a React hook has on a consuming UI component).
 
@@ -56,7 +57,7 @@ export const H3Heading = () => <Heading element="h3">H3 Heading</Heading>;
 
 ## Loading compositions
 
-The Compositions Aspect is set, by default, to detect all `*.composition?(s).*` files from the [component directories](/workspace/component-directory). It uses the preview Aspect to display the content of composition files with the `*.{t,j}s?(x)` extension. Learn more about this process. <!-- TODO -->.
+The Compositions Aspect is set, by default, to detect all `*.composition?(s).*` files from the [component directories](/workspace/structure/component-directory). It uses the preview Aspect to display the content of composition files with the `*.{t,j}s?(x)` extension. Learn more about this process. <!-- TODO -->.
 
 Change the glob pattern for the files to detect, and (of that group of files) the files to preview, by using the Workspace Aspect config interface:
 
@@ -94,9 +95,7 @@ import { PrimaryButton } from './button.compositions';
 
 describe('Button', () => {
   it('renders correctly as "primary"', () => {
-    const component = testRenderer.create(
-      <PrimaryButton>test primary variant</PrimaryButton>
-    );
+    const component = testRenderer.create(<PrimaryButton>test primary variant</PrimaryButton>);
     const tree = component.toJSON();
     expect(tree).toMatchSnapshot();
   });

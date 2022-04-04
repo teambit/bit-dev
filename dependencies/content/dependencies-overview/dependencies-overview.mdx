@@ -2,11 +2,13 @@ import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-
 
 # Dependencies Overview
 
-
-<ComponentCardDisplay componentIds={['teambit.dependencies/dependency-resolver']} style={{ float: 'left', margin: 20, maxWidth: 250 }} />
+<ComponentCardDisplay
+  componentIds={['teambit.dependencies/dependency-resolver']}
+  style={{ float: 'left', margin: 20, maxWidth: 250 }}
+/>
 
 Dependency management is a major concern for developers looking to build and deliver components independently. It must be done efficiently, all while being able to handle an unlimited number of components, each with its own dependency graph.
-It must also be done reliably and safely for components to integrate successfully into new and unfamiliar compositions. 
+It must also be done reliably and safely for components to integrate successfully into new and unfamiliar compositions.
 
 Furthermore, since Bit introduced a new type of module, the [Component](/components/component-overview), proper dependency management must include the handling of these new entities, as well as standard Node.js packages.
 
@@ -45,7 +47,7 @@ bit install
 
 ## Dependency Automation
 
-Bit greatly simplifies component dependency management by automating most of it. It detects component dependencies, determines their dependency type ('standard', 'peer', or 'dev'), their module type ('package' or ['component'](<(/components/component-overview)>)), and resolves their version number.
+Bit greatly simplifies component dependency management by automating most of it. It detects component dependencies, determines their dependency type ('standard', 'peer', or 'dev'), their module type ('package' or ['component'](/components/component-overview)), and resolves their version number.
 
 Dependency automation enables you to generate dependency graphs for components in the workspace, without manually configuring each component's [`package.json`](/packages/package-json).
 

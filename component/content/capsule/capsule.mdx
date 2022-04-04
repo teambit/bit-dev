@@ -1,6 +1,6 @@
 # Capsule
 
-A capsule is a temporary directory Bit creates for each component for running build tasks. It play an essential role in validating that a component is decoupled from the workspace, and will be able to function properly in other host projects.
+A capsule is a temporary directory Bit creates for each component for running build tasks. It plays an essential role in validating that a component is decoupled from the workspace, and will be able to function properly in other host projects.
 
 For example, a component that does not have 'module-a' in its dependency graph, but needs it in order to function, may be able to function in its workspace (provided the module was installed in the workspace), but will fail to function in a Capsule, where packages are only installed for that specific component.
 

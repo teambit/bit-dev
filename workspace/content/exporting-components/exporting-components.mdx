@@ -19,7 +19,7 @@ new components
      > pages/welcome ... ok
      > ui/card ... ok
 
-                         
+
 staged components
 (use "bit export <remote_scope> to push these components to a remote scope")
 
@@ -65,11 +65,11 @@ git commit -am 'updated .bitmap file after a successful export'
 
 ## Export during CI
 
-[See here](/getting-started/set-up-ci/automate-export) to learn how to use your CI to export components.
+[See here](/getting-started/installing-bit/getting-started/setup-ci) to learn how to use your CI to export components.
 
 ## Merge conflicts
 
-You may encounter a merge conflict, for example, if you tagged a new version and exported it, but there's already a version with the same SemVer. Let's look at how we would resolve this.  
+You may encounter a merge conflict, for example, if you tagged a new version and exported it, but there's already a version with the same SemVer. Let's look at how we would resolve this.
 
 The flow starts with running `export`, trying to export a new version:
 
@@ -109,6 +109,6 @@ bit checkout 1.0.5 teambit.base-ui/input/button
 Tag and export again, after solving the conflict.
 
 ```bash
-bit tag teambit.base-ui/input/button --message "my message" 
+bit tag teambit.base-ui/input/button --message "my message"
 bit export
 ```
