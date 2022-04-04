@@ -1,6 +1,5 @@
 
-// TODO: @oded replace to new breakpoints component.
-@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
+@use '~@teambit/design.responsive.breakpoints/_breakpoints.module.scss';
 
 .thinkingInComponents {
   display: flex;
@@ -39,7 +38,7 @@
     text-align: left;
   }
 
-  @media screen and (max-width: $br-md) {
+  @include breakpoints.media-md {
     .image {
       justify-self: flex-start;
       height: 7.25em;
@@ -52,7 +51,7 @@
       font-size: 14px;
     }
   }
-  @media screen and (max-width: $br-sm) {
+  @include breakpoints.media-sm {
     max-width: 250px;
     flex-direction: column;
     .image {

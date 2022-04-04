@@ -1,4 +1,4 @@
-@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
+@use '~@teambit/design.responsive.breakpoints/_breakpoints.module.scss';
 
 .exploreSection {
   max-width: 1440px;
@@ -7,10 +7,10 @@
 .content {
   display: flex;
   margin: 40px 0;
-  @media screen and (max-width: $br-md) {
+  @include breakpoints.media-md {
     margin-right: 20px;
   }
-  @media screen and (max-width: $br-xl) {
+  @include breakpoints.media-xl {
     margin-left: 20px;
   }
   .left,
@@ -19,13 +19,13 @@
   }
   .left {
     min-width: 576px;
-    @media screen and (max-width: $br-md) {
+    @include breakpoints.media-md {
       min-width: unset;
     }
   }
   .right {
     overflow: hidden;
-    @media screen and (max-width: $br-md) {
+    @include breakpoints.media-md {
       display: none;
     }
   }
@@ -39,13 +39,15 @@
 .searchInput {
   width: 320px;
   margin-bottom: 40px;
-  @media screen and (max-width: $br-xs) {
+  @include breakpoints.media-xs {
+
     width: unset;
   }
 }
 .linkHolder {
   display: flex;
-  @media screen and (max-width: $br-xs) {
+  @include breakpoints.media-xs {
+
     flex-direction: column;
     a:first-child {
       margin-bottom: 8px;
