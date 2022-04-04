@@ -39,7 +39,7 @@ const HostingScopes = lazy(() => import('@teambit/scope.content.hosting-scopes')
 
 /* Dev services */
 // const AvailableServices = lazy(() => import('@teambit/envs.content.available-services'));
-const DevServices = lazy(() => import('@teambit/envs.content.dev-services'));
+// const DevServices = lazy(() => import('@teambit/envs.content.dev-services'));
 // const DevServicesOverview = lazy(() => import('@teambit/envs.content.dev-services-overview'));
 
 /* Apps */
@@ -58,8 +58,8 @@ const GenerateWorkspace = lazy(() => import('@teambit/generator.content.generate
 const PreviewOverview = lazy(() => import('@teambit/preview.content.preview-overview'));
 const PreviewDuringBuild = lazy(() => import('@teambit/preview.content.preview-during-build'));
 const PreviewDuringDevelopment = lazy(() => import('@teambit/preview.content.preview-during-development'));
-
 const RegisterCustomPreview = lazy(() => import('@teambit/preview.content.register-custom-preview'));
+const PreviewConfig = lazy(() => import('@teambit/preview.docs.preview-config'));
 
 /* Tester */
 const TesterOverview = lazy(() => import('@teambit/defender.content.tester-overview'));
@@ -67,6 +67,7 @@ const TestingDuringDevelopment = lazy(() => import('@teambit/defender.content.te
 const TestingDuringBuild = lazy(() => import('@teambit/defender.content.testing-during-build'));
 const ConfigureEnvWithTester = lazy(() => import('@teambit/defender.content.configure-env-with-tester'));
 const ImplementTester = lazy(() => import('@teambit/defender.content.implement-tester'));
+const TesterConfig = lazy(() => import('@teambit/defender.docs.tester-config'));
 
 /* Linter */
 
@@ -75,6 +76,7 @@ const LintingDuringDevelopment = lazy(() => import('@teambit/defender.content.li
 const LintingDuringBuild = lazy(() => import('@teambit/defender.content.linting-during-build'));
 const ConfigureEnvWithLinter = lazy(() => import('@teambit/defender.content.configure-env-with-linter'));
 const ImplementLinter = lazy(() => import('@teambit/defender.content.implement-linter'));
+const LinterConfig = lazy(() => import('@teambit/defender.docs.linter-config'));
 
 /* Formatter */
 
@@ -156,6 +158,7 @@ const EnvsOverview = lazy(() => import('@teambit/envs.content.envs-overview'));
 const InspectingEnv = lazy(() => import('@teambit/envs.content.inspecting-env'));
 const ExtendingEnv = lazy(() => import('@teambit/envs.content.extending-env'));
 const UsingEnvs = lazy(() => import('@teambit/envs.content.using-envs'));
+const EnvsConfig = lazy(() => import('@teambit/envs.docs.envs-config'));
 // const EnvsApi = lazy(() => import('@teambit/envs.content.envs-api'));
 
 /* Dependencies */
@@ -230,6 +233,11 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Workspace',
     icon: 'workspace',
     open: false,
+    config: {
+      path: 'workspace-configuration',
+      component: <WorkspaceConfiguration />,
+      title: 'Workspace configuration',
+    },
     // overview: {
     //   path: 'workspace-overview',
     //   title: 'Workspace Overview',
@@ -331,6 +339,11 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Components',
     icon: 'comps',
     open: false,
+    config: {
+      path: 'component-config',
+      title: 'Component configuration',
+      component: <ComponentConfig />,
+    },
     // overview: {
     //   path: 'component-overview',
     //   title: 'Component Overview',
@@ -619,7 +632,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       //   description: 'Merge lanes when all changes are ready to be versioned.',
       //   component: <div />,
       // },
-      // {
+      //{
       //  path: 'lanes-objects',
       //  title: 'Lane objects',
       //  description: 'How Bit stores and manages lane and all its components in the scope.',
@@ -680,7 +693,11 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Envs',
     icon: 'env',
     open: false,
-    // overview:
+    config: {
+      path: 'envs-config',
+      title: 'Envs config',
+      component: <EnvsConfig />,
+    },
     children: [
       {
         path: 'envs-overview',
@@ -704,24 +721,13 @@ export const learnDocsRoutes: DocsRoute[] = [
         description: 'Extend existing envs to create your unique workflow.',
         component: <ExtendingEnv />,
       },
-      {
-        path: 'dev-services',
-        title: 'Dev services',
-        description: 'Development Services control various workflows and commands for components.',
-        component: <DevServices />,
-      },
-      // {
-      //   path: 'envs-api',
-      //   title: 'Envs API',
-      //   component: <EnvsApi />,
-      // },
     ],
   },
   {
-    path: 'dev-services-overview',
+    path: 'dev-services',
     title: 'Dev services',
     icon: 'compCI',
-    open: false,
+    description: 'Development Services control various workflows and commands for components.',
     children: [
       {
         path: 'builder',
@@ -846,6 +852,11 @@ export const learnDocsRoutes: DocsRoute[] = [
         title: 'Tester',
         icon: 'tester',
         open: false,
+        config: {
+          path: 'tester-config',
+          component: <TesterConfig />,
+          title: 'Tester configuration',
+        },
         children: [
           {
             path: 'tester-overview',
@@ -960,6 +971,11 @@ export const learnDocsRoutes: DocsRoute[] = [
         title: 'Preview',
         icon: 'preview',
         open: false,
+        config: {
+          path: 'preview-config',
+          title: 'Preview configuration',
+          component: <PreviewConfig />,
+        },
         children: [
           {
             path: 'overview',
@@ -994,6 +1010,11 @@ export const learnDocsRoutes: DocsRoute[] = [
         title: 'Linter',
         icon: 'linter',
         open: false,
+        config: {
+          path: 'linter-config',
+          title: 'Linter configuration',
+          component: <LinterConfig />,
+        },
         children: [
           {
             path: 'linter-overview',
@@ -1109,6 +1130,11 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Packages',
     icon: 'dependencies',
     open: false,
+    config: {
+      path: 'managing-package-json',
+      title: 'Managing the package.json',
+      component: <ManagingPackageJson />,
+    },
     children: [
       {
         path: 'packages-overview',
@@ -1353,6 +1379,11 @@ export const learnDocsRoutes: DocsRoute[] = [
     open: false,
     icon: 'Extension',
     title: 'Extending Bit',
+    config: {
+      path: 'config',
+      title: 'Aspect config',
+      component: <AspectConfig />,
+    },
     children: [
       {
         path: 'aspect-overview',

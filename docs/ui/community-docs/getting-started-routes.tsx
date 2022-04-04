@@ -64,8 +64,8 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'editor-setup',
-        title: 'Editor Setup',
-        description: 'Learn how to setup your editor to work properly in your Bit Workspace',
+        title: 'Code editor setup',
+        description: 'Learn how to setup your code editor to work properly in your Bit Workspace',
         component: <EditorSetup />,
       },
       {
