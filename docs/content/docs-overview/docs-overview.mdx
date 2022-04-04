@@ -2,19 +2,21 @@ import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-
 
 # Docs Overview
 
-<ComponentCardDisplay componentIds={[
-  'teambit.docs/docs',
-]} style={{ float: 'left', margin: 20, maxWidth: 250, marginBottom: 20 }} />
+<ComponentCardDisplay
+  componentIds={['teambit.docs/docs']}
+  style={{ float: 'left', margin: 20, maxWidth: 250, marginBottom: 20 }}
+/>
 
 import { Image } from '@teambit/docs.ui.zoomable-image';
 import docsOverviewImg from './docs_overview.png';
 
 The docs service simplifies the documentation process and provides components with visually rich, custom-made, documentation. It utilizes doc templates to present component docs using the technology and layout that best fits their type.
 
-Doc files, of different formats, are loaded from the workspace's [component directories](/workspace/component-directory), and displayed using the [doc template](/doc-templates) that was set by each component's Env.
+Doc files, of different formats, are loaded from the workspace's [component directories](/workspace/structure/component-directory), and displayed using the [doc template](/dev-services/docs/docs-templates) that was set by each component's Env.
 
 The docs are presented in the 'Overview' tab of the Workspace UI/Scope UI.
-<!-- 
+
+<!--
 <iframe
   width="560"
   height="315"
@@ -27,7 +29,7 @@ The docs are presented in the 'Overview' tab of the Workspace UI/Scope UI.
 
 ## Loading the component docs
 
-The docs service automatically loads component docs by searching in each [component directory](/workspace/component-directory) for files named with certain patterns.
+The docs service automatically loads component docs by searching in each [component directory](/workspace/structure/component-directory) for files named with certain patterns.
 The default glob pattern for doc file is: `**/*.docs.*`.
 
 For example, the following `ui/card` component will have its docs file, `card.docs.mdx` automatically loaded. The docs file will be rendered in the 'Overview' section, using the docs template set by that component's Env.
@@ -63,7 +65,7 @@ To change the default glob patterns, use the Docs config interface:
 
 ### Display name
 
-The 'display name' is determined by the [component name](/components/component-id#component-name).
+The 'display name' is determined by the [component name](/components/structure/component-id#component-name).
 
 ### Abstract
 

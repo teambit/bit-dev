@@ -1,9 +1,9 @@
 # Implement a Compiler
 
 Standard compilers are integrated into Bit using a Bit Aspect. For example, [Babel](https://babeljs.io/) is integrated using the [Babel Aspect](https://bit.dev/teambit/compilation/babel) and [TypeScript](https://www.typescriptlang.org/) is integrated using the [TypeScript Aspect](https://bit.dev/teambit/typescript/typescript).
-These Aspects implement the [Compiler interface](https://bit.dev/teambit/compilation/compiler/~code/types.ts). A compiler implementation should be able to provide [compilation in the workspace](/dev-services-overview/compiler/compiling-during-development) as well as [compilation during build](/dev-services-overview/compiler/compiling-during-build).
+These Aspects implement the [Compiler interface](https://bit.dev/teambit/compilation/compiler/~code/types.ts). A compiler implementation should be able to provide [compilation in the workspace](/dev-services/compiler/compiling-during-development) as well as [compilation during build](/dev-services/compiler/compiling-during-build).
 
-The easiest way to start implementing a [Compiler](/dev-services-overview/compiler/compiler-overview) is by using the 'compiler' template:
+The easiest way to start implementing a [Compiler](/dev-services/compiler/compiler-overview) is by using the 'compiler' template:
 
 ```bash title="Create a new Aspect component"
 bit create compiler extensions/my-compiler
@@ -17,15 +17,15 @@ bit import teambit.compilation/examples/extensions/babel-compiler
 
 ## Implement compilation in the workspace
 
-For component compilation in the workspace, implement the [`transpileFile`](/dev-services-overview/compiler/compiler-api#transpilefile) API.
+For component compilation in the workspace, implement the [`transpileFile`](/dev-services/compiler/compiler-api#transpilefile) API.
 
-[`transpileFile`](/dev-services-overview/compiler/compiler-api#transpilefile) receives from the Compiler service, the content (`fileContent`) and relative paths (`options`), of each of the component's files (one at a time).
-To prevent the Compiler service from passing unsupported files (files that cannot be compiled by your compiler), implement the [`isFileSupported`](/dev-services-overview/compiler/compiler-api#isfilesupported) API.
+[`transpileFile`](/dev-services/compiler/compiler-api#transpilefile) receives from the Compiler service, the content (`fileContent`) and relative paths (`options`), of each of the component's files (one at a time).
+To prevent the Compiler service from passing unsupported files (files that cannot be compiled by your compiler), implement the [`isFileSupported`](/dev-services/compiler/compiler-api#isfilesupported) API.
 
 `transpileFile` should return an array of objects that contain the compiled content and relative paths (with their new filename extensions).
 The output returned from `transpileFile` is written by the Compiler service into the `dist` directory of the component's corresponding package (in the workspace `node_modules` directory).
 
-To instruct the Compiler service to copy unsupported files to the `dist` directory, implement the [`shouldCopyNonSupportedFiles`](</dev-services-overview/compiler/compiler-api#shouldcopynonsupportedfiles-(optional)>) field and set it to `true`.
+To instruct the Compiler service to copy unsupported files to the `dist` directory, implement the [`shouldCopyNonSupportedFiles`](</dev-services/compiler/compiler-api#shouldcopynonsupportedfiles-(optional)>) field and set it to `true`.
 
 ```ts
 transpileFile( fileContent: string, options: TranspileFileParams ): TranspileFileOutput {
@@ -43,14 +43,14 @@ shouldCopyNonSupportedFiles = true;
 
 ## Implement Compilation during Build
 
-For component compilation during build, implement the [`build`](/dev-services-overview/compiler/compiler-api#build) API.
+For component compilation during build, implement the [`build`](/dev-services/compiler/compiler-api#build) API.
 
-[`build`](/dev-services-overview/compiler/compiler-api#transpilefilei) receives (from the [Builder service](/dev-services-overview/builder/builder-overview)) the entire [Build Context](/dev-services-overview/builder/implement-build-task#buildcontext).
-However, our compiler only needs the [`seedersCapsules`](/dev-services-overview/builder/implement-build-task#capsulenetwork) as they are [Component Capsules](/components/component-capsules) that are intended to be built, while the rest are dependencies that do not need to go through the compilation process.
+[`build`](/dev-services/compiler/compiler-api#transpilefilei) receives (from the [Builder service](/dev-services/builder/builder-overview)) the entire [Build Context](/dev-services/builder/implement-build-task#buildcontext).
+However, our compiler only needs the [`seedersCapsules`](/dev-services/builder/implement-build-task#capsulenetwork) as they are [Component Capsules](/components/structure/component-capsules) that are intended to be built, while the rest are dependencies that do not need to go through the compilation process.
 
 The `build` implementation should compile all the relevant files by iterating over each Capsule, and again over each supported file in these Capsules (note that Capsules contain the filepaths, not their content). Use the `isFileSupported` method, implemented in the ['Compilation in the Workspace'](#implement-compilation-in-the-workspace) section, to filter out unsupported files.
 
-The returned [`artifacts`](/dev-services-overview/builder/build-artifacts) array selects the artifacts (in this case, the compiled code and copied unsupported files) to persist in the component snapshot. It does so by selecting all files under its `dist` directory (in the the compiled component's Capsule.
+The returned [`artifacts`](/dev-services/builder/build-artifacts) array selects the artifacts (in this case, the compiled code and copied unsupported files) to persist in the component snapshot. It does so by selecting all files under its `dist` directory (in the the compiled component's Capsule.
 This is supplemented with the artifacts description (`generatedBy` and `name`).
 
 ```ts
@@ -74,7 +74,7 @@ This is supplemented with the artifacts description (`generatedBy` and `name`).
   }
 ```
 
-It is recommended to expose an API that returns you compiler's build task, [for Envs to use](/dev-services-overview/compiler/using-a-compiler). Without it, Envs will be forced to use the Compiler aspect directly.
+It is recommended to expose an API that returns you compiler's build task, [for Envs to use](/dev-services/compiler/using-a-compiler). Without it, Envs will be forced to use the Compiler aspect directly.
 
 ```ts
 createTask() {
@@ -84,7 +84,7 @@ createTask() {
 
 ## Expose your Compiler's Output Paths
 
-Implement the [`getDistPathBySrcPath`](/dev-services-overview/compiler/compiler-api#getdistpathbysrcpath) API to share with other aspects (e.g, the [Tester aspect](/dev-services-overview/tester/testing-during-build)) the dist paths.
+Implement the [`getDistPathBySrcPath`](/dev-services/compiler/compiler-api#getdistpathbysrcpath) API to share with other aspects (e.g, the [Tester aspect](/dev-services/tester/testing-during-build)) the dist paths.
 
 ```ts
 distDir = 'dist';
@@ -136,4 +136,4 @@ MyCompilerAspect.addRuntime(MyCompilerMain);
 
 ## Using the Compiler Implementation in an Env
 
-[See here](/dev-services-overview/compiler/using-a-compiler) to learn how to configure you Env to use your compiler implementation.
+[See here](/dev-services/compiler/using-a-compiler) to learn how to configure you Env to use your compiler implementation.

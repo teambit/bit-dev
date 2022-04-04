@@ -222,12 +222,12 @@ const AngularOverview = lazy(() => import('@teambit/angular.content.angular-over
 const UsageAnalytics = lazy(() => import('@teambit/docs.content.guides.usage-analytics'));
 
 export const learnDocsRoutes: DocsRoute[] = [
-  {
-    path: 'usage-analytics',
-    title: 'Usage Analytics',
-    displayInSidebar: false,
-    component: <UsageAnalytics />,
-  },
+  // {
+  //   path: 'usage-analytics',
+  //   title: 'Usage Analytics',
+  //   displayInSidebar: false,
+  //   component: <UsageAnalytics />,
+  // },
   {
     path: 'workspace',
     title: 'Workspace',
@@ -264,7 +264,7 @@ export const learnDocsRoutes: DocsRoute[] = [
           },
           {
             path: 'component-links',
-            title: 'Workspace component link',
+            title: 'Workspace component links',
             component: <WorkspaceLink />,
           },
           {
@@ -1480,5 +1480,11 @@ export const learnDocsRoutes: DocsRoute[] = [
         // icon: 'terminal',
       },
     ],
+  },
+  {
+    path: 'usage-analytics',
+    title: 'Usage Analytics',
+    displayInSidebar: false,
+    component: <UsageAnalytics />,
   },
 ];

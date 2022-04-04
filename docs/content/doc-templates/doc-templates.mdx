@@ -8,7 +8,7 @@ This template is able to render React components, and provides layout and theme 
 
 ## Setting a doc template
 
-To set your own template, create a new Env (or extend and existing one), and implement the `getDocsTemplate()` [service handler](/envs/services/dev-services-overview#service-handlers).
+To set your own template, create a new Env (or extend and existing one), and implement the `getDocsTemplate()` [service handler](/envs/dev-services#service-handlers).
 
 ```ts
 getDocsTemplate(...args : any[]): string
@@ -81,7 +81,7 @@ The Docs Aspect invokes the rendering function and passes the following argument
 
 The `DocsFile` object, passed by the Docs Aspect, contains the data from the docs file. It consists of the following fields:
 
-- `default?: any` - the docs file ['content'](/overview#content) section.
-- [`examples: Example[]`](/overview#live-examples) - the docs file ['live examples'](/overview#live-examples).
-- `labels: string[]` - the docs file ['labels'](/overview#labels).
-- `abstract: string` - the docs file ['abstract'](/overview#abstract) (component description).
+- `default?: any` - the docs file ['content'](/dev-services/docs/docs-overview#content) section.
+- [`examples: Example[]`](/overview#live-examples) - the docs file ['live examples'](/dev-services/docs/docs-overview#live-examples).
+- `labels: string[]` - the docs file ['labels'](/dev-services/docs/docs-overview#labels).
+- `abstract: string` - the docs file ['abstract'](/dev-services/docs/docs-overview#abstract) (component description).

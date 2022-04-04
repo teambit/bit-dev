@@ -1,6 +1,6 @@
 # .bitmap
 
-`.bitmap` is a file auto-generated and managed by Bit in the [Workspace](/workspace/overview) for mapping each component to its corresponding directory in the project's file system.
+`.bitmap` is a file auto-generated and managed by Bit in the [Workspace](/workspace/workspace-overview) for mapping each component to its corresponding directory in the project's file system.
 The `.bitmap` file is meant to be tracked and committed to the VCS repository (Git/Mercurial).
 
 An example `.bitmap` file can be found in [this example project](https://github.com/bit-demos/ecommerce/blob/main/.bitmap).
@@ -11,7 +11,7 @@ Please note, the `.bitmap` file should not be manually changed by developers. Bi
 
 ## Component entry
 
-A Component entry in the `.bitmap` file is mapping a single component to is corresponding directory in the [Workspace](/workspace/overview) file system.
+A Component entry in the `.bitmap` file is mapping a single component to is corresponding directory in the [Workspace](/workspace/workspace-overview) file system.
 
 For example:
 
@@ -26,10 +26,10 @@ For example:
 }
 ```
 
-- `scope` / [Scope](/scope/overview) owning the [Component](/components/overview).
+- `scope` / [Scope](/scope/scope-overview) owning the [Component](/components/component-overview).
 - `version` / Current component version.
-- `mainFile` / Component's [Main File](/components/component-main-file)
-- `rootDir` / The [Component](/components/overview) root directory in the [Workspace](/workspace/overview) file system.
+- `mainFile` / Component's [Main File](/components/structure/component-main-file)
+- `rootDir` / The [Component](/components/component-overview) root directory in the [Workspace](/workspace/workspace-overview) file system.
 
 ## Schema Version
 

@@ -7675,6 +7675,21 @@ packages:
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
     dev: false
 
+  registry.npmjs.org/@teambit/documenter.ui.bold/4.0.7_react-dom@16.13.1+react@16.13.1:
+    resolution: {integrity: sha512-XcL9cXvh6MYivqgijrsMx/7AqcI/xbv67/Dfrc5aJmDKuUY/dNtb+VQjbWV7wEPbJqDU+C3o/O9AqLwCWEPFqw==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/documenter.ui.bold/-/documenter.ui.bold-4.0.7.tgz}
+    id: registry.npmjs.org/@teambit/documenter.ui.bold/4.0.7
+    name: '@teambit/documenter.ui.bold'
+    version: 4.0.7
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    dependencies:
+      classnames: registry.npmjs.org/classnames/2.3.1
+      core-js: registry.npmjs.org/core-js/3.21.1
+      react: registry.npmjs.org/react/16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    dev: false
+
   registry.npmjs.org/@teambit/documenter.ui.code-snippet/4.1.1_react-dom@16.13.1+react@16.13.1:
     resolution: {integrity: sha512-udBvneJg0JzvunzcksfvzqfqQIqQRLJ9G6Iwk8o2o39JOwWTblMJXl7th121hZo2sZZH4ThCyu7RvtB9Bl5OPw==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@teambit/documenter.ui.code-snippet/-/documenter.ui.code-snippet-4.1.1.tgz}
     id: registry.npmjs.org/@teambit/documenter.ui.code-snippet/4.1.1

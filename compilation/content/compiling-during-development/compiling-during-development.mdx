@@ -8,10 +8,10 @@ Compilation of components in the [Workspace](/components/component-overview) is 
 This means Source Maps <!--TODO [Source Maps](/) --> are generated and components are just transpiled (without types) into in the `node_modules` directory to ensure consistency between using a component for development or consumption purposes.
 
 :::note
-For type resolution in the Workspace we rely on the [Workspace Component Link](/workspace/component-links) which symlinks the source code from within the link to the corresponding [Component Directory](/workspace/component-links).
+For type resolution in the Workspace we rely on the [Workspace Component Links](/workspace/structure/component-links) which symlinks the source code from within the link to the corresponding [Component Directory](/workspace/structure/component-links).
 :::
 
-```bash title="workspace component link"
+```bash title="workspace component links"
 ├── node_modules
     ├── @my-org
         ├── ui.button
@@ -89,6 +89,6 @@ bit start
 
 ## CLI References
 
-- [bit compile](/reference/cli-reference/cli-reference#compile)
-- [bit watch](/reference/cli-reference/cli-reference#watch)
-- [bit start](/reference/cli-reference/cli-reference#start)s
+- [bit compile](/reference/cli-reference#compile)
+- [bit watch](/reference/cli-reference#watch)
+- [bit start](/reference/cli-reference#start)
