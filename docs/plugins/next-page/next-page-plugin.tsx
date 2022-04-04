@@ -4,6 +4,7 @@ import { DocsPlugin } from '@teambit/docs.plugins.docs-plugin';
 import { useDocPage } from '@teambit/docs.ui.pages.doc-page';
 import { Route } from '@teambit/docs.entities.docs-routes';
 import { NextPage } from '@teambit/community.ui.cards.next-page';
+import styles from './next-page.module.scss';
 
 export type NextPageProps = {
   nextRoute: Route | undefined;
@@ -26,7 +27,12 @@ export class NextPagePlugin implements DocsPlugin<BottomPluginProps> {
     if (!next || show === false) return null;
 
     return (
-      <NextPage title={next.title} description={this.hideDescription ? '' : next.description} href={next.absPath} />
+      <NextPage
+        title={next.title}
+        description={this.hideDescription ? '' : next.description}
+        href={next.absPath}
+        className={styles.nextPage}
+      />
     );
   };
 
