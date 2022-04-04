@@ -256,7 +256,7 @@ export const learnDocsRoutes: DocsRoute[] = [
           },
           {
             path: 'component-links',
-            title: 'Workspace component link',
+            title: 'Workspace component links',
             component: <WorkspaceLink />,
           },
           {
