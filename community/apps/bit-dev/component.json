@@ -10,6 +10,11 @@
       "policy": {
         "dependencies": {}
       }
-    }
+    },
+    "teambit.react/react": {},
+    "teambit.envs/envs": {
+      "env": "teambit.react/react"
+    },
+    "teambit.harmony/aspect": {}
   }
 }
