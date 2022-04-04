@@ -81,7 +81,7 @@
         "@teambit/cloud-providers.deployers.netlify": "0.0.8",
         "@teambit/cloud.cloud-provider": "0.0.22",
         "@teambit/community.entity.graph.bubble-graph": "^1.23.11",
-        "@teambit/community.ui.sticky-banner": "0.0.5",
+        "@teambit/community.ui.sticky-banner": "0.0.7",
         "@teambit/community.ui.text-tooltip": "0.0.6",
         "@teambit/community.ui.usage-example": "0.0.5",
         "@teambit/component-descriptor": "0.0.13",
