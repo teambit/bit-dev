@@ -44,6 +44,8 @@ const HostingScopes = lazy(() => import('@teambit/scope.content.hosting-scopes')
 
 /* Apps */
 const AppsOverview = lazy(() => import('@teambit/apps.docs.apps-overview'));
+const AppTypes = lazy(() => import('@teambit/harmony.docs.application-types'));
+const AppPlugins = lazy(() => import('@teambit/harmony.docs.app-plugins'));
 const CreateApp = lazy(() => import('@teambit/harmony.content.create-app'));
 const UsingApps = lazy(() => import('@teambit/apps.docs.using-apps'));
 const AppBuild = lazy(() => import('@teambit/apps.docs.app-build'));
@@ -1121,7 +1123,12 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'application-types',
         title: 'Application types',
-        component: <div />,
+        component: <AppTypes />,
+      },
+      {
+        path: 'application-plugins',
+        title: 'Application plugins',
+        component: <AppPlugins />,
       },
     ],
   },
