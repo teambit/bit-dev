@@ -11,7 +11,7 @@ Formatter helps you format your components' code according to a pre-defined set 
 
 Code formatting is the process of styling code to make it "cleaner", clearer and more consistent. Having your team's code formatted automatically saves time otherwise wasted on discussions and code reviews about code styling.
 
-The Formatter aspect simplifies and standardizes the process of code formatting for [Components](/components/component-overview). It does so for code formatting during development (in the workspace) and for code formatting during component build (in a capsule, as part of the [Build Pipeline](/dev-services-overview/builder/build-pipelines))
+The Formatter aspect simplifies and standardizes the process of code formatting for [Components](/components/component-overview). It does so for code formatting during development (in the workspace) and for code formatting during component build (in a capsule, as part of the [Build Pipeline](/dev-services/builder/build-pipelines))
 
 ## Format in development
 
@@ -36,7 +36,7 @@ To learn more on formatting code during development, please refer to [Workspace 
 
 During build, the format task is only used for checking formatting issues. it will not re-write the components with the fixed format.
 
-Formatting components' code for distribution is done during `build` by the Bit [Builder](/dev-services-overview/builder/builder-overview).
+Formatting components' code for distribution is done during `build` by the Bit [Builder](/dev-services/builder/builder-overview).
 
 Component build can be simulated with `bit build` and done through [Tag](/components/tags) or [Snap](/components/snaps)
 
@@ -44,7 +44,7 @@ Component build can be simulated with `bit build` and done through [Tag](/compon
 bit build
 ```
 
-By default, formatting is **not** part of the [Build Pipeline](/dev-services-overview/builder/build-pipelines).
+By default, formatting is **not** part of the [Build Pipeline](/dev-services/builder/build-pipelines).
 
 To learn more on formatting code during build and how to add a formatter [Build Task](/dev-services/builder/builder-overview#build-task), please refer to [Formatting During Build](/dev-services/formatter/formatting-during-build).
 

@@ -1,6 +1,6 @@
 # Formatting during Build
 
-By default, formatting is **not** part of the [Build Pipeline](/dev-services-overview/builder/build-pipelines).
+By default, formatting is **not** part of the [Build Pipeline](/dev-services/builder/build-pipelines).
 
 During build, the format task is only used for checking formatting issues. It will not re-write the components with the fixed format.
 In case you want to re-format your components, you should use the `bit format` command on your workspace.
@@ -16,7 +16,7 @@ To add your format task to your build pipeline you need to add its task into the
   }
 ```
 
-To implement your own Formatter, [see here](/dev-services-overview/formatter/implement-formatter).
+To implement your own Formatter, [see here](/dev-services/formatter/implement-formatter).
 
 ## CLI References
 
