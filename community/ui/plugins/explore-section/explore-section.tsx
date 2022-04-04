@@ -30,7 +30,7 @@ export function ComponentBubbleNonInteractive({ node, ...rest }: BubbleNodeProps
 export function ExploreSection({ heading, subtitle, className, ...rest }: ExploreSectionProps) {
   const [searchValue, setSearchValue] = useState('');
   const onSearch = () => {
-    window.open(`https://bit.dev/components?packageDependencies=%40teambit%2Fharmony&q=${searchValue}`);
+    window.open(`https://bit.cloud/components?packageDependencies=%40teambit%2Fharmony&q=${searchValue}`);
   };
   const onSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => setSearchValue(event.target.value);
 
@@ -48,7 +48,11 @@ export function ExploreSection({ heading, subtitle, className, ...rest }: Explor
             className={styles.searchInput}
           />
           <div className={styles.linkHolder}>
-            <Link href="https://bit.cloud/components?env=aspect" external className={styles.link}>
+            <Link
+              href="https://bit.cloud/components?packageDependencies=@teambit/harmony"
+              external
+              className={styles.link}
+            >
               Browse Aspects
               <Icon of="right-arrow" className={styles.icon} />
             </Link>

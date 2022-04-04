@@ -13,10 +13,9 @@ bit templates
 
 :::tip Create your scope
 
-We recommend creating a remote [Scope](/scope/scope-overview) as a target for exporting your components.  
+We recommend creating a remote [Scope](/scope/scope-overview) as a target for exporting your components.
 
 Either [create a free Scope on the Bit Cloud](https://bit.cloud) or [host your own Scope](/scope/running-a-scope-server).
-
 
 :::
 
@@ -50,12 +49,12 @@ Congrats! You have created a Bit Workspace. You should get a similarly structure
 Notice that Bit itself has a minimal footprint. Bit only needs to files to control configuration and build pipeline for all components.  
 Most templates will likely generate the following files:
 
-- [`.bitmap`](/workspace/bitmap) - maps Bit Components to their [Component Directories](/workspace/component-directory).
+- [`.bitmap`](/workspace/structure/bitmap) - maps Bit Components to their [Component Directories](/workspace/structure/component-directory).
 - [`workspace.jsonc`](/workspace/workspace-configuration) - Main configuration file for the Bit Workspace.
 - `tsconfig.json`, `.eslintrc.js`, `types` directory and other base files to sync your IDE with components.
 - `node_modules` and `pnpm-lock.yaml` - External dependencies and a corresponding lock file managed by pnpm as the package manager.
 - `.git` - Newly initiated Git repository (can be skipped with the `--skip-git` flag).
-- `.git/bit` - [Local Scope](/scope/overview) associated with the Workspace.
+- `.git/bit` - [Local Scope](/scope/scope-overview) associated with the Workspace.
 
 See the status of all components in the workspace.
 
@@ -76,7 +75,8 @@ new components
 
 Notice all components are under the `new` category. This category is for components that were just created and does not have any past versions. Each of the components is also marked as `ok`, which means that Bit is unable to find any issues with the components. There may be different statuses for components, which direct you to fix dependency resolution or other issues. Learn more on the different [workspace statuses](/workspace/workspace-status).
 
-Workspace comes with a local dev server <!-- [local dev server](/workspace/workspace-ui) --> to help with building your components. It helps during development and ease common development tasks as documentation, discovery, testing, visualization, dependency management, explore history and other capabilities. You can use the Workspace UI alongside other development tools.  <!-- Bit runs a dev server for each type of components, according to their configuration. [readmore](/bundlers/dev-servers) -->
+Workspace comes with a local dev server <!-- [local dev server](/workspace/workspace-ui) --> to help with building your components. It helps during development and ease common development tasks as documentation, discovery, testing, visualization, dependency management, explore history and other capabilities. You can use the Workspace UI alongside other development tools. <!-- Bit runs a dev server for each type of components, according to their configuration. [readmore](/bundlers/dev-servers) -->
+
 Start the local workspace UI with the following command:
 
 ```bash
@@ -87,7 +87,7 @@ As the local set of servers spins up, Bit will open your browser and navigate to
 
 <Image atl="workspace ui" src={workspaceUi} />
 
-In the component sidebar on the left, note component are marked with `N`, for `new`.
+In the component sidebar on the left, new components are marked with `N`, for `new`.
 
 :::tip Quickly navigate between components
 
@@ -97,8 +97,8 @@ Use `Ctrl-K` to open the Workspace UI quick search and toggle between components
 
 ### Workspace directory structure
 
-By has a default [directory structure](/workspace/directory-structure) for the workspace. Components are sorted according to their [scopes](/scope/overview) to help define team boundaries and ownerships. Each scope is a directory, where components are sorted inside of them in sub-directories according to their namespaces. <!-- [namespaces](/workspace/namespaces) -->
-Bit requires a component to have it's own [Component Directory](/workspace/component-directory). This directory may have many files and sub-directories.
+Bit has a default [directory structure](/workspace/structure/directory-structure) for the workspace. Components are sorted according to their [scopes](/scope/scope-overview) to help define team boundaries and ownerships. Each scope is a directory, where components are sorted inside of them in sub-directories according to their namespaces. <!-- [namespaces](/workspace/namespaces) -->
+Bit requires a component to have it's own [Component Directory](/workspace/structure/component-directory). This directory may have many files and sub-directories.
 
 <!-- To learn more on [Repository Architecture head over here](/understanding-bit/repository-architecture/overview). -->
 
@@ -126,7 +126,7 @@ templates --> `Scope` used to define team boundaries and ownership
 
 :::tip Control workspace structure
 
-Directory structures in the Bit Workspace are fully flexible and can structured in any way. The only hard limit is that each Component has to have it's own directory. To learn more on structuring Workspaces head over to [Workspace Structure](/workspace/workspace-structure) section.
+Directory structures in the Bit Workspace are fully flexible and can structured in any way. The only hard limit is that each Component has to have it's own directory. To learn more on structuring Workspaces head over to [Directory Structure](/workspace/structure/directory-structure) section.
 
 :::
 
@@ -158,7 +158,7 @@ To add a new external dependency to your workspace:
 bit install @teambit/base-ui.button
 ```
 
-In addition to installing dependencies, the `install` command also keeps your workspace up-to-date with [Component Objects](/components/component-objects) and generate [Workspace Component Links](/workspace/component-links).  
+In addition to installing dependencies, the `install` command also keeps your workspace up-to-date with [Component Objects](/components/structure/component-objects) and generate [Workspace Component Links](/workspace/structure/component-links).  
 We recommend running `install` after pulling remote changes, to ensure your workspace is up-to-date.
 
 ### Configure aspects on the workspace
@@ -173,7 +173,7 @@ Aspects are Bit features you can add to your workspace or components. They are d
 
 ### Debugging in the workspace
 
-[Base Templates](/dev-services-overview/generator/generate-workspace) comes built in with an example launch.json for [VSCode Debugging Configuration](https://code.visualstudio.com/docs/editor/debugging). To learn more on IDE debugger configuration head here.
+[Base Templates](/dev-services/generator/generate-workspace) comes built in with an example launch.json for [VSCode Debugging Configuration](https://code.visualstudio.com/docs/editor/debugging). To learn more on IDE debugger configuration head here.
 
 <!--TODO Webstorm to be added here.
  -->

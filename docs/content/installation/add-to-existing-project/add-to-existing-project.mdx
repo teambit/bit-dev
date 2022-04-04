@@ -15,8 +15,8 @@ bit init
 
 `init` will not use any of the templates for [creating a workspace](/getting-started/installing-bit/start-bit-workspace), so not to override any of your previous configurations. Instead `init` is a lightweight command that only create the following:
 
-- [`workspace.json`](/workspace/workspace-config) file, with base configuration.
-- [`.bitmap`](/workspace/bitmap) to point to any component you share.
+- [`workspace.json`](/workspace//workspace-configuration) file, with base configuration.
+- [`.bitmap`](/workspace/structure/bitmap) to point to any component you share.
 - A hidden `.bit` (or `.git/bit`) directory to store local scope <!-- [local scope](/scope/local-scope) --> for your components.
 
 Once Bit is initialized on your project, you can run Bit commands and start the local dev server. <!-- [local dev server](/workspace/ui) -->
@@ -33,7 +33,7 @@ We recommend using Bit to install dependencies on your workspace. This way you c
 bit install
 ```
 
-The `install` command reads and respects all dependencies defined in your `package.json` as well as the `workspace.jsonc` file.  
+The `install` command reads and respects all dependencies defined in your `package.json` as well as the `workspace.jsonc` file.
 
 :::info When using package managers directly
 
@@ -43,7 +43,7 @@ If you choose not to use Bit to manage dependencies in the project, ensure to ad
 
 ## Sharing components
 
-The process for taking an existing component, which is currently coupled your project, and add it to be a Bit component has several additional steps than just using the `create` command.  
+The process for taking an existing component, which is currently coupled your project, and add it to be a Bit component has several additional steps than just using the `create` command.
 
 First of all, decide which component you aim to share and decouple from the project. Know that here, if the component has any dependencies, you will likely to need to share them as well, or have them as part of the component. Once you had a target in mind, create a new Bit component:
 

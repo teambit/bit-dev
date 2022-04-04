@@ -34,18 +34,18 @@ export class CommunityMdxPreview {
           {children}
         </NavigationProvider>
       ),
-      ({ children, ...rest }) => {
+      (props) => {
         // TODO - should only apply the providers from the current env
         // getting error because more than one env is trying to set MemoryRouter
         return (
           // @ts-ignore
           <UNSAFE_LocationContext.Provider value={null}>
-            <MemoryRouter {...rest} />
+            <MemoryRouter {...props} />
           </UNSAFE_LocationContext.Provider>
         );
       },
       ThemeSwitcher,
-      CloudProvider,
+      CloudProvider
     ]);
 
     return communityMdxPreview;

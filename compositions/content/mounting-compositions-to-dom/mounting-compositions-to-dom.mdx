@@ -4,7 +4,7 @@ Compositions are mounted or appended to the DOM, using a "mounter" function.
 
 :::info
 A "mounter" is the main module used by the Preview Aspect to render the content of files (modules) for the 'compositions' preview. It is analogous to the docs' template.
-Learn more about it, [here](/dev-services-overview/preview/overview)
+Learn more about it, [here](/dev-services/preview/overview)
 :::
 
 ## Setting a mounter
@@ -54,15 +54,9 @@ import { RenderingContext } from '@teambit/preview';
 
 import { CompositionsApp } from './compositions-app';
 
-export default (
-  Composition: React.ComponentType,
-  previewContext: RenderingContext
-) => {
+export default (Composition: React.ComponentType, previewContext: RenderingContext) => {
   ReactDOM.render(
-    <CompositionsApp
-      Composition={Composition}
-      previewContext={previewContext}
-    />,
+    <CompositionsApp Composition={Composition} previewContext={previewContext} />,
     document.getElementById('root')
   );
 };
@@ -110,10 +104,7 @@ export function CompositionsApp({
       // Wrap the rendered composition using the provided Context Providers
       <Composer components={providers}>
         <style>{hideScrollbars}</style>
-        <LoaderFallback
-          Target={Composition}
-          DefaultComponent={StandaloneNotFoundPage}
-        />
+        <LoaderFallback Target={Composition} DefaultComponent={StandaloneNotFoundPage} />
       </Composer>
     </ErrorBoundary>
   );

@@ -5,7 +5,7 @@ import { Image } from '@teambit/docs.ui.zoomable-image';
 # Development Environments
 
 Component development workflow is simplified and standardized using [Component Development Environments](/envs/envs-overview) (**Envs**). An env is a compositions of several [services](/envs/dev-services) where each of them implements an operation.  
-For example: [Compilation](/dev-services-overview/compiler/compiler-overview), [Testing](/dev-services-overview/tester/tester-overview), [Build Pipeline](/dev-services-overview/builder/builder-overview), [Linting](/dev-services-overview/linter/linter-overview) and more. Services use various tools like TypeScript <!-- [TypeScript](/typescript/overview) --> or Jest <!-- [Jest](/jest/overview) -->. Composed together with configurations, services form an entire development experience for React, Node or Angular.  
+For example: [Compilation](/dev-services/compiler/compiler-overview), [Testing](/dev-services/tester/tester-overview), [Build Pipeline](/dev-services/builder/builder-overview), [Linting](/dev-services/linter/linter-overview) and more. Services use various tools like TypeScript <!-- [TypeScript](/typescript/overview) --> or Jest <!-- [Jest](/jest/overview) -->. Composed together with configurations, services form an entire development experience for React, Node or Angular.  
 When shared between teams or project, they simplify and standardize the development process.
 
 :::info Benefits of Component Environments
@@ -60,7 +60,7 @@ bit env set company.scope/ui/my-welcome myorg.envs/my-react-setup
 
 ## Pre-built services
 
-[Environment Services](/envs/services/overview) define what tools would run and their configs. These services correspond to the different Bit commands you can use while building with Bit.
+[Environment Services](/envs/envs-overview) define what tools would run and their configs. These services correspond to the different Bit commands you can use while building with Bit.
 
 ### `start`
 
@@ -107,12 +107,12 @@ Finished. (3s)
 bit watch
 ```
 
-To learn more on Compiler, head to over to the [Compiler documentation](/compiler/overview).
+To learn more on Compiler, head to over to the [Compiler documentation](/dev-services/compiler/compiler-overview).
 
 ### `test`
 
 Running tests for components built with purposes may result in requiring vastly different configurations and approaches. For example, for UI components you may want to set visual regression testing, while for utils this is less relevant. Some components may also need different testers.  
-The [tester](/tester/overview) service knows to run tests and extract their results to a standardized format to be presented in the UI.
+The [tester](/dev-services/tester/tester-overview) service knows to run tests and extract their results to a standardized format to be presented in the UI.
 
 ```bash
 bit test
@@ -152,7 +152,7 @@ When using `bit start` as your development environment, the UI will display the 
 
 :::
 
-To learn more about the Tester and component Testing, head over to the [Tester documentation](/tester/overview).
+To learn more about the Tester and component Testing, head over to the [Tester documentation](/dev-services/tester/tester-overview).
 
 ### `lint`
 
@@ -163,7 +163,7 @@ bit lint
 bit lint --fix
 ```
 
-To learn more about linting components and the Linter, head over to the [Linter documentation](/linter/overview) section.
+To learn more about linting components and the Linter, head over to the [Linter documentation](/dev-services/linter/linter-overview) section.
 
 ### `format`
 
@@ -173,11 +173,11 @@ Depending on the environment configured on components, components in the same wo
 bit format
 ```
 
-To learn more about the Formatter, please head over to the [Formatter documentation](/formatter/overview) section.
+To learn more about the Formatter, please head over to the [Formatter documentation](/dev-services/formatter/formatter-overview) section.
 
 ### `build`
 
-[Builder](/builder/overview) service composes the [build pipeline](/builder/build-pipelines) from tasks implemented by other [services](/envs/services/overview) such as [Compiler](/compiler/overview) or [Tester](/tester/overview).
+[Builder](/dev-services/builder/builder-overview) service composes the [build pipeline](/dev-services/builder/build-pipelines) from tasks implemented by other [services](/envs/services/overview) such as [Compiler](/dev-services/compiler/compiler-overview) or [Tester](/dev-services/tester/tester-overview).
 
 ```bash title="Run the build pipeline"
 bit build
@@ -185,4 +185,4 @@ bit build
 
 <Image src={builderImg} width="100%" />
 
-To learn about building components and the Builder, head over to the [Builder documentation](/builder/overview) section.
+To learn about building components and the Builder, head over to the [Builder documentation](/dev-services/builder/builder-overview) section.

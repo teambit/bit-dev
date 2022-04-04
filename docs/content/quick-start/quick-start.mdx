@@ -1,24 +1,24 @@
-import { ComponentID } from "@teambit/component-id";
-import { MemoryRouter, UNSAFE_LocationContext } from "react-router-dom";
+import { ComponentID } from '@teambit/component-id';
+import { MemoryRouter, UNSAFE_LocationContext } from 'react-router-dom';
 import { wideColumn } from '@teambit/base-ui.layout.page-frame';
-import { ComponentCardGroup } from "@teambit/explorer.ui.gallery.component-card-group";
-import { Subtitle } from "@teambit/docs.ui.subtitle";
-import { TopInventions } from "@learnbit/inventions.blocks.top-inventions";
-import { BubbleHighlighter } from "@teambit/community.ui.bubble-highlighter";
-import { ExcludeHighlighter } from "@teambit/react.ui.component-highlighter";
-import { WhatIsBit } from "@teambit/bit.content.what-is-bit";
-import { DrawerUI } from "@teambit/ui-foundation.ui.tree.drawer";
+import { ComponentCardGroup } from '@teambit/explorer.ui.gallery.component-card-group';
+import { Subtitle } from '@teambit/docs.ui.subtitle';
+import { TopInventions } from '@learnbit/inventions.blocks.top-inventions';
+import { BubbleHighlighter } from '@teambit/community.ui.bubble-highlighter';
+import { ExcludeHighlighter } from '@teambit/react.ui.component-highlighter';
+import { WhatIsBit } from '@teambit/bit.content.what-is-bit';
+import { DrawerUI } from '@teambit/ui-foundation.ui.tree.drawer';
 //TODO: Ran: you have cycles with WikiApp using ui/docs  => teambit.wiki/sections/wiki@0.0.7 => ui/docs
-import { WikiApp } from "@teambit/wiki.apps.wiki";
-import { ArchitectureBreakdown } from "@teambit/docs.blocks.component.architecture-breakdown";
-import { ComponentThinkingProcess } from "@teambit/docs.ui.component-thinking-process";
+import { WikiApp } from '@teambit/wiki.apps.wiki';
+import { ArchitectureBreakdown } from '@teambit/docs.blocks.component.architecture-breakdown';
+import { ComponentThinkingProcess } from '@teambit/docs.ui.component-thinking-process';
 import { Featured, cardsMock } from '@teambit/bit.quick-start.featured';
 import { ComponentShowcase } from '@teambit/community.component-showcase';
-import { wikiComponents } from "./wiki";
+import { wikiComponents } from './wiki';
 // import { WikiGraph } from './graph';
-import App from "./app.mdx";
-import Header from "./header.mdx";
-import styles from "./quick-start.module.scss";
+import App from './app.mdx';
+import Header from './header.mdx';
+import styles from './quick-start.module.scss';
 
 <Featured cards={cardsMock} />
 
@@ -47,7 +47,7 @@ build better apps.  -->
 
 <br />
 
-<!-- 
+<!--
 <ExcludeHighlighter>
   <BubbleHighlighter
     componentId={ComponentID.fromString("teambit.wiki/apps/wiki")}
@@ -126,7 +126,7 @@ It is recommended to open an editor like VSCode on the workspace to start editin
 Bit was designed for gradual adoption and has a minimal footprint. Since components are isolated, Bit can easily co-exist next to other development tools,
 across different projects. This tutorial demonstrates creating a new workspace, to [start from an existing project head here](/getting-started/installing-bit/add-to-existing-project).
 
-In depth: Learn more about [Workspaces](/workspace/overview).
+In depth: Learn more about [Workspaces](/workspace/workspace-overview).
 
 ## Components
 
@@ -163,23 +163,23 @@ Building in components is a recursive process.
 <ComponentThinkingProcess
   steps={[
     {
-      id: ComponentID.fromString("teambit.wiki/apps/wiki"),
+      id: ComponentID.fromString('teambit.wiki/apps/wiki'),
       content: <App />,
     },
     {
-      id: ComponentID.fromString("teambit.wiki/blocks/header"),
+      id: ComponentID.fromString('teambit.wiki/blocks/header'),
       content: <Header />,
     },
     {
-      id: ComponentID.fromString("teambit.wiki/blocks/footer"),
+      id: ComponentID.fromString('teambit.wiki/blocks/footer'),
       content: <App />,
     },
     {
-      id: ComponentID.fromString("teambit.wiki/sections/wiki"),
+      id: ComponentID.fromString('teambit.wiki/sections/wiki'),
       content: <App />,
     },
     {
-      id: ComponentID.fromString("teambit.wiki/content/welcome"),
+      id: ComponentID.fromString('teambit.wiki/content/welcome'),
       content: <App />,
     },
   ]}
@@ -201,7 +201,7 @@ our first component: `apps / wiki`.
 |----------------|--------------------------|
 | my-org.wiki    | apps / wiki-worldwide    |
 
-Components are identified and named using a unique identifier called ["Component ID"](/components/component-id).
+Components are identified and named using a unique identifier called ["Component ID"](/components/structure/component-id).
 
 ### Generate a component skeleton
 
@@ -320,7 +320,7 @@ bit export
 
 ## Think your "Quick Start" is better than ours?
 
-If you think you have a quick start is better than ours, or just shows the same on a different tech stack or product. 
+If you think you have a quick start is better than ours, or just shows the same on a different tech stack or product.
 
 ## What's next?
 

@@ -16,7 +16,7 @@ import { Heading } from '@bitorg/experience.templates.ui.heading';
 
 :::info Generated package name
 
-[`Package name`](/packages/package-name) for a component is by default computed from its [Component ID](/components/component-id). You can customize it to your liking with other conventions.
+[`Package name`](/packages/package-name) for a component is by default computed from its [Component ID](/components/structure/component-id). You can customize it to your liking with other conventions.
 
 :::
 
@@ -94,7 +94,7 @@ export function MyWelcome({ title }: MyWelcomeProps) {
 }
 
 MyWelcome.defaultProps = {
-  text: 'My Welcome Page'
+  text: 'My Welcome Page',
 };
 ```
 
@@ -166,7 +166,7 @@ Bit tries to automate managing types of dependencies as well so you don't have t
 
 ### Dev dependencies
 
-`devDependencies` is contextual. Some components many use a dependency for their testing, and others will need it to operate. Managing the type of dependency can be a pain. Bit solves this by treating `import` and `require` statements from files classified as [Dev Files](/components/dev-files) differently. Any dependency resolved from a dev-file is marked as `devDependencies` for the specific component. `bit show` output lists which are the dev-files of a component.
+`devDependencies` is contextual. Some components many use a dependency for their testing, and others will need it to operate. Managing the type of dependency can be a pain. Bit solves this by treating `import` and `require` statements from files classified as [Dev Files](/components/structure/dev-files) differently. Any dependency resolved from a dev-file is marked as `devDependencies` for the specific component. `bit show` output lists which are the dev-files of a component.
 
 If any dependency appears in both an implementation file and a dev-file, Bit marks it as a `dependency` as this is a "stronger" requirement.
 

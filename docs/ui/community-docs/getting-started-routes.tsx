@@ -64,8 +64,8 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'editor-setup',
-        title: 'Editor Setup',
-        description: 'Learn how to setup your editor to work properly in your Bit Workspace',
+        title: 'Code editor setup',
+        description: 'Learn how to setup your code editor to work properly in your Bit Workspace',
         component: <EditorSetup />,
       },
       {
@@ -98,11 +98,17 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
     open: false,
     children: [
       {
-        path: 'spec-breakdown',
+        path: 'creating-components',
         title: 'Creating components',
         description:
           'Bit makes it simple to build each Component independently, and compose it to others with Dependencies.',
         component: <CreateComponents />,
+      },
+      {
+        path: 'use-dependencies',
+        title: 'Use dependencies',
+        description: 'Learn how to compose dependencies into your component.',
+        component: <UseDependencies />,
       },
       // {
       //   path: 'naming-components',
@@ -119,12 +125,10 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
           'Component development is simplified and standardized using Component Development Environments (or envs in short). An env is a compositions of several Services.',
         component: <DevEnvs />,
       },
-      {
-        path: 'use-dependencies',
-        title: 'Use dependencies',
-        description: 'Learn how to compose dependencies into your component.',
-        component: <UseDependencies />,
-      },
+      // {
+      //   path: 'first-app',
+      //   title: 'First app',
+      // },
     ],
   },
   // {

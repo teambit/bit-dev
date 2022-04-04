@@ -9,7 +9,7 @@ Aspects are not just for extending Bit, but also for building your own composabl
 
 Here is how we would create a basic Aspect using the official aspect env template.
 
-For example: 
+For example:
 
 ```
 bit create aspect hello-world
@@ -32,7 +32,7 @@ To use the aspect, configure it on the Workspace and use it from an another Aspe
 Every Aspect can expose APIs for others to use, whether they are an other Aspect or an external consumer.
 Adding an API is as simple as adding a method to a class.
 
-To start adding APIs to your Aspect, head over your `main.runtime` file, and add new methods to it. 
+To start adding APIs to your Aspect, head over your `main.runtime` file, and add new methods to it.
 
 Here is an example for a basic `sayHello()` API:
 
@@ -51,9 +51,8 @@ export class HelloWorldMain {
 }
 ```
 
-
-Aspects are designed to be API first. We are using programmatic APIs as a base and then composing composed to more advanced interfaces 
-like UI, RESTful, GraphQL or anything else that might be of interest. 
+Aspects are designed to be API first. We are using programmatic APIs as a base and then composing composed to more advanced interfaces
+like UI, RESTful, GraphQL or anything else that might be of interest.
 
 ## Using dependencies
 
@@ -65,11 +64,9 @@ we used to compose Bit to build your own Aspect and extend Bit.
 
 Here are a few examples of core components in the Bit toolchain that you can use as an API:
 
-<ComponentCardDisplay componentIds={[
-  'teambit.harmony/cli',
-  'teambit.component/component',
-  'teambit.generator/generator',
-]} />
+<ComponentCardDisplay
+  componentIds={['teambit.harmony/cli', 'teambit.component/component', 'teambit.generator/generator']}
+/>
 
 <br />
 
@@ -99,17 +96,15 @@ export class MyAspectMain {
 }
 ```
 
-Similarly, you could use the component aspect to obtain programmatic access to component objects, and to the generator aspect, in order to 
-register a new [component generation template](/dev-services-overview/generator/generator-overview). 
+Similarly, you could use the component aspect to obtain programmatic access to component objects, and to the generator aspect, in order to
+register a new [component generation template](/dev-services/generator/generator-overview).
 
 Aspects like the example below can be quite useful in various cases. You can use the GraphQL aspect to extend Bit with a new GraphQL schema, Express to
 add a new RESTful API, or the Compiler API to compile any component programmatically without being aware to its implementation.
 
-<ComponentCardDisplay componentIds={[
-  'teambit.compilation/compiler',
-  'teambit.harmony/graphql',
-  'teambit.harmony/express',
-]} />
+<ComponentCardDisplay
+  componentIds={['teambit.compilation/compiler', 'teambit.harmony/graphql', 'teambit.harmony/express']}
+/>
 
 ## Using configuration
 
@@ -119,13 +114,11 @@ For example:
 
 ```ts
 export type HelloWorldConfig = {
-  worldName: string
+  worldName: string;
 };
 
 export class HelloWorldMain {
-  constructor(
-    private config: HelloWorldConfig
-  ) {}
+  constructor(private config: HelloWorldConfig) {}
 
   sayHello() {
     return `hello ${this.config.worldName}!`;
@@ -134,9 +127,9 @@ export class HelloWorldMain {
   static dependencies = [CLIAspect];
 
   static defaultConfig = {
-    worldName: 'world'
+    worldName: 'world',
   };
-  
+
   static runtime = MainRuntime;
   static async provider([cli]: [CLIMain], config: HelloWorldConfig) {
     cli.register([new MyCommand()]);
@@ -145,7 +138,7 @@ export class HelloWorldMain {
 }
 ```
 
-Our new `worldName` property can be provided in any configuration. 
+Our new `worldName` property can be provided in any configuration.
 
 For example (in `workspace.json` or `scope.json`):
 
@@ -156,6 +149,7 @@ For example (in `workspace.json` or `scope.json`):
   }
 }
 ```
+
 This will make the `worldName` configured here to be injected to the corresponding aspect.
 
 ## Using slots
@@ -168,14 +162,14 @@ and essentially reads them upon the Bit bootstrap.
 
 You can use Slots as a utility provided by Harmony to create pluggable APIs. To [learn more about Slots, head here](/extending-bit/slots).
 
-## Using runtimes 
+## Using runtimes
 
 Aspects can extend multiple runtimes. That allows Aspects to have cross-runtime responsibility over a certain feature it composes.
 An aspect can start with single runtime, and grow to more runtimes as needed.
 
 Using runtimes a single aspect like the one above, can extend both the UI and CLI interafces of Bit and even add a new GraphQL schema to it.
 
-Adding runtimes is easy as adding a new files 
+Adding runtimes is easy as adding a new files
 
 :::note
 

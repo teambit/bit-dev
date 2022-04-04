@@ -1,21 +1,23 @@
 import { Image } from '@teambit/docs.ui.zoomable-image';
 import scopeWorkspace from './workspace-scope.png';
-import workspaceScope from './workspaces-scopes'
+import workspaceScope from './workspaces-scopes';
 import componentImg from './component.png';
 import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-display';
 
 # Component overview
 
-<ComponentCardDisplay componentIds={[
-  'teambit.component/component',
-]} style={{ float: 'left', margin: 20, maxWidth: 250 }} />
+<ComponentCardDisplay
+  componentIds={['teambit.component/component']}
+  style={{ float: 'left', margin: 20, maxWidth: 250 }}
+/>
 
-An _Independent Component_ (_Component_) is an [independently source-controlled](/components/component-objects) module that is stored in a [Scope](/scope/scope-overview) and maintained in a [Workspace](/workspace/workspace-overview).
+Component is a composable, independent and reusable piece of software.
+Components are the building blocks of every composable software.
 
-Components, decoupled from larger projects, are essential for effective component-driven development.
+Each is an [independently source-controlled](/components/structure/component-objects) module that is stored in [Scopes](/scope/scope-overview) and maintained in [Workspaces](/workspace/workspace-overview).
 
 A Component contains the history of its source code, [dependencies](/dependencies/dependencies-overview) (packages and other Components), artifacts (including a consumable [package](/packages/packages-overview)), [Configuration](/components/component-config) and metadata.
-Each Component has a unique [ID](/components/component-id) which is used by Scopes and Workspaces, to reference it.
+Each Component has a unique [ID](/components/structure/component-id) which is used by Scopes and Workspaces, to reference it.
 
 <Image src={componentImg} alt="Bit Components" style={{ maxWidth: 800, marginTop: 50 }} />
 
@@ -136,7 +138,7 @@ bit import teambit.harmony/content/aspects-overview
 
 ```bash
 successfully imported one component
-- up to date teambit.harmony/content/aspects-overview   
+- up to date teambit.harmony/content/aspects-overview
 ```
 
 Import fetches a component and it's complete history from a remote scope to your workspace.  
@@ -181,7 +183,7 @@ showing diff for teambit.harmony/content/aspects-overview
 --- aspects-overview.mdx (0.0.3 original)
 +++ aspects-overview.mdx (0.0.3 modified)
 @@ -56,7 +56,6 @@ export class MyOtherAspect {
- 
+
 ...
 ```
 
@@ -219,7 +221,7 @@ bit import
 ```
 
 ```bash
-- updated teambit.harmony/content/aspects-overview new versions: 1.0.0  
+- updated teambit.harmony/content/aspects-overview new versions: 1.0.0
 ```
 
 Now that you have the latest changes synced, use `checkout` to show them in your workspace.
@@ -232,10 +234,10 @@ bit checkout latest --all
 successfully switched the following components to their latest version
 
 teambit.harmony/content/aspects-overview@1.0.0
-    updated aspect-graph.ts 
-    updated aspects-overview.composition.tsx 
-    updated aspects-overview.docs.mdx 
-    auto-merged aspects-overview.mdx 
-    updated composability.png 
-    updated index.ts 
+    updated aspect-graph.ts
+    updated aspects-overview.composition.tsx
+    updated aspects-overview.docs.mdx
+    auto-merged aspects-overview.mdx
+    updated composability.png
+    updated index.ts
 ```

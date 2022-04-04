@@ -16,7 +16,7 @@ export const clientLogos = [
     alt: 'AT&T',
   },
   {
-    src: 'https://static.bit.dev/homepage-enterprise-logos/Moodys.svg',
+    src: 'https://static.bit.dev/homepage-enterprise-logos/moodys-2022.svg',
     alt: 'Moodys',
   },
   {

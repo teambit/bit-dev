@@ -28,21 +28,11 @@ export type SidebarProps = {
 
 export function Sidebar({ primaryLinks, sections, className, linkPrefix, ...rest }: SidebarProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [isStickyBannerOpen, setStickyBanner] = useState(false);
-
-  useEffect(() => {
-    const stickyBannerClosed = JSON.parse(JSON.parse(localStorage.getItem('isStickyBannerClosed') as string));
-    setStickyBanner(!stickyBannerClosed.isClosed);
-  }, []);
 
   return (
     <div {...rest} className={classNames(styles.sidebar, className)}>
-      <SidebarWrapper
-        isOpen={isOpen}
-        toggle={() => setIsOpen(!isOpen)}
-        className={classNames(styles.sidebarContent, isStickyBannerOpen && styles.isStickyBannerOpen)}
-      >
-        <Scrollbar className={styles.content}>
+      <SidebarWrapper isOpen={isOpen} toggle={() => setIsOpen(!isOpen)} className={styles.sidebarContent}>
+        <Scrollbar className={styles.scrollbar}>
           {primaryLinks && <PrimaryLinks links={primaryLinks} />}
           {sections?.map((category) => {
             if (!category) return null;

@@ -4,7 +4,7 @@
 
 [`package.json`](/packages/package-json) properties are set either manually, using in the PKG config, or programmatically, using the PKG API.
 
-To set specific properties to a Component, use the following example configuration and apply it using [Variants](/workspace/variants) or the component's [`component.json`](/components/component-json).
+To set specific properties to a Component, use the following example configuration and apply it using [Variants](/workspace/variants) or the component's [`component.json`](/components/structure/component-json).
 
 ```json
 {
@@ -16,10 +16,10 @@ To set specific properties to a Component, use the following example configurati
 }
 ```
 
-Use the placeholders listed below to inject specific component information into the 'pkg' configurations. In the example below the `package.json` property is configured to `dist/` followed by the Component [Main File](/components/main-file) path.
+Use the placeholders listed below to inject specific component information into the 'pkg' configurations. In the example below the `package.json` property is configured to `dist/` followed by the Component [Main File](/components/structure/component-main-file) path.
 
-- `{name}` - The component's [full name](/components/component-id#component-full-name).
-- `{scope}` - The component's [scope name](/components/component-id#scope-name).
+- `{name}` - The component's [full name](/components/structure/component-id#component-full-name).
+- `{scope}` - The component's [scope name](/components/structure/component-id#scope-name).
 - `{main}` - The name of the main file (leaving out the extension) - for example `index.js` will be `index`.
 
 The example below, uses [Variants](/workspace/variants) to configure all components under the `ui` namespace with various `package.json` properties.

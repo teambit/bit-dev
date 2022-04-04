@@ -2,83 +2,92 @@ import { Image } from '@teambit/docs.ui.zoomable-image';
 import scopeUiEmpty from './scope-ui-empty.png';
 import scopeUiFull from './scope-ui-full.png';
 
-# Create a Bare Scope
+# Create a scope
 
 :::tip This page is for teams looking to self-host a Bit Scope.
+To host and manage your Scopes on [Bit.cloud](https://bit.cloud) see [Scopes on Bit.cloud](/scope/scope-bit-cloud).
 :::
 
-When setting a scope you create a remote storage server for components. Various workspaces may import/export components from that scope.  
-A **bare scope** includes storage and a UI server for your team.
+When you [initialize a new workspace](/workspace/creating-workspaces#initialize-a-workspace-on-an-existing-project) you also initialize a new [scope](/workspace/structure/local-scope). This scope is used internally by the [workspace](/workspace/workspace-overview).
 
-To create a bare scope run the following command in a new directory:
+To create a scope without the rest of the workspace (components in the working directory, `.bitmap` file, etc.), use the `--bare` option.
+The initialized scope can then be used as collaboration server for components across workspaces (not just for the internal use of a single workspace).
+
+The following example initializes a new scope and sets its name (in the [`scope.json`](/workspace/structure/local-scope#scope.json) file) to its directory name, `my-scope`. This name will later be used to configure components with that scope.
 
 ```bash
+mkdir my-scope
+cd my-scope
 bit init --bare
 ```
 
-Bit creates the following files and directories:
+## Start the server
 
-```bash
-.
-├── components
-├── objects
-├── scope.json
-└── tmp
-```
-
-## Start the Server
-
-To use the bare scope you need to start the scope-server. The server allows for `import` and `export` of components, as well as a web UI for showcasing components.
+The server offers a UI that displays the exported components and handles the `export`/`import` requests to the scope.
+Run the following to start the server:
 
 ```bash
 bit start
 ```
+
+The output should include the scope name and the URL for its server:
 
 ```bash
 Building UI assets for 'my-scope' in target directory: public/bit. The first time we build the UI it may take a few minutes.
 
 
 You can now view 'my-scopes' components in the browser.
-Bit server is running on http://localhost:3002
+Bit server is running on http://localhost:3001
 ```
 
-<Image src={scopeUiEmpty} width="70%" />
+<Image src={scopeUiEmpty} maxWidth={700} />
 
-## Add your Scope to a Workspace
+## Connect a scope to a workspace
 
-Configure the bare scope as a **remote** for your workstation:
+To use your newly-created scope, configure it in the relevant workspaces. Run the following, inside each workspace directory:
 
-```bash
-cd my-workspace
-bit remote add http://localhost:3001 # scope url
 ```
-
-## Configure a Workspaces to Use the Scope
-
-Configure Workspaces to use your scope using the scope name.
-
-```json
-  "teambit.workspace/workspace": {
-    "name": "my-workspace",
-    "defaultScope": "my-scope"
-  },
+bit remote add SCOPE_SERVER_URL
 ```
-
-You can now export components to the new scope.
 
 For example:
 
 ```bash
+cd my-workspace
+bit remote add http://localhost:3001
+```
+
+:::info
+The `bit remote add` command registers the scope URL in the Workspace's [Local Scope](/workspace/structure/local-scope) config ([`scope.json`](/scope/configure-scopes)).
+:::
+
+## Configure components to use a scope
+
+You can configure components in your workspace to use a self hosted scope by setting the scope name.
+
+```json
+"defaultScope": "my-scope"
+```
+
+To export components to that scope, run the following:
+
+```
 bit export
 ```
 
-```bash
+The output should be similar to the following:
+
+```
 exported the following 1 component(s):
 my-scope/ui/heading
 ```
 
-<Image src={scopeUiFull} width="70%" />
+<Image src={scopeUiFull} maxWidth={700} />
 
 ## Publish Component Packages to npm
 
-A Scope handles export and import operations. To make your components installable as packages (`npm install`/`bit install`) [configure them to be published to a package registry](/packages/publishing-components-to-commonjs-registries).
+A Scope handles export and import operations. To make you components installable as packages (`npm install`/`bit install`) [configure them to be published to a package registry](/packages/publishing-components-to-commonjs-registries).
+
+:::info Bit Cloud as a package registry
+Components exported to scopes hosted on Bit Cloud can be installed from Bit Cloud (no need for additional configuration).
+:::

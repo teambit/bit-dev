@@ -32,13 +32,13 @@ export const wikiComponents = [
 export const contexts = [
   {
     id: 'teambit.base-react/themes/theme-provider',
-    href: `https://bit.dev/base-react/themes/theme-provider`,
+    href: `https://bit.cloud/base-react/themes/theme-provider`,
     description: 'Styling agnostic theme',
     envIcon: `https://static.bit.dev/brands/logo-react.svg`,
   },
   {
     id: 'teambit.base-react/routing/routing-provider',
-    href: `https://bit.dev/base-react/routing/routing-provider`,
+    href: `https://bit.cloud/base-react/routing/routing-provider`,
     description: 'Styling agnostic theme',
     envIcon: `https://static.bit.dev/brands/logo-react.svg`,
   },
