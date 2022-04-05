@@ -1,40 +1,16 @@
-import React, { ReactNode, ComponentType } from 'react';
+import React, { ComponentType } from 'react';
 import classNames from 'classnames';
 import { TabLink, TabLinkProps } from '@teambit/design.ui.navigation.tab-link';
+import { LinkProps } from '@teambit/design.ui.navigation.link';
 import styles from './menu.module.scss';
 
-export type NavLinkType = {
-  /**
-   * title of category
-   */
-  title: ReactNode;
-  /**
-   * list of links
-   */
-  links?: LinkType[];
-
-  /**
-   * link href. if a link is provided, links property is ignored.
-   */
-  href?: string;
-};
-
-export type LinkType = {
-  /**
-   * link display text
-   */
-  text: ReactNode;
-  /**
-   * link href
-   */
-  href: string;
-};
+export type MenuLinkType = LinkProps;
 
 export type NavigationMenuProps = {
   /**
    * list of links to display in the navbar
    */
-  links?: NavLinkType[];
+  links?: MenuLinkType[];
 
   /**
    * An element to use to override the Link in the menu. defaults to TabLink
@@ -53,10 +29,8 @@ export function NavigationMenu({ links = [], className, Link = TabLink, ...rest 
             external={isExternal}
             className={styles.link}
             activeClassName={styles.active}
-            href={link.href}
-          >
-            {link.title}
-          </Link>
+            {...link}
+          />
         );
       })}
     </div>
