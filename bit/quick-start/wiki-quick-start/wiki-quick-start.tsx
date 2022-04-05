@@ -7,6 +7,8 @@ import { ComponentID } from '@teambit/component-id';
 import { WikiApp } from '@teambit/wiki.apps.wiki';
 import { QuickStart } from '@teambit/bit.quick-start';
 import styles from './wiki-quick-start.module.scss';
+import Intro from './intro.mdx';
+import BeforeThinking from './before-thinking.mdx';
 
 export type WikiQuickStartProps = {
   /**
@@ -22,19 +24,40 @@ export function WikiQuickStart({ children }: WikiQuickStartProps) {
       id: 'teambit.wiki/apps/wiki@1.90.13',
       intro: (
         <div>
+          We start with Building the Wiki-app. To learn more about apps in Bit you can continue reading the Docs or skip
+          to the Apps section. This will be our app and it will use other components for functionality and content.
+          <br />
+          <br />
           First, make sure to install react-router and react-router-dom in your workspace.
           <CodeSnippet>bit install react-router react-router-dom</CodeSnippet>
         </div>
       ),
     },
-    'teambit.wiki/sections/wiki@1.90.3',
-    'teambit.wiki/blocks/header@0.0.40',
-    'teambit.wiki/blocks/footer@0.0.24',
-    'teambit.wiki/content/welcome@0.0.40',
+    {
+      id: 'teambit.wiki/sections/wiki@1.90.3',
+      intro:
+        'After adding the App to our workspace (either by using fork or create), we are now adding the wiki component. Our App will use the wiki component to get all the functionality it needs.',
+    },
+    {
+      id: 'teambit.wiki/blocks/header@0.0.40',
+      intro:
+        'Now we have the functionality we need, but we would also like some structure to the page, so we are adding a header and footer component. Starting with the header:',
+    },
+    {
+      id: 'teambit.wiki/blocks/footer@0.0.24',
+      intro: 'And now we add the footer! You can choose to skip this component and you will still have a working app.',
+    },
+    {
+      id: 'teambit.wiki/content/welcome@0.0.40',
+      intro:
+        "It's time to add some content to this Wiki! Here is an example of a content component. You can ask your whole team to contribute to the content by creating their own content components.",
+    },
   ];
 
   return (
     <QuickStart
+      intro={<Intro />}
+      beforeThinking={<BeforeThinking />}
       name="wiki"
       id={id}
       components={components}

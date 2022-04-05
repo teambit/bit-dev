@@ -12,7 +12,6 @@ importers:
       '@learn-bit-react/ecommerce.ui.product.product-card': 1.0.16
       '@learnbit/inventions.blocks.top-inventions': 1.0.0
       '@loadable/component': 5.15.0
-      '@mdx-js/react': 1.6.22
       '@react-aria/button': 3.3.3
       '@react-types/button': 3.4.1
       '@teambit/analytics.data.google-analytics': 0.0.5
@@ -41,7 +40,6 @@ importers:
       '@teambit/blog.starter.starter-blog': 0.0.7
       '@teambit/cloud-providers.deployers.netlify': 0.0.8
       '@teambit/cloud.cloud-provider': 0.0.22
-      '@teambit/community.component-showcase': 0.0.36
       '@teambit/community.entity.graph.bubble-graph': ^1.23.11
       '@teambit/community.ui.sticky-banner': 0.0.7
       '@teambit/community.ui.text-tooltip': 0.0.6
@@ -103,7 +101,6 @@ importers:
       '@teambit/harmony.docs.application-types': 0.0.3
       '@teambit/mdx.modules.mdx-loader': ^0.0.466
       '@teambit/mdx.ui.mdx-layout': 0.0.498
-      '@teambit/mdx.ui.mdx-scope-context': 0.0.368
       '@teambit/react.eslint-config-bit-react': ^0.0.451
       '@teambit/react.templates.pages.welcome': 0.0.19
       '@teambit/react.templates.themes.theme': ^0.0.3
@@ -186,7 +183,6 @@ importers:
       '@learn-bit-react/ecommerce.ui.product.product-card': 1.0.16_react-dom@16.13.1+react@16.13.1
       '@learnbit/inventions.blocks.top-inventions': 1.0.0_8bea2159e6cd5f1e2e43db9fc3829767
       '@loadable/component': registry.npmjs.org/@loadable/component/5.15.0_react@16.13.1
-      '@mdx-js/react': registry.npmjs.org/@mdx-js/react/1.6.22_react@16.13.1
       '@react-aria/button': registry.npmjs.org/@react-aria/button/3.3.3_react@16.13.1
       '@react-types/button': registry.npmjs.org/@react-types/button/3.4.1_react@16.13.1
       '@teambit/analytics.data.google-analytics': 0.0.5_8cb4bc97be7cb9e47660b0135c151366
@@ -215,7 +211,6 @@ importers:
       '@teambit/blog.starter.starter-blog': 0.0.7_7f07ca4643af4d00fd25e17ed69a0de6
       '@teambit/cloud-providers.deployers.netlify': 0.0.8
       '@teambit/cloud.cloud-provider': 0.0.22_dda105d39d5bc704973b30a11f30ec7a
-      '@teambit/community.component-showcase': 0.0.36_8cb4bc97be7cb9e47660b0135c151366
       '@teambit/community.entity.graph.bubble-graph': link:community/entity/graph/bubble-graph
       '@teambit/community.ui.sticky-banner': 0.0.7_08996d9b048963006e0d71241013fb8b
       '@teambit/component-descriptor': registry.npmjs.org/@teambit/component-descriptor/0.0.13_react-dom@16.13.1+react@16.13.1
@@ -272,7 +267,6 @@ importers:
       '@teambit/harmony.docs.application-types': 0.0.3_react-dom@16.13.1+react@16.13.1
       '@teambit/mdx.modules.mdx-loader': registry.npmjs.org/@teambit/mdx.modules.mdx-loader/0.0.466_react@16.13.1
       '@teambit/mdx.ui.mdx-layout': registry.npmjs.org/@teambit/mdx.ui.mdx-layout/0.0.498_a83b4fd1170d6176415f71b89ce5b026
-      '@teambit/mdx.ui.mdx-scope-context': registry.npmjs.org/@teambit/mdx.ui.mdx-scope-context/0.0.368_react-dom@16.13.1+react@16.13.1
       '@teambit/react.eslint-config-bit-react': registry.npmjs.org/@teambit/react.eslint-config-bit-react/0.0.451_50175ae77453b2176918ddf70404d166
       '@teambit/react.templates.pages.welcome': 0.0.19_8bea2159e6cd5f1e2e43db9fc3829767
       '@teambit/react.templates.themes.theme': 0.0.3_8bea2159e6cd5f1e2e43db9fc3829767
@@ -289,7 +283,10 @@ importers:
       '@teambit/wiki.blocks.header': 0.0.34_08996d9b048963006e0d71241013fb8b
       '@testing-library/react': registry.npmjs.org/@testing-library/react/12.0.0_react-dom@16.13.1+react@16.13.1
       '@types/history': registry.npmjs.org/@types/history/4.7.11
+      '@types/loadable__component': registry.npmjs.org/@types/loadable__component/5.13.4
+      '@types/react-helmet': registry.npmjs.org/@types/react-helmet/6.1.2
       '@types/ua-parser-js': registry.npmjs.org/@types/ua-parser-js/0.7.36
+      '@types/url-join': registry.npmjs.org/@types/url-join/4.0.1
       '@typescript-eslint/eslint-plugin': registry.npmjs.org/@typescript-eslint/eslint-plugin/4.30.0_8a8a2d3eaa9257455a03c16dce5f55b3
       '@typescript-eslint/parser': registry.npmjs.org/@typescript-eslint/parser/4.30.0_eslint@7.32.0+typescript@4.4.2
       classnames: registry.npmjs.org/classnames/2.3.1
@@ -344,13 +341,10 @@ importers:
       '@testing-library/jest-dom': registry.npmjs.org/@testing-library/jest-dom/5.16.2
       '@testing-library/react-hooks': registry.npmjs.org/@testing-library/react-hooks/7.0.1_react-dom@16.13.1+react@16.13.1
       '@types/jest': registry.npmjs.org/@types/jest/26.0.20
-      '@types/loadable__component': registry.npmjs.org/@types/loadable__component/5.13.4
       '@types/node': registry.npmjs.org/@types/node/12.20.4
       '@types/react': registry.npmjs.org/@types/react/17.0.39
       '@types/react-dom': registry.npmjs.org/@types/react-dom/17.0.11
-      '@types/react-helmet': registry.npmjs.org/@types/react-helmet/6.1.2
       '@types/testing-library__jest-dom': registry.npmjs.org/@types/testing-library__jest-dom/5.9.5
-      '@types/url-join': registry.npmjs.org/@types/url-join/4.0.1
       react-json-view: registry.npmjs.org/react-json-view/1.21.3_8f8b8b40458e4db82e7077c4092f8d92
 
   analytics/community/analytics-quick-start:
@@ -2497,25 +2491,6 @@ packages:
       core-js: registry.npmjs.org/core-js/3.21.1
       react: registry.npmjs.org/react/16.13.1
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
-    dev: false
-
-  /@teambit/community.component-showcase/0.0.36_8cb4bc97be7cb9e47660b0135c151366:
-    resolution: {integrity: sha1-DQiRxEuhNLzqjTs8JGiuFX8W7ME=, tarball: '@teambit/community.component-showcase/-/@teambit-community.component-showcase-0.0.36.tgz'}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0
-    dependencies:
-      '@teambit/base-react.navigation.link': 2.0.27_8cb4bc97be7cb9e47660b0135c151366
-      '@teambit/component-descriptor': registry.npmjs.org/@teambit/component-descriptor/0.0.13_react-dom@16.13.1+react@16.13.1
-      '@teambit/component-id': registry.npmjs.org/@teambit/component-id/0.0.401
-      '@teambit/explorer.plugins.preview-plugin': 0.0.7_react-dom@16.13.1+react@16.13.1
-      classnames: registry.npmjs.org/classnames/2.3.1
-      core-js: registry.npmjs.org/core-js/3.21.1
-      react: registry.npmjs.org/react/16.13.1
-    transitivePeerDependencies:
-      - '@teambit/legacy'
-      - '@testing-library/react'
-      - '@types/react'
-      - react-dom
     dev: false
 
   /@teambit/community.ui.bubble-highlighter/1.80.6_8bea2159e6cd5f1e2e43db9fc3829767:
@@ -9965,7 +9940,7 @@ packages:
     version: 5.13.4
     dependencies:
       '@types/react': registry.npmjs.org/@types/react/17.0.39
-    dev: true
+    dev: false
 
   registry.npmjs.org/@types/mdast/3.0.10:
     resolution: {integrity: sha512-W864tg/Osz1+9f4lrGTZpCSO5/z4608eUp19tbozkq2HJK6i3z1kT0H9tlADXuYIb1YYOBByU4Jsqkk75q48qA==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/mdast/-/mdast-3.0.10.tgz}
@@ -10017,7 +9992,7 @@ packages:
     version: 6.1.2
     dependencies:
       '@types/react': registry.npmjs.org/@types/react/17.0.39
-    dev: true
+    dev: false
 
   registry.npmjs.org/@types/react-redux/7.1.22:
     resolution: {integrity: sha512-GxIA1kM7ClU73I6wg9IRTVwSO9GS+SAKZKe0Enj+82HMU6aoESFU2HNAdNi3+J53IaOHPiUfT3kSG4L828joDQ==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/react-redux/-/react-redux-7.1.22.tgz}
@@ -10087,7 +10062,7 @@ packages:
     resolution: {integrity: sha512-wDXw9LEEUHyV+7UWy7U315nrJGJ7p1BzaCxDpEoLr789Dk1WDVMMlf3iBfbG2F8NdWnYyFbtTxUn2ZNbm1Q4LQ==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/url-join/-/url-join-4.0.1.tgz}
     name: '@types/url-join'
     version: 4.0.1
-    dev: true
+    dev: false
 
   registry.npmjs.org/@types/yargs-parser/20.2.1:
     resolution: {integrity: sha512-7tFImggNeNBVMsn0vLrpn1H1uPrUBdnARPTpZoitY37ZrdJREzf7I16tMrlK3hen349gr1NYh8CmZQa7CTG6Aw==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/yargs-parser/-/yargs-parser-20.2.1.tgz}
