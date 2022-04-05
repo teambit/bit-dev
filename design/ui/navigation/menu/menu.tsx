@@ -1,10 +1,14 @@
-import React, { ComponentType } from 'react';
+import React, { ComponentType, ReactNode } from 'react';
 import classNames from 'classnames';
 import { TabLink, TabLinkProps } from '@teambit/design.ui.navigation.tab-link';
 import { LinkProps } from '@teambit/design.ui.navigation.link';
 import styles from './menu.module.scss';
 
-export type MenuLinkType = LinkProps;
+// adding title for backward compatibility
+export type MenuLinkType = Omit<LinkProps, 'title'> & {
+  /** @deprecated use children */
+  title: ReactNode;
+};
 
 export type NavigationMenuProps = {
   /**
@@ -21,16 +25,12 @@ export type NavigationMenuProps = {
 export function NavigationMenu({ links = [], className, Link = TabLink, ...rest }: NavigationMenuProps) {
   return (
     <div {...rest} className={classNames(styles.navLinks, className)}>
-      {links.map((link) => {
+      {links.map(({ title, ...link }) => {
         const isExternal = link.href?.startsWith('https://') || undefined;
         return (
-          <Link
-            key={link.href}
-            external={isExternal}
-            className={styles.link}
-            activeClassName={styles.active}
-            {...link}
-          />
+          <Link key={link.href} external={isExternal} className={styles.link} activeClassName={styles.active} {...link}>
+            {title || link.children}
+          </Link>
         );
       })}
     </div>
