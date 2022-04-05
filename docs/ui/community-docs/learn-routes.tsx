@@ -634,7 +634,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       //   description: 'Merge lanes when all changes are ready to be versioned.',
       //   component: <div />,
       // },
-      //{
+      // {
       //  path: 'lanes-objects',
       //  title: 'Lane objects',
       //  description: 'How Bit stores and manages lane and all its components in the scope.',

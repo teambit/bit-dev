@@ -41,6 +41,7 @@ importers:
       '@teambit/blog.starter.starter-blog': 0.0.7
       '@teambit/cloud-providers.deployers.netlify': 0.0.8
       '@teambit/cloud.cloud-provider': 0.0.22
+      '@teambit/community.component-showcase': 0.0.36
       '@teambit/community.entity.graph.bubble-graph': ^1.23.11
       '@teambit/community.ui.sticky-banner': 0.0.7
       '@teambit/community.ui.text-tooltip': 0.0.6
@@ -214,6 +215,7 @@ importers:
       '@teambit/blog.starter.starter-blog': 0.0.7_7f07ca4643af4d00fd25e17ed69a0de6
       '@teambit/cloud-providers.deployers.netlify': 0.0.8
       '@teambit/cloud.cloud-provider': 0.0.22_dda105d39d5bc704973b30a11f30ec7a
+      '@teambit/community.component-showcase': 0.0.36_8cb4bc97be7cb9e47660b0135c151366
       '@teambit/community.entity.graph.bubble-graph': link:community/entity/graph/bubble-graph
       '@teambit/community.ui.sticky-banner': 0.0.7_08996d9b048963006e0d71241013fb8b
       '@teambit/component-descriptor': registry.npmjs.org/@teambit/component-descriptor/0.0.13_react-dom@16.13.1+react@16.13.1
@@ -287,6 +289,7 @@ importers:
       '@teambit/wiki.blocks.header': 0.0.34_08996d9b048963006e0d71241013fb8b
       '@testing-library/react': registry.npmjs.org/@testing-library/react/12.0.0_react-dom@16.13.1+react@16.13.1
       '@types/history': registry.npmjs.org/@types/history/4.7.11
+      '@types/ua-parser-js': registry.npmjs.org/@types/ua-parser-js/0.7.36
       '@typescript-eslint/eslint-plugin': registry.npmjs.org/@typescript-eslint/eslint-plugin/4.30.0_8a8a2d3eaa9257455a03c16dce5f55b3
       '@typescript-eslint/parser': registry.npmjs.org/@typescript-eslint/parser/4.30.0_eslint@7.32.0+typescript@4.4.2
       classnames: registry.npmjs.org/classnames/2.3.1
@@ -347,7 +350,6 @@ importers:
       '@types/react-dom': registry.npmjs.org/@types/react-dom/17.0.11
       '@types/react-helmet': registry.npmjs.org/@types/react-helmet/6.1.2
       '@types/testing-library__jest-dom': registry.npmjs.org/@types/testing-library__jest-dom/5.9.5
-      '@types/ua-parser-js': registry.npmjs.org/@types/ua-parser-js/0.7.36
       '@types/url-join': registry.npmjs.org/@types/url-join/4.0.1
       react-json-view: registry.npmjs.org/react-json-view/1.21.3_8f8b8b40458e4db82e7077c4092f8d92
 
@@ -2495,6 +2497,25 @@ packages:
       core-js: registry.npmjs.org/core-js/3.21.1
       react: registry.npmjs.org/react/16.13.1
       react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+    dev: false
+
+  /@teambit/community.component-showcase/0.0.36_8cb4bc97be7cb9e47660b0135c151366:
+    resolution: {integrity: sha1-DQiRxEuhNLzqjTs8JGiuFX8W7ME=, tarball: '@teambit/community.component-showcase/-/@teambit-community.component-showcase-0.0.36.tgz'}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0
+    dependencies:
+      '@teambit/base-react.navigation.link': 2.0.27_8cb4bc97be7cb9e47660b0135c151366
+      '@teambit/component-descriptor': registry.npmjs.org/@teambit/component-descriptor/0.0.13_react-dom@16.13.1+react@16.13.1
+      '@teambit/component-id': registry.npmjs.org/@teambit/component-id/0.0.401
+      '@teambit/explorer.plugins.preview-plugin': 0.0.7_react-dom@16.13.1+react@16.13.1
+      classnames: registry.npmjs.org/classnames/2.3.1
+      core-js: registry.npmjs.org/core-js/3.21.1
+      react: registry.npmjs.org/react/16.13.1
+    transitivePeerDependencies:
+      - '@teambit/legacy'
+      - '@testing-library/react'
+      - '@types/react'
+      - react-dom
     dev: false
 
   /@teambit/community.ui.bubble-highlighter/1.80.6_8bea2159e6cd5f1e2e43db9fc3829767:
@@ -10049,7 +10070,7 @@ packages:
     resolution: {integrity: sha512-N1rW+njavs70y2cApeIw1vLMYXRwfBy+7trgavGuuTfOd7j1Yh7QTRc/yqsPl6ncokt72ZXuxEU0PiCp9bSwNQ==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/ua-parser-js/-/ua-parser-js-0.7.36.tgz}
     name: '@types/ua-parser-js'
     version: 0.7.36
-    dev: true
+    dev: false
 
   registry.npmjs.org/@types/ungap__global-this/0.3.1:
     resolution: {integrity: sha512-+/DsiV4CxXl6ZWefwHZDXSe1Slitz21tom38qPCaG0DYCS1NnDPIQDTKcmQ/tvK/edJUKkmuIDBJbmKDiB0r/g==, registry: https://node.bit.dev/, tarball: https://registry.npmjs.org/@types/ungap__global-this/-/ungap__global-this-0.3.1.tgz}
