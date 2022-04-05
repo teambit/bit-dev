@@ -1,4 +1,4 @@
-@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
+@use '~@teambit/design.responsive.breakpoints/_breakpoints.module.scss';
 
 .createSection {
   position: relative;
@@ -7,7 +7,7 @@
   display: flex;
   justify-content: center;
   margin: 40px auto;
-  @media screen and (max-width: $br-md) {
+  @include breakpoints.media-md {
     margin: 0;
   }
 }
@@ -15,7 +15,7 @@
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(9, 1fr);
   min-width: 1440px;
-  @media screen and (max-width: $br-md) {
+  @include breakpoints.media-md {
     display: none;
   }
 }
@@ -25,7 +25,7 @@
   margin: 0;
   max-width: 660px;
   text-align: center;
-  @media screen and (max-width: $br-md) {
+  @include breakpoints.media-md {
     position: unset;
     top: unset;
     margin: 40px 20px;
