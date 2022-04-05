@@ -73,7 +73,7 @@ The Docs Aspect invokes the rendering function and passes the following argument
 
 1. `React.ComponentType | undefined` - a "provider component" to wrap the template with (used only in React-based templates).
 2. `string` - the component ID
-3. [`DocsFile`](#the-docsfile-argument-the-docs-file-data) - data extracted from the component's docs file
+3. `DocsFile` - data extracted from the component's docs file (see next section to learn more).
 4. [`Record<string, any>`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type) - the component compositions
 5. `RenderingContext`
 
@@ -82,6 +82,6 @@ The Docs Aspect invokes the rendering function and passes the following argument
 The `DocsFile` object, passed by the Docs Aspect, contains the data from the docs file. It consists of the following fields:
 
 - `default?: any` - the docs file ['content'](/dev-services/docs/docs-overview#content) section.
-- [`examples: Example[]`](/overview#live-examples) - the docs file ['live examples'](/dev-services/docs/docs-overview#live-examples).
+- `examples: Example[]` - the docs file ['live examples'](/dev-services/docs/docs-overview#live-examples).
 - `labels: string[]` - the docs file ['labels'](/dev-services/docs/docs-overview#labels).
 - `abstract: string` - the docs file ['abstract'](/dev-services/docs/docs-overview#abstract) (component description).

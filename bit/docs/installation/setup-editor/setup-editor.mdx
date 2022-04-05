@@ -6,7 +6,7 @@ All base templates comes built in with an example `launch.json` for VSCode Debug
 
 ### Debugging in VSCode
 
-[Base Templates](/generator/workspace-template) comes built in with an example `launch.json` for [VSCode Debugging Configuration](https://code.visualstudio.com/docs/editor/debugging).
+[Base Templates](/dev-services/generator/generator-overview) comes built in with an example `launch.json` for [VSCode Debugging Configuration](https://code.visualstudio.com/docs/editor/debugging).
 
 ```json
 {
@@ -21,12 +21,8 @@ All base templates comes built in with an example `launch.json` for VSCode Debug
       "name": "test",
       "program": "${workspaceFolder}/node_modules/@teambit/bit/dist/app.js",
       "args": ["test"],
-      "resolveSourceMapLocations": [
-        "${workspaceFolder}/node_modules/@my-org/**/*.js"
-      ],
-      "outFiles": [
-        "${workspaceFolder}/node_modules/@my-org/**/*.js"
-      ],
+      "resolveSourceMapLocations": ["${workspaceFolder}/node_modules/@my-org/**/*.js"],
+      "outFiles": ["${workspaceFolder}/node_modules/@my-org/**/*.js"],
       "console": "integratedTerminal",
       "sourceMaps": true,
       "internalConsoleOptions": "neverOpen",

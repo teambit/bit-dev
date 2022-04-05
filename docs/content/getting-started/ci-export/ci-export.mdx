@@ -5,7 +5,7 @@
 The first thing to do is get a Bit token that has access to scopes.  
 You can create a dedicated user such as `dev@company.com` for the deployment, or use an existing user's token.
 
-> If you are using an existing user's token, follow the steps described [here](/bit-dot-dev/authentication#additional-tokens) to generate a token that does not expire on local logins.
+> If you are using an existing user's token, follow the steps described [here](https://github.com/teambit/docs/blob/harmony/docs/bit-dot-dev/authentication.md#additional-tokens) to generate a token that does not expire on local logins.
 
 To get your token run the following command:
 
@@ -220,14 +220,14 @@ When working locally, `bit login` configures this file automatically for you. Yo
 ```shell
 failed running npm install at /Users/user/devenv/example-npm-error/components/utils/string/pad-left
 npm ERR! code E404
-npm ERR! 404 Not Found: @bit/bit.utils.string.pad-left@0.0.1
+npm ERR! 404 Not Found: @teambit/utils.string.pad-left@0.0.1
 ```
 
 **Yarn**
 
 ```shell
 failed running yarn install at /Users/user/devenv/example-npm-error/components/utils/string/pad-left
-error An unexpected error occurred: "https://registry.yarnpkg.com/@bit%2fbit.utils.string.pad-left: Not found".
+error An unexpected error occurred: "https://registry.yarnpkg.com/@teambit%2fbit.utils.string.pad-left: Not found".
 ```
 
 The error is solved by making sure that one of the `.npmrc` files has the configuration prior to running npm install. The solutions vary per vendor (see below), but the main methods are:
@@ -249,9 +249,9 @@ always-auth=true
 
 Define `BIT_TOKEN` as a secret global variable on the server.
 
-### Generate `.npmrc` on server
+### Generate .npmrc on the CI server
 
-To generate the file dynamically, you need to run the following script (e.g. create a `bit_npm.sh` script):
+Run the following script to generate the `.npmrc` file, dynamically (e.g. create a `bit_npm.sh` script):
 
 ```shell
 echo "Adding bit.dev to npm registry"
@@ -264,7 +264,7 @@ echo "Completed adding bit.dev to npm registry"
 
 ### Netlify
 
-On Netlify, [you cannot generate the file dynamically](https://community.netlify.com/t/common-issue-using-private-npm-modules-on-netlify/795/11), and you should [add `.npmrc` file in your project](#define-npmrc-in-the-project).
+On Netlify, [you cannot generate the file dynamically](https://community.netlify.com/t/common-issue-using-private-npm-modules-on-netlify/795/11). Instead, [manually add the `.npmrc` file](#manually-create-npmrc-file) to your project.
 
 Add the BIT_TOKEN as [environment variable](https://www.netlify.com/docs/continuous-deployment/#environment-variables)
 
@@ -274,7 +274,7 @@ Learn how to use [private dependencies with Vercel](https://vercel.com/support/a
 
 ### Gitlab
 
-In `.gitlab-ci.yml` run the script that [generates the file for the user](#generate-npmrc-on-server) as an initial step before running npm install.
+In `.gitlab-ci.yml` run the script that [generates the file for the user](#generate-.npmrc-on-the-ci-server) as an initial step before running npm install.
 
 Add the BIT_TOKEN as an [environment variable](https://docs.gitlab.com/ee/ci/variables/)
 
@@ -285,11 +285,10 @@ Add the BIT_TOKEN as a [secret](https://help.github.com/en/actions/configuring-a
 In the GitHub workflow file, create a step before the npm install section:
 
 ```shell
-- name: init bit.dev
+- name: init bit.cloud
   run: |
     echo "Adding bit.dev to npm registry"
-    npm config set @bit:registry https://node.bit.dev
-    npm config set @<account-name>:registry=https://node.bit.dev
+    npm config set @<owner>:registry=https://node.bit.dev
     npm config set @teambit:registry=https://node.bit.dev
     npm config set //node.bit.dev/:_authToken ${BIT_TOKEN}
     echo "Completed adding bit.dev to npm registry"
@@ -311,13 +310,12 @@ Use the [npm authenticate task](https://docs.microsoft.com/en-us/azure/devops/pi
 
 #### 'package not found' (404) when importing a component
 
-NPM or Yarn throws 'package not found' when importing a component. This is likely because the component has a dependency on a @bit component. Make sure [npmrc is configured](#bit-installed-components).
+NPM or Yarn throws 'package not found' when importing a component. This is likely because the component has a dependency on a @bit component. Make sure [npmrc is configured](/packages/npmrc).
 
 #### Unauthorized (401) when installing a component
 
 Possible reasons:
 
-- npmrc is not properly [configured](#bit-installed-components)
+- npmrc is not properly [configured](/packages/npmrc)
 - You do not have the right permissions on the scope that the components are hosted in, and are therefore unable to access its components. Make sure you have at least read permissions for the scope that host the components.
-- Yarn does not send an authentication token when installing packages from a `yarn.lock` file. This is a [known issue](https://github.com/yarnpkg/yarn/issues/4451). Make sure `always-auth` is [configured in `.npmrc`](#bit-installed-components).
-
+- Yarn does not send an authentication token when installing packages from a `yarn.lock` file. This is a [known issue](https://github.com/yarnpkg/yarn/issues/4451). Make sure `always-auth` is [configured in `.npmrc`](/packages/npmrc).

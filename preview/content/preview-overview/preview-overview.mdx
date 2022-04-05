@@ -7,15 +7,16 @@ import fetchPreviewsImg from './fetch_previews.png';
 
 # Preview Overview
 
-<ComponentCardDisplay componentIds={[
-  'teambit.preview/preview',
-]} style={{ float: 'left', margin: 20, maxWidth: 250, marginBottom: 20 }} />
+<ComponentCardDisplay
+  componentIds={['teambit.preview/preview']}
+  style={{ float: 'left', margin: 20, maxWidth: 250, marginBottom: 20 }}
+/>
 
 The Preview Aspect enables component visualizations to be displayed by the browser, in an isolated [Preview environment](#preview-runtime) that is agnostic to the way visualizations are implemented (their framework, etc).
 
 Component visualizations include the component compositions and documentation, but may also include other custom component previews. Preview provides other Aspects with an API to register their own component visualization. The content of these visualizations is retrieved from the component directories using a set of glob patterns defined by the Aspect (for example, the Docs Aspect uses the Preview Aspect to preview all `*.docs.*` files).
 
-The preview environment or runtime, is integrated into Bit's UI using an iframe. 
+The preview environment or runtime, is integrated into Bit's UI using an iframe.
 
 For example, the following screenshot shows a preview (a component's 'Overview') rendered in a preview environment and displayed in an iframe, inside the workspace UI:
 
@@ -95,7 +96,7 @@ Previews for component versions are loaded to the preview runtime from the compo
 
 **Main runtime**
 
-1. Collects all relevant files for a preview and registers them in a [link file](#link-files). The collected files include component files (using a specific glob pattern), templates, setup code, etc. Learn how to extend this step, [here](/register-custom-preview#register-files-for-bundling).
+1. Collects all relevant files for a preview and registers them in a [link file](#link-files). The collected files include component files (using a specific glob pattern), templates, setup code, etc. To learn how to extend this step, see ['Register files for bundling'](/dev-services/preview/register-custom-preview#register-files-for-bundling).
 
 2. Bundles the collected files to make them browser-ready. This process is done via the Bundler Aspect (for distributions) or the DevServer Aspect (in development). The specific implementations and configurations for the Bundler and DevServer services are set by the components' Envs.
 
@@ -107,7 +108,7 @@ Previews for component versions are loaded to the preview runtime from the compo
 
 5. Executes all `*.preview.runtime.ts` files, provided by the various Aspects in use (with the most prominent ones being the Envs).
 
-6. Retrieves and renders the relevant preview in the browser, according to the URL sent by the browser. Learn how to extend this step, [here](/register-custom-preview#register-files-for-routing-and-rendering).
+6. Retrieves and renders the relevant preview in the browser, according to the URL sent by the browser. To learn how to extend this step, see ['Register files for routing and rendering'](/dev-services/preview/register-custom-preview#register-files-for-routing-and-rendering).
 
 <Image alt="diagram" src={fetchPreviewsImg} />
 
