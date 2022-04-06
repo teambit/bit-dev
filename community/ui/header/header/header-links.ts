@@ -1,14 +1,16 @@
-export const headerContent = [
+import type { LinkProps } from '@teambit/design.ui.navigation.link';
+
+export const headerContent: LinkProps[] = [
   {
-    title: 'Docs',
+    children: 'Docs',
     href: '/docs',
   },
   {
-    title: 'Aspects',
+    children: 'Aspects',
     href: '/aspects',
   },
   {
-    title: 'bit.cloud',
+    children: 'bit.cloud',
     href: 'https://bit.cloud',
   },
 ];

@@ -1,40 +1,20 @@
-import React, { ReactNode, ComponentType } from 'react';
+import React, { ComponentType, ReactNode } from 'react';
 import classNames from 'classnames';
 import { TabLink, TabLinkProps } from '@teambit/design.ui.navigation.tab-link';
+import { LinkProps } from '@teambit/design.ui.navigation.link';
 import styles from './menu.module.scss';
 
-export type NavLinkType = {
-  /**
-   * title of category
-   */
-  title: ReactNode;
-  /**
-   * list of links
-   */
-  links?: LinkType[];
-
-  /**
-   * link href. if a link is provided, links property is ignored.
-   */
-  href?: string;
-};
-
-export type LinkType = {
-  /**
-   * link display text
-   */
-  text: ReactNode;
-  /**
-   * link href
-   */
-  href: string;
+// adding title for backward compatibility
+export type MenuLinkType = Omit<LinkProps, 'title'> & {
+  /** @deprecated use children */
+  title?: ReactNode;
 };
 
 export type NavigationMenuProps = {
   /**
    * list of links to display in the navbar
    */
-  links?: NavLinkType[];
+  links?: MenuLinkType[];
 
   /**
    * An element to use to override the Link in the menu. defaults to TabLink
@@ -45,17 +25,11 @@ export type NavigationMenuProps = {
 export function NavigationMenu({ links = [], className, Link = TabLink, ...rest }: NavigationMenuProps) {
   return (
     <div {...rest} className={classNames(styles.navLinks, className)}>
-      {links.map((link) => {
+      {links.map(({ title, ...link }) => {
         const isExternal = link.href?.startsWith('https://') || undefined;
         return (
-          <Link
-            key={link.href}
-            external={isExternal}
-            className={styles.link}
-            activeClassName={styles.active}
-            href={link.href}
-          >
-            {link.title}
+          <Link key={link.href} external={isExternal} className={styles.link} activeClassName={styles.active} {...link}>
+            {title || link.children}
           </Link>
         );
       })}
