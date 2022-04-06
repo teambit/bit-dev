@@ -1,6 +1,7 @@
 import React, { ReactNode, HTMLAttributes, AnchorHTMLAttributes } from 'react';
 import classNames from 'classnames';
 import type { MDXProviderComponents } from '@teambit/mdx.ui.mdx-layout';
+import { useLocation } from '@teambit/base-react.navigation.link';
 import { h1 as H1, h2 as H2, h3 as H3 } from '@teambit/documenter.markdown.heading';
 import { Link } from '@teambit/design.ui.navigation.link';
 import styles from './doc-page.module.scss';
@@ -30,9 +31,19 @@ export const mdxComponents = (baseUrl: string, selectorClassName?: string): MDXP
       return <pre>{children}</pre>;
     },
     a: ({ href, ...rest }: AnchorHTMLAttributes<HTMLAnchorElement>) => {
-      const isExternal = href?.startsWith('http') ? true : undefined;
-      const target = isExternal ? href : `${baseUrl}${href}`;
-      return <Link href={target} external={isExternal} {...rest} />;
+      const currentLocation = useLocation();
+
+      const isExternal = href?.startsWith('http') ? true : undefined; 
+      const onlyHash = href?.startsWith('#'); 
+
+      const getTarget = () => {
+        if(isExternal) return href; // https://bit.cloud -> https://bit.cloud
+        if(onlyHash) return `${currentLocation?.pathname}${href}`; // #collaborate -> /docs/quick-start#collaborate
+        return `${baseUrl}${href}`; // /quick-start -> /docs/quick-start
+      }
+
+      const target = getTarget();
+      return <Link native={!!onlyHash} href={target} external={isExternal} {...rest} />;
     },
   };
 };
