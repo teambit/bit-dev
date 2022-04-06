@@ -7,7 +7,7 @@ import styles from './menu.module.scss';
 // adding title for backward compatibility
 export type MenuLinkType = Omit<LinkProps, 'title'> & {
   /** @deprecated use children */
-  title: ReactNode;
+  title?: ReactNode;
 };
 
 export type NavigationMenuProps = {
