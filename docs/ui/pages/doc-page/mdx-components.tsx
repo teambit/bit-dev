@@ -33,12 +33,8 @@ export const mdxComponents = (baseUrl: string, selectorClassName?: string): MDXP
       const isExternal = href?.startsWith('http'); 
       const onlyHash = href?.startsWith('#'); 
 
-      const getTarget = () => {
-        if(isExternal || onlyHash) return href; // for https://bit.cloud or #collaborate
-        return `${baseUrl}${href}`; // /quick-start -> /docs/quick-start
-      }
-
-      const target = getTarget();
+      const target = (isExternal || onlyHash) ? href : `${baseUrl}${href}`;
+      
       return <Link native={!!onlyHash} href={target} external={!!isExternal} {...rest} />;
     },
   };
