@@ -1,4 +1,4 @@
-@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
+@use '~@teambit/design.responsive.breakpoints/_breakpoints.module.scss';
 
 $textColumn: 1000px;
 
@@ -43,7 +43,7 @@ $textColumn: 1000px;
   top: 56px;
   bottom: 0;
   right: 8px;
-  @media screen and (max-width: $br-lg) {
+  @include breakpoints.media-lg {
     display: none;
   }
 }
