@@ -57,23 +57,28 @@ export function Homepage({ ...rest }: HomepageProps) {
         links={[
           {
             href: '#distribution',
-            text: 'Distribution',
+            children: 'Distribution',
+            native: true,
           },
           {
             href: '#collaboration',
-            text: 'Collaboration',
+            children: 'Collaboration',
+            native: true,
           },
           {
             href: '#standardization',
-            text: 'Standardization',
+            children: 'Standardization',
+            native: true,
           },
           {
             href: '#Standardize',
-            text: 'Autonomy',
+            children: 'Autonomy',
+            native: true,
           },
           {
             href: '#extend',
-            text: 'Extendability',
+            children: 'Extendability',
+            native: true,
           },
         ]}
       />
