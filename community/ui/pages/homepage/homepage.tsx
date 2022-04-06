@@ -10,14 +10,14 @@ import { features } from '@teambit/community.entity.features';
 import { mockBubbleGraph } from '@teambit/community.entity.graph.bubble-graph';
 import { ExcludeHighlighter } from '@teambit/react.ui.component-highlighter';
 import { LogoShowcase } from '@teambit/community.ui.logo-showcase';
-// import { StickyMenu } from '@teambit/community.ui.sticky-menu';
+import { StickyMenu } from '@teambit/community.ui.sticky-menu';
 import { Page } from '@teambit/base-react.pages.page';
-// import { Distribution } from '@teambit/community.ui.homepage.sections.distribution';
-// import { Standardization } from '@teambit/community.ui.homepage.sections.standardization';
-// import { Autonomy } from '@teambit/community.ui.homepage.sections.autonomy';
-// import { Collaboration } from '@teambit/community.ui.homepage.sections.collaboration';
-// import { Extendability } from '@teambit/community.ui.homepage.sections.extendability';
-// import { WideColumn } from '@teambit/base-ui.layout.page-frame';
+import { Distribution } from '@teambit/community.ui.homepage.sections.distribution';
+import { Standardization } from '@teambit/community.ui.homepage.sections.standardization';
+import { Autonomy } from '@teambit/community.ui.homepage.sections.autonomy';
+import { Collaboration } from '@teambit/community.ui.homepage.sections.collaboration';
+import { Extendability } from '@teambit/community.ui.homepage.sections.extendability';
+import { wideColumn } from '@teambit/base-ui.layout.page-frame';
 import styles from './homepage.module.scss';
 
 export type HomepageProps = {} & React.HTMLAttributes<HTMLDivElement>;
@@ -52,37 +52,36 @@ export function Homepage({ ...rest }: HomepageProps) {
           <LogoShowcase className={styles.imgStrip} images={logoList} />
         </div>
       </section>
-      {/* <WideColumn>
-        <StickyMenu
-          links={[
-            {
-              href: '#distribution',
-              text: 'Distribution',
-            },
-            {
-              href: '#collaboration',
-              text: 'Collaboration',
-            },
-            {
-              href: '#standardization',
-              text: 'Standardization',
-            },
-            {
-              href: '#Standardize',
-              text: 'Autonomy',
-            },
-            {
-              href: '#extend',
-              text: 'Extendability',
-            },
-          ]}
-        />
-      </WideColumn> */}
-      {/* <Distribution />
+      <StickyMenu
+        className={wideColumn}
+        links={[
+          {
+            href: '#distribution',
+            text: 'Distribution',
+          },
+          {
+            href: '#collaboration',
+            text: 'Collaboration',
+          },
+          {
+            href: '#standardization',
+            text: 'Standardization',
+          },
+          {
+            href: '#Standardize',
+            text: 'Autonomy',
+          },
+          {
+            href: '#extend',
+            text: 'Extendability',
+          },
+        ]}
+      />
+      <Distribution />
       <Collaboration />
       <Standardization />
       <Autonomy />
-      <Extendability /> */}
+      <Extendability />
     </Page>
   );
 }
