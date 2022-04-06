@@ -1,4 +1,4 @@
-@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
+@use '~@teambit/design.responsive.breakpoints/_breakpoints.module.scss';
 
 // @hack - prevent horrible horizontal scroll
 // TODO - @uri - fix in highlighter, then remove this hack
@@ -20,11 +20,11 @@ body {
   > span {
     margin-right: 4px;
   }
-  @media screen and (max-width: $br-md) {
+  @include breakpoints.media-md {
     font-size: 12px;
     padding-left: 8px;
   }
-  @media screen and (max-width: $br-sm) {
+  @include breakpoints.media-sm {
     display: none;
   }
 }

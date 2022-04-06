@@ -1,4 +1,4 @@
-@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
+@use '~@teambit/design.responsive.breakpoints/_breakpoints.module.scss';
 
 .featuresCardGrid {
   display: grid;
@@ -7,14 +7,14 @@
   margin-bottom: 40px;
 }
 
-@media screen and (max-width: $br-lg) {
+@include breakpoints.media-lg {
   .featuresCardGrid {
     grid-template-columns: repeat(2, 1fr);
     grid-row-gap: 40px;
   }
 }
 
-@media screen and (max-width: $br-md) {
+@include breakpoints.media-md {
   .featuresCardGrid {
     grid-template-columns: 1fr;
     grid-row-gap: 40px;

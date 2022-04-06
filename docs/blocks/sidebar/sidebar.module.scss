@@ -1,4 +1,4 @@
-@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
+@use '~@teambit/design.responsive.breakpoints/_breakpoints.module.scss';
 
 $sidebarWidth: 240px;
 
@@ -9,7 +9,7 @@ $sidebarWidth: 240px;
   width: $sidebarWidth;
   margin-right: 24px;
 
-  @media screen and (max-width: $br-md) {
+  @include breakpoints.media-md {
     width: 0;
     margin-right: 0;
   }
@@ -24,7 +24,7 @@ $sidebarWidth: 240px;
     height: 100%;
     position: absolute;
 
-    @media screen and (max-width: $br-md) {
+    @include breakpoints.media-md {
       position: fixed;
     }
   }
@@ -47,7 +47,7 @@ $sidebarWidth: 240px;
   bottom: unset;
 
   display: none;
-  @media screen and (max-width: $br-md) {
+  @include breakpoints.media-md {
     display: unset;
   }
 }

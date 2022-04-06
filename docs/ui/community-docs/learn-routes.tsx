@@ -44,6 +44,8 @@ const HostingScopes = lazy(() => import('@teambit/scope.content.hosting-scopes')
 
 /* Apps */
 const AppsOverview = lazy(() => import('@teambit/apps.docs.apps-overview'));
+const AppTypes = lazy(() => import('@teambit/harmony.docs.application-types'));
+const AppPlugins = lazy(() => import('@teambit/harmony.docs.app-plugins'));
 const CreateApp = lazy(() => import('@teambit/harmony.content.create-app'));
 const UsingApps = lazy(() => import('@teambit/apps.docs.using-apps'));
 const AppBuild = lazy(() => import('@teambit/apps.docs.app-build'));
@@ -339,11 +341,11 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Components',
     icon: 'comps',
     open: false,
-    config: {
-      path: 'component-config',
-      title: 'Component configuration',
-      component: <ComponentConfig />,
-    },
+    // config: {
+    //   path: 'component-config',
+    //   title: 'Component configuration',
+    //   component: <ComponentConfig />,
+    // },
     // overview: {
     //   path: 'component-overview',
     //   title: 'Component Overview',
@@ -632,7 +634,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       //   description: 'Merge lanes when all changes are ready to be versioned.',
       //   component: <div />,
       // },
-      //{
+      // {
       //  path: 'lanes-objects',
       //  title: 'Lane objects',
       //  description: 'How Bit stores and manages lane and all its components in the scope.',
@@ -1121,7 +1123,12 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'application-types',
         title: 'Application types',
-        component: <div />,
+        component: <AppTypes />,
+      },
+      {
+        path: 'application-plugins',
+        title: 'Application plugins',
+        component: <AppPlugins />,
       },
     ],
   },
@@ -1130,11 +1137,11 @@ export const learnDocsRoutes: DocsRoute[] = [
     title: 'Packages',
     icon: 'dependencies',
     open: false,
-    config: {
-      path: 'managing-package-json',
-      title: 'Managing the package.json',
-      component: <ManagingPackageJson />,
-    },
+    // config: {
+    //   path: 'managing-package-json',
+    //   title: 'Managing the package.json',
+    //   component: <ManagingPackageJson />,
+    // },
     children: [
       {
         path: 'packages-overview',
@@ -1379,11 +1386,11 @@ export const learnDocsRoutes: DocsRoute[] = [
     open: false,
     icon: 'Extension',
     title: 'Extending Bit',
-    config: {
-      path: 'config',
-      title: 'Aspect config',
-      component: <AspectConfig />,
-    },
+    // config: {
+    //   path: 'config',
+    //   title: 'Aspect config',
+    //   component: <AspectConfig />,
+    // },
     children: [
       {
         path: 'aspect-overview',
