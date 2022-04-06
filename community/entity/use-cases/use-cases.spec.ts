@@ -1,11 +1,17 @@
+import fetch from 'cross-fetch';
 import { useCases } from './use-cases.mocks';
 
-it('should provide a complete mock', async () => {
-  for (const useCase of useCases) {
-    for (const property in useCase) {
-      expect(useCase[property]).toBeTruthy();
-    }
-    const response = await fetch(useCase.image);
-    expect(response.ok).toBeTruthy();
-  }
+it('should provide a complete mock', () => {
+  Object.values(useCases).forEach((aCase) => {
+    Object.values(aCase).forEach((value) => expect(value).toBeTruthy());
+  });
+});
+
+it('verify all cases have valid images', async () => {
+  const images = Object.values(useCases)
+    .map((x) => x.image)
+    .map((url) => fetch(url));
+
+  const responses = await Promise.all(images);
+  responses.forEach((response) => expect(response.ok).toBeTruthy());
 });
