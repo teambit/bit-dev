@@ -30,9 +30,12 @@ export const mdxComponents = (baseUrl: string, selectorClassName?: string): MDXP
       return <pre>{children}</pre>;
     },
     a: ({ href, ...rest }: AnchorHTMLAttributes<HTMLAnchorElement>) => {
-      const isExternal = href?.startsWith('http') ? true : undefined;
-      const target = isExternal ? href : `${baseUrl}${href}`;
-      return <Link href={target} external={isExternal} {...rest} />;
+      const isExternal = href?.startsWith('http'); 
+      const onlyHash = href?.startsWith('#'); 
+
+      const target = (isExternal || onlyHash) ? href : `${baseUrl}${href}`;
+      
+      return <Link native={!!onlyHash} href={target} external={!!isExternal} {...rest} />;
     },
   };
 };
