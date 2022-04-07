@@ -30,9 +30,9 @@ Commands that are marked as workspace only must be executed inside a workspace. 
 
 `bit app <sub-command>`
 
-### list
+### app list
 
-**Usage**: `list`
+**Usage**: `app list`
 
 **Description**: list all registered applications
 
@@ -96,9 +96,9 @@ Commands that are marked as workspace only must be executed inside a workspace. 
 
 `bit capsule <sub-command>`
 
-### list
+### capsule list
 
-**Usage**: `list`
+**Usage**: `capsule list`
 
 **Description**: list all capsules
 
@@ -106,9 +106,9 @@ Commands that are marked as workspace only must be executed inside a workspace. 
 | ---------- | :--------------: | --------------- |
 | `--json`   |       `-j`       | json format     |
 
-### create
+### capsule create
 
-**Usage**: `create [componentIds...]`
+**Usage**: `capsule create [componentIds...]`
 
 **Description**: create capsules
 
@@ -121,6 +121,17 @@ Commands that are marked as workspace only must be executed inside a workspace. 
 | `--json`                   |       `-j`       | json format                                                     |
 | `--install-packages`       |       `-d`       | install packages by the package-manager                         |
 | `--package-manager <name>` |       `-p`       | npm, yarn or pnpm, default to npm                               |
+
+### capsule delete
+
+**Usage**: `capsule delete`
+
+**Description**: delete capsules. with no args, only workspace's capsules are deleted.
+
+| **Option**        | **Option alias** | **Description**                                   |
+| ----------------- | :--------------: | ------------------------------------------------- |
+| `--scope-aspects` |                  | delete scope-aspects capsules                     |
+| `--all`           |       `-a`       | delete all capsules for all workspaces and scopes |
 
 ---
 
@@ -170,9 +181,9 @@ Commands that are marked as workspace only must be executed inside a workspace. 
 
 `bit cli`
 
-### generate
+### cli generate
 
-**Usage**: `generate`
+**Usage**: `cli generate`
 
 **Description**: EXPERIMENTAL. generate an .md file with all commands details
 
@@ -214,11 +225,29 @@ Commands that are marked as workspace only must be executed inside a workspace. 
 
 `bit config`
 
-### set
+### config set
 
-**Usage**: `set <key> <val>`
+**Usage**: `config set <key> <val>`
 
 **Description**: set a global configuration
+
+### config del
+
+**Usage**: `config del <key>`
+
+**Description**: delete given key from global configuration
+
+### config get
+
+**Usage**: `config get <key>`
+
+**Description**: get a global configuration
+
+### config list
+
+**Usage**: `config list`
+
+**Description**: list all configuration(s)
 
 ## snap
 
@@ -239,26 +268,6 @@ you can use a pattern for multiple ids, such as bit tag "utils/\*". (wrap the pa
 | `--skip-auto-snap`        |                  | skip auto snapping dependents                                               |
 | `--build`                 |                  | Harmony only. run the pipeline build and complete the snap                  |
 | `--disable-snap-pipeline` |                  | skip the snap pipeline                                                      |
-
----
-
-### del
-
-**Usage**: `del <key>`
-
-**Description**: delete given key from global configuration
-
-### get
-
-**Usage**: `get <key>`
-
-**Description**: get a global configuration
-
-### list
-
-**Usage**: `list`
-
-**Description**: list all configuration(s)
 
 ---
 
@@ -722,9 +731,9 @@ you can use a pattern for multiple ids, such as bit export remote-scope "utils/\
 
 `bit remote`
 
-### add
+### remote add
 
-**Usage**: `add <url>`
+**Usage**: `remote add <url>`
 
 **Description**: add a tracked bit remote
 
@@ -732,9 +741,9 @@ you can use a pattern for multiple ids, such as bit export remote-scope "utils/\
 | ---------- | :--------------: | ---------------------------- |
 | `--global` |       `-g`       | configure a remote bit scope |
 
-### del
+### remote del
 
-**Usage**: `del <name>`
+**Usage**: `remote del <name>`
 
 **Description**: remove a tracked bit remote
 
@@ -801,27 +810,27 @@ alternatively, exporting to any one of the failed scopes, throws server-is-busy 
 
 `bit scope-config`
 
-### set
+### scope-config set
 
-**Usage**: `set <key> <val>`
+**Usage**: `scope-config set <key> <val>`
 
 **Description**: set a scope configuration
 
-### del
+### scope-config del
 
-**Usage**: `del <key>`
+**Usage**: `scope-config del <key>`
 
 **Description**: delete given key from global configuration
 
-### get
+### scope-config get
 
-**Usage**: `get <key>`
+**Usage**: `scope-config get <key>`
 
 **Description**: get a scope configuration
 
-### list
+### scope-config list
 
-**Usage**: `list`
+**Usage**: `scope-config list`
 
 **Description**: list all scope configuration(s)
 
