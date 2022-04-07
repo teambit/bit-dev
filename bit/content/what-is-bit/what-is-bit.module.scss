@@ -1,13 +1,10 @@
-@use '~@teambit/design.responsive.breakpoints/_breakpoints.module.scss';
+// TODO: @oded replace to new breakpoints component.
+// @import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
 
 .bitCard {
   float: left;
   max-width: 280px;
   margin: 30px;
-  @include breakpoints.media-sm {
-    float: none;
-    margin: auto;
-  }
 }
 
 .logo {

@@ -1,8 +1,8 @@
 # React Native
 
-The built-in [React Native Component Development Environment](https://bit.dev/teambit/react/react-native) is a concrete composition of the [Env Aspect](https://bit.dev/teambit/envs/envs). Use it when getting started with React Native components with Bit and later as a base for any future customization of your ReactNative-based workflow.
+The built-in [React Native Component Development Environment](https://bit.cloud/teambit/react/react-native) is a concrete composition of the [Env Aspect](https://bit.cloud/teambit/envs/envs). Use it when getting started with React Native components with Bit and later as a base for any future customization of your ReactNative-based workflow.
 
-React Native environment is composed out of the base [React Environment](https://bit.dev/teambit/react/react) with some specific overrides for dependency management.
+React Native environment is composed out of the base [React Environment](https://bit.cloud/teambit/react/react) with some specific overrides for dependency management.
 
 ## Create React Native components
 
@@ -18,19 +18,19 @@ React Native, like all over Environments must implement a set of Service Handler
 
 > React Native is a composition of the React environment with some specific modifications. Most of the links here direct to the actual configs in React environment.
 
-| Service              | Aspect                                                      | Base Configuration                                                                                                                 |
-| -------------------- | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| Compilation          | [TypeScript](https://bit.dev/teambit/typescript/typescript) | [tsconfig.json](https://bit.dev/teambit/react/react/~code/typescript/tsconfig.json)                                                |
-| Testing              | **Jest**                                                    | [jest.config.js](https://bit.dev/teambit/react/react/~code/jest/jest.config.js)                                                    |
-| Linting              | **ESLint**                                                  | [eslintrc.ts](https://bit.dev/teambit/react/react/~code/eslint/eslintrc.ts)                                                        |
-| DevServer            | **Webpack**                                                 | [webpack.config.preview.dev.ts](https://bit.dev/teambit/react/react/~code/webpack/webpack.config.preview.dev.ts)                   |
-| Preview (simulation) | **Webpack**                                                 | [webpack.config.preview.ts](https://bit.dev/teambit/react/react/~code/webpack/webpack.config.preview.ts)                           |
-| Package              | **PKG**                                                     | Base `package.json` props from [TypeScript Aspect](https://bit.dev/teambit/typescript/typescript/~code/typescript.main.runtime.ts) |
-| Bundling             | **Webpack**                                                 | [webpack.config.preview.ts](https://bit.dev/teambit/react/react/~code/webpack/webpack.config.preview.ts)                           |
-| Documentation        | _Core implementation_                                       | [Docs template](https://bit.dev/teambit/react/react/~code/docs/index.tsx)                                                          |
-| Build pipeline       | [Builder](https://bit.dev/teambit/pipelines/builder)        | [Build pipeline](https://bit.dev/teambit/react/react/~code/react-native.env.ts)                                                    |
-| Dependencies         | _Core implementation_                                       | [Env-dependencies](https://bit.dev/teambit/react/react-native/~code/react-native.env.ts)                                           |
-| Component Generator  | [Generator](https://bit.dev/teambit/generator/generator)    | [example template](https://bit.dev/react/react-native/~code/templates/react-native-component.ts)                                   |
+| Service              | Aspect                                                        | Base Configuration                                                                                                                   |
+| -------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Compilation          | [TypeScript](https://bit.cloud/teambit/typescript/typescript) | [tsconfig.json](https://bit.cloud/teambit/react/react/~code/typescript/tsconfig.json)                                                |
+| Testing              | **Jest**                                                      | [jest.config.js](https://bit.cloud/teambit/react/react/~code/jest/jest.config.js)                                                    |
+| Linting              | **ESLint**                                                    | [eslintrc.ts](https://bit.cloud/teambit/react/react/~code/eslint/eslintrc.ts)                                                        |
+| DevServer            | **Webpack**                                                   | [webpack.config.preview.dev.ts](https://bit.cloud/teambit/react/react/~code/webpack/webpack.config.preview.dev.ts)                   |
+| Preview (simulation) | **Webpack**                                                   | [webpack.config.preview.ts](https://bit.cloud/teambit/react/react/~code/webpack/webpack.config.preview.ts)                           |
+| Package              | **PKG**                                                       | Base `package.json` props from [TypeScript Aspect](https://bit.cloud/teambit/typescript/typescript/~code/typescript.main.runtime.ts) |
+| Bundling             | **Webpack**                                                   | [webpack.config.preview.ts](https://bit.cloud/teambit/react/react/~code/webpack/webpack.config.preview.ts)                           |
+| Documentation        | _Core implementation_                                         | [Docs template](https://bit.cloud/teambit/react/react/~code/docs/index.tsx)                                                          |
+| Build pipeline       | [Builder](https://bit.cloud/teambit/pipelines/builder)        | [Build pipeline](https://bit.cloud/teambit/react/react/~code/react-native.env.ts)                                                    |
+| Dependencies         | _Core implementation_                                         | [Env-dependencies](https://bit.cloud/teambit/react/react-native/~code/react-native.env.ts)                                           |
+| Component Generator  | [Generator](https://bit.cloud/teambit/generator/generator)    | [example template](https://bit.cloud/react/react-native/~code/templates/react-native-component.ts)                                   |
 
 ## Customize environment
 
@@ -60,7 +60,7 @@ React Native implements a set of APIs you can use to merge your preferred config
 
 ## Runtime (framework) dependencies
 
-Similar to many Frontend frameworks React Native must have a singleton instance in your app's runtime. When building reuseable components we need to adhere to that and have `react` and `react-native` set as `peerDependencies`, thus allowing the consuming app to determine runtime version. React environment implements this via the **Dependencies** service which is used to override [dependency-resolver](https://bit.dev/teambit/dependencies/dependency-resolver) and set your preferred dependencies.
+Similar to many Frontend frameworks React Native must have a singleton instance in your app's runtime. When building reuseable components we need to adhere to that and have `react` and `react-native` set as `peerDependencies`, thus allowing the consuming app to determine runtime version. React environment implements this via the **Dependencies** service which is used to override [dependency-resolver](https://bit.cloud/teambit/dependencies/dependency-resolver) and set your preferred dependencies.
 It is recommended to for you to extend the base React environment and define a semantic version rule to fit your current tech stack and guidelines for reuseable React components.
 
 ## FAQ

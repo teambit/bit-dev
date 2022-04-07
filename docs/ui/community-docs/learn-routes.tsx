@@ -92,7 +92,7 @@ const ImplementFormatter = lazy(() => import('@teambit/defender.content.implemen
 
 const CompilerOverview = lazy(() => import('@teambit/compilation.content.compiler-overview'));
 const CompilingDuringDevelopment = lazy(() => import('@teambit/compilation.content.compiling-during-development'));
-const CompilingDuringBuild = lazy(() => import('@teambit/compilation.content.compiling-during-build'));
+// const CompilingDuringBuild = lazy(() => import('@teambit/compilation.content.compiling-during-build'));
 const ConfigureEnvWithCompiler = lazy(() => import('@teambit/compilation.content.configure-env-with-compiler'));
 const ImplementCompiler = lazy(() => import('@teambit/compilation.content.implement-compiler'));
 const CompilerAPI = lazy(() => import('@teambit/compilation.content.compiler-api'));
@@ -817,11 +817,11 @@ export const learnDocsRoutes: DocsRoute[] = [
             title: 'Compiling during development',
             component: <CompilingDuringDevelopment />,
           },
-          {
-            path: 'compiling-during-build',
-            title: 'Compiling during build',
-            component: <CompilingDuringBuild />,
-          },
+          // {
+          //   path: 'compiling-during-build',
+          //   title: 'Compiling during build',
+          //   component: <CompilingDuringBuild />,
+          // },
           {
             path: 'using-a-compiler',
             title: 'Using a compiler',
@@ -1456,11 +1456,11 @@ export const learnDocsRoutes: DocsRoute[] = [
         open: false,
         component: <ConfigFiles />,
       },
-      {
-        path: 'bitrc',
-        title: 'Global configuration (bitrc)',
-        component: <div />,
-      },
+      // {
+      //   path: 'bitrc',
+      //   title: 'Global configuration (bitrc)',
+      //   component: <div />,
+      // },
     ],
   },
   {

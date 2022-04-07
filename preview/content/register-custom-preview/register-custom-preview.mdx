@@ -75,7 +75,7 @@ ComponentImagesAspect.addRuntime(MyAspectMain);
 prefix: string;
 ```
 
-The name for the [link file](#) <!-- TODO --> and corresponding URL parameter (which will be used to fetch this type of previews).
+The name for the [link file](/dev-services/preview/overview#link-files) <!-- TODO --> and corresponding URL parameter (which will be used to fetch this type of previews).
 
 #### `renderTemplatePath`
 
@@ -83,7 +83,7 @@ The name for the [link file](#) <!-- TODO --> and corresponding URL parameter (w
 renderTemplatePath?: (context: ExecutionContext) => Promise<string>
 ```
 
-A function that gets an [`ExecutionContext`](https://bit.cloud/teambit/envs/envs/~code/context/context.ts) with data regarding the Env's instance, and returns a path to the preview template which would be used to render the files returned by [`getModuleMap`](#getModuleMap) (for example, the [docs template](/dev-services/docs/docs-templates)).
+A function that gets an [`ExecutionContext`](https://bit.cloud/teambit/envs/envs/~code/context/context.ts) with data regarding the Env's instance, and returns a path to the preview template which would be used to render the files returned by `getModuleMap` (for example, the [docs template](/dev-services/docs/docs-templates)).
 
 #### `getModuleMap`
 
@@ -278,4 +278,4 @@ export default function MyTemplate(
 
 The preview template receives the [`PreviewType`](#previewdefinition) properties as arguments.
 
-[See here](#register-files-for-bundling), to learn how to register the template to the Preview aspect.
+See ['Register files for bundling'](#register-files-for-bundling), to learn how to register the template to the Preview aspect.

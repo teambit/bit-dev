@@ -8,7 +8,7 @@ In case you want to use the auto fix option for your components, you should use 
 ## Adding a linter task to your build pipeline
 
 To add your lint task to your build pipeline you need to add its task into the build pipeline using the `getBuildPipe` of your env:
-(built in envs come with an API to only add new tasks to their existing pipe)<!-- TODO: add link here -->
+(built in envs come with an API to add new tasks to their existing pipe)<!-- TODO: add link here -->
 
 ```ts
   getBuildPipe(modifiers: GetBuildPipeModifiers = {}): BuildTask[] {
@@ -16,7 +16,7 @@ To add your lint task to your build pipeline you need to add its task into the b
   }
 ```
 
-To implement your own linter, [see here](#).<!-- TODO: add link here -->
+To implement your own linter, [see here](/dev-services/linter/implement-linter).
 
 ## CLI References
 
