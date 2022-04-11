@@ -78,6 +78,7 @@ export function Code({ component, className, theme = 'dark', ...rest }: CodeProp
           height="90vh"
           language={lang}
           value={fileContent}
+          className={styles.editor}
           onMount={handleEditorDidMount}
         />
       </Pane>

@@ -24,6 +24,7 @@
     
     --bit-accent-bg: #2d2842;
     --bit-bg-heavy: #140f27;
+    --editor-bg-color: #1E1E1E;
 }
 .fileTreePane {
     min-width: 100px;
@@ -39,5 +40,9 @@
     font-size: 10px;
     font-weight: unset;
     padding: 4px;
-  }
+}
 
+.editor {
+    padding-top: 10px;
+    background-color: var(--editor-bg-color, #1E1E1E);
+}
