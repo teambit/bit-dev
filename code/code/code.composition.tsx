@@ -23,7 +23,6 @@ export const DarkThemeCode = () => {
   const component = useMemo(() => ComponentDescriptor.fromObject({ id: 'teambit.design/basic/button' }), []);
   const scope = useScope(component?.scope);
   const client = scopeClient(scope);
-  console.log("code scope", scope, client)
   return (
     <ApolloProvider client={client}>
       <Code component={component} theme='dark' />
