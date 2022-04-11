@@ -1,0 +1,14 @@
+
+.node {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    > div:first-child {
+        min-width: 0;
+    }
+}
+.icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+}
