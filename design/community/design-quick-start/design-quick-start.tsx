@@ -6,7 +6,7 @@ import { QuickStart } from '@teambit/bit.quick-start';
 
 export type DesignQuickStartProps = {
   /**
-   * a node to be rendered in the special component.
+   * Add children
    */
   children?: ReactNode;
 };
@@ -15,7 +15,6 @@ export function DesignQuickStart({ children }: DesignQuickStartProps) {
   // TODO: app showcasing a design system.
   const id = ComponentID.fromString('teambit.design/examples/sample-app');
   const components = [
-    // TODO: app showcasing a design system.
     {
       id: 'teambit.design/examples/sample-app',
       intro: (
