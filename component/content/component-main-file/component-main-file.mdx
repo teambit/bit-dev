@@ -1,6 +1,6 @@
-# Main File
+# Main file
 
-A component's _main file_ exposes an API for other components to use. It makes the component's code more maintainable and comprehensible by providing a single entry point.
+Component's `main` file exposes the component's API. This simplifies the component's code and allows for easier maintenance, as it is a single point of entry for the component.
 
 A `main` file will typically look like this, but may contain additional exports as needed:
 
@@ -9,40 +9,30 @@ export { Button } from './button';
 export type { ButtonProps } from './button';
 ```
 
-A component's main file is determined by one of the following (ordered by descending importance):
+There are several rules Bit follows when setting a `main` file (list is ordered by importance):
 
-1. A manually set `main` file when running `bit add` command with the `--main` option.
-1. A component's `index.ts` or `index.js`.
-1. File with the same name as the component's directory name (e.g, `button/button.ts`).
+1. Manually set `main` file when running `bit add` command with the `--main` option.
+1. `index.ts` or `index.js`.
+1. File with the same name as the component's foldername.
 
-Bit registers the main file in the `.bitmap` file of your workspace. For example:
+Bit logs the `main` file in the `.bitmap` file, and uses it when generating the component's `package.json` file to be [main entry point](https://docs.npmjs.com/cli/v7/configuring-npm/package-json#main).
 
-```json
-{
-  "inputs/button": {
-    "scope": "teambit.base-ui",
-    "version": "1.0.0",
-    "mainFile": "index.ts",
-    "rootDir": "base-ui/inputs/button"
-  }
-}
-```
+## Changing a component main file
 
-:::info The package.json main property
-Your compiler uses the component's `mainFile` property to determine the main property of the `package.json` (the path to the compiled main file.)
-for example, `main: 'dist/{main}.js'`. To learn more about configuring the component's `package.json` see [Managing the package.json](./packages/managing-package-json).
-:::
-
-## Changing a Component main file
-
-To change a Component's main file, run the following:
+Use the `add` command on your component to update it's main file.
 
 ```bash
-bit add COMPONENT_DIRECTORY_PATH --id COMPONENT_ID --main FILE_PATH
+bit add ui/button --main button.ts
 ```
 
-For example, the following changes the main file of `company.scope/ui/text` to `text.tsx`:
+## Requiring internal files
 
+Requiring internal JavaScript files from components is not recommended. Make sure to only `require` non-compiled assets like `scss`, `less` or `png` files.
+
+```ts
+import { Button } from '@teambit/base-ui.button'; // good!
+import { Button } from '@teambit/base-ui.button/button'; // bad! requires internal file of the component.
+import styles from '@teambit/base-ui.button/button.modules.scss'; // resources like `scss` and `png` since they are not compiled and handles by the consuming app.
 ```
-$ bit add demo/ui/text --id ui/text --main text.tsx
-```
+
+JavaScript files are compiled, requiring them may cause inconsistencies for your application. Assets on the other hand are usually not compiled, and are expected to be handled by the consuming app.
