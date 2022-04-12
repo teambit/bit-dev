@@ -1266,13 +1266,25 @@
         "scope": "teambit.community",
         "version": "1.95.12",
         "mainFile": "index.ts",
-        "rootDir": "community/envs/community-mdx"
+        "rootDir": "community/envs/community-mdx",
+        "config": {
+            "teambit.envs/env": {},
+            "teambit.envs/envs": {
+                "env": "teambit.envs/env"
+            }
+        }
     },
     "envs/community-react": {
         "scope": "teambit.community",
         "version": "1.95.9",
         "mainFile": "index.ts",
-        "rootDir": "community/envs/community-react"
+        "rootDir": "community/envs/community-react",
+        "config": {
+            "teambit.envs/env": {},
+            "teambit.envs/envs": {
+                "env": "teambit.envs/env"
+            }
+        }
     },
     "examples/sample-app": {
         "scope": "teambit.design",
