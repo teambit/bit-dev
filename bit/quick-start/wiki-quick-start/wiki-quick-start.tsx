@@ -12,7 +12,7 @@ import BeforeThinking from './before-thinking.mdx';
 
 export type WikiQuickStartProps = {
   /**
-   * a node to be rendered in the special component.
+   * Add children
    */
   children?: ReactNode;
 };
@@ -24,8 +24,8 @@ export function WikiQuickStart({ children }: WikiQuickStartProps) {
       id: 'teambit.wiki/apps/wiki@1.90.13',
       intro: (
         <div>
-          We start with Building the Wiki-app. To learn more about apps in Bit you can continue reading the Docs or skip
-          to the Apps section. This will be our app and it will use other components for functionality and content.
+          We start with Building the Wiki-app. This will use other components to add the functionality and content. To
+          learn more about apps in Bit you can continue reading the Docs or skip to the Apps section.
           <br />
           <br />
           First, make sure to install react-router and react-router-dom in your workspace.
@@ -53,7 +53,7 @@ export function WikiQuickStart({ children }: WikiQuickStartProps) {
     {
       id: 'teambit.wiki/content/welcome@0.0.40',
       intro:
-        "It's time to add some content to this Wiki! Here is an example of a content component. You can ask your whole team to contribute to the content by creating their own content components.",
+        "It's time to add some content to this Wiki! Here is an example of a content component. You can ask your whole team to contribute to the content by creating their own content components. See next section on how to collaborate with Bit!",
     },
   ];
 

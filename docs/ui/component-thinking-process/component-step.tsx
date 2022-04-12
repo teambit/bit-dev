@@ -2,6 +2,7 @@ import React, { ReactNode, useState } from 'react';
 import { ComponentID } from '@teambit/component-id';
 import { DrawerUI } from '@teambit/ui-foundation.ui.tree.drawer';
 import styles from './component-thinking-process.module.scss';
+import { Icon } from '@teambit/design.elements.icon';
 
 export type ComponentStepProps = {
   /*
@@ -30,8 +31,13 @@ export function ComponentStep({ id, content, open, stepNum }: ComponentStepProps
       className={styles.componentStep}
       name={
         <>
-          {stepNum && <div className={styles.stepContents}>{stepNum}</div>}
-          {id.toStringWithoutVersion()}
+          <div className={styles.drawer}>
+            {stepNum && <div className={styles.stepContents}>{stepNum}</div>}
+            {id.toStringWithoutVersion()}
+          </div>
+          <div>
+            <Icon className={styles.icon} of="arrow-down" />
+          </div>
         </>
       }
       isOpen={isOpen}
