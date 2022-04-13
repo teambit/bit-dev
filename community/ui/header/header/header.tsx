@@ -12,7 +12,7 @@ import styles from './header.module.scss';
 
 export type HeaderProps = {} & BaseHeaderProps;
 
-const pluginsArray = [
+const badgesArray = [
   <GithubStars key="gh-stars" className={styles.githubLink} />,
   <ExternalLink
     key="slack"
@@ -20,16 +20,17 @@ const pluginsArray = [
   >
     <Icon of="slack" />
   </ExternalLink>,
-  <Toggler key="highlighter-toggler" />,
-  <ThemeToggler key="theme-toggler" />,
 ];
 
-export function Header({ className, plugins = [], ...rest }: HeaderProps) {
+const pluginsArray = [<Toggler key="highlighter-toggler" />, <ThemeToggler key="theme-toggler" />];
+
+export function Header({ className, badges = [], plugins = [], ...rest }: HeaderProps) {
   return (
     <BaseHeader
       {...rest}
       className={classNames(styles.header, className)}
       menuLinks={headerContent}
+      badges={[...badgesArray, ...badges]}
       plugins={[...plugins, ...pluginsArray]}
     />
   );

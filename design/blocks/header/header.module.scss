@@ -6,6 +6,11 @@
   display: flex;
   font-size: 14px;
   border-bottom: 1px solid var(--bit-border-color-lightest, #ededed);
+
+  --header-spacing: 24px;
+  @include breakpoints.media-md {
+    --header-spacing: 8px;
+  }
 }
 
 .headerContent {
@@ -18,21 +23,18 @@
   display: flex;
   align-items: center;
   font-size: var(--bit-p-xs, 14px);
+  margin-left: var(--header-spacing, 24px);
+
   > *:not(:last-child) {
     font-size: inherit;
-    margin-right: 8px;
+    margin-right: 0.5em;
   }
   a {
     display: inline-flex;
   }
+
   @include breakpoints.media-sm {
     display: none;
-  }
-}
-
-.linkMenu {
-  > a {
-    margin-right: 24px;
   }
 }
 
@@ -44,15 +46,6 @@
 }
 
 .logo {
-  margin-right: 32px;
+  margin-right: var(--header-spacing, 24px);
   display: inline-flex;
-}
-
-.inspect {
-  display: flex;
-  align-items: center;
-  > span {
-    margin-right: 4px;
-  }
-  padding-left: 24px;
 }

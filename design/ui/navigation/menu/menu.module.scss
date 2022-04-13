@@ -13,9 +13,15 @@
     font-size: var(--bit-p-xs, 14px);
     height: 100%;
 }
-.link {
-    margin-right: 40px;
+
+.link:not(:last-child) {
+  margin-right: 24px;
+
+  @include breakpoints.media-md {
+    margin-right: 8px;
+  }
 }
+
 .placeholder {
     display: flex;
     align-items: center;

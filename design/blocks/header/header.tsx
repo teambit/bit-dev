@@ -21,6 +21,10 @@ export type HeaderProps = {
    */
   Menu?: ComponentType<NavigationMenuProps>;
   /**
+   * Widgets to be displayed at the right side of the header (before the plugins)
+   */
+  badges?: ReactNode[];
+  /**
    * A list of plugins to be displayed in the right side of the header.
    */
   plugins?: ReactNode[];
@@ -33,6 +37,7 @@ export function Header({
   menuLinks,
   children,
   plugins,
+  badges,
   ...rest
 }: HeaderProps) {
   return (
@@ -44,6 +49,7 @@ export function Header({
           </Link>
           <Menu links={menuLinks} className={styles.linkMenu} />
         </div>
+        <div className={styles.right}>{badges}</div>
         <div className={styles.right}>{plugins}</div>
       </div>
     </header>

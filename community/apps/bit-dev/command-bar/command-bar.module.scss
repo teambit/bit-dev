@@ -1,31 +1,10 @@
-.searchPlaceholder {
-  display: flex;
-  align-items: center;
-
-  border: 1px solid var(--border-medium-color);
-  border-radius: 8px;
-  // font-size: inherit;
-  background: inherit;
-	font: inherit; // reset browser defaults
-
-  padding: 4px 8px;
-
-  > :first-child {
-    margin-right: 8px;
-  }
-}
-
-.keys > * {
-  font-size: 1em;
-}
-
 .commandBar {
   position: fixed;
   top: 23%;
   left: 50%;
   transform: translate(-50%, 0);
   margin: 0 auto;
-  width: 100vw; // as wide as possible
+  width: 95vw; // as wide as possible
 
   font-size: 20px;
 }
