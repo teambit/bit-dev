@@ -18,7 +18,7 @@ export function DesignQuickStart({ children }: DesignQuickStartProps) {
   const components = [
     {
       id: 'teambit.design/examples/sample-app',
-      intro: <div></div>,
+      intro: <div>shth</div>,
     },
     {
       id: 'teambit.design/ui/cards/card',
