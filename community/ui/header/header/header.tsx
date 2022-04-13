@@ -9,6 +9,7 @@ import { Toggler } from '@teambit/community.ui.community-highlighter';
 import { headerContent } from './header-links';
 
 import styles from './header.module.scss';
+import { StackOverflowIcon } from './stackoverflow-icon';
 
 export type HeaderProps = {} & BaseHeaderProps;
 
@@ -19,6 +20,9 @@ const badgesArray = [
     href="https://join.slack.com/t/bit-dev-community/shared_invite/zt-o2tim18y-UzwOCFdTafmFKEqm2tXE4w"
   >
     <Icon of="slack" />
+  </ExternalLink>,
+  <ExternalLink key="stack" href="https://stackoverflow.com/questions/tagged/bit.dev">
+    <StackOverflowIcon />
   </ExternalLink>,
 ];
 

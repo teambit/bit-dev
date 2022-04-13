@@ -49,8 +49,8 @@ export function Header({
           </Link>
           <Menu links={menuLinks} className={styles.linkMenu} />
         </div>
-        <div className={styles.right}>{badges}</div>
-        <div className={styles.right}>{plugins}</div>
+        <div className={styles.widgets}>{badges}</div>
+        <div className={styles.plugins}>{plugins}</div>
       </div>
     </header>
   );

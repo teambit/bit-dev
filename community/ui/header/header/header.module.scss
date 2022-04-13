@@ -1,12 +1,3 @@
-@import "~@teambit/base-ui.layout.breakpoints/_breakpoints.scss";
-
-.githubLink {
-  @media screen and (max-width: $br-md) {
-    > span:not(:first-child) {
-      display: none;
-    }
-  }
-}
 
 .header {
   height: var(--bit-header-height, 40px);
