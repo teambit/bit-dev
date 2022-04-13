@@ -37,8 +37,6 @@ export function WikiQuickStart({ children }: WikiQuickStartProps) {
       id: 'teambit.wiki/sections/wiki@1.90.3',
       intro:
         'After adding the App to our workspace (either by using fork or create), we are now adding the wiki component. Our App will use the wiki component to get all the functionality it needs.',
-
-      // content: <Intro />,
     },
     {
       id: 'teambit.wiki/blocks/header@0.0.40',

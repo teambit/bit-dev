@@ -2,7 +2,8 @@ import React, { ReactNode } from 'react';
 import { ComponentID } from '@teambit/component-id';
 import { SampleApp } from '@teambit/design.examples.sample-app';
 import { QuickStart } from '@teambit/bit.quick-start';
-// import { DesignLanguage } from '@teambit/design.design-language';
+import Intro from './intro.mdx';
+import BeforeThinking from './before-thinking.mdx';
 
 export type DesignQuickStartProps = {
   /**
@@ -17,13 +18,7 @@ export function DesignQuickStart({ children }: DesignQuickStartProps) {
   const components = [
     {
       id: 'teambit.design/examples/sample-app',
-      intro: (
-        <p>
-          A simple app demonstrating few components from our design system affected by a theme which can be switched.
-          Components are kept decoupled from specific design, by being aware only to the Base Theme. Agnostic to
-          specific color implementation.
-        </p>
-      ),
+      intro: <div></div>,
     },
     {
       id: 'teambit.design/ui/cards/card',
@@ -76,7 +71,14 @@ export function DesignQuickStart({ children }: DesignQuickStartProps) {
   ];
 
   return (
-    <QuickStart name="design" id={id} components={components} mainComponent={<SampleApp />}>
+    <QuickStart
+      intro={<Intro />}
+      beforeThinking={<BeforeThinking />}
+      name="design"
+      id={id}
+      components={components}
+      mainComponent={<SampleApp />}
+    >
       {children}
     </QuickStart>
   );
