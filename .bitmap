@@ -537,7 +537,7 @@
     },
     "content/getting-started/dev-envs": {
         "scope": "teambit.docs",
-        "version": "1.95.15",
+        "version": "1.95.16",
         "mainFile": "index.ts",
         "rootDir": "docs/content/getting-started/dev-envs"
     },
