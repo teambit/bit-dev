@@ -11,7 +11,7 @@
 {
     "apps/bit-dev": {
         "scope": "teambit.community",
-        "version": "1.95.45",
+        "version": "1.95.46",
         "mainFile": "index.ts",
         "rootDir": "community/apps/bit-dev"
     },
