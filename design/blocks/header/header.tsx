@@ -44,7 +44,7 @@ export function Header({
     <header {...rest} className={classNames(styles.header, className)}>
       <div className={classNames(styles.headerContent, wideColumn)}>
         <div className={styles.left}>
-          <Link href="/">
+          <Link href="/" className={styles.logoLink}>
             <Icon className={styles.logo} alt="bit-logo" />
           </Link>
           <Menu links={menuLinks} className={styles.linkMenu} />
