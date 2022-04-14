@@ -1,6 +1,3 @@
-// TODO: @oded replace to new breakpoints component.
-@import "~@teambit/base-ui.layout.breakpoints/_breakpoints.scss";
-
 .card {
   cursor: pointer;
   position: relative;
@@ -51,15 +48,6 @@
       margin-right: 8px;
     }
   }
-  // @media screen and (max-width: $br-l) {
-  //   width: 328px;
-  //   height: 184px;
-  // }
-  // @media screen and (max-width: $br-sm) {
-  //   width: 248px;
-  //   height: 200px;
-  //   padding: 24px;
-  // }
 }
 
 .dropdownMenu {

@@ -70,7 +70,6 @@
         "@teambit/base-ui.graph.tree.recursive-tree": "^1.0.0",
         "@teambit/base-ui.graph.tree.root-node": "^1.0.0",
         "@teambit/base-ui.graph.tree.tree-context": "^1.0.0",
-        "@teambit/base-ui.layout.breakpoints": "^1.0.0",
         "@teambit/base-ui.layout.grid-component": "^1.0.1",
         "@teambit/base-ui.layout.page-frame": "^1.0.1",
         "@teambit/base-ui.loaders.skeleton": "^1.0.1",
