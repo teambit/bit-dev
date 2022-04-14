@@ -7,10 +7,11 @@ import { Header } from '@teambit/community.ui.header.header';
 import { StickyBanner } from '@teambit/community.ui.sticky-banner';
 import { Homepage } from '@teambit/community.ui.pages.homepage';
 import { NotFound } from '@teambit/community.ui.pages.errors.not-found';
-import { CommunityDocs } from '@teambit/docs.ui.community-docs';
+import { CommunityDocs, totalRoutes } from '@teambit/docs.ui.community-docs';
 import { wideColumn, centerColumn } from '@teambit/base-ui.layout.page-frame';
 import { Footer, footerMock } from '@teambit/community.ui.footer.footer';
 import { AppContext } from './app-context';
+import { CommandBar } from './command-bar';
 
 import styles from './app.module.scss';
 import layout from './layout.module.scss';
@@ -19,13 +20,14 @@ import layout from './layout.module.scss';
  * Load pages dynamically to enable code splitting.
  */
 const Plugins = lazy(() => import('@teambit/community.ui.pages.plugins'));
+const headerWidgets = [<CommandBar key="command-bar" routes={totalRoutes} />];
 
 export function BitDevApp() {
   return (
     <AppContext>
       <div className={classnames(styles.app, layout.container)}>
         <StickyBanner className={layout.sticky} {...excludeHighlighterAtt} />
-        <Header className={layout.sticky} />
+        <Header className={layout.sticky} plugins={headerWidgets} />
 
         <div className={layout.stretch}>
           <div className={layout.scrollContainer}>
