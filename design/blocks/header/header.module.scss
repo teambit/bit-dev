@@ -21,22 +21,21 @@
 
 .widgets {
   display: flex;
-  gap: 8px
+  align-items: baseline;
+  gap: 8px;
 }
 
 .plugins {
   display: flex;
   align-items: center;
-  font-size: var(--bit-p-xs, 14px);
   margin-left: var(--header-spacing, 24px);
 
-  > *:not(:last-child) {
-    font-size: inherit;
-    margin-right: 0.5em;
-  }
+  gap: 0.5em;
+  font-size: inherit;
 }
 
-.widgets, .plugins {
+.widgets,
+.plugins {
   @include breakpoints.media-sm {
     display: none;
   }
