@@ -126,7 +126,7 @@
         "@teambit/documenter.ui.sub-title": "^4.1.1",
         "@teambit/evangelist.surfaces.tooltip": "^1.0.1",
         "@teambit/explorer.plugins.preview-plugin": "0.0.7",
-        "@teambit/explorer.ui.command-bar": "1.0.0",
+        "@teambit/explorer.ui.command-bar": "1.0.2",
         "@teambit/explorer.ui.component-card": "0.0.9",
         "@teambit/explorer.ui.gallery.component-card": "^0.0.470",
         "@teambit/explorer.ui.gallery.component-grid": "^0.0.435",
