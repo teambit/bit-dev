@@ -1,20 +1,54 @@
 # Renaming Components
 
-Use the `rename` command to rename a component or move a component between namespaces and scopes.
+Run the following to rename a component:
 
 ```bash
-bit rename teambit.base-ui/button teambit.design/button
+bit rename COMPONENT_SOURCE_NAME COMPONENT_TARGET_NAME [--scope SCOPE_TARGET_NAME] [--refactor]
 ```
 
-Given that there are potential consumers that use the previous name, Bit does not simply rename the component. Instead, it will create a new component with the new name, and mark the previous one as deprecated.
+For example, the following command renames `teambit.base-ui/loaders/skeleton` to `teambit.base-ui/placeholders/skeleton`:
 
-## Rename a new component
+```bash
+bit rename loaders/skeleton placeholders/skeleton
+```
 
-Renaming a new component is simple and only changes the target component ID for your next `export`. Make sure to change depending
-`import` statements after renaming your component.
+Versioned components, unlike [new components](/workspace/workspace-status#new-components), might already be used by other components outside your workspace.
+For that reason, Bit sets the renamed component as 'deprecated' and adds a pointer to a new component (that has the new name).
 
-## Rename an existing component
+```
+$ bit show teambit.base-ui/loaders/skeleton
 
-Process for renaming an existing components is performing the following steps:
-- Deprecates and references the old component as `renamed` with the target set to the new component.
-- Creates a new component pointing to the renamed component to preserve history.
+┌───────────────────┬────────────────────────────────────────────────────────────┐
+│ id                │ teambit.base-ui/loaders/skeleton@0.0.1                     │
+├───────────────────┼────────────────────────────────────────────────────────────┤
+│ deprecated        │ true (new-id: my-org.my-scope/inputs/button)               │
+├───────────────────┼────────────────────────────────────────────────────────────┤
+│ ...               │ ...                                                        │
+└───────────────────┴────────────────────────────────────────────────────────────┘
+```
+
+A pointer pointing to the deprecated component is added to the new component, as well.
+
+```bash
+$ bit show teambit.base-ui/placeholders/skeleton
+
+┌───────────────────┬────────────────────────────────────────────────────────────┐
+│ id                │ teambit.base-ui/placeholders/skeleton                      │
+├───────────────────┼────────────────────────────────────────────────────────────┤
+│ deprecated        │ false                                                      │
+├───────────────────┼────────────────────────────────────────────────────────────┤
+│ renaming          │ origin: my-org.my-scope/ui/button@0.0.1                    │
+├───────────────────┼────────────────────────────────────────────────────────────┤
+│ ...               │ ...                                                        │
+└───────────────────┴────────────────────────────────────────────────────────────┘
+```
+
+## Refactoring
+
+Use the `--refactor` option to update the import statements in all dependent components (in the same workspace). For example:
+
+```bash
+bit rename loaders/skeleton placeholders/skeleton --refactor
+```
+
+All occurrences of `import { Skeleton } from '@teambit/base-ui.loaders.skeleton'` are now replaced by `import { Skeleton } from '@teambit/base-ui.placeholders.skeleton'`.

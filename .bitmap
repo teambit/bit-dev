@@ -59,7 +59,7 @@
     },
     "community/blog-quick-start": {
         "scope": "teambit.blog",
-        "version": "0.0.72",
+        "version": "0.0.75",
         "mainFile": "index.ts",
         "rootDir": "blog/community/blog-quick-start"
     },
@@ -768,7 +768,7 @@
     },
     "content/lanes-overview": {
         "scope": "teambit.lanes",
-        "version": "0.0.4",
+        "version": "0.0.5",
         "defaultScope": "teambit.lanes",
         "mainFile": "index.ts",
         "rootDir": "lanes/content/lanes-overview"
@@ -1017,7 +1017,7 @@
     },
     "content/snaps": {
         "scope": "teambit.component",
-        "version": "1.95.17",
+        "version": "1.95.18",
         "mainFile": "index.ts",
         "rootDir": "component/content/snaps"
     },
@@ -1179,7 +1179,7 @@
     },
     "docs/renaming-components": {
         "scope": "teambit.component",
-        "version": "0.0.3",
+        "version": "0.0.4",
         "defaultScope": "teambit.component",
         "mainFile": "index.ts",
         "rootDir": "component/docs/renaming-components"
@@ -1354,7 +1354,7 @@
     },
     "quick-start/card": {
         "scope": "teambit.bit",
-        "version": "0.0.24",
+        "version": "0.0.26",
         "mainFile": "index.ts",
         "rootDir": "bit/quick-start/card"
     },

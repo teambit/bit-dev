@@ -4,11 +4,6 @@ import { Image } from '@teambit/docs.ui.zoomable-image';
 
 # Snap version
 
-:::note Missing UI Capabilities
-Snaps are safe to use. However, Snaps are not represented well in the UI.  
-This feature is still under development.
-:::
-
 A Snap is an immutable and exportable component version that is marked and referenced using a hash (`2ec9427...`).
 Snaps are used for component collaboration - not for consumption. A snap has no semantic version to communicate how to use it safely,
 and has no corresponding published package.
@@ -141,8 +136,23 @@ A Component is considered modified if one or more of the following is true:
 
 ### Auto-snap dependents
 
-Use the `--auto-snap-dependents` option to snap a Component, as well as every direct and indirect dependent Component of it.
+When a component is snapped, all direct and indirect dependents of it are snapped, as well.
 
 ```bash
-bit snap ui/heading --message "update my heading" --auto-snap-dependents
+bit snap ui/heading --message "update my heading"
 ```
+
+The output is similar to the following:
+
+```bash
+2 component(s) snapped
+(use "bit export" to push these components to a remote")
+(use "bit untag" to unstage versions)
+
+changed components
+(components that got a version bump)
+     > ui/heading@b66aa957c486c31f847df878d4bae35144737f96
+       auto-snapped dependents: ui/linkable-heading@dec6e4740fbdc70ac6eb09c472235fbda0c7e59b
+```
+
+To disable auto-snap of dependent components, use the `--skip-auto-snap` option.
