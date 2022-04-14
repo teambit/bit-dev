@@ -30,6 +30,9 @@
 }
 
 .appLink {
+  width: 100%; // pre-fill available width, so lines will know the correct start point
+  max-width: 600px;
+
   grid-area: 1 / 6 / 3 / 9; // row start / column start / row-end / column-end
 
   @include breakpoints.media-lg {
@@ -42,7 +45,6 @@
 
 .appImg {
   width: 100%;
-  max-width: 600px;
   border-radius: 8px;
 }
 

@@ -30,6 +30,7 @@ const pageDescription =
 
 // must be static!
 const bubbles = mockBubbleGraph();
+const distributionComponents = componentsMock();
 
 export function Homepage({ ...rest }: HomepageProps) {
   return (
@@ -37,7 +38,10 @@ export function Homepage({ ...rest }: HomepageProps) {
       <section>
         <div className={styles.grid}>
           <Hero bubbles={bubbles} {...excludeHighlighterAtt} />
-          <ComponentDistributionSection title="From monolithic to composable software" components={componentsMock()} />
+          <ComponentDistributionSection
+            title="From monolithic to composable software"
+            components={distributionComponents}
+          />
           <FeaturesSection features={features} title="Better software is built in components" />
           <UseCasesSection
             useCases={useCases}
