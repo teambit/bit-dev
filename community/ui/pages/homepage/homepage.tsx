@@ -8,7 +8,7 @@ import { componentsMock } from '@teambit/community.entity.compnent-distribution-
 import { useCases } from '@teambit/community.entity.use-cases';
 import { features } from '@teambit/community.entity.features';
 import { mockBubbleGraph } from '@teambit/community.entity.graph.bubble-graph';
-import { ExcludeHighlighter } from '@teambit/react.ui.component-highlighter';
+import { excludeHighlighterAtt } from '@teambit/react.ui.component-highlighter';
 import { LogoShowcase } from '@teambit/community.ui.logo-showcase';
 // import { StickyMenu } from '@teambit/community.ui.sticky-menu';
 import { Page } from '@teambit/base-react.pages.page';
@@ -36,9 +36,7 @@ export function Homepage({ ...rest }: HomepageProps) {
     <Page title="Component driven development - Bit" description={pageDescription} {...rest}>
       <section>
         <div className={styles.grid}>
-          <ExcludeHighlighter>
-            <Hero bubbles={bubbles} />
-          </ExcludeHighlighter>
+          <Hero bubbles={bubbles} {...excludeHighlighterAtt} />
           <ComponentDistributionSection title="From monolithic to composable software" components={componentsMock()} />
           <FeaturesSection features={features} title="Better software is built in components" />
           <UseCasesSection
