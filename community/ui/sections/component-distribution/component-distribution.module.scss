@@ -30,7 +30,7 @@
 }
 
 .appLink {
-  grid-area: 1 / 6 / 3 / 7; // row start / column start / row-end / column-end
+  grid-area: 1 / 6 / 3 / 9; // row start / column start / row-end / column-end
 
   @include breakpoints.media-lg {
     grid-area: 1 / 1 / 1 / 5;
