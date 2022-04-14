@@ -20,14 +20,14 @@ export function CommandBar({ routes }: { routes: Route[] }) {
     <div>
       <OptionButton icon="magnifying" onClick={() => setVisible(true)} />
 
-      <BaseCommandBar
-        className={classnames(textColumn, styles.commandBar)}
-        // TODO - move limit to command bar
-        searcher={(term, limit = 5) => searcher.search(term, limit)}
-        // visible
-        visible={visible}
-        onVisibilityChange={(next) => setVisible(next)}
-      />
+      {visible && (
+        <BaseCommandBar
+          className={classnames(textColumn, styles.commandBar)}
+          searcher={searcher.search}
+          visible={visible}
+          onVisibilityChange={(next) => setVisible(next)}
+        />
+      )}
     </div>
   );
 }
