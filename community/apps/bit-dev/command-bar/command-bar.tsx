@@ -20,7 +20,7 @@ export function CommandBar({ routes }: { routes: Route[] }) {
 
   return (
     <div>
-      <Tooltip content={<SearchTooltip />}>
+      <Tooltip content={<SearchTooltip />} placement="bottom">
         <span>
           <OptionButton icon="magnifying" onClick={() => setVisible(true)} />
         </span>
