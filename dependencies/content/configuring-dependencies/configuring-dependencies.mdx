@@ -1,20 +1,21 @@
 # Configuring Dependencies
 
-Even though dependencies are usually set automatically by using [Dependency Policies](/dependencies/dependency-policies), components in the Workspace can be configured with a
-specific set of dependencies. Component dependencies can either be configured with [Variants](/workspace/variants), by the development environment, by ejecting the component configuration, or by editing the [component.json](/components/structure/component-json)
-like any [component configuration](/components/component-config) in Bit.
+Dependencies are automatically configured for components through [Dependency Policies](/dependencies/dependency-policies). However,
+there are some cases where a group of components requires its own specific dependency configuration.
 
-Specific dependencies can be configured by setting the `dependencies` property in the `teambit.dependencies/dependency-resolver` configuration.
+Component dependencies can be configured using [Variants](/workspace/variants), by editing a component's [component.json](/components/structure/component-json) or programmatically, via [the components' Env](/dependencies/configuring-dependencies#configuring-dependencies-from-an-env) or [any other Aspect](/dependencies/configuring-dependencies#configuring-from-aspects).
 
-In the example below, `classnames` is configured to all components under the `ui` namespace:
+In the example below, `classnames` is configured, via Variants,on all components under the `ui` namespace:
 
 ```json
 {
-  "teambit.dependencies/dependency-resolver": {
-    "dependencies": {
-      "{ui/**}": {
-        "standard": {
-          "classnames": "1.0.0"
+  "teambit.workspace/variants": {
+    "{ui/**}": {
+      "teambit.dependencies/dependency-resolver": {
+        "policy": {
+          "dependencies": {
+            "classnames": "1.0.0"
+          }
         }
       }
     }
@@ -22,13 +23,14 @@ In the example below, `classnames` is configured to all components under the `ui
 }
 ```
 
-To check whether the configuration has applied on selected components run the `bit show` command.
-
+To validate a component is configured with the `classnames` dependency, run `bit show COMPONENT_ID`.  
 For example:
 
 ```bash
 $ bit show ui/heading
 ```
+
+The output lists `classnames` under the component's "dependencies":
 
 ```bash {6}
 ┌───────────────────┬────────────────────────────────────────────────────────────┐
@@ -39,19 +41,21 @@ $ bit show ui/heading
 │ module name       │ @myorg/design.ui.heading                                   │
 ├───────────────────┼────────────────────────────────────────────────────────────┤
 │ dependencies      │ classnames@1.0.0- (package)                                │
+├───────────────────┼────────────────────────────────────────────────────────────┤
+│ ...               │ ...                                                        │
 └───────────────────┴────────────────────────────────────────────────────────────┘
 ```
 
-:::tip
-Variants can be used to select components by directories, or even to select specific components. To learn more about configuring components with Variants, head over to [Variants](/workspace/variants).
+:::info
+Components can be selected and configured via their relative directory path, or via their namespaces. To learn more, see ['Configuration variants'](docs/workspace/variants).
 :::
 
-As mentioned, dependencies can also be configured with `component.json` files. These can be ejected for any component in the Workspace with `bit eject-conf`.
+Dependencies can also be configured with **component.json** files. These can be ejected for any component in the Workspace with `bit eject-conf`.
 
 For example:
 
 ```bash
-bit eject conf ui/heading
+bit eject-conf ui/heading
 ```
 
 ```json
@@ -82,15 +86,17 @@ For example, a dependency can be moved from `dependencies` to `peerDependencies`
 In the below example, we are telling the dependency resolved to ignore `enzyme` listed under `standard`, but continuing to use the version of `enzyme` listed under `peerDependencies`:
 
 ```json title="Removing a dependency and setting it as a peer dependency"
-"teambit.dependencies/dependency-resolver": {
-    "dependencies": {
-      "standard": {
+{
+  "teambit.dependencies/dependency-resolver": {
+    "policy": {
+      "dependencies": {
         "enzyme": "-"
       },
       "peerDependencies": {
         "enzyme": "^3.11.0"
       }
     }
+  }
 }
 ```
 
@@ -174,7 +180,7 @@ export class MyAspect {
   static provider([depResolver]: [DependencyResolverMain]) {
     dependencyResolver.registerDependenciesPolicies([
       {
-        standard: {
+        dependencies: {
           classnames: '1.0.0'
         }
       }
