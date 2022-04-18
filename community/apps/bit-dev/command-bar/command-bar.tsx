@@ -4,6 +4,8 @@ import { useHotkeys } from 'react-hotkeys-hook';
 
 import { OptionButton } from '@teambit/design.ui.input.option-button';
 import { textColumn } from '@teambit/base-ui.layout.page-frame';
+import { Tooltip } from '@teambit/design.ui.tooltip';
+import { KeyCombo } from '@teambit/ui-foundation.ui.keycap';
 import { Route } from '@teambit/docs.entities.docs-routes';
 import { CommandBar as BaseCommandBar } from '@teambit/explorer.ui.command-bar';
 
@@ -18,16 +20,26 @@ export function CommandBar({ routes }: { routes: Route[] }) {
 
   return (
     <div>
-      <OptionButton icon="magnifying" onClick={() => setVisible(true)} />
+      <Tooltip content={<SearchTooltip />} placement="bottom">
+        <span>
+          <OptionButton icon="magnifying" onClick={() => setVisible(true)} />
+        </span>
+      </Tooltip>
 
       <BaseCommandBar
         className={classnames(textColumn, styles.commandBar)}
-        // TODO - move limit to command bar
-        searcher={(term, limit = 5) => searcher.search(term, limit)}
-        // visible
+        searcher={searcher.search}
         visible={visible}
         onVisibilityChange={(next) => setVisible(next)}
       />
+    </div>
+  );
+}
+
+function SearchTooltip() {
+  return (
+    <div className={styles.keys}>
+      search <KeyCombo>mod+k</KeyCombo>
     </div>
   );
 }
