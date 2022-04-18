@@ -72,7 +72,7 @@ export class CommunityReactMain {
               {
                 name: '@apollo/client',
                 version: '^3.5.10',
-                supportedRange: '^3.5.10',
+                supportedRange: '^3.0.0',
               },
               {
                 name: 'subscriptions-transport-ws',
