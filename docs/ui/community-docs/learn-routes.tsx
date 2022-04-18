@@ -671,7 +671,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'scope-overview',
         title: 'Scope overview',
-        description: 'Scope is a server for hosting components.',
+        description: 'Scope is a collaboration server for components.',
         component: <ScopeOverview />,
       },
       {
