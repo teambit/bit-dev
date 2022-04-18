@@ -10,14 +10,19 @@ export type CreateWorkspaceProps = {
   defaultScopeName: string;
 
   workspaceTemplateName: string;
+
+  aspect?: string;
 };
 
 export function CreateWorkspace({
   defaultScopeName,
   defaultWorkspaceName,
   workspaceTemplateName,
+  aspect,
 }: CreateWorkspaceProps) {
-  const bitNew = `bit new ${workspaceTemplateName} ${defaultWorkspaceName} --default-scope ${defaultScopeName}`;
+  const bitNew = `bit new ${workspaceTemplateName} ${defaultWorkspaceName} --default-scope ${defaultScopeName} ${
+    aspect ? `--aspect ${aspect}` : ''
+  }`;
   const changeDir = `cd ${defaultWorkspaceName}`;
   return (
     <>

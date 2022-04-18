@@ -12,6 +12,7 @@ import { CreateWorkspace } from './create-workspace';
 import { ThinkingProcess } from './component-thinking-process';
 import Collaborate from './collaborate.mdx';
 import styles from './quick-start.module.scss';
+import { WorkspaceTemplate } from './workspace-template';
 
 export type QuickStartComponent = {
   /**
@@ -87,9 +88,19 @@ export type QuickStartProps = {
   components: QuickStartNodeDesc[];
 
   /**
+   * the command for the workspace template. (bit new dot-bit workspace --aspect teambit.dot-bit/templates/dot-bit)
+   */
+  workspaceTemplate?: WorkspaceTemplate;
+
+  /**
    * add a react Node before component creation steps.
    */
   beforeThinking?: ReactNode;
+
+  /**
+   * add a react node after the main component showcase.
+   */
+  showcaseComment?: string;
 };
 
 export function QuickStart({
@@ -98,6 +109,8 @@ export function QuickStart({
   defaultScopeName,
   defaultWorkspaceName,
   name,
+  showcaseComment,
+  workspaceTemplate,
   mainComponent,
   components,
   beforeThinking,
@@ -119,6 +132,7 @@ export function QuickStart({
       <div className={styles.sectionMargin}>{intro || <DefaultIntro />}</div>
       <ComponentShowcase className={wideColumn} componentId={id.toString()} preview={mainComponent} />
       <div className={styles.showcase}>
+        {showcaseComment}
         <WhatIsBit />
         {/* <H3>Learn Bit</H3> */}
         <LearnCrossroad
@@ -132,7 +146,8 @@ export function QuickStart({
       <CreateWorkspace
         defaultScopeName={scopeName}
         defaultWorkspaceName={workspaceName}
-        workspaceTemplateName="react"
+        workspaceTemplateName={workspaceTemplate?.templateName || 'react'}
+        aspect={workspaceTemplate?.componentId}
       />
       <Components />
       <ComponentCardDisplay componentIds={ids} />
