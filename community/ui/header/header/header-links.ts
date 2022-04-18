@@ -10,7 +10,7 @@ export const headerContent: LinkProps[] = [
     href: '/aspects',
   },
   {
-    children: 'bit.cloud',
+    children: 'Bit Cloud',
     href: 'https://bit.cloud',
   },
 ];
