@@ -23,5 +23,16 @@
 
 .description {
   font-size: 0.85em;
-  color: var(--on-background-low-color, #9598A1);
+  color: var(--on-background-low-color, #9598a1);
+}
+
+.keys {
+  display: flex;
+  gap: 8px;
+
+  // TODO - apply at source
+  kbd {
+    background-color: var(--bit-bg-tooltip-heavy);
+    font-family: inherit;
+  }
 }
