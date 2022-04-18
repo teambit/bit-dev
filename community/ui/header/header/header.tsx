@@ -9,7 +9,7 @@ import { Toggler } from '@teambit/community.ui.community-highlighter';
 import { headerContent } from './header-links';
 
 import styles from './header.module.scss';
-import { StackOverflowIcon } from './stackoverflow-icon';
+import { StackOverflowLink } from './stackoverflow-link';
 
 export type HeaderProps = {} & BaseHeaderProps;
 
@@ -21,9 +21,7 @@ const badgesArray = [
   >
     <Icon of="slack" />
   </ExternalLink>,
-  <ExternalLink key="stack" href="https://stackoverflow.com/questions/tagged/bit.dev">
-    <StackOverflowIcon />
-  </ExternalLink>,
+  <StackOverflowLink key="stack" />,
 ];
 
 const pluginsArray = [<Toggler key="highlighter-toggler" />, <ThemeToggler key="theme-toggler" />];
