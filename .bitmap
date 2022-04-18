@@ -159,12 +159,6 @@
         "mainFile": "index.ts",
         "rootDir": "workspace/content/clearing-cache"
     },
-    "content/cli-reference": {
-        "scope": "teambit.harmony",
-        "version": "1.95.14",
-        "mainFile": "index.ts",
-        "rootDir": "harmony/content/cli-reference"
-    },
     "content/code-splitting": {
         "scope": "teambit.react",
         "version": "1.95.15",

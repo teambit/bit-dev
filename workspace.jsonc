@@ -133,6 +133,7 @@
         "@teambit/explorer.ui.gallery.component-grid": "^0.0.435",
         "@teambit/graphql.hooks.use-query": "^0.0.1",
         "@teambit/harmony": "0.2.11",
+        "@teambit/harmony.content.cli-reference": "^1.95.15",
         "@teambit/harmony.content.create-app": "0.0.2",
         "@teambit/harmony.docs.app-plugins": "0.0.1",
         "@teambit/harmony.docs.application-types": "0.0.3",
