@@ -11,7 +11,7 @@
 {
     "apps/bit-dev": {
         "scope": "teambit.community",
-        "version": "1.95.46",
+        "version": "1.95.47",
         "mainFile": "index.ts",
         "rootDir": "community/apps/bit-dev"
     },
@@ -29,7 +29,7 @@
     },
     "blocks/header": {
         "scope": "teambit.design",
-        "version": "1.95.12",
+        "version": "1.95.13",
         "mainFile": "index.ts",
         "rootDir": "design/blocks/header"
     },
@@ -312,7 +312,7 @@
     },
     "content/configuring-dependencies": {
         "scope": "teambit.dependencies",
-        "version": "1.95.17",
+        "version": "1.95.18",
         "mainFile": "index.ts",
         "rootDir": "dependencies/content/configuring-dependencies"
     },
@@ -944,7 +944,7 @@
     },
     "content/react-overview": {
         "scope": "teambit.react",
-        "version": "1.95.17",
+        "version": "1.95.18",
         "mainFile": "index.ts",
         "rootDir": "react/content/react-overview"
     },
@@ -1432,7 +1432,7 @@
     },
     "ui/community-docs": {
         "scope": "teambit.docs",
-        "version": "1.95.38",
+        "version": "1.95.39",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/community-docs"
     },
@@ -1516,7 +1516,7 @@
     },
     "ui/github-stars": {
         "scope": "teambit.community",
-        "version": "1.95.15",
+        "version": "1.95.16",
         "mainFile": "index.ts",
         "rootDir": "community/ui/github-stars"
     },
@@ -1558,13 +1558,13 @@
     },
     "ui/header/header": {
         "scope": "teambit.community",
-        "version": "1.95.21",
+        "version": "1.95.22",
         "mainFile": "index.ts",
         "rootDir": "community/ui/header/header"
     },
     "ui/header/nav": {
         "scope": "teambit.community",
-        "version": "1.95.15",
+        "version": "1.95.16",
         "mainFile": "index.ts",
         "rootDir": "community/ui/header/nav"
     },
@@ -1666,7 +1666,7 @@
     },
     "ui/mocks/bit-dev": {
         "scope": "teambit.community",
-        "version": "1.95.33",
+        "version": "1.95.34",
         "mainFile": "index.ts",
         "rootDir": "community/ui/mocks/bit-dev"
     },
