@@ -122,6 +122,7 @@
         "@teambit/documenter.theme.theme-compositions": "4.1.4",
         "@teambit/documenter.ui.code-snippet": "4.2.2",
         "@teambit/documenter.ui.copy-box": "^4.1.1",
+        "@teambit/documenter.ui.heading": "4.1.6",
         "@teambit/documenter.ui.label": "^4.0.4",
         "@teambit/documenter.ui.paragraph": "4.1.4",
         "@teambit/documenter.ui.sub-title": "^4.1.1",
