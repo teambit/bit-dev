@@ -1,4 +1,5 @@
 .grid {
+  overflow: hidden; // prevent expanding bubbles from extending past the screen
   display: grid;
   grid-gap: 100px;
   margin: 40px 0 auto;

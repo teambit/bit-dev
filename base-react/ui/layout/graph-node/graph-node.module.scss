@@ -1,8 +1,13 @@
-//TODO @oded replace this to new breakpoints component
-@import '~@teambit/base-ui.layout.breakpoints/_breakpoints.scss';
+@use '~@teambit/design.responsive.breakpoints/_breakpoints.module.scss';
 
 $breakpoints: //name val
-  xxl $br-xxl, xl $br-xl, lg $br-lg, l $br-l, md $br-md, sm $br-sm, xs $br-xs;
+  xxl breakpoints.$xxl,
+  xl breakpoints.$xl,
+  lg breakpoints.$lg,
+  l breakpoints.$l,
+  md breakpoints.$md,
+  sm breakpoints.$sm,
+  xs breakpoints.$xs;
 
 @for $i from 12 through 1 {
   .default-col {

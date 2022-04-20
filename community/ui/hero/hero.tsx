@@ -35,7 +35,7 @@ const defaultTitle = 'Build anything in components';
 const defaultTeaser =
   'Bit is an open-source toolchain for component-driven development. Forget monolithic apps and distribute to composable software. ';
 
-export function Hero({ title = defaultTitle, teaser = defaultTeaser, bubbles }: HeroProps) {
+export function Hero({ title = defaultTitle, teaser = defaultTeaser, bubbles, ...rest }: HeroProps) {
   const { heroState } = useHeroState();
   const updateXarrow = useXarrow();
 
@@ -46,7 +46,7 @@ export function Hero({ title = defaultTitle, teaser = defaultTeaser, bubbles }: 
   // const headingClass = heroState === HeroState.HEADING_UPDATED ? styles.highlight : '';
 
   return (
-    <WideColumn>
+    <WideColumn {...rest}>
       <BubbleGraph nodes={bubbles} className={styles.heroGraph}>
         <div className={styles.title}>
           <BubbleHighlighter

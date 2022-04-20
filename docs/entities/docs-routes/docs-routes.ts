@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import flatten from 'lodash.flatten';
 import urlJoin from 'url-join';
 // commented out because of cyclic dep. we should make sure this component won't depend on sidebar.
 // import type { SidebarTreeNode, SidebarPayload } from '@teambit/docs.ui.sidebar.sidebar';
@@ -16,6 +17,9 @@ export type Route = {
   displayInSidebar?: boolean;
 };
 
+/** to find and replace paths ending with '/*' */
+const starRegex = /\/\*$/;
+
 export class DocsRoutes {
   constructor(readonly tree: DocsRoute[], readonly basePath?: string) {}
 
@@ -23,9 +27,7 @@ export class DocsRoutes {
    * get the list of routes to include.
    */
   getRoutes(): Route[] {
-    return this.tree.flatMap((route) => {
-      return this.computeRoutes(route);
-    });
+    return flatten(this.tree.map((route) => this.computeRoutes(route)));
   }
 
   /**
@@ -38,16 +40,17 @@ export class DocsRoutes {
     };
   }
 
+  toLinkList = () => {
+    return this.getRoutes().map(({ path, absPath, ...rest }) => ({
+      absPath: absPath.replace(starRegex, ''),
+      path: path.replace(starRegex, ''),
+      ...rest,
+    }));
+  };
+
   private computePayload(docRoute: DocsRoute, parentPath?: string) {
     // basePath should be included in the parent path
-    let thisPath = this.accumulatePath(docRoute.path, parentPath);
-    const split = thisPath.split('/');
-    const last = split[split.length - 1];
-    // TODO: support wildcards properly..
-    if (last === '*') {
-      split.pop();
-      thisPath = split.join('/');
-    }
+    const thisPath = this.accumulatePath(docRoute.path, parentPath).replace(starRegex, '');
 
     return {
       icon: docRoute.icon,
@@ -127,8 +130,8 @@ export class DocsRoutes {
             },
           ]
         : [];
-      return currentRoute.children
-        .flatMap((child) => this.computeRoutes(child, thisPath))
+
+      return flatten(currentRoute.children.map((child) => this.computeRoutes(child, thisPath)))
         .concat(configRoutes)
         .concat(overviewRoutes)
         .concat(categoryRoute);

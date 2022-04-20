@@ -9,27 +9,31 @@ import { Toggler } from '@teambit/community.ui.community-highlighter';
 import { headerContent } from './header-links';
 
 import styles from './header.module.scss';
+import { StackOverflowLink } from './stackoverflow-link';
 
 export type HeaderProps = {} & BaseHeaderProps;
 
-const pluginsArray = [
-  () => <GithubStars className={styles.githubLink} />,
-  () => (
-    <ExternalLink href="https://join.slack.com/t/bit-dev-community/shared_invite/zt-o2tim18y-UzwOCFdTafmFKEqm2tXE4w">
-      <Icon of="slack" />
-    </ExternalLink>
-  ),
-  Toggler,
-  ThemeToggler,
+const badgesArray = [
+  <GithubStars key="gh-stars" className={styles.githubLink} />,
+  <ExternalLink
+    key="slack"
+    href="https://join.slack.com/t/bit-dev-community/shared_invite/zt-o2tim18y-UzwOCFdTafmFKEqm2tXE4w"
+  >
+    <Icon of="slack" />
+  </ExternalLink>,
+  <StackOverflowLink key="stack" />,
 ];
 
-export function Header({ className, plugins, ...rest }: HeaderProps) {
+const pluginsArray = [<Toggler key="highlighter-toggler" />, <ThemeToggler key="theme-toggler" />];
+
+export function Header({ className, badges = [], plugins = [], ...rest }: HeaderProps) {
   return (
     <BaseHeader
       {...rest}
       className={classNames(styles.header, className)}
       menuLinks={headerContent}
-      plugins={pluginsArray}
+      badges={[...badgesArray, ...badges]}
+      plugins={[...plugins, ...pluginsArray]}
     />
   );
 }
