@@ -51,6 +51,19 @@
         "mainFile": "index.ts",
         "rootDir": "community/cloud/create-account"
     },
+    "code": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.code",
+        "mainFile": "index.ts",
+        "rootDir": "code/code",
+        "config": {
+            "teambit.community/envs/community-react": {},
+            "teambit.envs/envs": {
+                "env": "teambit.community/envs/community-react"
+            }
+        }
+    },
     "community/analytics-quick-start": {
         "scope": "teambit.analytics",
         "version": "0.0.22",
@@ -1297,6 +1310,45 @@
         "version": "1.95.11",
         "mainFile": "index.ts",
         "rootDir": "base-react/pages/page"
+    },
+    "panels/file-tree": {
+        "scope": "",
+        "version": "",
+        "defaultScope": "teambit.code",
+        "mainFile": "index.ts",
+        "rootDir": "code/panels/file-tree",
+        "config": {
+            "teambit.community/envs/community-react@1.95.9": {},
+            "teambit.envs/envs": {
+                "env": "teambit.react/react"
+            },
+            "teambit.dependencies/dependency-resolver": {
+                "policy": {
+                    "dependencies": {
+                        "@teambit/legacy": "-"
+                    },
+                    "devDependencies": {
+                        "@types/mocha": "9.1.0",
+                        "@teambit/legacy": "-"
+                    },
+                    "peerDependencies": {}
+                }
+            },
+            "teambit.component/dev-files": {},
+            "teambit.compositions/compositions": {},
+            "teambit.docs/docs": {},
+            "teambit.pipelines/builder": {},
+            "teambit.react/react": {},
+            "teambit.harmony/node": {},
+            "teambit.compilation/compiler": {},
+            "teambit.component/forking": {
+                "forkedFrom": {
+                    "scope": "teambit.code",
+                    "name": "ui/code-tab-tree",
+                    "version": "0.0.518"
+                }
+            }
+        }
     },
     "plugins/docs-plugin": {
         "scope": "teambit.docs",

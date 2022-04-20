@@ -1,4 +1,5 @@
 import React, { ReactNode } from 'react';
+import { ApolloProvider } from '@apollo/client';
 // import { ComponentCard } from '@teambit/explorer.ui.component-card';
 // import { RelationsGraph } from '@teambit/graph.relations-graph';
 import { PreviewPlugin } from '@teambit/explorer.plugins.preview-plugin';
@@ -6,9 +7,11 @@ import { ComponentID } from '@teambit/component-id';
 import { ComponentDescriptor, AspectList } from '@teambit/component-descriptor';
 import classNames from 'classnames';
 import { Link } from '@teambit/base-react.navigation.link';
-import { GraphIcon } from './graph-icon';
+// import { GraphIcon } from './graph-icon';
 import { CodeIcon } from './code-icon';
 import { PreviewIcon } from './preview-icon';
+import { Code, CodeProps } from '@teambit/code.code';
+import { useScope, client as scopeClient } from './code';
 import styles from './component-showcase.module.scss';
 
 export type ComponentShowcaseProps = {
@@ -47,18 +50,19 @@ export function ComponentShowcase({ componentId, preview, className, ...rest }: 
           onClick={() => setSelectedTab('graph')}
         >
           <GraphIcon /> Graph
-        </span>
+        </span> */}
         <span
           className={classNames(styles.tabLinks, selectedTab === 'code' && styles.active)}
           onClick={() => setSelectedTab('code')}
         >
           <CodeIcon /> Code
-        </span> */}
+        </span>
       </div>
 
       <div className={styles.tabContent}>
         {/* @ts-ignore - update ComponentDescriptor in preview-plugin */}
         {selectedTab === 'preview' && (preview || <PreviewPlugin component={component} style={{ height: 500 }} />)}
+        {selectedTab === 'code' && <CodeTab component={component} />}
         {/* {selectedTab === "graph" && <RelationsGraph seeders={[component]} />} */}
       </div>
     </div>
@@ -71,4 +75,15 @@ function computeLink(id: ComponentID) {
   const [owner, scope] = id.scope.split('.');
 
   return [baseUrl, owner, scope, id.fullName].join('/');
+}
+
+export function CodeTab({ component, ...rest }: CodeProps) {
+  // TODO - find a better way to resolve scope hash?
+  const scope = useScope(component?.scope);
+  const client = scopeClient(scope);
+  return (
+    <ApolloProvider client={client}>
+      <Code component={component} {...rest} />
+    </ApolloProvider>
+  );
 }
