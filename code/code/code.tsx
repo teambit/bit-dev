@@ -75,7 +75,7 @@ export function Code({ component, className, theme = 'dark', ...rest }: CodeProp
       <Pane>
         <Editor
           theme={theme === 'light' ? 'light' : 'vs-dark'}
-          height="90vh"
+          height="100%"
           language={lang}
           value={fileContent}
           className={styles.editor}

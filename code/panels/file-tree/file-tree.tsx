@@ -24,7 +24,7 @@ export function FileTreePanel({
   currentFile = '',
   FileTreeRenderer,
 }: FileTreePanelProps) {
-  const [openDrawerList, onToggleDrawer] = useState(['FILES' /* , 'DEPENDENCIES' */]);
+  const [openDrawerList, onToggleDrawer] = useState(['FILES']);
 
   const handleDrawerToggle = (id: string) => {
     const isDrawerOpen = openDrawerList.includes(id);

@@ -19,10 +19,10 @@ export function TreeNode({ node, depth, ...rest }: TreeNodeProps) {
   return (
     <div
       style={{ ...indentStyle(depth) }}
-      onClick={() => node.payload?.onClick?.(node.id)}
+      onClick={node.payload?.onClick}
       className={classNames(styles.node, classes.interactive, indentClass, node.payload?.isActive && classes.active)}
     >
-      <div className={classes.menuItem}>
+      <div className={classNames(classes.menuItem, styles.nodeTitle)}>
         <img className={styles.icon} src={icon} />
 
         <Ellipsis>{node.id}</Ellipsis>
