@@ -1,0 +1,17 @@
+---
+labels: ['react', 'gql', 'editor', 'monaco']
+description: An editor component that fetches the files of a given component and displays it's files and content.
+---
+import {useMemo} from 'react'
+import { ComponentDescriptor } from '@teambit/component-descriptor';
+import { Code } from './code';
+
+A component that accepts a `ComponentDescriptor`, fetches the component's code and renders it in an online editor.
+
+
+```js
+() => {
+    const component = useMemo(() => ComponentDescriptor.fromObject({id: "teambit.design/basic/button"}), [])
+    return <Code component={component} />
+}
+``` 
