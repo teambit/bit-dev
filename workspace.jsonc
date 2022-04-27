@@ -211,6 +211,7 @@
         "use-debounce": "7.0.1"
       },
       "peerDependencies": {
+        "subscriptions-transport-ws": "0.11.0",
         "@apollo/client": "3.3.7",
         "@testing-library/react": "12.0.0",
         "graphql": "^14.3.0",
