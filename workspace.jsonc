@@ -81,7 +81,7 @@
         "@teambit/base-ui.text.paragraph": "^1.0.3",
         "@teambit/blog.starter.starter-blog": "0.0.7",
         "@teambit/cloud-providers.deployers.netlify": "0.0.8",
-        "@teambit/cloud.cloud-provider": "0.0.28",
+        "@teambit/cloud.cloud-provider": "0.0.30",
         "@teambit/code.ui.dependency-tree": "0.0.508",
         "@teambit/code.ui.queries.get-component-code": "0.0.487",
         "@teambit/code.ui.queries.get-file-content": "0.0.487",
@@ -165,8 +165,6 @@
         "@teambit/wiki.apps.wiki": "1.90.14",
         "@teambit/wiki.blocks.header": "^0.0.34",
         "@testing-library/jest-dom": "5.16.2",
-        "@testing-library/react": "12.0.0",
-        "@testing-library/react-hooks": "7.0.1",
         "@types/history": "^4.0.0",
         "@types/loadable__component": "5.13.4",
         "@types/lodash.flatten": "4.4.6",
@@ -211,12 +209,12 @@
         "use-debounce": "7.0.1"
       },
       "peerDependencies": {
-        "subscriptions-transport-ws": "0.11.0",
-        "@apollo/client": "3.3.7",
-        "@testing-library/react": "12.0.0",
+        "@apollo/client": "3.5.10",
+        "@testing-library/react": "^12.1.5",
+        "@testing-library/react-hooks": "^8.0.0",
         "graphql": "^14.3.0",
-        "react": "16.13.1",
-        "react-dom": "16.13.1",
+        "react": "^17.0.0",
+        "react-dom": "^17.0.0",
         "react-router-dom": "^6.0.0"
       }
     },
