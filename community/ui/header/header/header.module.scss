@@ -1,6 +1,6 @@
-
 .header {
   height: var(--bit-header-height, 40px);
-  background-color: var(--bit-bg-color, white);
+  background-color: var(--surface-color, white);
   box-sizing: border-box;
+  color: var(--on-surface-color, #2b2b2b);
 }

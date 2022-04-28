@@ -1,11 +1,11 @@
-@use '~@teambit/design.responsive.breakpoints/_breakpoints.module.scss';
+@use "~@teambit/design.responsive.breakpoints/_breakpoints.module.scss";
 
 .header {
   width: 100%;
   height: 40px;
   display: flex;
   font-size: 14px;
-  border-bottom: 1px solid var(--bit-border-color-lightest, #ededed);
+  border-bottom: 1px solid var(--border-medium-color, #ededed);
 
   --header-spacing: 1em;
   @include breakpoints.media-md {
@@ -49,7 +49,7 @@
 }
 
 .logoLink {
-  // added to center correctly 
+  // added to center correctly
   height: 24px; // same as logo
 }
 
