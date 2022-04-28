@@ -11,7 +11,7 @@
 {
     "apps/bit-dev": {
         "scope": "teambit.community",
-        "version": "1.95.49",
+        "version": "1.95.50",
         "mainFile": "index.ts",
         "rootDir": "community/apps/bit-dev"
     },
@@ -1162,7 +1162,7 @@
     },
     "docs/envs-config": {
         "scope": "teambit.envs",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "envs/docs/envs-config"
     },
@@ -1174,13 +1174,13 @@
     },
     "docs/linter-config": {
         "scope": "teambit.defender",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "defender/docs/linter-config"
     },
     "docs/preview-config": {
         "scope": "teambit.preview",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "preview/docs/preview-config"
     },
@@ -1205,7 +1205,7 @@
     },
     "docs/tester-config": {
         "scope": "teambit.defender",
-        "version": "0.0.2",
+        "version": "0.0.3",
         "mainFile": "index.ts",
         "rootDir": "defender/docs/tester-config"
     },
@@ -1484,7 +1484,7 @@
     },
     "ui/community-docs": {
         "scope": "teambit.docs",
-        "version": "1.95.41",
+        "version": "1.95.42",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/community-docs"
     },
