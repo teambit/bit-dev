@@ -11,6 +11,7 @@
   @include breakpoints.media-md {
     --header-spacing: 0.5em;
   }
+  z-index: 100000;
 }
 
 .headerContent {
