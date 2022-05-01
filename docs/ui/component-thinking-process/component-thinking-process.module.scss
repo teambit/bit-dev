@@ -7,6 +7,8 @@
 }
 
 .componentStep {
+  // @ran why did we do this? its generally a bad thing to do. 
+  // it can affect many things in the page, and made me re override in component showcase code tab to keep consistency
   --bit-p-xxs: 18px;
   margin-right: 5px;
   box-shadow: inset 0px -1px 0px #EDEDED;

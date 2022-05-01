@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import { ApolloProvider } from '@apollo/client';
 // import { ComponentCard } from '@teambit/explorer.ui.component-card';
 // import { RelationsGraph } from '@teambit/graph.relations-graph';
+import { ellipsis } from '@teambit/design.ui.styles.ellipsis';
 import { PreviewPlugin } from '@teambit/explorer.plugins.preview-plugin';
 import { ComponentID } from '@teambit/component-id';
 import { ComponentDescriptor, AspectList } from '@teambit/component-descriptor';
@@ -34,35 +35,37 @@ export function ComponentShowcase({ componentId, preview, className, ...rest }: 
   const component = new ComponentDescriptor(id as any, {} as AspectList);
 
   return (
-    <div className={classNames(styles.container, className)} {...rest}>
+    <div className={classNames(className)} {...rest}>
       <div className={styles.tab}>
         <Link external href={computeLink(id)} className={styles.componentId}>
-          {componentId}
+          <span className={ellipsis}>{componentId}</span>
         </Link>
-        <span
-          className={classNames(styles.tabLinks, selectedTab === 'preview' && styles.active)}
-          onClick={() => setSelectedTab('preview')}
-        >
-          <PreviewIcon /> Preview
-        </span>
-        {/* <span
+        <div className={styles.showcaseTabs}>
+          <span
+            className={classNames(styles.tabLinks, selectedTab === 'preview' && styles.active)}
+            onClick={() => setSelectedTab('preview')}
+          >
+            <PreviewIcon /> <span>Preview</span>
+          </span>
+          {/* <span
           className={classNames(styles.tabLinks, selectedTab === 'graph' && styles.active)}
           onClick={() => setSelectedTab('graph')}
-        >
+          >
           <GraphIcon /> Graph
         </span> */}
-        <span
-          className={classNames(styles.tabLinks, selectedTab === 'code' && styles.active)}
-          onClick={() => setSelectedTab('code')}
-        >
-          <CodeIcon /> Code
-        </span>
+          <span
+            className={classNames(styles.tabLinks, selectedTab === 'code' && styles.active)}
+            onClick={() => setSelectedTab('code')}
+          >
+            <CodeIcon /> <span>Code</span>
+          </span>
+        </div>
       </div>
 
       <div className={styles.tabContent}>
         {/* @ts-ignore - update ComponentDescriptor in preview-plugin */}
         {selectedTab === 'preview' && (preview || <PreviewPlugin component={component} style={{ height: 500 }} />)}
-        {selectedTab === 'code' && <CodeTab component={component} />}
+        {selectedTab === 'code' && <CodeTab component={component} className={styles.showcaseCodeTab} />}
         {/* {selectedTab === "graph" && <RelationsGraph seeders={[component]} />} */}
       </div>
     </div>
