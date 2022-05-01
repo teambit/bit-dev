@@ -1,10 +1,8 @@
-.container {
-  // min-height: 350px;
-}
+@use '~@teambit/design.responsive.breakpoints/_breakpoints.module.scss';
 
 .tab {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   border: none;
   outline: none;
   cursor: pointer;
@@ -12,28 +10,26 @@
 }
 
 .componentId {
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
-  margin-right: auto;
+  margin-right: 8px;
   margin-left: 16px;
   text-decoration: none;
-  min-width: 201px;
+  min-width: 0;
   padding: 0 8px;
   height: 32px;
   background: var(--primary-color, #6c5ce7);
   border-radius: 8px 8px 0px 0px;
   font-size: 14px;
-  color: white;
-
-  &:hover {
-    text-decoration: underline;
-  }
+  color: var(--on-primary-color, white);
+  box-sizing: border-box;
 }
 
 .tabLinks {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   height: 32px;
   width: 80px;
   font-size: 10px;
@@ -56,6 +52,12 @@
   &.active {
     color: var(--primary-color, #6c5ce7);
   }
+  @include breakpoints.media-sm {
+    width: 32px;
+    > span {
+      display: none;
+    }
+  }
 }
 
 .tabContent {
@@ -63,19 +65,27 @@
   justify-content: center;
   border: 2px solid var(--primary-color, #6c5ce7);
   width: 100%;
-  height: 100%;
   box-sizing: border-box;
   overflow-x: hidden;
-  max-height: 750px;
+  height: 750px;
   border-radius: 8px;
+  .showcaseCodeTab {
+    // prevents the font size override in component-thinking-process
+    --bit-p-xxs: 12px;
+  }
   p {
     margin: 0;
   }
 }
 
+.showcaseTabs {
+  display: flex;
+  width: fit-content;
+  overflow-x: hidden;
+}
+
 .tabContent {
   // min-height: 500px;
-  overflow: hidden;
   animation: fadeEffect 1s;
 }
 
