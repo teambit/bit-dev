@@ -42,7 +42,7 @@ export function Code({ component, className, theme = 'dark', ...rest }: CodeProp
   const debouncedSize = useDebounce(width, 300, {leading: true});
   const layout = useMemo(() => {
     const size = debouncedSize && debouncedSize[0]
-    if(size && size < 768) return Layout.column;
+    if(size && size < 480) return Layout.column;
     return Layout.row;
   }, [debouncedSize])
 
@@ -80,7 +80,7 @@ export function Code({ component, className, theme = 'dark', ...rest }: CodeProp
   if (!code) return null;
 
   return (
-    <div ref={ref} style={{height: '100%', width: '100%'}}>
+    <div ref={ref} className={styles.codeContainer}>
       <SplitPane size="65%" layout={layout} className={classNames(styles.code, styles[theme], className)} {...rest}>
       <Pane>
         <Editor
