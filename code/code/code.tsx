@@ -1,7 +1,8 @@
 import React, { useCallback, useState, useMemo } from 'react';
 import classNames from 'classnames';
 import Editor from '@monaco-editor/react';
-
+import useDimensions from 'react-use-dimensions';
+import { useDebounce } from 'use-debounce';
 import { FolderTreeNode } from '@teambit/ui-foundation.ui.tree.folder-tree-node';
 import { TreeNodeProps } from '@teambit/base-ui.graph.tree.recursive-tree';
 import { useFileContent } from '@teambit/code.ui.queries.get-file-content';
@@ -37,6 +38,14 @@ export type CodeProps = {
 } & Omit<SplitPaneProps, 'children'>;
 
 export function Code({ component, className, theme = 'dark', ...rest }: CodeProps) {
+  const [ref, { width }] = useDimensions();
+  const debouncedSize = useDebounce(width, 300, {leading: true});
+  const layout = useMemo(() => {
+    const size = debouncedSize && debouncedSize[0]
+    if(size && size < 480) return Layout.column;
+    return Layout.row;
+  }, [debouncedSize])
+
   const code = useCode(component.id);
   const [selected, setSelected] = useState(code?.mainFile);
   const currentFile = selected || code?.mainFile; // solves first load issues. TODO - check if can be solved via the setState default
@@ -71,7 +80,8 @@ export function Code({ component, className, theme = 'dark', ...rest }: CodeProp
   if (!code) return null;
 
   return (
-    <SplitPane size="85%" layout={Layout.row} className={classNames(styles.code, styles[theme], className)} {...rest}>
+    <div ref={ref} className={styles.codeContainer}>
+      <SplitPane size="65%" layout={layout} className={classNames(styles.code, styles[theme], className)} {...rest}>
       <Pane>
         <Editor
           theme={theme === 'light' ? 'light' : 'vs-dark'}
@@ -79,6 +89,7 @@ export function Code({ component, className, theme = 'dark', ...rest }: CodeProp
           language={lang}
           value={fileContent}
           className={styles.editor}
+            loading={<div style={{ background: 'black', height: '100%', width: '100%' }} />}
           onMount={handleEditorDidMount}
         />
       </Pane>
@@ -87,6 +98,7 @@ export function Code({ component, className, theme = 'dark', ...rest }: CodeProp
         <FileTreePanel {...code} className={styles.fileTree} FileTreeRenderer={TreeNodeRenderer} />
       </Pane>
     </SplitPane>
+    </div>
   );
 }
 
