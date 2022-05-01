@@ -29,7 +29,7 @@
     },
     "blocks/header": {
         "scope": "teambit.design",
-        "version": "1.95.14",
+        "version": "1.95.15",
         "mainFile": "index.ts",
         "rootDir": "design/blocks/header"
     },
@@ -38,6 +38,18 @@
         "version": "1.95.20",
         "mainFile": "index.ts",
         "rootDir": "docs/blocks/sidebar"
+    },
+    "button": {
+        "scope": "",
+        "version": "",
+        "mainFile": "index.ts",
+        "rootDir": "community/button",
+        "config": {
+            "teambit.react/react": {},
+            "teambit.envs/envs": {
+                "env": "teambit.react/react"
+            }
+        }
     },
     "buttons/button": {
         "scope": "teambit.base-react",
@@ -72,7 +84,7 @@
     },
     "community/blog-quick-start": {
         "scope": "teambit.blog",
-        "version": "0.0.78",
+        "version": "0.0.80",
         "mainFile": "index.ts",
         "rootDir": "blog/community/blog-quick-start"
     },
@@ -90,7 +102,7 @@
     },
     "component-showcase": {
         "scope": "teambit.community",
-        "version": "0.0.42",
+        "version": "0.0.43",
         "mainFile": "index.ts",
         "rootDir": "community/component-showcase"
     },
@@ -295,7 +307,7 @@
     },
     "content/configure-env-with-compiler": {
         "scope": "teambit.compilation",
-        "version": "1.95.16",
+        "version": "1.95.17",
         "mainFile": "index.ts",
         "rootDir": "compilation/content/configure-env-with-compiler"
     },
@@ -1096,7 +1108,7 @@
     },
     "content/what-is-bit": {
         "scope": "teambit.bit",
-        "version": "1.95.21",
+        "version": "1.95.22",
         "mainFile": "index.ts",
         "rootDir": "bit/content/what-is-bit"
     },
@@ -1289,7 +1301,7 @@
     },
     "layout/grid": {
         "scope": "teambit.base-react",
-        "version": "1.95.13",
+        "version": "1.95.14",
         "mainFile": "index.ts",
         "rootDir": "base-react/layout/grid"
     },
@@ -1724,7 +1736,7 @@
     },
     "ui/navigation/icon-link": {
         "scope": "teambit.design",
-        "version": "1.95.13",
+        "version": "a150966d5ec9a265a297bc65402e1c10bc72ed1c",
         "mainFile": "index.ts",
         "rootDir": "design/ui/navigation/icon-link"
     },
