@@ -24,6 +24,7 @@ export type HeaderProps = {
    * Widgets to be displayed at the right side of the header (before the plugins)
    */
   badges?: ReactNode[];
+  
   /**
    * A list of plugins to be displayed in the right side of the header.
    */

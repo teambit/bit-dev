@@ -2,14 +2,28 @@ import { Subtitle } from '@teambit/docs.ui.subtitle';
 
 # Installing Bit
 
-Bit has been designed from the start for gradual adoption and has a minimal footprint. You can use components as much or as little as you need.
-  Bit can be used to share components from existing projects or start a new component-driven project with Bit.
-
-<!-- Installing Bit is recommended using [BVM](/bvm/introduction), Bit's version manager.  -->
+Run the following to install Bit on your machine:
 
 ```bash
 npx @teambit/bvm install
 ```
+
+The output is similar to the following:
+
+```bash
+version 0.0.712 was installed on /Users/jane/.bvm/versions/0.0.712
+```
+
+For troubleshooting, see [Troubleshooting](https://bit.dev/docs/reference/using-bvm#troubleshooting.).
+
+## Updating Bit
+
+Run the following to update to the latest version of Bit:
+
+```
+npx @teambit/bvm upgrade
+```
+
 <!-- TODO: teambit.bit/blocks/installation -->
 <!-- TODO: move to deeper dive -->
 <!-- **NodeJS**
@@ -17,7 +31,7 @@ npx @teambit/bvm install
 Bit uses a built-in installation of NodeJS. It does not affect the version of NodeJS running your app.
 You can also point Bit to use your own version of NodeJS. -->
 
-<!-- 
+<!--
 ```bash
 bit config nodejs_path /usr/local/bit/node
 ``` -->
@@ -27,23 +41,11 @@ bit config nodejs_path /usr/local/bit/node
 
 <!-- Bit comes built-in installation of Git. You can also either point Bit to use your own installation of Git. -->
 
-## Start a Bit powered workspace
+<!-- ## Start a Bit powered workspace
 
-You can start a new component-driven project with Bit. To do that, either head to [Quick start](/quick-start) or to 
-[Start a new Bit workspace](/getting-started/installing-bit/start-bit-workspace) if you want a more in depth content.
+To start a new component-driven project with Bit, head to [Quick start](/quick-start) or to
+[Start a new Bit workspace](/getting-started/installing-bit/start-bit-workspace) (for more in-depth content).
 
 ## Share components from existing projects
 
-If you are looking for liberating existing components from existing projects, head over to [Add to existing project](/getting-started/installing-bit/add-to-existing-project).
-
-## Updating Bit
-
-To update to the latest version of Bit, use:
-
-```
-npx @teambit/bvm upgrade
-```
-
-## Troubleshooting
-
-For installation troubleshooting head to [BVM troubleshooting](/reference/using-bvm#troubleshooting).
+To migrate an existing project to a component-based architecture, head over to [Add to an existing project](/getting-started/installing-bit/add-to-existing-project). -->
