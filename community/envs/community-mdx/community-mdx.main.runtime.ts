@@ -79,6 +79,7 @@ export class CommunityMdxMain {
           };
         },
       }),
+      react.overrideJestConfig(require.resolve('./jest/jest.config')),
     ]) as ReactEnv;
 
     envs.registerEnv(communityMdxEnv);
