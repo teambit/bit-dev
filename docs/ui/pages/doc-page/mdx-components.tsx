@@ -10,6 +10,7 @@ const getTextLink = (element: ReactNode) =>
 
 export const mdxComponents = (baseUrl: string, selectorClassName?: string): MDXProviderComponents => {
   return {
+    // @ts-ignore - https://github.com/teambit/bit/issues/5746
     wrapper: 'div',
     h1: ({ children, className, ...rest }: HTMLAttributes<HTMLHeadingElement>) => (
       <H1 className={classNames(selectorClassName, className, styles.heading)} link={getTextLink(children)} {...rest}>
