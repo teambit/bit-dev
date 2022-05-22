@@ -1,0 +1,184 @@
+import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-display';
+import { CompilerEnvService } from './graphs/compiler-env-service';
+
+# Env services
+
+Env services help provide a simple and standard dev experience for common component development operations. Examples for env services include compiling, testing, linting, and more.
+It allows different envs like the React and Angular to use different implementation for a compiler, tester, linter while preserving the same standards. 
+
+For example by running `bit compile` or `bit test` would work on all components regardless to the specific compiler or tester used. 
+
+<ComponentCardDisplay
+  componentIds={[
+    'teambit.compilation/compiler',
+    'teambit.defender/tester',
+    'teambit.defender/linter',
+    'teambit.defender/formatter',
+    'teambit.pipelines/builder',
+    'teambit.generator/generator',
+    'teambit.docs/docs',
+    'teambit.compositions/compositions',
+    'teambit.preview/preview',
+  ]}
+/>
+
+## Using an env service
+
+When you configure a component to use an env, you apply it with all the env services this env provides.
+
+For example, the following creates a component that uses Bit's official [React env](https://bit.dev/docs/frameworks/react/react-overview).
+The component's source files are then compiled using the compiler provided by its env, React:
+
+```bash
+bit create react ui/button
+```
+
+```bash
+bit compile ui/button
+```
+
+The output confirms the component was compiled:
+
+```bash
+
+  STATUS        COMPONENT ID
+✔ SUCCESS       ui/button
+
+✔ 1/1 components compiled successfully.
+Finished. (850ms)
+```
+
+Notice how the specific implementation of the compiler (in this case, TypeScript) is not reveled by the command that runs it, nor by its output.
+An **abstract and standardized interface** is a fundamental feature of env services.
+It enables you to run development procedures on components of different types, without having to consider the specific env service implementation used by each of these types.
+
+For example, the following creates an additional component of a different type. It then runs the compiler on all components in the workspace (a total of two components, a React component and a Node component):
+
+```bash
+bit create node modules/text-transformer
+```
+
+```bash
+bit compile
+```
+
+The output confirms the compilation process was successful for all components in the workspace, regardless of their envs, and hence, the specific compiler used by each component:
+
+```bash
+  STATUS        COMPONENT ID
+✔ SUCCESS       ui/button
+✔ SUCCESS       modules/text-transformer
+
+✔ 2/2 components compiled successfully.
+Finished. (950ms)
+```
+
+:::info Which env services does your env provide?
+To learn which env services (compiler, tester, linter, etc.) and env service implementations (Babel, Jest, ESLint, etc.) are provided by your env, see the documentation for your env, or print out its configuration by running `bit env get COMPONENT_ID` on a component that uses that env.
+:::
+
+## Env services during build
+
+Most env services offer a corresponding build task that is executed during the component's [build](https://bit.dev/docs/dev-services/builder/builder-overview).
+For example, the following runs the compilation build task (along with other build tasks):
+
+```bash
+bit build ui/button
+```
+
+The output lists the components' env, as well as the build task name and the aspect that provides it:
+
+```plaintext
+ running build pipe for 1 environments, total 7 tasks
+ ...
+ env "teambit.react/react", task "teambit.compilation/compiler:TSCompiler (compile components for artifact dist)" has completed successfully in 1s
+```
+
+Note that some build tasks are registered directly by the env service itself while others (like the compiler) are registered via the env that uses them. This can become an important distinction when customizing your components' [build pipelines](https://bit.dev/docs/dev-services/builder/build-pipelines).
+
+## Adding an env service to an env
+
+To add an env service, implement its corresponding _'service handler'_ in [your env](https://bit.dev/docs/envs/composing-env). For example, the following env implements the compiler env service using its `getCompiler()` service handler.
+Notice how it returns a specific compiler implementation (in this example, the Babel aspect). The `getCompiler` method is called by the compiler env service, which executes this specific compiler implementation for components using this env.
+
+<CompilerEnvService />
+
+```ts
+// file: my-env.env.ts
+
+import type { CompilerEnv } from '@teambit/envs';
+import type { CompilerMain } from '@teambit/compiler';
+/* babel is used here as an example for an env service implementation (in this case, a compiler) */
+import type { BabelMain } from '@teambit/babel';
+import type { babelConfig } from './babel/babel.config';
+
+export class MyEnv implements CompilerEnv {
+  constructor(private compiler: CompilerMain, private babel: BabelMain) {}
+
+  /* provides the compiler env service with a specific compiler implementation */
+  getCompiler() {
+    const babelCompiler = this.babel.createCompiler({
+      /* most env service implementations enable envs to provide their own config */
+      babelTransformOptions: babelConfig,
+    });
+    return babelCompiler;
+  }
+}
+```
+
+Run the following to fork a [demo env](https://bit.cloud/learnbit/envs/envs/env-with-compiler) that provides the compiler env service:
+
+```bash
+bit fork learnbit.envs/envs/env-with-compiler
+```
+
+To learn how to implement a specific env service, look for that service in the docs.
+
+<!-- TODO: add page: 'Creating a new env' and link to it -->
+
+## Replacing an env service implementation
+
+When [extending an env](https://bit.dev/docs/envs/composing-env), service handlers can be used not only to add services but also to replace existing env service implementations.
+
+Run the following to fork a [demo React env extension](https://bit.cloud/learnbit/envs/envs/env-composition) that replaces React's default Compiler implementation with a new one:
+
+```bash
+bit fork learnbit.envs/envs/env-composition
+```
+
+## Implementing an env service
+
+Env services provide an abstract layer between a specific env service implementation and the various aspects used to implement that service.
+For example, the compiler env service uses the Workspace aspect, Logger aspect, CLI aspect, UI aspect, and more.
+When you implement the compiler interface, you use these aspects, and do so, in a standardized way that maintains consistency across different compiler implementations.
+One example of that is the compiler's standardized output to the terminal (as seen in the [Using an env service](#using-an-env-service) section of this page).
+
+As an example, the following is snippet from a (simplified) [babel compiler](https://bit.cloud/teambit/compilation/examples/aspects/babel-compiler) that implements the compiler interface:
+
+```ts
+import * as babel from '@babel/core';
+import { Compiler } from '@teambit/compiler';
+
+export class BabelCompiler implements Compiler {
+  displayName = 'Babel';
+  transpileFile(
+    fileContent: string,
+    options: TranspileFileParams
+  ): TranspileFileOutput {
+    const result = babel.transformSync(fileContent);
+    const compiledContent: string = result.code || '';
+    const compiledFilename = this.replaceFileExtToJs(options.filePath);
+    return [{ outputText: compiledContent, outputPath: compiledFilename }];
+  }
+
+  // ...
+}
+```
+
+Run the following to fork the above demo compiler:
+
+```bash
+bit fork teambit.compilation/examples/aspects/babel-compiler
+```
+
+To learn how to implement other env services, look for the specific env service documentation.

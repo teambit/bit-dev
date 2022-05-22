@@ -71,6 +71,11 @@ export const footerMock = [
         external: true,
       },
       {
+        text: "Blog",
+        href: "https://bit.cloud/blog",
+        external: true,
+      },
+      {
         text: "Discussions",
         href: "https://github.com/teambit/bit/discussions",
         external: true,

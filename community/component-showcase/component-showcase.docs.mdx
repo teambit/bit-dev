@@ -1,5 +1,5 @@
 ---
-description: A Component that displays a preview, dependencies graph and code tab of a given component.
+description: A component that displays a preview, dependency graph, and code tab of a component.
 labels: [Component Showcase, Code tab, Dependencies graph, Preview]
 ---
 
@@ -7,10 +7,23 @@ import { ComponentShowcase } from "./component-showcase";
 
 ### Component usage
 
-Pass the component id to the `<ComponentShowcase>` component.
+You must pass the component id to the `<ComponentShowcase>` component:
 
 ```js
-<ComponentShowcase id="teambit.wiki/apps/wiki@1.90.9" />
+<ComponentShowcase componentId="teambit.wiki/apps/wiki@1.90.9" />
+```
+
+It will render an Iframe with the component's preview, dependencies graph, and code tab.
+
+You can also pass a ReactNode to the preview tab. You can use this when you need better performance than the default preview.
+Additionally, you can use it to render a specific composition of the component.
+In order for the component to display the dependencies graph and code tab, you must still pass the component id.
+
+```js
+<ComponentShowcase
+  componentId="teambit.wiki/apps/wiki@1.90.9"
+  preview={<WikiApp />}
+/>
 ```
 
 ### Try it yourself!
@@ -18,9 +31,9 @@ Pass the component id to the `<ComponentShowcase>` component.
 Try it yourself by adding any of the following components id to the `<ComponentShowcase>` component.
 
 - `teambit.design/basic/button`
-- `teambit.verified-demo/pages/favourites
+- `teambit.verified-demo/pages/favourites`
 - `teambit.design/blocks/header`
 
-```js live
-<ComponentShowcase id="teambit.design/basic/button" />
+```jsx live
+<ComponentShowcase componentId="teambit.community/apps/bit-dev" />
 ```

@@ -1,29 +1,34 @@
-import React, { useCallback, useState, useMemo } from 'react';
-import classNames from 'classnames';
-import Editor from '@monaco-editor/react';
-import useDimensions from 'react-use-dimensions';
-import { useDebounce } from 'use-debounce';
-import { FolderTreeNode } from '@teambit/ui-foundation.ui.tree.folder-tree-node';
-import { TreeNodeProps } from '@teambit/base-ui.graph.tree.recursive-tree';
-import { useFileContent } from '@teambit/code.ui.queries.get-file-content';
-import { Label } from '@teambit/documenter.ui.label';
-import { useCode } from '@teambit/code.ui.queries.get-component-code';
-import { SplitPane, Pane, Layout, SplitPaneProps } from '@teambit/base-ui.surfaces.split-pane.split-pane';
-import { HoverSplitter } from '@teambit/base-ui.surfaces.split-pane.hover-splitter';
-import { ComponentDescriptor } from '@teambit/component-descriptor';
-import { FileTreePanel } from '@teambit/code.panels.file-tree';
-import { TreeNode } from './tree-node';
+import React, { useCallback, useState, useMemo } from "react";
+import classNames from "classnames";
+import Editor from "@monaco-editor/react";
+import useDimensions from "react-use-dimensions";
+import { useDebounce } from "use-debounce";
+import { FolderTreeNode } from "@teambit/ui-foundation.ui.tree.folder-tree-node";
+import { TreeNodeProps } from "@teambit/base-ui.graph.tree.recursive-tree";
+import { useFileContent } from "@teambit/code.ui.queries.get-file-content";
+import { Label } from "@teambit/documenter.ui.label";
+import { useCode } from "@teambit/code.ui.queries.get-component-code";
+import {
+  SplitPane,
+  Pane,
+  Layout,
+  SplitPaneProps,
+} from "@teambit/base-ui.surfaces.split-pane.split-pane";
+import { HoverSplitter } from "@teambit/base-ui.surfaces.split-pane.hover-splitter";
+import { ComponentDescriptor } from "@teambit/component-descriptor";
+import { FileTreePanel } from "@teambit/code.panels.file-tree";
+import { TreeNode } from "./tree-node";
 
-import styles from './code.module.scss';
+import styles from "./code.module.scss";
 
 // a translation list of specific monaco languages that are not the same as their file ending.
 const languages = {
-  ts: 'typescript',
-  tsx: 'typescript',
-  js: 'javascript',
-  jsx: 'javascript',
-  mdx: 'markdown',
-  md: 'markdown',
+  ts: "typescript",
+  tsx: "typescript",
+  js: "javascript",
+  jsx: "javascript",
+  mdx: "markdown",
+  md: "markdown",
 };
 
 export type CodeProps = {
@@ -34,17 +39,22 @@ export type CodeProps = {
   /**
    * theme
    */
-  theme?: 'light' | 'dark';
-} & Omit<SplitPaneProps, 'children'>;
+  theme?: "light" | "dark";
+} & Omit<SplitPaneProps, "children">;
 
-export function Code({ component, className, theme = 'dark', ...rest }: CodeProps) {
+export function Code({
+  component,
+  className,
+  theme = "dark",
+  ...rest
+}: CodeProps) {
   const [ref, { width }] = useDimensions();
-  const debouncedSize = useDebounce(width, 300, {leading: true});
+  const debouncedSize = useDebounce(width, 300, { leading: true });
   const layout = useMemo(() => {
-    const size = debouncedSize && debouncedSize[0]
-    if(size && size < 480) return Layout.column;
+    const size = debouncedSize && debouncedSize[0];
+    if (size && size < 480) return Layout.column;
     return Layout.row;
-  }, [debouncedSize])
+  }, [debouncedSize]);
 
   const code = useCode(component.id);
   const [selected, setSelected] = useState(code?.mainFile);
@@ -52,8 +62,8 @@ export function Code({ component, className, theme = 'dark', ...rest }: CodeProp
   const { fileContent } = useFileContent(component.id, currentFile) || {};
   const lang = useMemo(() => {
     if (!selected) return languages.ts;
-    const fileEnding = selected?.split('.').pop();
-    return languages[fileEnding || ''] || fileEnding;
+    const fileEnding = selected?.split(".").pop();
+    return languages[fileEnding || ""] || fileEnding;
   }, [currentFile]);
 
   const TreeNodeRenderer = useCallback(
@@ -67,7 +77,11 @@ export function Code({ component, className, theme = 'dark', ...rest }: CodeProp
             {...props}
             node={{
               ...props.node,
-              payload: { widgets, isActive: props.node.id === currentFile, onClick: () => setSelected(props.node.id) },
+              payload: {
+                widgets,
+                isActive: props.node.id === currentFile,
+                onClick: () => setSelected(props.node.id),
+              },
             }}
           />
         );
@@ -81,33 +95,46 @@ export function Code({ component, className, theme = 'dark', ...rest }: CodeProp
 
   return (
     <div ref={ref} className={styles.codeContainer}>
-      <SplitPane size="65%" layout={layout} className={classNames(styles.code, styles[theme], className)} {...rest}>
-      <Pane>
-        <Editor
-          theme={theme === 'light' ? 'light' : 'vs-dark'}
-          height="100%"
-          language={lang}
-          value={fileContent}
-          className={styles.editor}
-            loading={<div style={{ background: 'black', height: '100%', width: '100%' }} />}
-          onMount={handleEditorDidMount}
-        />
-      </Pane>
-      <HoverSplitter className={styles.splitter}></HoverSplitter>
-      <Pane className={styles.fileTreePane}>
-        <FileTreePanel {...code} className={styles.fileTree} FileTreeRenderer={TreeNodeRenderer} />
-      </Pane>
-    </SplitPane>
+      <SplitPane
+        size="65%"
+        layout={layout}
+        className={classNames(styles.code, styles[theme], className)}
+        {...rest}
+      >
+        <Pane>
+          <Editor
+            theme={theme === "light" ? "light" : "vs-dark"}
+            height="100%"
+            language={lang}
+            value={fileContent}
+            className={styles.editor}
+            loading={
+              <div
+                style={{ background: "black", height: "100%", width: "100%" }}
+              />
+            }
+            onMount={handleEditorDidMount}
+          />
+        </Pane>
+        <HoverSplitter className={styles.splitter}></HoverSplitter>
+        <Pane className={styles.fileTreePane}>
+          <FileTreePanel
+            {...code}
+            className={styles.fileTree}
+            FileTreeRenderer={TreeNodeRenderer}
+          />
+        </Pane>
+      </SplitPane>
     </div>
   );
 }
 
 function getWidgets(fileName: string, mainFile?: string, devFiles?: string[]) {
   if (fileName === mainFile) {
-    return [() => createLabel('main')];
+    return [() => createLabel("main")];
   }
   if (devFiles?.includes(fileName)) {
-    return [() => createLabel('dev')];
+    return [() => createLabel("dev")];
   }
   return;
 }

@@ -1,18 +1,96 @@
 ---
-description: A QuickStart component.
+description: A QuickStart component to use for creating QuickStarts .
 ---
 
 import { QuickStart } from './quick-start';
 
-A component that does something special and renders text in a div.
+<!-- #### What is 'Quick Start' -->
 
-### Component usage
+'Quick Start' is a simple tutorial, that shows how to solve a specific problem in a composable way.
+
+Here are a few examples:
+
+1. [Analytics-Quick-Start](https://bit.dev/docs/quick-start/analytics) - Composable analytics dashboard.
+2. [Design-System-Quick-Start](https://bit.dev/docs/quick-start/design) - Composable design system.
+3. [Wiki-Quick-Start](https://bit.dev/docs/quick-start) - Composable wiki.
+   <!--
+   explaining to new Bit users how to install Bit, create their first workspace, collaborate with Bit and build a specific component.
+   The 'Quick Start' component already has the installation guide etc., and -->
+   <!--
+   you need to add the explanation of how to **build a specific component**.
+   We call this the _'mainComponent'_, and this example component is meant to explain a specific subject in Bit. -->
+
+In order to create your own quick start, first you need to create and export the _'mainComponent'_. this is the component that you will be teaching the readers how to bulid in your 'Quick Start'.
+Keep it simple and try to demonstrate how to solve one specific problem in a composable way with Bit.
+Here are some _'mainComponent'_ examples: [Design-System-_mainComponent_](https://bit.cloud/teambit/design/examples/sample-app?version=0.0.9), [Analytics-_mainComponent_](https://bit.cloud/teambit/analytics/examples/dashboard/~compositions?version=0.0.1)
+
+#### 'Quick Start' id
+
+The id for the 'Quick Start' you build should be:
+
 ```js
-<QuickStart>Hello world!</QuickStart>
+@teambit/your-scope/quick-start/your-quick-start-name
 ```
 
-### Render hello world!
+Like this for example: [teambit/bit/quick-start/wiki-quick-start](https://bit.cloud/teambit/bit/quick-start/wiki-quick-start)
 
-```js live
-<QuickStart>Hello world!</QuickStart>
+#### Building your 'Quick Start'
+
+Now that you have the _'mainComponent'_ we can get started with creating the 'Quick Start'!
+
+1. Add custom text - you can add all or some of these, the aim is to explain the benefits of composable architecture:
+
+- _' intro '_- (there is a default intro if you don't add this text yourself).
+- _' ending '_ - after the component showcase.
+- _' before-thinking '_ - before the component breakdown.
+
+2. Add the _'components'_ - the component breakdown - a list of components that compose the _'mainComponent'_ (recommended to have 3 to 6 components, so it doesn't get too crowded).
+
+3. Add an explanation before each of the components - what is their responsibility and functionality.
+   This part gets added inside the _'components'_ array in this way:
+
+```js
+const components = [
+  {
+    id: 'teambit.design/examples/sample-app',
+    intro: <div>Add text about this component here</div>,
+  },
+  {
+    id: 'teambit.design/ui/heading',
+    intro: <div>Add text about this component here</div>,
+  },
+];
+```
+
+### Using the 'Quick Start' component:
+
+```js
+// Add all of your text as a string, an element or import it from an mdx file.
+const components = [
+  {
+    id: 'teambit.design/examples/sample-app',
+    intro: <div>Add intro text here</div>,
+  },
+  {
+    id: 'teambit.design/ui/heading',
+    intro: <div>Add intro text here</div>,
+  },
+];
+
+const id = ComponentID.fromString('teambit.design/examples/sample-app');
+
+<QuickStart
+  // Add all of your text as a string, an element or an mdx file.
+  intro={'Add your introduction here'}
+  ending={'Add your text after the component showcase'}
+  beforeThinking={'Add text before the component breakdown'}
+  name="name-of-your-quick-start"
+  // id and main Component - The component you are teaching people to build. This will appear in the component showcase
+  // at the top of the quick start, and this is usually also the first component in the
+  // component-thinking-process (The breakdown of the components in the tutorial):
+  id={id}
+  mainComponent={<SampleApp />}
+  // The components in the component breakdown at the end of the tutorial
+  components={components}
+/>;
 ```

@@ -1,7 +1,6 @@
 import React from 'react';
 import { lazy } from '@loadable/component';
 import { QuickStartType } from '@teambit/bit.quick-start';
-// import { DocsQuickStart } from '@teambit/docs.community.docs-quick-start';
 import { BasicReact } from '@teambit/community.quick-start.basic-react';
 
 const WikiQuickStart = lazy(() => import('@teambit/bit.quick-start.wiki-quick-start'));
