@@ -63,6 +63,7 @@ export function ComponentShowcase({ componentId, preview, className, ...rest }: 
       </div>
 
       <div className={styles.tabContent}>
+        {/* @ts-ignore */}
         {selectedTab === 'preview' && (preview || <PreviewPlugin component={component} />)}
         {selectedTab === 'code' && <CodeTab component={component} className={styles.showcaseCodeTab} />}
         {/* {selectedTab === "graph" && <RelationsGraph seeders={[component]} />} */}
