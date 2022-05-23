@@ -12,5 +12,11 @@ export const headerContent: LinkProps[] = [
   {
     children: 'bit.cloud',
     href: 'https://bit.cloud',
+    exact: true,
+  },
+  {
+    children: 'Blog',
+    href: 'https://bit.cloud/blog',
+    exact: true,
   },
 ];

@@ -1,21 +1,29 @@
 import React from 'react';
 import { lazy } from '@loadable/component';
 import { QuickStartType } from '@teambit/bit.quick-start';
-// import { DocsQuickStart } from '@teambit/docs.community.docs-quick-start';
 import { BasicReact } from '@teambit/community.quick-start.basic-react';
 
-const WikiQuickStart = lazy(() => import('@teambit/bit.quick-start.wiki-quick-start'));
+const WikiQuickStart = lazy(
+  () => import('@teambit/bit.quick-start.wiki-quick-start')
+);
 // const BlogQuickStart = lazy(() => import('@teambit/blog.community.blog-quick-start'));
 // const BackendQuickStart = lazy(() => import('@teambit/community.quick-start.basic-backend'));
-const AnalyticsQuickStart = lazy(() => import('@teambit/analytics.community.analytics-quick-start'));
-const DesignQuickStart = lazy(() => import('@teambit/design.community.design-quick-start'));
-const DataFetchingQuickStart = lazy(() => import('@teambit/community.quick-start.data-fetching'));
+const AnalyticsQuickStart = lazy(
+  () => import('@teambit/analytics.community.analytics-quick-start')
+);
+const DesignQuickStart = lazy(
+  () => import('@teambit/design.community.design-quick-start')
+);
+const DataFetchingQuickStart = lazy(
+  () => import('@teambit/community.quick-start.data-fetching')
+);
 
 export const quickStarts: QuickStartType[] = [
   {
     name: 'wiki',
     displayName: 'Wiki',
-    description: 'Learn how to use component-driven wiki to power knowledge sharing.',
+    description:
+      'Learn how to use component-driven wiki to power knowledge sharing.',
     component: <WikiQuickStart />,
   },
   {

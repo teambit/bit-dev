@@ -63,6 +63,11 @@ export type QuickStartProps = {
   intro?: ReactNode;
 
   /**
+   * text to use in the ending of the component walk through.
+   */
+  ending?: ReactNode;
+
+  /**
    * children render below thinking process.
    */
   children?: ReactNode;
@@ -106,6 +111,7 @@ export type QuickStartProps = {
 export function QuickStart({
   id,
   intro,
+  ending,
   defaultScopeName,
   defaultWorkspaceName,
   name,
@@ -130,11 +136,10 @@ export function QuickStart({
   return (
     <div>
       <div className={styles.sectionMargin}>{intro || <DefaultIntro />}</div>
+      {/* The main component will be shown inside the component showcase */}
       <ComponentShowcase className={wideColumn} componentId={id.toString()} preview={mainComponent} />
       <div className={styles.showcase}>
-        {showcaseComment}
-        <WhatIsBit />
-        {/* <H3>Learn Bit</H3> */}
+        {ending}
         <LearnCrossroad
           className={centerColumn}
           title="Thinking in components"
@@ -151,7 +156,6 @@ export function QuickStart({
       />
       <Components />
       <ComponentCardDisplay componentIds={ids} />
-      {/* <H3>Building the components</H3> */}
       {beforeThinking}
       <ThinkingProcess components={targetComponents} />
       {children}

@@ -1,3 +1,6 @@
+import { CreateAccount } from '@teambit/community.cloud.create-account';
+import { centerColumn } from '@teambit/base-ui.layout.page-frame';
+
 ## Collaborate
 
 Now that we have done our work and all seems to be working locally, its time to share our changes and collaborate with others.  
@@ -9,13 +12,32 @@ bit status
 
 ### Create a remote scope
 
+A scope is a collaboration server for components. Scopes define ownership on components, as a single team owns the components exported to a scope.
+You can host multiple types of components in a scope, from "small" components all the way to frontend apps or microservices.
 Earlier we have chosen a default Scope for our workspace. We need to either host our own scope, or use Bit Cloud.
+[Learn more about scopes](/scope/scope-overview)
 
 If you don't have a remote scope yet, it is a good time to create one! You can create and host scopes on [bit.cloud](https://bit.cloud) for free
 or [self-host your scope](/scope/running-a-scope-server).
 
+<CreateAccount className={centerColumn} />
+
+If you've created a new remote scope, to update it to be your default scope, use this command:
+
+```
+bit scope rename <old-name> <new-name> --refactor
+```
+
+The --refactor flag updates the components in your workspace with the new scope name, if you prefer to update manually, remove it:
+
+```
+bit scope rename <old-name> <new-name>
+```
+
 ### Snap your changes
+
 To record your component changes you can use:
+
 ```
 bit snap --all --message "initial snap"
 ```
@@ -27,8 +49,9 @@ bit tag --all --message "initial tag"
 ```
 
 ### Create a Lane (Alpha)
-Lanes are used to propose component changes to the component main history lane. 
-To record changes on a Lane. 
+
+Lanes are used to propose component changes to the component main history lane.
+To record changes on a Lane.
 
 ```bash
 bit lane create my-feature
@@ -36,11 +59,12 @@ bit lane create my-feature
 
 Then, use `snap` to record your changes into the Lane:
 
-```bash 
+```bash
 bit snap --all --message "my first lane snap"
 ```
 
 ### Export changes to remote scopes
+
 After recoding component changes with snaps or tags, you can sync the staging changes with the defined remote scopes.
 
 ```
@@ -56,7 +80,8 @@ your changes against them prior to releasing.
 bit import blocks/header --dependents
 ```
 
-Running `test` and `build` can test your modified components vs affected dependenies. 
+Running `test` and `build` can test your modified components vs affected dependenies.
+
 ```
 bit test
 ```
@@ -65,10 +90,10 @@ bit test
 
 ## Have an idea for your own Quick Start?
 
-If you think you can build a better quick start, or just show anything else. Head over to the 
-[Quick start for creating Quick Starts](/quick-start/quick-start), share your own and let us know about it! 
+If you think you can build a better quick start, or just show anything else. Head over to the
+[Quick start for creating Quick Starts](https://bit.cloud/teambit/bit/quick-start), share your own and let us know about it!
 
 ## What's next?
 
-- Read [Thinking in Components](/)
+- Read [Thinking in Components](https://bit.dev/docs/thinking-in-components)
 - Dive deeper into any of the topics.
