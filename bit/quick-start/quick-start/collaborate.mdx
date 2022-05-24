@@ -1,4 +1,5 @@
 import { CreateAccount } from '@teambit/community.cloud.create-account';
+// import { ScopeCard } from '@teambit/dot-scopes.ui.scope-card';
 import { centerColumn } from '@teambit/base-ui.layout.page-frame';
 
 ## Collaborate
@@ -12,10 +13,23 @@ bit status
 
 ### Create a remote scope
 
-A scope is a collaboration server for components. Scopes define ownership on components, as a single team owns the components exported to a scope.
+A [Scope](/scope/scope-overview) is a collaboration server for components. Creating and exporting components to remote scopes enables collaboration with others and is used as a 
+remote storage for your components. Other developers with access to your scope, could either use your components or propose changes to them.
+
+Scopes help organize components in a shared area of responsbility. For example, the `analytics` scope will include all components for providing Analytics services, and `design` scope will
+include the services for our design language. 
+
+<!-- 
+Scopes can be created for every responsibility, for example: `wiki` or `design`
+
+On a deeper level, scopes are used to define responsibility over components in the same sense microservices are used to define ownership and boundaries over software services.
+On a deeper level, scopes are used to define responsibility since all  -->
+
+<!-- Scopes define ownership on components, as a single team owns the components exported to a scope.
 You can host multiple types of components in a scope, from "small" components all the way to frontend apps or microservices.
-Earlier we have chosen a default Scope for our workspace. We need to either host our own scope, or use Bit Cloud.
-[Learn more about scopes](/scope/scope-overview)
+Earlier we have chosen a default Scope for our workspace. We need to either host our own scope, or use [bit.cloud](https://bit.cloud).  -->
+
+<!-- TODO: @ella Add relavent scope cards here -->
 
 If you don't have a remote scope yet, it is a good time to create one! You can create and host scopes on [bit.cloud](https://bit.cloud) for free
 or [self-host your scope](/scope/running-a-scope-server).

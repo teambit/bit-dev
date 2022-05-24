@@ -7,9 +7,9 @@ import { ComponentID } from '@teambit/component-id';
 import { WikiApp } from '@teambit/wiki.apps.wiki';
 import { QuickStart } from '@teambit/bit.quick-start';
 import styles from './wiki-quick-start.module.scss';
-import Ending from './ending.mdx';
+// import Ending from './ending.mdx';
 import Intro from './intro.mdx';
-import BeforeThinking from './before-thinking.mdx';
+// import BeforeThinking from './before-thinking.mdx';
 
 export type WikiQuickStartProps = {
   /**
@@ -25,13 +25,11 @@ export function WikiQuickStart({ children }: WikiQuickStartProps) {
       id: 'teambit.wiki/apps/wiki@1.90.13',
       intro: (
         <div>
-          We start with Building the Wiki-app. This will use other components to
-          add the functionality and content. To learn more about apps in Bit you
-          can continue reading the Docs or skip to the Apps section.
+          We start with Building the Wiki-app. This will use other components to add the functionality and content. To
+          learn more about apps in Bit you can continue reading the Docs or skip to the Apps section.
           <br />
           <br />
-          First, make sure to install react-router and react-router-dom in your
-          workspace.
+          First, make sure to install react-router and react-router-dom in your workspace.
           <CodeSnippet>bit install react-router react-router-dom</CodeSnippet>
         </div>
       ),
@@ -61,8 +59,8 @@ export function WikiQuickStart({ children }: WikiQuickStartProps) {
   return (
     <QuickStart
       intro={<Intro />}
-      ending={<Ending />}
-      beforeThinking={<BeforeThinking />}
+      // ending={<Ending />}
+      // beforeThinking={<BeforeThinking />}
       name="wiki"
       id={id}
       components={components}

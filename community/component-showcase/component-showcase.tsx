@@ -6,12 +6,12 @@ import { ellipsis } from '@teambit/design.ui.styles.ellipsis';
 import { PreviewPlugin } from '@teambit/explorer.plugins.preview-plugin';
 import { ComponentID } from '@teambit/component-id';
 import { ComponentDescriptor, AspectList } from '@teambit/component-descriptor';
+import { Code, CodeProps } from '@teambit/code.code';
 import classNames from 'classnames';
 import { Link } from '@teambit/base-react.navigation.link';
 // import { GraphIcon } from './graph-icon';
 import { CodeIcon } from './code-icon';
 import { PreviewIcon } from './preview-icon';
-import { Code, CodeProps } from '@teambit/code.code';
 import { useScope, client as scopeClient } from './code';
 import styles from './component-showcase.module.scss';
 
@@ -63,8 +63,8 @@ export function ComponentShowcase({ componentId, preview, className, ...rest }: 
       </div>
 
       <div className={styles.tabContent}>
-        {/* @ts-ignore - update ComponentDescriptor in preview-plugin */}
-        {selectedTab === 'preview' && (preview || <PreviewPlugin component={component} style={{ height: 500 }} />)}
+        {/* @ts-ignore */}
+        {selectedTab === 'preview' && (preview || <PreviewPlugin component={component} />)}
         {selectedTab === 'code' && <CodeTab component={component} className={styles.showcaseCodeTab} />}
         {/* {selectedTab === "graph" && <RelationsGraph seeders={[component]} />} */}
       </div>

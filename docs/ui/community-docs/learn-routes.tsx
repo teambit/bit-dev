@@ -161,6 +161,7 @@ const InspectingEnv = lazy(() => import('@teambit/envs.content.inspecting-env'))
 const ExtendingEnv = lazy(() => import('@teambit/envs.content.extending-env'));
 const UsingEnvs = lazy(() => import('@teambit/envs.content.using-envs'));
 const EnvsConfig = lazy(() => import('@teambit/envs.docs.envs-config'));
+const EnvsServices = lazy(() => import('@teambit/envs.docs.env-services'));
 // const EnvsApi = lazy(() => import('@teambit/envs.content.envs-api'));
 
 /* Dependencies */
@@ -745,6 +746,11 @@ export const learnDocsRoutes: DocsRoute[] = [
         title: 'Composing an env',
         description: 'Extend existing envs to create your unique workflow.',
         component: <ExtendingEnv />,
+      },
+      {
+        path: 'env-services',
+        title: 'Env services',
+        component: <EnvsServices />,
       },
     ],
   },

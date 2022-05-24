@@ -13,9 +13,8 @@ const components = [
         <div>
           ********************************************************************************************************************************************************
         </div>
-        Here is the place to explain why this component was chosen to be the
-        first one you add, and what is the responsibility of this component.
-        Keep it short and to the point!
+        Here is the place to explain why this component was chosen to be the first one you add, and what is the
+        responsibility of this component. Keep it short and to the point!
         <div>
           ********************************************************************************************************************************************************
         </div>
@@ -34,9 +33,8 @@ const intro = (
       *******************************************************************************************************************************************
     </div>
     <p>
-      You can add intro text here, as a string, or in a separate mdx file. If
-      you don't add your own intro, there is a default intro for Bit
-      quick-starts
+      You can add intro text here, as a string, or in a separate mdx file. If you don't add your own intro, there is a
+      default intro for Bit quick-starts
     </p>
     <div>
       *******************************************************************************************************************************************
@@ -49,10 +47,7 @@ const beforeThinkingText = (
     <div>
       *******************************************************************************************************************************************
     </div>
-    <p>
-      Here is another piece of customizable text that you can edit, to talk
-      about the specific components you chose
-    </p>
+    <p>Here is another piece of customizable text that you can edit, to talk about the specific components you chose</p>
     <div>
       *******************************************************************************************************************************************
     </div>
