@@ -1,7 +1,7 @@
 /**
  * this is the main configuration file of your bit workspace.
  * for full documentation, please see: https://harmony-docs.bit.dev/workspace/configurations
- **/ {
+ **/{
   "$schema": "https://static.bit.dev/teambit/schemas/schema.json",
   /**
    * main configuration of the Bit workspace.
@@ -169,6 +169,8 @@
         "@types/history": "^4.0.0",
         "@types/loadable__component": "5.13.4",
         "@types/lodash.flatten": "4.4.7",
+        "@types/react": "17.0.8",
+        "@types/react-dom": "17.0.5",
         "@types/react-helmet": "6.1.2",
         "@types/ua-parser-js": "0.7.36",
         "@types/url-join": "4.0.1",
