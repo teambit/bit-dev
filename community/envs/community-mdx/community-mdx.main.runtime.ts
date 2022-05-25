@@ -62,8 +62,9 @@ export class CommunityMdxMain {
               },
               {
                 name: 'graphql',
-                version: '^14.3.0',
-                supportedRange: '^14.3.0',
+                // align to @apollo/client version
+                version: '16.0.1',
+                supportedRange: '^16.0.0',
               },
               {
                 name: '@apollo/client',

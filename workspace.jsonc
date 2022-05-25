@@ -189,8 +189,7 @@
         "eslint-plugin-react": "7.22.0",
         "eslint-plugin-react-hooks": "4.2.0",
         "favicons": "7.0.0-beta.3",
-        "graphql": "14.7.0",
-        "graphql-tag": "2.12.6",
+        "graphql": "16.0.1",
         "history": "5.2.0",
         "lodash.compact": "3.0.1",
         "lodash.flatten": "4.4.0",
@@ -216,11 +215,16 @@
         "@apollo/client": "3.5.10",
         "@testing-library/react": "^12.1.5",
         "@testing-library/react-hooks": "^8.0.0",
-        "graphql": "^14.3.0",
+        "graphql": "^16.0.0",
         "react": "^17.0.0",
         "react-dom": "^17.0.0",
         "react-router-dom": "^6.0.0"
       }
+    },
+    // TODO! temp, will tag these components specifically
+    "overrides": {
+      "@teambit/analytics.timeseries>graphql": "16.0.1",
+      "@teambit/graph.hooks.use-relation-graph>graphql": "16.0.1"
     },
     "packageManagerArgs": [],
     "devFilePatterns": [
