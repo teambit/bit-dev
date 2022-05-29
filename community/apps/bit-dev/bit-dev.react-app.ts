@@ -18,7 +18,6 @@ export const BitDevApp: ReactAppOptions = {
     routes: [
       '/',
       '/aspects',
-      '/docs',
       '/docs/thinking-in-components',
       '/docs/quick-start',
       '/docs/quick-start/wiki',
