@@ -5,7 +5,8 @@ import { EnvsAspect, EnvsMain } from '@teambit/envs';
 import { CommunityReactAspect } from './community-react.aspect';
 import { myReactTemplate } from './templates/my-react-template';
 import { myEntityTemplate } from './templates/my-entity-template';
-import { transformTsConfig } from './typescript/transform-tsconfig';
+// import { transformTsConfig } from './typescript/transform-tsconfig';
+import { CommunityReactEnv } from './community-react.env';
 
 // import { previewConfigTransformer, devServerConfigTransformer } from './webpack/webpack-transformers';
 
@@ -25,10 +26,11 @@ export class CommunityReactMain {
 
   static async provider([react, envs, generator]: [ReactMain, EnvsMain, GeneratorMain]) {
     const { devDependencies, dependencies }: any = react.env.getDependencies();
-    const deps = {
-      'core-js': dependencies['core-js'],
-    };
-    const templatesReactEnv = envs.compose(react.reactEnv, [
+
+    const basicCommunityReact = envs.merge(new CommunityReactEnv(react.reactEnv), react.reactEnv);
+
+    // TODO - move all this config to community-react.env.ts
+    const communityReactEnv = envs.compose(basicCommunityReact, [
       envs.override({
         getPreviewConfig: () => {
           return {
@@ -41,7 +43,7 @@ export class CommunityReactMain {
       envs.override({
         getDependencies: () => {
           return {
-            dependencies: deps,
+            dependencies,
             devDependencies,
             peers: [
               {
@@ -84,21 +86,21 @@ export class CommunityReactMain {
         },
       }),
 
-      /**
-       * Uncomment to override the config files for TypeScript, Webpack or Jest.
-       * Your config gets merged with the defaults.
-       */
-      react.useTypescript({
-        devConfig: [transformTsConfig],
-        buildConfig: [transformTsConfig],
-      }),
+      // /**
+      //  * Uncomment to override the config files for TypeScript, Webpack or Jest.
+      //  * Your config gets merged with the defaults.
+      //  */
+      // react.useTypescript({
+      //   devConfig: [transformTsConfig],
+      //   buildConfig: [transformTsConfig],
+      // }),
 
       // react.useWebpack({
       //   previewConfig: [previewConfigTransformer],
       //   devServerConfig: [devServerConfigTransformer],
       // }),
 
-      react.overrideJestConfig(require.resolve('./jest/jest.config')),
+      // react.overrideJestConfig(require.resolve('./jest/jest.config')),
 
       /**
        * override the ESLint default config here then check your files for lint errors
@@ -155,11 +157,11 @@ export class CommunityReactMain {
       // }),
     ]) as ReactEnv;
 
-    envs.registerEnv(templatesReactEnv);
+    envs.registerEnv(communityReactEnv);
 
     generator.registerComponentTemplate([myReactTemplate, myEntityTemplate]);
 
-    return new CommunityReactMain(templatesReactEnv);
+    return new CommunityReactMain(communityReactEnv);
   }
 }
 
