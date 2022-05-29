@@ -69,7 +69,7 @@
     },
     "community/blog-quick-start": {
         "scope": "teambit.blog",
-        "version": "0.0.88",
+        "version": "0.0.89",
         "mainFile": "index.ts",
         "rootDir": "blog/community/blog-quick-start"
     },
