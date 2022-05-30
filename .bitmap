@@ -1460,9 +1460,15 @@
     },
     "ui/community-docs": {
         "scope": "teambit.docs",
-        "version": "1.95.43",
+        "version": "1.95.44",
         "mainFile": "index.ts",
-        "rootDir": "docs/ui/community-docs"
+        "rootDir": "docs/ui/community-docs",
+        "config": {
+            "teambit.community/envs/community-react": {},
+            "teambit.envs/envs": {
+                "env": "teambit.community/envs/community-react"
+            }
+        }
     },
     "ui/community-highlighter": {
         "scope": "teambit.community",
