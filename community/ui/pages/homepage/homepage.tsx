@@ -34,7 +34,7 @@ const distributionComponents = componentsMock();
 
 export function Homepage({ ...rest }: HomepageProps) {
   return (
-    <Page title="Component driven development - Bit" description={pageDescription} {...rest}>
+    <Page title="Bit - Component driven development" description={pageDescription} {...rest}>
       <section>
         <div className={styles.grid}>
           <Hero bubbles={bubbles} {...excludeHighlighterAtt} />
