@@ -11,7 +11,7 @@
 {
     "apps/bit-dev": {
         "scope": "teambit.community",
-        "version": "1.95.53",
+        "version": "1.95.54",
         "mainFile": "index.ts",
         "rootDir": "community/apps/bit-dev"
     },
@@ -1318,7 +1318,7 @@
     },
     "pages/page": {
         "scope": "teambit.base-react",
-        "version": "1.95.13",
+        "version": "1.95.14",
         "mainFile": "index.ts",
         "rootDir": "base-react/pages/page"
     },
@@ -1342,7 +1342,7 @@
     },
     "plugins/next-page": {
         "scope": "teambit.docs",
-        "version": "1.95.33",
+        "version": "1.95.34",
         "mainFile": "index.ts",
         "rootDir": "docs/plugins/next-page"
     },
@@ -1462,7 +1462,7 @@
     },
     "ui/community-docs": {
         "scope": "teambit.docs",
-        "version": "1.95.45",
+        "version": "1.95.46",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/community-docs"
     },
@@ -1504,7 +1504,7 @@
     },
     "ui/docs": {
         "scope": "teambit.docs",
-        "version": "1.95.30",
+        "version": "1.95.31",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/docs"
     },
@@ -1696,7 +1696,7 @@
     },
     "ui/mocks/bit-dev": {
         "scope": "teambit.community",
-        "version": "1.95.37",
+        "version": "1.95.38",
         "mainFile": "index.ts",
         "rootDir": "community/ui/mocks/bit-dev"
     },
@@ -1732,7 +1732,7 @@
     },
     "ui/pages/doc-page": {
         "scope": "teambit.docs",
-        "version": "1.95.28",
+        "version": "1.95.29",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/pages/doc-page"
     },
@@ -1744,25 +1744,25 @@
     },
     "ui/pages/guides": {
         "scope": "teambit.docs",
-        "version": "1.95.30",
+        "version": "1.95.31",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/pages/guides"
     },
     "ui/pages/homepage": {
         "scope": "teambit.community",
-        "version": "1.95.36",
+        "version": "1.95.37",
         "mainFile": "index.ts",
         "rootDir": "community/ui/pages/homepage"
     },
     "ui/pages/page": {
         "scope": "teambit.community",
-        "version": "1.95.14",
+        "version": "1.95.15",
         "mainFile": "index.ts",
         "rootDir": "community/community/ui/pages/page"
     },
     "ui/pages/plugins": {
         "scope": "teambit.community",
-        "version": "1.95.28",
+        "version": "1.95.29",
         "mainFile": "index.ts",
         "rootDir": "community/ui/pages/plugins"
     },
