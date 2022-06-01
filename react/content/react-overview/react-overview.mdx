@@ -4,23 +4,37 @@ import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-
 
 <ComponentCardDisplay componentIds={['teambit.react/react']} style={{ float: 'left', margin: 20, maxWidth: 250 }} />
 
-`teambit.react/react` is a pre-built [Env](/envs/envs-overview) for building components and apps with React.
+`teambit.react/react` is a the official [Env](/envs/envs-overview) for building components and apps with React.
 It enables you to quickly set up a dev environment that follows best practices for React component development.
 
 React can also be used as a good starting point for your own customized Env as it provides a comprehensive API that makes it easy to extend.
 
 ## Using the React env
 
-To use React Env, apply it on the relevant [variants](/workspace/variants) (component selections) in your [Workspace config](/workspace/workspace-configuration):
+To use React Env, create a component using [one of its templates](/frameworks/react/react-overview#creating-components), or set it manually:
 
-```json title="workspace.jsonc"
-{
-  "teambit.workspace/variants": {
-    "{ui/**}": {
-      "teambit.react/react": {}
-    }
-  }
-}
+```bash
+bit env set COMPONENT_ID_PATTERN teambit.react/react
+```
+
+For example, the following sets the React env on the `ui/button` component:
+
+```bash
+bit env set ui/button teambit.react/react
+```
+
+You can also set React env on a _group of components_ by using a pattern that includes every component in that group. For example, the following sets React env on all components under the `ui` namespace:
+
+```bash
+bit env set "ui/**" teambit.react/react
+```
+
+The output lists all components set with the React Env:
+
+```bash
+added teambit.react/react env to the following component(s):
+my-org.my-scope/ui/button
+my-org.my-scope/ui/text
 ```
 
 ## Creating Components
@@ -40,10 +54,24 @@ bit templates
 - `react-component-js` a basic React component in JS.
 - `react-env` boilerplate for a customized environment configuration.
 
-Use any of these templates with the `bit create` command:
+Use any of these templates with the `bit create` command, run the following:
 
 ```bash
-bit create react ui/my-welcome
+bit create TEMPLATE_NAME COMPONENT_NAME
+```
+
+For example:
+
+```bash
+bit create react ui/button
+```
+
+The output confirms that a new component was created. Notice that this component is set, by its template, to use the React env:
+
+```bash
+my-org.my-scope/ui/button
+    location: my-scope/ui/button
+    env:      teambit.react/react (set by template)
 ```
 
 ## Development services and configurations

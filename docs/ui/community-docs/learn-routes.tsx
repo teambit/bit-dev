@@ -161,6 +161,7 @@ const InspectingEnv = lazy(() => import('@teambit/envs.content.inspecting-env'))
 const ExtendingEnv = lazy(() => import('@teambit/envs.content.extending-env'));
 const UsingEnvs = lazy(() => import('@teambit/envs.content.using-envs'));
 const EnvsConfig = lazy(() => import('@teambit/envs.docs.envs-config'));
+const EnvsServices = lazy(() => import('@teambit/envs.docs.env-services'));
 // const EnvsApi = lazy(() => import('@teambit/envs.content.envs-api'));
 
 /* Dependencies */
@@ -267,6 +268,7 @@ export const learnDocsRoutes: DocsRoute[] = [
           {
             path: 'component-links',
             title: 'Workspace component links',
+            description: 'Component Links make components in the workspace, consumable using an abolute path.',
             component: <WorkspaceLink />,
           },
           {
@@ -288,21 +290,25 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'workspace-overview',
         title: 'Workspace overview',
+        description: 'A development workspace for distributed, component-based software.',
         component: <WorkspaceOverview />,
       },
       {
         path: 'creating-workspaces',
         title: 'Creating workspaces',
+        description: 'Creating new workspaces or initializing a workspace on an existing project.',
         component: <CreatingWorkspaces />,
       },
       {
         path: 'creating-components',
         title: 'Creating components',
+        description: 'Creating components using pre-configred tempaltes.',
         component: <CreateComponents />,
       },
       {
         path: 'tracking-components',
         title: 'Tracking components',
+        description: 'Tracking directories as Components.',
         component: <TrackComponents />,
       },
       {
@@ -315,12 +321,13 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'moving-components',
         title: 'Moving components',
-        description: 'To move a component you can use the bit move command.',
+        description: 'Moving a component from one directory to another.',
         component: <MovingComponents />,
       },
       {
         path: 'workspace-json',
         component: <WorkspaceConfiguration />,
+        description: 'The main configuration file for the workspace and its components.',
         title: 'workspace.json',
       },
       {
@@ -332,6 +339,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'configuring-remote-scopes',
         title: 'Configuring remote scopes',
+        description: 'Setting components with a remote scope (to be exported to).',
         component: <ConfiguringRemoteScopes />,
       },
     ],
@@ -361,7 +369,7 @@ export const learnDocsRoutes: DocsRoute[] = [
           {
             path: 'component-anatomy',
             title: 'Anatomy overview',
-            description: 'How Bit manages all data on a component.',
+            description: 'The types of data stored in a component.',
             component: <ComponentAnatomy />,
           },
           {
@@ -374,17 +382,21 @@ export const learnDocsRoutes: DocsRoute[] = [
           {
             path: 'component-json',
             title: 'component.json',
+            description:
+              'The component.jsonc file enables you to set component configurations directly on a component.',
             component: <ComponentJson />,
           },
           {
             path: 'component-metadata',
             title: 'Component metadata',
+            description:
+              "A Component's metadata consists of the aspects it uses and the information each of them generates.",
             component: <Metadata />,
           },
           {
             path: 'component-main-file',
             title: 'Main file',
-            description: 'Main file exposes the Component API.',
+            description: "A component's main file exposes an API for other components to use",
             component: <MainFile />,
           },
           {
@@ -425,6 +437,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'inspecting-components',
         title: 'Inspecting components',
+        description: "Different ways to inspect components using Bit's CLI and UI",
         component: <InspectingComponents />,
       },
       {
@@ -460,22 +473,26 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         title: 'Renaming components',
         path: 'renaming-components',
+        description: 'Rename a new or versioned component.',
         component: <RenamingComponents />,
       },
       {
         title: 'Merging changes',
         path: 'merging-changes',
+        description: 'Merging component changes',
         component: <MergingComponentVersions />,
       },
       {
         path: 'removing-components',
         title: 'Deprecating and removing',
-        description: 'Mark components as irrelevant or obsolete..',
+        description: 'Mark components as irrelevant or obsolete.',
         component: <RemovingDeprecating />,
       },
       {
         path: 'component-config',
         title: 'Component configuration',
+        description:
+          'Component configuration is a composition of different Aspects, where each aspect defines a set of attributes and behaviors',
         component: <ComponentConfig />,
       },
     ],
@@ -487,6 +504,7 @@ export const learnDocsRoutes: DocsRoute[] = [
     icon: 'dependencies-icn',
     config: {
       path: 'dependencies-config',
+      description: 'Dependency resolver aspect configuration',
       title: 'Dependencies Configuration',
       component: <DependenciesConfiguration />,
     },
@@ -521,7 +539,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'inspecting-dependencies',
         title: 'Inspecting dependencies',
-        description: 'See your component dependencies',
+        description: 'View your component dependencies',
         component: <InspectingDependencies />,
       },
       // {
@@ -557,6 +575,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'cyclic-dependencies',
         title: 'Cyclic dependencies',
+        description: 'A cyclic / circular dependency occurs when components depend on each other to function properly.',
         component: <CyclicDependencies />,
       },
       // {
@@ -578,7 +597,8 @@ export const learnDocsRoutes: DocsRoute[] = [
         path: 'lanes-overview',
         title: 'Lanes overview',
         component: <LanesOverview />,
-        description: 'Lanes allow change management for component driven software.',
+        description:
+          'Lanes allow to collaborate on changes across multiple components without interfering with the main development course.',
       },
       {
         path: 'create-lane',
@@ -652,7 +672,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'scope-overview',
         title: 'Scope overview',
-        description: 'Scope is a server for hosting components.',
+        description: 'Scope is a collaboration server for components.',
         component: <ScopeOverview />,
       },
       {
@@ -670,11 +690,13 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'configure-scopes',
         title: 'Configure scopes',
+        description: 'Configure the scope name and remotes',
         component: <ScopeJson />,
       },
       {
         path: 'running-a-scope-server',
         title: 'Hosting scopes',
+        description: 'How to host scopes on you own server.',
         component: <HostingScopes />,
       },
       {
@@ -704,17 +726,19 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'envs-overview',
         title: 'Envs overview',
+        description: 'Envs are reusable development environments for components.',
         component: <EnvsOverview />,
       },
       {
         path: 'using-envs',
         title: 'Using envs',
+        description: 'How to configure components to use an env.',
         component: <UsingEnvs />,
       },
       {
         path: 'inspecting-env',
         title: 'Inspecting an env',
-        description: '',
+        description: "Inspects an env's build pipelines, compiler, tester and more.",
         component: <InspectingEnv />,
       },
       {
@@ -722,6 +746,11 @@ export const learnDocsRoutes: DocsRoute[] = [
         title: 'Composing an env',
         description: 'Extend existing envs to create your unique workflow.',
         component: <ExtendingEnv />,
+      },
+      {
+        path: 'env-services',
+        title: 'Env services',
+        component: <EnvsServices />,
       },
     ],
   },
@@ -759,6 +788,7 @@ export const learnDocsRoutes: DocsRoute[] = [
           {
             path: 'using-build-tasks',
             title: 'Using build tasks',
+            description: 'Use a build task in via an env or an aspect.',
             component: <UsingBuildTask />,
           },
           {
@@ -786,16 +816,19 @@ export const learnDocsRoutes: DocsRoute[] = [
           {
             path: 'generator-overview',
             title: 'Generator Overview',
+            description: 'Enable the generation new components and workspaces using templates.',
             component: <GeneratorOverview />,
           },
           {
             path: 'generate-component',
             title: 'Create component generator',
+            description: 'How to create and use a custom component generator.',
             component: <GenerateComponent />,
           },
           {
             path: 'generate-workspace',
             title: 'Create workspace generator',
+            description: 'How to create and use a custom workspace generator.',
             component: <GenerateWorkspace />,
           },
         ],
@@ -815,6 +848,7 @@ export const learnDocsRoutes: DocsRoute[] = [
           {
             path: 'compiling-during-development',
             title: 'Compiling during development',
+            description: 'Compiling in the workspace',
             component: <CompilingDuringDevelopment />,
           },
           // {
@@ -882,11 +916,13 @@ export const learnDocsRoutes: DocsRoute[] = [
           {
             path: 'configure-env-with-tester',
             title: 'Configure an env with a tester',
+            description: 'Replace or add a tester to an custom env.',
             component: <ConfigureEnvWithTester />,
           },
           {
             path: 'implement-tester',
             title: 'Implement a tester',
+            description: 'Create your own custom tester',
             component: <ImplementTester />,
           },
         ],
@@ -1103,6 +1139,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'create-app',
         title: 'Creating an app',
+        description: 'An app is a deployable Component that is consumable in runtime.',
         component: <CreateApp />,
       },
       {
@@ -1113,21 +1150,27 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'app-build',
         title: 'App build',
+        description: 'An app component has an additional build task added to its build pipeline.',
         component: <AppBuild />,
       },
       {
         path: 'app-deployment',
         title: 'App deployment',
+        description:
+          "An app component has an additional build task added to its tag and snap pipelines. This build task is set by it's app-type and is responsible for deploying its artifacts.",
         component: <AppDeployment />,
       },
       {
         path: 'application-types',
         title: 'Application types',
+        description: 'Application types enable components to be built, served and deployed',
         component: <AppTypes />,
       },
       {
         path: 'application-plugins',
         title: 'Application plugins',
+        description:
+          "An app plugin file, located inside a component's directory, defines a component as an 'app' of a certain type.",
         component: <AppPlugins />,
       },
     ],
@@ -1159,7 +1202,7 @@ export const learnDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'managing-package-json',
-        title: 'Managing the package.json',
+        title: "Manage your components' package.json",
         component: <ManagingPackageJson />,
       },
       {
@@ -1186,6 +1229,8 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'build-tasks',
         title: 'Build tasks',
+        description:
+          'The PKG Aspect registers Build Tasks to the Snap and Tag pipelines, to perform packaging and publishing operation',
         component: <PkgBuildTasks />,
       },
       {
@@ -1472,17 +1517,20 @@ export const learnDocsRoutes: DocsRoute[] = [
       {
         path: 'clearing-cache',
         title: 'Clearing cache',
+        description: 'Clear the workspace and global cache',
         component: <ClearingCache />,
       },
       {
         path: 'cli-reference',
         title: 'CLI Reference',
+        description: "All CLI commands of Bit's core aspects",
         component: <CliReference />,
         // icon: 'terminal',
       },
       {
         path: 'using-bvm',
         title: 'Using BVM',
+        description: "How to use and troubleshoot Bit's version manager",
         component: <UsingBVM />,
         // icon: 'terminal',
       },

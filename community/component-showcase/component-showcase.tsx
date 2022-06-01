@@ -1,14 +1,18 @@
 import React, { ReactNode } from 'react';
+import { ApolloProvider } from '@apollo/client';
 // import { ComponentCard } from '@teambit/explorer.ui.component-card';
 // import { RelationsGraph } from '@teambit/graph.relations-graph';
+import { ellipsis } from '@teambit/design.ui.styles.ellipsis';
 import { PreviewPlugin } from '@teambit/explorer.plugins.preview-plugin';
 import { ComponentID } from '@teambit/component-id';
 import { ComponentDescriptor, AspectList } from '@teambit/component-descriptor';
+import { Code, CodeProps } from '@teambit/code.code';
 import classNames from 'classnames';
 import { Link } from '@teambit/base-react.navigation.link';
-import { GraphIcon } from './graph-icon';
+// import { GraphIcon } from './graph-icon';
 import { CodeIcon } from './code-icon';
 import { PreviewIcon } from './preview-icon';
+import { useScope, client as scopeClient } from './code';
 import styles from './component-showcase.module.scss';
 
 export type ComponentShowcaseProps = {
@@ -31,34 +35,37 @@ export function ComponentShowcase({ componentId, preview, className, ...rest }: 
   const component = new ComponentDescriptor(id as any, {} as AspectList);
 
   return (
-    <div className={classNames(styles.container, className)} {...rest}>
+    <div className={classNames(className)} {...rest}>
       <div className={styles.tab}>
         <Link external href={computeLink(id)} className={styles.componentId}>
-          {componentId}
+          <span className={ellipsis}>{componentId}</span>
         </Link>
-        <span
-          className={classNames(styles.tabLinks, selectedTab === 'preview' && styles.active)}
-          onClick={() => setSelectedTab('preview')}
-        >
-          <PreviewIcon /> Preview
-        </span>
-        {/* <span
+        <div className={styles.showcaseTabs}>
+          <span
+            className={classNames(styles.tabLinks, selectedTab === 'preview' && styles.active)}
+            onClick={() => setSelectedTab('preview')}
+          >
+            <PreviewIcon /> <span>Preview</span>
+          </span>
+          {/* <span
           className={classNames(styles.tabLinks, selectedTab === 'graph' && styles.active)}
           onClick={() => setSelectedTab('graph')}
-        >
+          >
           <GraphIcon /> Graph
-        </span>
-        <span
-          className={classNames(styles.tabLinks, selectedTab === 'code' && styles.active)}
-          onClick={() => setSelectedTab('code')}
-        >
-          <CodeIcon /> Code
         </span> */}
+          <span
+            className={classNames(styles.tabLinks, selectedTab === 'code' && styles.active)}
+            onClick={() => setSelectedTab('code')}
+          >
+            <CodeIcon /> <span>Code</span>
+          </span>
+        </div>
       </div>
 
       <div className={styles.tabContent}>
-        {/* @ts-ignore - update ComponentDescriptor in preview-plugin */}
-        {selectedTab === 'preview' && (preview || <PreviewPlugin component={component} style={{ height: 500 }} />)}
+        {/* @ts-ignore */}
+        {selectedTab === 'preview' && (preview || <PreviewPlugin component={component} />)}
+        {selectedTab === 'code' && <CodeTab component={component} className={styles.showcaseCodeTab} />}
         {/* {selectedTab === "graph" && <RelationsGraph seeders={[component]} />} */}
       </div>
     </div>
@@ -71,4 +78,15 @@ function computeLink(id: ComponentID) {
   const [owner, scope] = id.scope.split('.');
 
   return [baseUrl, owner, scope, id.fullName].join('/');
+}
+
+export function CodeTab({ component, ...rest }: CodeProps) {
+  // TODO - find a better way to resolve scope hash?
+  const scope = useScope(component?.scope);
+  const client = scopeClient(scope);
+  return (
+    <ApolloProvider client={client}>
+      <Code component={component} {...rest} />
+    </ApolloProvider>
+  );
 }

@@ -1,0 +1,17 @@
+
+.node {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 8px;
+}
+
+.nodeTitle {
+    min-width: 0;
+}
+
+.icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+}

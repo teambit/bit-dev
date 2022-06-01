@@ -1,11 +1,16 @@
-@use '~@teambit/design.responsive.breakpoints/_breakpoints.module.scss';
+@use "~@teambit/design.responsive.breakpoints/_breakpoints.module.scss";
 
 .header {
   width: 100%;
   height: 40px;
   display: flex;
   font-size: 14px;
-  border-bottom: 1px solid var(--bit-border-color-lightest, #ededed);
+  border-bottom: 1px solid var(--border-medium-color, #ededed);
+
+  --header-spacing: 1em;
+  @include breakpoints.media-md {
+    --header-spacing: 0.5em;
+  }
 }
 
 .headerContent {
@@ -14,25 +19,25 @@
   justify-content: space-between;
 }
 
-.right {
+.widgets {
   display: flex;
-  align-items: center;
-  font-size: var(--bit-p-xs, 14px);
-  > *:not(:last-child) {
-    font-size: inherit;
-    margin-right: 8px;
-  }
-  a {
-    display: inline-flex;
-  }
-  @include breakpoints.media-sm {
-    display: none;
-  }
+  align-items: baseline;
+  gap: 8px;
 }
 
-.linkMenu {
-  > a {
-    margin-right: 24px;
+.plugins {
+  display: flex;
+  align-items: center;
+  margin-left: var(--header-spacing, 24px);
+
+  gap: 0.5em;
+  font-size: inherit;
+}
+
+.widgets,
+.plugins {
+  @include breakpoints.media-sm {
+    display: none;
   }
 }
 
@@ -43,16 +48,9 @@
   height: 100%;
 }
 
-.logo {
-  margin-right: 32px;
+.logoLink {
+  // added to center correctly
+  height: 24px; // same as logo
+  margin-right: var(--header-spacing, 24px);
   display: inline-flex;
-}
-
-.inspect {
-  display: flex;
-  align-items: center;
-  > span {
-    margin-right: 4px;
-  }
-  padding-left: 24px;
 }

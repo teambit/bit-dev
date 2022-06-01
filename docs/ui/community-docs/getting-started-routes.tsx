@@ -8,6 +8,8 @@ const UseDependencies = lazy(() => import('@teambit/docs.content.getting-started
 const CreateWorkspace = lazy(() => import('@teambit/docs.content.getting-started.create-workspace'));
 const CreateComponents = lazy(() => import('@teambit/community.content.getting-started.composing.create-components'));
 
+const UseApps = lazy(() => import('@teambit/docs.docs.getting-started.use-apps'));
+
 const InstallingBit = lazy(() => import('@teambit/docs.content.getting-started.installing-bit'));
 
 // const NamingComponents = loadable(() => import('@teambit/docs.content.getting-started.version-components'));
@@ -124,6 +126,12 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
         description:
           'Component development is simplified and standardized using Component Development Environments (or envs in short). An env is a compositions of several Services.',
         component: <DevEnvs />,
+      },
+      {
+        path: 'use-apps',
+        title: 'Use apps',
+        description: '',
+        component: <UseApps />,
       },
       // {
       //   path: 'first-app',

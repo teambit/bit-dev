@@ -3,7 +3,7 @@ import { MemoryRouter, UNSAFE_LocationContext } from 'react-router-dom';
 import { wideColumn } from '@teambit/base-ui.layout.page-frame';
 import { ComponentCardGroup } from '@teambit/explorer.ui.gallery.component-card-group';
 import { Subtitle } from '@teambit/docs.ui.subtitle';
-import { TopInventions } from '@learnbit/inventions.blocks.top-inventions';
+// import { TopInventions } from '@learnbit/inventions.blocks.top-inventions';
 import { BubbleHighlighter } from '@teambit/community.ui.bubble-highlighter';
 import { ExcludeHighlighter } from '@teambit/react.ui.component-highlighter';
 import { WhatIsBit } from '@teambit/bit.content.what-is-bit';
@@ -36,7 +36,10 @@ In this example, we will use the components built for this documentation app.
 
 <!-- Here is an example of what you will get: -->
 
-<ComponentShowcase className={wideColumn} componentId="teambit.wiki/apps/wiki@1.90.3" />
+<ComponentShowcase
+  className={wideColumn}
+  componentId="teambit.wiki/apps/wiki@1.90.3"
+/>
 
 <!-- stronger understanding for bottom-up thinking early on -->
 
