@@ -133,7 +133,7 @@
         "@teambit/documenter.ui.label": "^4.0.7",
         "@teambit/documenter.ui.paragraph": "4.1.5",
         "@teambit/documenter.ui.sub-title": "^4.1.5",
-        "@teambit/dot-scopes.ui.scope-card": "0.0.13",
+        "@teambit/dot-scopes.ui.scope-card": "0.0.16",
         "@teambit/evangelist.surfaces.tooltip": "^1.0.2",
         "@teambit/explorer.plugins.preview-plugin": "0.0.10",
         "@teambit/explorer.ui.command-bar": "1.1.0",
