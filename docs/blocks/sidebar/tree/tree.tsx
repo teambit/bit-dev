@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import classNames from 'classnames';
 import { TreeNodeContext } from '@teambit/base-ui.graph.tree.recursive-tree';
 import { TreeContextProvider } from '@teambit/base-ui.graph.tree.tree-context';
@@ -18,19 +18,9 @@ export function Tree({ displayTitle, tree, className, ...rest }: TreeProps) {
   const links = tree && tree.children;
   if (!links || links.length === 0) return null;
   const [active, setToActive] = useState(tree.id);
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    if (ref.current) {
-      ref.current.scrollIntoView({ behavior: 'auto', block: 'start' });
-    }
-  }, []);
+
   return (
-    <div
-      ref={ref}
-      style={{ ...indentStyle(0), ...rest.style }}
-      className={classNames(styles.tree, className)}
-      {...rest}
-    >
+    <div style={{ ...indentStyle(0), ...rest.style }} className={classNames(styles.tree, className)} {...rest}>
       {displayTitle && <span className={styles.sidebarTitle}>{displayTitle}</span>}
       <TreeNodeContext.Provider value={SidebarNode}>
         <TreeContextProvider onSelect={(id) => setToActive(id)} selected={active}>

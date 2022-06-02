@@ -25,12 +25,12 @@ export function ThinkingProcess({ components }: ThinkingProcessProps) {
               <div className={styles.step}>
                 <div className={styles.margin}>{component.intro}</div>
                 <div className={styles.margin}>You can either fork the component.</div>
-                <CodeSnippet language="bash">{`bit fork ${id.toString()}`}</CodeSnippet>
+                <CodeSnippet language="bash">{`bit fork ${id.toString({ ignoreVersion: true })}`}</CodeSnippet>
                 <div className={styles.margin}>
                   After forking, please make sure `import` statements point to the component of your choice and change
-                  as needed. <br /> Alternatively, create a new component and use the code from the component below as a
-                  reference!
-                  <CodeSnippet language="bash">{`bit create react ${id.fullName}`}</CodeSnippet>
+                  as needed. <br />
+                  Alternatively, create a new component, and use the code from the component below as a reference!
+                  <CodeSnippet language="bash">{`# ..or create it yourself\nbit create react ${id.fullName}`}</CodeSnippet>
                 </div>
                 {/* make sure react is not hardcoded (support in API) and make sure we have more quick starts */}
                 <div className={styles.margin}>{component.ending}</div>

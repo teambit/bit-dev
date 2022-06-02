@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, createRef } from 'react';
 import classnames from 'classnames';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { lazy } from '@loadable/component';
@@ -12,6 +12,7 @@ import { wideColumn, centerColumn } from '@teambit/base-ui.layout.page-frame';
 import { Footer, footerMock } from '@teambit/community.ui.footer.footer';
 import { AppContext } from './app-context';
 import { CommandBar } from './command-bar';
+import { ScrollToTop } from './scroll-to-top';
 
 import styles from './app.module.scss';
 import layout from './layout.module.scss';
@@ -23,14 +24,17 @@ const Plugins = lazy(() => import('@teambit/community.ui.pages.plugins'));
 const headerWidgets = [<CommandBar key="command-bar" routes={totalRoutes} />];
 
 export function BitDevApp() {
+  const ref = createRef<HTMLDivElement>();
+
   return (
     <AppContext>
       <div className={classnames(styles.app, layout.container)}>
         <StickyBanner className={layout.sticky} {...excludeHighlighterAtt} />
         <Header className={layout.sticky} plugins={headerWidgets} />
 
+        <ScrollToTop target={ref} />
         <div className={layout.stretch}>
-          <div className={layout.scrollContainer}>
+          <div className={layout.scrollContainer} ref={ref}>
             <Pages />
             <Footer className={centerColumn} categoryList={footerMock} />
           </div>

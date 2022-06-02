@@ -8,7 +8,7 @@ export const cardsMock = [
         inactiveSrc: 'https://static.bit.dev/extensions-icons/react_grey.svg',
         alt: 'React',
         href: '/',
-        componentId: 'teambit.wiki/apps/wiki@1.90.9',
+        componentId: 'teambit.wiki/apps/wiki@1.90.20',
       },
     ],
   },

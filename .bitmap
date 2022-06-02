@@ -35,7 +35,7 @@
     },
     "blocks/sidebar": {
         "scope": "teambit.docs",
-        "version": "1.95.22",
+        "version": "1.95.23",
         "mainFile": "index.ts",
         "rootDir": "docs/blocks/sidebar"
     },
@@ -1504,7 +1504,7 @@
     },
     "ui/docs": {
         "scope": "teambit.docs",
-        "version": "1.95.33",
+        "version": "1.96.1",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/docs"
     },
@@ -1726,13 +1726,13 @@
     },
     "ui/navigation/table-of-content": {
         "scope": "teambit.docs",
-        "version": "1.95.14",
+        "version": "1.96.0",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/navigation/table-of-content"
     },
     "ui/pages/doc-page": {
         "scope": "teambit.docs",
-        "version": "1.95.31",
+        "version": "1.96.0",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/pages/doc-page"
     },
