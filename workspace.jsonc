@@ -79,7 +79,7 @@
         "@teambit/base-ui.surfaces.split-pane.hover-splitter": "1.0.0",
         "@teambit/base-ui.surfaces.split-pane.split-pane": "1.0.0",
         "@teambit/base-ui.text.paragraph": "^1.0.3",
-        "@teambit/blog.starter.starter-blog": "0.0.57",
+        "@teambit/blog.starter.starter-blog": "0.0.58",
         "@teambit/cloud-providers.deployers.netlify": "0.0.8",
         "@teambit/cloud.cloud-provider": "0.0.39",
         "@teambit/code.ui.dependency-tree": "0.0.508",
