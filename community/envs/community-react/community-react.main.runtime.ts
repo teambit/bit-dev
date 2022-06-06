@@ -9,13 +9,7 @@ import { CommunityReactAspect } from './community-react.aspect';
 import { myReactTemplate } from './templates/my-react-template';
 import { myEntityTemplate } from './templates/my-entity-template';
 import { transformTsConfig } from './typescript/transform-tsconfig';
-import {
-  addGqlAliasTransformer, replaceGqlExposeTransformer,
-  // devServerConfigTransformer,
-  // previewConfigTransformer,
-} from './webpack/webpack-transformers';
-
-// import { previewConfigTransformer, devServerConfigTransformer } from './webpack/webpack-transformers';
+import { addGqlAliasTransformer } from './webpack/webpack-transformers';
 
 /**
  * Uncomment to include config files for overrides of Typescript or Webpack
@@ -37,18 +31,9 @@ export class CommunityReactMain {
       'core-js': dependencies['core-js'],
     };
     const templatesReactEnv = envs.compose(react.reactEnv, [
-      // react.useWebpack({
-      //   previewConfig: [previewConfigTransformer],
-      //   devServerConfig: [devServerConfigTransformer],
-      // }),
-
       envs.override({
         getTemplateBundler: (context: BundlerContext, transformers: WebpackConfigTransformer[] = []) => {
-          return aspect.aspectEnv.createTemplateWebpackBundler(context, [
-            replaceGqlExposeTransformer,
-            addGqlAliasTransformer,
-            ...transformers,
-          ]);
+          return aspect.aspectEnv.createTemplateWebpackBundler(context, [addGqlAliasTransformer, ...transformers]);
         },
         getDependencies: () => {
           return {
@@ -75,11 +60,11 @@ export class CommunityReactMain {
                 supportedRange: '^6.0.0',
                 version: '^6.0.0',
               },
-              {
-                name: 'graphql',
-                version: '^14.3.0',
-                supportedRange: '^14.3.0',
-              },
+              // {
+              //   name: 'graphql',
+              //   version: '^14.3.0',
+              //   supportedRange: '^14.3.0',
+              // },
               {
                 name: '@apollo/client',
                 version: '^3.5.10',
