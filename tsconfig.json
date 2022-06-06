@@ -9,5 +9,15 @@
     "noEmit": true,
     "strictPropertyInitialization": false,
     "noImplicitAny": false,
-  }
+    "esModuleInterop": true,
+  },
+  "include": [
+    "."
+  ],
+  "exclude": [
+    "public",
+    "./node_modules",
+    "**/node_modules/**",
+    "dist",
+  ]
 }

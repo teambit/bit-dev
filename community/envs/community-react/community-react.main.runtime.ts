@@ -1,11 +1,19 @@
 import { MainRuntime } from '@teambit/cli';
 import { ReactAspect, ReactMain, ReactEnv } from '@teambit/react';
 import { GeneratorMain, GeneratorAspect } from '@teambit/generator';
+import AspectAspect, { AspectMain } from '@teambit/aspect';
 import { EnvsAspect, EnvsMain } from '@teambit/envs';
+import { BundlerContext } from '@teambit/bundler';
+import { WebpackConfigTransformer } from '@teambit/webpack';
 import { CommunityReactAspect } from './community-react.aspect';
 import { myReactTemplate } from './templates/my-react-template';
 import { myEntityTemplate } from './templates/my-entity-template';
 import { transformTsConfig } from './typescript/transform-tsconfig';
+import {
+  addGqlAliasTransformer, replaceGqlExposeTransformer,
+  // devServerConfigTransformer,
+  // previewConfigTransformer,
+} from './webpack/webpack-transformers';
 
 // import { previewConfigTransformer, devServerConfigTransformer } from './webpack/webpack-transformers';
 
@@ -19,26 +27,29 @@ export class CommunityReactMain {
 
   static slots = [];
 
-  static dependencies = [ReactAspect, EnvsAspect, GeneratorAspect];
+  static dependencies = [ReactAspect, EnvsAspect, GeneratorAspect, AspectAspect];
 
   static runtime = MainRuntime;
 
-  static async provider([react, envs, generator]: [ReactMain, EnvsMain, GeneratorMain]) {
+  static async provider([react, envs, generator, aspect]: [ReactMain, EnvsMain, GeneratorMain, AspectMain]) {
     const { devDependencies, dependencies }: any = react.env.getDependencies();
     const deps = {
       'core-js': dependencies['core-js'],
     };
     const templatesReactEnv = envs.compose(react.reactEnv, [
-      envs.override({
-        getPreviewConfig: () => {
-          return {
-            strategyName: 'component',
-            splitComponentBundle: true,
-          };
-        },
-      }),
+      // react.useWebpack({
+      //   previewConfig: [previewConfigTransformer],
+      //   devServerConfig: [devServerConfigTransformer],
+      // }),
 
       envs.override({
+        getTemplateBundler: (context: BundlerContext, transformers: WebpackConfigTransformer[] = []) => {
+          return aspect.aspectEnv.createTemplateWebpackBundler(context, [
+            replaceGqlExposeTransformer,
+            addGqlAliasTransformer,
+            ...transformers,
+          ]);
+        },
         getDependencies: () => {
           return {
             dependencies: deps,

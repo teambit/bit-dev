@@ -22,7 +22,7 @@ export function DesignQuickStart({ children }: DesignQuickStartProps) {
         <div>
           As you start to build with components, remember - choosing the first component is an important step in the
           process. When choosing the first component, focus on choosing the most tangible component, the one you can
-          ideally use now. In this case, we start with building the design language showcase. To learn more about apps 
+          ideally use now. In this case, we start with building the design language showcase. To learn more about apps
           in Bit you can continue reading the Docs or skip to the Apps section.
         </div>
       ),

@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { ComponentID } from '@teambit/component-id';
 import { Dashboard } from '@teambit/analytics.examples.dashboard';
 import { QuickStart } from '@teambit/bit.quick-start';
-import Ending from './ending.mdx';
+// import Ending from './ending.mdx';
 import Intro from './intro.mdx';
 
 export type AnalyticsQuickStartProps = {

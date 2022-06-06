@@ -33,8 +33,11 @@ export function TableOfContent({ className, children, title, rootRef, selectors,
     if (elements.length === 0) return;
     loadedRef.current = true;
 
+    const hash = currentLocation?.hash;
+    if (!hash) return;
+
     // find anchor with matching href
-    const query = `a[href="${currentLocation?.hash || ''}"`;
+    const query = `a[href="${hash}"`;
     const el = containerRef?.current?.querySelector(query);
     el?.scrollIntoView();
   }, [elements]);

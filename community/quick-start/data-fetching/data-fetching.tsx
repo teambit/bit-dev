@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react';
 import { ComponentID } from '@teambit/component-id';
 import { BooksPage } from '@learn-bit-react/data-fetching.pages.books-page';
 import { QuickStart } from '@teambit/bit.quick-start';
-import Ending from './ending.mdx';
+// import Ending from './ending.mdx';
 import Intro from './intro.mdx';
 
 export type DataFetchingQuickStartProps = {
