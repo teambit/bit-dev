@@ -9,7 +9,7 @@ import { CommunityReactAspect } from './community-react.aspect';
 import { myReactTemplate } from './templates/my-react-template';
 import { myEntityTemplate } from './templates/my-entity-template';
 import { transformTsConfig } from './typescript/transform-tsconfig';
-import { addGqlAliasTransformer } from './webpack/webpack-transformers';
+import { addCustomAliases, customizeExposeLoaders } from './webpack/webpack-transformers';
 
 /**
  * Uncomment to include config files for overrides of Typescript or Webpack
@@ -33,7 +33,11 @@ export class CommunityReactMain {
     const templatesReactEnv = envs.compose(react.reactEnv, [
       envs.override({
         getTemplateBundler: (context: BundlerContext, transformers: WebpackConfigTransformer[] = []) => {
-          return aspect.aspectEnv.createTemplateWebpackBundler(context, [addGqlAliasTransformer, ...transformers]);
+          return aspect.aspectEnv.createTemplateWebpackBundler(context, [
+            addCustomAliases,
+            customizeExposeLoaders,
+            ...transformers,
+          ]);
         },
         getDependencies: () => {
           return {
