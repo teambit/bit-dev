@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { JSONPath } from 'jsonpath-plus';
 import { WebpackConfigTransformer, WebpackConfigMutator } from '@teambit/webpack';
 
@@ -11,13 +12,11 @@ const exposeGraphqlRulePath =
 export const customizeExposeLoaders: WebpackConfigTransformer = (config: WebpackConfigMutator) => {
   const apolloLoaders = JSONPath<{ test: string }[]>({ json: config.raw, path: exposeApolloRulePath });
   apolloLoaders.forEach((loader) => {
-    // eslint-disable-next-line no-param-reassign
     loader.test = require.resolve('@apollo/client');
   });
 
   const graphqlLoaders = JSONPath<{ test: string }[]>({ json: config.raw, path: exposeGraphqlRulePath });
   graphqlLoaders.forEach((loader) => {
-    // eslint-disable-next-line no-param-reassign
     loader.test = require.resolve('graphql');
   });
 
@@ -37,7 +36,6 @@ export const addCustomAliases: WebpackConfigTransformer = (config: WebpackConfig
     'graphql/utilities/getOperationAST$': require.resolve('graphql/utilities/getOperationAST'),
   };
 
-  // eslint-disable-next-line no-param-reassign
   config.raw.resolve = config.raw.resolve || {};
 
   // prepend aliases (so they will take effect before the built-in aliases)
