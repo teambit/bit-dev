@@ -71,7 +71,7 @@
     },
     "community/blog-quick-start": {
         "scope": "teambit.blog",
-        "version": "0.0.92",
+        "version": "0.0.95",
         "mainFile": "index.ts",
         "rootDir": "blog/community/blog-quick-start"
     },
@@ -742,7 +742,7 @@
     },
     "content/inspecting-env": {
         "scope": "teambit.envs",
-        "version": "1.95.16",
+        "version": "1.95.17",
         "mainFile": "index.ts",
         "rootDir": "envs/content/inspecting-env"
     },
@@ -999,7 +999,7 @@
     },
     "content/scope-bit-cloud": {
         "scope": "teambit.scope",
-        "version": "1.95.18",
+        "version": "1.95.19",
         "mainFile": "index.ts",
         "rootDir": "scope/content/scope-bit-cloud"
     },
@@ -1288,7 +1288,7 @@
     },
     "envs/community-react": {
         "scope": "teambit.community",
-        "version": "1.95.13",
+        "version": "1.95.14",
         "mainFile": "index.ts",
         "rootDir": "community/envs/community-react"
     },
@@ -1348,7 +1348,7 @@
     },
     "quick-start": {
         "scope": "teambit.bit",
-        "version": "0.0.44",
+        "version": "0.0.45",
         "mainFile": "index.ts",
         "rootDir": "bit/quick-start/quick-start"
     },
