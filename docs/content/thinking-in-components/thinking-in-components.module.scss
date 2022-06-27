@@ -23,4 +23,6 @@
 .wiki {
   // prevent absolute/fixed items from overflowing
   transform: translateZ(0);
+  height: 600px;
+  overflow: hidden;
 }
