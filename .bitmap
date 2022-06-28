@@ -573,7 +573,7 @@
     },
     "content/getting-started/installing-bit": {
         "scope": "teambit.docs",
-        "version": "1.95.24",
+        "version": "1493f744e2fa2c51d6cdaeed340af3bed46991d3",
         "mainFile": "index.ts",
         "rootDir": "docs/content/getting-started/installing-bit"
     },
@@ -1183,6 +1183,18 @@
         "mainFile": "index.ts",
         "rootDir": "envs/docs/envs-config"
     },
+    "docs/getting-started/create-components": {
+        "scope": "teambit.docs",
+        "version": "0.0.14",
+        "mainFile": "index.ts",
+        "rootDir": "docs/docs/getting-started/create-components"
+    },
+    "docs/getting-started/init-workspace": {
+        "scope": "teambit.docs",
+        "version": "0.0.11",
+        "mainFile": "index.ts",
+        "rootDir": "docs/docs/getting-started/init-workspace"
+    },
     "docs/getting-started/use-apps": {
         "scope": "teambit.docs",
         "version": "0.0.3",
@@ -1435,6 +1447,30 @@
         "version": "1.95.16",
         "mainFile": "index.ts",
         "rootDir": "base-react/theme/theme-provider"
+    },
+    "ui/bit-cli/commands-explorer": {
+        "scope": "teambit.community",
+        "version": "0.0.27",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/bit-cli/commands-explorer"
+    },
+    "ui/bit-cli/commands-provider": {
+        "scope": "teambit.community",
+        "version": "0.0.16",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/bit-cli/commands-provider"
+    },
+    "ui/bit-cli/terminal": {
+        "scope": "teambit.community",
+        "version": "0.0.10",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/bit-cli/terminal"
+    },
+    "ui/bit-show-explorer": {
+        "scope": "teambit.community",
+        "version": "0.0.11",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/bit-show-explorer"
     },
     "ui/brand/logo": {
         "scope": "teambit.design",

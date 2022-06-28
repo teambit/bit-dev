@@ -590,7 +590,7 @@ export const learnDocsRoutes: DocsRoute[] = [
   {
     path: 'lanes',
     open: false,
-    title: 'Lanes (Alpha)',
+    title: 'Lanes (alpha)',
     icon: 'Lanes2',
     children: [
       {

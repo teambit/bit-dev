@@ -6,7 +6,6 @@ import { InitializeWorkspace } from '@teambit/docs.docs.getting-started.init-wor
 
 const DevEnvs = lazy(() => import('@teambit/docs.content.getting-started.dev-envs'));
 const UseDependencies = lazy(() => import('@teambit/docs.content.getting-started.use-dependencies'));
-const CreateWorkspace = lazy(() => import('@teambit/docs.content.getting-started.create-workspace'));
 // const CreateComponents = lazy(() => import('@teambit/community.content.getting-started.composing.create-components'));
 
 const UseApps = lazy(() => import('@teambit/docs.docs.getting-started.use-apps'));
@@ -17,7 +16,6 @@ const InstallingBit = lazy(() => import('@teambit/docs.content.getting-started.i
 // const WhatIsScope = loadable(() => import('@teambit/docs.content.getting-started.what-is-scope'));
 // const HostBitCloud = loadable(() => import('@teambit/docs.content.getting-started.host-bit-cloud'));
 // const SelfHostScope = loadable(() => import('@teambit/docs.content.getting-started.self-host-scope'));
-const AddToExistingProject = lazy(() => import('@teambit/docs.content.installation.add-to-existing-project'));
 
 const InstallComponents = lazy(() => import('@teambit/docs.content.getting-started.install-components'));
 const ImportComponents = lazy(() => import('@teambit/docs.content.getting-started.import-components'));
@@ -41,7 +39,7 @@ const CreateComponents = lazy(() => import('@teambit/docs.docs.getting-started.c
 export const gettingStartedDocsRoutes: DocsRoute[] = [
   {
     path: 'getting-started/installing-bit',
-    title: 'Installation',
+    title: 'Install',
     // description: 'Installing Bit',
     icon: 'install',
     open: false,
@@ -51,6 +49,7 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
         path: 'installing-bit',
         title: 'Install Bit',
         description: 'Learn how to install Bit',
+        showNext: false,
         // description:
         //   'A Bit Workspace is where components are built and composed. Workspaces can be generated with the bit new command or initialized on an existing project.',
         component: <InstallingBit />,
