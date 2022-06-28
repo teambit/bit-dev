@@ -1,0 +1,34 @@
+---
+description: Augments the bit show output with additional data. That data is presented interactively.
+labels: ['bit show', 'docs']
+---
+
+### Usage
+
+1. Copy the bit show output from your terminal and pass it to the component as a template literal.
+2. Pass an array of React components that describe the different sections of the bit show output. The order of the components should correlate to the order of the different bit-show sections.
+
+```ts
+import { BitShowExplorer } from '@teambit/community.ui.bit-show-explorer';
+import { IdDesc, ScopeDesc, NameDesc } from './my-descriptions';
+
+const descriptions = [<IdDesc />, <ScopeDesc />, <NameDesc />];
+
+const bitShowOutput = `
+┌───────────────────┬────────────────────────────────────────────────────────────┐
+│ id                │ teambit.community/ui/button                                │
+├───────────────────┼────────────────────────────────────────────────────────────┤
+│ scope             │ teambit.community                                          │
+├───────────────────┼────────────────────────────────────────────────────────────┤
+│ name              │ ui/button                                                  │
+└───────────────────┴────────────────────────────────────────────────────────────┘`;
+
+export const MyBitShowExplorer = () => {
+  return (
+    <BitShowExplorer
+      bitShowOutput={bitShowOutput}
+      descriptions={descriptions}
+    />
+  );
+};
+```

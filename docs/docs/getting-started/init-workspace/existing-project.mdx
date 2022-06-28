@@ -1,0 +1,76 @@
+import { Image } from '@teambit/docs.ui.zoomable-image';
+import emptyWorkspace from './empty-ws.png';
+import {
+  BitInitWithValues,
+  BitInitOutput,
+  CdMyWorkspace,
+  BitStartWithValues,
+  BitStartOutput,
+  BitCreateWithValues,
+} from './commands-and-outputs';
+import { BeforeDecoupling, AfterDecoupling } from './liberate-components';
+
+Run the following at the root of your project, to initialize a Bit workspace:
+
+<BitInitWithValues />
+
+The output is the following:
+
+<BitInitOutput />
+
+Bit has generated a workspace with the minimum necessary files, to prevent any possible conflicts with your current project.
+These files include the [`workspace.jsonc`](https://bit.dev/docs/workspace/workspace-json), [`.bitmap`](https://bit.dev/docs/workspace/structure/bitmap) and the [`.git/.bit`](https://bit.dev/docs/workspace/structure/local-scope) hidden directory. Learn more about them in the 'Workspace files and directories' section of this page.
+
+To preview your workspace components and inspect your workspace status using the UI, run the following:
+
+<CdMyWorkspace />
+
+<BitStartWithValues />
+
+The output displays the port for the UI server:
+
+<BitStartOutput />
+
+Head to `http://localhost:3000` in your browser. Right now your workspace is empty as no component is being tracked.
+
+<Image
+  alt="an empty workspace"
+  maxWidth={800}
+  src={emptyWorkspace}
+  hasBackground
+/>
+
+### Decoupling components from a project
+
+To collaborate and use your components, independently of your project or of any other specific project, track them with Bit.
+
+Let's say we want to liberate our 'button' component, which is currently in our `src/components` directory:
+
+<BeforeDecoupling />
+
+<br />
+
+[Create a new independent component](https://bit.dev/docs/workspace/creating-components) (that is tracked by Bit). Since this is a React component it's best to use the React template:
+
+<BitCreateWithValues />
+
+A new component was created in `my-scope/ui/button`. Copy the files from the previous 'button' component to the newly-created independent component.
+Note that an independent component must have all its implementation files under the same directory, or sub-directories of it (for more info , see [Component directories](https://bit.dev/docs/workspace/structure/component-directory)).
+
+To minimize code refactoring in your project, import and then export the independent component from the old 'button' component.
+Note that components maintained in the same workspace, are always consumed via their [Workspace Component Links](https://bit.dev/docs/workspace/structure/component-links), in the `node_module` directory.
+
+<AfterDecoupling />
+
+<br />
+
+:::info Component dependencies
+All dependencies of an independent component must be independent components or packages. Relative paths to source files in the project make the component coupled to its project and unusable in other projects.
+:::
+
+:::info Dependency installation
+To enjoy the full capabilities provided by Bit, it is recommended to use Bit for [dependency installation](https://bit.dev/docs/dependencies/dependency-installation).
+Bit takes into consideration the dependency config in the `workspace.jsonc` file as well as the project's already-existing `package.json`.
+
+If you choose not to use Bit, make sure to add `bit compile && bit link` to your `package.json` as `post-install` scripts.
+:::

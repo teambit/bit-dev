@@ -1,0 +1,51 @@
+import { Image } from '@teambit/docs.ui.zoomable-image';
+import {
+  BitNew,
+  BitNewWithValues,
+  BitStartWithValues,
+  CdMyWorkspace,
+  BitStartOutput,
+  NewWorkspaceOutput,
+  BitStatus,
+} from './commands-and-outputs';
+import emptyWorkspace from './empty-ws.png';
+
+Run the following to generate a new workspace using one of the [available workspace templates](https://bit.dev/docs/dev-services/generator/generator-overview):
+
+<BitNew />
+
+For example, the following creates a workspace using the 'react' template. It sets `my-org.my-scope` as the default scope for components in that workspace
+(remote scopes hosted on bit.cloud are prefixed with the scope owner: `<owner>.<scope-name>`):
+
+<BitNewWithValues />
+
+The output is similar to the following:
+
+<NewWorkspaceOutput />
+
+To preview your workspace components and inspect your workspace status using the UI, run the following:
+
+<CdMyWorkspace />
+
+<BitStartWithValues />
+
+The output displays the port for the UI server:
+
+<BitStartOutput />
+
+Head to `http://localhost:3000` in your browser. Right now your workspace is empty as no component is being tracked.
+
+<Image
+  alt="an empty workspace"
+  maxWidth={800}
+  src={emptyWorkspace}
+  hasBackground
+/>
+
+<br />
+
+At any point during your component development, run the following to get a detailed status of your workspace:
+
+<BitStatus />
+
+To learn more about the different possible workspace statuses see [Workspace status](https://bit.dev/docs/workspace/workspace-status).

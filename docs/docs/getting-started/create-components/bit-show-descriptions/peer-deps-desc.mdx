@@ -1,0 +1,11 @@
+#### Peer dependencies
+
+The 'peer dependencies' property lists the component peer dependencies. These dependencies can be packages or other components.
+
+Peer dependencies are dependencies that are expected to be included in a component's host application.
+Since peer dependencies play a special "public role" in an app, such as the medium of communication between modules or the app's global state, they are required to exist in just a single instance, a single version.
+
+The peer dependencies of a component are configured by its env or by the workspace.jsonc.
+Note that while components are configured with lenient peer dependency versions (to make them compatible with a wide range of hosts), the host itself (an [env](https://bit.dev/docs/getting-started/composing/dev-environments) or an [app](https://bit.dev/docs/apps/apps-overview)) use a concrete version.
+
+To learn more about dependencies, see [Dependencies overview](https://bit.dev/docs/dependencies/dependencies-overview)

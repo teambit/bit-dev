@@ -1,0 +1,43 @@
+---
+description: Displays code in the UI using a terminal mock
+---
+
+import { Terminal } from './terminal';
+
+## Basic usage
+
+Pass the command to see it rendered as a command in the terminal. Click on the copy button (shown when mouse over) to copy the command to the clipboard.
+
+```ts live
+() => <Terminal>cd my-workspace</Terminal>;
+```
+
+## Set the terminal to show an output
+
+When displaying output (to the terminal), the 'copy' button and '$' sign are hidden.
+
+```ts live
+() => (
+  <Terminal isOutput>
+    4 files changed, 50 insertions(+), 41 deletions(-)
+  </Terminal>
+);
+```
+
+## Custom highlighting
+
+Use spans to customize the command with your own highlighting. Note that when using the 'copy' button, any html element is removed before the command is stored in the clipboard.
+
+```ts live
+() => {
+  const highlighting = {
+    color: '#9cdcfe',
+    textTransform: 'uppercase',
+  };
+  return (
+    <Terminal>
+      bit fork <span style={highlighting}>component_id</span>
+    </Terminal>
+  );
+};
+```
