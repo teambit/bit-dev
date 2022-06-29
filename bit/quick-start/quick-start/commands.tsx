@@ -56,3 +56,74 @@ export const CdNewWorkspace = ({ children }: { children: React.ReactNode }) => (
     <Terminal>{children}</Terminal>
   </Wrapper>
 );
+
+export const SnapAllExample = () => {
+  const example = {
+    message: 'initial snap',
+  };
+  return (
+    <Wrapper>
+      <CommandsExplorer commandName="snap" commandExample={example} />
+    </Wrapper>
+  );
+};
+
+export const TagAllExample = () => {
+  const example = {
+    message: 'initial tag',
+  };
+  return (
+    <Wrapper>
+      <CommandsExplorer commandName="tag" commandExample={example} />
+    </Wrapper>
+  );
+};
+
+export const CreateLaneExample = () => {
+  const example = {
+    'lane-name': 'my-feature',
+  };
+  return (
+    <Wrapper>
+      <CommandsExplorer commandName="lane" subCommandName="create" hideSubCmdMenu commandExample={example} />
+    </Wrapper>
+  );
+};
+
+export const SnapAllInLaneExample = () => {
+  const example = {
+    message: 'my first lane snap',
+  };
+  return (
+    <Wrapper>
+      <CommandsExplorer commandName="snap" commandExample={example} />
+    </Wrapper>
+  );
+};
+
+export const ExportExample = () => {
+  return (
+    <Wrapper>
+      <CommandsExplorer commandName="export" commandExample={{}} />
+    </Wrapper>
+  );
+};
+
+export const ImportWithDependentsExample = () => {
+  const example = {
+    'component-ids...': 'blocks/header',
+    dependents: true,
+  };
+
+  return (
+    <Wrapper>
+      <CommandsExplorer commandName="import" commandExample={example} />
+    </Wrapper>
+  );
+};
+
+export const TestExample = () => (
+  <Wrapper>
+    <CommandsExplorer commandName="test" commandExample={{}} />
+  </Wrapper>
+);
