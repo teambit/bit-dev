@@ -1,12 +1,13 @@
 import React from 'react';
 import { lazy } from '@loadable/component';
 import { DocsRoute } from '@teambit/docs.entities.docs-routes';
+import { InitializeWorkspace } from '@teambit/docs.docs.getting-started.init-workspace';
 // import ImportingComponents from '@teambit/workspace.content.importing-components';
 
 const DevEnvs = lazy(() => import('@teambit/docs.content.getting-started.dev-envs'));
 const UseDependencies = lazy(() => import('@teambit/docs.content.getting-started.use-dependencies'));
 const CreateWorkspace = lazy(() => import('@teambit/docs.content.getting-started.create-workspace'));
-const CreateComponents = lazy(() => import('@teambit/community.content.getting-started.composing.create-components'));
+// const CreateComponents = lazy(() => import('@teambit/community.content.getting-started.composing.create-components'));
 
 const UseApps = lazy(() => import('@teambit/docs.docs.getting-started.use-apps'));
 
@@ -33,6 +34,8 @@ const VersionComponents = lazy(() => import('@teambit/docs.content.getting-start
 // const SelfHostScope = lazy(() => import('@teambit/docs.content.getting-started.self-host-scope'));
 const CreateRemoteScope = lazy(() => import('@teambit/docs.content.getting-started.create-remote-scope'));
 const ShareComponents = lazy(() => import('@teambit/docs.content.getting-started.share-components'));
+const CreateComponents = lazy(() => import('@teambit/docs.docs.getting-started.create-components'));
+
 // const CiInstall = lazy(() => import('@teambit/docs.content.getting-started.ci-install'));
 
 export const gettingStartedDocsRoutes: DocsRoute[] = [
@@ -46,7 +49,7 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
     children: [
       {
         path: 'installing-bit',
-        title: 'Installing Bit',
+        title: 'Install Bit',
         description: 'Learn how to install Bit',
         // description:
         //   'A Bit Workspace is where components are built and composed. Workspaces can be generated with the bit new command or initialized on an existing project.',
@@ -54,42 +57,21 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'start-bit-workspace',
-        title: 'Start a new Bit workspace',
+        title: 'Initialize a Bit workspace',
         description: 'Learn how to create a Bit Workspace',
-        component: <CreateWorkspace />,
+        component: <InitializeWorkspace />,
       },
-      {
-        path: 'add-to-existing-project',
-        title: 'Add to existing project',
-        description: 'Learn how to add Bit to an existing project',
-        component: <AddToExistingProject />,
-      },
+      // {
+      //   path: 'add-to-existing-project',
+      //   title: 'Add to existing project',
+      //   description: 'Learn how to add Bit to an existing project',
+      //   component: <AddToExistingProject />,
+      // },
       {
         path: 'editor-setup',
         title: 'Code editor setup',
         description: 'Learn how to setup your code editor to work properly in your Bit Workspace',
         component: <EditorSetup />,
-      },
-      {
-        path: 'getting-started/setup-ci',
-        title: 'Setup CI',
-        component: <CiExport />,
-        // icon: 'terminal',
-        // open: false,
-        // children: [
-        //   {
-        //     path: 'automate-export',
-        //     title: 'Automate Component Export',
-        //     description: 'To ensure a component is built and published in a consistent manner its recommended to use CI.',
-        //     component: <CiExport />,
-        //   },
-        //   {
-        //     path: 'package-consumers',
-        //     title: 'Package Consumers',
-        //     description: 'Package managers use the .npmrc file to know where they should install dependencies from.',
-        //     component: <CiInstall />,
-        //   },
-        // ],
       },
     ],
   },

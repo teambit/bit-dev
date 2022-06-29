@@ -6,6 +6,10 @@ export const CenteredImage = () => (
   <Image alt="a puppy" src={puppyImg} maxWidth={300} />
 );
 
+export const CenteredImageWithBackground = () => (
+  <Image alt="a puppy" src={puppyImg} maxWidth={300} hasBackground />
+);
+
 export const UncenteredImage = () => (
   <Image center={false} alt="a puppy" src={puppyImg} maxWidth={300} />
 );
