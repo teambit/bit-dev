@@ -5,11 +5,8 @@ const allArgsRegex = new RegExp(String.raw`([\[<][\w|\w-]+\.*[\]>])`, 'g');
 const commandRegex = new RegExp(String.raw`^(\w+[-\w+|\w+])+\b`, 'g');
 const missingDesc = 'Missing description';
 
-export const getCommand = (
-  commands: RawCommand[],
-  name: string
-): Command | null => {
-  const commandName = new RegExp(`^${name}\\b`);
+export const getCommand = (commands: RawCommand[], name: string): Command | null => {
+  const commandName = new RegExp(`^${name}((\\s.*)|$)`, 'g');
   const command = commands.find((command) => command.name.match(commandName));
   if (!command) return null;
   const { subCommandNames, subCommands } = getSubCommands(command);
@@ -26,12 +23,7 @@ export const getCommand = (
   return parsedCommand as Command;
 };
 
-const getArgs = (
-  commandStr: string,
-  argsInfo?: RawArg[],
-  inheritDesc?: string,
-  isOption?: boolean
-): Arg[] | null => {
+const getArgs = (commandStr: string, argsInfo?: RawArg[], inheritDesc?: string, isOption?: boolean): Arg[] | null => {
   const args = commandStr.match(allArgsRegex);
   if (!args && isOption)
     return [
@@ -85,12 +77,8 @@ const getOptions = (options: RawCommand['options']): Option[] | [] => {
 
 const getSubCommands = (command: RawCommand) => {
   if (!command.commands) return { subCommands: null, subCommandNames: null };
-  const subCommandNames = command.commands.map(
-    (command) => command.name.match(commandRegex)![0]
-  );
-  const subCommands = subCommandNames.map((subCommandName) =>
-    getCommand(command.commands!, subCommandName)
-  );
+  const subCommandNames = command.commands.map((command) => command.name.match(commandRegex)![0]);
+  const subCommands = subCommandNames.map((subCommandName) => getCommand(command.commands!, subCommandName));
   return { subCommandNames, subCommands };
 };
 

@@ -47,10 +47,10 @@ importers:
       '@teambit/code.ui.queries.get-component-code': 0.0.487
       '@teambit/code.ui.queries.get-file-content': 0.0.487
       '@teambit/code.ui.utils.get-file-icon': 0.0.486
+      '@teambit/community.cloud.create-account': 0.0.25
       '@teambit/community.entity.graph.bubble-graph': ^1.95.11
       '@teambit/community.envs.community-mdx': 1.95.11
       '@teambit/community.envs.community-react': 1.95.11
-      '@teambit/community.ui.bit-show-explorer': 0.0.11
       '@teambit/community.ui.content-tabs': 0.1.7
       '@teambit/community.ui.file-explorer': 0.0.10
       '@teambit/community.ui.sticky-banner': 0.0.7
@@ -188,8 +188,8 @@ importers:
       millify: 4.0.0
       postcss: 8.4.6
       prettier: 2.4.1
-      react: ^17.0.0
-      react-dom: ^17.0.0
+      react: '>=17.0.0 <18.0.0'
+      react-dom: '>=17.0.0 <18.0.0'
       react-flow-renderer: 10.0.0-next.20
       react-helmet: 6.1.0
       react-hotkeys-hook: 3.4.4
@@ -252,8 +252,8 @@ importers:
       '@teambit/code.ui.queries.get-component-code': registry.npmjs.org/@teambit/code.ui.queries.get-component-code/0.0.487_5f651d7e22e52f1cc3ac4f4b2a34152a
       '@teambit/code.ui.queries.get-file-content': registry.npmjs.org/@teambit/code.ui.queries.get-file-content/0.0.487_5f651d7e22e52f1cc3ac4f4b2a34152a
       '@teambit/code.ui.utils.get-file-icon': registry.npmjs.org/@teambit/code.ui.utils.get-file-icon/0.0.486_react-dom@17.0.2+react@17.0.2
+      '@teambit/community.cloud.create-account': 0.0.25_f7fc2bb95f11e3503c59a345d80266f3
       '@teambit/community.entity.graph.bubble-graph': link:community/entity/graph/bubble-graph
-      '@teambit/community.ui.bit-show-explorer': link:community/ui/bit-show-explorer
       '@teambit/community.ui.content-tabs': 0.1.7_react-dom@17.0.2+react@17.0.2
       '@teambit/community.ui.file-explorer': 0.0.10_884042120800d1af00337a57c001a17f
       '@teambit/community.ui.sticky-banner': 0.0.7_21cfa57e2335581e0d6b607a5cae98b7
@@ -1960,6 +1960,24 @@ packages:
       react-dom: registry.npmjs.org/react-dom/17.0.2_react@17.0.2
     dev: false
 
+  /@teambit/base-react.buttons.button/1.95.15_f7fc2bb95f11e3503c59a345d80266f3:
+    resolution: {integrity: sha1-kbvDeqwVrvIHz5/j6I4J/v0CFIE=, tarball: '@teambit/base-react.buttons.button/-/@teambit-base-react.buttons.button-1.95.15.tgz'}
+    peerDependencies:
+      '@testing-library/react': ^12.1.5
+      react: ^16.8.0 || ^17.0.0
+      react-dom: ^16.8.0 || ^17.0.0
+    dependencies:
+      '@react-aria/button': registry.npmjs.org/@react-aria/button/3.3.3_react@17.0.2
+      '@react-types/button': registry.npmjs.org/@react-types/button/3.4.1_react@17.0.2
+      '@teambit/base-react.navigation.link': 2.0.27_f7fc2bb95f11e3503c59a345d80266f3
+      '@testing-library/react': registry.npmjs.org/@testing-library/react/12.1.5_react-dom@17.0.2+react@17.0.2
+      core-js: registry.npmjs.org/core-js/3.23.3
+      react: registry.npmjs.org/react/17.0.2
+      react-dom: registry.npmjs.org/react-dom/17.0.2_react@17.0.2
+    transitivePeerDependencies:
+      - '@types/react'
+    dev: false
+
   /@teambit/base-react.content.image/1.13.0_150be2d4515131e54e0531e15473f3a8:
     resolution: {integrity: sha1-h3Z5fyVF2mOqxSWtoQKN5oJcLJg=, tarball: '@teambit/base-react.content.image/-/@teambit-base-react.content.image-1.13.0.tgz'}
     peerDependencies:
@@ -2697,6 +2715,24 @@ packages:
       react-dom: registry.npmjs.org/react-dom/17.0.2_react@17.0.2
     dev: true
 
+  /@teambit/community.cloud.create-account/0.0.25_f7fc2bb95f11e3503c59a345d80266f3:
+    resolution: {integrity: sha1-tthFRpn9eOAe9K9GnQ5bIQ2D8xU=, tarball: '@teambit/community.cloud.create-account/-/@teambit-community.cloud.create-account-0.0.25.tgz'}
+    peerDependencies:
+      '@testing-library/react': ^12.1.5
+      react: ^16.8.0 || ^17.0.0
+    dependencies:
+      '@teambit/base-ui.text.paragraph': registry.npmjs.org/@teambit/base-ui.text.paragraph/1.0.3_react-dom@17.0.2+react@17.0.2
+      '@teambit/community.ui.heading': 1.95.19_880756725f1916ba0cbce7bdeefb526a
+      '@teambit/design.ui.buttons.button': 1.95.15_f7fc2bb95f11e3503c59a345d80266f3
+      '@testing-library/react': registry.npmjs.org/@testing-library/react/12.1.5_react-dom@17.0.2+react@17.0.2
+      classnames: registry.npmjs.org/classnames/2.3.1
+      core-js: registry.npmjs.org/core-js/3.23.3
+      react: registry.npmjs.org/react/17.0.2
+    transitivePeerDependencies:
+      - '@types/react'
+      - react-dom
+    dev: false
+
   /@teambit/community.envs.community-mdx/1.95.11_87c40cfa2cf6c801b8b88badba06a0a8:
     resolution: {integrity: sha1-zgMTyn05I4Oa8FPmQC+ATrZslRM=, tarball: '@teambit/community.envs.community-mdx/-/@teambit-community.envs.community-mdx-1.95.11.tgz'}
     peerDependencies:
@@ -2879,6 +2915,19 @@ packages:
       core-js: registry.npmjs.org/core-js/3.23.3
       react: registry.npmjs.org/react/17.0.2
       react-dom: registry.npmjs.org/react-dom/17.0.2_react@17.0.2
+    dev: false
+
+  /@teambit/community.ui.heading/1.95.19_880756725f1916ba0cbce7bdeefb526a:
+    resolution: {integrity: sha1-6DTBoQ3r/kz9tIxqU/nMahmpUvM=, tarball: '@teambit/community.ui.heading/-/@teambit-community.ui.heading-1.95.19.tgz'}
+    peerDependencies:
+      '@testing-library/react': ^12.1.5
+      react: ^16.8.0 || ^17.0.0
+    dependencies:
+      '@teambit/design.ui.content.heading': 1.95.18_880756725f1916ba0cbce7bdeefb526a
+      '@testing-library/react': registry.npmjs.org/@testing-library/react/12.1.5_react-dom@17.0.2+react@17.0.2
+      classnames: registry.npmjs.org/classnames/2.3.1
+      core-js: registry.npmjs.org/core-js/3.23.3
+      react: registry.npmjs.org/react/17.0.2
     dev: false
 
   /@teambit/community.ui.hooks.use-local-storage/1.90.4_880756725f1916ba0cbce7bdeefb526a:
@@ -3293,6 +3342,22 @@ packages:
       react-dom: registry.npmjs.org/react-dom/17.0.2_react@17.0.2
     dev: false
 
+  /@teambit/design.ui.buttons.button/1.95.15_f7fc2bb95f11e3503c59a345d80266f3:
+    resolution: {integrity: sha1-IoBiXuYfMndwrQfR3Yw5OqzW0dI=, tarball: '@teambit/design.ui.buttons.button/-/@teambit-design.ui.buttons.button-1.95.15.tgz'}
+    peerDependencies:
+      '@testing-library/react': ^12.1.5
+      react: ^16.8.0 || ^17.0.0
+    dependencies:
+      '@teambit/base-react.buttons.button': 1.95.15_f7fc2bb95f11e3503c59a345d80266f3
+      '@testing-library/react': registry.npmjs.org/@testing-library/react/12.1.5_react-dom@17.0.2+react@17.0.2
+      classnames: registry.npmjs.org/classnames/2.3.1
+      core-js: registry.npmjs.org/core-js/3.23.3
+      react: registry.npmjs.org/react/17.0.2
+    transitivePeerDependencies:
+      - '@types/react'
+      - react-dom
+    dev: false
+
   /@teambit/design.ui.cards.bubble-card/1.13.0_150be2d4515131e54e0531e15473f3a8:
     resolution: {integrity: sha1-o/YNjDSOHz+SMAMI+heisKOzLhA=, tarball: '@teambit/design.ui.cards.bubble-card/-/@teambit-design.ui.cards.bubble-card-1.13.0.tgz'}
     peerDependencies:
@@ -3399,6 +3464,18 @@ packages:
       core-js: registry.npmjs.org/core-js/3.23.3
       react: registry.npmjs.org/react/17.0.2
       react-dom: registry.npmjs.org/react-dom/17.0.2_react@17.0.2
+    dev: false
+
+  /@teambit/design.ui.content.heading/1.95.18_880756725f1916ba0cbce7bdeefb526a:
+    resolution: {integrity: sha1-O4uOsb1JMWpdXuqSypMJqA7drCU=, tarball: '@teambit/design.ui.content.heading/-/@teambit-design.ui.content.heading-1.95.18.tgz'}
+    peerDependencies:
+      '@testing-library/react': ^12.1.5
+      react: ^16.8.0 || ^17.0.0
+    dependencies:
+      '@testing-library/react': registry.npmjs.org/@testing-library/react/12.1.5_react-dom@17.0.2+react@17.0.2
+      classnames: registry.npmjs.org/classnames/2.3.1
+      core-js: registry.npmjs.org/core-js/3.23.3
+      react: registry.npmjs.org/react/17.0.2
     dev: false
 
   /@teambit/design.ui.content.heading/1.95.6_880756725f1916ba0cbce7bdeefb526a:

@@ -1,25 +1,22 @@
 import { CreateAccount } from '@teambit/community.cloud.create-account';
 // import { ScopeCard } from '@teambit/dot-scopes.ui.scope-card';
 import { centerColumn } from '@teambit/base-ui.layout.page-frame';
+import { ScopeRename, BitStatus } from './commands';
 
 ## Collaborate
 
 Now that we have done our work and all seems to be working locally, its time to share our changes and collaborate with others.  
 Bit tells you which components changed and their current [status](/workspace/workspace-status).
 
-```
-bit status
-```
+<BitStatus />
 
 ### Create a remote scope
 
-A [Scope](/scope/scope-overview) is a collaboration server for components. Creating and exporting components to remote scopes enables collaboration with others and is used as a 
-remote storage for your components. Other developers with access to your scope, could either use your components or propose changes to them.
+A [Scope](/scope/scope-overview) is a collaboration server for components. It enables you to export components created in your workspace, to have them stored remotely, and to collaborate on them with others. Other developers, with access to your scope, can use your components or propose changes to them.
 
-Scopes help organize components in a shared area of responsbility. For example, the `analytics` scope will include all components for providing Analytics services, and `design` scope will
-include the services for our design language. 
+Scopes help organize components in a shared domain of responsibility. For example, the `analytics` scope will include all components that provide Analytics services, and the `design` scope will include the services for our design language.
 
-<!-- 
+<!--
 Scopes can be created for every responsibility, for example: `wiki` or `design`
 
 On a deeper level, scopes are used to define responsibility over components in the same sense microservices are used to define ownership and boundaries over software services.
@@ -38,15 +35,7 @@ or [self-host your scope](/scope/running-a-scope-server).
 
 If you've created a new remote scope, to update it to be your default scope, use this command:
 
-```
-bit scope rename <old-name> <new-name> --refactor
-```
-
-The --refactor flag updates the components in your workspace with the new scope name, if you prefer to update manually, remove it:
-
-```
-bit scope rename <old-name> <new-name>
-```
+<ScopeRename />
 
 ### Snap your changes
 

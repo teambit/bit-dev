@@ -1,8 +1,5 @@
 import React, { useState, HtmlHTMLAttributes } from 'react';
-import {
-  useCommand,
-  CommandState,
-} from '@teambit/community.ui.bit-cli.commands-provider';
+import { useCommand, CommandState } from '@teambit/community.ui.bit-cli.commands-provider';
 import { Terminal } from '@teambit/community.ui.bit-cli.terminal';
 import cx from 'classnames';
 import { ConstElements } from './constant-elements';
@@ -28,30 +25,21 @@ export function CommandsExplorer({
   commandName,
   commandExample,
   subCommandName,
-  hideSubCmdMenu = commandExample ? true : false,
+  hideSubCmdMenu = !!commandExample,
   className,
   ...rest
 }: CommandsExplorerProps) {
   const command = useCommand(commandName);
 
-  if (!command)
-    return (
-      <div
-        className={style.error}
-      >{`Could not find command '${commandName}'.`}</div>
-    );
+  if (!command) return <div className={style.error}>{`Could not find command '${commandName}'.`}</div>;
 
   const subCommandNames = command.subCommandNames ?? [];
 
   const selectCommand = (subCommandName?: string) =>
-    command.subCommands && subCommandName
-      ? command.subCommands[subCommandNames.indexOf(subCommandName)]
-      : command;
+    command.subCommands && subCommandName ? command.subCommands[subCommandNames.indexOf(subCommandName)] : command;
 
   const [currentCommand, setCommand] = useState(
-    commandExample
-      ? assignExampleValues(selectCommand(subCommandName), commandExample)
-      : selectCommand(subCommandName)
+    commandExample ? assignExampleValues(selectCommand(subCommandName), commandExample) : selectCommand(subCommandName)
   );
 
   const handleSubCmdClick = (subCommandName) => {
@@ -59,11 +47,7 @@ export function CommandsExplorer({
   };
 
   return (
-    <div
-      className={cx(style.command, className)}
-      {...rest}
-      data-testid="commands-explorer"
-    >
+    <div className={cx(style.command, className)} {...rest} data-testid="commands-explorer">
       {!hideSubCmdMenu && subCommandNames.length > 0 && (
         <SubCommandsMenu
           selectedSubCommandName={currentCommand.name}
@@ -76,9 +60,7 @@ export function CommandsExplorer({
         <ConstElements />
         <Commands command={command} currentCommand={currentCommand} />
         {currentCommand?.args && <Args args={currentCommand.args} />}
-        {currentCommand?.options && (
-          <Options options={currentCommand.options} />
-        )}
+        {currentCommand?.options && <Options options={currentCommand.options} />}
       </Terminal>
     </div>
   );

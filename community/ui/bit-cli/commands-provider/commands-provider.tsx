@@ -1,4 +1,4 @@
-import React, { ReactNode, createContext, useRef, RefObject } from 'react';
+import React, { ReactNode, createContext } from 'react';
 import type { RawCommand } from './command';
 
 export type CommandsProviderProps = {
@@ -8,13 +8,6 @@ export type CommandsProviderProps = {
 
 export const CommandsContext = createContext<RawCommand[]>([] as RawCommand[]);
 
-export function CommandsProvider({
-  rawCommands,
-  children,
-}: CommandsProviderProps) {
-  return (
-    <CommandsContext.Provider value={rawCommands}>
-      {children}
-    </CommandsContext.Provider>
-  );
+export function CommandsProvider({ rawCommands, children }: CommandsProviderProps) {
+  return <CommandsContext.Provider value={rawCommands}>{children}</CommandsContext.Provider>;
 }
