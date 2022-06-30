@@ -12,11 +12,12 @@ export const composition = `/**
  * the component's I/O and the effects it has on the UI, if there are any
  */
 import React from 'react';
-import { Button } from './button';
+import { ToDo } from './to-do';
 
-export const BasicButton = () => {
-  return (
-    <Button>hello world!</Button>
-  );
-}
-`;
+export const BasicToDo = () => {
+  return <ToDo />;
+};
+
+export const CustomInitialTodo = () => {
+  return <ToDo initialTodo="my custom initial to-do" />;
+};`;

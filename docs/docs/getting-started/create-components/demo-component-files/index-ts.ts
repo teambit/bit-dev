@@ -5,5 +5,6 @@ export const index = `/**
  * by providing a single entry point.
  * */
 
-export { Button } from './button';
-export type { ButtonProps } from './button';`;
+export { ToDo } from './to-do';
+export type { ToDoProps } from './to-do';
+`;

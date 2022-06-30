@@ -1,16 +1,16 @@
 import React from 'react';
 import { FileExplorer } from '@teambit/community.ui.file-explorer';
-import { composition } from './demo-component-files/button-composition-tsx';
-import { docs } from './demo-component-files/button-docs-mdx';
-import { spec } from './demo-component-files/button-spec-tsx';
-import { button } from './demo-component-files/button-tsx';
+import { composition } from './demo-component-files/todo-composition-tsx';
+import { docs } from './demo-component-files/todo-docs-mdx';
+import { spec } from './demo-component-files/todo-spec-tsx';
+import { todo } from './demo-component-files/todo-tsx';
 import { index } from './demo-component-files/index-ts';
 
 const files = {
-  'button.composition.tsx': composition,
-  'button.docs.mdx': docs,
-  'button.spec.tsx': spec,
-  'button.tsx': button,
+  'todo.composition.tsx': composition,
+  'todo.docs.mdx': docs,
+  'todo.spec.tsx': spec,
+  'todo.tsx': todo,
   'index.ts': index,
 };
 
@@ -20,7 +20,7 @@ export const ExploreComponentFiles = () => (
       contentFontSize: 13,
       fileTreeWidth: 230,
       isDirOpen: true,
-      title: 'my-scope/ui/button',
+      title: 'my-scope/ui/todo',
       wordWrap: 'off',
     }}
     style={{ minHeight: 400 }}

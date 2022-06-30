@@ -1,12 +1,11 @@
 import { Image } from '@teambit/docs.ui.zoomable-image';
 import { Tooltip } from '@teambit/community.ui.text-tooltip';
-import { BitCreateOutput } from './terminal';
-import { BitCreate, BitCreateWithExample, BitShow, BitShowWithExample } from './commands';
+import { BitCreate, BitCreateWithExample, BitShow, BitShowWithExample, BitCreateOutput } from './commands';
 import { compiler, tester, linter } from './tooltips';
 import componentId from './component-id.png';
 import { BitShowExample } from './bit-show';
 import { ExploreComponentFiles } from './component-files-explorer';
-import buttonScreenshot from './button-screenshot.png';
+import todoScreenshot from './to-do-screenshot.png';
 
 # Create components
 
@@ -17,7 +16,7 @@ To create a component use one of the [available component templates](https://bit
 
 <BitCreate />
 
-For example, the following creates a component named `ui/button` using Bit's React template. It sets `my-org.my-scope` as its scope name.
+For example, the following creates a component named `apps/to-do` using Bit's React template. It sets `my-org.tasks` as its scope name.
 
 <BitCreateWithExample />
 
@@ -25,7 +24,7 @@ The output is similar to the following:
 
 <BitCreateOutput />
 
-This component has a [**component ID**](https://bit.dev/docs/components/structure/component-id) (`my-org.my-scope/ui/button`). This ID consists of the component's scope name and component name.
+This component has a [**component ID**](https://bit.dev/docs/components/structure/component-id): **`my-org.tasks/apps/to-do`**. This ID consists of the component's scope name and component name.
 Component IDs are used by workspaces and scopes to reference components.
 
 This components also has a [**development environment**](https://bit.dev/docs/getting-started/composing/dev-environments), or 'env'.
@@ -44,7 +43,7 @@ These files include standard React implementation files, as well as development 
 
 Head over to the workspace UI ([http://localhost:3000/](http://localhost:3000/)), to further explore the component (run `bit start` to run the UI server).
 
-<Image maxWidth={700} src={buttonScreenshot} hasBackground alt="a screenshot of the button component UI" />
+<Image maxWidth={700} src={todoScreenshot} hasBackground alt="a screenshot of the to-do component UI" />
 
 ## Component configuration and metadata
 
