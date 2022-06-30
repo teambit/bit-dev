@@ -4,7 +4,7 @@
     padding: 15px;
     border-radius: 10px;
     white-space: pre;
-    width: 100%;
+    max-width: 1000px;
     overflow: auto;
     font-family: "Courier New";
     // font-family: "roboto mono";
@@ -12,7 +12,7 @@
     font-size: 14px;
     background: #1e1e1e;
     line-height: 1;
-    color: var(--bit-border-color-lightest, #ededed);
+    color:#ededed;
     .section {
         cursor: pointer;
         &:hover {

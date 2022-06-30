@@ -59,6 +59,7 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
         title: 'Initialize a Bit workspace',
         description: 'Learn how to create a Bit Workspace',
         component: <InitializeWorkspace />,
+        showNext: false,
       },
       // {
       //   path: 'add-to-existing-project',
@@ -68,7 +69,7 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
       // },
       {
         path: 'editor-setup',
-        title: 'Code editor setup',
+        title: 'Set up your IDE',
         description: 'Learn how to setup your code editor to work properly in your Bit Workspace',
         component: <EditorSetup />,
       },
@@ -82,7 +83,7 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
     children: [
       {
         path: 'creating-components',
-        title: 'Creating components',
+        title: 'Create components',
         description:
           'Bit makes it simple to build each Component independently, and compose it to others with Dependencies.',
         component: <CreateComponents />,
@@ -103,7 +104,7 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
       // },
       {
         path: 'dev-environments',
-        title: 'Development environments',
+        title: 'Use envs',
         description:
           'Component development is simplified and standardized using Component Development Environments (or envs in short). An env is a compositions of several Services.',
         component: <DevEnvs />,
@@ -133,7 +134,7 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
     children: [
       {
         path: 'snap-component-changes',
-        title: 'Snapping components',
+        title: 'Snap component changes',
         description: 'Learn how to record component changes and collaborate with others',
         component: <VersionComponents />,
       },
@@ -145,14 +146,14 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
       },
       {
         path: 'exporting-components',
-        title: 'Exporting components',
+        title: 'Export components',
         description: 'Learn how to push changes to remote scopes',
         component: <ShareComponents />,
       },
 
       {
         path: 'importing-components',
-        title: 'Importing components',
+        title: 'Import components',
         component: <ImportComponents />,
       },
     ],

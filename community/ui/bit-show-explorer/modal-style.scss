@@ -7,11 +7,14 @@
       margin: auto;
       max-width: 500px;
       max-height: 400px;
-      background-color: #fafafa;
+      min-height: fit-content;
+      // background-color: #fafafa;
+      background-color: var(--bit-bg-tooltip, #2b2b2b);
+      border: 1px solid #9b9999;
       border-radius: 10px;
       padding-left: 35px;
       padding-right: 35px;
-      padding-top: 25px;
+      padding-top: 0;
       padding-bottom: 25px;
       overflow-y: auto;
       // animation-duration: 0.3s;

@@ -18,7 +18,6 @@ export function BitShowExplorer({
   ...rest
 }: BitShowExplorerProps) {
   const [animated, setAnimated] = useState(isAnimated);
-  // const terminalId = `terminal-${Math.trunc(Math.random() * 100000).toString()}`;
   const BitShowComposition = useMemo(() => augmentBitShowOutput(bitShowOutput), [bitShowOutput, descriptions]);
 
   return (
