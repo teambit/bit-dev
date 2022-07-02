@@ -59,7 +59,7 @@ export const CdNewWorkspace = ({ children }: { children: React.ReactNode }) => (
 
 export const SnapAllExample = () => {
   const example = {
-    message: 'initial snap',
+    message: '"initial snap"',
   };
   return (
     <Wrapper>
@@ -70,7 +70,7 @@ export const SnapAllExample = () => {
 
 export const TagAllExample = () => {
   const example = {
-    message: 'initial tag',
+    message: '"initial tag"',
   };
   return (
     <Wrapper>
@@ -92,7 +92,7 @@ export const CreateLaneExample = () => {
 
 export const SnapAllInLaneExample = () => {
   const example = {
-    message: 'my first lane snap',
+    message: '"my first lane snap"',
   };
   return (
     <Wrapper>

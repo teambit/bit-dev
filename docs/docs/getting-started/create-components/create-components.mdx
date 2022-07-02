@@ -5,6 +5,7 @@ import { compiler, tester, linter } from './tooltips';
 import componentId from './component-id.png';
 import { BitShowExample } from './bit-show';
 import { ExploreComponentFiles } from './component-files-explorer';
+import { TodoCardAndAbout } from './todo-card-and-about';
 import todoScreenshot from './to-do-screenshot.png';
 
 # Create components
@@ -16,7 +17,7 @@ To create a component use one of the [available component templates](https://bit
 
 <BitCreate />
 
-For example, the following creates a component named `apps/to-do` using Bit's React template. It sets `my-org.tasks` as its scope name.
+For example, the following creates a component named `apps/to-do` using Bit's React template. It sets `my-org.tasks-scope` as its scope name.
 
 <BitCreateWithExample />
 
@@ -24,12 +25,11 @@ The output is similar to the following:
 
 <BitCreateOutput />
 
-This component has a [**component ID**](https://bit.dev/docs/components/structure/component-id): **`my-org.tasks/apps/to-do`**. This ID consists of the component's scope name and component name.
-Component IDs are used by workspaces and scopes to reference components.
+<TodoCardAndAbout />
 
-This components also has a [**development environment**](https://bit.dev/docs/getting-started/composing/dev-environments), or 'env'.
-An env is a also a component. It provides this component with pre-defined configuration and a set of development tools such as a <Tooltip content={compiler} language="bash">compiler</Tooltip>, a <Tooltip content={tester} language="bash">tester</Tooltip>, a <Tooltip content={linter} language="bash">linter</Tooltip>, and more.
-Envs can be of different types. This component was configured (by the 'react' template) to use the [React env](https://bit.dev/docs/frameworks/react/react-overview) (`teambit.react/react`).
+<br />
+
+_Note: the component used for this demo is not identical to the one created in your workspace. The implementation for this component can be copied from the editor shown below._
 
 ## Component files
 

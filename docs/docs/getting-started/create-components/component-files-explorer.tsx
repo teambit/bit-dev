@@ -20,7 +20,7 @@ export const ExploreComponentFiles = () => (
       contentFontSize: 13,
       fileTreeWidth: 230,
       isDirOpen: true,
-      title: 'my-scope/ui/todo',
+      title: 'tasks-scope/ui/todo',
       wordWrap: 'off',
     }}
     style={{ minHeight: 400 }}

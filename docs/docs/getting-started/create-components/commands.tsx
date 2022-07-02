@@ -4,7 +4,7 @@ import { Terminal } from '@teambit/community.ui.bit-cli.terminal';
 
 const COMPONENT_NAME = 'apps/to-do';
 const OWNER = 'my-org';
-const SCOPE_NAME = 'tasks';
+const SCOPE_NAME = 'tasks-scope';
 const FULL_SCOPE_NAME = `${OWNER}.${SCOPE_NAME}`;
 
 const bitCreateExample = {

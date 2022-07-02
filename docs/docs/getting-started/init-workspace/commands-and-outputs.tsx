@@ -7,7 +7,7 @@ const WORKSPACE_NAME = 'tasks-workspace';
 const bitNewValues = {
   'template-name': 'react',
   'workspace-name': WORKSPACE_NAME,
-  'default-scope': 'my-org.tasks',
+  'default-scope': 'my-org.tasks-scope',
 };
 
 const bitCreateExample = {
