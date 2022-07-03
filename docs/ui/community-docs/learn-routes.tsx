@@ -145,6 +145,7 @@ const ComponentAnatomy = lazy(() => import('@teambit/component.content.component
 const RenamingComponents = lazy(() => import('@teambit/component.docs.renaming-components'));
 // const AddingComponents = lazy(() => import('@teambit/component.content.adding-components'));
 const CreateComponents = lazy(() => import('@teambit/community.content.getting-started.composing.create-components'));
+const InstallingComponents = lazy(() => import('@teambit/docs.content.getting-started.install-components'));
 
 /* Lanes */
 
@@ -408,7 +409,7 @@ export const learnDocsRoutes: DocsRoute[] = [
           },
           {
             path: 'component-objects',
-            title: 'Component objects',
+            title: 'Component snapshots',
             description: 'How Bit saves revision history for components',
             component: <ComponentObjects />,
           },
@@ -469,6 +470,13 @@ export const learnDocsRoutes: DocsRoute[] = [
         description:
           'Importing is the process of copying Components from their Scope to the Local Scope, to use and maintain them in the Workspace.',
         component: <ImportingComponents />,
+      },
+      {
+        path: 'installing-components',
+        title: 'Installing Components',
+        description:
+          'Components once exported to a remote scope can be consumed in any other project/app with the package manager of your choice.',
+        component: <InstallingComponents />,
       },
       {
         title: 'Renaming components',

@@ -183,6 +183,12 @@
         "mainFile": "index.ts",
         "rootDir": "react/content/code-splitting"
     },
+    "content/collapsible-content": {
+        "scope": "teambit.design",
+        "version": "0.0.2",
+        "mainFile": "index.ts",
+        "rootDir": "design/content/collapsible-content"
+    },
     "content/commonjs-package-registries": {
         "scope": "teambit.pkg",
         "version": "1.95.18",

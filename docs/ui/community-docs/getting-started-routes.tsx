@@ -16,8 +16,6 @@ const InstallingBit = lazy(() => import('@teambit/docs.content.getting-started.i
 // const WhatIsScope = loadable(() => import('@teambit/docs.content.getting-started.what-is-scope'));
 // const HostBitCloud = loadable(() => import('@teambit/docs.content.getting-started.host-bit-cloud'));
 // const SelfHostScope = loadable(() => import('@teambit/docs.content.getting-started.self-host-scope'));
-
-const InstallComponents = lazy(() => import('@teambit/docs.content.getting-started.install-components'));
 const ImportComponents = lazy(() => import('@teambit/docs.content.getting-started.import-components'));
 
 const EditorSetup = lazy(() => import('@teambit/bit.docs.installation.setup-editor'));
@@ -164,13 +162,6 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
     icon: 'use',
     open: false,
     children: [
-      {
-        path: 'install-components',
-        title: 'Install Components',
-        description:
-          'Components once exported to a remote scope can be consumed in any other project/app with the package manager of your choice.',
-        component: <InstallComponents />,
-      },
       // {
       //   path: 'import-components',
       //   title: 'Import Components',

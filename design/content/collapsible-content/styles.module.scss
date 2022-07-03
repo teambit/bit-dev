@@ -1,0 +1,61 @@
+@use '~@teambit/design.responsive.breakpoints/_breakpoints.module.scss';
+
+$max-width: 1000px;
+$size: 16px;
+
+.inRow {
+  font-size: $size;
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.rightAligned {
+  margin-right: 2em;
+  flex: 1;
+}
+
+.row {
+  display: flex;
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em 0;
+  font-size: $size;
+  transition: background-color 0.6s ease-out;
+  &:hover {
+    cursor: pointer;
+    background-color: var(--surface-neutral-hover-color, #F4F5F6);
+  }
+  .heading {
+    margin:  0;
+  }
+  .wrapper {
+    font-size: $size;
+    display: flex;
+    max-width: 20%;
+    justify-content: space-between;
+    align-items: center;
+
+    .leftAligned {
+      font-size: $size;
+      display: flex;
+      align-items: center;
+      align-self: center;
+      justify-self: center;
+      min-width: max-content;
+      justify-content: flex-end;
+    }
+  }
+}
+
+.separator {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: 1000px;
+}
