@@ -15,7 +15,7 @@ In this guide you will use the base images provided by Bit as a platform.
 - **[bit-cli container](https://hub.docker.com/r/bitcli/bit)** is an image generated with each new release of Bit. It includes the latest version of Bit pre-installed.
 - **[bare-scope container](https://hub.docker.com/r/bitcli/bit-server)** is an image that uses the **bit-cli container** and provides a bare scope.
 
-:::info If you prefer building your own image, you can use this base dockerfile as a starter:
+If you prefer building your own image, you can use this base dockerfile as a starter:
 
 ```Dockerfile
 FROM node:12.22.0
@@ -38,8 +38,6 @@ WORKDIR ${SCOPE_PATH}
 RUN bit init --bare
 CMD bit start
 ```
-
-:::
 
 ## Hosting scope on a container
 
@@ -114,7 +112,7 @@ See the `/root/custom-remote-scope` is used both in the `-v` arg after the `:` a
 
 Since the `bit start` command at the moment can't be run as detached, you will need a way to run it as the main command and to monitor the logs at the same time.
 
-You can mount the logs directory on the container to a directory in the host. 
+You can mount the logs directory on the container to a directory in the host.
 
 For example:
 
@@ -123,3 +121,11 @@ docker run -it -v {logs-dir-on-host}:/root/Library/Caches/Bit/logs -p {host-port
 ```
 
 _It's recommended to use [tmpfs-mounts](https://docs.docker.com/storage/tmpfs/)._
+
+## Publish Component Packages to npm
+
+A Scope handles export and import operations. To make you components installable as packages (`npm install`/`bit install`) [configure them to be published to a package registry](https://bit.dev/docs/packages/publishing-components-to-commonjs-registries).
+
+:::info Bit Cloud as a package registry
+Components exported to scopes hosted on Bit Cloud can be installed from Bit Cloud (no need for additional configuration).
+:::

@@ -9,3 +9,8 @@
 .center {
   justify-content: center;
 }
+
+.withBg {
+  background-color: var(--surface-neutral-focus-color, #F1F2F4);
+  border-radius: 5px;
+}
