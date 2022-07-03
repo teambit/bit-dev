@@ -26,15 +26,7 @@ export function CreateAccount({ className, ...rest }: CreateAccountProps) {
       >
         bit.cloud is free for open source and personal use. It is recommended to
         create your bit.cloud account prior to creating your workspace to ensure
-        the right{' '}
-        <a href="https://bit.dev/docs/workspace/configuring-remote-scopes">
-          default scope
-        </a>{' '}
-        is configured for your components. You can choose to{' '}
-        <a href="https://bit.dev/docs/scope/running-a-scope-server">
-          host your own scope
-        </a>{' '}
-        and provide it with a scope name of your choice.
+        the right owner name for your components.
       </Paragraph>
       <Button
         className={styles.button}

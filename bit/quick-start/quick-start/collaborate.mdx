@@ -13,13 +13,17 @@ bit status
 
 ### Create a remote scope
 
-A [Scope](/scope/scope-overview) is a collaboration server for components. Creating and exporting components to remote scopes enables collaboration with others and is used as a 
-remote storage for your components. Other developers with access to your scope, could either use your components or propose changes to them.
+A [Scope](/scope/scope-overview) is a collaboration server for components.
+It enables you to export components created in your workspace, to have them stored remotely, and to collaborate on them with others.
+Other developers, with access to your scope, could either use your components or propose changes to them.
 
-Scopes help organize components in a shared area of responsbility. For example, the `analytics` scope will include all components for providing Analytics services, and `design` scope will
-include the services for our design language. 
+<!-- Creating and exporting components to remote scopes enables you to collaborate with others. A scope is used as a
+remote storage for your components. -->
 
-<!-- 
+Scopes help organize components in a shared domain of responsibility. For example, the `analytics` scope will include all components that provide Analytics services, and the `design` scope will
+include the services for our design language.
+
+<!--
 Scopes can be created for every responsibility, for example: `wiki` or `design`
 
 On a deeper level, scopes are used to define responsibility over components in the same sense microservices are used to define ownership and boundaries over software services.
@@ -87,14 +91,14 @@ bit export
 
 ### Be aware to how changes affect others
 
-Bit automaticlly detects affected dependents in your Workspace. It is a best practice import few or more dependents and test
+Bit automatically detects affected dependents in your Workspace. It is a best practice import few or more dependents and test
 your changes against them prior to releasing.
 
 ```
 bit import blocks/header --dependents
 ```
 
-Running `test` and `build` can test your modified components vs affected dependenies.
+Running `test` and `build` can test your modified components vs affected dependencies.
 
 ```
 bit test

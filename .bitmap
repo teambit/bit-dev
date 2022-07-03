@@ -11,7 +11,7 @@
 {
     "apps/bit-dev": {
         "scope": "teambit.community",
-        "version": "1.95.57",
+        "version": "1.95.59",
         "mainFile": "index.ts",
         "rootDir": "community/apps/bit-dev"
     },
@@ -59,7 +59,7 @@
     },
     "cloud/create-account": {
         "scope": "teambit.community",
-        "version": "0.0.25",
+        "version": "0.0.26",
         "mainFile": "index.ts",
         "rootDir": "community/cloud/create-account"
     },
@@ -71,7 +71,7 @@
     },
     "community/analytics-quick-start": {
         "scope": "teambit.analytics",
-        "version": "0.0.27",
+        "version": "0.0.29",
         "mainFile": "index.ts",
         "rootDir": "analytics/community/analytics-quick-start"
     },
@@ -83,7 +83,7 @@
     },
     "community/design-quick-start": {
         "scope": "teambit.design",
-        "version": "0.0.36",
+        "version": "0.0.38",
         "mainFile": "index.ts",
         "rootDir": "design/community/design-quick-start"
     },
@@ -950,7 +950,7 @@
     },
     "content/quick-start": {
         "scope": "teambit.docs",
-        "version": "1.95.42",
+        "version": "1.95.44",
         "mainFile": "index.ts",
         "rootDir": "docs/content/quick-start"
     },
@@ -1107,7 +1107,7 @@
     },
     "content/what-is-bit": {
         "scope": "teambit.bit",
-        "version": "1.95.25",
+        "version": "1.95.27",
         "mainFile": "index.ts",
         "rootDir": "bit/content/what-is-bit"
     },
@@ -1360,7 +1360,7 @@
     },
     "quick-start": {
         "scope": "teambit.bit",
-        "version": "0.0.44",
+        "version": "0.0.46",
         "mainFile": "index.ts",
         "rootDir": "bit/quick-start/quick-start"
     },
@@ -1372,7 +1372,7 @@
     },
     "quick-start/basic-react": {
         "scope": "teambit.community",
-        "version": "0.0.34",
+        "version": "0.0.36",
         "mainFile": "index.ts",
         "rootDir": "community/quick-start/basic-react"
     },
@@ -1384,7 +1384,7 @@
     },
     "quick-start/data-fetching": {
         "scope": "teambit.community",
-        "version": "0.0.20",
+        "version": "0.0.22",
         "mainFile": "index.ts",
         "rootDir": "community/quick-start/data-fetching"
     },
@@ -1408,7 +1408,7 @@
     },
     "quick-start/wiki-quick-start": {
         "scope": "teambit.bit",
-        "version": "1.95.36",
+        "version": "1.95.38",
         "mainFile": "index.ts",
         "rootDir": "bit/quick-start/wiki-quick-start"
     },
@@ -1456,7 +1456,7 @@
     },
     "ui/buttons/button": {
         "scope": "teambit.design",
-        "version": "1.95.15",
+        "version": "1.95.16",
         "mainFile": "index.ts",
         "rootDir": "design/ui/buttons/button"
     },
@@ -1480,7 +1480,7 @@
     },
     "ui/community-docs": {
         "scope": "teambit.docs",
-        "version": "1.95.49",
+        "version": "1.95.51",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/community-docs"
     },
