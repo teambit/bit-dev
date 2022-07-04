@@ -1,9 +1,8 @@
 import React from 'react';
 import { Card, CardProps } from '@teambit/bit.quick-start.card';
-import { useLocation } from '@teambit/base-react.navigation.link';
+import { useLocation, useNavigate } from '@teambit/base-react.navigation.link';
 import { H3 } from '@teambit/design.ui.heading';
 import { Carousel } from '@teambit/design.content.carousel';
-import { useNavigate } from 'react-router-dom';
 
 import classNames from 'classnames';
 import styles from './featured.module.scss';
@@ -18,9 +17,6 @@ export type FeaturedProps = {
 export function Featured({ cards = [], className, ...rest }: FeaturedProps) {
   const location = useLocation();
   const navigate = useNavigate();
-  const handleClick = (index: number, pathName: string, componentId: string) => {
-    navigate(pathName, { state: { componentId } });
-  };
 
   const isActive = (card: CardProps) => {
     const pathname = location?.pathname;
@@ -42,9 +38,7 @@ export function Featured({ cards = [], className, ...rest }: FeaturedProps) {
         {cards.map((card, index) => (
           <Card
             data-testid={`card-${index}`}
-            onClick={() =>
-              handleClick(index, card.path || card.heading || '', card.frameworkLogos?.[0]?.componentId || '')
-            }
+            onClick={() => navigate(card.path || card.heading || '')}
             selected={activeIndex === index}
             key={card?.heading}
             className={styles.card}
