@@ -1,27 +1,30 @@
 import { CreateAccount } from '@teambit/community.cloud.create-account';
 // import { ScopeCard } from '@teambit/dot-scopes.ui.scope-card';
 import { centerColumn } from '@teambit/base-ui.layout.page-frame';
+import {
+  ScopeRename,
+  BitStatus,
+  SnapAllExample,
+  TagAllExample,
+  CreateLaneExample,
+  SnapAllInLaneExample,
+  ExportExample,
+  TestExample,
+  ImportWithDependentsExample,
+} from './commands';
 
 ## Collaborate
 
 Now that we have done our work and all seems to be working locally, its time to share our changes and collaborate with others.  
 Bit tells you which components changed and their current [status](/workspace/workspace-status).
 
-```
-bit status
-```
+<BitStatus />
 
 ### Create a remote scope
 
-A [Scope](/scope/scope-overview) is a collaboration server for components.
-It enables you to export components created in your workspace, to have them stored remotely, and to collaborate on them with others.
-Other developers, with access to your scope, could either use your components or propose changes to them.
+A [Scope](/scope/scope-overview) is a collaboration server for components. It enables you to export components created in your workspace, to have them stored remotely, and to collaborate on them with others. Other developers, with access to your scope, can use your components or propose changes to them.
 
-<!-- Creating and exporting components to remote scopes enables you to collaborate with others. A scope is used as a
-remote storage for your components. -->
-
-Scopes help organize components in a shared domain of responsibility. For example, the `analytics` scope will include all components that provide Analytics services, and the `design` scope will
-include the services for our design language.
+Scopes help organize components in a shared domain of responsibility. For example, the `analytics` scope will include all components that provide Analytics services, and the `design` scope will include the services for our design language.
 
 <!--
 Scopes can be created for every responsibility, for example: `wiki` or `design`
@@ -40,69 +43,46 @@ or [self-host your scope](/scope/running-a-scope-server).
 
 <CreateAccount className={centerColumn} />
 
-If you've created a new remote scope, to update it to be your default scope, use this command:
+Once you've created a new remote scope, update the `defaultScope` property of your workspace to the new scope name:
 
-```
-bit scope rename <old-name> <new-name> --refactor
-```
-
-The --refactor flag updates the components in your workspace with the new scope name, if you prefer to update manually, remove it:
-
-```
-bit scope rename <old-name> <new-name>
-```
+<ScopeRename />
 
 ### Snap your changes
 
-To record your component changes you can use:
+Run the following to record your component changes:
 
-```
-bit snap --all --message "initial snap"
-```
+<SnapAllExample />
 
-To release components in a new semantic version, use:
+Run the following to record your component changes and tag them with a semantic release version:
 
-```
-bit tag --all --message "initial tag"
-```
+<TagAllExample />
 
-### Create a Lane (Alpha)
+### Create a Lane (alpha)
 
-Lanes are used to propose component changes to the component main history lane.
-To record changes on a Lane.
+By default, component changes are recorded on the main lane. You can create a new lane and use it to propose changes to multiple-components (in the main lane):
 
-```bash
-bit lane create my-feature
-```
+<CreateLaneExample />
 
-Then, use `snap` to record your changes into the Lane:
+Once a new lane has been created (and automatically, switched to), you can run the following to record component changes in that lane:
 
-```bash
-bit snap --all --message "my first lane snap"
-```
+<SnapAllInLaneExample />
 
 ### Export changes to remote scopes
 
 After recoding component changes with snaps or tags, you can sync the staging changes with the defined remote scopes.
 
-```
-bit export
-```
+<ExportExample />
 
 ### Be aware to how changes affect others
 
-Bit automatically detects affected dependents in your Workspace. It is a best practice import few or more dependents and test
+Bit automatically detects affected dependents in your Workspace. It is a best practice to import few or more dependents and test
 your changes against them prior to releasing.
 
-```
-bit import blocks/header --dependents
-```
+<ImportWithDependentsExample />
 
 Running `test` and `build` can test your modified components vs affected dependencies.
 
-```
-bit test
-```
+<TestExample />
 
 <!-- ### Merge -->
 

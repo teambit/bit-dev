@@ -1,0 +1,23 @@
+---
+description: Makes a list of commands available for all components in a page.
+labels: ['docs', 'cli']
+---
+
+## Basic usage
+
+1. Wrap the page/app with this component to make its CLI commands available to all components
+2. Provide the component with a list of commands (for example, see [this JSON](https://bit.cloud/teambit/harmony/content/cli-reference/~code/cli-reference.json) with all core commands)
+
+```ts
+import { CommandsProvider } from '@teambit/community.ui.bit-cli.commands-provider';
+import { CommandsExplorer } from '@teambit/community.ui.bit-cli.commands-explorer';
+import commands from '@teambit/harmony.content.cli-reference/dist/cli-reference.json';
+
+export const ShowForkCommand = () => {
+  return (
+    <CommandsProvider rawCommands={commands}>
+      <CommandsExplorer commandName="fork" />
+    </CommandsProvider>
+  );
+};
+```

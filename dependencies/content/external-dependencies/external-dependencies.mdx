@@ -1,8 +1,10 @@
 # External Dependencies
 
-External dependencies are Components or packages, defined in your Workspace's [Dependency Policy](/dependencies/dependency-policies), and installed and resolved from the [node_modules](/dependencies/node-modules) directory.
+External dependencies are components or packages that are installed and resolved from the [node_modules](/dependencies/node-modules) directory.
+These dependencies are listed in the components' dependency config and the workspace dependency policy.
+In contrary to ['Workspace component links'](/workspace/structure/component-links), these dependencies are not linked to any component maintained in that workspace.
 
-External dependencies are installed in the workspace `node_modules` directory, where they are available to be used by components maintained in that workspace. Use the `bit install` command to install all external dependencies.
+Use the `bit install` command to install all external dependencies.
 
 ```bash
 // Read the dependency policies and install any missing package, accordingly
@@ -15,12 +17,6 @@ bit install @teambit/base-ui.button
 ```
 
 The installation process is done by the package manager configured in the Dependency Resolver. Transitive dependencies (the dependencies of dependencies, and so on) are installed as well.
-
-:::tip
-'External dependencies' can be contrasted with 'Internal workspace dependencies'.
-Internal dependencies are components that are maintained in the workspace. Their corresponding module is generated in the `node_modules` directory and not installed.
-Since they are maintained in the workspace, they can be found listed in the `.bitmap` file.
-:::
 
 ## Package dependencies
 

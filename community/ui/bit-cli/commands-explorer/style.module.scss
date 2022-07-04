@@ -1,0 +1,154 @@
+$subcommand-menu-x-padding: 30px;
+
+.command {
+    // overflow-y: hidden;
+    display: block;
+    // padding-top: 25px;
+    border-radius: 8px;
+    white-space: pre;
+    min-width: 100%;
+    background: #1e1e1e;
+    .element {
+    border-radius: 5px;
+
+    &:hover {
+        cursor: default;
+    }
+    padding: 6px;
+
+    }
+
+    .dollarSign {
+        color: #a3a7a3;
+    }
+
+    .subCommand {
+        cursor: pointer;
+    }
+
+    .arg {
+        color: #9cdcfe;
+    }
+
+    .hoverable {
+        &:hover {
+            background-color: #828181;
+        }
+    }
+
+    .optional {
+        &::before {
+            content: '[';
+            color: #ededed;
+        }
+
+        &::after {
+            content: ']';
+            color: #ededed;
+        }
+    }
+    }
+
+    .element {
+        border-radius: 5px;
+        &:hover {
+            cursor: default;
+        }
+        padding: 6px;
+    }
+
+    .dollarSign {
+        color: #a3a7a3;
+    }
+
+    .subCommand {
+        cursor: pointer;
+    }
+
+    .arg {
+        color: #9cdcfe;
+    }
+
+    .hoverable {
+        &:hover {
+            background-color: #828181;
+        }
+    }
+
+    .optional {
+        &::before {
+            content: '[';
+            color: #ededed;
+        }
+
+        &::after {
+            content: ']';
+            color:#ededed;
+        }
+    }
+
+.subCommandsMenu {
+    width: calc(100% - 2 * $subcommand-menu-x-padding);
+    min-height: 25px;
+    padding-left: $subcommand-menu-x-padding;
+    padding-top: 25px;
+    padding-right: $subcommand-menu-x-padding;
+    display: flex;
+    flex-wrap: wrap;
+    .subCommandTab {
+        padding-right: 10px;
+        padding-left: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        margin-bottom: 10px;
+        background-color: #494666;
+        border-radius: 5px;
+        margin-right: 15px;
+        font-family: CircularXX,
+                "Gill Sans",
+                "Gill Sans MT",
+                "Helvetica Neue",
+                Helvetica,
+                Arial,
+                sans-serif;
+        color: #ededed;
+        &:hover{
+            cursor: pointer;
+            background-color: var(-bit-accent-heavy, #5d4aec);
+        }
+    }
+    .subCommandTabSelected {
+        background-color: var(-bit-accent-heavy, #5d4aec);
+    }
+
+}
+
+.tooltip {
+    background-color: #878484;
+    border: 1px solid #9b9999;
+    font-family: CircularXX,
+        "Gill Sans",
+        "Gill Sans MT",
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        sans-serif;
+    padding: 10px;
+    font-size: 14px;
+    overflow-wrap: normal;
+    overflow-y: hidden;
+    >div {
+        border-radius: 8px;
+        word-break: break-word !important;
+        max-width: 300px;
+        max-height: 240px;
+    }
+}
+
+.error {
+    background-color: var(--bit-error-bg, #fdeff2);
+    color: var(--bit-error-color, #e62e5c);
+    padding: 25px;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}

@@ -1,0 +1,2 @@
+export const aboutTasksScopeDir = `This is an example of a directory that contains the components' source files. There could be any number of such directories, anywhere in the workspace. By default, Bit places components in directories that are named according to the components' scope name. Inside these directories, each component has its source files contained in a single directory, the 'component directory'.
+`;
