@@ -5,12 +5,12 @@ import type { Tester } from '@teambit/tester';
 // import type { PrettierConfigTransformer } from '@teambit/prettier';
 
 export class CommunityReactMdxEnv implements Environment, PackageEnv, DependenciesEnv, LinterEnv, FormatterEnv {
-  constructor(protected baseEnv: ReactEnv) {}
+  constructor(protected baseEnv: ReactEnv, protected options: { icon?: string } = {}) {}
 
   private jestConf = require.resolve('./jest/jest.config');
 
   get icon() {
-    return this.baseEnv.icon;
+    return this.options.icon || this.baseEnv.icon;
   }
 
   /* implement this service handler to override React's default tester */

@@ -22,7 +22,10 @@ export class CommunityMdxMain {
   };
 
   static async provider([envs, mdxMain, generator]: [EnvsMain, MDXMain, GeneratorMain]) {
-    const communityReactMdxEnv = envs.merge(new CommunityReactMdxEnv(mdxMain.mdxEnv), mdxMain.mdxEnv);
+    const communityReactMdxEnv = envs.merge(
+      new CommunityReactMdxEnv(mdxMain.mdxEnv, { icon: mdxMain.icon() }),
+      mdxMain.mdxEnv
+    );
 
     envs.registerEnv(communityReactMdxEnv);
     generator.registerComponentTemplate([bitDevDocs]);
