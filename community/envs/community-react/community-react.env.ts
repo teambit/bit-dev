@@ -17,6 +17,10 @@ export class CommunityReactEnv implements PackageEnv, DependenciesEnv, LinterEnv
     return this.baseEnv.getEsmJestTester(this.jestConf, jestModulePath);
   }
 
+  // // enabling this causes errors like:
+  // // ERROR in ./node_modules/@teambit/docs.blocks.sidebar/dist/tree/tree.js 54:25-33
+  // // export 'RootNode' (imported as 'RootNode') was not found in '@teambit/base-ui.graph.tree.root-node' (possible exports: __esModule)
+
   //   /* implement this service handler to override the default package.json props for components */
   //   getPackageJsonProps(): PackageJsonProps {
   //     /* Return package.json props with '"type": "module"' to define components as ES modules. */
