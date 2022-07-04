@@ -7,10 +7,7 @@ export type ContentExpandedProps = {
   content: string | React.ReactNode;
 };
 
-export function ContentExpanded({
-  showDetails,
-  content,
-}: ContentExpandedProps) {
+export function ContentExpanded({ showDetails, content }: ContentExpandedProps) {
   if (!showDetails) return null;
   return <div className={styles.inRow}>{content}</div>;
 }

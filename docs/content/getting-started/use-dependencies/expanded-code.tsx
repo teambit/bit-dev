@@ -7,6 +7,7 @@ import styles from './styles.module.scss';
 export const ExpandedCode = () => (
   <div className={styles.collapsibleWrapper}>
     <CollapsibleContent
+      // @ts-ignore
       title={<span>See full code snippet</span>}
       content={<CodeExample />}
       hasSeperator={false}
@@ -19,6 +20,7 @@ export const ExpandedCode = () => (
 export const ExpandedCommand = () => (
   <div className={styles.collapsibleWrapper}>
     <CollapsibleContent
+      // @ts-ignore
       title={<span>See full command options</span>}
       content={<BitInstall />}
       hasSeperator={false}

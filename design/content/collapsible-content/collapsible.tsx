@@ -1,3 +1,5 @@
+/* eslint-disable no-return-assign */
+/* eslint-disable jsx-a11y/aria-role */
 import React, { useRef, useState, HTMLAttributes } from 'react';
 import AnimateHeight from 'react-animate-height';
 import cx from 'classnames';
@@ -14,7 +16,7 @@ export type CollapsibleProps = {
   title: string | React.ReactNode;
   hSize?: Element;
   content: string | React.ReactNode;
-  className: string;
+  className?: string;
   hasSeperator?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 
