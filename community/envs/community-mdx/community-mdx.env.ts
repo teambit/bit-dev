@@ -9,9 +9,9 @@ export class CommunityReactMdxEnv implements Environment, PackageEnv, Dependenci
 
   private jestConf = require.resolve('./jest/jest.config');
 
-  // get icon() {
-  //   return 'https://static.bit.dev/extensions-icons/mdx-icon-small.svg';
-  // }
+  get icon() {
+    return this.baseEnv.icon;
+  }
 
   /* implement this service handler to override React's default tester */
   getTester(jestConfigPath: string, jestModulePath?: string): Tester {
