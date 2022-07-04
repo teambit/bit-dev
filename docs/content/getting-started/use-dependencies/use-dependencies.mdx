@@ -1,7 +1,7 @@
 import { Image } from '@teambit/docs.ui.zoomable-image';
 import depsScreenshot from './deps-screenshot.png';
-import { InstallDependency, ShowTodo } from './commands';
-import { ExpandedCode } from './expanded-code';
+import { BitInstall, InstallExample, ShowTodo } from './commands';
+import { ExpandedCode, ExpandedCommand } from './expanded-code';
 import { BitShowTodo } from './bit-show-todo';
 import { ExploreWorkspace } from './explore-workspace';
 
@@ -20,13 +20,15 @@ import { InputText } from '@teambit/design.inputs.input-text';
 <ExpandedCode />
 
 Notice how this dependency is consumed as a standard package, even though it is a component.
-This would be true even if that dependency was maintained in the same workspace. Bit makes this possible by generating a package for each component, during its development and during its build.
+_This would be true even if that dependency was maintained in the same workspace._ Bit makes this possible by generating a package for each component, during its development and during its build.
 
 Consuming components via their (absolute) package name, makes them usable in any context, whether is is a different workspace or even a non-Bit project.
 
-Run the following to install the dependency:
+Run following to [install](/dependencies/dependency-installation) the the above dependency:
 
-<InstallDependency />
+<InstallExample />
+
+<ExpandedCommand />
 
 :::info Installing components in non-Bit projects
 You can install components using standard package managers like npm and Yarn, in Bit and non-Bit projects. To learn more, see [Installing components](/components/installing-components).
@@ -36,11 +38,13 @@ Run the following to review the component's data:
 
 <ShowTodo />
 
-The output lists the above dependency as a direct dependency of 'apps/to-do':
+The output lists the above dependency as a direct dependency of [`my-org.tasks-scope/apps/to-do`](https://bit.cloud/my-org/tasks-scope/apps/to-do?version=0.0.2):
 
 <BitShowTodo />
 
 <br />
+
+Bit maintains a dependency graph of all components in the workspace. This graph is used, among other things, to propagate changes from components to their dependents.
 
 To review the full dependency graph of a component, including its indirect dependencies, head over to the component's
 'Dependencies' tab in the UI. Notice how this component has 2 additional indirect dependencies.
@@ -49,6 +53,30 @@ To review the full dependency graph of a component, including its indirect depen
 
 <br />
 
-## Dependency type and version
+## Dependency policy and dependency resolution
+
+The previously installed dependency is now registered in the workspace [Dependency policy](/dependencies/dependency-policies) (see it in the `workspace.jsonc` file below).
+
+The dependency policy defines [External dependencies](/dependencies/external-dependencies) that are to be installed in that workspace. Note that a workspace policy does not automatically add a dependency to a component.
+If a dependency is not used by a component, it is not included in its dependency graph.
+
+The version and type of a dependency are determined by Bit after considering multiple sources (listed here by order of importance):
+[Component dependency config](/dependencies/configuring-dependencies) (defined manually), [dependencies defined via aspects](/dependencies/configuring-dependencies#configuring-from-aspects) (programmatically), [dependencies defined via envs](/dependencies/configuring-dependencies#configuring-dependencies-from-an-env) (programmatically), and lastly, the [workspace dependency policy](/dependencies/dependency-policies) and Bit's automatic dependency detection.
 
 <ExploreWorkspace />
+
+### Dependency types
+
+The previously installed dependency was resolved by Bit as a standard dependency since there are no configurations or policies that define it differently.
+In addition to standard dependencies, Bit supports dev dependencies and peer dependencies.
+
+#### Dev dependencies
+
+Dev dependencies can be packages or other components. A dependency is defined as a 'dev dependency' if it's configured as such (manually or programmatically), or if the dependency is only used by the component's [dev files](/components/structure/dev-files) (e.g, test files, documentation files, etc.).
+
+#### Peer dependencies
+
+Peer dependencies can be packages or other components. These are dependencies that are expected to be included in a component's host application.
+Since peer dependencies play a special "public role" in an app, such as the medium of communication between modules or the app's global state, they are required to exist in just a single instance, a single version.
+
+The peer dependencies of a component are usually configured by its env or by the workspace dependency policy. Note that while components are configured with lenient peer dependency versions (to make them compatible with a wide range of hosts), the host itself (an env or an app) use a concrete version.
