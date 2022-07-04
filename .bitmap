@@ -1294,13 +1294,13 @@
     },
     "envs/community-mdx": {
         "scope": "teambit.community",
-        "version": "1.95.16",
+        "version": "2.0.0",
         "mainFile": "index.ts",
         "rootDir": "community/envs/community-mdx"
     },
     "envs/community-react": {
         "scope": "teambit.community",
-        "version": "1.95.13",
+        "version": "2.0.0",
         "mainFile": "index.ts",
         "rootDir": "community/envs/community-react"
     },
