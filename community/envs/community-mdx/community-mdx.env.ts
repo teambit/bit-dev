@@ -56,11 +56,11 @@ export class CommunityReactMdxEnv implements Environment, PackageEnv, Dependenci
           supportedRange: '^6.0.0',
           version: '^6.0.0',
         },
-        // {
-        //   name: 'graphql',
-        //   version: '^14.3.0',
-        //   supportedRange: '^14.3.0',
-        // },
+        {
+          name: 'graphql',
+          version: '^14.3.0',
+          supportedRange: '^14.3.0',
+        },
         {
           name: '@apollo/client',
           version: '^3.6.9',
