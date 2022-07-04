@@ -187,7 +187,13 @@
         "scope": "teambit.design",
         "version": "0.0.2",
         "mainFile": "index.ts",
-        "rootDir": "design/content/collapsible-content"
+        "rootDir": "design/content/collapsible-content",
+        "config": {
+            "teambit.community/envs/community-react": {},
+            "teambit.envs/envs": {
+                "env": "teambit.community/envs/community-react"
+            }
+        }
     },
     "content/commonjs-package-registries": {
         "scope": "teambit.pkg",

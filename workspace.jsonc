@@ -1,7 +1,7 @@
 /**
  * this is the main configuration file of your bit workspace.
  * for full documentation, please see: https://harmony-docs.bit.dev/workspace/configurations
- **/{
+ **/ {
   "$schema": "https://static.bit.dev/teambit/schemas/schema.json",
   /**
    * main configuration of the Bit workspace.
@@ -225,9 +225,7 @@
       }
     },
     "packageManagerArgs": [],
-    "devFilePatterns": [
-      "**/*.spec.ts"
-    ],
+    "devFilePatterns": ["**/*.spec.ts"],
     "strictPeerDependencies": true,
     "installFromBitDevRegistry": true,
     "savePrefix": ""
@@ -259,7 +257,7 @@
       "teambit.community/envs/community-mdx": "-",
       "teambit.community/envs/community-react": {}
     },
-    "{content/**}": {
+    "!{content/collapsible-content}, {content/**}": {
       "teambit.mdx/mdx": "-",
       "teambit.community/envs/community-mdx": {}
     },
