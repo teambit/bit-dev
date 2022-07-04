@@ -4,7 +4,6 @@ import { ComponentID } from '@teambit/component-id';
 import { centerColumn, wideColumn } from '@teambit/base-ui.layout.page-frame';
 import { ComponentShowcase } from '@teambit/community.component-showcase';
 import { LearnCrossroad } from '@teambit/bit.quick-start.learn-crossroad';
-import { CollapsibleContent } from '@teambit/design.content.collapsible-content';
 import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-display';
 import DefaultIntro from './intro.mdx';
 import DefaultInstallation from './installation.mdx';
@@ -125,14 +124,10 @@ export function QuickStart({
     <div>
       <div className={styles.sectionMargin}>{intro || <DefaultIntro />}</div>
       {/* The main component will be shown inside the component showcase */}
-      <ComponentShowcase
-        className={wideColumn}
-        componentId={id.toString()}
-        preview={mainComponent}
-      />
+      <ComponentShowcase className={wideColumn} componentId={id.toString()} preview={mainComponent} />
       <div className={styles.showcase}>
         {ending}
-        <CollapsibleContent title="What is Bit?" content={<WhatIsBit />} />
+        <WhatIsBit />
         <LearnCrossroad
           className={centerColumn}
           title="Thinking in components"

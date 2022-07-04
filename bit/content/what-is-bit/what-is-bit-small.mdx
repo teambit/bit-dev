@@ -1,16 +1,17 @@
-
-Bit stands at the intersection between product and engineering. **It helps you take complex product requirements, and break them down into independent, 
-and reusable pieces called** ***"components"***. It allows you to create components and compose them with each other. Components are described by names and APIs, and contain source code implementation. 
+Bit stands at the intersection between product and engineering. **It helps you take complex product requirements, and break them down into independent,
+and reusable pieces called** **_"components"_**. It allows you to create components and compose them with each other. Components are described by names and APIs, and contain source code implementation.
 They can be of different kinds like apps, pages, UI components, backend services and even content. You can [think of almost anything in components](/thinking-in-components).
 
-<!-- People tend to think of components like apps as "bigger" and components like a button as "smaller", but for us they are the same size.  -->
+It is common to think of components that function as full applications, as "large", whereas components that function as simple elements, like a 'button', as "small".
+For us, both types of components are "the same size", but each has a different responsibility. An app is a very concrete component. It has many dependencies and just a few (if any) dependents.
+A button, on the other hand, is very abstract. It has just a few dependencies and many dependents. Having this sort of dependents-to-dependencies ratio indicates that a component is highly-reusable.
 
-<!-- Both Button and App are 
-components, with different responsibilities. An App is the most "concrete" component with a dependecy graph and minor amount of dependents, and button is the most "abstract" 
+<!-- People tend to think of components like apps as "bigger" and components like a button as "smaller", but for us they are the same size. Both Button and App are
+components, with different responsibilities. An App is the most "concrete" component with many dependencies and small amount of dependents, and button is the most "abstract"
 component with just few dependencies and a lot of dependents, indicating higher reusability. They have different responsibilities but they are equal in size and importance. -->
 
-<!-- 
-People tend to think of components like apps as "bigger" and components like a button as "smaller", but for us they are just in the same size. Both Button and App are 
+<!--
+People tend to think of components like apps as "bigger" and components like a button as "smaller", but for us they are just in the same size. Both Button and App are
 small components, with different responsibilities.  -->
 
 <!-- An App is the most "concrete" component with a large dependecy graph, and button is the most "abstract" component with just few
