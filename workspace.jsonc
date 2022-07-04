@@ -216,6 +216,7 @@
         "use-debounce": "7.0.1"
       },
       "peerDependencies": {
+        "prop-types": "15.8.1",
         "@apollo/client": "3.6.9",
         "@testing-library/react": "^12.1.5",
         "@testing-library/react-hooks": "^8.0.0",
