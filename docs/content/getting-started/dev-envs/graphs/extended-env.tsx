@@ -24,7 +24,7 @@ const extendedEnvNodes = createBubbleGraph([
       showScope: true,
     },
     row: 2,
-    col: 3,
+    col: 4,
     position: 'bottom-right',
     isLinkable: true,
   },

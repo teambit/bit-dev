@@ -1,0 +1,25 @@
+import { Image } from '@teambit/docs.ui.zoomable-image';
+import packageName from '../package-name.png';
+
+#### Package name
+
+Bit generates a standard NodeJS package for each component in the workspace.
+It creates a temporary package for components that are still in development, and generates the release package when a component is versioned.
+
+Components are always consumed using their (absolute) package name, and never using relative paths to their source files.
+
+A component's package name correlates to its component ID:
+
+<Image
+  maxWidth={300}
+  src={packageName}
+  alt="a package name correlates to its component id"
+/>
+
+<br />
+
+To learn more about the package name, see [Package name](https://bit.dev/docs/packages/package-name).
+
+To learn more about packages for components maintained in the workspace, see [Workspace component links](https://bit.dev/docs/workspace/structure/component-links).
+
+To learn more about building and publishing packages see, [Packages overview](https://bit.dev/docs/packages/packages-overview).

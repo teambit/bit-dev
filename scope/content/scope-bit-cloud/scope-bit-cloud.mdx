@@ -34,6 +34,20 @@ Once you created a remote scope you need to make sure the `defaultScope` is set 
 }
 ```
 
+To set a component with a scope different than the workspace's default scope, run the following:
+
+```plaintext
+bit scope set SCOPE_NAME COMPONENT_ID_PATTERN
+```
+
+For example, the following sets the `ui/button` component with the `my-org.my-scope` scope.
+
+```plaintext
+bit scope set my-org.my-scope ui/button
+```
+
+A component can also have its scope defined when it is created, by using the `--scope` option. To learn more, see [Creating components](https://bit.dev/docs/getting-started/composing/creating-components).
+
 ## Exporting to Bit.cloud
 
 When working with Bit.cloud there's no need for any additional local configuration to export components. Bit resolves the scopes from Bit.cloud with a predefined resolve function. This means you only need to set your scope in `workspace.jsonc`.

@@ -47,6 +47,7 @@ export function BlogQuickStart({ children }: BlogQuickStartProps) {
 
   return (
     <QuickStart
+      defaultWorkspaceName="react-blog"
       name="blog"
       intro={<Intro />}
       id={id}

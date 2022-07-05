@@ -1,0 +1,51 @@
+$terminal-padding: 25px;
+.wrapper {
+    margin-bottom: 1rem;
+    position: relative;
+    .terminal {
+            &:hover {
+                    .copyIcon {
+                        opacity: 1;
+                    }
+                }
+            padding: 25px;
+            padding-bottom: 20px;
+            border-radius: 8px;
+            white-space: pre;
+            width: calc(100% - $terminal-padding * 2);
+            overflow-x: auto;
+            font-family: "Courier New";
+            tab-size: 0;
+            font-size: 15px;
+            background: #1e1e1e;
+            line-height: 1;
+            color: #ededed;
+    
+            .copy {
+                display: flex;
+                align-items: center;
+                position: absolute;
+                top: 20px;
+                right: 10px;
+            }
+    
+            .copyIcon {
+                margin-left: 8px;
+                padding: 2px;
+                border-radius: 8px;
+                background-color: white;
+                opacity: 0;
+                color: #414141;
+                cursor: pointer;
+                transition: opacity 300ms ease-in-out;
+                box-sizing: border-box;
+                width: 24px;
+            }
+    
+            .dollarSign {
+                color: #a3a7a3;
+                padding: 6px;
+                user-select: none;
+            }
+        }
+}

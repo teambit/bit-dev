@@ -1,0 +1,33 @@
+import { ExploreWorkspace } from './explore-workspace';
+import { NewExistingProjectTabs } from './new-existing-project-tabs';
+
+# Initialize a workspace
+
+A workspace is a group of files and directories that provide the necessary context for components to be composed and versioned.
+
+A workspace can be used as a temporary, disposable tool for component maintenance, or as a long-term project that is collaborated on with the help of traditional VCS like git.
+Either way, components are independent and decoupled from a workspace once they are versioned and exported to their scopes.
+
+:::info Scopes and workspaces
+A scope is a collaboration server for components. It is where components are [exported](https://bit.dev/docs/components/exporting-components) to and [imported](https://bit.dev/docs/components/importing-components) from. A single workspace handles components of different scopes.
+
+Create a scope for free on [bit.cloud](https://bit.cloud/~create-scope) or [host your own scope](https://bit.dev/docs/scope/running-a-scope-server).
+:::
+
+<br />
+
+<NewExistingProjectTabs />
+
+## Workspace files and directories
+
+Explore the workspace directory structure below to learn how workspaces maintain components:
+
+<ExploreWorkspace />
+
+<br />
+
+:::info Workspace config files for the IDE
+A workspace may also include configuration files for the various services used by the IDE.
+For example, a `tsconfig.json` file may be generated at the root of your workspace. This file does not determine the compilation config for components.
+It is only used by your IDE, for a better dev experience.
+:::

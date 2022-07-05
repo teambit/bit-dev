@@ -1,0 +1,18 @@
+.todoCard {
+    max-width: 250px;
+    display: inline-block;
+}
+
+.todoCardAndAbout {
+    display: flex;
+    gap: 30px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    .aboutTodo {
+        margin-left: 10px;
+        margin-right: 10px;
+        width: calc(100% - 40px);
+        max-width: 90vw;
+        flex: 3;
+        }
+}

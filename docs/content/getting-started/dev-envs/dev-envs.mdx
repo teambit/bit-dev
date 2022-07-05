@@ -1,6 +1,19 @@
 import { Image } from '@teambit/docs.ui.zoomable-image';
 import { ComponentCardDisplay } from '@teambit/components.blocks.component-card-display';
 import { ExtendedEnv } from './graphs/extended-env';
+import {
+  CreateExample,
+  BitCreateOutput,
+  SetEnv,
+  SetEnvExample,
+  SetEnvOutput,
+  BitCreateOverrideEnv,
+  CreateCustomEnvExample,
+  CreateCustomEnvOutput,
+  InstallExample,
+  CompileExample,
+  CompileOutput,
+} from './commands';
 
 # Development Environments
 
@@ -24,43 +37,28 @@ An env is a single component. You can collaborate on it, reuse it, and even exte
 
 Envs are used by components - not by workspaces (for this reason, a single workspace can run multiple envs at once). To use an env, create a component to apply that env on:
 
-```bash
-bit create react ui/button
-```
+<CreateExample />
 
 The output confirms that a new component was created. This component is already set (by its [template](/dev-services/generator/generate-component)) to use Bit's React env:
 
-```bash
-my-org.my-scope/ui/button
-    location: my-scope/ui/button
-    env:      teambit.react/react (set by template)
-```
+<BitCreateOutput />
 
 To set a different env, run the following:
 
-```bash
-bit env set COMPONENT_ID_PATTERN ENV_ID
-```
+<SetEnv />
 
 For example, the following sets the component with [a custom env](#creating-a-custom-env):
 
-```bash
-bit env set ui/button my-org.my-scope/my-react
-```
+<SetEnvExample />
 
 The output confirms that the new component is set with the custom env:
 
-```bash
-added my-org.my-scope/envs/my-react env to the following component(s):
-my-org.my-scope/ui/button
-```
+<SetEnvOutput />
 
 :::info Overriding the default env set by a template
 To override the default env set by the [component template](/dev-services/generator/generate-component) use the `--env` option. For example:
 
-```bash
-bit create react ui/button --env my-org.my-scope/my-react
-```
+<BitCreateOverrideEnv />
 
 :::
 
@@ -71,21 +69,13 @@ Learn how to run an env's dev services in the ['Running dev services'](#running-
 Bit offers various out-of-the-box envs that you can use directly but also, as part of your own custom env composition.
 For example, run the following to create an env that extends Bit's React env:
 
-```bash
-bit create react-env envs/my-react
-```
+<CreateCustomEnvExample />
 
 <ExtendedEnv />
 
 The output confirms that a new component was created. And, since that component is an env, it uses an env designed for envs.
 
-```bash
-1 component(s) were created
-
-my-org.my-scope/envs/my-react
-    location: my-scope/envs/my-react
-    env:      teambit.envs/env (set by template)
-```
+<CreateCustomEnvOutput />
 
 Head over to your env's `my-react.main.ts` file to change React's default config using its extension API.
 For example, set Prettier (React's default formatter) to use a tab-width of 4 instead of 2:
@@ -103,9 +93,9 @@ react.usePrettier({
 
 Run the following to compile the new env and install its dependencies:
 
-```bash
-bit install && bit compile
-```
+<InstallExample />
+
+<CompileExample />
 
 Head over to the ['Using an env'](#using-an-env) section, to learn how to use your custom env.
 
@@ -115,17 +105,11 @@ Dev services are component development procedures that are provided by envs. Eve
 
 For example, run the following command to compile your components' code:
 
-```ts
-bit compile
-```
+<CompileExample />
 
 The output lists all components affected by the compilation. Notice how the custom env and the component that uses it, were both compiled. That is so, even though each of them uses a different env.
 
-```bash
-  STATUS        COMPONENT ID
-✔ SUCCESS       envs/my-react
-✔ SUCCESS       ui/button
-```
+<CompileOutput />
 
 To learn more about specific development services see the following:
 

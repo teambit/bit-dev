@@ -1,0 +1,70 @@
+---
+description: 'Displays Bit commands enriched with descriptions'
+labels: ['docs', 'cli']
+---
+
+import { CommandsProvider } from '@teambit/community.ui.bit-cli.commands-provider';
+import commands from '@teambit/harmony.content.cli-reference/dist/cli-reference.json';
+import { DemoCommands } from './showcase.dev';
+import { CommandsExplorer } from './commands-explorer';
+
+This component displays Bit commands in an interactive and user-friendly way, and highlights commands according to Bit's syntax.
+Use it to display command schemes or concrete examples.
+
+## Basic usage
+
+1. Wrap the commands-explorer component with the commands-provider. Pass the commands to the [commands-provider](https://bit.cloud/teambit/community/ui/bit-cli/commands-provider) (for example, see [this JSON](https://bit.cloud/teambit/harmony/content/cli-reference/~code/cli-reference.json) with all core commands).
+2. Pass the name of the command (you wish to display) to the commands-explorer component.
+
+```ts
+import { CommandsProvider } from '@teambit/community.ui.bit-cli.commands-provider';
+import { CommandsExplorer } from '@teambit/community.ui.bit-cli.commands-explorer';
+import commands from '@teambit/harmony.content.cli-reference/dist/cli-reference.json';
+
+export const ShowForkCommand = () => {
+  return (
+    <CommandsProvider rawCommands={commands}>
+      <CommandsExplorer commandName="show" />
+      <CommandsExplorer commandName="envs" />
+    </CommandsProvider>
+  );
+};
+```
+
+(hover over the different command parts to see their descriptions)
+
+<DemoCommands />
+
+## Choose a default sub-command
+
+```ts live
+() => {
+  return (
+    <CommandsProvider rawCommands={commands}>
+      <CommandsExplorer commandName="envs" subCommandName="get" />
+    </CommandsProvider>
+  );
+};
+```
+
+## Set the command with concrete values
+
+Use this to provide examples enriched with the command's descriptions.
+
+Pass an object with key-value pairs of arguments/options and their corresponding values.
+
+```ts live
+() => {
+  const commandExample = {
+    'source-component-id': 'teambit.base-react/buttons/button',
+    'target-component-name': 'input/button',
+    refactor: true,
+  };
+
+  return (
+    <CommandsProvider rawCommands={commands}>
+      <CommandsExplorer commandName="fork" commandExample={commandExample} />
+    </CommandsProvider>
+  );
+};
+```

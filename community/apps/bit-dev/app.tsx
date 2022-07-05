@@ -9,6 +9,8 @@ import { Homepage } from '@teambit/community.ui.pages.homepage';
 import { NotFound } from '@teambit/community.ui.pages.errors.not-found';
 import { CommunityDocs, totalRoutes } from '@teambit/docs.ui.community-docs';
 import { wideColumn, centerColumn } from '@teambit/base-ui.layout.page-frame';
+import { CommandsProvider } from '@teambit/community.ui.bit-cli.commands-provider';
+import commands from '@teambit/harmony.content.cli-reference/dist/cli-reference.json';
 import { Footer, footerMock } from '@teambit/community.ui.footer.footer';
 import { AppContext } from './app-context';
 import { CommandBar } from './command-bar';
@@ -28,18 +30,20 @@ export function BitDevApp() {
 
   return (
     <AppContext>
-      <div className={classnames(styles.app, layout.container)}>
-        <StickyBanner className={layout.sticky} {...excludeHighlighterAtt} />
-        <Header className={layout.sticky} plugins={headerWidgets} />
+      <CommandsProvider rawCommands={commands}>
+        <div className={classnames(styles.app, layout.container)}>
+          <StickyBanner className={layout.sticky} {...excludeHighlighterAtt} />
+          <Header className={layout.sticky} plugins={headerWidgets} />
 
-        <ScrollToTop target={ref} />
-        <div className={layout.stretch}>
-          <div className={layout.scrollContainer} ref={ref}>
-            <Pages />
-            <Footer className={centerColumn} categoryList={footerMock} />
+          <ScrollToTop target={ref} />
+          <div className={layout.stretch}>
+            <div className={layout.scrollContainer} ref={ref}>
+              <Pages />
+              <Footer className={centerColumn} categoryList={footerMock} />
+            </div>
           </div>
         </div>
-      </div>
+      </CommandsProvider>
     </AppContext>
   );
 }
