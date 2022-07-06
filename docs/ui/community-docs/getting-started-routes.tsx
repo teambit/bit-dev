@@ -154,6 +154,11 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
         title: 'Import components',
         component: <ImportComponents />,
       },
+      {
+        path: 'setup-ci',
+        title: 'Setup CI',
+        component: <CiExport />,
+      },
     ],
   },
   {
