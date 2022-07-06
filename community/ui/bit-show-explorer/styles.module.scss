@@ -1,0 +1,42 @@
+.terminal {
+    display: block;
+    position: relative;
+    padding: 15px;
+    border-radius: 10px;
+    white-space: pre;
+    max-width: 1000px;
+    overflow: auto;
+    font-family: "Courier New";
+    // font-family: "roboto mono";
+    tab-size: 0;
+    font-size: 14px;
+    background: #1e1e1e;
+    line-height: 1;
+    color:#ededed;
+    .section {
+        cursor: pointer;
+        &:hover {
+            background-color: #828181;
+            height: 25%;
+        }
+    }
+}
+
+.animated {
+    .section {
+        &[data-section="0"] {
+            animation-name: animated-section;
+            animation-duration: 1.5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-out;
+        }
+    }
+}
+
+
+@keyframes animated-section {
+    0% { background-color: #1e1e1e}
+    50% { background-color: #828181}
+    100% { background-color: #1e1e1e }
+}
+

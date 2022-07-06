@@ -1,188 +1,82 @@
-import depImg from './deps.png';
-import depGraphImg from './dep-graph.png';
-import devDepGraphImg from './dev-dep-graph.png';
 import { Image } from '@teambit/docs.ui.zoomable-image';
+import depsScreenshot from './deps-screenshot.png';
+import { BitInstall, InstallExample, ShowTodo } from './commands';
+import { ExpandedCode, ExpandedCommand } from './expanded-code';
+import { BitShowTodo } from './bit-show-todo';
+import { ExploreWorkspace } from './explore-workspace';
 
 # Using Dependencies
 
-With [dependencies](/dependencies/dependencies-overview) we compose components out of other components. Dependencies can be either [External Dependencies](/dependencies/external-dependencies) or Bit components in the same workspace. Bit automatically resolves a component's dependencies by parsing all `import` and `require` statements in your code.
+For a component to be composable and independent, it must maintain its own dependency graph. This graph can include packages, as well as other components.
 
-To create a dependency relationship between components we simply add `import` one from another. Go to `my-welcome.ts` and add the following `import` statement.
+To add a dependency to a component, include a standard `import`/`require` statement in any of its files. Bit will automatically detect these statements and include them in the component's dependency graph.
 
-```ts title="my-welcome.ts"
-import React from 'react';
-import { Heading } from '@bitorg/experience.templates.ui.heading';
+For example, the following adds the [`teambit.design/inputs/input-text`](https://bit.cloud/teambit/design/inputs/input-text) component as a dependency of (the previously-created) [`my-org.tasks-scope/apps/to-do`](https://bit.cloud/my-org/tasks-scope/apps/to-do?version=0.0.2) component:
+
+```ts
+import { InputText } from '@teambit/design.inputs.input-text';
 ```
 
-:::info Generated package name
+<ExpandedCode />
 
-[`Package name`](/packages/package-name) for a component is by default computed from its [Component ID](/components/structure/component-id). You can customize it to your liking with other conventions.
+Notice how this dependency is consumed as a standard package, even though it is a component.
+_This would be true even if that dependency was maintained in the same workspace._ Bit makes this possible by generating a package for each component, during its development and during its build.
 
+Consuming components via their (absolute) package name, makes them usable in any context, whether is is a different workspace or even a non-Bit project.
+
+Run following to [install](/dependencies/dependency-installation) the the above dependency:
+
+<InstallExample />
+
+<ExpandedCommand />
+
+:::info Installing components in non-Bit projects
+You can install components using standard package managers like npm and Yarn, in Bit and non-Bit projects. To learn more, see [Installing components](/components/installing-components).
 :::
 
-Congrats you have added a new dependency for your component! You can view your new component dependency with `bit show`. Bit now recognizes `templates/ui/heading` as a dependency of your component.
+Run the following to review the component's data:
 
-```bash
-bit show ui/my-welcome
-```
+<ShowTodo />
 
-```bash {27}
-┌───────────────────┬────────────────────────────────────────────────────────────────┐
-│ id                │ bitorg.experience/ui/my-welcome                                │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ scope             │ bitorg.experience                                              │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ name              │ ui/my-welcome                                                  │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ env               │ bitorg.experience/templates/envs/my-react                      │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ package name      │ @bitorg/experience.ui.my-welcome                               │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ main file         │ index.ts                                                       │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ files             │ index.ts                                                       │
-│                   │ my-welcome.composition.tsx                                     │
-│                   │ my-welcome.docs.mdx                                            │
-│                   │ my-welcome.spec.tsx                                            │
-│                   │ my-welcome.tsx                                                 │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ dev files         │ my-welcome.spec.tsx (teambit.defender/tester)                  │
-│                   │ my-welcome.composition.tsx (teambit.compositions/compositions) │
-│                   │ my-welcome.docs.mdx (teambit.docs/docs)                        │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ extensions        │ teambit.react/react                                            │
-│                   │ ...                                                            │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ dependencies      │ @bitorg/experience.templates.ui.heading@latest- (component)    │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ dev dependencies  │ @types/node@12.20.4 (package)                                  │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ peer dependencies │ react@^16.8.0 || ^17.0.0------ (package)                       │
-└───────────────────┴────────────────────────────────────────────────────────────────┘
-```
+The output lists the above dependency as a direct dependency of [`my-org.tasks-scope/apps/to-do`](https://bit.cloud/my-org/tasks-scope/apps/to-do?version=0.0.2):
 
-You can see the dependency graph of your component in the Workspace UI.
+<BitShowTodo />
 
-<Image src={depImg} />
+<br />
 
-Now let's add another component as a dependency. This time it will be `ui/card`:
+Bit maintains a dependency graph of all components in the workspace. This graph is used, among other things, to propagate changes from components to their dependents.
 
-```ts {3} title="my-welcome.ts"
-import React from 'react';
-import { Heading } from '@bitorg/experience.templates.ui.heading';
-import { Card } from '@bitorg/experience.templates.ui.card';
+To review the full dependency graph of a component, including its indirect dependencies, head over to the component's
+'Dependencies' tab in the UI. Notice how this component has 2 additional indirect dependencies.
 
-export type MyWelcomeProps = {
-  /**
-   * a text to be rendered in the component.
-   */
-  title?: string;
-};
+<Image src={depsScreenshot} maxWidth={700} hasBackground />
 
-export function MyWelcome({ title }: MyWelcomeProps) {
-  return (
-    <>
-      <Heading>{title}</Heading>
-      <Card
-        link="https://harmony-docs.bit.dev/building-with-bit/removing-components"
-        heading="Remove"
-        text="remove components and their files"
-        command={`bit remove "ui/*" --delete-files`}
-      />
-    </>
-  );
-}
+<br />
 
-MyWelcome.defaultProps = {
-  text: 'My Welcome Page',
-};
-```
+## Dependency policy and dependency resolution
 
-Now, if you go back to the Workspace UI, you will see that Bit adds not only the direct dependency (`ui/card`), but all of it's Component Dependencies as well.
+The previously installed dependency is now registered in the workspace [Dependency policy](/dependencies/dependency-policies) (see it in the `workspace.jsonc` file below).
 
-<Image src={depGraphImg} />
+The dependency policy defines [External dependencies](/dependencies/external-dependencies) that are to be installed in that workspace. Note that a workspace policy does not automatically add a dependency to a component.
+If a dependency is not used by a component, it is not included in its dependency graph.
 
-Bit keeps a complete dependency graph of all components in the workspace and show the entire dependency / dependents graph of each component.  
-A list of the component's direct dependencies can be seen using `bit show` or in the Code tab part of the Workspace UI.
+The version and type of a dependency are determined by Bit after considering multiple sources (listed here by order of importance):
+[Component dependency config](/dependencies/configuring-dependencies) (defined manually), [dependencies defined via aspects](/dependencies/configuring-dependencies#configuring-from-aspects) (programmatically), [dependencies defined via envs](/dependencies/configuring-dependencies#configuring-dependencies-from-an-env) (programmatically), and lastly, the [workspace dependency policy](/dependencies/dependency-policies) and Bit's automatic dependency detection.
 
-```bash
-bit show ui/my-welcome
-```
+<ExploreWorkspace />
 
-```bash {29,30}
-┌───────────────────┬────────────────────────────────────────────────────────────────┐
-│ id                │ bitorg.experience/ui/my-welcome                                │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ scope             │ bitorg.experience                                              │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ name              │ ui/my-welcome                                                  │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ env               │ bitorg.experience/templates/envs/my-react                      │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ package name      │ @bitorg/experience.ui.my-welcome                               │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ deprecated        │ false                                                          │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ main file         │ index.ts                                                       │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ files             │ index.ts                                                       │
-│                   │ my-welcome.composition.tsx                                     │
-│                   │ my-welcome.docs.mdx                                            │
-│                   │ my-welcome.spec.tsx                                            │
-│                   │ my-welcome.tsx                                                 │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ dev files         │ my-welcome.spec.tsx (teambit.defender/tester)                  │
-│                   │ my-welcome.composition.tsx (teambit.compositions/compositions) │
-│                   │ my-welcome.docs.mdx (teambit.docs/docs)                        │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ extensions        │ teambit.react/react                                            │
-│                   │ ...                                                            │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ dependencies      │ @bitorg/experience.ui.card@latest---- (component)              │
-│                   │ @bitorg/experience.ui.templates.ui.heading@latest- (component) │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ dev dependencies  │ @types/node@12.20.4 (package)                                  │
-│                   │ ...                                                            │
-├───────────────────┼────────────────────────────────────────────────────────────────┤
-│ peer dependencies │ @testing-library/react@12.0.0- (package)                       │
-│                   │ react-dom@^16.8.0 || ^17.0.0-- (package)                       │
-│                   │ react@^16.8.0 || ^17.0.0------ (package)                       │
-└───────────────────┴────────────────────────────────────────────────────────────────┘
-```
+### Dependency types
 
-## External dependencies
+The previously installed dependency was resolved by Bit as a standard dependency since there are no configurations or policies that define it differently.
+In addition to standard dependencies, Bit supports dev dependencies and peer dependencies.
 
-[External dependencies](/dependencies/external-dependencies) are all dependencies listed as part of the workspace [Dependency Policy](/dependencies/dependency-policies) and are installed with the `install` command.
+#### Dev dependencies
 
-```bash
-bit install @teambit/base-ui.button
-```
+Dev dependencies can be packages or other components. A dependency is defined as a 'dev dependency' if it's configured as such (manually or programmatically), or if the dependency is only used by the component's [dev files](/components/structure/dev-files) (e.g, test files, documentation files, etc.).
 
-All dependencies are listed in the `workspace.jsonc` and installed to `node_modules`. Still, Bit does not set a dependency on a component unless a component has a specific `import` statement to that dependency. This means you don't have to deal with managing a dependency graph for each component. A dependency gets removed when you stop use it, and reappear when you start using it again.
+#### Peer dependencies
 
-## Dependency types
+Peer dependencies can be packages or other components. These are dependencies that are expected to be included in a component's host application.
+Since peer dependencies play a special "public role" in an app, such as the medium of communication between modules or the app's global state, they are required to exist in just a single instance, a single version.
 
-Bit tries to automate managing types of dependencies as well so you don't have to manage your `package.json` file for each component.
-
-### Dev dependencies
-
-`devDependencies` is contextual. Some components many use a dependency for their testing, and others will need it to operate. Managing the type of dependency can be a pain. Bit solves this by treating `import` and `require` statements from files classified as [Dev Files](/components/structure/dev-files) differently. Any dependency resolved from a dev-file is marked as `devDependencies` for the specific component. `bit show` output lists which are the dev-files of a component.
-
-If any dependency appears in both an implementation file and a dev-file, Bit marks it as a `dependency` as this is a "stronger" requirement.
-
-Dev dependencies can be viewed either using `bit show` as seen in the example above or by selecting `show non-runtime` option in the Dependencies UI.
-
-<Image src={devDepGraphImg} />
-
-Dotted edges represent a dev dependency between two components.
-
-### Peer dependencies
-
-Peer Dependencies are dependencies that are not required to be installed by the consumer of the component. They are used to provide a common API for packages that are related. Often used to ensure a single instance of a dependency in the consumer's runtime.
-
-Bit is unable to determine if a dependency should be a `peerDependency`. This is something you should manage in your `workspace.jsonc`.
-
-## Overriding automated dependency policy
-
-Bit offers an automatic way to manage your dependency graph. However, you can take control to your own hands and override any automated behavior. To control and configure different dependency resolution to some components you need to use the [Workspace Variants Aspect](/workspace/variants).  
-With manual control you can even decide that some of your components will resolve different versions of the same external dependency, allowing you to slowly upgrade your dependencies.
+The peer dependencies of a component are usually configured by its env or by the workspace dependency policy. Note that while components are configured with lenient peer dependency versions (to make them compatible with a wide range of hosts), the host itself (an env or an app) use a concrete version.

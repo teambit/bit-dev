@@ -1,7 +1,7 @@
 /**
  * this is the main configuration file of your bit workspace.
  * for full documentation, please see: https://harmony-docs.bit.dev/workspace/configurations
- **/{
+ **/ {
   "$schema": "https://static.bit.dev/teambit/schemas/schema.json",
   /**
    * main configuration of the Bit workspace.
@@ -79,7 +79,7 @@
         "@teambit/base-ui.surfaces.split-pane.hover-splitter": "1.0.0",
         "@teambit/base-ui.surfaces.split-pane.split-pane": "1.0.0",
         "@teambit/base-ui.text.paragraph": "^1.0.3",
-        "@teambit/blog.starter.starter-blog": "0.0.58",
+        "@teambit/blog.starter.starter-blog": "0.0.61",
         "@teambit/cloud-providers.deployers.netlify": "0.0.8",
         "@teambit/cloud.cloud-provider": "0.0.39",
         "@teambit/code.ui.dependency-tree": "0.0.508",
@@ -87,7 +87,7 @@
         "@teambit/code.ui.queries.get-file-content": "0.0.487",
         "@teambit/code.ui.utils.get-file-icon": "0.0.486",
         "@teambit/community.entity.graph.bubble-graph": "^1.95.11",
-        "@teambit/community.ui.bit-cli.commands-provider": "0.0.15",
+        "@teambit/community.ui.content-tabs": "0.1.7",
         "@teambit/community.ui.sticky-banner": "0.0.7",
         "@teambit/community.ui.text-tooltip": "0.0.7",
         "@teambit/community.ui.usage-example": "0.0.5",
@@ -126,8 +126,6 @@
         "@teambit/design.ui.surfaces.menu.item": "^0.0.354",
         "@teambit/design.ui.surfaces.menu.link-item": "^0.0.379",
         "@teambit/design.ui.tooltip": "0.0.352",
-        "@teambit/docs.docs.getting-started.create-components": "0.0.14",
-        "@teambit/docs.docs.getting-started.init-workspace": "0.0.11",
         "@teambit/documenter.markdown.heading": "^0.1.8",
         "@teambit/documenter.theme.theme-compositions": "4.1.5",
         "@teambit/documenter.ui.code-snippet": "4.2.2",
@@ -146,7 +144,7 @@
         "@teambit/graphql.contexts.graphql-provider": "0.0.9",
         "@teambit/graphql.hooks.use-query": "^0.0.7",
         "@teambit/harmony": "0.3.3",
-        "@teambit/harmony.content.cli-reference": "1.95.35",
+        "@teambit/harmony.content.cli-reference": "1.95.36",
         "@teambit/harmony.content.create-app": "0.0.2",
         "@teambit/harmony.docs.app-plugins": "0.0.1",
         "@teambit/harmony.docs.application-types": "0.0.3",
@@ -217,19 +215,18 @@
         "use-debounce": "7.0.1"
       },
       "peerDependencies": {
-        "@apollo/client": "3.5.10",
+        "@apollo/client": "3.6.9",
         "@testing-library/react": "^12.1.5",
         "@testing-library/react-hooks": "^8.0.0",
         "graphql": "^14.3.0",
+        "prop-types": "15.8.1",
         "react": "^17.0.0",
         "react-dom": "^17.0.0",
         "react-router-dom": "^6.0.0"
       }
     },
     "packageManagerArgs": [],
-    "devFilePatterns": [
-      "**/*.spec.ts"
-    ],
+    "devFilePatterns": ["**/*.spec.ts"],
     "strictPeerDependencies": true,
     "installFromBitDevRegistry": true,
     "savePrefix": ""
@@ -261,7 +258,7 @@
       "teambit.community/envs/community-mdx": "-",
       "teambit.community/envs/community-react": {}
     },
-    "{content/**}": {
+    "!{content/collapsible-content}, {content/**}": {
       "teambit.mdx/mdx": "-",
       "teambit.community/envs/community-mdx": {}
     },

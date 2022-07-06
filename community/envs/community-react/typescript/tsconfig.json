@@ -1,7 +1,0 @@
-{
-  "compilerOptions": {
-    "target": "es2015",
-    "module": "es6",
-    "lib": ["es2021", "dom", "ESNext.String"]
-  }
-}
