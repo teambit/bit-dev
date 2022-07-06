@@ -8,6 +8,7 @@ import { index } from './ws-directory-structure/to-do/index-ts';
 import { workspaceJson } from './ws-directory-structure/workspace-json';
 import { bitmap } from './ws-directory-structure/bitmap';
 import { pnpmLock } from './ws-directory-structure/pnpm-lock';
+import { inputTextDesc, todoDesc } from './ws-directory-structure/node-modules';
 
 const todoFiles = {
   'tasks-scope/apps/to-do/todo.composition.tsx': composition,
@@ -22,8 +23,8 @@ export const workspaceFiles = {
   'pnpm-lock': pnpmLock,
   'workspace.jsonc': workspaceJson,
   '.bitmap': bitmap,
-  'node_modules/@my-org/tasks-scope.apps.to-do/': null,
-  'node_modules/@teambit/design.inputs.input-text/': null,
+  'node_modules/@my-org/tasks-scope.apps.to-do/about-this-dir': todoDesc,
+  'node_modules/@teambit/design.inputs.input-text/about-this-dir': inputTextDesc,
 };
 
 export const ExploreWorkspace = () => (

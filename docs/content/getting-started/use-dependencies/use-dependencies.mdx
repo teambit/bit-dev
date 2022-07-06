@@ -5,7 +5,7 @@ import { ExpandedCode, ExpandedCommand } from './expanded-code';
 import { BitShowTodo } from './bit-show-todo';
 import { ExploreWorkspace } from './explore-workspace';
 
-# Using Dependencies
+# Use Dependencies
 
 For a component to be composable and independent, it must maintain its own dependency graph. This graph can include packages, as well as other components.
 
@@ -55,9 +55,9 @@ To review the full dependency graph of a component, including its indirect depen
 
 ## Dependency policy and dependency resolution
 
-The previously installed dependency is now registered in the workspace [Dependency policy](/dependencies/dependency-policies) (see it in the `workspace.jsonc` file below).
+The previously installed dependency is now registered in the workspace [dependency policy](/dependencies/dependency-policies) (see it in the `workspace.jsonc` file below).
 
-The dependency policy defines [External dependencies](/dependencies/external-dependencies) that are to be installed in that workspace. Note that a workspace policy does not automatically add a dependency to a component.
+The dependency policy defines the [external dependencies](/dependencies/external-dependencies) that are to be installed in that workspace. Note that a workspace policy does not automatically add a dependency to a component.
 If a dependency is not used by a component, it is not included in its dependency graph.
 
 The version and type of a dependency are determined by Bit after considering multiple sources (listed here by order of importance):

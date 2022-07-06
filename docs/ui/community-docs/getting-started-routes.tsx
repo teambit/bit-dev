@@ -155,28 +155,14 @@ export const gettingStartedDocsRoutes: DocsRoute[] = [
         component: <ImportComponents />,
       },
       {
-        path: 'setup-ci',
-        title: 'Setup CI',
-        component: <CiExport />,
-      },
-    ],
-  },
-  {
-    path: 'getting-started/update',
-    title: 'Update',
-    icon: 'use',
-    open: false,
-    children: [
-      // {
-      //   path: 'import-components',
-      //   title: 'Import Components',
-      //   description: 'A fundamental feature of a Bit workspace is the ability to vendor components.',
-      //   component: <ImportComponents />,
-      // },
-      {
         path: 'update-components',
         title: 'Update Components',
         component: <UpdateComponents />,
+      },
+      {
+        path: 'setup-ci',
+        title: 'Setup CI',
+        component: <CiExport />,
       },
     ],
   },

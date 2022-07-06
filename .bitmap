@@ -649,6 +649,12 @@
         "mainFile": "index.ts",
         "rootDir": "docs/content/guides/merging-component-versions"
     },
+    "content/guides/migration": {
+        "scope": "teambit.docs",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/guides/migration"
+    },
     "content/guides/removing-deprecating-components": {
         "scope": "teambit.docs",
         "version": "1.96.2",
@@ -1171,6 +1177,12 @@
         "mainFile": "index.ts",
         "rootDir": "harmony/docs/aspect-config"
     },
+    "docs/component-artifacts": {
+        "scope": "teambit.component",
+        "version": "0.0.4",
+        "mainFile": "index.ts",
+        "rootDir": "component/docs/component-artifacts"
+    },
     "docs/creating-aspects": {
         "scope": "teambit.harmony",
         "version": "0.1.1",
@@ -1188,6 +1200,12 @@
         "version": "0.1.1",
         "mainFile": "index.ts",
         "rootDir": "envs/docs/envs-config"
+    },
+    "docs/forking-components": {
+        "scope": "teambit.component",
+        "version": "0.0.1",
+        "mainFile": "index.ts",
+        "rootDir": "component/docs/forking-components"
     },
     "docs/getting-started/create-components": {
         "scope": "teambit.docs",

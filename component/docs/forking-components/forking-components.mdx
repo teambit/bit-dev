@@ -1,0 +1,31 @@
+import {
+  ForkCommand,
+  ForkCommandBasicExample,
+  ForkCommandSetScopeExample,
+  ForkRefactorExample,
+} from './commands';
+
+# Forking Components
+
+When you fork a component from a remote scope, you create a copy of it in your workspace. This copy is [defined as 'new'](https://bit.dev/docs/workspace/workspace-status#new-components), and has no previous versions.
+The scope of that copied component is set, by default, to your workspace default scope (defined in the `defaultScope` property).
+
+Run the following to fork a component:
+
+<ForkCommand />
+
+For example, the following command forks `teambit.design/basic/button` to your workspace:
+
+<ForkCommandBasicExample />
+
+Run the following to fork a component and change its scope to a scope different than your workspace default scope:
+
+<ForkCommandSetScopeExample />
+
+## Refactoring
+
+Use the `--refactor` option to update the import statements in all dependent components (in the same workspace). For example:
+
+<ForkRefactorExample />
+
+All occurrences of `import { Button } from '@teambit/design.basic.button'` are now replaced by `import { Button } from '@my-org/my-scope.basic.button'`.
