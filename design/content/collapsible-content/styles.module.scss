@@ -26,12 +26,21 @@ $size: 16px;
   padding: 1em 0;
   font-size: $size;
   transition: background-color 0.6s ease-out;
-  &:hover {
-    cursor: pointer;
-    background-color: var(--surface-neutral-hover-color, #F4F5F6);
+  &.bg {
+      &:hover {
+          cursor: pointer;
+          background-color: var(--surface-neutral-hover-color, #F4F5F6);
+        }
   }
+  &.text {
+      &:hover {
+          cursor: pointer;
+          color: var(--bit-accent-primary-color, #6C5CE7);
+        };
+  };
+
   .heading {
-    margin:  0;
+    margin-bottom:  1rem;
   }
   .wrapper {
     font-size: $size;

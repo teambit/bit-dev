@@ -16,11 +16,12 @@ export type CollapsibleProps = {
   title: string | React.ReactNode;
   hSize?: Element;
   content: string | React.ReactNode;
+  hoverEffect?: 'bg' | 'text';
   className?: string;
   hasSeperator?: boolean;
 } & HTMLAttributes<HTMLDivElement>;
 
-const ANIMATION_DURATION = 600;
+const ANIMATION_DURATION = 500;
 
 export function Collapsible({
   title,
@@ -28,6 +29,7 @@ export function Collapsible({
   content,
   className,
   hasSeperator = true,
+  hoverEffect = 'bg',
   ...rest
 }: CollapsibleProps) {
   const [isOpen, setOpen] = useState(false);
@@ -42,7 +44,7 @@ export function Collapsible({
       <>
         <div
           {...rest}
-          className={cx(styles.row, className)}
+          className={cx(styles.row, styles[hoverEffect], className)}
           onClick={() => (!isAnimating.current ? toggleHide() : null)}
         >
           <Icon
@@ -67,7 +69,7 @@ export function Collapsible({
             <Text className={styles.scopes}> </Text>
           </div>
         </div>
-        <Text className={cx(styles.rightAligned, styles.padL15, styles.hide)}>{}</Text>
+        {/* <Text className={cx(styles.rightAligned, styles.padL15, styles.hide)}>{}</Text> */}
         {/* @ts-ignore */}
         <AnimateHeight
           duration={ANIMATION_DURATION}

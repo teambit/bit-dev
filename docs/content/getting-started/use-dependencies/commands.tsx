@@ -1,8 +1,9 @@
 import React from 'react';
 // import { Terminal } from '@teambit/community.ui.bit-cli.terminal';
 import { CommandsExplorer } from '@teambit/community.ui.bit-cli.commands-explorer';
+import styles from './styles.module.scss';
 
-export const BitInstall = () => <CommandsExplorer commandName="install" />;
+export const BitInstall = () => <CommandsExplorer commandName="install" className={styles.noMarginBottom} />;
 
 export const InstallExample = () => {
   const example = {

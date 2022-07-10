@@ -17,9 +17,9 @@ export const StatusOutput = () => (
   </Terminal>
 );
 
-export const BitSnap = () => <CommandsExplorer commandName="snap" />;
+export const BitSnap = () => <CommandsExplorer commandName="snap" className={styles.noMarginBottom} />;
 
-export const BitTag = () => <CommandsExplorer commandName="tag" />;
+export const BitTag = () => <CommandsExplorer commandName="tag" className={styles.noMarginBottom} />;
 
 export const SnapExample = () => {
   const example = {
@@ -58,7 +58,7 @@ export const TagOutput = () => (
   </Terminal>
 );
 
-export const BitReset = () => <CommandsExplorer commandName="reset" />;
+export const BitReset = () => <CommandsExplorer commandName="reset" className={styles.noMarginBottom} />;
 
 export const ResetExample = () => {
   const example = {
