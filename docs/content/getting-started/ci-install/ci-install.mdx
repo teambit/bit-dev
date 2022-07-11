@@ -13,20 +13,20 @@ Npm and yarn respect the following file locations:
 
 If you already use such configuration file you may append the configuration relevant for Bit in it.
 
-### Components on [bit.dev](https://bit.dev)
+### Components on [bit.cloud](https://bit.cloud)
 
-All components hosted on Bit.dev are accesible from the `https://node.bit.dev` domain with your account as a `registry`. To install components directly from there configure the following in your `.npmrc` file:
+All components hosted on Bit.cloud are accessible from the `https://node.bit.cloud` domain with your account as a `registry`. To install components directly from there configure the following in your `.npmrc` file:
 
 ```sh
-@ACCOUNT-NAME:registry=https://node.bit.dev
-//node.bit.dev/:_authToken=TOKEN
+@ACCOUNT-NAME:registry=https://node.bit.cloud
+//node.bit.cloud/:_authToken=TOKEN
 ```
 
 Replace the `ACCOUNT-NAME` with your account name and `TOKEN` with your token. To get a machine token follow [these steps](https://TODO).
 
 ### Components published on a remote registry
 
-If you are publishing your components on a remote registry or integrated your registry to cache exported components from [bit.dev](https://bit.dev) configure your `.npmrc` with that information.
+If you are publishing your components on a remote registry or integrated your registry to cache exported components from [bit.cloud](https://bit.cloud) configure your `.npmrc` with that information.
 
 ## Common Errors
 
@@ -51,9 +51,9 @@ You can use these examples as a reference for configuring your `.npmrc` file.
 You can add a `.npmrc` in your project with the following:
 
 ```shell
-@<account-name>:registry=https://node.bit.dev
-@teambit:registry=https://node.bit.dev
-//node.bit.dev/:_authToken=${BIT_TOKEN}
+@<account-name>:registry=https://node.bit.cloud
+@teambit:registry=https://node.bit.cloud
+//node.bit.cloud/:_authToken=${BIT_TOKEN}
 always-auth=true
 ```
 
@@ -64,12 +64,12 @@ Define `BIT_TOKEN` as a secret global variable on the server.
 To generate the file dynamically, you need to run the following script (e.g. create a `bit_npm.sh` script):
 
 ```shell
-echo "Adding bit.dev to npm registry"
+echo "Adding bit.cloud to npm registry"
 echo "always-auth=true" >> ~/.npmrc
-echo "@<account-name>:registry=https://node.bit.dev" >> ~/.npmrc
-echo "@teambit:registry=https://node.bit.dev" >> ~/.npmrc
-echo "//node.bit.dev/:_authToken={$BIT_TOKEN}" >> ~/.npmrc
-echo "Completed adding bit.dev to npm registry"
+echo "@<account-name>:registry=https://node.bit.cloud" >> ~/.npmrc
+echo "@teambit:registry=https://node.bit.cloud" >> ~/.npmrc
+echo "//node.bit.cloud/:_authToken={$BIT_TOKEN}" >> ~/.npmrc
+echo "Completed adding bit.cloud to npm registry"
 ```
 
 ### Netlify
@@ -95,14 +95,14 @@ Add the BIT_TOKEN as a [secret](https://help.github.com/en/actions/configuring-a
 In the GitHub workflow file, create a step before the npm install section:
 
 ```shell
-- name: init bit.dev
+- name: init bit.cloud
   run: |
-    echo "Adding bit.dev to npm registry"
-    npm config set @bit:registry https://node.bit.dev
-    npm config set @<account-name>:registry=https://node.bit.dev
-    npm config set @teambit:registry=https://node.bit.dev
-    npm config set //node.bit.dev/:_authToken ${BIT_TOKEN}
-    echo "Completed adding bit.dev to npm registry"
+    echo "Adding bit.cloud to npm registry"
+    npm config set @bit:registry https://node.bit.cloud
+    npm config set @<account-name>:registry=https://node.bit.cloud
+    npm config set @teambit:registry=https://node.bit.cloud
+    npm config set //node.bit.cloud/:_authToken ${BIT_TOKEN}
+    echo "Completed adding bit.cloud to npm registry"
   env:
     BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
 ```

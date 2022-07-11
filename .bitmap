@@ -11,7 +11,7 @@
 {
     "apps/bit-dev": {
         "scope": "teambit.community",
-        "version": "1.96.3",
+        "version": "1.96.4",
         "mainFile": "index.ts",
         "rootDir": "community/apps/bit-dev"
     },
@@ -555,7 +555,7 @@
     },
     "content/getting-started/dev-envs": {
         "scope": "teambit.docs",
-        "version": "1.96.3",
+        "version": "1.96.4",
         "mainFile": "index.ts",
         "rootDir": "docs/content/getting-started/dev-envs"
     },
@@ -609,7 +609,7 @@
     },
     "content/getting-started/use-dependencies": {
         "scope": "teambit.docs",
-        "version": "1.96.3",
+        "version": "1.96.4",
         "mainFile": "index.ts",
         "rootDir": "docs/content/getting-started/use-dependencies"
     },
@@ -648,6 +648,12 @@
         "version": "1.96.2",
         "mainFile": "index.ts",
         "rootDir": "docs/content/guides/merging-component-versions"
+    },
+    "content/guides/migration": {
+        "scope": "teambit.docs",
+        "version": "0.0.2",
+        "mainFile": "index.ts",
+        "rootDir": "docs/content/guides/migration"
     },
     "content/guides/removing-deprecating-components": {
         "scope": "teambit.docs",
@@ -1171,6 +1177,12 @@
         "mainFile": "index.ts",
         "rootDir": "harmony/docs/aspect-config"
     },
+    "docs/component-artifacts": {
+        "scope": "teambit.component",
+        "version": "0.0.4",
+        "mainFile": "index.ts",
+        "rootDir": "component/docs/component-artifacts"
+    },
     "docs/creating-aspects": {
         "scope": "teambit.harmony",
         "version": "0.1.1",
@@ -1189,21 +1201,27 @@
         "mainFile": "index.ts",
         "rootDir": "envs/docs/envs-config"
     },
+    "docs/forking-components": {
+        "scope": "teambit.component",
+        "version": "0.0.2",
+        "mainFile": "index.ts",
+        "rootDir": "component/docs/forking-components"
+    },
     "docs/getting-started/create-components": {
         "scope": "teambit.docs",
-        "version": "0.0.17",
+        "version": "0.0.18",
         "mainFile": "index.ts",
         "rootDir": "docs/docs/getting-started/create-components"
     },
     "docs/getting-started/init-workspace": {
         "scope": "teambit.docs",
-        "version": "0.0.14",
+        "version": "0.0.15",
         "mainFile": "index.ts",
         "rootDir": "docs/docs/getting-started/init-workspace"
     },
     "docs/getting-started/use-apps": {
         "scope": "teambit.docs",
-        "version": "0.1.3",
+        "version": "0.1.4",
         "mainFile": "index.ts",
         "rootDir": "docs/docs/getting-started/use-apps"
     },
@@ -1456,7 +1474,7 @@
     },
     "ui/bit-cli/commands-explorer": {
         "scope": "teambit.community",
-        "version": "0.0.30",
+        "version": "0.0.31",
         "mainFile": "index.ts",
         "rootDir": "community/ui/bit-cli/commands-explorer"
     },
@@ -1522,7 +1540,7 @@
     },
     "ui/community-docs": {
         "scope": "teambit.docs",
-        "version": "1.96.3",
+        "version": "1.96.4",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/community-docs"
     },
@@ -1822,7 +1840,7 @@
     },
     "ui/pages/plugins": {
         "scope": "teambit.community",
-        "version": "1.96.3",
+        "version": "1.96.4",
         "mainFile": "index.ts",
         "rootDir": "community/ui/pages/plugins"
     },
