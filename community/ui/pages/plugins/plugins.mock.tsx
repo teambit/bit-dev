@@ -4,7 +4,7 @@ import styles from './plugins.module.scss';
 
 const staticBrandsBaseUrl = 'https://static.bit.dev/brands/';
 const staticEnvBaseUrl = 'https://static.bit.dev/extensions-icons/';
-const baseAspectsUrl = 'https://bit.dev/';
+const baseAspectsUrl = 'https://bit.cloud/';
 
 function ComponentCardPreview({ src }: { src: string }) {
   return (
@@ -142,7 +142,7 @@ export const appsMock: ComponentCardProps[] = [
   },
   {
     id: 'teambit/cloud-providers/cloudflare',
-    href: `${baseAspectsUrl}teambit/apps/cloudflare`,
+    href: `${baseAspectsUrl}teambit/cloud-providers/aspects/cloudflare-worker`,
     description: 'Deploy Workers components to Cloudflare.',
     envIcon: `${staticEnvBaseUrl}default.svg`,
     // preview: <ComponentCardPreview src={`${staticBrandsBaseUrl}netlify.svg`} />,

@@ -1,26 +1,20 @@
+import { ImportReactApp, UseReactApp, RunReactApp, RunReactAppOutput } from './commands';
+
 Run the following to import this demo React app to your workspace:
 
-```plaintext
-bit import learnbit.apps/react/basic-app
-```
+<ImportReactApp />
 
 Run the following to make this app loadable by your workspace:
 
-```plaintext
-bit use learnbit.apps/react/basic-app
-```
+<UseReactApp />
 
 The app's name (as configured in its files) is `basic-app`. Run the following to run this app locally:
 
-```plaintext
-bit run basic-app
-```
+<RunReactApp />
 
 The output displays the port used for serving that app:
 
-```plaintext
-basic-app app is running on http://localhost:3001
-```
+<RunReactAppOutput />
 
 :::info Deploying an app
 React apps do not provide their own default deployer. To learn how to set a deployer see [App deployment](https://bit.dev/docs/apps/app-deployment).
