@@ -96,7 +96,7 @@ Note that 'reset' does not affect the component's source files in the workspace.
 
 Bit uses the workspace dependency graph to snap (and build) the direct and indirect dependents of a snapped component.
 This ensures all affected components are tested, built and versioned accordingly.
-This also ensures unaffected components are not built or versioned, to keep efficient builds and prevent insignificant component updates to consumers of components.
+This also ensures unaffected components are not built nor versioned, to provide efficient builds and avoid insignificant component updates for consumers of components.
 
 Check your component status to discover components that are pending to be auto-snapped. For example:
 
@@ -106,9 +106,9 @@ The output for this _hypothetical_ workspace lists the modified components and t
 
 <AutoSnapStatusOutput />
 
-## Explore past versions
+## Explore previous versions
 
-Use the 'history' tab (in the UI) to review past component versions. Browse thorough the component tabs to see its past states in its documentation, compositions, dependency graph, and more.
+Use the 'changelog' tab (in the UI) to review previous component versions. Browse thorough the component tabs to see its past states in its documentation, compositions, dependency graph, and more.
 
 <Image alt="changelog" src={changelog} maxWidth={700} hasBackground />
 
@@ -130,7 +130,7 @@ Alternatively, run the following to compare versions in the terminal:
 
 <DiffExample />
 
-### Checkout different versions
+### Checkout a version
 
 You can checkout a different component version to your workspace, to review and maintain its files and config from that point in time, or more precisely, from that snap in the component's history tree.
 
