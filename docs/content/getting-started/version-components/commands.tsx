@@ -83,3 +83,43 @@ export const CheckoutExample = () => {
   };
   return <CommandsExplorer commandName="checkout" commandExample={example} />;
 };
+
+export const AutoSnapStatusOutput = () => (
+  <Terminal isOutput>
+    <span className={styles.heading}>modified components</span>
+    <br />
+    <br />
+    <span>{` > `}</span>
+    <span className={styles.component}>entities/blog-post</span>
+    <span>{` ... `}</span>
+    <span className={styles.greenHighlight}>ok</span>
+    <br />
+    <br />
+    <span className={styles.heading}>
+      components pending to be tagged automatically (when their dependencies are tagged)
+    </span>
+    <br />
+    <br />
+    <span>{` > `}</span>
+    <span className={styles.component}>my-org.blog/pages/blog-page</span>
+    <span>{` ... `}</span>
+    <span className={styles.greenHighlight}>ok</span>
+    <br />
+    <span>{` > `}</span>
+    <span className={styles.component}>my-org.blog/apps/public-blog-app</span>
+    <span>{` ... `}</span>
+    <span className={styles.greenHighlight}>ok</span>
+  </Terminal>
+);
+
+export const LogExample = () => {
+  const example = { id: 'apps/to-do' };
+  return <CommandsExplorer commandName="log" commandExample={example} />;
+};
+
+export const BitLog = () => <CommandsExplorer commandName="log" />;
+
+export const DiffExample = () => {
+  const example = { 'values...': 'apps/to-do' };
+  return <CommandsExplorer commandName="diff" commandExample={example} />;
+};
