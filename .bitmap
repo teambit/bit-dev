@@ -1797,12 +1797,6 @@
         "mainFile": "index.ts",
         "rootDir": "design/ui/navigation/icon-link"
     },
-    "ui/navigation/link": {
-        "scope": "teambit.design",
-        "version": "1.96.9",
-        "mainFile": "index.ts",
-        "rootDir": "design/ui/navigation/link"
-    },
     "ui/navigation/menu": {
         "scope": "teambit.design",
         "version": "1.96.3",

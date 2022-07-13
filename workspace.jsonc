@@ -1,7 +1,7 @@
 /**
  * this is the main configuration file of your bit workspace.
  * for full documentation, please see: https://harmony-docs.bit.dev/workspace/configurations
- **/{
+ **/ {
   "$schema": "https://static.bit.dev/teambit/schemas/schema.json",
   /**
    * main configuration of the Bit workspace.
@@ -120,6 +120,7 @@
         "@teambit/design.ui.input.option-button": "^1.0.3",
         "@teambit/design.ui.input.toggle": "^1.0.16",
         "@teambit/design.ui.message-card": "^1.0.16",
+        "@teambit/design.ui.navigation.link": "1.96.9",
         "@teambit/design.ui.panels.tabs": "^1.0.14",
         "@teambit/design.ui.sidebar.sidebar": "^1.10.5",
         "@teambit/design.ui.styles.ellipsis": "^0.0.347",
@@ -226,9 +227,7 @@
       }
     },
     "packageManagerArgs": [],
-    "devFilePatterns": [
-      "**/*.spec.ts"
-    ],
+    "devFilePatterns": ["**/*.spec.ts"],
     "strictPeerDependencies": true,
     "installFromBitDevRegistry": true,
     "savePrefix": ""

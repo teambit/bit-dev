@@ -3,7 +3,7 @@ import { CollapsibleContent } from '@teambit/design.content.collapsible-content'
 import cx from 'classnames';
 import styles from './styles.module.scss';
 
-type ExpandCodeProps = {
+export type ExpandCodeProps = {
   snippet: any;
   className?: string;
   codeType?: 'command' | 'snippet';

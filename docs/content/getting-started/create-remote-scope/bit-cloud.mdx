@@ -1,0 +1,25 @@
+import { LoginExample, LoginOutput } from './commands';
+
+Bit uses [bit.cloud](https://bit.cloud) as its default hosting provider. To register or sign in from your terminal, run the following:
+
+<LoginExample />
+
+Once an account has been created successfully, your terminal will greet you with the following message:
+
+<LoginOutput />
+
+Now that you have set up your account and logged in, head over to the [create scope](https://bit.cloud/~create-scope) page to create a new scope.
+Choose a name for your scope that describes the common purpose or functionality of your components.
+
+## Set a scope as the workspace default scope
+
+Now that you've created a remote scope on bit.cloud, validate the `defaultScope` property in the `workspace.jsonc` config file, is set to the correct username/org and scope name.
+
+```js
+{
+  "teambit.workspace/workspace": {
+    /* set a scope with this pattern: <username-or-org>.<scope-name> */
+    "defaultScope": "my-org.tasks-scope"
+  }
+}
+```

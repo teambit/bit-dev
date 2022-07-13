@@ -1,0 +1,17 @@
+Self hosting your own scope requires provisioning a dedicated container either locally, on Kubernetes, or any other cloud provider.
+To learn more see, [Hosting scopes](/scope/running-a-scope-server).
+
+## Set a scope as the workspace default scope
+
+Now that you have set up a remote scope, validate the `defaultScope` property in your `workspace.jsonc` config file, is set to the correct accuont and scope name.
+
+Note that a single workspace can maintain components of different scopes. The `defaultScope` property defines the default configuration for components.
+It does not limit components from using other scopes.
+
+```js
+{
+  "teambit.workspace/workspace": {
+    "defaultScope": "tasks-scope"
+  }
+}
+```
