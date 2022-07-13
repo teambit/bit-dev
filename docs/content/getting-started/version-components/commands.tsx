@@ -123,3 +123,10 @@ export const DiffExample = () => {
   const example = { 'values...': 'apps/to-do' };
   return <CommandsExplorer commandName="diff" commandExample={example} />;
 };
+
+export const CreateLaneExample = () => {
+  const example = {
+    'lane-name': 'new-feature',
+  };
+  return <CommandsExplorer commandName="lane" subCommandName="create" commandExample={example} />;
+};

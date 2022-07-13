@@ -144,7 +144,7 @@
         "@teambit/graphql.contexts.graphql-provider": "0.0.9",
         "@teambit/graphql.hooks.use-query": "^0.0.7",
         "@teambit/harmony": "0.3.3",
-        "@teambit/harmony.content.cli-reference": "1.95.38",
+        "@teambit/harmony.content.cli-reference": "1.95.39",
         "@teambit/harmony.content.create-app": "0.0.2",
         "@teambit/harmony.docs.app-plugins": "0.0.1",
         "@teambit/harmony.docs.application-types": "0.0.3",
