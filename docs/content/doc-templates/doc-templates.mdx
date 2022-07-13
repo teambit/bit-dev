@@ -1,62 +1,33 @@
 # Doc Templates
 
-Doc templates display doc files content using a specific layout. This layout may also be enriched with additional data provided by the template.
-Templates are set by Envs to provide doc layout that best fits the Envs components.
+Environments render documentation based on the documentation template configured for that environment.
 
-For example, the React Env uses the [`@teambit/react.ui.docs-app`](https://bit.dev/teambit/react/ui/docs-app) template to display react docs.
-This template is able to render React components, and provides layout and theme for MDX files. This template also enriches the docs with a 'property table' that presents the components prop types. The data for the property table is fetched by this template.
+The documentation template must be wrapped in a root function which, in order for Hot Module Reloading (HMR) to work well, contains only a render function
+to which you supply a single react component (example below). It is this wrapper function, exposed as a module (`export default WrapperFunction`) that you provide the environment 
+in order to override the default documentation.
+ 
+This Root function is provided with the following inputs or props, which can be utilised in whatever way you see fit to render component documentation:
 
-## Setting a doc template
-
-To set your own template, create a new Env (or extend and existing one), and implement the `getDocsTemplate()` [service handler](/envs/dev-services#service-handlers).
-
-```ts
-getDocsTemplate(...args : any[]): string
-```
-
-`getDocsTemplate` should return the path to the documentation template files.
-
-For example:
-
-```ts title="my-react.env.ts"
-import { DevEnv } from '@teambit/envs';
-
-// ...
-
-export class MyReactEnv implements DevEnv {
-  // ...
-
-  getDocsTemplate() {
-    return require.resolve('./docs');
-  }
+``` ts
+export type DocsRootProps = {
+  componentId: string;
+  docs: Docs | undefined;
+  compositions: any;
+  context: RenderingContext;
 }
 ```
 
-See the DevServer service to learn how customize the bundling of the docs in development.
-
-See the Bundler service to learn how to customize the bundling of the docs for distribution.
-
-## Creating a doc template
-
-### Rendering function
-
-The template should have a main file (usually, `index.*`) that exports, as default, a function that handles the rendering of that template.
-
-For example:
-
+Template root wrapper example:
 ```tsx title="docs/index.tsx"
 // ...
-
-export default function DocsRoot(
-  Provider: React.ComponentType | undefined,
-  componentId: string,
-  docs: DocsFile | undefined,
-  compositions: any,
-  context: RenderingContext
-) {
+export default function MyDocsRoot({
+  componentId,
+  docs,
+  compositions,
+  context
+}: DocsRootProps) {
   ReactDOM.render(
-    <DocsApp
-      Provider={Provider}
+    <MyDocsApp // your documentation template
       compositions={compositions}
       docs={docs}
       componentId={componentId}
@@ -65,23 +36,66 @@ export default function DocsRoot(
     document.getElementById('root')
   );
 }
+
+export default MyDocsRoot;
 ```
 
-### Rendering function arguments
+:::note
+For Hot Module Reload reasons, it's important to ensure that the root Docs app, as the entry to your docs, is not a react component and renders a single component - as
+in the above example, with only the MyDocsApp component being rendered, and passed the relevant inputs. MyDocsApp itself can be composed of as many components as required
+to fully implement your docs template.
+:::
 
-The Docs Aspect invokes the rendering function and passes the following arguments:
+The `MyDocsApp` can contain any react code you want, and can use or not use any of the input data it wants/needs.
+You can render anything you like inside your docs template, visualising the data supplied, and/or other data you can fetch from the many APIs bit's aspects expose.
 
-1. `React.ComponentType | undefined` - a "provider component" to wrap the template with (used only in React-based templates).
-2. `string` - the component ID
-3. `DocsFile` - data extracted from the component's docs file (see next section to learn more).
-4. [`Record<string, any>`](https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type) - the component compositions
-5. `RenderingContext`
+## Input Data 
 
-#### The `DocsFile` argument (the docs file data)
+The following data is provided in the props passed to your Docs template Root function:
+1. `compositions` - An array of the compositions created for the component. These are always in the form of a react component.
+1. `docs` - the docs object contains the documentation you added to the component in a docs.md/x files
+1. `componentId` - the [full id of the component](https://bit.dev/docs/components/structure/component-id#component-id)
+1. `renderingContext` - this object contains a get() function to obtain the rendering context of the relevant env - essentially the wrapper 'providers' supplied by the env for 
+component compositions. See the [Apply Providers](https://bit.cloud/teambit/react/ui/docs/apply-providers) function logic for how this is used.
 
-The `DocsFile` object, passed by the Docs Aspect, contains the data from the docs file. It consists of the following fields:
+## Default Documentation Template
 
-- `default?: any` - the docs file ['content'](/dev-services/docs/docs-overview#content) section.
-- `examples: Example[]` - the docs file ['live examples'](/dev-services/docs/docs-overview#live-examples).
-- `labels: string[]` - the docs file ['labels'](/dev-services/docs/docs-overview#labels).
-- `abstract: string` - the docs file ['abstract'](/dev-services/docs/docs-overview#abstract) (component description).
+All Bit's core envs contain a default template which renders the following 3 sections: 
+1. [Documentation](https://bit.cloud/teambit/react/ui/docs/docs-content) (the content of the `*.docs.md/x` file in your component)
+1. [Compositions as a gallery](https://bit.cloud/teambit/react/ui/docs/compositions-carousel)
+1. [Properties table](https://bit.cloud/teambit/react/ui/docs/properties-table) outlining the component schema
+
+Core docs templates also contain some wrapper components for applying our default docs theme and the providers the environment has injected (such as composition wrappers, etc).
+1. [Docs App](https://bit.cloud/teambit/react/ui/docs-app) - wraps the Icon Fonts and our own docs block styling
+1. [Apply Providers](https://bit.cloud/teambit/react/ui/docs/apply-providers) - applies any providers that are added via the component's environment in the env's preview.runtime file.
+
+Doc templates display doc files content using a specific layout. This layout may also be enriched with additional data provided by the template.
+Templates are set by Envs to provide doc layout that best fits the Envs components.
+
+## Setting a doc template
+
+To set your own template, [create a custom Env](https://bit.dev/docs/envs/composing-env#extending-an-env) and implement the relevant override function for the core env being customised.
+
+[Override React/React-Native Docs Template]() 
+[Override Angular Docs Template]()
+
+For example:
+
+```ts title="my-react.main.runtime.ts"
+// ...
+
+static async provider([react, envs]: [ReactMain, EnvsMain]) {
+  // ...
+  const MyCustomEnv = react.compose([
+    // ...
+    react.overrideDocsTemplate(require.resolve('./docs')) // path to the file your docs template Root Function is default exported from
+    // ...
+  ])
+
+}
+```
+
+See the DevServer service to learn how customize the bundling of the docs in development.
+
+See the Bundler service to learn how to customize the bundling of the docs for distribution.
+

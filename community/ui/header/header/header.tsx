@@ -1,15 +1,18 @@
-import React from 'react';
-import classNames from 'classnames';
-import { Icon } from '@teambit/design.elements.icon';
-import { GithubStars } from '@teambit/community.ui.github-stars';
-import { ExternalLink } from '@teambit/design.ui.external-link';
-import { ThemeToggler } from '@teambit/design.themes.theme-toggler';
-import { Header as BaseHeader, HeaderProps as BaseHeaderProps } from '@teambit/design.blocks.header';
-import { Toggler } from '@teambit/community.ui.community-highlighter';
-import { headerContent } from './header-links';
+import React from "react";
+import classNames from "classnames";
+import { Icon } from "@teambit/design.elements.icon";
+import { GithubStars } from "@teambit/community.ui.github-stars";
+import { ExternalLink } from "@teambit/design.ui.external-link";
+import { ThemeToggler } from "@teambit/design.themes.theme-toggler";
+import {
+  Header as BaseHeader,
+  HeaderProps as BaseHeaderProps,
+} from "@teambit/design.blocks.header";
+import { Toggler } from "@teambit/community.ui.community-highlighter";
+import { headerContent } from "./header-links";
 
-import styles from './header.module.scss';
-import { StackOverflowLink } from './stackoverflow-link';
+import styles from "./header.module.scss";
+import { StackOverflowLink } from "./stackoverflow-link";
 
 export type HeaderProps = {} & BaseHeaderProps;
 
@@ -17,16 +20,24 @@ const badgesArray = [
   <GithubStars key="gh-stars" className={styles.githubLink} />,
   <ExternalLink
     key="slack"
-    href="https://join.slack.com/t/bit-dev-community/shared_invite/zt-o2tim18y-UzwOCFdTafmFKEqm2tXE4w"
+    href="https://join.slack.com/t/bit-dev-community/shared_invite/zt-1cdjmhrn8-7jrzi0NklvibjIGIX0jtOg"
   >
     <Icon of="slack" />
   </ExternalLink>,
   <StackOverflowLink key="stack" />,
 ];
 
-const pluginsArray = [<Toggler key="highlighter-toggler" />, <ThemeToggler key="theme-toggler" />];
+const pluginsArray = [
+  <Toggler key="highlighter-toggler" />,
+  <ThemeToggler key="theme-toggler" />,
+];
 
-export function Header({ className, badges = [], plugins = [], ...rest }: HeaderProps) {
+export function Header({
+  className,
+  badges = [],
+  plugins = [],
+  ...rest
+}: HeaderProps) {
   return (
     <BaseHeader
       {...rest}

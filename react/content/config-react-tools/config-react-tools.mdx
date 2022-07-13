@@ -87,7 +87,7 @@ Using React's API, new configs are merged with React's existing ones.
 This merge operation adds new properties and override existing ones.
 :::
 
-See ['Inspecting an Env's Configurations'](/envs/inspecting-env) to learn how to validate your Env is configured as expected.
+See ['Inspecting an Env's Configurations'](/envs/inspecting-env) to learn how to validate that your Env is configured as expected.
 
 ### TypeScript
 
@@ -225,7 +225,7 @@ react.overrideDependencies({
 overrideBuildPipe(tasks: BuildTask[]): EnvTransformer
 ```
 
-```ts
+```ts 
 import { PrintCmpNameTask } from '@teambit/pipelines.examples.modules.print-component-name';
 // ...
 react.overrideBuildPipe([
@@ -234,6 +234,53 @@ react.overrideBuildPipe([
         'PrintCmpNameTask'
     ),
 ]),
+```
+
+### Docs Template
+
+See [here](https://bit.dev/docs/dev-services/docs/docs-templates) for general guidelines on creating a custom docs template.
+
+```ts
+overrideDocsTemplate(require.resolve(pathToDocsRoot)): EnvTransformer;
+```
+
+:::note 
+The `require.resolve` is important in order for the env to fetch the docs root module from the correct path
+:::
+
+Example Template Root module: 
+```ts
+// e.g. ./docs/app-root.tsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+import type { DocsRootProps } from '@teambit/docs';
+import { CustomDocsApp } from './custom-docs-app';
+
+// 
+function DocsRoot({
+  componentId,
+  docs,
+  compositions,
+  context
+}: DocsRootProps
+) {
+  ReactDOM.render(
+    <CustomDocsApp
+      componentId={componentId}
+      docs={docs}
+      compositions={compositions}
+      context={context}
+    />
+    ,
+    document.getElementById('root')
+  );
+}
+
+export default DocsRoot;
+
+// hot reloading works when components are in a different file.
+// do not declare react components here and render only a single component inside ReactDOM.render().
 ```
 
 [See here](https://bit.cloud/learnbit/react/envs/my-react/~code/my-react.main.runtime.ts) for a full example.

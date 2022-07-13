@@ -67,7 +67,7 @@ export const footerMock = [
       {
         icon: "slack",
         text: "Slack",
-        href: "https://join.slack.com/t/bit-dev-community/shared_invite/zt-o2tim18y-UzwOCFdTafmFKEqm2tXE4w",
+        href: "https://join.slack.com/t/bit-dev-community/shared_invite/zt-1cdjmhrn8-7jrzi0NklvibjIGIX0jtOg",
         external: true,
       },
       {
