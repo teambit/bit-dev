@@ -23,7 +23,7 @@ export const BitTag = () => <CommandsExplorer commandName="tag" className={style
 
 export const SnapExample = () => {
   const example = {
-    'component-name': 'apps/to-do',
+    'component-pattern': 'apps/to-do',
   };
   return <CommandsExplorer commandName="snap" commandExample={example} />;
 };
