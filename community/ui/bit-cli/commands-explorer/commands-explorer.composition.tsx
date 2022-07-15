@@ -1,6 +1,6 @@
 import React from 'react';
-import commands from './commands-mock.dev.json';
 import { CommandsProvider } from '@teambit/community.ui.bit-cli.commands-provider';
+import commands from './commands-mock.dev.json';
 import { CommandsExplorer } from './commands-explorer';
 import type { CommandExample } from './example-handler';
 
@@ -64,11 +64,7 @@ export const WithDefaultSubCommandAndHiddenSubCommandMenu = () => {
   return (
     <CommandsProvider rawCommands={commands}>
       <Space />
-      <CommandsExplorer
-        commandName="envs"
-        subCommandName="get"
-        hideSubCmdMenu
-      />
+      <CommandsExplorer commandName="envs" subCommandName="get" hideSubCmdMenu />
     </CommandsProvider>
   );
 };
@@ -77,11 +73,7 @@ export const WithSubCommandAnValues = () => {
   return (
     <CommandsProvider rawCommands={commands}>
       <Space />
-      <CommandsExplorer
-        commandName="envs"
-        subCommandName="get"
-        commandExample={envGetCommandValues}
-      />
+      <CommandsExplorer commandName="envs" subCommandName="get" commandExample={envGetCommandValues} />
     </CommandsProvider>
   );
 };
@@ -119,6 +111,17 @@ export const WithIdenticalCommandsInTheSamePage = () => {
     <CommandsProvider rawCommands={commands}>
       <CommandsExplorer commandName="fork" commandExample={forkCommandValues} />
       <CommandsExplorer commandName="fork" />
+    </CommandsProvider>
+  );
+};
+
+export const CommandExampleWithNoOptions = () => {
+  const example = { 'component-id': 'teambit.react/react' };
+
+  return (
+    <CommandsProvider rawCommands={commands}>
+      <Space />
+      <CommandsExplorer commandName="use" commandExample={example} />
     </CommandsProvider>
   );
 };

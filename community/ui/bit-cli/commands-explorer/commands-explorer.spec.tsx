@@ -8,6 +8,7 @@ import {
   WithDefaultSubCommand,
   WithDefaultSubCommandAndHiddenSubCommandMenu,
   WithIdenticalCommandsInTheSamePage,
+  CommandExampleWithNoOptions,
 } from './commands-explorer.composition';
 import { removeHtmlTags } from './remove-html-tags';
 
@@ -17,29 +18,24 @@ const primaryCommandWithSubCommands = `bit envs`;
 const selectedSubCommand = `bit envs get COMPONENT_NAME`;
 const subcCommandMenuItems = `.. list get set unset replace`;
 const argDescription = `the component id of the source component`;
+const commandExampleWithNoOptions = `bit use teambit.react/react`;
 
 it('properly displays a command with options', () => {
   const { getByTestId } = render(<WithOptions />);
   const terminal = getByTestId('terminal-text-field');
-  expect(
-    removeHtmlTags(terminal.innerHTML) === commandWithOptions
-  ).toBeTruthy();
+  expect(removeHtmlTags(terminal.innerHTML) === commandWithOptions).toBeTruthy();
 });
 
 it('properly displays a command with options and values', () => {
   const { getByTestId } = render(<WithOptionsAndValues />);
   const terminal = getByTestId('terminal-text-field');
-  expect(
-    removeHtmlTags(terminal.innerHTML) === commandWithOptionsandValues
-  ).toBeTruthy();
+  expect(removeHtmlTags(terminal.innerHTML) === commandWithOptionsandValues).toBeTruthy();
 });
 
 it('properly displays a command with sub-commands', () => {
   const { getByTestId } = render(<WithSubCommands />);
   const terminal = getByTestId('terminal-text-field');
-  expect(
-    removeHtmlTags(terminal.innerHTML) === primaryCommandWithSubCommands
-  ).toBeTruthy();
+  expect(removeHtmlTags(terminal.innerHTML) === primaryCommandWithSubCommands).toBeTruthy();
 });
 
 it('lists all sub-commands in the sub-commands menu', () => {
@@ -51,22 +47,16 @@ it('lists all sub-commands in the sub-commands menu', () => {
 it('displays a selected sub-command', () => {
   const { getByTestId } = render(<WithDefaultSubCommand />);
   const terminal = getByTestId('terminal-text-field');
-  expect(
-    removeHtmlTags(terminal.innerHTML) === selectedSubCommand
-  ).toBeTruthy();
+  expect(removeHtmlTags(terminal.innerHTML) === selectedSubCommand).toBeTruthy();
 });
 
 it('displays a selected sub-command with hidden sub-commands menu', () => {
-  const { getByTestId } = render(
-    <WithDefaultSubCommandAndHiddenSubCommandMenu />
-  );
+  const { getByTestId } = render(<WithDefaultSubCommandAndHiddenSubCommandMenu />);
   const commandsExplorer = getByTestId('commands-explorer');
   const terminal = getByTestId('terminal-text-field');
   const menu = commandsExplorer.getElementsByClassName('subCommandsBar');
   expect(menu.length).toEqual(0);
-  expect(
-    removeHtmlTags(terminal.innerHTML) === selectedSubCommand
-  ).toBeTruthy();
+  expect(removeHtmlTags(terminal.innerHTML) === selectedSubCommand).toBeTruthy();
 });
 
 it('displays argument description in tooltip', async () => {
@@ -82,9 +72,13 @@ it('displays argument description in tooltip', async () => {
 it('displays identical commands with different values', () => {
   const { getAllByTestId } = render(<WithIdenticalCommandsInTheSamePage />);
   const commands = getAllByTestId('terminal-text-field');
-  const commandsHaveFirstValues =
-    removeHtmlTags(commands[0].innerHTML) === commandWithOptionsandValues;
-  const commandsHaveSecondValues =
-    removeHtmlTags(commands[1].innerHTML) === commandWithOptions;
+  const commandsHaveFirstValues = removeHtmlTags(commands[0].innerHTML) === commandWithOptionsandValues;
+  const commandsHaveSecondValues = removeHtmlTags(commands[1].innerHTML) === commandWithOptions;
   expect(commandsHaveFirstValues && commandsHaveSecondValues).toBeTruthy();
+});
+
+it('displays command with arg value and no options', () => {
+  const { getByTestId } = render(<CommandExampleWithNoOptions />);
+  const terminal = getByTestId('terminal-text-field');
+  expect(removeHtmlTags(terminal.innerHTML) === commandExampleWithNoOptions).toBeTruthy();
 });

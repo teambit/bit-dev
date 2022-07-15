@@ -1,44 +1,28 @@
+import { StatusExample, StatusOutput, ExportExample, ExportOutput } from './commands';
+import { ExpandedExport } from './expand-command-options';
+
 # Exporting components
 
-Exporting components to remote scopes makes them available for other developers to consume and collaborate. You can create remote scopes on your own server or manage components' scopes the [bit.cloud](https://bit.cloud) components hub.
+Components are exported to remote scopes to make them available for other consumers and collaborators.
+A component is decoupled from its workspace and ready to be exported (['staged'](/workspace/workspace-status)) when its latest changes are snapped.
 
-As a prerequisite you need to create a remote scope, and ensure that you have write access to it. All components you aim to export should have the remote scope name as part of their component ID.
+Check your workspace status to review which snaps are ready to be exported:
 
-After you created staged [snaps](/components/snaps) or [versions](/components/tags). To validate you can safely export new versions, run the `status` command.
+<StatusExample />
 
-```bash
-bit status
-```
+The output lists the [previously-snapped component](/getting-started/collaborate/snap-component-changes), `apps/to-do` as 'staged':
 
-Here we see that our workspace has 4 components, and 2 of them have **staged versions**.
+<StatusOutput />
 
-```bash
-new components
-(use "bit tag --all [version]" to lock a version with all your changes)
+Run the following to export all staged components:
 
-     > pages/welcome ... ok
-     > ui/card ... ok
-               
-staged components
-(use "bit export <remote_scope> to push these components to a remote scope")
+<ExportExample />
 
-     > ui/text. versions: 1.0.0 ... ok
-     > ui/heading. versions: 1.0.0 ... ok
-```
+<ExpandedExport />
 
-Bit tells you exactly which components are pending to be exported. Export them to a remote scope with the `export` command:
+The output summarizes the number of exported components and their target remote scopes:
 
-```sh
-bit export
-```
-
-Bit then lets you know how many components were exported.
-
-```bash
-2 components were exported to scope teambit/base-ui
-```
-
-Learn more about [exporting components](/components/exporting-components).
+<ExportOutput />
 
 ## Viewing exported components
 
