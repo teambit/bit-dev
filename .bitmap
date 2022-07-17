@@ -11,7 +11,7 @@
 {
     "apps/bit-dev": {
         "scope": "teambit.community",
-        "version": "1.96.7",
+        "version": "1.96.8",
         "mainFile": "index.ts",
         "rootDir": "community/apps/bit-dev"
     },
@@ -555,7 +555,7 @@
     },
     "content/getting-started/dev-envs": {
         "scope": "teambit.docs",
-        "version": "1.96.5",
+        "version": "1.96.6",
         "mainFile": "index.ts",
         "rootDir": "docs/content/getting-started/dev-envs"
     },
@@ -591,7 +591,7 @@
     },
     "content/getting-started/share-components": {
         "scope": "teambit.docs",
-        "version": "1.96.3",
+        "version": "1.96.4",
         "mainFile": "index.ts",
         "rootDir": "docs/content/getting-started/share-components"
     },
