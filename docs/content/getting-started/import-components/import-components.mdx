@@ -1,57 +1,71 @@
+import {
+  ImportExample,
+  ImportOutput,
+  ListExample,
+  EjectExample,
+  EjectOutput,
+  ImportDependentsExample,
+  ForkExample,
+} from './commands';
+import { ExpandedImport, ExpandedEject, ExpandedFork } from './expand-command-options';
+import { ExploreWorkspace } from './explore-workspace';
+import { BitListOutput } from './bit-list';
 
 # Importing components
 
-A fundamental feature of a Bit workspace is the ability to vendor components. This means you can use a single command, and instead of adding a component as a dependency, you import that component's implementation to your workspace, as-if you are its author.
+<!-- Note that a single workspace can maintain multiple components. This allows you to update changes across components, as if they were part of a single monolithic app, while still enjoying all the benefits of independent components. -->
 
-:::info Compatible with Bit workspaces
+For a component to be maintained and updated, it needs be imported from its remote scope into a workspace.
 
-Using `bit import` requires the consumer to be a Bit workspace as a prerequisite.
+To import a component to a workspace, [copy its component ID from its remote scope](https://bit.cloud/teambit/design/info/icon-text), and run the following:
 
-:::
+<ImportExample />
 
-```bash
-bit import teambit.base-ui/button
-```
+<ExpandedImport />
 
-You may also use glob patterns to import multiple components with a single command:
+> To import and checkout a different snap, include its version (semver/hash) in the component ID. For example: `teambit.design/info/icon-text@0.0.7`.
 
-```bash title="Imports all components in the remote scope"
-bit import "<owner>.<scope>/*"
-```
+The output notifies the component was imported successfully. Its source files were checked-out to the working directory and a package ([workspace component link](/workspace/structure/component-links)) was generated for it in the `node_modules` directory, for other components to consume:
 
-```bash title="Imports all component under the namespace in a remote scope"
-bit import "<owner>.<scope>/<namespace>/*"
-```
+<ImportOutput />
 
-Bit imports all components to the local scope, create a directory for the component according to the workspace directory structure, and check-out the latest version to the workspace, adds an entry to `.bitmap` and creates a module in `node_modules`.  
-These steps makes imported component be identical to all other components in the workspace.
+An imported component is maintained exactly like a component that was created in that workspace. It can be updated, snapped, and exported.
 
-## Just like any other component
+The following workspace shows the imported component (`info/icon-text`) being used by `apps/to-do`, which was [previously created in that workspace](<(/getting-started/composing/creating-components)>).
+Any changes made to `info/icon-text` will affect its dependent component, `apps/to-do`.
 
-You can do local modifications to it, commit to your Git repository and work with it as if it is yours, even to the point of exporting a new version for that component.
+<ExploreWorkspace />
 
-It works just the same as managing components originated from your workspace:
+<br />
 
-- Use `bit start` to show component in the local workspace UI.
-- Run component operations like compile, test, format and lint with the `compile`, `test`, `format` and `lint` commands.
-- Commit local changes for components to your SCM.
+Run `bit start` to explore the imported component in your workspace UI.
 
-## Turn a component to a dependency
+## Import a component's dependents
 
-You can remove a component from the codebase and turn it to a dependency with the `eject` command:
+An imported component might have dependent components in various remote scopes.
+Importing these dependents enables you to examine, locally, how changes made to their dependency will affect them. When the component (the dependency) is snapped, bit will auto-snap its dependents.
 
-```sh
-bit eject teambit.base-ui/button
-```
+<ImportDependentsExample />
 
-Bit then removes the component code from your code base and adds that component as a dependency to your `workspace.jsonc`.
+## Use a component as an external dependency
+
+Run the following to stop maintaining a component in your workspace, and use is as an [external dependency](/dependencies/external-dependencies), instead:
+
+<EjectExample />
+
+<ExpandedEject />
+
+The output notifies the component package was installed (and added to the workspace dependency policy), and the component's source files were removed:
+
+<EjectOutput />
+
+_To perform the reverse action, to maintain an external dependency ([an installed component](/getting-started/composing/use-dependencies)) in your workspace, import that component to your workspace. The installed package will be replaced by the component's workspace component link._
 
 ## Fork a component
 
-There are cases where you'd want to build a component that is similar to something that is already available. Instead of copy-paste code and handle configuring the component the same, Bit provides a command to quick create a component from an existing component.
+Forking a component copies its source files and configuration to your workspace. This copy does not include the component's previous snaps as it is a ['new'](/workspace/workspace-status#new-components) component.
+This can be useful when you want to introduce changes to a component but do not have `write` permissions in its remote scope. It's also useful when you need a component that is similar to an existing one, but different enough for it to be a different component.
 
-```bash
-bit fork teambit.base-ui/button my-button
-```
+<ForkExample />
 
-This creates a brand new component with the name `my-button`. The implementation of the component and configuration will be a carbon-copy of `teambit.base-ui/button`. The new component will also keep a reference to the original component.
+<ExpandedFork />

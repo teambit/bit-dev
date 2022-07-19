@@ -23,11 +23,11 @@ export const ExploreWorkspace = () => (
     options={{
       contentFontSize: 13,
       fileTreeWidth: 230,
+      codeHeight: 600,
       isDirOpen: false,
       title: 'TASKS-WORKSPACE',
       wordWrap: 'on',
     }}
-    style={{ minHeight: 600 }}
     files={files}
     defaultFile="workspace.jsonc"
   />

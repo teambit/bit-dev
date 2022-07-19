@@ -1610,6 +1610,12 @@
         "mainFile": "index.ts",
         "rootDir": "community/ui/features/features-section"
     },
+    "ui/file-explorer": {
+        "scope": "teambit.community",
+        "version": "0.0.12",
+        "mainFile": "index.ts",
+        "rootDir": "community/ui/file-explorer"
+    },
     "ui/footer/category": {
         "scope": "teambit.community",
         "version": "1.96.4",

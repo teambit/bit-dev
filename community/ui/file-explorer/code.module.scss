@@ -1,0 +1,52 @@
+.explorer {
+    display: flex;
+    width: 100%;
+    // height: 100%;
+    // min-height: fit-content;
+    .splitter {
+        position: relative;
+        height: unset;
+        > :first-child {
+            z-index: 100;
+            position: absolute;
+        }
+    }
+}
+
+.explorerContainer {
+    // width: 100%;
+    // height: 100%;
+}
+
+.dark {
+    --bit-text-color-heavy: #f6f6f6;
+    --bit-text-color-light: #f6f6f6;
+    --bit-border-color-lightest: #434343;
+    --on-background-color: #f6f6f6;
+    --surface-neutral-color: #161616;
+    --bit-accent-heavy: #f6f6f6;
+    --bit-accent-color: #9183ff;
+    --bit-accent-bg: #2d2842;
+    --bit-bg-heavy: #140f27;
+    --editor-bg-color: #1E1E1E;
+}
+.fileTreePane {
+    min-width: 100px;
+}
+
+.fileTree {
+    color: var(--on-background-color, #f6f6f6);
+    font-size: 14px;
+    background-color: var(--surface-neutral-color, #161616);
+}
+
+.label {
+    font-size: 10px;
+    font-weight: unset;
+    padding: 4px;
+}
+
+.editor {
+    padding-top: 10px;
+    background-color: var(--editor-bg-color, #1E1E1E);
+}
