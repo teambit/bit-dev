@@ -55,6 +55,14 @@ export const H2Heading = () => <Heading element="h2">H2 Heading</Heading>;
 export const H3Heading = () => <Heading element="h3">H3 Heading</Heading>;
 ```
 
+To override a composition's name use the `compositionName` API:
+
+```tsx
+export const H1DefaultHeading = () => <Heading>H1 Heading</Heading>;
+
+H1DefaultHeading.compositionName = 'a custom composition name';
+```
+
 ## Loading compositions
 
 The Compositions Aspect is set, by default, to detect all `*.composition?(s).*` files from the [component directories](/workspace/structure/component-directory). It uses the preview Aspect to display the content of composition files with the `*.{t,j}s?(x)` extension. Learn more about this process. <!-- TODO -->.
