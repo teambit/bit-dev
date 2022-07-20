@@ -33,7 +33,7 @@ When collaborating on a workspace using VCS like git, it may happen that new com
 
 ## Compare component snaps
 
-To compare between two snaps, or between a snap and the component's local (un-snapped) changes, run:
+Bit uses git to evaluate differences snaps. To compare between two snaps, or between a snap and the component's local (un-snapped) changes, run:
 
 <DiffExample />
 
@@ -60,17 +60,17 @@ The output lists the component files that were updated by this checkout:
 
 <CheckoutOutput />
 
-### Handle merge conflict
+### Handling merge conflicts
 
 In case Git is unable to automatically merge the incoming changes with local changes in your component, you get prompted to resolve the conflict.
 
 Bit will print a similar output to this:
 
 ```bash
-successfully switched teambit.base-ui/input/button to version 1.0.5
-updated base-ui/input/button.spec.ts
-updated base-ui/input/index.ts
-CONFLICT base-ui/input/button.ts automatic merge failed. please fix conflicts manually and then tag the results.
+successfully switched teambit.design/info/icon-text 0.0.8
+updated icon-text.composition.tsx
+updated icon-text.module.scss
+CONFLICT icon-text.tsx automatic merge failed. please fix conflicts manually and then tag the results.
 ```
 
 You can use the several options when `checkout` to resolve conflicts.
@@ -93,5 +93,5 @@ bit status
 modified components
 (use "bit tag --all [version]" to lock a version with all your changes)
 
-     > teambit.base-ui/input/button ... ok
+     > teambit.design/info/icon-text ... ok
 ```

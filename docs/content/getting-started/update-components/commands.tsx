@@ -2,7 +2,6 @@ import React from 'react';
 import { Terminal } from '@teambit/community.ui.bit-cli.terminal';
 import { CommandsExplorer } from '@teambit/community.ui.bit-cli.commands-explorer';
 import styles from './styles.module.scss';
-import { Commands } from '@teambit/community.ui.bit-cli.commands-explorer/commands';
 
 export const ImportExample = () => {
   return <CommandsExplorer commandName="import" commandExample={{}} />;

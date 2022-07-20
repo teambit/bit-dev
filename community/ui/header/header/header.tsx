@@ -19,6 +19,13 @@ export type HeaderProps = {} & BaseHeaderProps;
 const badgesArray = [
   <GithubStars key="gh-stars" className={styles.githubLink} />,
   <ExternalLink
+    className={styles.youtubeLink}
+    key="youtube"
+    href="https://www.youtube.com/c/Bitdev/videos"
+  >
+    <Icon of="youtube-logo" />
+  </ExternalLink>,
+  <ExternalLink
     key="slack"
     href="https://join.slack.com/t/bit-dev-community/shared_invite/zt-1cdjmhrn8-7jrzi0NklvibjIGIX0jtOg"
   >
