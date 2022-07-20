@@ -1,52 +1,64 @@
+import { Image } from '@teambit/docs.ui.zoomable-image';
+import {
+  ImportExample,
+  ImportOutputUpdated,
+  ImportOutputAdded,
+  DiffExample,
+  DiffOutput,
+  CheckoutHeadExample,
+  CheckoutOutput,
+} from './commands';
+import { ExpandedDiff, ExpandedCheckout } from './expand-command-options';
+import compare from './compare-ws.png';
+
 # Update Components
 
-When using components for collaboration it may happen that a remote component has been updated. When this happens, you need to fetch the remote updates and merge them to your codebase, to keep up with the team's progress.
+A component's source of truth is not is any specific workspace but in its remote scope. When collaborating on components it may happen that a newer version is available for a component maintained in your workspace.
 
-When you run `bit install`, Bit also checks if there are any updates to your components. If there are updates, you will see a message like this:
+To get new snaps for components maintained in your workspace, run:
 
-```bash
-successfully imported 1 components
-- updated teambit.base-ui/button new versions: 1.0.1
-```
+<ImportExample />
 
-Bit notifies on any new versions found for the components that exist in the local workspace.
+_Alternatively, run `bit install` to install the workspace dependencies and import new component snaps, in a single command._
 
-Running bit status also shows pending changes for the component:
+The output lists all updated components. These updates are stored in the [local scope](/workspace/structure/local-scope). They are not checked-out to the working directory, yet.
 
-```bash
-bit status
-```
+<ImportOutputUpdated />
 
-```bash
-pending updates
-(use "bit checkout [version] [component_id]" to merge changes)
-(use "bit log [component_id]" to list all available versions)
+When collaborating on a workspace using VCS like git, it may happen that new components are added to the workspace (the `.bitmap` file, which is tracked by your VCS, has additional components registered):
 
-    > teambit.base-ui/button: 1.0.0 latest: 1.0.1
-```
+<ImportOutputAdded />
 
-## Show diff with the incoming update
+> Components with pending updates are also listed when running `bit status`.
 
-Bit uses Git to provide you with a diff for each component. You can use the `diff` command to see what are the exact changes made to a specific component.
+## Compare component snaps
 
-```bash
-bit diff teambit.base-ui/button
-```
+To compare between two snaps, or between a snap and the component's local (un-snapped) changes, run:
 
-Component version contains code, configuration and dependencies, so the diff output gives us a complete glimpse of what has changed.
+<DiffExample />
 
-## Checkout the update
+<ExpandedDiff />
 
-To update your local component with the remote modifications you need to checkout the new version or snapshot. Alternatively, you can quickly checkout the latest version:
+The following output lists the differences between the checked-out snap and the local changes.
+Differences between versions can include dependencies and configuration, in addition to the component's source files.
 
-```bash
-bit checkout latest teambit.base-ui/button
-```
+<DiffOutput />
 
-```bash
-successfully switched teambit.base-ui/button to version 1.0.1
-update base-ui/button/button.tsx
-```
+Alternatively, head over to the 'compare' tab in the UI (scope or workspace) to visually inspect changes:
+
+<Image src={compare} />
+
+## Checkout snaps to the working directory
+
+To checkout a component's head (latest snaps) to the working directory, run the following:
+
+<CheckoutHeadExample />
+
+<ExpandedCheckout />
+
+The output lists the component files that were updated by this checkout:
+
+<CheckoutOutput />
 
 ### Handle merge conflict
 

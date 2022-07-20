@@ -1,0 +1,32 @@
+.heading{
+    border-bottom: 1px solid #ededed;
+    margin-bottom: 3px;
+}
+
+.component {
+    color: #9cdcfe
+}
+
+.greenHighlight {
+    color: rgb(51, 227, 28);
+}
+
+.redHighlight {
+    color: rgb(243, 64, 64);
+}
+
+.boldFont {
+    font-weight: 700;
+}
+
+.noMarginBottom {
+    > div {
+        margin-bottom: 0;
+    }
+}
+
+.diffContainer {
+    background-color: var(--surface-neutral-active-color, #EEEFF2);
+    padding: 25px;
+    border-radius: 8px;
+}
