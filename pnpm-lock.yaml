@@ -92,7 +92,6 @@ importers:
       '@teambit/design.ui.surfaces.menu.item': '>=0.0.354 <0.0.355'
       '@teambit/design.ui.surfaces.menu.link-item': ^0.0.379
       '@teambit/design.ui.tooltip': 0.0.352
-      '@teambit/docs.content.doc-templates': 1.96.3
       '@teambit/documenter.markdown.heading': ^0.1.8
       '@teambit/documenter.theme.theme-compositions': 4.1.5
       '@teambit/documenter.ui.code-snippet': 4.2.2
@@ -297,7 +296,6 @@ importers:
       '@teambit/design.ui.surfaces.menu.item': registry.npmjs.org/@teambit/design.ui.surfaces.menu.item/0.0.354_react-dom@17.0.2+react@17.0.2
       '@teambit/design.ui.surfaces.menu.link-item': registry.npmjs.org/@teambit/design.ui.surfaces.menu.link-item/0.0.379_react-dom@17.0.2+react@17.0.2
       '@teambit/design.ui.tooltip': registry.npmjs.org/@teambit/design.ui.tooltip/0.0.352_react-dom@17.0.2+react@17.0.2
-      '@teambit/docs.content.doc-templates': 1.96.3_react-dom@17.0.2+react@17.0.2
       '@teambit/documenter.markdown.heading': registry.npmjs.org/@teambit/documenter.markdown.heading/0.1.8_react-dom@17.0.2+react@17.0.2
       '@teambit/documenter.theme.theme-compositions': registry.npmjs.org/@teambit/documenter.theme.theme-compositions/4.1.5_react-dom@17.0.2+react@17.0.2
       '@teambit/documenter.ui.code-snippet': registry.npmjs.org/@teambit/documenter.ui.code-snippet/4.2.2_react-dom@17.0.2+react@17.0.2
@@ -4081,22 +4079,6 @@ packages:
       core-js: registry.npmjs.org/core-js/3.23.4
       react: registry.npmjs.org/react/17.0.2
       react-dom: registry.npmjs.org/react-dom/17.0.2_react@17.0.2
-    dev: false
-
-  /@teambit/docs.content.doc-templates/1.96.3_react-dom@17.0.2+react@17.0.2:
-    resolution: {integrity: sha1-FjEeCgbX4bMEvRf+oszM20P1HHI=, tarball: '@teambit/docs.content.doc-templates/-/@teambit-docs.content.doc-templates-1.96.3.tgz'}
-    peerDependencies:
-      react: '*'
-    peerDependenciesMeta:
-      react:
-        optional: true
-    dependencies:
-      '@mdx-js/react': registry.npmjs.org/@mdx-js/react/1.6.22_react@17.0.2
-      '@teambit/mdx.ui.mdx-scope-context': registry.npmjs.org/@teambit/mdx.ui.mdx-scope-context/0.0.368_react-dom@17.0.2+react@17.0.2
-      react: registry.npmjs.org/react/17.0.2
-    transitivePeerDependencies:
-      - '@teambit/legacy'
-      - react-dom
     dev: false
 
   /@teambit/dot-scopes.ui.scope-card/0.0.13:

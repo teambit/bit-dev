@@ -15,7 +15,7 @@ export function WikiApp() {
         <Header />
         <WideColumn>
           <Routes>
-            <Route path="/" element={<Wiki />} />
+            <Route path="/*" element={<Wiki />} />
           </Routes>
           <Footer />
         </WideColumn>

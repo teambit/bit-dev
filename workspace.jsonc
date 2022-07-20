@@ -205,6 +205,7 @@
         "react-hotkeys-hook": "3.4.4",
         "react-json-view": "1.21.3",
         "react-medium-image-zoom": "4.3.5",
+        "react-router-dom": "6.3.0",
         "react-terminal": "1.2.1",
         "react-use-dimensions": "1.2.1",
         "react-xarrows": "2.0.2",

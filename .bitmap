@@ -11,13 +11,13 @@
 {
     "apps/bit-dev": {
         "scope": "teambit.community",
-        "version": "1.96.10",
+        "version": "1.96.11",
         "mainFile": "index.ts",
         "rootDir": "community/apps/bit-dev"
     },
     "apps/wiki": {
         "scope": "teambit.wiki",
-        "version": "1.91.4",
+        "version": "1.91.5",
         "mainFile": "index.ts",
         "rootDir": "wiki/apps/wiki"
     },
@@ -962,7 +962,7 @@
     },
     "content/quick-start": {
         "scope": "teambit.docs",
-        "version": "1.96.5",
+        "version": "1.96.6",
         "mainFile": "index.ts",
         "rootDir": "docs/content/quick-start"
     },
@@ -1071,7 +1071,7 @@
     },
     "content/thinking-in-components": {
         "scope": "teambit.docs",
-        "version": "1.96.4",
+        "version": "1.96.5",
         "mainFile": "index.ts",
         "rootDir": "docs/content/thinking-in-components"
     },
@@ -1444,7 +1444,7 @@
     },
     "quick-start/wiki-quick-start": {
         "scope": "teambit.bit",
-        "version": "1.96.5",
+        "version": "1.96.6",
         "mainFile": "index.ts",
         "rootDir": "bit/quick-start/wiki-quick-start"
     },
@@ -1540,7 +1540,7 @@
     },
     "ui/community-docs": {
         "scope": "teambit.docs",
-        "version": "1.96.6",
+        "version": "1.96.7",
         "mainFile": "index.ts",
         "rootDir": "docs/ui/community-docs"
     },

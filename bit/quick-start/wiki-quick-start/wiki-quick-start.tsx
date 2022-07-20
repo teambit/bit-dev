@@ -19,10 +19,10 @@ export type WikiQuickStartProps = {
 };
 
 export function WikiQuickStart({ children }: WikiQuickStartProps) {
-  const id = ComponentID.fromString('teambit.wiki/apps/wiki@1.90.20');
+  const id = ComponentID.fromString('teambit.wiki/apps/wiki');
   const components = [
     {
-      id: 'teambit.wiki/apps/wiki@1.90.20',
+      id: 'teambit.wiki/apps/wiki',
       intro: (
         <div>
           We start with Building the Wiki-app. This will use other components to add the functionality and content. To
@@ -35,22 +35,22 @@ export function WikiQuickStart({ children }: WikiQuickStartProps) {
       ),
     },
     {
-      id: 'teambit.wiki/sections/wiki@1.90.12',
+      id: 'teambit.wiki/sections/wiki',
       intro:
         'After adding the App to our workspace (either by using fork or create), we are now adding the wiki component. Our App will use the wiki component to get all the functionality it needs.',
     },
     {
-      id: 'teambit.wiki/blocks/header@0.0.43',
+      id: 'teambit.wiki/blocks/header',
       intro:
         'Now we have the functionality we need, but we would also like some structure to the page, so we are adding a header and footer component. Starting with the header:',
     },
     {
-      id: 'teambit.wiki/blocks/footer@0.0.25',
+      id: 'teambit.wiki/blocks/footer',
       intro:
         'And now we add the footer! You can choose to skip this component and you will still have a working app, with only a header.',
     },
     {
-      id: 'teambit.wiki/content/welcome@0.0.42',
+      id: 'teambit.wiki/content/welcome',
       intro:
         "It's time to add some content to this Wiki! Here is an example of a content component. You can ask your whole team to contribute to the content by creating their own content components. See next section on how to collaborate with Bit!",
     },
